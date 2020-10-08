@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"finolo.gy","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="通过yum安装vsftpd12345678910111213141516yum install vsftpdIs this ok [y&#x2F;d&#x2F;N]: yDownloading packages:vsftpd-3.0.2-22.el7.x86_64.rpm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS7下安装vsftpd">
+<meta property="og:url" content="finolo.gy/2018/06/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85vsftpd/index.html">
+<meta property="og:site_name" content="Finology 大数据金融">
+<meta property="og:description" content="通过yum安装vsftpd12345678910111213141516yum install vsftpdIs this ok [y&#x2F;d&#x2F;N]: yDownloading packages:vsftpd-3.0.2-22.el7.x86_64.rpm">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-06-10T06:00:48.000Z">
+<meta property="article:modified_time" content="2020-03-28T14:43:46.917Z">
+<meta property="article:author" content="Simon">
+<meta property="article:tag" content="centos">
+<meta property="article:tag" content="ftp">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="finolo.gy/2018/06/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85vsftpd/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CentOS7下安装vsftpd | Finology 大数据金融</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <script data-ad-client="ca-pub-7430210016629671" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <!-- simon <div class="headband"></div> -->
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Finology 大数据金融</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">通过大数据以量化金融</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-markdown">
+
+    <a href="https://md.finolo.gy" rel="noopener" target="_blank"><i class="fa fa-fw fa-edit"></i>公众号编辑</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">159</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">72</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">254</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2018/06/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85vsftpd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CentOS7下安装vsftpd
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-10 14:00:48" itemprop="dateCreated datePublished" datetime="2018-06-10T14:00:48+08:00">2018-06-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-28 22:43:46" itemprop="dateModified" datetime="2020-03-28T22:43:46+08:00">2020-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tools/FTP/" itemprop="url" rel="index"><span itemprop="name">FTP</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/06/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85vsftpd/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS7下安装vsftpd" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2018/06/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85vsftpd/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/06/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85vsftpd/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="通过yum安装vsftpd"><a href="#通过yum安装vsftpd" class="headerlink" title="通过yum安装vsftpd"></a>通过yum安装vsftpd</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">yum install vsftpd</span><br><span class="line"></span><br><span class="line">Is this ok [y/d/N]: y</span><br><span class="line">Downloading packages:</span><br><span class="line">vsftpd-3.0.2-22.el7.x86_64.rpm                                                                                    | 169 kB  00:00:00     </span><br><span class="line">Running transaction check</span><br><span class="line">Running transaction test</span><br><span class="line">Transaction test succeeded</span><br><span class="line">Running transaction</span><br><span class="line">  正在安装    : vsftpd-3.0.2-22.el7.x86_64                                                                                           1/1 </span><br><span class="line">  验证中      : vsftpd-3.0.2-22.el7.x86_64                                                                                           1/1 </span><br><span class="line"></span><br><span class="line">已安装:</span><br><span class="line">  vsftpd.x86_64 0:3.0.2-22.el7                                                                                                           </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
+<h1 id="新建一个上传文件夹"><a href="#新建一个上传文件夹" class="headerlink" title="新建一个上传文件夹"></a>新建一个上传文件夹</h1><p>用于存放通过ftp上传的文件<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br><span class="line">/usr/local</span><br><span class="line"></span><br><span class="line">mkdir ftpfile</span><br></pre></td></tr></table></figure></p>
+<h1 id="新建一个ftp用户"><a href="#新建一个ftp用户" class="headerlink" title="新建一个ftp用户"></a>新建一个ftp用户</h1><p>新建ftpuser用户，该用户登录后的地址为/usr/local/ftpfile，这个用户不能登录系统<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd ftpuser -d /ftpfile -s /sbin/nologin</span><br></pre></td></tr></table></figure></p>
+<h1 id="修改-usr-local-ftpfile文件夹的权限"><a href="#修改-usr-local-ftpfile文件夹的权限" class="headerlink" title="修改/usr/local/ftpfile文件夹的权限"></a>修改/usr/local/ftpfile文件夹的权限</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ll | grep ftpfile</span><br><span class="line">drwxr-xr-x   2 root root       6 6月  10 14:05 ftpfile</span><br><span class="line"></span><br><span class="line">chown -R ftpuser.ftpuser ftpfile/</span><br><span class="line"></span><br><span class="line">ll | grep ftpfile</span><br><span class="line">drwxr-xr-x   2 ftpuser ftpuser       6 6月  10 14:05 ftpfile</span><br></pre></td></tr></table></figure>
+<h1 id="为用户ftpuser添加密码"><a href="#为用户ftpuser添加密码" class="headerlink" title="为用户ftpuser添加密码"></a>为用户ftpuser添加密码</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd ftpuser</span><br></pre></td></tr></table></figure>
+<h1 id="修改vsftpd配置文件"><a href="#修改vsftpd配置文件" class="headerlink" title="修改vsftpd配置文件"></a>修改vsftpd配置文件</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/vsftpd/vsftpd.conf</span><br><span class="line"></span><br><span class="line">ftpd_banner=Welcome to simon's FTP service.</span><br><span class="line"></span><br><span class="line">local_root=/usr/local/ftpfile # 添加本地根目录</span><br><span class="line">anon_root=/usr/local/ftpfile  # </span><br><span class="line">use_localtime=yes</span><br><span class="line"></span><br><span class="line">chroot_list_enable=YES # 修改</span><br><span class="line"><span class="meta">#</span><span class="bash"> (default follows)</span></span><br><span class="line">chroot_list_file=/etc/vsftpd/chroot_list # 修改</span><br><span class="line"></span><br><span class="line">anonymous_enable=NO</span><br></pre></td></tr></table></figure>
+<p>把用户ftpuser添加到/etc/vsftpd/chroot_list<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/vsftpd/chroot_list</span><br></pre></td></tr></table></figure><br>添加一行记录，内容为：<em>ftpuser</em></p>
+<h1 id="设置传输文件时的端口号"><a href="#设置传输文件时的端口号" class="headerlink" title="设置传输文件时的端口号"></a>设置传输文件时的端口号</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pasv_min_port=61001</span><br><span class="line">pasv_max_port=62000</span><br></pre></td></tr></table></figure>
+<p>设置pasv被动传输的端口号，这样可以通过防火墙开放这个范围内的端口，从而更加安全。</p>
+<h1 id="启动vsftpd"><a href="#启动vsftpd" class="headerlink" title="启动vsftpd"></a>启动vsftpd</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service vsftpd start</span><br><span class="line">Redirecting to /bin/systemctl start  vsftpd.service</span><br></pre></td></tr></table></figure>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>在浏览器上输入：ftp://192.168.1.30/<br>输入用户名和密码后，貌似不能进去。</p>
+<p>或者在终端输入<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ftp 192.168.1.30</span><br><span class="line"></span><br><span class="line">Connected to 192.168.1.30.</span><br><span class="line">220 Welcome to simon's FTP service.</span><br><span class="line">Name (192.168.1.30:simon): ftpuser</span><br><span class="line">331 Please specify the password.</span><br><span class="line">Password: </span><br><span class="line">500 OOPS: vsftpd: refusing to run with writable root inside chroot()</span><br><span class="line">ftp: Login failed</span><br></pre></td></tr></table></figure></p>
+<p>会出现以上错误，所以还需要在配置文件里面加入如下参数：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allow_writeable_chroot=YES # 如果local_root是可写的就要设置这句</span><br></pre></td></tr></table></figure></p>
+<p>重启vsftpd服务后，再次登录，就成功了<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ftp 192.168.1.30</span><br><span class="line">Connected to 192.168.1.30.</span><br><span class="line">220 Welcome to simon's FTP service.</span><br><span class="line">Name (192.168.1.30:simon): ftpuser</span><br><span class="line">331 Please specify the password.</span><br><span class="line">Password: </span><br><span class="line">230 Login successful.</span><br><span class="line">Remote system type is UNIX.</span><br><span class="line">Using binary mode to transfer files.</span><br><span class="line"><span class="meta">ftp&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure></p>
+<h1 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#chroot_local_user&#x3D;YES</span><br></pre></td></tr></table></figure>
+<p>默认为NO，表示用户能看到的最上层目录为/ftpfile。如果改为yes，那用户可以看到整个系统的目录结构。</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/01/CentOS7搭建本地yum源/" rel="bookmark">CentOS7搭建本地yum源</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2018/06/CentOS7上安装Tomcat7/" rel="bookmark">CentOS7上安装Tomcat7</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2019/10/CentOS如何修改Hostname主机名/" rel="bookmark">CentOS如何修改Hostname主机名</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2019/11/Docker容器中使用systemctl报错Failed-to-get-D-Bus-connection-Operation-not-permitted/" rel="bookmark">Docker容器中使用systemctl报错Failed to get D-Bus connection: Operation not permitted</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2019/11/在CentOS上以二进制方式安装Docker/" rel="bookmark">在CentOS上以二进制方式安装Docker</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Simon
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="/finolo.gy/2018/06/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85vsftpd/" title="CentOS7下安装vsftpd">finolo.gy/2018/06/CentOS7下安装vsftpd/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/centos/" rel="tag"><i class="fa fa-tag"></i> centos</a>
+              <a href="/tags/ftp/" rel="tag"><i class="fa fa-tag"></i> ftp</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/06/CentOS7%E4%B8%8A%E5%AE%89%E8%A3%85Tomcat7/" rel="prev" title="CentOS7上安装Tomcat7">
+      <i class="fa fa-chevron-left"></i> CentOS7上安装Tomcat7
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/06/CentOS7%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AEnginx/" rel="next" title="CentOS7源码编译安装、配置nginx">
+      CentOS7源码编译安装、配置nginx <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- header -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-7430210016629671"
+       data-ad-slot="4960252259"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- header -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-7430210016629671"
+           data-ad-slot="4960252259"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#通过yum安装vsftpd"><span class="nav-number">1.</span> <span class="nav-text">通过yum安装vsftpd</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新建一个上传文件夹"><span class="nav-number">2.</span> <span class="nav-text">新建一个上传文件夹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新建一个ftp用户"><span class="nav-number">3.</span> <span class="nav-text">新建一个ftp用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改-usr-local-ftpfile文件夹的权限"><span class="nav-number">4.</span> <span class="nav-text">修改&#x2F;usr&#x2F;local&#x2F;ftpfile文件夹的权限</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为用户ftpuser添加密码"><span class="nav-number">5.</span> <span class="nav-text">为用户ftpuser添加密码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改vsftpd配置文件"><span class="nav-number">6.</span> <span class="nav-text">修改vsftpd配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置传输文件时的端口号"><span class="nav-number">7.</span> <span class="nav-text">设置传输文件时的端口号</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动vsftpd"><span class="nav-number">8.</span> <span class="nav-text">启动vsftpd</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试"><span class="nav-number">9.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#提示"><span class="nav-number">10.</span> <span class="nav-text">提示</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Simon</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">254</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">159</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+      
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Simon</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"SfaSE3g5tgBX5HeHdlgjym1o-gzGzoHsz","app_key":"iTsJGCNiGxrdBjV47UDN6X8p","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'SfaSE3g5tgBX5HeHdlgjym1o-gzGzoHsz',
+      appKey     : 'iTsJGCNiGxrdBjV47UDN6X8p',
+      placeholder: "讲讲你的看法",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

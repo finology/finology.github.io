@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"finolo.gy","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="主机操作系统为macOS，在VMware Fusion上安装了数台CentOS7虚拟机，在其上面安装Kubernetes集群。 主机待机或休眠后，再次进入虚拟机时，发现虚拟机的时间并不与主机保持同步。这个问题在mac主机待机后和虚拟机时间不统一的问题中解决。 然后我通过命令date -s把虚拟机延迟的时间统一修改为当前时间。时间是修改好了，却出了一个严重的问题，连到虚拟机的ssh全部断开了，发现虚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS7设置固定IP">
+<meta property="og:url" content="finolo.gy/2020/02/CentOS7%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9AIP/index.html">
+<meta property="og:site_name" content="Finology 大数据金融">
+<meta property="og:description" content="主机操作系统为macOS，在VMware Fusion上安装了数台CentOS7虚拟机，在其上面安装Kubernetes集群。 主机待机或休眠后，再次进入虚拟机时，发现虚拟机的时间并不与主机保持同步。这个问题在mac主机待机后和虚拟机时间不统一的问题中解决。 然后我通过命令date -s把虚拟机延迟的时间统一修改为当前时间。时间是修改好了，却出了一个严重的问题，连到虚拟机的ssh全部断开了，发现虚">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-22T11:48:46.000Z">
+<meta property="article:modified_time" content="2020-04-01T14:36:26.618Z">
+<meta property="article:author" content="Simon">
+<meta property="article:tag" content="centos">
+<meta property="article:tag" content="vmware">
+<meta property="article:tag" content="ip">
+<meta property="article:tag" content="虚拟机">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="finolo.gy/2020/02/CentOS7%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9AIP/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CentOS7设置固定IP | Finology 大数据金融</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <script data-ad-client="ca-pub-7430210016629671" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <!-- simon <div class="headband"></div> -->
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Finology 大数据金融</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">通过大数据以量化金融</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-markdown">
+
+    <a href="https://md.finolo.gy" rel="noopener" target="_blank"><i class="fa fa-fw fa-edit"></i>公众号编辑</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">159</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">72</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">254</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/02/CentOS7%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9AIP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CentOS7设置固定IP
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-22 19:48:46" itemprop="dateCreated datePublished" datetime="2020-02-22T19:48:46+08:00">2020-02-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-01 22:36:26" itemprop="dateModified" datetime="2020-04-01T22:36:26+08:00">2020-04-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OS/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/02/CentOS7%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9AIP/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS7设置固定IP" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/02/CentOS7%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9AIP/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/CentOS7%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9AIP/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>主机操作系统为macOS，在VMware Fusion上安装了数台CentOS7虚拟机，在其上面安装Kubernetes集群。</p>
+<p>主机待机或休眠后，再次进入虚拟机时，发现虚拟机的时间并不与主机保持同步。这个问题在<a href="/2020/02/mac%E4%B8%BB%E6%9C%BA%E5%BE%85%E6%9C%BA%E5%90%8E%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E9%97%B4%E4%B8%8D%E7%BB%9F%E4%B8%80%E7%9A%84%E9%97%AE%E9%A2%98/" title="mac主机待机后和虚拟机时间不统一的问题">mac主机待机后和虚拟机时间不统一的问题</a>中解决。</p>
+<p>然后我通过命令<code>date -s</code>把虚拟机延迟的时间统一修改为当前时间。时间是修改好了，却出了一个严重的问题，连到虚拟机的ssh全部断开了，发现虚拟机的IP地址全部变了。随之而来的便是Prometheus的各种报警，监控的Targets<br>全都变红了。</p>
+<p>所以需要把虚拟机从原来的DHCP动态分配IP改为静态固定好的IP。</p>
+<p>修改<code>/etc/sysconfig/network-scripts/ifcfg-ens33</code>文件的内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BOOTPROTO&#x3D;static</span><br><span class="line"></span><br><span class="line">DNS1&#x3D;114.114.114.114</span><br><span class="line">IPADDR&#x3D;172.16.64.233</span><br><span class="line">NETMASK&#x3D;255.255.255.0</span><br><span class="line">GATEWAY&#x3D;172.16.64.2</span><br></pre></td></tr></table></figure>
+<p>把<code>BOOTPROTO</code>由<code>dhcp</code>改为<code>static</code>。</p>
+<p>添加<code>DNS1</code> Domain Name Server设置为114.114.114.114，这个是全国统一的。<br>添加<code>IPADDR</code>设置为变化之前的IP地址。</p>
+<p>每次安装vmware fusion，自动生成的ip段都不一样。为了保持一致，可以修改vmware fusion的配置文件。</p>
+<blockquote>
+<p>VMnet1: 对应Host-only模式，也就是自定下的“仅供我的Mac专用”</p>
+<p>VMnet8:对应NAT模式，也就是网络配置中的Internet共享下的“与我的Mac共享”</p>
+<p>VMnet0:对应桥接模式，也就是桥接模式网络链接下的“自动检测”</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat /Library/Preferences/VMware\ Fusion/networking</span><br><span class="line">...</span><br><span class="line">answer VNET_8_HOSTONLY_NETMASK 255.255.255.0</span><br><span class="line">answer VNET_8_HOSTONLY_SUBNET 172.16.64.0</span><br><span class="line">answer VNET_8_NAT yes</span><br><span class="line">answer VNET_8_VIRTUAL_ADAPTER yes</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>添加<code>GATEWAY</code>。</p>
+<p>执行<code>ip route show</code>，获取GATEWAY的地址为：<code>172.16.64.2</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ip route show</span><br><span class="line">default via 172.16.64.2 dev ens33 proto static metric 100</span><br><span class="line">10.244.36.64/26 via 172.16.64.232 dev tunl0 proto bird onlink</span><br><span class="line">10.244.169.128/26 via 172.16.64.235 dev tunl0 proto bird onlink</span><br><span class="line">blackhole 10.244.235.192/26 proto bird</span><br><span class="line">10.244.235.232 dev calia6f6ed2a513 scope link</span><br><span class="line">10.244.235.233 dev cali9716a65ec87 scope link</span><br><span class="line">10.244.235.234 dev cali26873b73fbd scope link</span><br><span class="line">172.16.64.0/24 dev ens33 proto kernel scope link src 172.16.64.233 metric 100</span><br><span class="line">172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1</span><br><span class="line">172.19.0.0/16 dev br-bebfcba064b2 proto kernel scope link src 172.19.0.1</span><br></pre></td></tr></table></figure>
+<p>保存退出后，重启网络<code>systemctl restart network</code>。过一会儿，Kubernetes集群又能正常工作了。</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2019/12/CentOS7开机后无IP4地址/" rel="bookmark">CentOS7开机后无IP4地址</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/01/Windows主机环境CentOS7虚拟机安装VMware-Tools/" rel="bookmark">Windows主机环境CentOS7虚拟机安装VMware Tools</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/02/mac主机待机后和虚拟机时间不统一的问题/" rel="bookmark">mac主机待机后和虚拟机时间不统一的问题</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/01/CentOS7搭建SVN服务及备份与恢复/" rel="bookmark">CentOS7搭建SVN服务及备份与恢复</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2019/11/Docker容器中使用systemctl报错Failed-to-get-D-Bus-connection-Operation-not-permitted/" rel="bookmark">Docker容器中使用systemctl报错Failed to get D-Bus connection: Operation not permitted</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Simon
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="/finolo.gy/2020/02/CentOS7%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9AIP/" title="CentOS7设置固定IP">finolo.gy/2020/02/CentOS7设置固定IP/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/centos/" rel="tag"><i class="fa fa-tag"></i> centos</a>
+              <a href="/tags/vmware/" rel="tag"><i class="fa fa-tag"></i> vmware</a>
+              <a href="/tags/ip/" rel="tag"><i class="fa fa-tag"></i> ip</a>
+              <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 虚拟机</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/hexo%E5%8D%9A%E5%AE%A2%E5%9C%A8%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%B8%8A%E7%9A%84%E9%93%BE%E6%8E%A5%E6%8F%90%E4%BA%A4/" rel="prev" title="hexo博客在百度搜索引擎上的链接提交">
+      <i class="fa fa-chevron-left"></i> hexo博客在百度搜索引擎上的链接提交
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/mac%E4%B8%BB%E6%9C%BA%E5%BE%85%E6%9C%BA%E5%90%8E%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E9%97%B4%E4%B8%8D%E7%BB%9F%E4%B8%80%E7%9A%84%E9%97%AE%E9%A2%98/" rel="next" title="mac主机待机后和虚拟机时间不统一的问题">
+      mac主机待机后和虚拟机时间不统一的问题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- header -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-7430210016629671"
+       data-ad-slot="4960252259"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- header -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-7430210016629671"
+           data-ad-slot="4960252259"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Simon</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">254</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">159</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+      
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Simon</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"SfaSE3g5tgBX5HeHdlgjym1o-gzGzoHsz","app_key":"iTsJGCNiGxrdBjV47UDN6X8p","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'SfaSE3g5tgBX5HeHdlgjym1o-gzGzoHsz',
+      appKey     : 'iTsJGCNiGxrdBjV47UDN6X8p',
+      placeholder: "讲讲你的看法",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
