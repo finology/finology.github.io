@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">159</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">160</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">254</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">256</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,349 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/02/MongoDB%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/02/MongoDB%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">MongoDB基本操作</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-02-07 14:32:58" itemprop="dateCreated datePublished" datetime="2019-02-07T14:32:58+08:00">2019-02-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-04 14:38:31" itemprop="dateModified" datetime="2020-05-04T14:38:31+08:00">2020-05-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/02/MongoDB%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="post-meta-item leancloud_visitors" data-flag-title="MongoDB基本操作" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2019/02/MongoDB%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/MongoDB%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="MongoDB创建数据库"><a href="#MongoDB创建数据库" class="headerlink" title="MongoDB创建数据库"></a>MongoDB创建数据库</h1><p><code>use DATABASE_NAME</code></p>
+<p>如果数据库不存在，则创建数据库，否则切换到指定数据库。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; use test2</span><br><span class="line">switched to db test2</span><br><span class="line">&gt; db</span><br><span class="line">test2</span><br></pre></td></tr></table></figure>
+<p>查看所有数据库，使用<code>show dbs</code>命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; show dbs</span><br><span class="line">admin      0.000GB</span><br><span class="line">config     0.000GB</span><br><span class="line">local      0.000GB</span><br><span class="line">test       0.000GB</span><br></pre></td></tr></table></figure>
+<p>可以看到，我们刚创建的数据库 <code>test2</code> 并不在数据库的列表中， 要显示它，我们需要向 runoob 数据库插入一些数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">db.test2.insert(&#123;&quot;name&quot;:&quot;simon&quot;&#125;)</span><br><span class="line">WriteResult(&#123; &quot;nInserted&quot; : 1 &#125;)</span><br><span class="line"></span><br><span class="line">&gt; show dbs</span><br><span class="line">admin      0.000GB</span><br><span class="line">config     0.000GB</span><br><span class="line">local      0.000GB</span><br><span class="line">test       0.000GB</span><br><span class="line">test2      0.000GB</span><br></pre></td></tr></table></figure>
+<h1 id="MongoDB删除数据库"><a href="#MongoDB删除数据库" class="headerlink" title="MongoDB删除数据库"></a>MongoDB删除数据库</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.dropDatabase()</span><br><span class="line">&#123; &quot;dropped&quot; : &quot;test2&quot;, &quot;ok&quot; : 1 &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="删除集合collection"><a href="#删除集合collection" class="headerlink" title="删除集合collection"></a>删除集合collection</h1><p><code>show collections</code>和<code>show tables</code>都可以查看集合列表。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; show collections</span><br><span class="line">collection1</span><br><span class="line">collection2</span><br><span class="line"></span><br><span class="line">&gt; db.collection1.drop()</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+<h1 id="MongoDB创建集合"><a href="#MongoDB创建集合" class="headerlink" title="MongoDB创建集合"></a>MongoDB创建集合</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.createCollection(name, options)</span><br></pre></td></tr></table></figure>
+<p>name: 要创建的集合名称</p>
+<p>options: 可选参数, 指定有关内存大小及索引的选项</p>
+<p>options 可以是如下参数：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>capped</td>
+<td>布尔</td>
+<td>（可选）如果为 true，则创建固定集合。固定集合是指有着固定大小的集合，当达到最大值时，它会自动覆盖最早的文档。当 该值为 true 时，必须指定 size 参数。</td>
+</tr>
+<tr>
+<td>autoIndexId</td>
+<td>布尔</td>
+<td>（可选）如为 true，自动在 _id 字段创建索引。默认为 false。</td>
+</tr>
+<tr>
+<td>size</td>
+<td>数值</td>
+<td>（可选）为固定集合指定一个最大值（以字节计）。如果 capped 为 true，也需要指定该字段。</td>
+</tr>
+<tr>
+<td>max</td>
+<td>数值</td>
+<td>（可选）指定固定集合中包含文档的最大数量。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>在插入文档时，MongoDB 首先检查固定集合的 size 字段，然后检查 max 字段。</p>
+<p>在<code>test</code>数据库中创建<code>coll1</code>集合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; use test</span><br><span class="line">switched to db test</span><br><span class="line">&gt; db.createCollection(&#39;coll1&#39;)</span><br><span class="line">&#123; &quot;ok&quot; : 1 &#125;</span><br></pre></td></tr></table></figure>
+<p>创建固定集合 mycol，整个集合空间大小 6142800 KB, 文档最大个数为 10000 个。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.createCollection(&quot;mycol&quot;, &#123;capped: true, autoIndexId: true, size: 6142800, max: 10000&#125;)</span><br><span class="line">&#123;</span><br><span class="line">	&quot;note&quot; : &quot;the autoIndexId option is deprecated and will be removed in a future release&quot;,</span><br><span class="line">	&quot;ok&quot; : 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 MongoDB 中，你不需要创建集合。当你插入一些文档时，MongoDB 会自动创建集合。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.mycol2.insert(&#123;&quot;name&quot;: &quot;simon&quot;&#125;)</span><br><span class="line">WriteResult(&#123; &quot;nInserted&quot; : 1 &#125;)</span><br><span class="line">show collections</span><br><span class="line">mycol2</span><br></pre></td></tr></table></figure>
+<h1 id="MongoDB删除集合"><a href="#MongoDB删除集合" class="headerlink" title="MongoDB删除集合"></a>MongoDB删除集合</h1><p>db.collection.drop()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; show collections</span><br><span class="line">mycol2</span><br><span class="line">&gt; db.mycol2.drop()</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/02/%E5%88%9D%E8%AF%86MongoDB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/02/%E5%88%9D%E8%AF%86MongoDB/" class="post-title-link" itemprop="url">初识MongoDB</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-02-06 23:34:50" itemprop="dateCreated datePublished" datetime="2019-02-06T23:34:50+08:00">2019-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-04 14:38:31" itemprop="dateModified" datetime="2020-05-04T14:38:31+08:00">2020-05-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/02/%E5%88%9D%E8%AF%86MongoDB/" class="post-meta-item leancloud_visitors" data-flag-title="初识MongoDB" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2019/02/%E5%88%9D%E8%AF%86MongoDB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/%E5%88%9D%E8%AF%86MongoDB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="MySQL和MongoDB概念对比"><a href="#MySQL和MongoDB概念对比" class="headerlink" title="MySQL和MongoDB概念对比"></a>MySQL和MongoDB概念对比</h1><p>在mongodb中基本的概念是文档、集合、数据库。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>SQL术语/概念</th>
+<th>MongoDB术语/概念</th>
+<th>解释/说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>atabase</td>
+<td>database</td>
+<td>数据库</td>
+</tr>
+<tr>
+<td>table</td>
+<td>collection</td>
+<td>数据库表/集合</td>
+</tr>
+<tr>
+<td>row</td>
+<td>document</td>
+<td>数据记录行/文档</td>
+</tr>
+<tr>
+<td>column</td>
+<td>field</td>
+<td>数据字段/域</td>
+</tr>
+<tr>
+<td>index</td>
+<td>index</td>
+<td>索引</td>
+</tr>
+<tr>
+<td>table</td>
+<td>joins</td>
+<td>表连接, MongoDB不支持</td>
+</tr>
+<tr>
+<td>primary key</td>
+<td>primary key</td>
+<td>主键, MongoDB自动将_id字段设置为主键</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><p>进入MongoDB shell</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;mongo</span><br><span class="line">MongoDB shell version v4.0.2</span><br><span class="line">connecting to: mongodb:&#x2F;&#x2F;127.0.0.1:27017</span><br><span class="line">MongoDB server version: 4.0.2</span><br></pre></td></tr></table></figure>
+<p>查看所有的数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; show dbs</span><br><span class="line">admin      0.000GB</span><br><span class="line">config     0.000GB</span><br><span class="line">local      0.000GB</span><br><span class="line">mongo1-db  0.000GB</span><br></pre></td></tr></table></figure>
+<p>执行<code>db</code>命令可以显示当前数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; db</span><br><span class="line">local</span><br></pre></td></tr></table></figure>
+<p>运行<code>use</code>命令，可以连接到一个指定的数据库。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; use mongo1-db</span><br><span class="line">switched to db mongo1-db</span><br></pre></td></tr></table></figure>
+<h1 id="ObjectId"><a href="#ObjectId" class="headerlink" title="ObjectId"></a>ObjectId</h1><p>ObjectId 类似唯一主键，可以很快的去生成和排序，包含 12 bytes，含义是：</p>
+<p>前 4 个字节表示创建 unix 时间戳,格林尼治时间 UTC 时间，比北京时间晚了 8 个小时</p>
+<p>接下来的 3 个字节是机器标识码</p>
+<p>紧接的两个字节由进程 id 组成 PID</p>
+<p>最后三个字节是随机数</p>
+<p>MongoDB 中存储的文档必须有一个 _id 键。这个键的值可以是任何类型的，默认是个 ObjectId 对象</p>
+<p>由于 ObjectId 中保存了创建的时间戳，所以你不需要为你的文档保存时间戳字段，你可以通过 getTimestamp 函数来获取文档的创建时间:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; var newObj &#x3D; ObjectId()</span><br><span class="line">&gt; newObj.getTimestamp()</span><br><span class="line">ISODate(&quot;2019-02-06T16:01:21Z&quot;)</span><br><span class="line"></span><br><span class="line">&gt; newObj.str</span><br><span class="line">5c5b04d1dd377f0cd58338aa</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -645,249 +988,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/01/%E5%88%9B%E5%BB%BASpark-Streaming-Maven%E9%A1%B9%E7%9B%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/01/%E5%88%9B%E5%BB%BASpark-Streaming-Maven%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">创建Spark Streaming Maven项目</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-01-23 11:11:11" itemprop="dateCreated datePublished" datetime="2019-01-23T11:11:11+08:00">2019-01-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-06-27 23:37:11" itemprop="dateModified" datetime="2019-06-27T23:37:11+08:00">2019-06-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/01/%E5%88%9B%E5%BB%BASpark-Streaming-Maven%E9%A1%B9%E7%9B%AE/" class="post-meta-item leancloud_visitors" data-flag-title="创建Spark Streaming Maven项目" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/01/%E5%88%9B%E5%BB%BASpark-Streaming-Maven%E9%A1%B9%E7%9B%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/01/%E5%88%9B%E5%BB%BASpark-Streaming-Maven%E9%A1%B9%E7%9B%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>通过IDEA创建一个Maven项目, <code>spark-streaming-demo</code></p>
-<p>编辑<code>pom.xml</code>文件</p>
-<p>因为我们使用了CDH 5组件，所以需要引入CDH 5的Maven仓库。</p>
-<p>在<code>project</code>标签下面加入</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">repositories</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>cloudera<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://repository.cloudera.com/artifactory/cloudera-repos/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在<code>properties</code>标签下面添加组件版本信息</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scala.compat.version</span>&gt;</span>2.11<span class="tag">&lt;/<span class="name">scala.compat.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">spark.version</span>&gt;</span>2.2.3<span class="tag">&lt;/<span class="name">spark.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">hadoop.version</span>&gt;</span>2.6.0-cdh5.7.0<span class="tag">&lt;/<span class="name">hadoop.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">hbase.version</span>&gt;</span>1.2.0-cdh5.7.0<span class="tag">&lt;/<span class="name">hbase.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在<code>dependencies</code>标签里面添加如下依赖</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Hadoop 依赖--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hadoop<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hadoop-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;hadoop.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- HBase 依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hbase<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hbase-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;hbase.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hbase<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hbase-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;hbase.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Spark streaming 依赖 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.spark<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spark-streaming_$&#123;scala.compat.version&#125;<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spark.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/01/%E5%AE%89%E8%A3%85Spark/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/01/%E5%AE%89%E8%A3%85Spark/" class="post-title-link" itemprop="url">安装Spark</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-01-22 22:40:57 / 修改时间：23:25:07" itemprop="dateCreated datePublished" datetime="2019-01-22T22:40:57+08:00">2019-01-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/01/%E5%AE%89%E8%A3%85Spark/" class="post-meta-item leancloud_visitors" data-flag-title="安装Spark" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/01/%E5%AE%89%E8%A3%85Spark/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/01/%E5%AE%89%E8%A3%85Spark/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这篇文章，我们选择记录最简单的安装方式，而非编译安装。</p>
-<h1 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h1><p>到Apache Spark官网的下载页面 <a href="http://spark.apache.org/downloads.html">http://spark.apache.org/downloads.html</a></p>
-<p>选择Spark2.2.3版本，package type为Pre-built for Apache Hadoop 2.6，因为目前环境hadoop版本是<code>hadoop-2.6.0-cdh5.7.0</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;archive.apache.org&#x2F;dist&#x2F;spark&#x2F;spark-2.2.3&#x2F;spark-2.2.3-bin-hadoop2.6.tgz</span><br><span class="line">tar -zxvf spark-2.2.3-bin-hadoop2.6.tgz</span><br></pre></td></tr></table></figure>
-<h1 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~&#x2F;.bash_profile</span><br></pre></td></tr></table></figure>
-<p>添加如下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export SPARK_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;spark&#x2F;spark-2.2.3-bin-hadoop2.6</span><br></pre></td></tr></table></figure>
-<p>执行<code>source</code>命令让其配置生效</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.bash_profile</span><br></pre></td></tr></table></figure>
-<h1 id="启动Spark"><a href="#启动Spark" class="headerlink" title="启动Spark"></a>启动Spark</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME</span><br><span class="line"></span><br><span class="line">bin&#x2F;spark-shell --help</span><br><span class="line"></span><br><span class="line">Usage: .&#x2F;bin&#x2F;spark-shell [options]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  --master MASTER_URL         spark:&#x2F;&#x2F;host:port, mesos:&#x2F;&#x2F;host:port, yarn, or local.</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>从上面可以看出可以通过<code>spark://host:port</code>, <code>mesos://host:port</code>, <code>yarn</code>和<code>local</code>等方式启动Spark。</p>
-<p>我们先采用<code>本地</code>模式启动。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;spark-shell --master local[2]</span><br><span class="line"></span><br><span class="line">Using Spark&#39;s default log4j profile: org&#x2F;apache&#x2F;spark&#x2F;log4j-defaults.properties</span><br><span class="line">Setting default log level to &quot;WARN&quot;.</span><br><span class="line">To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).</span><br><span class="line">19&#x2F;01&#x2F;22 22:56:54 WARN Utils: Your hostname, localhost resolves to a loopback address: 127.0.0.1; using 192.168.1.6 instead (on interface en0)</span><br><span class="line">19&#x2F;01&#x2F;22 22:56:54 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address</span><br><span class="line">19&#x2F;01&#x2F;22 22:56:54 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Spark context Web UI available at http:&#x2F;&#x2F;192.168.1.6:4040</span><br><span class="line">Spark context available as &#39;sc&#39; (master &#x3D; local[2], app id &#x3D; local-1548169015800).</span><br><span class="line">Spark session available as &#39;spark&#39;.</span><br><span class="line">Welcome to</span><br><span class="line">      ____              __</span><br><span class="line">     &#x2F; __&#x2F;__  ___ _____&#x2F; &#x2F;__</span><br><span class="line">    _\ \&#x2F; _ \&#x2F; _ &#96;&#x2F; __&#x2F;  &#39;_&#x2F;</span><br><span class="line">   &#x2F;___&#x2F; .__&#x2F;\_,_&#x2F;_&#x2F; &#x2F;_&#x2F;\_\   version 2.2.3</span><br><span class="line">      &#x2F;_&#x2F;</span><br><span class="line"></span><br><span class="line">Using Scala version 2.11.8 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_181)</span><br><span class="line">Type in expressions to have them evaluated.</span><br><span class="line">Type :help for more information.</span><br><span class="line"></span><br><span class="line">scala&gt;</span><br></pre></td></tr></table></figure>
-<p>启动成功，我们同时可以看看Spark context Web UI, <a href="http://localhost:4040">http://localhost:4040</a></p>
-<img src="/2019/01/%E5%AE%89%E8%A3%85Spark/SparkWebUI.png" class="">
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/40/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/40/">40</a><span class="page-number current">41</span><a class="page-number" href="/page/42/">42</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><a class="extend next" rel="next" href="/page/42/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/40/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/40/">40</a><span class="page-number current">41</span><a class="page-number" href="/page/42/">42</a><span class="space">&hellip;</span><a class="page-number" href="/page/52/">52</a><a class="extend next" rel="next" href="/page/42/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -966,7 +1071,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">254</span>
+          <span class="site-state-item-count">256</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -979,7 +1084,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">159</span>
+        <span class="site-state-item-count">160</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

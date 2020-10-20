@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Springboot多语言国际化]]></title>
+    <url>%2F2020%2F10%2FSpringboot%E5%A4%9A%E8%AF%AD%E8%A8%80%E5%9B%BD%E9%99%85%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[只要客户里面有老外，那都会涉及到多语言国际化的问题。我们看看在 Java Spring Boot 项目中如何设置多语言。 yaml配置通过查看 org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration，我们可以知道需要配置如下属性：spring.messages.basename。 123spring: messages: basename: i18n/message 需要在src\main\resources\i18n目录下添加如下文件： 默认配置文件：message.properties英文：message_en_US.properties中文：message_zh_CN.properties 内容都是 key=value 的格式，一行一条。 语言处理类通过此设置，当请求头里面的Accept-Lanuage没有值时，以中文显示，否则按设置的值来处理。 1234567891011121314151617181920212223242526272829303132package cn.com.wind.Wind.RTC.WebService.config;import org.springframework.context.annotation.Bean;import org.springframework.context.annotation.Configuration;import org.springframework.util.StringUtils;import org.springframework.web.servlet.LocaleResolver;import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;import javax.servlet.http.HttpServletRequest;import java.util.Locale;@Configurationpublic class CustomLocaleResolver extends AcceptHeaderLocaleResolver implements WebMvcConfigurer &#123; @Override public Locale resolveLocale(HttpServletRequest request) &#123; if (!StringUtils.hasText(request.getHeader("Accept-Language"))) &#123; return Locale.SIMPLIFIED_CHINESE; &#125; return super.resolveLocale(request); &#125; @Bean public LocaleResolver localeResolver() &#123; return this; &#125;&#125; 语言工具类1234567891011121314151617181920212223242526package cn.com.wind.convertserver.utils;import org.springframework.context.MessageSource;import org.springframework.context.NoSuchMessageException;import org.springframework.context.i18n.LocaleContextHolder;import org.springframework.stereotype.Component;import java.util.Locale;@Componentpublic class I18nMessageUtils &#123; private static MessageSource messageSource; public MessageUtils(MessageSource messageSource) &#123; MessageUtils.messageSource = messageSource; &#125; public static String getMessage(String messageKey, Locale locale) throws NoSuchMessageException &#123; if (locale == null) &#123; locale = LocaleContextHolder.getLocale(); &#125; return messageSource.getMessage(messageKey, null, locale); &#125;&#125; 这样就可以通过这个工具类，做国际化的语言转换了。 我们还发现一个问题，通过tomcat容器去运行的应用程序，在request请求里面未能获取到Locale的信息，但把tomcat改为jetty后，是可以成功获取到的。 pom.xml设置如下： 123456789101112131415&lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt; &lt;exclusions&gt; &lt;exclusion&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt; &lt;/exclusion&gt; &lt;/exclusions&gt;&lt;/dependency&gt;&lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-jetty&lt;/artifactId&gt;&lt;/dependency&gt;]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>i18n</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux OpenSUSE安装字体字库]]></title>
+    <url>%2F2020%2F10%2FLinux-OpenSUSE%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93%E5%AD%97%E5%BA%93%2F</url>
+    <content type="text"><![CDATA[最近在 Linux OpenSUSE 上运行 pdfbox 工具，将 Pdf 转成图片，会遇到找不到字体的警告提示。 1[15:02:34.732] WARN org.apache.pdfbox.pdmodel.font.PDTrueTypeFont 220 &lt;init&gt; - Using fallback font &#39;LiberationSans&#39; for &#39;Arial,Bold&#39; 所以这篇文章讲述一下如何在 OpenSUSE 系统上安装字体字库。 查看 OpenSUSE 版本号 1234567891011# cat /etc/os-release NAME="openSUSE Leap"VERSION="42.3"ID=opensuseID_LIKE="suse"VERSION_ID="42.3"PRETTY_NAME="openSUSE Leap 42.3"ANSI_COLOR="0;32"CPE_NAME="cpe:/o:opensuse:leap:42.3"BUG_REPORT_URL="https://bugs.opensuse.org"HOME_URL="https://www.opensuse.org/" 查看当前系统已经安装的字体12345# fc-list | less/usr/share/fonts/truetype/DejaVuSans-ExtraLight.ttf: DejaVu Sans,DejaVu Sans Light:style=ExtraLight/usr/share/fonts/truetype/OpenSans-CondLightItalic.ttf: Open Sans,Open Sans Condensed Light:style=Condensed Light Italic,Italic... 获取字体大多数的字体，在 Windows 系统上都可以找到。 字体目录所在位置：C:\Windows\Fonts 安装字体OpenSUSE 的字库位置在 /usr/share/fonts/truetype，通过刚才命令也可以看出来。 然后再把 Windows 下面的字体拷贝到上述目录中。 重新加载新添加的字体： 1fc-cache -fv 最后，要让java应用程序生效，还得重新启动一个应用。]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>pdfbox</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python解析式推导式]]></title>
     <url>%2F2020%2F10%2FPython%E8%A7%A3%E6%9E%90%E5%BC%8F%E6%8E%A8%E5%AF%BC%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[[ 值 for 元素 in 可迭代对象 if 条件 ] # 值可以是函数表达式 [ 值1 if 条件1 else 值2 for 元素 in 可迭代对象] # 将 if-else 语句写入列表解析式 1234567891011ret = [0.37, -1.9, 0.6, 2.54, 0.51, 1.09, 1.79, -1.2, -0.14, -0.5, -2.37, 0.0, -0.22, -0.15, 4.28, -0.85, -1.79, -0.44, -0.15, 2.34]# 例：从收益率序列中提取出负的收益率[i for i in ret if i &lt; 0][-1.9, -1.2, -0.14, -0.5, -2.37, -0.22, -0.15, -0.85, -1.79, -0.44, -0.15]# 正收益率赋值为1，负收益率赋值为0[1 if i &gt; 0 else 0 for i in ret][1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1] 1234ret_set = &#123;(0.37, -1.9, 0.6, 2.54, 0.51), (1.09, 1.79, -1.2, -0.14, -0.5), (-2.37, 0.0, -0.22, -0.15, 4.28), (-0.85, -1.79, -0.44, -0.15, 2.34)&#125;# 如何将元素打平[i for t in ret_set for i in t] 内循环在外循环后面]]></content>
@@ -2603,18 +2625,18 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[如何使用Sublime Text3格式化json]]></title>
-    <url>%2F2018%2F11%2F%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Sublime-Text3%E6%A0%BC%E5%BC%8F%E5%8C%96json%2F</url>
-    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 安装pretty json快捷键ctrl+shift+p, 打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
+    <title><![CDATA[下载Sublime Text3]]></title>
+    <url>%2F2018%2F11%2F%E4%B8%8B%E8%BD%BDSublime-Text3%2F</url>
+    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 1import urllib.request,os,hashlib; h &#x3D; &#39;6f4c264a24d933ce70df5dedcf1dcaee&#39; + &#39;ebe013ee18cced0ef93d5f746d80ef60&#39;; pf &#x3D; &#39;Package Control.sublime-package&#39;; ipp &#x3D; sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by &#x3D; urllib.request.urlopen( &#39;http:&#x2F;&#x2F;packagecontrol.io&#x2F;&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh &#x3D; hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh !&#x3D; h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by) 安装pretty json快捷键ctrl+shift+p,打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
       <categories>
         <category>Tools</category>
         <category>Sublime</category>
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[下载Sublime Text3]]></title>
-    <url>%2F2018%2F11%2F%E4%B8%8B%E8%BD%BDSublime-Text3%2F</url>
-    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 1import urllib.request,os,hashlib; h &#x3D; &#39;6f4c264a24d933ce70df5dedcf1dcaee&#39; + &#39;ebe013ee18cced0ef93d5f746d80ef60&#39;; pf &#x3D; &#39;Package Control.sublime-package&#39;; ipp &#x3D; sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by &#x3D; urllib.request.urlopen( &#39;http:&#x2F;&#x2F;packagecontrol.io&#x2F;&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh &#x3D; hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh !&#x3D; h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by) 安装pretty json快捷键ctrl+shift+p,打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
+    <title><![CDATA[如何使用Sublime Text3格式化json]]></title>
+    <url>%2F2018%2F11%2F%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Sublime-Text3%E6%A0%BC%E5%BC%8F%E5%8C%96json%2F</url>
+    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 安装pretty json快捷键ctrl+shift+p, 打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
       <categories>
         <category>Tools</category>
         <category>Sublime</category>
