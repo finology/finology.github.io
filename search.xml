@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python Series和DataFrame的索引和切片]]></title>
+    <url>%2F2020%2F12%2FPython-Series%E5%92%8CDataFrame%E7%9A%84%E7%B4%A2%E5%BC%95%E5%92%8C%E5%88%87%E7%89%87%2F</url>
+    <content type="text"><![CDATA[整理得最全的提取Series或DataFrame数据的公式。 提取单个元素基于位置提取数据s[index]s.iat[index]df.iat[row_index, col_index] 基于 label 提取数据s[label]s.at[label]df.at[row_label, col_label] 提取多个元素对于 Series基于位置提取s[a:b]s[[a,b,c]]s.iloc[a:b]s.iloc[[a,b,c]] 基于标签提取s[label1:labeln]s[[label1, label2, label3]]s.loc[label1:labeln]s.loc[[label1, label2, label3]] 对于 DataFrame基于位置 行列 中括号 iloc 单行 df[a:a+1] df.iloc[a]等价于df.iloc[a,:]、df.iloc[[a]]等价于df.iloc[[a],:] 多行 df[a:b] df.iloc[a:b]等价于df.iloc[a:b,:]、df.iloc[[a,b,c]]等价于df.iloc[[a,b,c],:] 单列 - df.iloc[:,a]、df.iloc[:,[a]] （：不能省略） 多列 - df.iloc[:,a:b]、df.iloc[:,[a,b,d]] 行列 - df.iloc[a:b,n:m]、df.iloc[[a,b,c],[n,m]] 基于标签 行列 中括号 loc 单行 - df.loc[label]、df.loc[[label]] 多行 - df.loc[lable1：lable3]、df.loc[[lable1,lable2,…]] 单列 df[clo1]、df[[col1]] df.loc[:,col]、df.loc[:,[col]] （：不能省略） 多列 df[[clo1,col2]] df.loc[:,[col1,col2]] 、df.loc[:,col1:col4]] 行列 - df.loc[lable1：lable3,col1:col4]]、df.loc[[lable1,lable2,…],[clo1,col2]]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[公众号文章Markdown的样式设置]]></title>
     <url>%2F2020%2F11%2F%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0Markdown%E7%9A%84%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE%2F</url>
     <content type="text"><![CDATA[主题用的是”山吹”，下面自定义设置的样式。 外边距设置为 2px ，不然外边距有些大。 123#nice &#123; padding: 2px;&#125; 字体设置为 17px, 对齐方式为两边对齐。 12345#nice p &#123; font-size: 17px; text-align: justify; ...&#125;]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[websocket测试工具wscat]]></title>
+    <url>%2F2020%2F11%2Fwebsocket%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7wscat%2F</url>
+    <content type="text"><![CDATA[WebSocket Cat (wscat)是一个连接websocket的小工具。 安装方法1npm install -g wscat 使用方法123456789101112131415161718192021222324Usage: wscat [options] (--listen &lt;port&gt; | --connect &lt;url&gt;)Options: -V, --version output the version number -l, --listen &lt;port&gt; listen on port -c, --connect &lt;url&gt; connect to a WebSocket server -p, --protocol &lt;version&gt; optional protocol version -o, --origin &lt;origin&gt; optional origin -x, --execute &lt;command&gt; execute command after connecting -w, --wait &lt;seconds&gt; wait given seconds after executing command -P, --show-ping-pong print a notification when a ping or pong is received --host &lt;host&gt; optional host -s, --subprotocol &lt;protocol&gt; optional subprotocol (default: []) -n, --no-check do not check for unauthorized certificates -H, --header &lt;header:value&gt; set an HTTP header. Repeat to set multiple (--connect only) (default: []) --auth &lt;username:password&gt; add basic HTTP authentication header (--connect only) --ca &lt;ca&gt; specify a Certificate Authority (--connect only) --cert &lt;cert&gt; specify a Client SSL Certificate (--connect only) --key &lt;key&gt; specify a Client SSL Certificate's key (--connect only) --passphrase [passphrase] specify a Client SSL Certificate Key's passphrase (--connect only). If you don't provide a value, it will be prompted for --no-color run without color --slash enable slash commands for control frames (/ping, /pong, /close [code [, reason]]) --proxy &lt;[protocol://]host[:port]&gt; connect via a proxy. Proxy must support CONNECT method -h, --help 使用案例在终端1启动一个websocket服务，监听9000端口。 12wscat --listen 9000Listening on port 9000 (press CTRL+C to quit) 在终端2连接上websocket服务。 12wscat -c ws://localhost:9000/echoConnected (press CTRL+C to quit) 连上以后，在服务端，会提示信息： Client connected 然后就可以两端互相发送消息了。]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>websocket</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Springboot多语言国际化]]></title>

@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">160</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">161</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">257</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">259</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,239 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/10/Ubuntu%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/Ubuntu%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/" class="post-title-link" itemprop="url">Ubuntu设置国内源</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-20 10:05:51" itemprop="dateCreated datePublished" datetime="2019-10-20T10:05:51+08:00">2019-10-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OS/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/10/Ubuntu%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu设置国内源" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2019/10/Ubuntu%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/Ubuntu%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>安装完操作系统后，首要的第一件事就是换成国内的源，这样下载软件速度才会有保障。</p>
+<h1 id="备份文件"><a href="#备份文件" class="headerlink" title="备份文件"></a>备份文件</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</span><br></pre></td></tr></table></figure>
+<h1 id="编译文件"><a href="#编译文件" class="headerlink" title="编译文件"></a>编译文件</h1><p>编译<code>sources.list</code>，把<code>http://cn.archive.ubuntu.com/ubuntu/</code>和<code>http://security.ubuntu.com/ubuntu</code>替换为国内的阿里的地址<code>http://mirrors.aliyun.com/ubuntu</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<p>使用<code>vi</code>的替换命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:s%/cn.archive.ubuntu.com/mirrors.aliyun.com/g</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:s%/security.ubuntu.com/mirrors.aliyun.com/g</span><br></pre></td></tr></table></figure>
+<h1 id="更新软件列表"><a href="#更新软件列表" class="headerlink" title="更新软件列表"></a>更新软件列表</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+<h1 id="更新软件包"><a href="#更新软件包" class="headerlink" title="更新软件包"></a>更新软件包</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/10/NIO%E7%9A%84%E9%80%9A%E9%81%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/NIO%E7%9A%84%E9%80%9A%E9%81%93/" class="post-title-link" itemprop="url">NIO的通道</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-14 00:22:42" itemprop="dateCreated datePublished" datetime="2019-10-14T00:22:42+08:00">2019-10-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-01 22:39:48" itemprop="dateModified" datetime="2020-04-01T22:39:48+08:00">2020-04-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/NIO/" itemprop="url" rel="index"><span itemprop="name">NIO</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/10/NIO%E7%9A%84%E9%80%9A%E9%81%93/" class="post-meta-item leancloud_visitors" data-flag-title="NIO的通道" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2019/10/NIO%E7%9A%84%E9%80%9A%E9%81%93/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/NIO%E7%9A%84%E9%80%9A%E9%81%93/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>通道(Channel)，用于源节点和目标节点的连接。在Java NIO中负责数据的传输。Channel本身不存储数据，所以传输时还需要缓冲区配合。</p>
+<p>更多缓冲区的内容，请参考 <a href="/2019/10/NIO%E7%9A%84%E7%BC%93%E5%86%B2%E5%8C%BA/" title="NIO的缓冲区">NIO的缓冲区</a></p>
+<h1 id="利用通道完成文件复制（非直接缓冲区）"><a href="#利用通道完成文件复制（非直接缓冲区）" class="headerlink" title="利用通道完成文件复制（非直接缓冲区）"></a>利用通道完成文件复制（非直接缓冲区）</h1><p>可以拷贝超过2G的文件。关于大文件的拷贝，后面再写文章。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (FileInputStream fis = <span class="keyword">new</span> FileInputStream(<span class="string">"/infile"</span>);</span><br><span class="line">     FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">"/outfile"</span>);</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 获取通道</span></span><br><span class="line">     FileChannel inChannel = fis.getChannel();</span><br><span class="line">     FileChannel outChannel = fos.getChannel()</span><br><span class="line">) &#123;</span><br><span class="line">    <span class="comment">// 分配指定大小的缓冲区</span></span><br><span class="line">    ByteBuffer buffer = ByteBuffer.allocate(<span class="number">10240</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将通道中的数据存入缓冲区</span></span><br><span class="line">    <span class="keyword">while</span> (inChannel.read(buffer) != -<span class="number">1</span>) &#123;</span><br><span class="line">        buffer.flip();</span><br><span class="line">        outChannel.write(buffer);</span><br><span class="line">        buffer.clear();</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="使用直接缓冲区完成文件复制"><a href="#使用直接缓冲区完成文件复制" class="headerlink" title="使用直接缓冲区完成文件复制"></a>使用直接缓冲区完成文件复制</h1><p>文件大小不能超过2G。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (FileChannel inChannel = FileChannel.open(Paths.get(<span class="string">"/infile"</span>),</span><br><span class="line">        StandardOpenOption.READ);</span><br><span class="line">     FileChannel outChannel = FileChannel.open(Paths.get(<span class="string">"/outfile"</span>),</span><br><span class="line">             StandardOpenOption.WRITE, StandardOpenOption.READ, StandardOpenOption.CREATE)) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 内存映射文件</span></span><br><span class="line">    MappedByteBuffer inMappedByteBuffer = inChannel.map(FileChannel.MapMode.READ_ONLY, <span class="number">0</span>, inChannel.size());</span><br><span class="line">    MappedByteBuffer outMappedByteBuffer = outChannel.map(FileChannel.MapMode.READ_WRITE, <span class="number">0</span>, inChannel.size());</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 直接对缓冲区进行数据的读写操作</span></span><br><span class="line">    <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[inMappedByteBuffer.limit()];</span><br><span class="line">    inMappedByteBuffer.get(bytes);</span><br><span class="line">    outMappedByteBuffer.put(bytes);</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="通道之间的数据传输-直接缓冲区"><a href="#通道之间的数据传输-直接缓冲区" class="headerlink" title="通道之间的数据传输(直接缓冲区)"></a>通道之间的数据传输(直接缓冲区)</h1><p>文件大小不能超过2G。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// transferFrom()</span></span><br><span class="line"><span class="comment">// transferTo()</span></span><br><span class="line"><span class="keyword">try</span> (FileChannel inChannel = FileChannel.open(Paths.get(<span class="string">"/Users/simon/Documents/largefile.tar"</span>),</span><br><span class="line">        StandardOpenOption.READ);</span><br><span class="line">     FileChannel outChannel = FileChannel.open(Paths.get(<span class="string">"/Users/simon/Documents/largefile.tar.copy"</span>),</span><br><span class="line">             StandardOpenOption.WRITE, StandardOpenOption.READ, StandardOpenOption.CREATE)) &#123;</span><br><span class="line"></span><br><span class="line">    inChannel.transferTo(<span class="number">0</span>, inChannel.size(), outChannel);</span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="分散和聚集"><a href="#分散和聚集" class="headerlink" title="分散和聚集"></a>分散和聚集</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">ByteBuffer[] bufs = <span class="keyword">new</span> ByteBuffer[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">try</span> (RandomAccessFile raf1 = <span class="keyword">new</span> RandomAccessFile(<span class="string">"/infile"</span>, <span class="string">"rw"</span>);</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 1. 获取通道</span></span><br><span class="line">     FileChannel raf1Channel = raf1.getChannel()) &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 分配指定大小的缓冲区数组</span></span><br><span class="line">    ByteBuffer buf1 = ByteBuffer.allocate(<span class="number">100</span>);</span><br><span class="line">    ByteBuffer buf2 = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line">    bufs = <span class="keyword">new</span> ByteBuffer[]&#123;buf1, buf2&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 分散读取</span></span><br><span class="line">    raf1Channel.read(bufs);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (ByteBuffer buf : bufs) &#123;</span><br><span class="line">        buf.flip();</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="keyword">new</span> String(bufs[<span class="number">0</span>].array(), <span class="number">0</span>, bufs[<span class="number">0</span>].limit()));</span><br><span class="line">System.out.println(<span class="string">"---"</span>);</span><br><span class="line">System.out.println(<span class="keyword">new</span> String(bufs[<span class="number">1</span>].array(), <span class="number">0</span>, bufs[<span class="number">1</span>].limit()));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 聚集写入</span></span><br><span class="line"><span class="keyword">try</span> (RandomAccessFile raf2 = <span class="keyword">new</span> RandomAccessFile(<span class="string">"/outfile"</span>, <span class="string">"rw"</span>);</span><br><span class="line">     FileChannel raf2Channel = raf2.getChannel()) &#123;</span><br><span class="line"></span><br><span class="line">    raf2Channel.write(bufs);</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -618,256 +851,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">Docker容器中配置sshd服务</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-03 18:32:44" itemprop="dateCreated datePublished" datetime="2019-10-03T18:32:44+08:00">2019-10-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/" class="post-meta-item leancloud_visitors" data-flag-title="Docker容器中配置sshd服务" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>以前我们要做一个实验，需要安装虚拟机，安装需要耗费一定的时间，就算是复制虚拟机，也会占用大量磁盘空间。现在我们只需要创建一个CentOS的Docker容器就可以了，比较方便。</p>
-<h1 id="拉取操作系统镜像"><a href="#拉取操作系统镜像" class="headerlink" title="拉取操作系统镜像"></a>拉取操作系统镜像</h1><p>这里我们采用CentOS</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull centos</span><br></pre></td></tr></table></figure>
-<p>centos镜像拉取到本地后，我们查看一下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker images </span><br><span class="line">REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">centos                        latest              67fa590cfc1c        6 weeks ago         202MB</span><br></pre></td></tr></table></figure>
-<h1 id="运行容器并进入容器"><a href="#运行容器并进入容器" class="headerlink" title="运行容器并进入容器"></a>运行容器并进入容器</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -it centos bash</span><br><span class="line">[root@ca6a84a514c2 /]#</span><br></pre></td></tr></table></figure>
-<h2 id="修改yum源"><a href="#修改yum源" class="headerlink" title="修改yum源"></a>修改yum源</h2><p>如果是在公司内网环境，需要改为内网的源。如果是国外的源，也可以换成国内的源。<br>具体方法请参考 <a href="/2018/06/%E5%B0%86Centos7%E7%9A%84yum%E6%BA%90%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E9%98%BF%E9%87%8C%E4%BA%91%E7%9A%84%E6%BA%90/" title="将Centos7的yum源更换为国内阿里云的源">将Centos7的yum源更换为国内阿里云的源</a></p>
-<h2 id="安装所需软件"><a href="#安装所需软件" class="headerlink" title="安装所需软件"></a>安装所需软件</h2><h3 id="安装ip工具"><a href="#安装ip工具" class="headerlink" title="安装ip工具"></a>安装<code>ip</code>工具</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y iproute</span><br></pre></td></tr></table></figure>
-<h3 id="安装ssh软件"><a href="#安装ssh软件" class="headerlink" title="安装ssh软件"></a>安装ssh软件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssh-server openssh-clients</span><br></pre></td></tr></table></figure>
-<p>会有ssh相关软件被拷贝到/usr/sbin目录</p>
-<p>需要软件sshd的绝对路径去启动sshd服务，不然会报如下错误。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./sshd</span><br><span class="line">sshd re-exec requires execution with an absolute path</span><br></pre></td></tr></table></figure>
-<p>输入全路径执行命令，继续出现错误，如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/sshd</span><br><span class="line">Could not load host key: /etc/ssh/ssh_host_rsa_key</span><br><span class="line">Could not load host key: /etc/ssh/ssh_host_ecdsa_key</span><br><span class="line">Could not load host key: /etc/ssh/ssh_host_ed25519_key</span><br><span class="line">sshd: no hostkeys available -- exiting.</span><br></pre></td></tr></table></figure>
-<p>执行<code>sshd-keygen</code>命令解决上述问题</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/sshd-keygen </span><br><span class="line">Generating SSH2 RSA host key:                              [  OK  ]</span><br><span class="line">Generating SSH2 ECDSA host key:                            [  OK  ]</span><br><span class="line">Generating SSH2 ED25519 host key:                          [  OK  ]</span><br></pre></td></tr></table></figure>
-<p>给root生成一个密码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">passwd root</span><br><span class="line">Changing password for user root.</span><br><span class="line">New password: </span><br><span class="line">BAD PASSWORD: The password is shorter than 8 characters</span><br><span class="line">Retype new password: </span><br><span class="line">passwd: all authentication tokens updated successfully.</span><br></pre></td></tr></table></figure>
-<p>启动sshd服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/sshd</span><br><span class="line">[root@ca6a84a514c2 sbin]# ps -ef | grep sshd</span><br><span class="line">root        108      1  0 09:14 ?        00:00:00 /usr/sbin/sshd</span><br></pre></td></tr></table></figure>
-<p>验证sshd服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh root@localhost</span><br><span class="line">root@localhost's password: </span><br><span class="line">Last failed login: Sun Sep 29 09:16:59 UTC 2019 from localhost on ssh:notty</span><br><span class="line">There were 3 failed login attempts since the last successful login.</span><br><span class="line">Connection to localhost closed.</span><br></pre></td></tr></table></figure>
-<p>会遇到连不上去的问题，这时，需要修改<code>/etc/ssh/sshd_config</code>配置。</p>
-<p>把里面的<code>UsePAM yes</code>改为<code>UsePAM no</code></p>
-<p>杀掉之前sshd进程后，再次启动</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/sshd</span><br><span class="line">WARNING: 'UsePAM no' is not supported in Red Hat Enterprise Linux and may cause several problems.</span><br></pre></td></tr></table></figure>
-<p>这时就可以成功登录了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@localhost</span><br><span class="line">root@localhost's password: </span><br><span class="line">Last login: Sun Sep 29 09:20:41 2019 from localhost</span><br></pre></td></tr></table></figure>
-<h1 id="生成一个新的镜像"><a href="#生成一个新的镜像" class="headerlink" title="生成一个新的镜像"></a>生成一个新的镜像</h1><h2 id="退出容器，并查看容器id"><a href="#退出容器，并查看容器id" class="headerlink" title="退出容器，并查看容器id"></a>退出容器，并查看容器id</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br><span class="line">CONTAINER ID        IMAGE                            COMMAND                  CREATED             STATUS                         PORTS                    NAMES</span><br><span class="line">ca6a84a514c2        centos                           "bash"                   34 minutes ago      Exited (255) 11 seconds ago                             musing_goodall</span><br></pre></td></tr></table></figure>
-<h2 id="生成一个新的镜像-1"><a href="#生成一个新的镜像-1" class="headerlink" title="生成一个新的镜像"></a>生成一个新的镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker commit ca6a84a514c2 basic_centos </span><br><span class="line">sha256:2f965d1db627968f66bf968db7c052f1dec02b84a0b508ef896b3c8d93f97fb7</span><br></pre></td></tr></table></figure>
-<h2 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line">REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">basic_centos                  latest              2f965d1db627        26 seconds ago      284MB</span><br></pre></td></tr></table></figure>
-<h1 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit basic_centos /usr/sbin/sshd -D</span><br></pre></td></tr></table></figure>
-<p>此时，就可以通过ssh client连接上去了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/09/macOS%E5%AE%89%E8%A3%85Postgresql/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/09/macOS%E5%AE%89%E8%A3%85Postgresql/" class="post-title-link" itemprop="url">macOS安装Postgresql</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-09-19 22:39:39" itemprop="dateCreated datePublished" datetime="2019-09-19T22:39:39+08:00">2019-09-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-04 14:36:47" itemprop="dateModified" datetime="2020-05-04T14:36:47+08:00">2020-05-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/Postgresql/" itemprop="url" rel="index"><span itemprop="name">Postgresql</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/09/macOS%E5%AE%89%E8%A3%85Postgresql/" class="post-meta-item leancloud_visitors" data-flag-title="macOS安装Postgresql" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/09/macOS%E5%AE%89%E8%A3%85Postgresql/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/macOS%E5%AE%89%E8%A3%85Postgresql/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>pip安装依赖的时候报错，<code>pg_config executable not found</code>, 所以需要在mac上安装postgresql。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install postgresql</span><br></pre></td></tr></table></figure>
-<p>如果出现<code>Updating Homebrew</code>并且卡住了，请参考 </p>
-<p>安装过程中，有可能会遇到操作文件权限不够的情况，添加一下权限就可以了。</p>
-<p>安装成功，将有如下提示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">To migrate existing data from a previous major version of PostgreSQL run:</span><br><span class="line">  brew postgresql-upgrade-database</span><br><span class="line"></span><br><span class="line">To have launchd start postgresql now and restart at login:</span><br><span class="line">  brew services start postgresql</span><br><span class="line">Or, if you don&#39;t want&#x2F;need a background service you can just run:</span><br><span class="line">  pg_ctl -D &#x2F;usr&#x2F;local&#x2F;var&#x2F;postgres start</span><br><span class="line">&#x3D;&#x3D;&gt; Summary</span><br><span class="line">🍺  &#x2F;usr&#x2F;local&#x2F;Cellar&#x2F;postgresql&#x2F;11.5_1: 3,189 files, 35.6MB</span><br><span class="line">&#x3D;&#x3D;&gt; &#96;brew cleanup&#96; has not been run in 30 days, running now...</span><br><span class="line">Pruned 4 symbolic links and 58 directories from &#x2F;usr&#x2F;local</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -951,7 +934,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">257</span>
+          <span class="site-state-item-count">259</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -964,7 +947,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">160</span>
+        <span class="site-state-item-count">161</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
