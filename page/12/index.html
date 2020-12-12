@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">161</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">162</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">259</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">260</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,128 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/04/Spring%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BC%A0%E6%92%AD%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/Spring%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BC%A0%E6%92%AD%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">Spring事务的传播机制</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-17 21:24:03" itemprop="dateCreated datePublished" datetime="2020-04-17T21:24:03+08:00">2020-04-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/04/Spring%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BC%A0%E6%92%AD%E6%9C%BA%E5%88%B6/" class="post-meta-item leancloud_visitors" data-flag-title="Spring事务的传播机制" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/04/Spring%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BC%A0%E6%92%AD%E6%9C%BA%E5%88%B6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/Spring%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BC%A0%E6%92%AD%E6%9C%BA%E5%88%B6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>两个 Service 下面的方法，互相调用，这时就会涉及到事务的传播。</p>
+<p>传播机制类型</p>
+<p>这些类型都是针对被调用的方法来说的。</p>
+<h1 id="PROPAGATION-REQUIRED-默认"><a href="#PROPAGATION-REQUIRED-默认" class="headerlink" title="PROPAGATION_REQUIRED (默认)"></a>PROPAGATION_REQUIRED (默认)</h1><p>支持当前事务，如果当前没有事务，则新建事务</p>
+<p>如果当前存在事务，则加入当前事务，合并成一个事务</p>
+<h1 id="REQUIRES-NEW"><a href="#REQUIRES-NEW" class="headerlink" title="REQUIRES_NEW"></a>REQUIRES_NEW</h1><p>新建事务，如果当前存在事务，则把当前事务挂起</p>
+<p>这个方法会独立提交事务，不受调用者的事务影响，父级异常，它也是正常提交</p>
+<h1 id="NESTED"><a href="#NESTED" class="headerlink" title="NESTED"></a>NESTED</h1><p>如果当前存在事务，它将会成为父级事务的一个子事务，方法结束后并没有提交，只有等父事务结束才提交</p>
+<p>如果当前没有事务，则新建事务</p>
+<p>如果它异常，父级可以捕获它的异常而不进行回滚，正常提交</p>
+<p>但如果父级异常，它必然回滚，这就是和 REQUIRES_NEW 的区别</p>
+<h1 id="SUPPORTS"><a href="#SUPPORTS" class="headerlink" title="SUPPORTS"></a>SUPPORTS</h1><p>如果当前存在事务，则加入事务</p>
+<p>如果当前不存在事务，则以非事务方式运行，这个和不写注解是一样</p>
+<h1 id="NOT-SUPPORTED"><a href="#NOT-SUPPORTED" class="headerlink" title="NOT_SUPPORTED"></a>NOT_SUPPORTED</h1><p>以非事务方式运行</p>
+<p>如果当前存在事务，则把当前事务挂起</p>
+<h1 id="MANDATORY"><a href="#MANDATORY" class="headerlink" title="MANDATORY"></a>MANDATORY</h1><p>如果当前存在事务，则运行在当前事务中</p>
+<p>如果当前无事务，则抛出异常，也即父级方法必须有事务</p>
+<h1 id="NEVER"><a href="#NEVER" class="headerlink" title="NEVER"></a>NEVER</h1><p>以非事务方式运行，如果当前存在事务，则抛出异常，即父级方法必须无事务。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -655,122 +777,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/04/Java-MySQL%E5%BC%80%E5%8F%91%E5%85%B3%E4%BA%8E%E6%97%B6%E9%97%B4%E6%97%B6%E5%8C%BA%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/Java-MySQL%E5%BC%80%E5%8F%91%E5%85%B3%E4%BA%8E%E6%97%B6%E9%97%B4%E6%97%B6%E5%8C%BA%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">Java, MySQL开发关于时间时区的最佳实践</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-04-14 22:45:28 / 修改时间：22:55:04" itemprop="dateCreated datePublished" datetime="2020-04-14T22:45:28+08:00">2020-04-14</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/04/Java-MySQL%E5%BC%80%E5%8F%91%E5%85%B3%E4%BA%8E%E6%97%B6%E9%97%B4%E6%97%B6%E5%8C%BA%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-meta-item leancloud_visitors" data-flag-title="Java, MySQL开发关于时间时区的最佳实践" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2020/04/Java-MySQL%E5%BC%80%E5%8F%91%E5%85%B3%E4%BA%8E%E6%97%B6%E9%97%B4%E6%97%B6%E5%8C%BA%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/Java-MySQL%E5%BC%80%E5%8F%91%E5%85%B3%E4%BA%8E%E6%97%B6%E9%97%B4%E6%97%B6%E5%8C%BA%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Java 开发实践中，我们在处理时间、时区上总是搞得很乱。这里总结一下认为比较好的一个最佳实践，欢迎大家提出自己的意见。</p>
-<p>Java 中不带时区的类 <code>java.time.LocalDateTime</code>，这个类对应 MySQL 中 <code>datetime</code> 类型。MySQL 中的 <code>datetime</code> 类型也是不带时区概念的。</p>
-<p>不带时区概念的意思就是说，当我看到这个值的时候，并不能唯一确定时间，因为没有时区信息。</p>
-<p>但 Java 中的类 <code>java.util.Date</code> 或 <code>java.time.ZonedDateTime</code> 却是带了时区的类，这个值，是能唯一确定时间的。</p>
-<p>我们在中国开发应用程序时，最佳解决方案：</p>
-<ol>
-<li><p>Java, MySQL 所在服务器时间设置为东八区时间。</p>
-</li>
-<li><p>Java, MySQL 默认使用服务器时区。</p>
-</li>
-<li><p>java connector 6 版本以后，MySQL 连接字符串指定东八区，不指定是默认西五区的美国东部时间。</p>
-</li>
-<li><p>前端拿到东八区时间后，根据浏览器时区做相应的调整。前端提交表单时，拿到当地时间后，转换成东八区时间提交。</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -854,7 +860,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">259</span>
+          <span class="site-state-item-count">260</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -867,7 +873,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">161</span>
+        <span class="site-state-item-count">162</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
