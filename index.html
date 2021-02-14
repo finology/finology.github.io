@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">164</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">261</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">262</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,113 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/02/Python-DataFrame-Series%E4%B8%AD%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6%E7%B2%BE%E7%A1%AE%E5%88%B0%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/Python-DataFrame-Series%E4%B8%AD%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6%E7%B2%BE%E7%A1%AE%E5%88%B0%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/" class="post-title-link" itemprop="url">Python DataFrame Series中小数精度精确到两位小数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-14 12:25:29" itemprop="dateCreated datePublished" datetime="2021-02-14T12:25:29+08:00">2021-02-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/02/Python-DataFrame-Series%E4%B8%AD%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6%E7%B2%BE%E7%A1%AE%E5%88%B0%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/" class="post-meta-item leancloud_visitors" data-flag-title="Python DataFrame Series中小数精度精确到两位小数" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2021/02/Python-DataFrame-Series%E4%B8%AD%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6%E7%B2%BE%E7%A1%AE%E5%88%B0%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/Python-DataFrame-Series%E4%B8%AD%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6%E7%B2%BE%E7%A1%AE%E5%88%B0%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在DataFrame或Series中，如果使用<code>df.round(2)</code>，就会保留最多两位小数。</p>
+<p>比如，<code>2.00</code>显示为<code>2</code>，<code>1.90</code>显示为<code>1.9</code>。</p>
+<p>这样显示就会存在精度缺失的问题。</p>
+<p>可以使用如下方法改善显示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.options.display.float_format = <span class="string">'$&#123;:,.2f&#125;'</span>.format</span><br></pre></td></tr></table></figure>
+<p>也可以恢复默认：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.options.display.float_format = <span class="keyword">None</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -713,123 +820,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/11/websocket%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7wscat/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/websocket%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7wscat/" class="post-title-link" itemprop="url">websocket测试工具wscat</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-11-24 16:13:36" itemprop="dateCreated datePublished" datetime="2020-11-24T16:13:36+08:00">2020-11-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-29 23:41:44" itemprop="dateModified" datetime="2020-11-29T23:41:44+08:00">2020-11-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/11/websocket%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7wscat/" class="post-meta-item leancloud_visitors" data-flag-title="websocket测试工具wscat" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2020/11/websocket%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7wscat/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/websocket%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7wscat/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>WebSocket Cat (wscat)是一个连接websocket的小工具。</p>
-<h1 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g wscat</span><br></pre></td></tr></table></figure>
-<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Usage: wscat [options] (--listen &lt;port&gt; | --connect &lt;url&gt;)</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -V, --version                       output the version number</span><br><span class="line">  -l, --listen &lt;port&gt;                 listen on port</span><br><span class="line">  -c, --connect &lt;url&gt;                 connect to a WebSocket server</span><br><span class="line">  -p, --protocol &lt;version&gt;            optional protocol version</span><br><span class="line">  -o, --origin &lt;origin&gt;               optional origin</span><br><span class="line">  -x, --execute &lt;command&gt;             execute command after connecting</span><br><span class="line">  -w, --wait &lt;seconds&gt;                wait given seconds after executing command</span><br><span class="line">  -P, --show-ping-pong                print a notification when a ping or pong is received</span><br><span class="line">  --host &lt;host&gt;                       optional host</span><br><span class="line">  -s, --subprotocol &lt;protocol&gt;        optional subprotocol (default: [])</span><br><span class="line">  -n, --no-check                      do not check for unauthorized certificates</span><br><span class="line">  -H, --header &lt;header:value&gt;         set an HTTP header. Repeat to set multiple (--connect only) (default: [])</span><br><span class="line">  --auth &lt;username:password&gt;          add basic HTTP authentication header (--connect only)</span><br><span class="line">  --ca &lt;ca&gt;                           specify a Certificate Authority (--connect only)</span><br><span class="line">  --cert &lt;cert&gt;                       specify a Client SSL Certificate (--connect only)</span><br><span class="line">  --key &lt;key&gt;                         specify a Client SSL Certificate's key (--connect only)</span><br><span class="line">  --passphrase [passphrase]           specify a Client SSL Certificate Key's passphrase (--connect only). If you don't provide a value, it will be prompted for</span><br><span class="line">  --no-color                          run without color</span><br><span class="line">  --slash                             enable slash commands for control frames (/ping, /pong, /close [code [, reason]])</span><br><span class="line">  --proxy &lt;[protocol://]host[:port]&gt;  connect via a proxy. Proxy must support CONNECT method</span><br><span class="line">  -h, --help</span><br></pre></td></tr></table></figure>
-<h1 id="使用案例"><a href="#使用案例" class="headerlink" title="使用案例"></a>使用案例</h1><p>在终端1启动一个websocket服务，监听9000端口。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wscat --listen 9000</span><br><span class="line">Listening on port 9000 (press CTRL+C to quit)</span><br></pre></td></tr></table></figure>
-<p>在终端2连接上websocket服务。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wscat -c ws://localhost:9000/echo</span><br><span class="line">Connected (press CTRL+C to quit)</span><br></pre></td></tr></table></figure>
-<p>连上以后，在服务端，会提示信息：</p>
-<p><code>Client connected</code></p>
-<p>然后就可以两端互相发送消息了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -913,7 +903,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">261</span>
+          <span class="site-state-item-count">262</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -926,7 +916,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">164</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
