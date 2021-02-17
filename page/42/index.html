@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">262</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">263</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,156 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/02/Python%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/02/Python%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/" class="post-title-link" itemprop="url">Python如何打印日志</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-02-07 21:55:24" itemprop="dateCreated datePublished" datetime="2019-02-07T21:55:24+08:00">2019-02-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-01 22:35:27" itemprop="dateModified" datetime="2020-04-01T22:35:27+08:00">2020-04-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/02/Python%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/" class="post-meta-item leancloud_visitors" data-flag-title="Python如何打印日志" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2019/02/Python%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/Python%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h1><p>日志是跟踪软件运行时所发生的事件的一种方法。软件开发者在代码中调用日志函数，表明发生了特定的事件。事件由描述性消息描述，该描述性消息可以可选地包含可变数据（即，对于事件的每次出现都潜在地不同的数据）。事件还具有开发者归因于事件的重要性；重要性也可以称为级别或严重性。</p>
+<h2 id="什么时候使用Logging"><a href="#什么时候使用Logging" class="headerlink" title="什么时候使用Logging"></a>什么时候使用Logging</h2><p>logging提供了一组便利的函数，用来做简单的日志。它们是 debug()、 info()、 warning()、 error() 和 critical()。</p>
+<p>logging函数根据它们用来跟踪的事件的级别或严重程度来命名。标准级别及其适用性描述如下（以严重程度递增排序）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>级别</th>
+<th>何时使用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DEBUG</td>
+<td>详细信息，一般只在调试问题时使用。</td>
+</tr>
+<tr>
+<td>INFO</td>
+<td>证明事情按预期工作。</td>
+</tr>
+<tr>
+<td>WARNING</td>
+<td>某些没有预料到的事件的提示，或者在将来可能会出现的问题提示。例如：磁盘空间不足。但是软件还是会照常运行。</td>
+</tr>
+<tr>
+<td>ERROR</td>
+<td>由于更严重的问题，软件已不能执行一些功能了。</td>
+</tr>
+<tr>
+<td>CRITICAL</td>
+<td>严重错误，表明软件已不能继续运行了。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="打印日志到控制台"><a href="#打印日志到控制台" class="headerlink" title="打印日志到控制台"></a>打印日志到控制台</h1><p>由于默认设置的等级是warning，所有只有warning的信息会输出到控制台。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">logging.warning(<span class="string">'Watch out!'</span>)  <span class="comment"># will print a message to the console</span></span><br><span class="line">logging.info(<span class="string">'I told you so'</span>)  <span class="comment"># will not print anything</span></span><br><span class="line"></span><br><span class="line">WARNING:root:Watch out!</span><br></pre></td></tr></table></figure>
+<h1 id="打印日志到文件"><a href="#打印日志到文件" class="headerlink" title="打印日志到文件"></a>打印日志到文件</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">logging.basicConfig(filename=<span class="string">'example.log'</span>,level=logging.DEBUG)</span><br><span class="line">logging.debug(<span class="string">'This message should go to the log file'</span>)</span><br><span class="line">logging.info(<span class="string">'So should this'</span>)</span><br><span class="line">logging.warning(<span class="string">'And this, too'</span>)</span><br><span class="line"></span><br><span class="line">DEBUG:root:This message should go to the log file</span><br><span class="line">INFO:root:So should this</span><br><span class="line">WARNING:root:And this, too</span><br></pre></td></tr></table></figure>
+<p>我们设置了logging的级别为DEBUG，所以所有信息都将被写入到<code>example.log</code>文件中。</p>
+<p>如果想要每次启动时，原来的打印日志都被清空的话，则需要把<code>filemode</code>由默认的<code>a</code>改为<code>w</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logging.basicConfig(filename=<span class="string">'example.log'</span>, filemode=<span class="string">'w'</span>, level=logging.DEBUG)</span><br></pre></td></tr></table></figure>
+<h1 id="日志的格式"><a href="#日志的格式" class="headerlink" title="日志的格式"></a>日志的格式</h1><h2 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logging.basicConfig(format=<span class="string">'%(levelname)s:%(message)s'</span>, level=logging.DEBUG)</span><br><span class="line">logging.debug(<span class="string">'This message should appear on the console'</span>)</span><br><span class="line">logging.info(<span class="string">'So should this'</span>)</span><br><span class="line">logging.warning(<span class="string">'And this, too'</span>)</span><br><span class="line"></span><br><span class="line">DEBUG:This message should appear on the console</span><br><span class="line">INFO:So should this</span><br><span class="line">WARNING:And this, too</span><br></pre></td></tr></table></figure>
+<h2 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logging.basicConfig(format=<span class="string">'%(asctime)s %(message)s'</span>)</span><br><span class="line">logging.warning(<span class="string">'is when this event was logged.'</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">2019</span><span class="number">-02</span><span class="number">-07</span> <span class="number">22</span>:<span class="number">21</span>:<span class="number">20</span>,<span class="number">993</span> <span class="keyword">is</span> when this event was logged.</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -893,143 +1043,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/01/%E8%BF%90%E8%A1%8CSpark-Streaming%E6%A1%88%E4%BE%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/01/%E8%BF%90%E8%A1%8CSpark-Streaming%E6%A1%88%E4%BE%8B/" class="post-title-link" itemprop="url">运行Spark Streaming案例</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-01-24 10:25:32" itemprop="dateCreated datePublished" datetime="2019-01-24T10:25:32+08:00">2019-01-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-06-27 23:37:11" itemprop="dateModified" datetime="2019-06-27T23:37:11+08:00">2019-06-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/01/%E8%BF%90%E8%A1%8CSpark-Streaming%E6%A1%88%E4%BE%8B/" class="post-meta-item leancloud_visitors" data-flag-title="运行Spark Streaming案例" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/01/%E8%BF%90%E8%A1%8CSpark-Streaming%E6%A1%88%E4%BE%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/01/%E8%BF%90%E8%A1%8CSpark-Streaming%E6%A1%88%E4%BE%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>Spark Streaming is an extension of the core Spark API that enables scalable, high-throughput, fault-tolerant stream processing of live data streams.</p>
-</blockquote>
-<p>这篇文章将描述运行Spark官网上一个案例程序。</p>
-<p>执行<code>spark-submit</code>命令，查看命令使用方法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME</span><br><span class="line"></span><br><span class="line">bin&#x2F;spark-submit</span><br><span class="line"></span><br><span class="line">Usage: spark-submit [options] &lt;app jar | python file&gt; [app arguments]</span><br><span class="line">Usage: spark-submit --kill [submission ID] --master [spark:&#x2F;&#x2F;...]</span><br><span class="line">Usage: spark-submit --status [submission ID] --master [spark:&#x2F;&#x2F;...]</span><br><span class="line">Usage: spark-submit run-example [options] example-class [example args]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  --master MASTER_URL         spark:&#x2F;&#x2F;host:port, mesos:&#x2F;&#x2F;host:port, yarn, or local.</span><br><span class="line">  --deploy-mode DEPLOY_MODE   Whether to launch the driver program locally (&quot;client&quot;) or</span><br><span class="line">                              on one of the worker machines inside the cluster (&quot;cluster&quot;)</span><br><span class="line">                              (Default: client).</span><br><span class="line">  --class CLASS_NAME          Your application&#39;s main class (for Java &#x2F; Scala apps).</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
-<p>运行<code>NetworkWordCount</code>案例，我们需要指定<code>master</code>, <code>class</code>参数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;spark-submit --master local[2] --class org.apache.spark.examples.streaming.NetworkWordCount examples&#x2F;jars&#x2F;spark-examples_2.11-2.2.3.jar</span><br><span class="line"></span><br><span class="line">Usage: NetworkWordCount &lt;hostname&gt; &lt;port&gt;</span><br></pre></td></tr></table></figure>
-<p>终端又给我们使用方法的提示，需要提供网络服务器地址<code>hostname</code>和端口<code>port</code>。</p>
-<p>如果网络上还没有提供服务时，执行上述命令，则会遇到如下错误。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">19&#x2F;01&#x2F;24 10:49:42 ERROR ReceiverTracker: Deregistered receiver for stream 0: Restarting receiver with delay 2000ms: Error connecting</span><br><span class="line">to localhost:9999 - java.net.ConnectException: Connection refused (Connection refused)</span><br></pre></td></tr></table></figure>
-<p>所以，另开一个Shell终端，启动<code>Netcat</code>, 在端口<code>9999</code>上提供服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -lk 9999</span><br></pre></td></tr></table></figure>
-<p>继续执行<code>NetworkWordCount</code>案例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;spark-submit --master local[2] --class org.apache.spark.examples.streaming.NetworkWordCount examples&#x2F;jars&#x2F;spark-examples_2.11-2.2.3.jar localhost 9999</span><br><span class="line"></span><br><span class="line">Using Spark&#39;s default log4j profile: org&#x2F;apache&#x2F;spark&#x2F;log4j-defaults.properties</span><br><span class="line">19&#x2F;01&#x2F;24 11:04:46 INFO StreamingExamples: Setting log level to [WARN] for streaming example. To override add a custom log4j.properties to the classpath.</span><br><span class="line">19&#x2F;01&#x2F;24 11:04:47 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">19&#x2F;01&#x2F;24 11:04:47 WARN Utils: Your hostname, localhost resolves to a loopback address: 127.0.0.1; using 192.168.1.112 instead (on interface en0)</span><br><span class="line">19&#x2F;01&#x2F;24 11:04:47 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address</span><br><span class="line">19&#x2F;01&#x2F;24 11:04:47 WARN Utils: Service &#39;SparkUI&#39; could not bind on port 4040. Attempting port 4041.</span><br><span class="line">-------------------------------------------</span><br><span class="line">Time: 1548299089000 ms</span><br><span class="line">-------------------------------------------</span><br></pre></td></tr></table></figure>
-<p>我们在Netcat终端上输入几个单词，看看统计的结果。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello hello spark spark spark</span><br></pre></td></tr></table></figure>
-<p>很快的，我们在spark终端上就能看到统计的结果了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">-------------------------------------------</span><br><span class="line">Time: 1548298250000 ms</span><br><span class="line">-------------------------------------------</span><br><span class="line">(hello,2)</span><br><span class="line">(spark,3)</span><br></pre></td></tr></table></figure>
-<p>我们再换一种方式，通过<code>spark-shell</code>的方式，输入代码，运行一下单词统计的程序。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;spark-shell --master local[2]</span><br><span class="line"></span><br><span class="line">Using Spark&#39;s default log4j profile: org&#x2F;apache&#x2F;spark&#x2F;log4j-defaults.properties</span><br><span class="line">Setting default log level to &quot;WARN&quot;.</span><br><span class="line">To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).</span><br><span class="line">19&#x2F;01&#x2F;24 12:45:00 WARN Utils: Your hostname, localhost resolves to a loopback address: 127.0.0.1; using 192.168.1.112 instead (on interface en0)</span><br><span class="line">19&#x2F;01&#x2F;24 12:45:00 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address</span><br><span class="line">19&#x2F;01&#x2F;24 12:45:00 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Spark context Web UI available at http:&#x2F;&#x2F;192.168.1.112:4040</span><br><span class="line">Spark context available as &#39;sc&#39; (master &#x3D; local[2], app id &#x3D; local-1548305101841).</span><br><span class="line">Spark session available as &#39;spark&#39;.</span><br><span class="line">Welcome to</span><br><span class="line">      ____              __</span><br><span class="line">     &#x2F; __&#x2F;__  ___ _____&#x2F; &#x2F;__</span><br><span class="line">    _\ \&#x2F; _ \&#x2F; _ &#96;&#x2F; __&#x2F;  &#39;_&#x2F;</span><br><span class="line">   &#x2F;___&#x2F; .__&#x2F;\_,_&#x2F;_&#x2F; &#x2F;_&#x2F;\_\   version 2.2.3</span><br><span class="line">      &#x2F;_&#x2F;</span><br><span class="line"></span><br><span class="line">Using Scala version 2.11.8 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_181)</span><br><span class="line">Type in expressions to have them evaluated.</span><br><span class="line">Type :help for more information.</span><br><span class="line"></span><br><span class="line">scala&gt;</span><br></pre></td></tr></table></figure>
-<p>我们按exmaples案例，输入以下代码。源代码可参看 <a href="https://github.com/apache/spark/blob/master/examples/src/main/scala/org/apache/spark/examples/streaming/NetworkWordCount.scala">https://github.com/apache/spark/blob/master/examples/src/main/scala/org/apache/spark/examples/streaming/NetworkWordCount.scala</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">scala&gt;</span><br><span class="line"></span><br><span class="line">import org.apache.spark.storage.StorageLevel</span><br><span class="line">import org.apache.spark.streaming.&#123;Seconds, StreamingContext&#125;</span><br><span class="line">val ssc &#x3D; new StreamingContext(sc, Seconds(1))</span><br><span class="line">val lines &#x3D; ssc.socketTextStream(&quot;localhost&quot;, 9999, StorageLevel.MEMORY_AND_DISK_SER)</span><br><span class="line">val words &#x3D; lines.flatMap(_.split(&quot; &quot;))</span><br><span class="line">val wordCounts &#x3D; words.map(x &#x3D;&gt; (x, 1)).reduceByKey(_ + _)</span><br><span class="line">wordCounts.print()</span><br><span class="line">ssc.start()</span><br><span class="line">ssc.awaitTermination()</span><br></pre></td></tr></table></figure>
-<p>在<code>netcat</code>终端输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello hello spark spark spark</span><br></pre></td></tr></table></figure>
-<p>我们一样能看到统计的结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">-------------------------------------------</span><br><span class="line">Time: 1548305187000 ms</span><br><span class="line">-------------------------------------------</span><br><span class="line">(hello,2)</span><br><span class="line">(spark,3)</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1113,7 +1126,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">262</span>
+          <span class="site-state-item-count">263</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

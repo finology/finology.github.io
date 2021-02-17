@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">262</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">263</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,152 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/01/%E5%AE%89%E8%A3%85Hadoop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/01/%E5%AE%89%E8%A3%85Hadoop/" class="post-title-link" itemprop="url">安装Hadoop</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-08 10:42:54" itemprop="dateCreated datePublished" datetime="2019-01-08T10:42:54+08:00">2019-01-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-01-28 13:25:34" itemprop="dateModified" datetime="2019-01-28T13:25:34+08:00">2019-01-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/01/%E5%AE%89%E8%A3%85Hadoop/" class="post-meta-item leancloud_visitors" data-flag-title="安装Hadoop" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2019/01/%E5%AE%89%E8%A3%85Hadoop/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/01/%E5%AE%89%E8%A3%85Hadoop/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="下载Hadoop安装包"><a href="#下载Hadoop安装包" class="headerlink" title="下载Hadoop安装包"></a>下载Hadoop安装包</h1><p>我们选择安装hadoop cdh5版本，hadoop-2.6.0-cdh5.7.0</p>
+<p>下载并解压</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;hadoop</span><br><span class="line"></span><br><span class="line">wget http:&#x2F;&#x2F;archive.cloudera.com&#x2F;cdh5&#x2F;cdh&#x2F;5&#x2F;hadoop-2.6.0-cdh5.7.0.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxvf hadoop-2.6.0-cdh5.7.0.tar.gz</span><br></pre></td></tr></table></figure>
+<h1 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~&#x2F;.bash_profile</span><br></pre></td></tr></table></figure>
+<p>添加如下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export HADOOP_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;hadoop-2.6.0-cdh5.7.0</span><br></pre></td></tr></table></figure>
+<p>执行<code>source</code>命令让其配置生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.bash_profile</span><br></pre></td></tr></table></figure>
+<h1 id="设置ssh免密登录"><a href="#设置ssh免密登录" class="headerlink" title="设置ssh免密登录"></a>设置ssh免密登录</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br><span class="line">ssh-copy-id -i ~&#x2F;.ssh&#x2F;id_rsa.pub simon@localhost</span><br></pre></td></tr></table></figure>
+<p>以上设置成功后，我们可以发现ssh登录时不需要密码了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh simon@localhost</span><br><span class="line">Last login: Mon Jan 08 10:45:10 2019</span><br></pre></td></tr></table></figure>
+<h1 id="其他Linux配置"><a href="#其他Linux配置" class="headerlink" title="其他Linux配置"></a>其他Linux配置</h1><p>我目前所有的大数据组件都是用于开发验证，所以都是安装在本地的macOS环境下。如果在真实的Linux集群环境下安装，还需要配置hostname等信息</p>
+<p>Linux下修改hostname</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;sysconfig&#x2F;network</span><br></pre></td></tr></table></figure>
+<p>添加如下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NETWORKING&#x3D;yes</span><br><span class="line">HOSTNAME&#x3D;hadoop001</span><br></pre></td></tr></table></figure>
+<p>修改<code>/etc/hosts</code>文件，配置主机和ip的映射关系</p>
+<h1 id="Hadoop配置文件修改"><a href="#Hadoop配置文件修改" class="headerlink" title="Hadoop配置文件修改"></a>Hadoop配置文件修改</h1><h2 id="etc-hadoop-hadoop-env-sh"><a href="#etc-hadoop-hadoop-env-sh" class="headerlink" title="etc/hadoop/hadoop-env.sh"></a>etc/hadoop/hadoop-env.sh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME&#x3D;&#x2F;Library&#x2F;Java&#x2F;JavaVirtualMachines&#x2F;jdk1.8.0_181.jdk&#x2F;Contents&#x2F;Home</span><br></pre></td></tr></table></figure>
+<h2 id="etc-hadoop-core-site-xml"><a href="#etc-hadoop-core-site-xml" class="headerlink" title="etc/hadoop/core-site.xml"></a>etc/hadoop/core-site.xml</h2><p>伪分布式配置</p>
+<p>Hadoop 2.x版本默认端口为8020而非1.x版本的9000。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://localhost:8020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>设置tmp文件夹，默认地址为/tmp/hadoop-${user.name}</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/local/hadoop/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="etc-hadoop-hdfs-site-xml"><a href="#etc-hadoop-hdfs-site-xml" class="headerlink" title="etc/hadoop/hdfs-site.xml"></a>etc/hadoop/hdfs-site.xml</h2><p>设置文件系统复本系数。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="格式化HDFS"><a href="#格式化HDFS" class="headerlink" title="格式化HDFS"></a>格式化HDFS</h1><p>这一步操作只需要执行一次，格式化后，HDFS上的数据会被清空。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;hdfs namenode -format</span><br></pre></td></tr></table></figure>
+<p>注：<code>bin</code>目录存放客户端命令，<code>sbin</code>存放服务端命令。</p>
+<h1 id="启动HDFS"><a href="#启动HDFS" class="headerlink" title="启动HDFS"></a>启动HDFS</h1><h2 id="启动NameNode和DataNode"><a href="#启动NameNode和DataNode" class="headerlink" title="启动NameNode和DataNode"></a>启动NameNode和DataNode</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sbin&#x2F;start-dfs.sh</span><br><span class="line"></span><br><span class="line">19&#x2F;01&#x2F;08 13:11:40 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Starting namenodes on [localhost]</span><br><span class="line">localhost: starting namenode, logging to &#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;hadoop-2.6.0-cdh5.7.0&#x2F;logs&#x2F;hadoop-simon-namenode-localhost.out</span><br><span class="line">localhost: starting datanode, logging to &#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;hadoop-2.6.0-cdh5.7.0&#x2F;logs&#x2F;hadoop-simon-datanode-localhost.out</span><br><span class="line">Starting secondary namenodes [0.0.0.0]</span><br><span class="line">0.0.0.0: starting secondarynamenode, logging to &#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;hadoop-2.6.0-cdh5.7.0&#x2F;logs&#x2F;hadoop-simon-secondarynamenode-localhost.out</span><br><span class="line">19&#x2F;01&#x2F;08 13:11:55 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br></pre></td></tr></table></figure>
+<p>我们注意到这一句<code>localhost: starting datanode</code>，这句里面的localhost，是和<code>slaves</code>从节点中的名字相同的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat etc&#x2F;hadoop&#x2F;slaves</span><br><span class="line">localhost</span><br></pre></td></tr></table></figure>
+<h2 id="验证是否启动成功"><a href="#验证是否启动成功" class="headerlink" title="验证是否启动成功"></a>验证是否启动成功</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jps</span><br><span class="line">18242 SecondaryNameNode</span><br><span class="line">18150 DataNode</span><br><span class="line">18079 NameNode</span><br></pre></td></tr></table></figure>
+<p>拥有这三个进程就说明已经启动成功。</p>
+<p>同时我们还可以通过Web UI查看</p>
+<p><a href="http://localhost:50070/">http://localhost:50070/</a></p>
+<img src="/2019/01/%E5%AE%89%E8%A3%85Hadoop/hadoop_web.png" class="">
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -667,142 +813,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2018/10/%E8%BF%9E%E6%8E%A5Mysql%E6%97%B6%E5%87%BA%E7%8E%B0too-many-connections%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/10/%E8%BF%9E%E6%8E%A5Mysql%E6%97%B6%E5%87%BA%E7%8E%B0too-many-connections%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="post-title-link" itemprop="url">连接Mysql时出现too many connections的一些解决办法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-10-09 19:30:32" itemprop="dateCreated datePublished" datetime="2018-10-09T19:30:32+08:00">2018-10-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-04 14:38:31" itemprop="dateModified" datetime="2020-05-04T14:38:31+08:00">2020-05-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2018/10/%E8%BF%9E%E6%8E%A5Mysql%E6%97%B6%E5%87%BA%E7%8E%B0too-many-connections%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="连接Mysql时出现too many connections的一些解决办法" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2018/10/%E8%BF%9E%E6%8E%A5Mysql%E6%97%B6%E5%87%BA%E7%8E%B0too-many-connections%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2018/10/%E8%BF%9E%E6%8E%A5Mysql%E6%97%B6%E5%87%BA%E7%8E%B0too-many-connections%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>通过Navicat客户端连接Mysql数据库时，出现too many connections的提示，可以进行如下操作</p>
-<h2 id="登录mysql数据库"><a href="#登录mysql数据库" class="headerlink" title="登录mysql数据库"></a>登录mysql数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># mysql -u root -p</span><br><span class="line">Enter password:</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 2965</span><br><span class="line">Server version: 5.7.18 MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2017, Oracle and&#x2F;or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and&#x2F;or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.</span><br></pre></td></tr></table></figure>
-<h2 id="查看连接数"><a href="#查看连接数" class="headerlink" title="查看连接数"></a>查看连接数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show processlist;</span><br><span class="line">+------+------+---------------------+--------------+---------+------+----------+------------------+</span><br><span class="line">| Id   | User | Host                | db           | Command | Time | State    | Info             |</span><br><span class="line">+------+------+---------------------+--------------+---------+------+----------+------------------+</span><br><span class="line">| 2821 | root | 192.168.1.124:58526 | testdb       | Sleep   | 7180 |          | NULL             |</span><br><span class="line">| 2822 | root | 192.168.1.124:58527 | testdb       | Sleep   | 7180 |          | NULL             |</span><br><span class="line">| 2840 | root | 192.168.1.124:58741 | testdb       | Sleep   | 5790 |          | NULL             |</span><br><span class="line">| 2841 | root | 192.168.1.124:58742 | testdb       | Sleep   | 5820 |          | NULL             |</span><br></pre></td></tr></table></figure>
-<p>将会发现有很多连接是处于<code>Sleep</code>状态的，这些连接是暂时没有用的，可以删除掉。如何删除请继续往下看。</p>
-<h2 id="查看最大连接数"><a href="#查看最大连接数" class="headerlink" title="查看最大连接数"></a>查看最大连接数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &quot;max_connections&quot;;</span><br><span class="line">+-----------------+-------+</span><br><span class="line">| Variable_name   | Value |</span><br><span class="line">+-----------------+-------+</span><br><span class="line">| max_connections | 151   |</span><br><span class="line">+-----------------+-------+</span><br><span class="line">1 row in set (0.01 sec)</span><br></pre></td></tr></table></figure>
-<p>当processlist的数量大于查询到的max_connections时，就会出现too many connections的提示信息。</p>
-<h2 id="修改最大连接数"><a href="#修改最大连接数" class="headerlink" title="修改最大连接数"></a>修改最大连接数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set GLOBAL max_connections&#x3D;1000;</span><br></pre></td></tr></table></figure>
-<p>这不是一劳永逸的方法，应该要让它自动杀死那些sleep的进程。</p>
-<h2 id="查看关闭一个连接的等待时间，并修改"><a href="#查看关闭一个连接的等待时间，并修改" class="headerlink" title="查看关闭一个连接的等待时间，并修改"></a>查看关闭一个连接的等待时间，并修改</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show global variables like &#39;wait_timeout&#39;;</span><br><span class="line">set global wait_timeout&#x3D;300;</span><br></pre></td></tr></table></figure>
-<p>修改这个数值，这里可以随意，最好控制在几分钟内。</p>
-<h2 id="其他待验证"><a href="#其他待验证" class="headerlink" title="其他待验证"></a>其他待验证</h2><p>set global interactive_timeout=500;<br>修改这个数值，表示mysql在关闭一个连接之前要等待的秒数，至此可以让mysql自动关闭那些没用的连接，但要注意的是，正在使用的连接到了时间也会被关闭，因此这个时间值要合适</p>
-<p>批量kill之前没用的sleep连接，在网上搜索的方法对我都不奏效，因此只好使用最笨的办法，一个一个kill</p>
-<p>select concat(‘KILL ‘,id,’;’) from information_schema.processlist where user=’root’;</p>
-<p>先把要kill的连接id都查询出来<br>复制中间的kill id;内容到word文档<br>替换掉符号“|”和回车符（在word中查询^p即可查询到回车符）<br>把修改过的内容复制回终端，最后按回车执行</p>
-<p>产生这种问题的原因是：</p>
-<p>连接数超过了 MySQL 设置的值，与 max_connections 和 wait_timeout  都有关系。wait_timeout 的值越大，连接的空闲等待就越长，这样就会造成当前连接数越大。</p>
-<p>解决方法：</p>
-<p>修改MySQL配置文件/etc/my.cnf,设置成max_connections=1000,wait_timeout=5。如果没有此项设置可以自行添加，修改后重启MySQL服务即可。要不经常性报此错误，则要对服务器作整体性能优化</p>
-<p>注：</p>
-<p>为了防止发生too many connections时候无法登录的问题，mysql manual有如下的说明：</p>
-<p>mysqld actually allows max_connections+1 clients to connect. The extra connection is reserved for use by accounts that have theSUPER privilege. By granting the SUPER privilege to administrators and not to normal users (who should not need it), an administrator can connect to the server and use SHOW PROCESSLIST to diagnose problems even if the maximum number of unprivileged clients are connected.</p>
-<p>因此, 必须只赋予root用户的SUPER权限，同时所有数据库连接的帐户不能赋予SUPER权限。前面说到的报错后无法登录就是由于我们的应用程序直接配置的root用户</p>
-<p>总结，解决问题的最终方法：</p>
-<p>1.修改配置文件/etc/my.cnf,调整连接参数</p>
-<p>2.检查程序代码，对于没有关闭的链接及时进行关闭</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -886,7 +896,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">262</span>
+          <span class="site-state-item-count">263</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
