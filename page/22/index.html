@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">265</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">266</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,152 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/" class="post-title-link" itemprop="url">Kubernetes持久化存储PV,PVC</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-08 19:35:45 / 修改时间：19:41:00" itemprop="dateCreated datePublished" datetime="2020-03-08T19:35:45+08:00">2020-03-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kubernetes/PV/" itemprop="url" rel="index"><span itemprop="name">PV</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/" class="post-meta-item leancloud_visitors" data-flag-title="Kubernetes持久化存储PV,PVC" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>我们可以通过hostPath或者emptyDir的方式来持久化数据。但这两种存储方式都是很大局限性的。我们希望容器在重建以后，依然能正确使用之前保存的数据。Kubernetes引入了PV和PVC两个重要的资源来实现对存储的管理。</p>
+<h1 id="PV"><a href="#PV" class="headerlink" title="PV"></a>PV</h1><p>PersistentVolume，持久化卷，是对底层共享存储的一种抽象。底层共享的实现，可以是Ceph, GlusterFS, NFS等。</p>
+<p>我们在<a href="/2020/03/CentOS%E4%B8%8A%E6%90%AD%E5%BB%BANFS%E6%9C%8D%E5%8A%A1/" title="CentOS上搭建NFS服务">CentOS上搭建NFS服务</a>讲了如何搭建NFS服务。PV作为存储资源，主要包括存储能力、访问模式、存储类型、回收策略等关键信息。</p>
+<p>现在新建一个PV资源对象，使用NFS类型的存储，1G空间，访问模式为ReadWriteOnce，回收策略为Recycle，yaml文件<code>pv1-demo.yaml</code>内容如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolume</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span>  <span class="string">pv1</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  capacity:</span> </span><br><span class="line"><span class="attr">    storage:</span> <span class="number">1</span><span class="string">Gi</span></span><br><span class="line"><span class="attr">  accessModes:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">ReadWriteOnce</span></span><br><span class="line"><span class="attr">  persistentVolumeReclaimPolicy:</span> <span class="string">Recycle</span></span><br><span class="line"><span class="attr">  nfs:</span></span><br><span class="line"><span class="attr">    path:</span> <span class="string">/data/nfs</span></span><br><span class="line"><span class="attr">    server:</span> <span class="number">172.16</span><span class="number">.64</span><span class="number">.233</span></span><br></pre></td></tr></table></figure>
+<p>应用一下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> kubectl apply -f pv1-demo.yaml</span></span><br><span class="line">persistentvolume/pv1 created</span><br></pre></td></tr></table></figure>
+<p>查看刚才创建的结果</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> kubectl get pv</span></span><br><span class="line">NAME   CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE</span><br><span class="line">pv1    1Gi        RWO            Recycle          Available                                   82s</span><br></pre></td></tr></table></figure>
+<p>Status状态为Available，表示pv1已经就绪，可以被PVC申请了。</p>
+<p>这里讲一下PV的几个属性</p>
+<h2 id="STATUS"><a href="#STATUS" class="headerlink" title="STATUS"></a>STATUS</h2><p>一个 PV 的生命周期中，可能会处于4中不同的阶段：</p>
+<ul>
+<li>Available（可用）：表示可用状态，还未被任何 PVC 绑定</li>
+<li>Bound（已绑定）：表示 PVC 已经被 PVC 绑定</li>
+<li>Released（已释放）：PVC 被删除，但是资源还未被集群重新声明</li>
+<li>Failed（失败）： 表示该 PV 的自动回收失败</li>
+</ul>
+<h2 id="CAPACITY"><a href="#CAPACITY" class="headerlink" title="CAPACITY"></a>CAPACITY</h2><p>目前只有空间大小，pv1的空间为1G，以后可能会加入IOPS，吞吐量等指标。</p>
+<h2 id="ACCESS-MODES"><a href="#ACCESS-MODES" class="headerlink" title="ACCESS MODES"></a>ACCESS MODES</h2><p>AccessModes是用来对PV进行访问模式的设置。</p>
+<ul>
+<li>ReadWriteOnce（RWO）：读写权限，但是只能被单个节点挂载</li>
+<li>ReadOnlyMany（ROX）：只读权限，可以被多个节点挂载</li>
+<li>ReadWriteMany（RWX）：读写权限，可以被多个节点挂载</li>
+</ul>
+<h2 id="RECLAIM-POLICY"><a href="#RECLAIM-POLICY" class="headerlink" title="RECLAIM POLICY"></a>RECLAIM POLICY</h2><p>回收策略</p>
+<ul>
+<li>Retain（保留）- 保留数据，需要管理员手工清理数据</li>
+<li>Recycle（回收）- 清除PV中的数据，效果相当于执行 rm -rf /thevoluem/*</li>
+<li>Delete（删除）- 与PV相连的后端存储完成volume的删除操作</li>
+</ul>
+<p>生产上一般使用Retain策略。</p>
+<h1 id="PVC"><a href="#PVC" class="headerlink" title="PVC"></a>PVC</h1><p>PersistentVolumeClaim，持久化卷声明。如果说Pod消耗的是Node资源的话，PVC则是消耗的PV资源，Pod可以请求CPU和内存，而PVC可以请求特定的存储空间和访问模式。</p>
+<p>我们新建一个PVC，请求1G的空间，<code>pvc-nfs.yaml</code>内容如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolumeClaim</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">pvc-nfs</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  accessModes:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">ReadWriteOnce</span></span><br><span class="line"><span class="attr">  resources:</span></span><br><span class="line"><span class="attr">    requests:</span></span><br><span class="line"><span class="attr">      storage:</span> <span class="number">1</span><span class="string">Gi</span></span><br></pre></td></tr></table></figure>
+<p>这里需要注册的是，PV是没有namespace的，而PVC是有namespace的。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> kubectl apply -f pvc-nfs.yaml</span></span><br><span class="line">persistentvolumeclaim/pvc-nfs created</span><br><span class="line"><span class="meta">#</span><span class="bash"> kubectl get pvc</span></span><br><span class="line">NAME      STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE</span><br><span class="line">pvc-nfs   Bound    pv1      1Gi        RWO                           3m22s</span><br></pre></td></tr></table></figure>
+<p>PVC已经是<code>Bound</code>状态了。我们再查看一个PV的状态，发现也是<code>Bound</code>状态了。对应的声明是<code>default/pvc-nfs</code>，就是<code>default</code>命名空间下面的<code>pvc-nfs</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> kubectl get pv</span></span><br><span class="line">NAME   CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM             STORAGECLASS   REASON   AGE</span><br><span class="line">pv1    1Gi        RWO            Recycle          Bound    default/pvc-nfs                           48m</span><br></pre></td></tr></table></figure>
+<p>这里可能觉得奇怪，我们并没有在 yaml 文件里面指定 PVC 和 PV 的关系，他们怎么可能绑定到一起呢？其实这是系统自动帮我们去匹配的，他会根据我们的声明要求去查找处于 Available 状态的 PV，如果没有找到的话那么我们的 PVC 就会一直处于 Pending 状态，找到了的话当然就会把当前的 PVC 和目标 PV 进行绑定，这个时候状态就会变成 Bound 状态了。</p>
+<p>如果使用PVC，可以参考<a href="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/" title="Grafana安装及持久化">Grafana安装及持久化</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -750,123 +896,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/" class="post-title-link" itemprop="url">/var/lib/docker/overlay2占用空间太大</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-27 16:27:01" itemprop="dateCreated datePublished" datetime="2020-02-27T16:27:01+08:00">2020-02-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-04 14:28:25" itemprop="dateModified" datetime="2020-05-04T14:28:25+08:00">2020-05-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/" class="post-meta-item leancloud_visitors" data-flag-title="/var/lib/docker/overlay2占用空间太大" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>执行<code>df -h</code>命令发现<code>/var/lib/docker</code>目录占用空间太大。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> df -h</span></span><br><span class="line">文件系统                 容量  已用  可用 已用% 挂载点</span><br><span class="line">devtmpfs                 898M     0  898M    0% /dev</span><br><span class="line">tmpfs                    910M     0  910M    0% /dev/shm</span><br><span class="line">tmpfs                    910M   60M  851M    7% /run</span><br><span class="line">tmpfs                    910M     0  910M    0% /sys/fs/cgroup</span><br><span class="line">/dev/mapper/centos-root   17G  5.9G   12G   35% /</span><br><span class="line">/dev/sda1               1014M  150M  865M   15% /boot</span><br><span class="line">tmpfs                    910M  4.0K  910M    1% /var/lib/kubelet/pods/0914bac1-2c2f-4294-a036-afe6fb5d2a16/volumes/kubernetes.io~secret/config</span><br><span class="line">tmpfs                    910M  4.0K  910M    1% /var/lib/kubelet/pods/7975066f-117d-4523-a55e-53262ed8f131/volumes/kubernetes.io~secret/config-volume</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/7454b8be-1bd2-4c17-9784-55bf49d0e6fd/volumes/kubernetes.io~secret/node-exporter-token-hwqlc</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/7975066f-117d-4523-a55e-53262ed8f131/volumes/kubernetes.io~secret/alertmanager-main-token-z4qrq</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/71e0ccae-267d-4025-b4ec-a5ccbd1f0adc/volumes/kubernetes.io~secret/kube-proxy-token-kq9lp</span><br><span class="line">tmpfs                    910M  4.0K  910M    1% /var/lib/kubelet/pods/e685593b-9684-48cc-a304-040b30707088/volumes/kubernetes.io~secret/config</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/53e83a95-4db5-48f7-b166-b37df18b38e0/volumes/kubernetes.io~secret/calico-node-token-f6g2m</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/0914bac1-2c2f-4294-a036-afe6fb5d2a16/volumes/kubernetes.io~secret/prometheus-k8s-token-sm6gd</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/e685593b-9684-48cc-a304-040b30707088/volumes/kubernetes.io~secret/prometheus-k8s-token-sm6gd</span><br><span class="line">overlay                   17G  5.9G   12G   35% /var/lib/docker/overlay2/70944089660c7647c7a83e1dcef9d6297e3e440d4d2d4742f5d68448bde9ad95/merged</span><br><span class="line">shm                       64M     0   64M    0% /var/lib/docker/containers/e59d5037dc150cf7c2ed10ea94d8549c3b98e0b847980a1a306eda8dcaf7e6de/mounts/shm</span><br><span class="line">overlay                   17G  5.9G   12G   35% /var/lib/docker/overlay2/bbdeb82071f8c4cbb2d59e26721735d5f3fd82f8139c0a448133156a0f12631f/merged</span><br><span class="line">overlay                   17G  5.9G   12G   35% /var/lib/docker/overlay2/383c5b7d30028f38eca1e4f2b3ac6144d52b5b1e8f296f2314de9ca0fd867f7d/merged</span><br><span class="line">shm                       64M     0   64M    0% /var/lib/docker/containers/df1ee27e97c823d18fe76ca3a7195cd081e466527b3cf9169a9a9f816b4c3391/mounts/shm</span><br></pre></td></tr></table></figure>
-<p>执行<code>docker ps -a</code>发现大量已经停止或退出的容器，需要清理空间。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker system prune</span></span><br><span class="line">WARNING! This will remove:</span><br><span class="line">        - all stopped containers</span><br><span class="line">        - all networks not used by at least one container</span><br><span class="line">        - all dangling images</span><br><span class="line">        - all build cache</span><br><span class="line">Are you sure you want to continue? [y/N] y</span><br><span class="line">Deleted Containers:</span><br><span class="line">64d81b1dc03026478f0114b657d4cd938967868967e5e5ee9b8ea3d72814a736</span><br><span class="line">c5f180a1c5c2804d45d13d11f338d241e482ada9673bff0ba8cc18759ae4fcae</span><br><span class="line">aa06316b5fd638c22fc41bd8f8ea4c511566c4c537c81bf5aad5f276ac6c2fae</span><br><span class="line">ce5048ebf25bd48bbe1372aaf38c68078a05c06157ffcb4a8e646470f647acb0</span><br><span class="line">0c4b37413e3483366fb640b94ad33596aef149a50bc610a2d720663159280871</span><br><span class="line">7575ec0a092bc9d3dd1a54ac2e3b92ce0dd8f3f570565ecc918684b0c51087ea</span><br><span class="line">1e335ee77f4167c19f6e54a1728d3d49775f651d871009752b1cfb7ec9fd7867</span><br><span class="line">393bd6280ecf423804c27f264cfc95e72df7580dc6881bb1a249152b4554b10e</span><br><span class="line">63ad5c44a30c80645e84b16cc8e1009e46235bd7001153f8d8d3c4887ed18786</span><br><span class="line">ee8c92a30092e7c30338d2a6721d13f250c2a426947a29c2e2c30f9936c0e07a</span><br><span class="line">cd49e432a75a5f9719e8436af70a40e9869e02db51c4f8c08f02ad26a6bdc3ba</span><br><span class="line">35435e8cd10d2dd9b26993da909aba31f4d52df3475b30ba7536d473004c7e91</span><br><span class="line">6028cf4eac7090a89c05edad7e45096130ee7e3336f28d2c0e2a890111d80043</span><br><span class="line">6e1d20022ecdd871a684b016c89d4d1122c9c5a00de998f921e2eacbd54da482</span><br><span class="line">6417077821f3fc76da1e436401b0ed58a842b8afec6134c3895d5f3c7ae8d069</span><br><span class="line">b49f44b5a26aad43d9d7b0f1ff57b659d4aab90d13477063160862018d3ba6f3</span><br><span class="line"></span><br><span class="line">Deleted Images:</span><br><span class="line">untagged: nginx@sha256:b2d89d0a210398b4d1120b3e3a7672c16a4ba09c2c4a0395f18b9f7999b768f2</span><br><span class="line">deleted: sha256:f7bb5701a33c0e572ed06ca554edca1bee96cbbc1f76f3b01c985de7e19d0657</span><br><span class="line">deleted: sha256:8f1984cf0de0461043fcabd6b2a2040325ac001d9897a242e0d80486fe71575e</span><br><span class="line">deleted: sha256:59d91a36ba4b720eadfbf346ddb825c2faa2d66cc7a915238eaf926c4b4b40ee</span><br><span class="line">deleted: sha256:556c5fb0d91b726083a8ce42e2faaed99f11bc68d3f70e2c7bbce87e7e0b3e10</span><br><span class="line">untagged: nginx@sha256:ee380d57f01eac528f59d031cbeff5eba98b077d25ebdc7d6aef6734f00a41b7</span><br><span class="line">deleted: sha256:231d40e811cd970168fb0c4770f2161aa30b9ba6fe8e68527504df69643aa145</span><br><span class="line">deleted: sha256:dc8adf8fa0fc82a56c32efac9d0da5f84153888317c88ab55123d9e71777bc62</span><br><span class="line">deleted: sha256:77fcff986d3b13762e4777046b9210a109fda20cb261bd3bbe5d7161d4e73c8e</span><br><span class="line"></span><br><span class="line">Total reclaimed space: 183.4MB</span><br></pre></td></tr></table></figure>
-<p>这样就删除了不用的容器和镜像了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/21/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/53/">53</a><a class="extend next" rel="next" href="/page/23/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/21/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/">54</a><a class="extend next" rel="next" href="/page/23/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -945,7 +979,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">265</span>
+          <span class="site-state-item-count">266</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
