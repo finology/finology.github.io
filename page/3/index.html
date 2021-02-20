@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">164</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">166</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">263</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">265</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,231 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/10/Linux-OpenSUSE%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93%E5%AD%97%E5%BA%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/Linux-OpenSUSE%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93%E5%AD%97%E5%BA%93/" class="post-title-link" itemprop="url">Linux OpenSUSE安装字体字库</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-19 15:23:17" itemprop="dateCreated datePublished" datetime="2020-10-19T15:23:17+08:00">2020-10-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-21 00:24:06" itemprop="dateModified" datetime="2020-10-21T00:24:06+08:00">2020-10-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/10/Linux-OpenSUSE%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93%E5%AD%97%E5%BA%93/" class="post-meta-item leancloud_visitors" data-flag-title="Linux OpenSUSE安装字体字库" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/10/Linux-OpenSUSE%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93%E5%AD%97%E5%BA%93/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/Linux-OpenSUSE%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93%E5%AD%97%E5%BA%93/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近在 Linux OpenSUSE 上运行 pdfbox 工具，将 Pdf 转成图片，会遇到找不到字体的警告提示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[15:02:34.732] WARN  org.apache.pdfbox.pdmodel.font.PDTrueTypeFont 220 &lt;init&gt; - Using fallback font &#39;LiberationSans&#39; for &#39;Arial,Bold&#39;</span><br></pre></td></tr></table></figure>
+<p>所以这篇文章讲述一下如何在 OpenSUSE 系统上安装字体字库。</p>
+<p>查看 OpenSUSE 版本号</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> cat /etc/os-release </span></span><br><span class="line">NAME="openSUSE Leap"</span><br><span class="line">VERSION="42.3"</span><br><span class="line">ID=opensuse</span><br><span class="line">ID_LIKE="suse"</span><br><span class="line">VERSION_ID="42.3"</span><br><span class="line">PRETTY_NAME="openSUSE Leap 42.3"</span><br><span class="line">ANSI_COLOR="0;32"</span><br><span class="line">CPE_NAME="cpe:/o:opensuse:leap:42.3"</span><br><span class="line">BUG_REPORT_URL="https://bugs.opensuse.org"</span><br><span class="line">HOME_URL="https://www.opensuse.org/"</span><br></pre></td></tr></table></figure>
+<h1 id="查看当前系统已经安装的字体"><a href="#查看当前系统已经安装的字体" class="headerlink" title="查看当前系统已经安装的字体"></a>查看当前系统已经安装的字体</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">fc</span>-list | less</span></span><br><span class="line"></span><br><span class="line">/usr/share/fonts/truetype/DejaVuSans-ExtraLight.ttf: DejaVu Sans,DejaVu Sans Light:style=ExtraLight</span><br><span class="line">/usr/share/fonts/truetype/OpenSans-CondLightItalic.ttf: Open Sans,Open Sans Condensed Light:style=Condensed Light Italic,Italic</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h1 id="获取字体"><a href="#获取字体" class="headerlink" title="获取字体"></a>获取字体</h1><p>大多数的字体，在 Windows 系统上都可以找到。</p>
+<p>字体目录所在位置：<code>C:\Windows\Fonts</code></p>
+<h1 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h1><p>OpenSUSE 的字库位置在 <code>/usr/share/fonts/truetype</code>，通过刚才命令也可以看出来。</p>
+<p>然后再把 Windows 下面的字体拷贝到上述目录中。</p>
+<p>重新加载新添加的字体：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fc-cache -fv</span><br></pre></td></tr></table></figure>
+<p>最后，要让java应用程序生效，还得重新启动一个应用。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/10/Python%E8%A7%A3%E6%9E%90%E5%BC%8F%E6%8E%A8%E5%AF%BC%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/Python%E8%A7%A3%E6%9E%90%E5%BC%8F%E6%8E%A8%E5%AF%BC%E5%BC%8F/" class="post-title-link" itemprop="url">Python解析式推导式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-08 14:53:50" itemprop="dateCreated datePublished" datetime="2020-10-08T14:53:50+08:00">2020-10-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/10/Python%E8%A7%A3%E6%9E%90%E5%BC%8F%E6%8E%A8%E5%AF%BC%E5%BC%8F/" class="post-meta-item leancloud_visitors" data-flag-title="Python解析式推导式" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/10/Python%E8%A7%A3%E6%9E%90%E5%BC%8F%E6%8E%A8%E5%AF%BC%E5%BC%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/Python%E8%A7%A3%E6%9E%90%E5%BC%8F%E6%8E%A8%E5%AF%BC%E5%BC%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><code>[ 值 for 元素 in 可迭代对象 if 条件 ]</code>  # 值可以是函数表达式</p>
+<p><code>[ 值1 if 条件1 else 值2 for 元素 in 可迭代对象]</code>   # 将 if-else 语句写入列表解析式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ret = [<span class="number">0.37</span>, <span class="number">-1.9</span>, <span class="number">0.6</span>, <span class="number">2.54</span>, <span class="number">0.51</span>, <span class="number">1.09</span>, <span class="number">1.79</span>, <span class="number">-1.2</span>, <span class="number">-0.14</span>, <span class="number">-0.5</span>, <span class="number">-2.37</span>, <span class="number">0.0</span>, <span class="number">-0.22</span>, <span class="number">-0.15</span>, <span class="number">4.28</span>, <span class="number">-0.85</span>, <span class="number">-1.79</span>, <span class="number">-0.44</span>, <span class="number">-0.15</span>, <span class="number">2.34</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例：从收益率序列中提取出负的收益率</span></span><br><span class="line">[i <span class="keyword">for</span> i <span class="keyword">in</span> ret <span class="keyword">if</span> i &lt; <span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">[<span class="number">-1.9</span>, <span class="number">-1.2</span>, <span class="number">-0.14</span>, <span class="number">-0.5</span>, <span class="number">-2.37</span>, <span class="number">-0.22</span>, <span class="number">-0.15</span>, <span class="number">-0.85</span>, <span class="number">-1.79</span>, <span class="number">-0.44</span>, <span class="number">-0.15</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 正收益率赋值为1，负收益率赋值为0</span></span><br><span class="line">[<span class="number">1</span> <span class="keyword">if</span> i &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> ret]</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ret_set = &#123;(<span class="number">0.37</span>, <span class="number">-1.9</span>, <span class="number">0.6</span>, <span class="number">2.54</span>, <span class="number">0.51</span>), (<span class="number">1.09</span>, <span class="number">1.79</span>, <span class="number">-1.2</span>, <span class="number">-0.14</span>, <span class="number">-0.5</span>), (<span class="number">-2.37</span>, <span class="number">0.0</span>, <span class="number">-0.22</span>, <span class="number">-0.15</span>, <span class="number">4.28</span>), (<span class="number">-0.85</span>, <span class="number">-1.79</span>, <span class="number">-0.44</span>, <span class="number">-0.15</span>, <span class="number">2.34</span>)&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如何将元素打平</span></span><br><span class="line">[i <span class="keyword">for</span> t <span class="keyword">in</span> ret_set <span class="keyword">for</span> i <span class="keyword">in</span> t]</span><br></pre></td></tr></table></figure>
+<p>内循环在外循环后面</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -560,227 +785,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/09/java%E4%B8%AD%E7%9A%84%E6%9E%9A%E4%B8%BE%E7%B1%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/java%E4%B8%AD%E7%9A%84%E6%9E%9A%E4%B8%BE%E7%B1%BB/" class="post-title-link" itemprop="url">java中的枚举类</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-09 15:34:11" itemprop="dateCreated datePublished" datetime="2020-09-09T15:34:11+08:00">2020-09-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-26 11:23:44" itemprop="dateModified" datetime="2020-09-26T11:23:44+08:00">2020-09-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/09/java%E4%B8%AD%E7%9A%84%E6%9E%9A%E4%B8%BE%E7%B1%BB/" class="post-meta-item leancloud_visitors" data-flag-title="java中的枚举类" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2020/09/java%E4%B8%AD%E7%9A%84%E6%9E%9A%E4%B8%BE%E7%B1%BB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/java%E4%B8%AD%E7%9A%84%E6%9E%9A%E4%B8%BE%E7%B1%BB/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在 java 中经常会使用到枚举类。类名可以使用 Enum 结尾。 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> UserTypeEnum &#123;</span><br><span class="line"></span><br><span class="line">    USER_TYPE_TEACHER   (<span class="number">1</span>, <span class="string">"教师"</span>),</span><br><span class="line">    USER_TYPE_STUDENT   (<span class="number">2</span>, <span class="string">"学生"</span>)</span><br><span class="line">    ;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Setter</span></span><br><span class="line">    <span class="meta">@Getter</span></span><br><span class="line">    <span class="keyword">private</span> Integer type;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Setter</span></span><br><span class="line">    <span class="meta">@Getter</span></span><br><span class="line">    <span class="keyword">private</span> String description;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>循环遍历枚举类的每一个值</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (UserTypeEnum userType : UserTypeEnum.values()) &#123;</span><br><span class="line">    <span class="comment">// userType.getType();</span></span><br><span class="line">    <span class="comment">// userType.getDescription();</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/09/nginx%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99-emerg-getpwnam-nginx-failed-in/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/nginx%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99-emerg-getpwnam-nginx-failed-in/" class="post-title-link" itemprop="url">nginx启动报错[emerg] getpwnam(nginx) failed in</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-05 22:45:51" itemprop="dateCreated datePublished" datetime="2020-09-05T22:45:51+08:00">2020-09-05</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/Nginx/" itemprop="url" rel="index"><span itemprop="name">Nginx</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/09/nginx%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99-emerg-getpwnam-nginx-failed-in/" class="post-meta-item leancloud_visitors" data-flag-title="nginx启动报错[emerg] getpwnam(nginx) failed in" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2020/09/nginx%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99-emerg-getpwnam-nginx-failed-in/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/nginx%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99-emerg-getpwnam-nginx-failed-in/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>今天做了一个 nginx 项目的迁移，把老的整个 nginx 文件夹拷贝到新的机器上，启动 nginx, 结果报错，信息如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> sbin/nginx</span></span><br><span class="line">nginx: [emerg] getpwnam("nginx") failed in /nginx/nginx-1.12.2/conf/nginx.conf:3</span><br></pre></td></tr></table></figure>
-<p>说明在 nginx.conf 配置文件的第三行有错。查看文件内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user nginx nginx;</span><br></pre></td></tr></table></figure>
-<p>新的机器没有 <code>nginx</code> 这个用户，添加一个便是。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> useradd nginx</span></span><br></pre></td></tr></table></figure>
-<p>重启再次启动 nginx，成功。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -864,7 +868,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">263</span>
+          <span class="site-state-item-count">265</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -877,7 +881,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">164</span>
+        <span class="site-state-item-count">166</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

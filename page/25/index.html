@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">164</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">166</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">263</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">265</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,266 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/02/k8s-master%E8%8A%82%E7%82%B9nodePort%E6%96%B9%E5%BC%8F%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/k8s-master%E8%8A%82%E7%82%B9nodePort%E6%96%B9%E5%BC%8F%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">k8s master节点nodePort方式不能访问服务</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-12 22:24:08 / 修改时间：22:33:11" itemprop="dateCreated datePublished" datetime="2020-02-12T22:24:08+08:00">2020-02-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kubernetes/Network/" itemprop="url" rel="index"><span itemprop="name">Network</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/02/k8s-master%E8%8A%82%E7%82%B9nodePort%E6%96%B9%E5%BC%8F%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1/" class="post-meta-item leancloud_visitors" data-flag-title="k8s master节点nodePort方式不能访问服务" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/02/k8s-master%E8%8A%82%E7%82%B9nodePort%E6%96%B9%E5%BC%8F%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/k8s-master%E8%8A%82%E7%82%B9nodePort%E6%96%B9%E5%BC%8F%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>k8s集群三个节点，一个master node, 两个worker node。</p>
+<p>我们可以看到prometheus以NodePort方式把服务暴露出来。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl get svc -n monitoring</span><br><span class="line">NAME                    TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE</span><br><span class="line">prometheus-k8s          NodePort    10.105.212.163   &lt;none&gt;        9090:30090/TCP               45d</span><br></pre></td></tr></table></figure>
+<p>我们通过<code>&lt;worker-node-ip&gt;:30090</code>的方式，可以正确访问到页面，但通过<code>&lt;master-node-ip&gt;:30090</code>，却不能正常访问页面。</p>
+<p>随即，我查看了calico网络插件的运行情况。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po  -n kube-system</span><br><span class="line">NAME                                       READY   STATUS    RESTARTS   AGE</span><br><span class="line">calico-node-jt4fz                          0/1     Running   4          45d</span><br><span class="line">calico-node-mv4ht                          1/1     Running   5          45d</span><br><span class="line">calico-node-nqbkl                          1/1     Running   5          45d</span><br></pre></td></tr></table></figure>
+<p>其中一个pod，并未通过健康检查。</p>
+<p>查看一下这个pod的详情信息。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe po calico-node-jt4fz -n kube-system</span><br><span class="line">Name:                 calico-node-jt4fz</span><br><span class="line">Namespace:            kube-system</span><br><span class="line">...</span><br><span class="line">Events:</span><br><span class="line">  Type     Reason     Age                    From                 Message</span><br><span class="line">  ----     ------     ----                   ----                 -------</span><br><span class="line">  Warning  Unhealthy  6m22s (x499 over 89m)  kubelet, k8s-master  (combined from similar events): Readiness probe failed: calico/node is not ready: BIRD is not ready: BGP not established with 172.16.64.232,172.16.64.2352020-02-12 12:36:36.591 [INFO][12943] health.go 156: Number of node(s) with BGP peering established = 0</span><br></pre></td></tr></table></figure>
+<p>错误的原因是：</p>
+<p>Readiness probe failed: calico/node is not ready: BIRD is not ready: BGP not established with 172.16.64.232,172.16.64.2352020-02-12 12:36:36.591 [INFO][12943] health.go 156: Number of node(s) with BGP peering established = 0</p>
+<p>解决方案：</p>
+<p>调整calico网络插件的网卡发现机制，修改IP_AUTODETECTION_METHOD对应的value值。</p>
+<p>官方提供的yaml文件中，ip识别策略（IPDETECTMETHOD）没有配置，即默认为first-found，这会导致一个网络异常的ip作为nodeIP被注册，从而影响node-to-node mesh。</p>
+<p>我们可以修改成can-reach或者interface的策略，尝试连接某一个Ready的node的IP，以此选择出正确的IP。</p>
+<p>在<code>calico.yaml</code>文件中添加如下两行内容</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">- name:</span> <span class="string">IP_AUTODETECTION_METHOD</span></span><br><span class="line"><span class="attr">  value:</span> <span class="string">"interface=ens.*"</span>  <span class="comment"># ens 根据实际网卡开头配置</span></span><br></pre></td></tr></table></figure>
+<p>配置如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Cluster type to identify the deployment type</span></span><br><span class="line"><span class="attr">- name:</span> <span class="string">CLUSTER_TYPE</span></span><br><span class="line"><span class="attr">  value:</span> <span class="string">"k8s,bgp"</span></span><br><span class="line"><span class="comment"># Specify interface</span></span><br><span class="line"><span class="attr">- name:</span> <span class="string">IP_AUTODETECTION_METHOD</span></span><br><span class="line"><span class="attr">  value:</span> <span class="string">"interface=ens.*"</span></span><br><span class="line"><span class="comment"># Auto-detect the BGP IP address.</span></span><br><span class="line"><span class="attr">- name:</span> <span class="string">IP</span></span><br><span class="line"><span class="attr">  value:</span> <span class="string">"autodetect"</span></span><br><span class="line"><span class="comment"># Enable IPIP</span></span><br><span class="line"><span class="attr">- name:</span> <span class="string">CALICO_IPV4POOL_IPIP</span></span><br><span class="line"><span class="attr">  value:</span> <span class="string">"Always"</span></span><br></pre></td></tr></table></figure>
+<p>修改后重新应用一下calico.yaml文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f calico.yaml</span><br></pre></td></tr></table></figure>
+<p>我们发现calico所有pod都已经成功启动了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po -n kube-system</span><br><span class="line">NAME                                       READY   STATUS    RESTARTS   AGE</span><br><span class="line">calico-node-jtvh8                          1/1     Running   0          15s</span><br><span class="line">calico-node-k6m8t                          1/1     Running   0          45s</span><br><span class="line">calico-node-rb9qx                          1/1     Running   0          29s</span><br></pre></td></tr></table></figure>
+<p>此时，通过<code>&lt;master-node-ip&gt;:30090</code>，即可以成功访问到页面了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/02/Docker%E7%BD%91%E7%BB%9CNetwork/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/Docker%E7%BD%91%E7%BB%9CNetwork/" class="post-title-link" itemprop="url">Docker网络Network</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-08 22:47:52" itemprop="dateCreated datePublished" datetime="2020-02-08T22:47:52+08:00">2020-02-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Docker/Network/" itemprop="url" rel="index"><span itemprop="name">Network</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/02/Docker%E7%BD%91%E7%BB%9CNetwork/" class="post-meta-item leancloud_visitors" data-flag-title="Docker网络Network" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/02/Docker%E7%BD%91%E7%BB%9CNetwork/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/Docker%E7%BD%91%E7%BB%9CNetwork/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这个实验一定要在Linux环境下做，docker for mac, docker for win是不行的。</p>
+<h1 id="docker网络类型"><a href="#docker网络类型" class="headerlink" title="docker网络类型"></a>docker网络类型</h1><p>docker会给我们创建三种网络类型：bridge, host, none</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker network ls</span><br><span class="line">NETWORK ID          NAME                DRIVER              SCOPE</span><br><span class="line">a1681b4a3bc9        bridge              bridge              local</span><br><span class="line">d724eb42948a        host                host                local</span><br><span class="line">c9381cce7bbb        none                null                local</span><br></pre></td></tr></table></figure>
+<p>在没有指定相关网络的情况下，默认情况，会使用bridge网络模式。</p>
+<h1 id="网络验证"><a href="#网络验证" class="headerlink" title="网络验证"></a>网络验证</h1><p>启动两个busybox容器。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit --name busybox1 busybox</span><br><span class="line">4f3c61775b5e8bcd38a0c97ff97bcd16ed717ab31bea417b198192f83b493846</span><br><span class="line"></span><br><span class="line">docker run -dit --name busybox2 busybox</span><br><span class="line">c523392d8949b53abfbe736c43d2d47ea60a3420e8931bebc69d05baff93889b</span><br></pre></td></tr></table></figure>
+<p>查看一下bridge网络</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">docker network inspect bridge</span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        "Name": "bridge",</span><br><span class="line">        "Id": "a1681b4a3bc9bf973e2ff712677e373b663cc65b3a9dd6e868f5635fff295a6a",</span><br><span class="line">        "Created": "2020-02-05T16:24:09.290786154+08:00",</span><br><span class="line">        "Scope": "local",</span><br><span class="line">        "Driver": "bridge",</span><br><span class="line">        "EnableIPv6": false,</span><br><span class="line">        "IPAM": &#123;</span><br><span class="line">            "Driver": "default",</span><br><span class="line">            "Options": null,</span><br><span class="line">            "Config": [</span><br><span class="line">                &#123;</span><br><span class="line">                    "Subnet": "172.17.0.0/16",</span><br><span class="line">                    "Gateway": "172.17.0.1"</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">        "Internal": false,</span><br><span class="line">        "Attachable": false,</span><br><span class="line">        "Ingress": false,</span><br><span class="line">        "ConfigFrom": &#123;</span><br><span class="line">            "Network": ""</span><br><span class="line">        &#125;,</span><br><span class="line">        "ConfigOnly": false,</span><br><span class="line">        "Containers": &#123;</span><br><span class="line">            "4f3c61775b5e8bcd38a0c97ff97bcd16ed717ab31bea417b198192f83b493846": &#123;</span><br><span class="line">                "Name": "busybox1",</span><br><span class="line">                "EndpointID": "bb138601e4d4018e8f36b4679cc22823fca3020d53fb7c372e47d1c73345b374",</span><br><span class="line">                "MacAddress": "02:42:ac:11:00:02",</span><br><span class="line">                "IPv4Address": "172.17.0.2/16",</span><br><span class="line">                "IPv6Address": ""</span><br><span class="line">            &#125;,</span><br><span class="line">            "c523392d8949b53abfbe736c43d2d47ea60a3420e8931bebc69d05baff93889b": &#123;</span><br><span class="line">                "Name": "busybox2",</span><br><span class="line">                "EndpointID": "8f3d2661b8bd9fdf4f9bf2d763e36ab87a7e1fa8dca6e1e97b727c7a8ab2d0fe",</span><br><span class="line">                "MacAddress": "02:42:ac:11:00:03",</span><br><span class="line">                "IPv4Address": "172.17.0.3/16",</span><br><span class="line">                "IPv6Address": ""</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        "Options": &#123;</span><br><span class="line">            "com.docker.network.bridge.default_bridge": "true",</span><br><span class="line">            "com.docker.network.bridge.enable_icc": "true",</span><br><span class="line">            "com.docker.network.bridge.enable_ip_masquerade": "true",</span><br><span class="line">            "com.docker.network.bridge.host_binding_ipv4": "0.0.0.0",</span><br><span class="line">            "com.docker.network.bridge.name": "docker0",</span><br><span class="line">            "com.docker.network.driver.mtu": "1500"</span><br><span class="line">        &#125;,</span><br><span class="line">        "Labels": &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>可以看到busybox1和busybox2两个容器都连接到了bridge网络。两个容器的ip地址也能看到。</p>
+<p>进入busybox1容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it busybox1 sh</span><br></pre></td></tr></table></figure>
+<p>通过ip地址和容器名ping容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/ # ping 172.17.0.3</span><br><span class="line">PING 172.17.0.3 (172.17.0.3): 56 data bytes</span><br><span class="line">64 bytes from 172.17.0.3: seq=0 ttl=64 time=0.285 ms</span><br><span class="line">64 bytes from 172.17.0.3: seq=1 ttl=64 time=0.130 ms</span><br><span class="line"></span><br><span class="line">/ # ping busybox2</span><br><span class="line">^C</span><br></pre></td></tr></table></figure>
+<p>可以得出，通过ip地址是可以ping通的，但通过容器名是不行的。</p>
+<p>查看<code>hosts</code>信息，也找不到任何busybox2的信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/hosts</span><br><span class="line">127.0.0.1	localhost</span><br><span class="line">::1	localhost ip6-localhost ip6-loopback</span><br><span class="line">fe00::0	ip6-localnet</span><br><span class="line">ff00::0	ip6-mcastprefix</span><br><span class="line">ff02::1	ip6-allnodes</span><br><span class="line">ff02::2	ip6-allrouters</span><br><span class="line">172.17.0.2	4f3c61775b5e</span><br></pre></td></tr></table></figure>
+<h1 id="新建bridge网络"><a href="#新建bridge网络" class="headerlink" title="新建bridge网络"></a>新建bridge网络</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker network create --driver bridge busybox_bridge</span><br><span class="line">bebfcba064b2afdfb265d4df19eaccd950a1d957dcb3e2256d05dc544b64369e</span><br></pre></td></tr></table></figure>
+<p>查看网络</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker network ls</span><br><span class="line">NETWORK ID          NAME                DRIVER              SCOPE</span><br><span class="line">a1681b4a3bc9        bridge              bridge              local</span><br><span class="line">bebfcba064b2        busybox_bridge      bridge              local</span><br><span class="line">d724eb42948a        host                host                local</span><br><span class="line">c9381cce7bbb        none                null                local</span><br></pre></td></tr></table></figure>
+<p>分别创建busybox3和busybox4容器，并加入到busybox_bridge网络中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit --network busybox_bridge --name busybox3 busybox</span><br><span class="line">8e39a57b7543288fb716f66eaa4a54609a571c7d30194ca456d4a1dc443f19e6</span><br><span class="line"></span><br><span class="line">docker run -dit --network busybox_bridge --name busybox4 busybox</span><br><span class="line">ed1715cfaf168f64351d46aaa7f393cae00962c7ef850d8824abe06a4906843c</span><br></pre></td></tr></table></figure>
+<p>进入busybox3</p>
+<p>本以为可以PING得通busybox4，但貌似不行，此实验失败。后面再研究。</p>
+<h1 id="host模式"><a href="#host模式" class="headerlink" title="host模式"></a>host模式</h1><p>以host模式启动一个nginx容器。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -d --net host nginx</span><br><span class="line">956b96f5d0c25835a1d4470c12ed5e4abda341e44f9344e72cf42864976d96fa</span><br></pre></td></tr></table></figure>
+<p>因为是host模式，容器和主机共享一样的网络。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">curl localhost</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;Welcome to nginx!&lt;/title&gt;</span><br><span class="line">...</span><br><span class="line">&lt;p&gt;&lt;em&gt;Thank you for using nginx.&lt;/em&gt;&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -601,247 +861,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/01/Ubuntu-ens33%E7%BD%91%E5%8D%A1%E6%97%A0ip/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/Ubuntu-ens33%E7%BD%91%E5%8D%A1%E6%97%A0ip/" class="post-title-link" itemprop="url">Ubuntu ens33网卡无ip </a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-19 21:41:11" itemprop="dateCreated datePublished" datetime="2020-01-19T21:41:11+08:00">2020-01-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/01/Ubuntu-ens33%E7%BD%91%E5%8D%A1%E6%97%A0ip/" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu ens33网卡无ip " title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2020/01/Ubuntu-ens33%E7%BD%91%E5%8D%A1%E6%97%A0ip/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/Ubuntu-ens33%E7%BD%91%E5%8D%A1%E6%97%A0ip/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Ubuntu 19.04</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ip a</span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: ens33: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000</span><br><span class="line">    link/ether 00:0c:29:15:61:1c brd ff:ff:ff:ff:ff:ff</span><br></pre></td></tr></table></figure>
-<p>可以看到ens33网卡是DOWN的状态，使用ifup ens33命令说是未知网卡。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifup ens33</span><br><span class="line">ifup: unknown interface ens33</span><br></pre></td></tr></table></figure>
-<p>在CentOS上使用的方法在Ubuntu上面不管用。</p>
-<p>重启网络也是不行的。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart networking</span><br></pre></td></tr></table></figure>
-<p>最后使用如下命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo dhclient ens33</span><br><span class="line">ip a</span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000</span><br><span class="line">    link/ether 00:0c:29:15:61:1c brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 192.168.229.129/24 brd 192.168.229.255 scope global dynamic ens33</span><br><span class="line">       valid_lft 1798sec preferred_lft 1798sec</span><br><span class="line">    inet6 fe80::20c:29ff:fe15:611c/64 scope link </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br></pre></td></tr></table></figure>
-<p>ens33状态为UP了，ip也显示出来了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/01/Windows%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85MySQL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/Windows%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85MySQL/" class="post-title-link" itemprop="url">Windows解压安装MySQL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-19 21:39:35" itemprop="dateCreated datePublished" datetime="2020-01-19T21:39:35+08:00">2020-01-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-04 14:38:31" itemprop="dateModified" datetime="2020-05-04T14:38:31+08:00">2020-05-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database-MySQL/" itemprop="url" rel="index"><span itemprop="name">Database - MySQL</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/01/Windows%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85MySQL/" class="post-meta-item leancloud_visitors" data-flag-title="Windows解压安装MySQL" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2020/01/Windows%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85MySQL/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/Windows%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85MySQL/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在Windows10下面解压安装MySQL5.7</p>
-<h1 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h1><p>下载zip包，mysql-5.7.29-winx64.zip</p>
-<p><code>https://dev.mysql.com/downloads/mysql/5.7.html#downloads</code></p>
-<p>选择x86, 64-bit</p>
-<h1 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h1><p>解压到<code>D:\mysql\mysql-5.7.29-winx64</code>。</p>
-<h1 id="编写配置文件"><a href="#编写配置文件" class="headerlink" title="编写配置文件"></a>编写配置文件</h1><p><code>D:\mysql\mysql-5.7.29-winx64\my.ini</code></p>
-<p>内容如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[mysql]</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置mysql客户端默认字符集</span></span><br><span class="line">default-character-set=utf8</span><br><span class="line">[mysqld]</span><br><span class="line"><span class="meta">#</span><span class="bash">设置3306端口</span></span><br><span class="line">port = 3306</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置mysql的安装目录</span></span><br><span class="line"> </span><br><span class="line">basedir=D:\mysql\mysql-5.7.29-winx64</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置mysql数据库的数据的存放目录</span></span><br><span class="line">datadir=D:\mysql\data</span><br><span class="line"> </span><br><span class="line"><span class="meta">#</span><span class="bash"> 允许最大连接数</span></span><br><span class="line">max_connections=200</span><br><span class="line"><span class="meta">#</span><span class="bash"> 服务端使用的字符集默认为UTF8</span></span><br><span class="line">character-set-server=utf8</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建新表时将使用的默认存储引擎</span></span><br><span class="line">default-storage-engine=INNODB</span><br></pre></td></tr></table></figure>
-<h1 id="注册环境变量"><a href="#注册环境变量" class="headerlink" title="注册环境变量"></a>注册环境变量</h1><p><code>MYSQL_HOME</code> <code>D:\mysql\mysql-5.7.29-winx64</code></p>
-<p>在Path中加入<code>%MYSQL_HOME%\bin</code></p>
-<h1 id="初始化MySQL"><a href="#初始化MySQL" class="headerlink" title="初始化MySQL"></a>初始化MySQL</h1><p>以管理员方式打开cmd</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\mysql\mysql-5.7.29-winx64&gt;mysqld --initialize</span><br></pre></td></tr></table></figure>
-<p>执行后，<code>data</code>目录下会生成很多文件。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:\mysql\mysql-5.7.29-winx64&gt;mysqld install</span><br><span class="line">Service successfully installed.</span><br></pre></td></tr></table></figure>
-<h1 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">D:\mysql\mysql-5.7.29-winx64&gt;net start mysql</span><br><span class="line">MySQL 服务正在启动 .</span><br><span class="line">MySQL 服务已经启动成功。</span><br></pre></td></tr></table></figure>
-<h1 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:\mysql\mysql-5.7.29-winx64&gt;mysql -u root -p</span><br><span class="line">Enter password:</span><br></pre></td></tr></table></figure>
-<p>需要输入密码，这个初始密码，可以在<code>data/*.err</code>文件里面找到。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2020-01-19T08:15:03.393313Z 1 [Note] A temporary password is generated for root@localhost: (waO?FJ/E8mW</span><br></pre></td></tr></table></figure>
-<p>输入密码，登录成功后，修改root用户的密码。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -925,7 +944,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">263</span>
+          <span class="site-state-item-count">265</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -938,7 +957,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">164</span>
+        <span class="site-state-item-count">166</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
