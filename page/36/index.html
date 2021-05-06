@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">168</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">169</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">269</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">270</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/10/Ubuntu%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +218,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/Ubuntu%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/" class="post-title-link" itemprop="url">Ubuntu设置国内源</a>
+            <a href="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">Springboot使用profiles区分环境</a>
         </h2>
 
         <div class="post-meta">
@@ -228,127 +228,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-10-20 10:05:51" itemprop="dateCreated datePublished" datetime="2019-10-20T10:05:51+08:00">2019-10-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/10/Ubuntu%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu设置国内源" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/10/Ubuntu%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/Ubuntu%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>安装完操作系统后，首要的第一件事就是换成国内的源，这样下载软件速度才会有保障。</p>
-<h1 id="备份文件"><a href="#备份文件" class="headerlink" title="备份文件"></a>备份文件</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</span><br></pre></td></tr></table></figure>
-<h1 id="编译文件"><a href="#编译文件" class="headerlink" title="编译文件"></a>编译文件</h1><p>编译<code>sources.list</code>，把<code>http://cn.archive.ubuntu.com/ubuntu/</code>和<code>http://security.ubuntu.com/ubuntu</code>替换为国内的阿里的地址<code>http://mirrors.aliyun.com/ubuntu</code>。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-<p>使用<code>vi</code>的替换命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:s%/cn.archive.ubuntu.com/mirrors.aliyun.com/g</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:s%/security.ubuntu.com/mirrors.aliyun.com/g</span><br></pre></td></tr></table></figure>
-<h1 id="更新软件列表"><a href="#更新软件列表" class="headerlink" title="更新软件列表"></a>更新软件列表</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
-<h1 id="更新软件包"><a href="#更新软件包" class="headerlink" title="更新软件包"></a>更新软件包</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/10/NIO%E7%9A%84%E9%80%9A%E9%81%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/NIO%E7%9A%84%E9%80%9A%E9%81%93/" class="post-title-link" itemprop="url">NIO的通道</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-14 00:22:42" itemprop="dateCreated datePublished" datetime="2019-10-14T00:22:42+08:00">2019-10-14</time>
+              <time title="创建时间：2020-03-13 23:07:32" itemprop="dateCreated datePublished" datetime="2020-03-13T23:07:32+08:00">2020-03-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-01 22:39:48" itemprop="dateModified" datetime="2020-04-01T22:39:48+08:00">2020-04-01</time>
+                <time title="修改时间：2020-05-30 22:42:59" itemprop="dateModified" datetime="2020-05-30T22:42:59+08:00">2020-05-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -360,12 +247,12 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/NIO/" itemprop="url" rel="index"><span itemprop="name">NIO</span></a>
+                  <a href="/categories/Java/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
                 </span>
             </span>
 
           
-            <span id="/2019/10/NIO%E7%9A%84%E9%80%9A%E9%81%93/" class="post-meta-item leancloud_visitors" data-flag-title="NIO的通道" title="阅读次数">
+            <span id="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="Springboot使用profiles区分环境" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -381,8 +268,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2019/10/NIO%E7%9A%84%E9%80%9A%E9%81%93/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/NIO%E7%9A%84%E9%80%9A%E9%81%93/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -409,15 +296,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>通道(Channel)，用于源节点和目标节点的连接。在Java NIO中负责数据的传输。Channel本身不存储数据，所以传输时还需要缓冲区配合。</p>
-<p>更多缓冲区的内容，请参考 <a href="/2019/10/NIO%E7%9A%84%E7%BC%93%E5%86%B2%E5%8C%BA/" title="NIO的缓冲区">NIO的缓冲区</a></p>
-<h1 id="利用通道完成文件复制（非直接缓冲区）"><a href="#利用通道完成文件复制（非直接缓冲区）" class="headerlink" title="利用通道完成文件复制（非直接缓冲区）"></a>利用通道完成文件复制（非直接缓冲区）</h1><p>可以拷贝超过2G的文件。关于大文件的拷贝，后面再写文章。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (FileInputStream fis = <span class="keyword">new</span> FileInputStream(<span class="string">"/infile"</span>);</span><br><span class="line">     FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">"/outfile"</span>);</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 获取通道</span></span><br><span class="line">     FileChannel inChannel = fis.getChannel();</span><br><span class="line">     FileChannel outChannel = fos.getChannel()</span><br><span class="line">) &#123;</span><br><span class="line">    <span class="comment">// 分配指定大小的缓冲区</span></span><br><span class="line">    ByteBuffer buffer = ByteBuffer.allocate(<span class="number">10240</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将通道中的数据存入缓冲区</span></span><br><span class="line">    <span class="keyword">while</span> (inChannel.read(buffer) != -<span class="number">1</span>) &#123;</span><br><span class="line">        buffer.flip();</span><br><span class="line">        outChannel.write(buffer);</span><br><span class="line">        buffer.clear();</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="使用直接缓冲区完成文件复制"><a href="#使用直接缓冲区完成文件复制" class="headerlink" title="使用直接缓冲区完成文件复制"></a>使用直接缓冲区完成文件复制</h1><p>文件大小不能超过2G。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (FileChannel inChannel = FileChannel.open(Paths.get(<span class="string">"/infile"</span>),</span><br><span class="line">        StandardOpenOption.READ);</span><br><span class="line">     FileChannel outChannel = FileChannel.open(Paths.get(<span class="string">"/outfile"</span>),</span><br><span class="line">             StandardOpenOption.WRITE, StandardOpenOption.READ, StandardOpenOption.CREATE)) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 内存映射文件</span></span><br><span class="line">    MappedByteBuffer inMappedByteBuffer = inChannel.map(FileChannel.MapMode.READ_ONLY, <span class="number">0</span>, inChannel.size());</span><br><span class="line">    MappedByteBuffer outMappedByteBuffer = outChannel.map(FileChannel.MapMode.READ_WRITE, <span class="number">0</span>, inChannel.size());</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 直接对缓冲区进行数据的读写操作</span></span><br><span class="line">    <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[inMappedByteBuffer.limit()];</span><br><span class="line">    inMappedByteBuffer.get(bytes);</span><br><span class="line">    outMappedByteBuffer.put(bytes);</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="通道之间的数据传输-直接缓冲区"><a href="#通道之间的数据传输-直接缓冲区" class="headerlink" title="通道之间的数据传输(直接缓冲区)"></a>通道之间的数据传输(直接缓冲区)</h1><p>文件大小不能超过2G。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// transferFrom()</span></span><br><span class="line"><span class="comment">// transferTo()</span></span><br><span class="line"><span class="keyword">try</span> (FileChannel inChannel = FileChannel.open(Paths.get(<span class="string">"/Users/simon/Documents/largefile.tar"</span>),</span><br><span class="line">        StandardOpenOption.READ);</span><br><span class="line">     FileChannel outChannel = FileChannel.open(Paths.get(<span class="string">"/Users/simon/Documents/largefile.tar.copy"</span>),</span><br><span class="line">             StandardOpenOption.WRITE, StandardOpenOption.READ, StandardOpenOption.CREATE)) &#123;</span><br><span class="line"></span><br><span class="line">    inChannel.transferTo(<span class="number">0</span>, inChannel.size(), outChannel);</span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="分散和聚集"><a href="#分散和聚集" class="headerlink" title="分散和聚集"></a>分散和聚集</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">ByteBuffer[] bufs = <span class="keyword">new</span> ByteBuffer[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">try</span> (RandomAccessFile raf1 = <span class="keyword">new</span> RandomAccessFile(<span class="string">"/infile"</span>, <span class="string">"rw"</span>);</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 1. 获取通道</span></span><br><span class="line">     FileChannel raf1Channel = raf1.getChannel()) &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 分配指定大小的缓冲区数组</span></span><br><span class="line">    ByteBuffer buf1 = ByteBuffer.allocate(<span class="number">100</span>);</span><br><span class="line">    ByteBuffer buf2 = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line">    bufs = <span class="keyword">new</span> ByteBuffer[]&#123;buf1, buf2&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 分散读取</span></span><br><span class="line">    raf1Channel.read(bufs);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (ByteBuffer buf : bufs) &#123;</span><br><span class="line">        buf.flip();</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="keyword">new</span> String(bufs[<span class="number">0</span>].array(), <span class="number">0</span>, bufs[<span class="number">0</span>].limit()));</span><br><span class="line">System.out.println(<span class="string">"---"</span>);</span><br><span class="line">System.out.println(<span class="keyword">new</span> String(bufs[<span class="number">1</span>].array(), <span class="number">0</span>, bufs[<span class="number">1</span>].limit()));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 聚集写入</span></span><br><span class="line"><span class="keyword">try</span> (RandomAccessFile raf2 = <span class="keyword">new</span> RandomAccessFile(<span class="string">"/outfile"</span>, <span class="string">"rw"</span>);</span><br><span class="line">     FileChannel raf2Channel = raf2.getChannel()) &#123;</span><br><span class="line"></span><br><span class="line">    raf2Channel.write(bufs);</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>配置文件，格式一般为<code>application-{profile}.yaml</code>。</p>
+<ul>
+<li>application.yaml</li>
+<li>application-dev.yaml</li>
+<li>application-prod.yaml</li>
+</ul>
+<p>未指定任何profile时，会默认加载<code>application.yaml</code>配置文件。</p>
+<p>所以，与环境无关的属性配置，都应该放到<code>application.yaml</code>文件中，与环境有关的，则放到相应的其他配置文件中。</p>
+<h1 id="激活profile"><a href="#激活profile" class="headerlink" title="激活profile"></a>激活profile</h1><h2 id="在application-yaml文件里面指定。"><a href="#在application-yaml文件里面指定。" class="headerlink" title="在application.yaml文件里面指定。"></a>在<code>application.yaml</code>文件里面指定。</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  profiles:</span></span><br><span class="line"><span class="attr">    active:</span> <span class="string">dev</span></span><br></pre></td></tr></table></figure>
+<h2 id="在IDEA里面修改"><a href="#在IDEA里面修改" class="headerlink" title="在IDEA里面修改"></a>在IDEA里面修改</h2><p>编辑配置</p>
+<h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>在<code>Environment</code>下<code>VM options</code>这一栏里面填入：<code>-Dspring.profiles.active=dev</code>。</p>
+<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p>在<code>Environment</code>下<code>Program arguments</code>这一栏里面填入： <code>--spring-profiles-active=dev</code>。</p>
+<h3 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h3><p>在<code>Spring boot</code>下<code>Active profiles</code>这一栏里面填入：<code>dev</code></p>
+<img src="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/active-profile.png" class="">
+<h2 id="运行jar时指定参数"><a href="#运行jar时指定参数" class="headerlink" title="运行jar时指定参数"></a>运行jar时指定参数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar demo.jar --spring.profiles.active=dev</span><br></pre></td></tr></table></figure>
+<p>运行后，console里面会提示本次运行，是用到了哪个配置文件覆盖或追加了最基本的<code>application.yaml</code>文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[18:25:42.127] INFO  org.springframework.boot.SpringApplication 679 logStartupProfileInfo - The following profiles </span><br><span class="line">are active: dev</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -437,7 +332,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/10/NIO%E7%9A%84%E7%BC%93%E5%86%B2%E5%8C%BA/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -451,7 +346,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/NIO%E7%9A%84%E7%BC%93%E5%86%B2%E5%8C%BA/" class="post-title-link" itemprop="url">NIO的缓冲区</a>
+            <a href="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">会计基础</a>
         </h2>
 
         <div class="post-meta">
@@ -461,14 +356,154 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-10-13 15:45:15" itemprop="dateCreated datePublished" datetime="2019-10-13T15:45:15+08:00">2019-10-13</time>
+              <time title="创建时间：2020-03-10 23:29:23" itemprop="dateCreated datePublished" datetime="2020-03-10T23:29:23+08:00">2020-03-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B4%A2%E5%8A%A1/" itemprop="url" rel="index"><span itemprop="name">财务</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/" class="post-meta-item leancloud_visitors" data-flag-title="会计基础" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image001.png" class="">
+<p>会计是干嘛的——目标：提供信息（核算监督是过程）</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image002.png" class="">
+<p>财务状况——“富”（有钱）</p>
+<p>经营成果——“高”（利润高不高，能赚钱）</p>
+<p>现金流量——“帅”（舍不舍得花钱）</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image003.png" class="">
+<p>财务状况——资产负债表</p>
+<p>经营成果——利润表</p>
+<p>现金流量——现金流量表</p>
+<p>1.资产负债表——基于 资产=负债+所有者权益 编制</p>
+<p>反映静态（时点）要素</p>
+<p>如果一个人有2000万的别墅，买别墅的钱，其中70%是借来的，另外30%是爹妈给的。2000万中的1400万是借来的，要还的，是负债，另外600万是爹妈给的，是权益，不用还。</p>
+<p>等式左边资产是资金占用，右边是资金的来源。资产负债表也是这样。</p>
+<p>资产负债表需要区分资产和负债，除了这些就是权益。</p>
+<p>名称中有“应收”“投资”“资产”大多数是资产，资产是一种资源。资产是将资源进行分类。</p>
+<p>名称中有“应付”“应交”“负债”基本是负债。</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image004.png" class="">
+<p>资产=负债+所有者权益+（收入-费用），收入和费用影响权益，从而影响资产</p>
+<p>2.利润表——收入-费用=利润（动态、过程）</p>
+<p>利润表中有三种利润：营业利润、利润总额、净利润</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image005.png" class="">
+<p>营业外收入（例捐赠、捡钱、中彩票）、营业外支出（例自然灾害）不影响营业利润。</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image006.png" class="">
+<p>影响营业利润的项目：1（营业收入）、2（营业成本、税金及附加）、4（4个费用）、2（2个减值损失）、4（4个收益），共13个。（去掉“净敞口套期收益”，考试不考）</p>
+<p>营业收入=主营业务收入（主营）+其他业务收入（辅营）——都是日常活动</p>
+<p>销售费用：广告营销费</p>
+<p>管理费用：如办公费</p>
+<p>研发费用：如研发人员工资</p>
+<p>财务费用：利息费用</p>
+<p>投资收益：股票分红、债券利息收益</p>
+<p>公允价值变动收益：</p>
+<p>资产处置收益：</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image007.png" class="">
+<p>不影响营业利润，说明是营业外，就是自然灾害。</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image008.png" class="">
+<p>上图6个红色章节是重难点。</p>
+<p>18、19、20现在复习可以先跳过，2020年可能会发生变化。</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image009.png" class="">
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image010.png" class="">
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/" class="post-title-link" itemprop="url">Grafana安装及持久化</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-08 22:30:41" itemprop="dateCreated datePublished" datetime="2020-03-08T22:30:41+08:00">2020-03-08</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-01 22:39:48" itemprop="dateModified" datetime="2020-04-01T22:39:48+08:00">2020-04-01</time>
+                <time title="修改时间：2020-03-31 00:36:57" itemprop="dateModified" datetime="2020-03-31T00:36:57+08:00">2020-03-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -476,16 +511,16 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/NIO/" itemprop="url" rel="index"><span itemprop="name">NIO</span></a>
+                  <a href="/categories/Kubernetes/Grafana/" itemprop="url" rel="index"><span itemprop="name">Grafana</span></a>
                 </span>
             </span>
 
           
-            <span id="/2019/10/NIO%E7%9A%84%E7%BC%93%E5%86%B2%E5%8C%BA/" class="post-meta-item leancloud_visitors" data-flag-title="NIO的缓冲区" title="阅读次数">
+            <span id="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/" class="post-meta-item leancloud_visitors" data-flag-title="Grafana安装及持久化" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -501,8 +536,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2019/10/NIO%E7%9A%84%E7%BC%93%E5%86%B2%E5%8C%BA/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/NIO%E7%9A%84%E7%BC%93%E5%86%B2%E5%8C%BA/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -529,313 +564,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>最近需要对文件做一些处理，之前接触得比较多的还是基于流的IO，但现在用得比较多的还是NIO(New IO)，可以理解为Non-blocking IO。</p>
-<h1 id="缓冲区-Buffer"><a href="#缓冲区-Buffer" class="headerlink" title="缓冲区(Buffer)"></a>缓冲区(Buffer)</h1><p>缓冲区主要是负责数据的存取的。</p>
-<p>除了boolean这个基础类型外，其他数据类型都对应一个缓冲Buffer。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ByteBuffer</span><br><span class="line">CharBuffer</span><br><span class="line">ShortBuffer</span><br><span class="line">IntBuffer</span><br><span class="line">LongBuffer</span><br><span class="line">FloatBuffer</span><br><span class="line">DoubleBuffer</span><br></pre></td></tr></table></figure>
-<h1 id="两个核心方法"><a href="#两个核心方法" class="headerlink" title="两个核心方法"></a>两个核心方法</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">put() 存入数据到缓冲区</span><br><span class="line">get() 从缓冲区获取数据</span><br></pre></td></tr></table></figure>
-<h1 id="四个核心属性"><a href="#四个核心属性" class="headerlink" title="四个核心属性"></a>四个核心属性</h1><ul>
-<li>capacity</li>
-</ul>
-<p>容量，一旦声明，不可改变</p>
-<ul>
-<li>limit</li>
-</ul>
-<p>界限，表示缓冲区可以操作数据的大小。limit后数据不能进行读写操作</p>
-<ul>
-<li>position</li>
-</ul>
-<p>位置，表示缓冲区正在操作数据的位置 </p>
-<ul>
-<li>mark</li>
-</ul>
-<p>标记，记录当前position的位置，后续操作之后，可以通过reset()恢复到mark的位置。</p>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><h2 id="1-分配一个指定大小的缓冲区"><a href="#1-分配一个指定大小的缓冲区" class="headerlink" title="1. 分配一个指定大小的缓冲区"></a>1. 分配一个指定大小的缓冲区</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"abcde"</span>;</span><br><span class="line"></span><br><span class="line">ByteBuffer buffer = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"--- allocate() ---"</span>);</span><br><span class="line">System.out.println(buffer.position());</span><br><span class="line">System.out.println(buffer.limit());</span><br><span class="line">System.out.println(buffer.capacity());</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 0</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-<h2 id="2-执行put-把数据存入缓冲区"><a href="#2-执行put-把数据存入缓冲区" class="headerlink" title="2. 执行put()把数据存入缓冲区"></a>2. 执行put()把数据存入缓冲区</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">buffer.put(str.getBytes());</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"--- put() ---"</span>);</span><br><span class="line">System.out.println(buffer.position());</span><br><span class="line">System.out.println(buffer.limit());</span><br><span class="line">System.out.println(buffer.capacity());</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 5</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-切换到读取数据模式"><a href="#3-切换到读取数据模式" class="headerlink" title="3. 切换到读取数据模式"></a>3. 切换到读取数据模式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">buffer.flip();</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"--- flip() ---"</span>);</span><br><span class="line">System.out.println(buffer.position());</span><br><span class="line">System.out.println(buffer.limit());</span><br><span class="line">System.out.println(buffer.capacity());</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 0</span></span><br><span class="line"><span class="comment"> * 5</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-<h2 id="4-执行get-读取缓冲区数据"><a href="#4-执行get-读取缓冲区数据" class="headerlink" title="4. 执行get()读取缓冲区数据"></a>4. 执行get()读取缓冲区数据</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[buffer.limit()];</span><br><span class="line">buffer.get(bytes);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"--- get() ---"</span>);</span><br><span class="line">System.out.println(<span class="keyword">new</span> String(bytes));</span><br><span class="line"></span><br><span class="line">System.out.println(buffer.position());</span><br><span class="line">System.out.println(buffer.limit());</span><br><span class="line">System.out.println(buffer.capacity());</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * abcde</span></span><br><span class="line"><span class="comment"> * 5</span></span><br><span class="line"><span class="comment"> * 5</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-<h2 id="5-重新读取缓冲区"><a href="#5-重新读取缓冲区" class="headerlink" title="5. 重新读取缓冲区"></a>5. 重新读取缓冲区</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">buffer.rewind();</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"--- rewind() ---"</span>);</span><br><span class="line">System.out.println(buffer.position());</span><br><span class="line">System.out.println(buffer.limit());</span><br><span class="line">System.out.println(buffer.capacity());</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 0</span></span><br><span class="line"><span class="comment"> * 5</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-<h2 id="6-mark-reset"><a href="#6-mark-reset" class="headerlink" title="6. mark/reset"></a>6. mark/reset</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">buffer.get(bytes, <span class="number">0</span>, <span class="number">2</span>);</span><br><span class="line">System.out.println(<span class="keyword">new</span> String(bytes, <span class="number">0</span>, <span class="number">2</span>));</span><br><span class="line">buffer.mark();</span><br><span class="line">buffer.get(bytes, <span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">buffer.reset();</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"--- reset() ---"</span>);</span><br><span class="line">System.out.println(buffer.position());</span><br><span class="line">System.out.println(buffer.limit());</span><br><span class="line">System.out.println(buffer.capacity());</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 2</span></span><br><span class="line"><span class="comment"> * 5</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (buffer.hasRemaining()) &#123;</span><br><span class="line">    System.out.println(buffer.remaining());</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 3</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="7-清空缓冲区"><a href="#7-清空缓冲区" class="headerlink" title="7. 清空缓冲区"></a>7. 清空缓冲区</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">buffer.clear();</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"--- clear() ---"</span>);</span><br><span class="line">System.out.println(buffer.position());</span><br><span class="line">System.out.println(buffer.limit());</span><br><span class="line">System.out.println(buffer.capacity());</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 0</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/10/Docker-CentOS%E5%AE%B9%E5%99%A8%E9%87%8C%E9%9D%A2%E5%AE%89%E8%A3%85GlusterFS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/Docker-CentOS%E5%AE%B9%E5%99%A8%E9%87%8C%E9%9D%A2%E5%AE%89%E8%A3%85GlusterFS/" class="post-title-link" itemprop="url">Docker CentOS容器里面安装GlusterFS</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-04 21:34:57" itemprop="dateCreated datePublished" datetime="2019-10-04T21:34:57+08:00">2019-10-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-01 22:33:48" itemprop="dateModified" datetime="2020-04-01T22:33:48+08:00">2020-04-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/FileSystem/" itemprop="url" rel="index"><span itemprop="name">FileSystem</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/10/Docker-CentOS%E5%AE%B9%E5%99%A8%E9%87%8C%E9%9D%A2%E5%AE%89%E8%A3%85GlusterFS/" class="post-meta-item leancloud_visitors" data-flag-title="Docker CentOS容器里面安装GlusterFS" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/10/Docker-CentOS%E5%AE%B9%E5%99%A8%E9%87%8C%E9%9D%A2%E5%AE%89%E8%A3%85GlusterFS/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/Docker-CentOS%E5%AE%B9%E5%99%A8%E9%87%8C%E9%9D%A2%E5%AE%89%E8%A3%85GlusterFS/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="拉取CentOS镜像"><a href="#拉取CentOS镜像" class="headerlink" title="拉取CentOS镜像"></a>拉取CentOS镜像</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull centos</span><br></pre></td></tr></table></figure>
-<p>然后启动容器并进入容器。</p>
-<h1 id="安装GlusterFS软件"><a href="#安装GlusterFS软件" class="headerlink" title="安装GlusterFS软件"></a>安装GlusterFS软件</h1><h2 id="安装GlusterFS的源"><a href="#安装GlusterFS的源" class="headerlink" title="安装GlusterFS的源"></a>安装GlusterFS的源</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install centos-release-gluster</span><br></pre></td></tr></table></figure>
-<p>安装这个的目的是接下来在安装glusterfs-server等包时，能找到源。</p>
-<h2 id="安装GlusterFS相关软件"><a href="#安装GlusterFS相关软件" class="headerlink" title="安装GlusterFS相关软件"></a>安装GlusterFS相关软件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y glusterfs glusterfs-server glusterfs-fuse glusterfs-rdma</span><br></pre></td></tr></table></figure>
-<h2 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /gluster/data/</span><br></pre></td></tr></table></figure>
-<p>可以把<code>iproute</code>等基本工具安装上。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y iproute</span><br></pre></td></tr></table></figure>
-<p>生成一个新的镜像，<code>gluster-centos</code></p>
-<h1 id="运行gluster-centos镜像实例"><a href="#运行gluster-centos镜像实例" class="headerlink" title="运行gluster-centos镜像实例"></a>运行gluster-centos镜像实例</h1><p>测试最基础的glusterFS功能，启动两个容器就可以。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit --privileged simon/gluster-centos bash</span><br></pre></td></tr></table></figure>
-<p>这里需要注意的是需要使用<code>--privileged</code>这个参数，不然在创建volume时会有<code>Setting extended attributes failed, reason: Operation not permitted.</code>错误。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>node</th>
-<th>hostname</th>
-<th>ip</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>node1</td>
-<td>172.17.0.2</td>
-<td>172.17.0.2</td>
-<td></td>
-</tr>
-<tr>
-<td>node2</td>
-<td>172.17.0.3</td>
-<td>172.17.0.3</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<h1 id="创建GlusterFS卷"><a href="#创建GlusterFS卷" class="headerlink" title="创建GlusterFS卷"></a>创建GlusterFS卷</h1><h2 id="进入node1节点"><a href="#进入node1节点" class="headerlink" title="进入node1节点"></a>进入node1节点</h2><p>进入node1, 172.17.0.2节点，peer probe另一个节点，执行命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gluster peer probe 172.17.0.3</span><br><span class="line">peer probe: success.</span><br></pre></td></tr></table></figure>
-<h2 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gluster peer status</span><br><span class="line">Number of Peers: 1</span><br><span class="line"></span><br><span class="line">Hostname: 172.17.0.3</span><br><span class="line">Uuid: 6b04331d-6fe9-4d78-937e-b10c69f476fa</span><br><span class="line">State: Peer in Cluster (Connected)</span><br></pre></td></tr></table></figure>
-<h2 id="创建复本卷"><a href="#创建复本卷" class="headerlink" title="创建复本卷"></a>创建复本卷</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gluster volume create gv0 replica 2 172.17.0.2:/gluster/data 172.17.0.3:/gluster/data</span><br><span class="line">Replica 2 volumes are prone to split-brain. Use Arbiter or Replica 3 to avoid this. See: http://docs.gluster.org/en/latest/Administrator%20Guide/Split%20brain%20and%20ways%20to%20deal%20with%20it/.</span><br><span class="line">Do you still want to continue?</span><br><span class="line"> (y/n) y</span><br><span class="line">volume create: gv0: failed: The brick 172.17.0.3:/gluster/data is being created in the root partition. It is recommended that you don't use the system's root partition for storage backend. Or use 'force' at the end of the command if you want to override this behavior.</span><br></pre></td></tr></table></figure>
-<h2 id="按提示，增加force参数"><a href="#按提示，增加force参数" class="headerlink" title="按提示，增加force参数"></a>按提示，增加<code>force</code>参数</h2><p>如果在启动容器时，没有设置<code>--privileged</code>参数，则会报如下错误。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gluster volume create gv0 replica 2 172.17.0.2:/gluster/data 172.17.0.3:/gluster/data force</span><br><span class="line">volume create: gv0: failed: Glusterfs is not supported on brick: 172.17.0.2:/gluster/data.</span><br><span class="line">Setting extended attributes failed, reason: Operation not permitted.</span><br></pre></td></tr></table></figure>
-<p>所以只能删除容器，再次启动，并加入<code>--privileged</code>参数。</p>
-<p>再次执行<code>gluster volume create</code>命令，执行成功。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gluster volume create gv0 replica 2 172.17.0.2:/gluster/data 172.17.0.3:/gluster/data force</span><br><span class="line">volume create: gv0: success: please start the volume to access data</span><br></pre></td></tr></table></figure>
-<h2 id="启动卷"><a href="#启动卷" class="headerlink" title="启动卷"></a>启动卷</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gluster volume start gv0</span><br><span class="line">volume start: gv0: success</span><br></pre></td></tr></table></figure>
-<h2 id="查看卷信息"><a href="#查看卷信息" class="headerlink" title="查看卷信息"></a>查看卷信息</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">gluster volume info</span><br><span class="line"> </span><br><span class="line">Volume Name: gv0</span><br><span class="line">Type: Replicate</span><br><span class="line">Volume ID: 065914c6-38b0-4ef6-ad76-c190ea0cfb0c</span><br><span class="line">Status: Started</span><br><span class="line">Snapshot Count: 0</span><br><span class="line">Number of Bricks: 1 x 2 = 2</span><br><span class="line">Transport-type: tcp</span><br><span class="line">Bricks:</span><br><span class="line">Brick1: 172.17.0.2:/gluster/data</span><br><span class="line">Brick2: 172.17.0.3:/gluster/data</span><br><span class="line">Options Reconfigured:</span><br><span class="line">performance.client-io-threads: off</span><br><span class="line">nfs.disable: on</span><br><span class="line">transport.address-family: inet</span><br></pre></td></tr></table></figure>
-<h1 id="创建GlusterFS客户端"><a href="#创建GlusterFS客户端" class="headerlink" title="创建GlusterFS客户端"></a>创建GlusterFS客户端</h1><h2 id="安装GlusterFS客户端软件"><a href="#安装GlusterFS客户端软件" class="headerlink" title="安装GlusterFS客户端软件"></a>安装GlusterFS客户端软件</h2><p>主要就是安装<code>glusterfs-fuse</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y glusterfs glusterfs-fuse</span><br></pre></td></tr></table></figure>
-<p>启动一个<code>gluster-centos</code>容器也可以的。挂载点<code>/gluster/data</code>已经创建好了的。</p>
-<h2 id="以glusterfs方式挂载"><a href="#以glusterfs方式挂载" class="headerlink" title="以glusterfs方式挂载"></a>以glusterfs方式挂载</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t glusterfs 172.17.0.2:gv0 /gluster/data</span><br></pre></td></tr></table></figure>
-<p>此时，在客户端<code>/gluster/data</code>看到的文件，就是分布式系统的文件了。可以像操作本地文件一样操作文件了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/10/CentOS%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9Hostname%E4%B8%BB%E6%9C%BA%E5%90%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/CentOS%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9Hostname%E4%B8%BB%E6%9C%BA%E5%90%8D/" class="post-title-link" itemprop="url">CentOS如何修改Hostname主机名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-04 21:34:42" itemprop="dateCreated datePublished" datetime="2019-10-04T21:34:42+08:00">2019-10-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-07 22:12:46" itemprop="dateModified" datetime="2020-03-07T22:12:46+08:00">2020-03-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/10/CentOS%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9Hostname%E4%B8%BB%E6%9C%BA%E5%90%8D/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS如何修改Hostname主机名" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/10/CentOS%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9Hostname%E4%B8%BB%E6%9C%BA%E5%90%8D/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/CentOS%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9Hostname%E4%B8%BB%E6%9C%BA%E5%90%8D/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="CentOS-7环境修改主机名"><a href="#CentOS-7环境修改主机名" class="headerlink" title="CentOS 7环境修改主机名"></a>CentOS 7环境修改主机名</h1><h2 id="修改主机名"><a href="#修改主机名" class="headerlink" title="修改主机名"></a>修改主机名</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname node1</span><br></pre></td></tr></table></figure>
-<p>立即生效，重启以后也不会失效。</p>
-<h2 id="查看主机名"><a href="#查看主机名" class="headerlink" title="查看主机名"></a>查看主机名</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hostname</span><br><span class="line">node1</span><br></pre></td></tr></table></figure>
-<h2 id="设置hosts"><a href="#设置hosts" class="headerlink" title="设置hosts"></a>设置hosts</h2><p>设置hostname对应的ip，主要是在其他节点上面设置node1节点的IP</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hosts</span><br></pre></td></tr></table></figure>
-<h1 id="CentOS-6环境修改主机名"><a href="#CentOS-6环境修改主机名" class="headerlink" title="CentOS 6环境修改主机名"></a>CentOS 6环境修改主机名</h1><p>在文件<code>/etc/sysconfig/network</code>里面添加</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HOSTNAME=node2</span><br></pre></td></tr></table></figure>
-<p>重启生效。</p>
+          <p>这篇文章主要讲解在kubernetes集群中如何安装Grafana和持久化Grafana数据。</p>
+<p>使用的镜像是<code>image: grafana/grafana:6.3.3</code></p>
+<p>安装Grafana使用的yaml文件是安装<code>kube-prometheus</code>里面的。安装 <code>kube-prometheus</code>，请参考 <a href="/2019/12/Kubernetes%E7%9B%91%E6%8E%A7%E6%96%B9%E6%A1%88kube-prometheus-prometheus-node-exporter-grafana/" title="Kubernetes监控方案kube-prometheus(prometheus, node-exporter, grafana)">Kubernetes监控方案kube-prometheus(prometheus, node-exporter, grafana)</a></p>
+<p>不过需要对<code>grafana/grafana-deployment.yaml</code>做一些自定义化的修改。</p>
+<h1 id="设置管理员"><a href="#设置管理员" class="headerlink" title="设置管理员"></a>设置管理员</h1><p>在<code>containers</code>下级添加<code>GF_SECURITY_ADMIN_USER</code>和<code>GF_SECURITY_ADMIN_PASSWORD</code>，用来配置 grafana 的管理员用户和密码</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  containers:</span></span><br><span class="line"><span class="attr">  - image:</span> <span class="string">grafana/grafana:6.3.3</span></span><br><span class="line">    <span class="string">...</span></span><br><span class="line"><span class="attr">    env:</span></span><br><span class="line"><span class="attr">    - name:</span> <span class="string">GF_SECURITY_ADMIN_USER</span></span><br><span class="line"><span class="attr">      value:</span> <span class="string">admin</span></span><br><span class="line"><span class="attr">    - name:</span> <span class="string">GF_SECURITY_ADMIN_PASSWORD</span></span><br><span class="line"><span class="attr">      value:</span> <span class="string">"123456"</span></span><br></pre></td></tr></table></figure>
+<p>如果要设置Grafana的匿名登录，请参考<a href="/2019/12/Grafana%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95Kubernetes%E8%AE%BE%E7%BD%AE/" title="Grafana匿名登录Kubernetes设置">Grafana匿名登录Kubernetes设置</a></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">- name:</span> <span class="string">GF_AUTH_ANONYMOUS_ENABLED</span></span><br><span class="line"><span class="attr">  value:</span> <span class="string">"true"</span></span><br><span class="line"><span class="attr">- name:</span> <span class="string">GF_AUTH_ANONYMOUS_ORG_ROLE</span></span><br><span class="line"><span class="attr">  value:</span> <span class="string">Viewer</span></span><br></pre></td></tr></table></figure>
+<h1 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h1><p>原始的数据是以<code>emptyDir</code>形式存放在pod里面，生命周期与pod相同，出现问题时，容器重启，在Grafana里面设置的数据就全部消失了。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">  volumeMounts:</span></span><br><span class="line"><span class="attr">  - mountPath:</span> <span class="string">/var/lib/grafana</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">grafana-storage</span></span><br><span class="line"><span class="attr">    readOnly:</span> <span class="literal">false</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="attr">- emptyDir:</span> <span class="string">&#123;&#125;</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">grafana-storage</span></span><br></pre></td></tr></table></figure>
+<p>可以看出Grafana将dashboard、插件这些数据保存在/var/lib/grafana这个目录下面。做持久化的话，就需要对这个目录进行volume挂载声明。</p>
+<p>把emptyDir修改为pvc方式。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="attr">- name:</span> <span class="string">grafana-storage</span></span><br><span class="line"><span class="attr">  persistentVolumeClaim:</span></span><br><span class="line"><span class="attr">    claimName:</span> <span class="string">grafana</span></span><br></pre></td></tr></table></figure>
+<p>如果要使用一个 pvc 对象来持久化数据，我们就需要添加一个可用的 pv 供 pvc 绑定使用，<code>grafana-volume.yaml</code>内容如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolume</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">grafana</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  capacity:</span></span><br><span class="line"><span class="attr">    storage:</span> <span class="number">1</span><span class="string">Gi</span></span><br><span class="line"><span class="attr">  accessModes:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">ReadWriteOnce</span></span><br><span class="line"><span class="attr">  persistentVolumeReclaimPolicy:</span> <span class="string">Recycle</span></span><br><span class="line"><span class="attr">  nfs:</span></span><br><span class="line"><span class="attr">    server:</span> <span class="number">172.16</span><span class="number">.64</span><span class="number">.233</span></span><br><span class="line"><span class="attr">    path:</span> <span class="string">/data/nfs</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolumeClaim</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">grafana</span></span><br><span class="line"><span class="attr">  namespace:</span> <span class="string">monitoring</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  accessModes:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">ReadWriteOnce</span></span><br><span class="line"><span class="attr">  resources:</span></span><br><span class="line"><span class="attr">    requests:</span></span><br><span class="line"><span class="attr">      storage:</span> <span class="number">1</span><span class="string">Gi</span></span><br></pre></td></tr></table></figure>
+<p>暴露Service的方法，在安装 kube-prometheus 的时候已经讲过了。<a href="/2019/12/Kubernetes%E7%9B%91%E6%8E%A7%E6%96%B9%E6%A1%88kube-prometheus-prometheus-node-exporter-grafana/" title="Kubernetes监控方案kube-prometheus(prometheus, node-exporter, grafana)">Kubernetes监控方案kube-prometheus(prometheus, node-exporter, grafana)</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> kubectl apply -f grafana-volume.yaml</span></span><br><span class="line">persistentvolume/grafana created</span><br><span class="line">persistentvolumeclaim/grafana created</span><br><span class="line"><span class="meta">#</span><span class="bash"> kubectl apply -f grafana-deployment.yaml</span></span><br><span class="line">deployment.apps/grafana configured</span><br></pre></td></tr></table></figure>
+<p>查看 pod 状态：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> kubectl get po -n monitoring</span></span><br><span class="line">NAME                                  READY   STATUS              RESTARTS   AGE</span><br><span class="line">...</span><br><span class="line">grafana-6668cd66cb-ff8kg              0/1     ContainerCreating   0          2m32s</span><br></pre></td></tr></table></figure>
+<p>进一步查看描述信息：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> kubectl describe po grafana-6668cd66cb-ff8kg -n monitoring</span></span><br><span class="line">Events:</span><br><span class="line">  Type     Reason       Age    From                Message</span><br><span class="line">  ----     ------       ----   ----                -------</span><br><span class="line">  Normal   Scheduled    3m57s  default-scheduler   Successfully assigned monitoring/grafana-6668cd66cb-ff8kg to k8s-node2</span><br><span class="line">  Warning  FailedMount  3m54s  kubelet, k8s-node2  MountVolume.SetUp failed for volume "grafana" : mount failed: exit status 32</span><br><span class="line">Mounting command: systemd-run</span><br><span class="line">Mounting arguments: --description=Kubernetes transient mount for /var/lib/kubelet/pods/fc4d98ef-0b80-4570-a487-4ded9133eb58/volumes/kubernetes.io~nfs/grafana --scope -- mount -t nfs 172.16.64.233:/data/nfs /var/lib/kubelet/pods/fc4d98ef-0b80-4570-a487-4ded9133eb58/volumes/kubernetes.io~nfs/grafana</span><br><span class="line">Output: Running scope as unit run-54024.scope.</span><br><span class="line">mount: wrong fs type, bad option, bad superblock on 172.16.64.233:/data/nfs,</span><br><span class="line">       missing codepage or helper program, or other error</span><br><span class="line">       (for several filesystems (e.g. nfs, cifs) you might</span><br><span class="line">       need a /sbin/mount.&lt;type&gt; helper program)</span><br><span class="line"></span><br><span class="line">       In some cases useful info is found in syslog - try</span><br><span class="line">       dmesg | tail or so.</span><br><span class="line">  Warning  FailedMount  3m53s  kubelet, k8s-node2  MountVolume.SetUp failed for volume "grafana" : mount failed: exit status 32</span><br></pre></td></tr></table></figure>
+<p>说明是 mount 失败了。原因是我们需要在每个节点，都要安装 NFS 客户端。在生产环境下，如何批量操作 terminal 终端？请参考：<a href="/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/" title="批量操作Shell终端">批量操作Shell终端</a></p>
+<p>在每个node下面都安装好NFS客户端以后，删除掉出错的 pod。</p>
+<p>查看 pod:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po -n monitoring</span><br><span class="line">NAME                                  READY   STATUS             RESTARTS   AGE</span><br><span class="line">grafana-6668cd66cb-jrnjv              0/1     CrashLoopBackOff   4          2m53s</span><br></pre></td></tr></table></figure>
+<p>没有正常启动，我们再看一下这个 Pod 的日志：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> kubectl logs grafana-6668cd66cb-jrnjv -n monitoring</span></span><br><span class="line">GF_PATHS_DATA='/var/lib/grafana' is not writable.</span><br><span class="line">You may have issues with file permissions, more information here: http://docs.grafana.org/installation/docker/#migration-from-a-previous-version-of-the-docker-container-to-5-1-or-later</span><br><span class="line">mkdir: cannot create directory '/var/lib/grafana/plugins': Permission denied</span><br></pre></td></tr></table></figure>
+<p>这个错误是 Grafana 5.1版本以后才会出现的。错误的原因很明显，就是 <code>/var/lib/grafana</code> 目录的权限不够。</p>
+<p>在 `` 中有这样一个属性：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">securityContext:</span></span><br><span class="line"><span class="attr">  runAsNonRoot:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  runAsUser:</span> <span class="number">65534</span></span><br></pre></td></tr></table></figure>
+<p>我们查看一下<code>65534</code>是哪个用户：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> cat /etc/passwd | grep 65534</span></span><br><span class="line">nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin</span><br></pre></td></tr></table></figure>
+<p>所以，你只需要把 <code>/data/nfs</code> 目录的用户改为 <code>nfsnobody</code> 就可以了。当然把属性改为 <code>777</code> 也没问题。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown nfsnobody /data/nfs</span><br></pre></td></tr></table></figure>
+<p>把刚才出错的那个 Pod 删除，新的  Grafana Pod 就成功启动了。</p>
+<img src="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/grafana-home.png" class="">
+<p>然后可以添加 Dashboard 了，哪怕 Pod 重建也不会丢失数据了。</p>
 
       
     </div>
@@ -855,7 +620,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/35/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><span class="page-number current">36</span><a class="page-number" href="/page/37/">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/">54</a><a class="extend next" rel="next" href="/page/37/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/35/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><span class="page-number current">36</span><a class="page-number" href="/page/37/">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/90/">90</a><a class="extend next" rel="next" href="/page/37/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -934,7 +699,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">269</span>
+          <span class="site-state-item-count">270</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -947,7 +712,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">168</span>
+        <span class="site-state-item-count">169</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

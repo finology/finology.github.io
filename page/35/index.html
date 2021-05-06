@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">168</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">169</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">269</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">270</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/10/Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85Docker/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +218,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85Docker/" class="post-title-link" itemprop="url">Ubuntu环境下安装Docker</a>
+            <a href="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" class="post-title-link" itemprop="url">Git远程仓库版本回退</a>
         </h2>
 
         <div class="post-meta">
@@ -228,377 +228,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-10-20 18:00:51" itemprop="dateCreated datePublished" datetime="2019-10-20T18:00:51+08:00">2019-10-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/10/Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85Docker/" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu环境下安装Docker" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/10/Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85Docker/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85Docker/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install docker.io</span><br></pre></td></tr></table></figure>
-<h1 id="添加账户到Docker组"><a href="#添加账户到Docker组" class="headerlink" title="添加账户到Docker组"></a>添加账户到Docker组</h1><p>Docker安装好以后，我们执行docker command时，前面都要加一个<code>sudo</code>，极为不方便。</p>
-<p>现在把登录用户添加到docker用户组中。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo gpasswd -a $&#123;USER&#125; docker</span><br><span class="line"></span><br><span class="line">Adding user simon to group docker</span><br></pre></td></tr></table></figure>
-<h1 id="重新启动"><a href="#重新启动" class="headerlink" title="重新启动"></a>重新启动</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker</span><br><span class="line">==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===</span><br><span class="line">Authentication is required to restart 'docker.service'.</span><br><span class="line">Authenticating as: Simon,,, (simon)</span><br><span class="line">Password:</span><br><span class="line">==== AUTHENTICATION COMPLETE ===</span><br></pre></td></tr></table></figure>
-<h1 id="重新登录"><a href="#重新登录" class="headerlink" title="重新登录"></a>重新登录</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">newgrp docker</span><br></pre></td></tr></table></figure>
-<p>或者重新登录一下。</p>
-<p>这时，你会发现在运行Docker命令时，已经不再需要<code>sudo</code>了。</p>
-<h1 id="设置镜像源"><a href="#设置镜像源" class="headerlink" title="设置镜像源"></a>设置镜像源</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
-<p>添加如下内容：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "registry-mirrors": ["http://hub-mirror.c.163.com"]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>重启Docker</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
-<p>查看Docker信息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure>
-<p>可以看到如下内容，说明已经设置成功了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Registry Mirrors:</span><br><span class="line"> http://hub-mirror.c.163.com/</span><br></pre></td></tr></table></figure>
-<h1 id="导入镜像"><a href="#导入镜像" class="headerlink" title="导入镜像"></a>导入镜像</h1><h2 id="导出镜像"><a href="#导出镜像" class="headerlink" title="导出镜像"></a>导出镜像</h2><p>先从其他环境导出镜像。比如在MacOS上执行命令。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save simon/gluster-centos &gt; gluster-centos.tar</span><br></pre></td></tr></table></figure>
-<h2 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h2><p>再把<code>gluster-centos.tar</code>拷贝到Ubuntu里面。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp gluster-centos.tar simon@172.16.64.225:/tmp</span><br></pre></td></tr></table></figure>
-<h2 id="导入镜像-1"><a href="#导入镜像-1" class="headerlink" title="导入镜像"></a>导入镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker load -i /tmp/gluster-centos.tar</span><br><span class="line">877b494a9f30: Loading layer [==================================================&gt;]  209.6MB/209.6MB</span><br><span class="line">ad844b10918d: Loading layer [==================================================&gt;]  198.2MB/198.2MB</span><br><span class="line">Loaded image: simon/gluster-centos:latest</span><br></pre></td></tr></table></figure>
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line">REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">simon/gluster-centos   latest              140348a9e5de        2 weeks ago         396MB</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/10/Ubuntu%E6%90%AD%E5%BB%BAMaven%E7%8E%AF%E5%A2%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/Ubuntu%E6%90%AD%E5%BB%BAMaven%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">Ubuntu搭建Maven环境</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-20 14:50:01" itemprop="dateCreated datePublished" datetime="2019-10-20T14:50:01+08:00">2019-10-20</time>
+              <time title="创建时间：2020-03-15 13:38:50" itemprop="dateCreated datePublished" datetime="2020-03-15T13:38:50+08:00">2020-03-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-28 22:45:59" itemprop="dateModified" datetime="2020-03-28T22:45:59+08:00">2020-03-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/Maven/" itemprop="url" rel="index"><span itemprop="name">Maven</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/10/Ubuntu%E6%90%AD%E5%BB%BAMaven%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu搭建Maven环境" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/10/Ubuntu%E6%90%AD%E5%BB%BAMaven%E7%8E%AF%E5%A2%83/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/Ubuntu%E6%90%AD%E5%BB%BAMaven%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>此文介绍的是在Ubuntu OS下搭建Maven环境。若想在MacOS下搭建，请阅读 <a href="/2018/07/macOS%E5%AE%89%E8%A3%85java-jdk%E5%92%8Cmaven%E5%B9%B6%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" title="macOS安装java jdk和maven并配置环境变量">macOS安装java jdk和maven并配置环境变量</a></p>
-<h1 id="下载Maven"><a href="#下载Maven" class="headerlink" title="下载Maven"></a>下载Maven</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://archive.apache.org/dist/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz</span><br></pre></td></tr></table></figure>
-<h1 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -zxvf apache-maven-3.6.1-bin.tar.gz</span><br></pre></td></tr></table></figure>
-<h1 id="配置国内镜像源"><a href="#配置国内镜像源" class="headerlink" title="配置国内镜像源"></a>配置国内镜像源</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi apache-maven-3.6.1/conf/settings.xml</span><br></pre></td></tr></table></figure>
-<p>先修改仓库地址，也就是下载jar到哪个位置。</p>
-<p>添加<code>localRepository</code>标签。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;localRepository&gt;/usr/local/maven/repository&lt;/localRepository&gt;</span><br></pre></td></tr></table></figure>
-<p>找到mirrors标签，并在标签里面添加如下内容</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;</span><br><span class="line">  &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">  &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">  &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">  &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">&lt;/mirror&gt;</span><br><span class="line">&lt;mirror&gt;</span><br><span class="line">  &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">  &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">  &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">  &lt;url&gt;http://maven.aliyun.com/nexus/content/repositories/central/&lt;/url&gt;</span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/bash.bashrc</span><br></pre></td></tr></table></figure>
-<p>添加以下内容</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export M2_HOME=/usr/local/maven/apache-maven-3.6.1</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$&#123;M2_HOME&#125;/bin:$PATH</span><br></pre></td></tr></table></figure>
-<p>最后让设置生效</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/bash.bashrc</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/10/Ubuntu%E9%85%8D%E7%BD%AEJava%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/Ubuntu%E9%85%8D%E7%BD%AEJava%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">Ubuntu配置Java开发环境</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-20 13:36:00" itemprop="dateCreated datePublished" datetime="2019-10-20T13:36:00+08:00">2019-10-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-01 22:39:48" itemprop="dateModified" datetime="2020-04-01T22:39:48+08:00">2020-04-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/10/Ubuntu%E9%85%8D%E7%BD%AEJava%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu配置Java开发环境" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/10/Ubuntu%E9%85%8D%E7%BD%AEJava%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/Ubuntu%E9%85%8D%E7%BD%AEJava%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="下载软件"><a href="#下载软件" class="headerlink" title="下载软件"></a>下载软件</h1><p>下载jdk，存放到<code>/usr/local/software</code>目录下。</p>
-<h1 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h1><p>先要创建好<code>/usr/local/java</code>目录。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -zxvf jdk-8u231-linux-x64.tar.gz -C /usr/local/java</span><br></pre></td></tr></table></figure>
-<h1 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/bash.bashrc</span><br></pre></td></tr></table></figure>
-<p>在文件末添加如下内容</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/java/jdk1.8.0_231</span><br><span class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</span><br></pre></td></tr></table></figure>
-<h1 id="使配置文件生效"><a href="#使配置文件生效" class="headerlink" title="使配置文件生效"></a>使配置文件生效</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/bash.bashrc</span><br></pre></td></tr></table></figure>
-<h1 id="检验"><a href="#检验" class="headerlink" title="检验"></a>检验</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br><span class="line">java version "1.8.0_231"</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_231-b11)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.231-b11, mixed mode)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/10/Ubuntu%E5%AE%89%E8%A3%85sshd%E6%9C%8D%E5%8A%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/Ubuntu%E5%AE%89%E8%A3%85sshd%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">Ubuntu安装sshd服务</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-20 10:15:56" itemprop="dateCreated datePublished" datetime="2019-10-20T10:15:56+08:00">2019-10-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-28 23:21:25" itemprop="dateModified" datetime="2020-03-28T23:21:25+08:00">2020-03-28</time>
+                <time title="修改时间：2020-03-28 22:42:25" itemprop="dateModified" datetime="2020-03-28T22:42:25+08:00">2020-03-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -610,12 +247,12 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/SSH/" itemprop="url" rel="index"><span itemprop="name">SSH</span></a>
+                  <a href="/categories/Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
                 </span>
             </span>
 
           
-            <span id="/2019/10/Ubuntu%E5%AE%89%E8%A3%85sshd%E6%9C%8D%E5%8A%A1/" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu安装sshd服务" title="阅读次数">
+            <span id="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" class="post-meta-item leancloud_visitors" data-flag-title="Git远程仓库版本回退" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -631,8 +268,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2019/10/Ubuntu%E5%AE%89%E8%A3%85sshd%E6%9C%8D%E5%8A%A1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/Ubuntu%E5%AE%89%E8%A3%85sshd%E6%9C%8D%E5%8A%A1/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -659,15 +296,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="查看是否已经安装ssh"><a href="#查看是否已经安装ssh" class="headerlink" title="查看是否已经安装ssh"></a>查看是否已经安装ssh</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo ps -ef | grep ssh</span><br><span class="line"></span><br><span class="line">simon      1720   1625  0 09:54 ?        00:00:00 /usr/bin/ssh-agent /usr/bin/im-launch env GNOME_SHELL_SESSION_MODE=ubuntu gnome-session --session=ubuntu</span><br><span class="line">simon      2604   2192  0 10:08 pts/0    00:00:00 grep --color=auto ssh</span><br></pre></td></tr></table></figure>
-<p>可以看出并没有<code>sshd</code>服务，所以需要安装。</p>
-<h1 id="安装sshd"><a href="#安装sshd" class="headerlink" title="安装sshd"></a>安装sshd</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install openssh-server</span><br></pre></td></tr></table></figure>
-<p>再次查看有没有安装成功。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ps -ef | grep ssh</span><br><span class="line">root       2960      1  0 10:11 ?        00:00:00 /usr/sbin/sshd -D</span><br></pre></td></tr></table></figure>
-<p>说明已经安装成功了。</p>
-<h1 id="查看Ubuntu的IP地址"><a href="#查看Ubuntu的IP地址" class="headerlink" title="查看Ubuntu的IP地址"></a>查看Ubuntu的IP地址</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ip a</span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000</span><br><span class="line">    link/ether 00:0c:29:69:47:e5 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 172.16.64.224/24 brd 172.16.64.255 scope global dynamic noprefixroute ens33</span><br><span class="line">       valid_lft 1513sec preferred_lft 1513sec</span><br><span class="line">    inet6 fe80::3e0a:bd57:1c36:3425/64 scope link noprefixroute </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br></pre></td></tr></table></figure>
-<h1 id="宿主机连接到Ubuntu虚拟机"><a href="#宿主机连接到Ubuntu虚拟机" class="headerlink" title="宿主机连接到Ubuntu虚拟机"></a>宿主机连接到Ubuntu虚拟机</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@172.16.64.224</span><br></pre></td></tr></table></figure>
-<p>当然，实际环境中，最好不要用<code>root</code>用户。</p>
+          <p>在 <a href="/2018/03/Git%E7%89%88%E6%9C%AC%E5%A6%82%E4%BD%95%E5%9B%9E%E9%80%80/" title="Git版本如何回退">Git版本如何回退</a> 我们知道了，如果 commit 以后，想要回到原来的版本使用 git reset 命令就可以。</p>
+<p>在 SourceTree 工具里面，选中想要回退的版本，右键点击 Reset master to this commit 也可以解决。</p>
+<p>这里想讲一下如何已经提交到远程仓库了怎么办？</p>
+<p>首先，还是和前面的一样，让本地 master 版本先回退回来。</p>
+<p>如图所示：可以看到 master 版本已经落后远程仓库一个版本了。</p>
+<img src="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/git%E5%9B%9E%E9%80%80.png" class="">
+<p>然后，在命令行里面，执行 <code>git push -f</code> 这个命令，我在 SourceTree 里面还没有找到在哪里。force push 到原程仓库里面。就可以了。</p>
+<p>如图 <img src="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/git%E5%9B%9E%E9%80%80%E6%88%90%E5%8A%9F.png" class=""></p>
+<p>版本就在同一条线上了。</p>
 
       
     </div>
@@ -687,7 +324,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/10/VMware%E8%99%9A%E6%8B%9F%E6%9C%BAUbuntu%E8%AE%BE%E7%BD%AE%E8%87%AA%E9%80%82%E5%BA%94%E5%B1%8F%E5%B9%95%E5%A4%A7%E5%B0%8F/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -701,7 +338,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/VMware%E8%99%9A%E6%8B%9F%E6%9C%BAUbuntu%E8%AE%BE%E7%BD%AE%E8%87%AA%E9%80%82%E5%BA%94%E5%B1%8F%E5%B9%95%E5%A4%A7%E5%B0%8F/" class="post-title-link" itemprop="url">VMware虚拟机Ubuntu设置自适应屏幕大小</a>
+            <a href="/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/" class="post-title-link" itemprop="url">Prometheus中指标,Servicemonitor,Targets的关系</a>
         </h2>
 
         <div class="post-meta">
@@ -711,31 +348,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-10-20 10:08:27" itemprop="dateCreated datePublished" datetime="2019-10-20T10:08:27+08:00">2019-10-20</time>
+              <time title="创建时间：2020-03-13 23:14:53" itemprop="dateCreated datePublished" datetime="2020-03-13T23:14:53+08:00">2020-03-13</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-28 22:47:28" itemprop="dateModified" datetime="2020-03-28T22:47:28+08:00">2020-03-28</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+                  <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
                 </span>
             </span>
 
           
-            <span id="/2019/10/VMware%E8%99%9A%E6%8B%9F%E6%9C%BAUbuntu%E8%AE%BE%E7%BD%AE%E8%87%AA%E9%80%82%E5%BA%94%E5%B1%8F%E5%B9%95%E5%A4%A7%E5%B0%8F/" class="post-meta-item leancloud_visitors" data-flag-title="VMware虚拟机Ubuntu设置自适应屏幕大小" title="阅读次数">
+            <span id="/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/" class="post-meta-item leancloud_visitors" data-flag-title="Prometheus中指标,Servicemonitor,Targets的关系" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -751,8 +381,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2019/10/VMware%E8%99%9A%E6%8B%9F%E6%9C%BAUbuntu%E8%AE%BE%E7%BD%AE%E8%87%AA%E9%80%82%E5%BA%94%E5%B1%8F%E5%B9%95%E5%A4%A7%E5%B0%8F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/VMware%E8%99%9A%E6%8B%9F%E6%9C%BAUbuntu%E8%AE%BE%E7%BD%AE%E8%87%AA%E9%80%82%E5%BA%94%E5%B1%8F%E5%B9%95%E5%A4%A7%E5%B0%8F/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -779,15 +409,151 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在VMware上安装了Ubuntu虚拟机后，发现屏幕显示得比较别扭，需要通过安装VMware Tools，以达到屏幕自适应宽度。</p>
-<p>点击菜单，<code>虚拟机</code> -&gt; <code>安装VMware Tools</code></p>
-<p>此时CD/DVD设置将自动连接到<code>linux.iso</code>镜像。</p>
-<p>把安装软件<code>VMwareTools-10.0.10-4301679.tar.gz</code>拷贝到磁盘中比如<code>/tmp</code>目录。</p>
-<p>解压</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /tmp</span><br><span class="line">tar -zxvf VMwareTools-10.0.10-4301679.tar.gz</span><br></pre></td></tr></table></figure>
-<p>运行<code>vmware-install.pl</code>文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./vmware-install.pl</span><br></pre></td></tr></table></figure>
-<p>然后一路回车，默认选项，最后重新登录，就可以达到Ubuntu屏幕自适应大小了。</p>
+          <p>Prometheus下拉列表里面的指标是怎么来的？</p>
+<p>如果安装了<code>alert-manager</code>, <code>kube-state-metrics</code>这样组件，这些组件会提供<code>/metrics</code>接口，然后Prometheus就可以拉取这些接口，从而获取指标数据，便展示于Prometheus<br>Dashboard的下拉列表里面了。当然，在指标里面有可能还会加入一些标签，如<code>job</code>, <code>instance</code>之类的。</p>
+<p>网上有人说Servicemonitor是exporter的抽象，我觉得是不对的。最多抽象了一部分而已。</p>
+<p>一个Servicemonitor对应n个Targetes里面的记录。</p>
+<p>当你删除Servicemonitor对象，在Targets页面，这个特定的Target肯定是不显示了，但并不代表Prometheus下拉列表中的指标会消失，指标还是存在的。只是有可能有些标签变化了，这个标签变化的还没有经过验证。</p>
+<p>当你删除Pod时，比如把alert-manager的deployment删除，对应的Pod自动删除，这时，下拉列表对应的指标还存在，但却没有值了。</p>
+<p>这个时候，如果把Prometheus重启一下，这个指标才会消失。</p>
+<p>把<code>kube-state-metrics</code>的pods删除后，<code>kube-</code>开始的指标，如：<code>kube_pod_info</code>，就没有值了。</p>
+<p>把<code>node-exporter</code>的<code>daemonset</code>删除后，<code>node_cpu_seconds_total</code>节点的指标就没值了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">Grafana各类指标理解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-13 23:14:36" itemprop="dateCreated datePublished" datetime="2020-03-13T23:14:36+08:00">2020-03-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-28 23:22:26" itemprop="dateModified" datetime="2020-03-28T23:22:26+08:00">2020-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kubernetes/Grafana/" itemprop="url" rel="index"><span itemprop="name">Grafana</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/" class="post-meta-item leancloud_visitors" data-flag-title="Grafana各类指标理解" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天来梳理一下Grafana图表及其后面的公式。</p>
+<h1 id="Kubernetes-Compute-Resources-Cluster"><a href="#Kubernetes-Compute-Resources-Cluster" class="headerlink" title="Kubernetes / Compute Resources / Cluster"></a>Kubernetes / Compute Resources / Cluster</h1><h2 id="CPU-Utilisation"><a href="#CPU-Utilisation" class="headerlink" title="CPU Utilisation"></a>CPU Utilisation</h2><img src="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/cluster-cpu.png" class="">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 - avg(rate(node_cpu_seconds_total&#123;mode&#x3D;&quot;idle&quot;, cluster&#x3D;&quot;&quot;&#125;[1m]))</span><br></pre></td></tr></table></figure>
+<p>在prometheus上面查询指标</p>
+<p><code>node_cpu_seconds_total{mode=&quot;idle&quot;}</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">node_cpu_seconds_total&#123;cpu&#x3D;&quot;0&quot;,endpoint&#x3D;&quot;https&quot;,instance&#x3D;&quot;k8s-master&quot;,job&#x3D;&quot;node-exporter&quot;,mode&#x3D;&quot;idle&quot;,namespace&#x3D;&quot;monitoring&quot;,pod&#x3D;&quot;node-exporter-t9ljw&quot;,service&#x3D;&quot;node-exporter&quot;&#125;	3102.08</span><br><span class="line">node_cpu_seconds_total&#123;cpu&#x3D;&quot;0&quot;,endpoint&#x3D;&quot;https&quot;,instance&#x3D;&quot;k8s-node1&quot;,job&#x3D;&quot;node-exporter&quot;,mode&#x3D;&quot;idle&quot;,namespace&#x3D;&quot;monitoring&quot;,pod&#x3D;&quot;node-exporter-7vq8n&quot;,service&#x3D;&quot;node-exporter&quot;&#125;	3046.73</span><br><span class="line">node_cpu_seconds_total&#123;cpu&#x3D;&quot;0&quot;,endpoint&#x3D;&quot;https&quot;,instance&#x3D;&quot;k8s-node2&quot;,job&#x3D;&quot;node-exporter&quot;,mode&#x3D;&quot;idle&quot;,namespace&#x3D;&quot;monitoring&quot;,pod&#x3D;&quot;node-exporter-vg596&quot;,service&#x3D;&quot;node-exporter&quot;&#125;	3069.61</span><br><span class="line">node_cpu_seconds_total&#123;cpu&#x3D;&quot;1&quot;,endpoint&#x3D;&quot;https&quot;,instance&#x3D;&quot;k8s-master&quot;,job&#x3D;&quot;node-exporter&quot;,mode&#x3D;&quot;idle&quot;,namespace&#x3D;&quot;monitoring&quot;,pod&#x3D;&quot;node-exporter-t9ljw&quot;,service&#x3D;&quot;node-exporter&quot;&#125;	3096.23</span><br></pre></td></tr></table></figure>
+<p>所以CPU Utilisation算的是各节点CPU利用率的平均值。</p>
+<p>job=”node-exporter”</p>
+<h2 id="CPU-Usage"><a href="#CPU-Usage" class="headerlink" title="CPU Usage"></a>CPU Usage</h2><img src="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/cpu-usage-by-namespace.png" class="">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;cluster&#x3D;&quot;&quot;&#125;) by (namespace)</span><br></pre></td></tr></table></figure>
+<p>在prometheus上面查询指标</p>
+<p><code>namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=&quot;&quot;}</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container&#x3D;&quot;addon-resizer&quot;,namespace&#x3D;&quot;monitoring&quot;,pod&#x3D;&quot;kube-state-metrics-65d5b4b99d-llrjd&quot;&#125;	0.00022111388787432652</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container&#x3D;&quot;alertmanager&quot;,namespace&#x3D;&quot;monitoring&quot;,pod&#x3D;&quot;alertmanager-main-0&quot;&#125;	0.00275714828677409</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container&#x3D;&quot;alertmanager&quot;,namespace&#x3D;&quot;monitoring&quot;,pod&#x3D;&quot;alertmanager-main-1&quot;&#125;	0.0029093557196228424</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container&#x3D;&quot;alertmanager&quot;,namespace&#x3D;&quot;monitoring&quot;,pod&#x3D;&quot;alertmanager-main-2&quot;&#125;	0.0027905491021107728</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container&#x3D;&quot;calico-kube-controllers&quot;,namespace&#x3D;&quot;kube-system&quot;,pod&#x3D;&quot;calico-kube-controllers-5598cf8794-8mgdz&quot;&#125;	0.0009434578301088127</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container&#x3D;&quot;calico-node&quot;,namespace&#x3D;&quot;kube-system&quot;,pod&#x3D;&quot;calico-node-jtvh8&quot;&#125;	0.017518785546616542</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container&#x3D;&quot;calico-node&quot;,namespace&#x3D;&quot;kube-system&quot;,pod&#x3D;&quot;calico-node-k6m8t&quot;&#125;	0.022689515968190806</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container&#x3D;&quot;calico-node&quot;,namespace&#x3D;&quot;kube-system&quot;,pod&#x3D;&quot;calico-node-rb9qx&quot;&#125;	0.01819155156978804</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container&#x3D;&quot;config-reloader&quot;,namespace&#x3D;&quot;monitoring&quot;,pod&#x3D;&quot;alertmanager-main-0&quot;&#125;	0.0000029602042055748096</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container&#x3D;&quot;config-reloader&quot;,namespace&#x3D;&quot;monitoring&quot;,pod&#x3D;&quot;alertmanager-main-1&quot;&#125;	0.0000024442638833786885</span><br></pre></td></tr></table></figure>
+<h2 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(container_memory_rss&#123;cluster&#x3D;&quot;&quot;, container!&#x3D;&quot;&quot;&#125;) by (namespace)</span><br></pre></td></tr></table></figure>
+<p>在prometheus上面查询指标</p>
+<p><code>container_memory_rss</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">container_memory_rss&#123;container&#x3D;&quot;POD&quot;,container_name&#x3D;&quot;POD&quot;,endpoint&#x3D;&quot;https-metrics&quot;,id&#x3D;&quot;&#x2F;kubepods.slice&#x2F;kubepods-besteffort.slice&#x2F;kubepods-besteffort-pod1a047e8b0c961b34e915140fc2a8711c.slice&#x2F;docker-20e1377aeb77873fcf4ac5e4380d47f28c0f594773ba047442b00dfc6f116837.scope&quot;,image&#x3D;&quot;k8s.gcr.io&#x2F;pause:3.1&quot;,instance&#x3D;&quot;172.16.64.233:10250&quot;,job&#x3D;&quot;kubelet&quot;,name&#x3D;&quot;k8s_POD_etcd-k8s-master_kube-system_1a047e8b0c961b34e915140fc2a8711c_14&quot;,namespace&#x3D;&quot;kube-system&quot;,node&#x3D;&quot;k8s-master&quot;,pod&#x3D;&quot;etcd-k8s-master&quot;,pod_name&#x3D;&quot;etcd-k8s-master&quot;,service&#x3D;&quot;kubelet&quot;&#125;	45056</span><br><span class="line">container_memory_rss&#123;container&#x3D;&quot;POD&quot;,container_name&#x3D;&quot;POD&quot;,endpoint&#x3D;&quot;https-metrics&quot;,id&#x3D;&quot;&#x2F;kubepods.slice&#x2F;kubepods-besteffort.slice&#x2F;kubepods-besteffort-pod31622d49_04a8_4a95_8b80_736012e85215.slice&#x2F;docker-c4e100bf3571c0fa25537cbd0ea7839bf2fd1486462a7b2626a552dfcf7503ec.scope&quot;,image&#x3D;&quot;k8s.gcr.io&#x2F;pause:3.1&quot;,instance&#x3D;&quot;172.16.64.232:10250&quot;,job&#x3D;&quot;kubelet&quot;,name&#x3D;&quot;k8s_POD_nginx-deployment-6f89946645-pwpf7_default_31622d49-04a8-4a95-8b80-736012e85215_13&quot;,namespace&#x3D;&quot;default&quot;,node&#x3D;&quot;k8s-node1&quot;,pod&#x3D;&quot;nginx-deployment-6f89946645-pwpf7&quot;,pod_name&#x3D;&quot;nginx-deployment-6f89946645-pwpf7&quot;,service&#x3D;&quot;kubelet&quot;&#125;	45056</span><br></pre></td></tr></table></figure>
+<p>job=”kubelet”</p>
+<h1 id="Kubernetes-Compute-Resources-Namespace-Pods"><a href="#Kubernetes-Compute-Resources-Namespace-Pods" class="headerlink" title="Kubernetes / Compute Resources / Namespace (Pods)"></a>Kubernetes / Compute Resources / Namespace (Pods)</h1><img src="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/cpu-usage-by-pod.png" class="">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;cluster&#x3D;&quot;&quot;, namespace&#x3D;&quot;monitoring&quot;&#125;) by (pod)</span><br></pre></td></tr></table></figure>
+<h1 id="Kubernetes-Compute-Resources-Pod"><a href="#Kubernetes-Compute-Resources-Pod" class="headerlink" title="Kubernetes / Compute Resources / Pod"></a>Kubernetes / Compute Resources / Pod</h1><img src="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/cpu-by-container.png" class="">
+<p>显示各个选中Pod中，各个Container的状态。</p>
+<p>sum(namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{namespace=”default”, pod=”nginx-deployment-6f89946645-pwpf7”, container!=”POD”, cluster=””}) by (container)</p>
+<h3 id=""><a href="#" class="headerlink" title="#"></a>#</h3><p>现在的逻辑就是要把container的指标打上pod的标签</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">- job_name:</span> <span class="string">'kubernetes-cadvisor'</span></span><br><span class="line"><span class="attr">  scheme:</span> <span class="string">https</span></span><br><span class="line"><span class="attr">  tls_config:</span></span><br><span class="line"><span class="attr">    ca_file:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/ca.crt</span></span><br><span class="line"><span class="attr">  bearer_token_file:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line"><span class="attr">  kubernetes_sd_configs:</span></span><br><span class="line"><span class="attr">  - role:</span> <span class="string">node</span></span><br><span class="line"><span class="attr">  relabel_configs:</span></span><br><span class="line"><span class="attr">  - target_label:</span> <span class="string">__address__</span></span><br><span class="line"><span class="attr">    replacement:</span> <span class="string">kubernetes.default.svc:443</span></span><br><span class="line"><span class="attr">  - source_labels:</span> <span class="string">[__meta_kubernetes_node_name]</span></span><br><span class="line"><span class="attr">    regex:</span> <span class="string">(.+)</span></span><br><span class="line"><span class="attr">    replacement:</span> <span class="string">/api/v1/nodes/$&#123;1&#125;/proxy/metrics/cadvisor</span></span><br><span class="line"><span class="attr">    target_label:</span> <span class="string">__metrics_path__</span></span><br><span class="line"><span class="attr">  - action:</span> <span class="string">labelmap</span></span><br><span class="line"><span class="attr">    regex:</span> <span class="string">__meta_kubernetes_node_label_(.+)</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -807,7 +573,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/34/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/">54</a><a class="extend next" rel="next" href="/page/36/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/34/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><span class="space">&hellip;</span><a class="page-number" href="/page/90/">90</a><a class="extend next" rel="next" href="/page/36/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -886,7 +652,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">269</span>
+          <span class="site-state-item-count">270</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -899,7 +665,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">168</span>
+        <span class="site-state-item-count">169</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

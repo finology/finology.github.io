@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"finolo.gy","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Finology 大数据金融">
+<meta property="og:url" content="finolo.gy/page/84/index.html">
+<meta property="og:site_name" content="Finology 大数据金融">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Simon">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content=" finance">
+<meta property="article:tag" content=" python">
+<meta property="article:tag" content=" quant">
+<meta property="article:tag" content=" 量化">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="finolo.gy/page/84/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Finology 大数据金融</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <script data-ad-client="ca-pub-7430210016629671" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <!-- simon <div class="headband"></div> -->
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Finology 大数据金融</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">通过大数据以量化金融</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-markdown">
+
+    <a href="https://md.finolo.gy" rel="noopener" target="_blank"><i class="fa fa-fw fa-edit"></i>公众号编辑</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">169</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">72</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">270</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/" class="post-title-link" itemprop="url">SpringMVC使用ResponseBody返回json时中文乱码</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-19 14:35:02" itemprop="dateCreated datePublished" datetime="2018-05-19T14:35:02+08:00">2018-05-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-30 22:40:41" itemprop="dateModified" datetime="2020-05-30T22:40:41+08:00">2020-05-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/SpringMVC/" itemprop="url" rel="index"><span itemprop="name">SpringMVC</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/" class="post-meta-item leancloud_visitors" data-flag-title="SpringMVC使用ResponseBody返回json时中文乱码" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在SpringMVC中的Controller中，返回非String类时，不会遇到这种情况。但返回为String时，中文有可能会变成乱码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringHttpMessageConverter</span> <span class="keyword">extends</span> <span class="title">AbstractHttpMessageConverter</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Charset DEFAULT_CHARSET = Charset.forName(<span class="string">"ISO-8859-1"</span>);</span><br></pre></td></tr></table></figure>
+<p>转换器的默认编码是ISO-8859-1，而非UTF-8。</p>
+<p>解决办法</p>
+<ol>
+<li><p>使用（produces = “application/json; charset=utf-8”）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/xxx"</span>, produces = <span class="string">"produces=MediaType.APPLICATION_JSON_VALUE + "</span>;charset=utf-<span class="number">8</span><span class="string">")</span></span><br><span class="line"><span class="string">@ResponseBody</span></span><br><span class="line"><span class="string">public String fun() &#123;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在spring-mvc.xml中添加：</p>
+<pre><code class="lang-xml">&lt;!-- 处理请求返回json字符串的中文乱码问题 --&gt;
+&lt;mvc:annotation-driven&gt;
+  &lt;mvc:message-converters&gt;
+     &lt;bean class=&quot;org.springframework.http.converter.StringHttpMessageConverter&quot;&gt;
+          &lt;property name=&quot;supportedMediaTypes&quot;&gt;
+              &lt;list&gt;
+                  &lt;value&gt;application/json;charset=UTF-8&lt;/value&gt;
+              &lt;/list&gt;
+          &lt;/property&gt;
+     &lt;/bean&gt;
+ &lt;/mvc:message-converters&gt;
+&lt;/mvc:annotation-driven&gt;
+</code></pre>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2018/05/Java%E4%B8%AD%E7%9A%84Integer%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%EF%BC%88-2-32-2-31-1%EF%BC%89%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/05/Java%E4%B8%AD%E7%9A%84Integer%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%EF%BC%88-2-32-2-31-1%EF%BC%89%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">Java中的Integer取值范围（-2^32 ~ 2^31 - 1）分析</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-19 00:16:23" itemprop="dateCreated datePublished" datetime="2018-05-19T00:16:23+08:00">2018-05-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-01 22:39:48" itemprop="dateModified" datetime="2020-04-01T22:39:48+08:00">2020-04-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/05/Java%E4%B8%AD%E7%9A%84Integer%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%EF%BC%88-2-32-2-31-1%EF%BC%89%E5%88%86%E6%9E%90/" class="post-meta-item leancloud_visitors" data-flag-title="Java中的Integer取值范围（-2^32 ~ 2^31 - 1）分析" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2018/05/Java%E4%B8%AD%E7%9A%84Integer%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%EF%BC%88-2-32-2-31-1%EF%BC%89%E5%88%86%E6%9E%90/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/05/Java%E4%B8%AD%E7%9A%84Integer%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%EF%BC%88-2-32-2-31-1%EF%BC%89%E5%88%86%E6%9E%90/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在Java中Integer的最小值（MIN_VALUE）、最大值（MAX_VALUE）定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * A constant holding the minimum value an &#123;<span class="doctag">@code</span> int&#125; can</span></span><br><span class="line"><span class="comment">  * have, -2&lt;sup&gt;31&lt;/sup&gt;.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="meta">@Native</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span>   MIN_VALUE = <span class="number">0x80000000</span>;</span><br><span class="line"></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * A constant holding the maximum value an &#123;<span class="doctag">@code</span> int&#125; can</span></span><br><span class="line"><span class="comment">  * have, 2&lt;sup&gt;31&lt;/sup&gt;-1.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="meta">@Native</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span>   MAX_VALUE = <span class="number">0x7fffffff</span>;</span><br></pre></td></tr></table></figure>
+<p>我们大家都知道Integer的最小值为-2^32，最大值为2^32-1，为什么是这样呢，我们来看看推导过程：</p>
+<h1 id="Integer-实际占用的二进制码的位数"><a href="#Integer-实际占用的二进制码的位数" class="headerlink" title="Integer 实际占用的二进制码的位数"></a>Integer 实际占用的二进制码的位数</h1><p>一个 Integer 类型占 4 字节，一个字节占 8 位二进制码，因此一个 Integer 总共占 32 位二进制码。去除第一位的符号位，剩下 31 位来表示数值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MIN_VALUE &#x3D; 0x80000000;  &#x2F;&#x2F; 补码</span><br><span class="line">MAX_VALUE &#x3D; 0x7fffffff;  &#x2F;&#x2F; 补码</span><br></pre></td></tr></table></figure>
+<h1 id="原码、反码、补码"><a href="#原码、反码、补码" class="headerlink" title="原码、反码、补码"></a>原码、反码、补码</h1><p>在计算机中，数据是由二进制补码进行存储的，在 Java 代码中我们看到的 “0x80000000”、“0x7fffffff”，这些非10进制的数，都是以补码的形式存在的，通过转换成原码，我们才能知道其真实的值。</p>
+<p>原码转换成补码的公式：（用“|“来分隔每个字节，8位）</p>
+<ol>
+<li><p>当原码为正数时，反码和补码与原码相同。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">正数：1</span><br><span class="line">原码：0000 0000 | 0000 0000 | 0000 0000 | 0000 0001</span><br><span class="line">反码：0000 0000 | 0000 0000 | 0000 0000 | 0000 0001</span><br><span class="line">补码：0000 0000 | 0000 0000 | 0000 0000 | 0000 0001</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当原码为负数时，反码为其绝对值按位全部取反（包括符号位），补码为反码加1。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">负数：-1</span><br><span class="line">原码：1000 0000 | 0000 0000 | 0000 0000 | 0000 0001</span><br><span class="line">反码：1111 1111 | 1111 1111 | 1111 1111 | 1111 1110</span><br><span class="line">补码：1111 1111 | 1111 1111 | 1111 1111 | 1111 1111</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>因此在程序中，我们定义16进制整形数时，0x00000001表示1，0xffffffff表示-1。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Integer i = <span class="number">0x00000001</span>;</span><br><span class="line">System.out.println(i);</span><br><span class="line"><span class="number">1</span></span><br><span class="line"></span><br><span class="line">Integer j = <span class="number">0xffffffff</span>;</span><br><span class="line">System.out.println(j);</span><br><span class="line">-<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h1 id="最大值为什么是-2-31-1，而不是-2-31"><a href="#最大值为什么是-2-31-1，而不是-2-31" class="headerlink" title="最大值为什么是 2^31-1，而不是 2^31"></a>最大值为什么是 2^31-1，而不是 2^31</h1><p>计算机中可表示的整数最大值的补码为 0111 1111 | 1111 1111 | 1111 1111 | 1111 1111 (0x7fffffff)，正数的补码与原码一致，转换为10进制数为2^31-1 = 2147483647<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integer k = Integer.valueOf(<span class="string">"01111111111111111111111111111111"</span>, <span class="number">2</span>);</span><br><span class="line">System.out.println(k);</span><br><span class="line"><span class="number">2147483647</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="最小值为什么是-2-31，而不是-（2-31-1）"><a href="#最小值为什么是-2-31，而不是-（2-31-1）" class="headerlink" title="最小值为什么是 -2^31，而不是 -（2^31-1）"></a>最小值为什么是 -2^31，而不是 -（2^31-1）</h1><p>我们依次推算负数值，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">负数：-1</span><br><span class="line">原码：1000 0000 | 0000 0000 | 0000 0000 | 0000 0001</span><br><span class="line">反码：1111 1111 | 1111 1111 | 1111 1111 | 1111 1110</span><br><span class="line">补码：1111 1111 | 1111 1111 | 1111 1111 | 1111 1111</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">负数：-2</span><br><span class="line">原码：1000 0000 | 0000 0000 | 0000 0000 | 0000 0010</span><br><span class="line">反码：1111 1111 | 1111 1111 | 1111 1111 | 1111 1101</span><br><span class="line">补码：1111 1111 | 1111 1111 | 1111 1111 | 1111 1110</span><br></pre></td></tr></table></figure>
+<p>观察补码的变化规律，可以推断最小的补码为：<br>1000 0000 | 0000 0000 | 0000 0000 | 0000 0000<br>(0x80000000)<br>反码为被码-1（符号位除外）<br>1111 1111 | 1111 1111 | 1111 1111 | 1111 1111<br>负数的原码为反码除符号位取反<br>1000 0000 | 0000 0000 | 0000 0000 | 0000 0000<br>为-0，约定为-2^31 = -2147483648</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2018/04/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%EF%BC%88%E5%88%9D%E7%BA%A7%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/04/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%EF%BC%88%E5%88%9D%E7%BA%A7%EF%BC%89/" class="post-title-link" itemprop="url">java多线程编程（初级）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-04-29 16:32:58" itemprop="dateCreated datePublished" datetime="2018-04-29T16:32:58+08:00">2018-04-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-01 22:39:48" itemprop="dateModified" datetime="2020-04-01T22:39:48+08:00">2020-04-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/Thread/" itemprop="url" rel="index"><span itemprop="name">Thread</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/04/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%EF%BC%88%E5%88%9D%E7%BA%A7%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="java多线程编程（初级）" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2018/04/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%EF%BC%88%E5%88%9D%E7%BA%A7%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/04/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%EF%BC%88%E5%88%9D%E7%BA%A7%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Java 给多线程编程提供了内置的支持。 一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。</p>
+<p>多线程是多任务的一种特别的形式，但多线程使用了更小的资源开销。</p>
+<p>这里定义和线程相关的另一个术语 - 进程：一个进程包括由操作系统分配的内存空间，包含一个或多个线程。一个线程不能独立的存在，它必须是进程的一部分。一个进程一直运行，直到所有的非守护线程都结束运行后才能结束。</p>
+<p>多线程能满足程序员编写高效率的程序来达到充分利用 CPU 的目的。</p>
+<h1 id="一个线程的生命周期"><a href="#一个线程的生命周期" class="headerlink" title="一个线程的生命周期"></a>一个线程的生命周期</h1><p>线程是一个动态执行的过程，它也有一个从产生到死亡的过程。</p>
+<p>下图显示了一个线程完整的生命周期。</p>
+<img src="/2018/04/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%EF%BC%88%E5%88%9D%E7%BA%A7%EF%BC%89/6d4ffea9mujjmrrv8n76v2meq5.png" class="">
+<ul>
+<li><p>新建状态<br>使用 new 关键字和 Thread 类或其子类建立一个线程对象后，该线程对象就处于新建状态。它保持这个状态直到程序 start() 这个线程。</p>
+</li>
+<li><p>就绪状态<br>当线程对象调用了start()方法之后，该线程就进入就绪状态。就绪状态的线程处于就绪队列中，要等待JVM里线程调度器的调度。</p>
+</li>
+<li><p>运行状态<br>如果就绪状态的线程获取 CPU 资源，就可以执行 run()，此时线程便处于运行状态。处于运行状态的线程最为复杂，它可以变为阻塞状态、就绪状态和死亡状态。</p>
+</li>
+<li><p>阻塞状态<br>如果一个线程执行了sleep（睡眠）、suspend（挂起）等方法，失去所占用资源之后，该线程就从运行状态进入阻塞状态。在睡眠时间已到或获得设备资源后可以重新进入就绪状态。可以分为三种：</p>
+<ul>
+<li><p>等待阻塞<br>运行状态中的线程执行 wait() 方法，使线程进入到等待阻塞状态。</p>
+</li>
+<li><p>同步阻塞<br>线程在获取 synchronized 同步锁失败(因为同步锁被其他线程占用)。</p>
+</li>
+<li><p>其他阻塞<br>通过调用线程的 sleep() 或 join() 发出了 I/O 请求时，线程就会进入到阻塞状态。当sleep() 状态超时，join() 等待线程终止或超时，或者 I/O 处理完毕，线程重新转入就绪状态。</p>
+</li>
+</ul>
+</li>
+<li><p>死亡状态<br>一个运行状态的线程完成任务或者其他终止条件发生时，该线程就切换到终止状态。</p>
+</li>
+</ul>
+<h1 id="线程的优先级"><a href="#线程的优先级" class="headerlink" title="线程的优先级"></a>线程的优先级</h1><p>每一个 Java 线程都有一个优先级，这样有助于操作系统确定线程的调度顺序。</p>
+<p>Java 线程的优先级是一个整数，其取值范围是 1 （Thread.MIN_PRIORITY ） - 10 （Thread.MAX_PRIORITY ）。</p>
+<p>默认情况下，每一个线程都会分配一个优先级 NORM_PRIORITY（5）。</p>
+<p>具有较高优先级的线程对程序更重要，并且应该在低优先级的线程之前分配处理器资源。但是，线程优先级不能保证线程执行的顺序，而且非常依赖于平台。</p>
+<h1 id="创建一个线程"><a href="#创建一个线程" class="headerlink" title="创建一个线程"></a>创建一个线程</h1><p>Java 提供了三种创建线程的方法：</p>
+<ul>
+<li>通过实现 Runnable 接口；</li>
+<li>通过继承 Thread 类本身；</li>
+<li>通过 Callable 和 Future 创建线程。</li>
+</ul>
+<h2 id="通过实现-Runnable-接口来创建线程"><a href="#通过实现-Runnable-接口来创建线程" class="headerlink" title="通过实现 Runnable 接口来创建线程"></a>通过实现 Runnable 接口来创建线程</h2><p>创建一个线程，最简单的方法是创建一个实现 Runnable 接口的类。</p>
+<p>为了实现 Runnable，一个类只需要执行一个方法调用 run()，声明如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<p>你可以重写该方法，重要的是理解的 run() 可以调用其他方法，使用其他类，并声明变量，就像主线程一样。</p>
+<p>在创建一个实现 Runnable 接口的类之后，你可以在类中实例化一个线程对象。</p>
+<p>Thread 定义了几个构造方法，下面的这个是我们经常使用的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Thread</span><span class="params">(Runnable target, String name)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>这里，target 是一个实现 Runnable 接口的类的实例，并且 name 指定新线程的名字。</p>
+<p>新线程创建之后，你调用它的 start() 方法它才会运行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<p>下面是一个创建线程并开始让它执行的实例：</p>
+<p><code>TestThread.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RunnableDemo</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Thread t;</span><br><span class="line">    <span class="keyword">private</span> String threadName;</span><br><span class="line"></span><br><span class="line">    RunnableDemo( String name) &#123;</span><br><span class="line">        threadName = name;</span><br><span class="line">        System.out.println(<span class="string">"Creating "</span> +  threadName );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Running "</span> +  threadName );</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">4</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">                System.out.println(<span class="string">"Thread: "</span> + threadName + <span class="string">", "</span> + i);</span><br><span class="line">                <span class="comment">// 让线程睡眠一会</span></span><br><span class="line">                Thread.sleep(<span class="number">50</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Thread "</span> +  threadName + <span class="string">" interrupted."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"Thread "</span> +  threadName + <span class="string">" exiting."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Starting "</span> +  threadName );</span><br><span class="line">        <span class="keyword">if</span> (t == <span class="keyword">null</span>) &#123;</span><br><span class="line">            t = <span class="keyword">new</span> Thread (<span class="keyword">this</span>, threadName);</span><br><span class="line">            t.start ();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        RunnableDemo r1 = <span class="keyword">new</span> RunnableDemo( <span class="string">"Thread-1"</span>);</span><br><span class="line">        r1.start();</span><br><span class="line"></span><br><span class="line">        RunnableDemo r2 = <span class="keyword">new</span> RunnableDemo( <span class="string">"Thread-2"</span>);</span><br><span class="line">        r2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Creating Thread-1</span><br><span class="line">Starting Thread-1</span><br><span class="line">Creating Thread-2</span><br><span class="line">Starting Thread-2</span><br><span class="line">Running Thread-1</span><br><span class="line">Thread: Thread-1, 4</span><br><span class="line">Running Thread-2</span><br><span class="line">Thread: Thread-2, 4</span><br><span class="line">Thread: Thread-1, 3</span><br><span class="line">Thread: Thread-2, 3</span><br><span class="line">Thread: Thread-1, 2</span><br><span class="line">Thread: Thread-2, 2</span><br><span class="line">Thread: Thread-1, 1</span><br><span class="line">Thread: Thread-2, 1</span><br><span class="line">Thread Thread-1 exiting.</span><br><span class="line">Thread Thread-2 exiting.</span><br></pre></td></tr></table></figure>
+<h2 id="通过继承Thread来创建线程"><a href="#通过继承Thread来创建线程" class="headerlink" title="通过继承Thread来创建线程"></a>通过继承Thread来创建线程</h2><p>创建一个线程的第二种方法是创建一个新的类，该类继承 Thread 类，然后创建一个该类的实例。</p>
+<p>继承类必须重写 run() 方法，该方法是新线程的入口点。它也必须调用 start() 方法才能执行。</p>
+<p>该方法尽管被列为一种多线程实现方式，但是本质上也是实现了 Runnable 接口的一个实例。</p>
+<h3 id="Thread-方法"><a href="#Thread-方法" class="headerlink" title="Thread 方法"></a>Thread 方法</h3><p>下表列出了Thread类的一些重要方法：</p>
+<ol>
+<li><p>public void start()<br>使该线程开始执行；Java 虚拟机调用该线程的 run 方法。</p>
+</li>
+<li><p>public void run()<br>如果该线程是使用独立的 Runnable 运行对象构造的，则调用该 Runnable 对象的 run 方法；否则，该方法不执行任何操作并返回。</p>
+</li>
+<li><p>public final void setName(String name)<br>改变线程名称，使之与参数 name 相同。</p>
+</li>
+<li><p>public final void setPriority(int priority)<br>更改线程的优先级。</p>
+</li>
+<li><p>public final void setDaemon(boolean on)<br>将该线程标记为守护线程或用户线程。</p>
+</li>
+<li><p>public final void join(long millisec)<br>等待该线程终止的时间最长为 millis 毫秒。</p>
+</li>
+<li><p>public void interrupt()<br>中断线程。</p>
+</li>
+<li><p>public final boolean isAlive()<br>测试线程是否处于活动状态。</p>
+</li>
+</ol>
+<p>上述方法是被Thread对象调用的。下面的方法是Thread类的静态方法。</p>
+<ol>
+<li><p>public static void yield()<br>暂停当前正在执行的线程对象，并执行其他线程。</p>
+</li>
+<li><p>public static void sleep(long millisec)<br>在指定的毫秒数内让当前正在执行的线程休眠（暂停执行），此操作受到系统计时器和调度程序精度和准确性的影响。</p>
+<p>yield和sleep的区别<br>sleep()方法会给其他线程运行的机会，而不考虑其他线程的优先级，因此会给较低线程一个运行的机会;yield()方法只会给相同优先级或者更高优先级的线程一个运行的机会。</p>
+<p>当线程执行了sleep(long millis)方法后，将转到阻塞状态，参数millis指定睡眠时间;当线程执行了yield()方法后，将转到就绪状态。</p>
+</li>
+</ol>
+<ol>
+<li><p>public static boolean holdsLock(Object x)<br>当且仅当当前线程在指定的对象上保持监视器锁时，才返回 true。</p>
+</li>
+<li><p>public static Thread currentThread()<br>返回对当前正在执行的线程对象的引用。</p>
+</li>
+<li><p>public static void dumpStack()<br>将当前线程的堆栈跟踪打印至标准错误流。</p>
+</li>
+</ol>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadClassDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span> </span>&#123;</span><br><span class="line">        Runnable hello = <span class="keyword">new</span> DisplayMessage(<span class="string">"Hello"</span>);</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(hello);</span><br><span class="line">        thread1.setDaemon(<span class="keyword">true</span>);</span><br><span class="line">        thread1.setName(<span class="string">"hello"</span>);</span><br><span class="line">        System.out.println(<span class="string">"Starting hello thread..."</span>);</span><br><span class="line">        thread1.start();</span><br><span class="line"></span><br><span class="line">        Runnable bye = <span class="keyword">new</span> DisplayMessage(<span class="string">"Goodbye"</span>);</span><br><span class="line">        Thread thread2 = <span class="keyword">new</span> Thread(bye);</span><br><span class="line">        thread2.setPriority(Thread.MIN_PRIORITY);</span><br><span class="line">        thread2.setDaemon(<span class="keyword">true</span>);</span><br><span class="line">        System.out.println(<span class="string">"Starting goodbye thread..."</span>);</span><br><span class="line">        thread2.start();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"Starting thread3..."</span>);</span><br><span class="line">        Thread thread3 = <span class="keyword">new</span> GuessANumber(<span class="number">27</span>);</span><br><span class="line">        thread3.start();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            thread3.join();</span><br><span class="line">        &#125;<span class="keyword">catch</span>(InterruptedException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Thread interrupted."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"Starting thread4..."</span>);</span><br><span class="line">        Thread thread4 = <span class="keyword">new</span> GuessANumber(<span class="number">75</span>);</span><br><span class="line"></span><br><span class="line">        thread4.start();</span><br><span class="line">        System.out.println(<span class="string">"main() is ending..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DisplayMessage</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DisplayMessage</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.message = message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">            System.out.println(message);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GuessANumber</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> number;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GuessANumber</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.number = number;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> guess = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            guess = (<span class="keyword">int</span>) (Math.random() * <span class="number">100</span> + <span class="number">1</span>);</span><br><span class="line">            System.out.println(<span class="keyword">this</span>.getName() + <span class="string">" guesses "</span> + guess);</span><br><span class="line">            counter++;</span><br><span class="line">        &#125; <span class="keyword">while</span>(guess != number);</span><br><span class="line">        System.out.println(<span class="string">"** Correct!"</span> + <span class="keyword">this</span>.getName() + <span class="string">"in"</span> + counter + <span class="string">"guesses.**"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Starting hello thread...</span><br><span class="line">Starting goodbye thread...</span><br><span class="line">Hello</span><br><span class="line">Hello</span><br><span class="line">Hello</span><br><span class="line">Hello</span><br><span class="line">Hello</span><br><span class="line">Hello</span><br><span class="line">Goodbye</span><br><span class="line">Goodbye</span><br><span class="line">Goodbye</span><br><span class="line">Goodbye</span><br><span class="line">Goodbye</span><br><span class="line">.......</span><br></pre></td></tr></table></figure>
+<h2 id="通过-Callable-和-Future-创建线程"><a href="#通过-Callable-和-Future-创建线程" class="headerlink" title="通过 Callable 和 Future 创建线程"></a>通过 Callable 和 Future 创建线程</h2><ol>
+<li><p>创建 Callable 接口的实现类，并实现 call() 方法，该 call() 方法将作为线程执行体，并且有返回值。</p>
+</li>
+<li><p>创建 Callable 实现类的实例，使用 FutureTask 类来包装 Callable 对象，该 FutureTask 对象封装了该 Callable 对象的 call() 方法的返回值。</p>
+</li>
+<li><p>使用 FutureTask 对象作为 Thread 对象的 target 创建并启动新线程。</p>
+</li>
+<li><p>调用 FutureTask 对象的 get() 方法来获得子线程执行结束后的返回值。</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CallableThreadTest</span> <span class="keyword">implements</span> <span class="title">Callable</span>&lt;<span class="title">Integer</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span>  </span></span><br><span class="line"><span class="function">    </span>&#123;  </span><br><span class="line">        CallableThreadTest ctt = <span class="keyword">new</span> CallableThreadTest();  </span><br><span class="line">        FutureTask&lt;Integer&gt; ft = <span class="keyword">new</span> FutureTask&lt;&gt;(ctt);  </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">100</span>;i++)  </span><br><span class="line">        &#123;  </span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">" 的循环变量i的值"</span>+i);  </span><br><span class="line">            <span class="keyword">if</span>(i==<span class="number">20</span>)  </span><br><span class="line">            &#123;  </span><br><span class="line">                <span class="keyword">new</span> Thread(ft,<span class="string">"有返回值的线程"</span>).start();  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">try</span>  </span><br><span class="line">        &#123;  </span><br><span class="line">            System.out.println(<span class="string">"子线程的返回值："</span>+ft.get());  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e)  </span><br><span class="line">        &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (ExecutionException e)  </span><br><span class="line">        &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception  </span></span><br><span class="line"><span class="function">    </span>&#123;  </span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;  </span><br><span class="line">        <span class="keyword">for</span>(;i&lt;<span class="number">100</span>;i++)  </span><br><span class="line">        &#123;  </span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">" "</span>+i);  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> i;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="创建线程的三种方式的对比"><a href="#创建线程的三种方式的对比" class="headerlink" title="创建线程的三种方式的对比"></a>创建线程的三种方式的对比</h1><ol>
+<li><p>采用实现 Runnable、Callable 接口的方式创建多线程时，线程类只是实现了 Runnable 接口或 Callable 接口，还可以继承其他类。</p>
+</li>
+<li><p>使用继承 Thread 类的方式创建多线程时，编写简单，如果需要访问当前线程，则无需使用 Thread.currentThread() 方法，直接使用 this 即可获得当前线程。</p>
+</li>
+</ol>
+<h1 id="线程的几个主要概念"><a href="#线程的几个主要概念" class="headerlink" title="线程的几个主要概念"></a>线程的几个主要概念</h1><p>在多线程编程时，你需要了解以下几个概念：</p>
+<p>线程同步<br>线程间通信<br>线程死锁<br>线程控制：挂起、停止和恢复</p>
+<h1 id="多线程的使用"><a href="#多线程的使用" class="headerlink" title="多线程的使用"></a>多线程的使用</h1><p>有效利用多线程的关键是理解程序是并发执行而不是串行执行的。例如：程序中有两个子系统需要并发执行，这时候就需要利用多线程编程。</p>
+<p>通过对多线程的使用，可以编写出非常高效的程序。不过请注意，如果你创建太多的线程，程序执行的效率实际上是降低了，而不是提升了。</p>
+<p>请记住，上下文的切换开销也很重要，如果你创建了太多的线程，CPU 花费在上下文的切换的时间将多于执行程序的时间！</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/83/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/83/">83</a><span class="page-number current">84</span><a class="page-number" href="/page/85/">85</a><span class="space">&hellip;</span><a class="page-number" href="/page/90/">90</a><a class="extend next" rel="next" href="/page/85/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- header -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-7430210016629671"
+           data-ad-slot="4960252259"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Simon</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">270</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">169</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+      
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Simon</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"SfaSE3g5tgBX5HeHdlgjym1o-gzGzoHsz","app_key":"iTsJGCNiGxrdBjV47UDN6X8p","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'SfaSE3g5tgBX5HeHdlgjym1o-gzGzoHsz',
+      appKey     : 'iTsJGCNiGxrdBjV47UDN6X8p',
+      placeholder: "讲讲你的看法",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
