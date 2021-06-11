@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[IDEA自动生成对象赋值的所有set方法]]></title>
+    <url>%2F2021%2F06%2FIDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[一个对象属性很多，要设置其属性的时候很麻烦，不小心还会漏掉。 IDEA可以使用一款插件，GenerateAllSetter，可以一键生成所有属性的set方法。 安装好插件以后，在语句 User user = new User() 中的 user 上使用快捷键 Alt + Enter，就会出现自动生成set方法的选项了。]]></content>
+      <categories>
+        <category>IDE</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[miniconda安装jupyter ipython]]></title>
+    <url>%2F2021%2F05%2Fminiconda%E5%AE%89%E8%A3%85jupyter-ipython%2F</url>
+    <content type="text"><![CDATA[通过命令安装ipython。 1conda install ipython jupyter 通过命令进入ipython研究环境： 1ipython 测试 123456In [1]: from math import sqrtIn [2]: sqrt(4)Out[2]: 2.0In [3]: exit]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[sudo command not found问题解决]]></title>
     <url>%2F2021%2F05%2Fsudo-command-not-found%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%2F</url>
     <content type="text"><![CDATA[在 Ubuntu 系统上面安装了 Miniconda，想克隆一个 python 的运行环境，却出现下面错误。 12$ sudo conda create --name py38 --clone basesudo: conda: command not found 其实这个问题在之前的文章有讲到过，解决sudo docker报错command not found 今天有个更好的方法去解决，就是设置环境变量。 1$ vim ~/.bashrc 在文件最后面添加如下语句： 1alias sudo&#x3D;&#39;sudo env PATH&#x3D;$PATH&#39; 保存退出，执行命令使其生效。 1$ source ~/.bashrc 创建环境解决，然后还安装了 jupyter notebook。 sudo conda install jupyter]]></content>
@@ -2758,18 +2774,18 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[如何使用Sublime Text3格式化json]]></title>
-    <url>%2F2018%2F11%2F%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Sublime-Text3%E6%A0%BC%E5%BC%8F%E5%8C%96json%2F</url>
-    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 安装pretty json快捷键ctrl+shift+p, 打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
+    <title><![CDATA[下载Sublime Text3]]></title>
+    <url>%2F2018%2F11%2F%E4%B8%8B%E8%BD%BDSublime-Text3%2F</url>
+    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 1import urllib.request,os,hashlib; h &#x3D; &#39;6f4c264a24d933ce70df5dedcf1dcaee&#39; + &#39;ebe013ee18cced0ef93d5f746d80ef60&#39;; pf &#x3D; &#39;Package Control.sublime-package&#39;; ipp &#x3D; sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by &#x3D; urllib.request.urlopen( &#39;http:&#x2F;&#x2F;packagecontrol.io&#x2F;&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh &#x3D; hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh !&#x3D; h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by) 安装pretty json快捷键ctrl+shift+p,打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
       <categories>
         <category>Tools</category>
         <category>Sublime</category>
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[下载Sublime Text3]]></title>
-    <url>%2F2018%2F11%2F%E4%B8%8B%E8%BD%BDSublime-Text3%2F</url>
-    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 1import urllib.request,os,hashlib; h &#x3D; &#39;6f4c264a24d933ce70df5dedcf1dcaee&#39; + &#39;ebe013ee18cced0ef93d5f746d80ef60&#39;; pf &#x3D; &#39;Package Control.sublime-package&#39;; ipp &#x3D; sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by &#x3D; urllib.request.urlopen( &#39;http:&#x2F;&#x2F;packagecontrol.io&#x2F;&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh &#x3D; hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh !&#x3D; h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by) 安装pretty json快捷键ctrl+shift+p,打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
+    <title><![CDATA[如何使用Sublime Text3格式化json]]></title>
+    <url>%2F2018%2F11%2F%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Sublime-Text3%E6%A0%BC%E5%BC%8F%E5%8C%96json%2F</url>
+    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 安装pretty json快捷键ctrl+shift+p, 打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
       <categories>
         <category>Tools</category>
         <category>Sublime</category>
