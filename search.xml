@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python matplotlib.rcParams常用设置]]></title>
+    <url>%2F2021%2F07%2FPython-matplotlib-rcParams%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[matplotlib是Python的画图工具。 可以通过对 matplotlib.rcParams 字典做一些常用的设置，例如： 12345678910111213141516import matplotlib.pyplot as plt# 中文支持，不会显示小方框plt.rcParams['font.sans-serif'] = ['SimHei']# 正常显示负号plt.rcParams['axes.unicode_minus'] = False# 设置线条宽度plt.rcParams['lines.linewidth'] = 5# 设置线条颜色plt.rcParams['lines.color'] = 'red'# 设置线条样式，样式的各类还有 `--`为虚线，`-.`为点虚线plt.rcParams['lines.linestyle'] = '-' # 直线 其实在新的版本中，中文显示和负号显示已经默认显示正常了。]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>matplotlib</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[IDEA自动生成对象赋值的所有set方法]]></title>
     <url>%2F2021%2F06%2FIDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95%2F</url>
     <content type="text"><![CDATA[一个对象属性很多，要设置其属性的时候很麻烦，不小心还会漏掉。 IDEA可以使用一款插件，GenerateAllSetter，可以一键生成所有属性的set方法。 安装好插件以后，在语句 User user = new User() 中的 user 上使用快捷键 Alt + Enter，就会出现自动生成set方法的选项了。]]></content>
