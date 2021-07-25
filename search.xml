@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Ubuntu安装vnpy]]></title>
+    <url>%2F2021%2F07%2FUbuntu%E5%AE%89%E8%A3%85vnpy%2F</url>
+    <content type="text"><![CDATA[下载安装包。注意，2.3.0和2.4.0在Ubuntu上安装不成功，2.2.0可以正常安装。 12$ sudo wget https:&#x2F;&#x2F;github.com&#x2F;vnpy&#x2F;vnpy&#x2F;archive&#x2F;refs&#x2F;tags&#x2F;2.2.0.zip$ sudo unzip 2.2.0.zip 安装vnpy 1&#x2F;usr&#x2F;local&#x2F;vnpy-2.2.0$ sudo bash install.sh 如果我们安装的anaconda是3.8版本的，然后又想用python3.7，可以通过如下方法解决。 12$ sudo conda search --full --name python$ sudo conda install python&#x3D;3.7.6 安装过程中，如果遇到如下错误，那就重新安装一下Anaconda，我是用的miniconda。 1ImportError: cannot import name &#39;InvalidSchemeCombination&#39; from &#39;pip._internal.exceptions&#39; (&#x2F;usr&#x2F;local&#x2F;miniconda3&#x2F;envs&#x2F;py37&#x2F;lib&#x2F;python3.8&#x2F;site-packages&#x2F;pip&#x2F;_internal&#x2F;exceptions.py)]]></content>
+      <tags>
+        <tag>vnpy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python matplotlib.rcParams常用设置]]></title>
     <url>%2F2021%2F07%2FPython-matplotlib-rcParams%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE%2F</url>
     <content type="text"><![CDATA[matplotlib是Python的画图工具。 可以通过对 matplotlib.rcParams 字典做一些常用的设置，例如： 12345678910111213141516import matplotlib.pyplot as plt# 中文支持，不会显示小方框plt.rcParams['font.sans-serif'] = ['SimHei']# 正常显示负号plt.rcParams['axes.unicode_minus'] = False# 设置线条宽度plt.rcParams['lines.linewidth'] = 5# 设置线条颜色plt.rcParams['lines.color'] = 'red'# 设置线条样式，样式的各类还有 `--`为虚线，`-.`为点虚线plt.rcParams['lines.linestyle'] = '-' # 直线 其实在新的版本中，中文显示和负号显示已经默认显示正常了。]]></content>
@@ -2785,18 +2793,18 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[下载Sublime Text3]]></title>
-    <url>%2F2018%2F11%2F%E4%B8%8B%E8%BD%BDSublime-Text3%2F</url>
-    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 1import urllib.request,os,hashlib; h &#x3D; &#39;6f4c264a24d933ce70df5dedcf1dcaee&#39; + &#39;ebe013ee18cced0ef93d5f746d80ef60&#39;; pf &#x3D; &#39;Package Control.sublime-package&#39;; ipp &#x3D; sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by &#x3D; urllib.request.urlopen( &#39;http:&#x2F;&#x2F;packagecontrol.io&#x2F;&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh &#x3D; hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh !&#x3D; h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by) 安装pretty json快捷键ctrl+shift+p,打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
+    <title><![CDATA[如何使用Sublime Text3格式化json]]></title>
+    <url>%2F2018%2F11%2F%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Sublime-Text3%E6%A0%BC%E5%BC%8F%E5%8C%96json%2F</url>
+    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 安装pretty json快捷键ctrl+shift+p, 打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
       <categories>
         <category>Tools</category>
         <category>Sublime</category>
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[如何使用Sublime Text3格式化json]]></title>
-    <url>%2F2018%2F11%2F%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Sublime-Text3%E6%A0%BC%E5%BC%8F%E5%8C%96json%2F</url>
-    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 安装pretty json快捷键ctrl+shift+p, 打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
+    <title><![CDATA[下载Sublime Text3]]></title>
+    <url>%2F2018%2F11%2F%E4%B8%8B%E8%BD%BDSublime-Text3%2F</url>
+    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 1import urllib.request,os,hashlib; h &#x3D; &#39;6f4c264a24d933ce70df5dedcf1dcaee&#39; + &#39;ebe013ee18cced0ef93d5f746d80ef60&#39;; pf &#x3D; &#39;Package Control.sublime-package&#39;; ipp &#x3D; sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by &#x3D; urllib.request.urlopen( &#39;http:&#x2F;&#x2F;packagecontrol.io&#x2F;&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh &#x3D; hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh !&#x3D; h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by) 安装pretty json快捷键ctrl+shift+p,打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
       <categories>
         <category>Tools</category>
         <category>Sublime</category>
