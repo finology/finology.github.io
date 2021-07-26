@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[上期所交易仿真平台环境配置]]></title>
+    <url>%2F2021%2F07%2F%E4%B8%8A%E6%9C%9F%E6%89%80%E4%BA%A4%E6%98%93%E4%BB%BF%E7%9C%9F%E5%B9%B3%E5%8F%B0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[环境介绍 用户名：122281 BrokerID统一为：9999 第一套（支持上期所期权）： 第一组：Trade Front：180.168.146.187:10201，Market Front：180.168.146.187:10211；【电信】（看穿式前置，使用监控中心生产秘钥） 第二组：Trade Front：180.168.146.187:10202，Market Front：180.168.146.187:10212；【电信】（看穿式前置，使用监控中心生产秘钥） 第三组：Trade Front：218.202.237.33:10203，Market Front：218.202.237.33:10213；【移动】（看穿式前置，使用监控中心生产秘钥） 用户注册后，默认的APPID为simnow_client_test，认证码为0000000000000000（16个0），默认不开终端认证，程序化用户可以选择不开终端认证接入。 交易品种：五所所有期货品种以及上期所所有期权品种。 账户资金：初始资金两千万，支持入金，每日最多三次。 交易阶段(服务时间)：与实际生产环境保持一致。 客户端软件下载：点击下载客户端。 第二套： 交易前置：180.168.146.187:10130，行情前置：180.168.146.187:10131；【7x24】（看穿式前置，使用监控中心生产秘钥） 第二套环境仅服务于CTP API开发爱好者，仅为用户提供CTP API测试需求，不提供结算等其它服务。 新注册用户，需要等到第三个交易日才能使用第二套环境。 账户、钱、仓跟第一套环境上一个交易日保持一致。 交易阶段(服务时间)：交易日，16：00～次日09：00；非交易日，16：00～次日15：00。 用户通过SimNow的账户（上一个交易日之前注册的账户都有效）接入环境，建议通过商业终端进行模拟交易的用户使用第一套环境。 成交规则1、期货交易按照交易所公布的买一卖一价对价成交； 2、买入时：如果委托价大于等于卖一价，则成交，成交价为委托价、卖一价、最新价三价取中，如果委托价小于卖一价，不能成交，等待更优的行情才能成交； 3、卖出时：如果委托价小于等于买一价，则成交，成交价为委托价、买一价、最新价三价取中，如果委托价大于买一价，不能成交，等待更优的行情才能成交。 非交易时间 第一套，第一组：Trade Front：180.168.146.187:10201，Market Front：180.168.146.187:10211；【电信】，亲测可用。 第二套，交易前置：180.168.146.187:10130，行情前置：180.168.146.187:10131，亲测可用。]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Ubuntu安装vnpy]]></title>
     <url>%2F2021%2F07%2FUbuntu%E5%AE%89%E8%A3%85vnpy%2F</url>
     <content type="text"><![CDATA[下载安装包。注意，2.3.0和2.4.0在Ubuntu上安装不成功，2.2.0可以正常安装。 12$ sudo wget https:&#x2F;&#x2F;github.com&#x2F;vnpy&#x2F;vnpy&#x2F;archive&#x2F;refs&#x2F;tags&#x2F;2.2.0.zip$ sudo unzip 2.2.0.zip 安装vnpy 1&#x2F;usr&#x2F;local&#x2F;vnpy-2.2.0$ sudo bash install.sh 如果我们安装的anaconda是3.8版本的，然后又想用python3.7，可以通过如下方法解决。 12$ sudo conda search --full --name python$ sudo conda install python&#x3D;3.7.6 安装过程中，如果遇到如下错误，那就重新安装一下Anaconda，我是用的miniconda。 1ImportError: cannot import name &#39;InvalidSchemeCombination&#39; from &#39;pip._internal.exceptions&#39; (&#x2F;usr&#x2F;local&#x2F;miniconda3&#x2F;envs&#x2F;py37&#x2F;lib&#x2F;python3.8&#x2F;site-packages&#x2F;pip&#x2F;_internal&#x2F;exceptions.py)]]></content>
