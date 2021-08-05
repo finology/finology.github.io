@@ -41,6 +41,9 @@
     <title><![CDATA[Ubuntu安装vnpy]]></title>
     <url>%2F2021%2F07%2FUbuntu%E5%AE%89%E8%A3%85vnpy%2F</url>
     <content type="text"><![CDATA[下载安装包。注意，2.3.0和2.4.0在Ubuntu上安装不成功，2.2.0可以正常安装。 12$ sudo wget https:&#x2F;&#x2F;github.com&#x2F;vnpy&#x2F;vnpy&#x2F;archive&#x2F;refs&#x2F;tags&#x2F;2.2.0.zip$ sudo unzip 2.2.0.zip 安装vnpy 1&#x2F;usr&#x2F;local&#x2F;vnpy-2.2.0$ sudo bash install.sh 如果我们安装的anaconda是3.8版本的，然后又想用python3.7，可以通过如下方法解决。 12$ sudo conda search --full --name python$ sudo conda install python&#x3D;3.7.6 安装过程中，如果遇到如下错误，那就重新安装一下Anaconda，我是用的miniconda。 1ImportError: cannot import name &#39;InvalidSchemeCombination&#39; from &#39;pip._internal.exceptions&#39; (&#x2F;usr&#x2F;local&#x2F;miniconda3&#x2F;envs&#x2F;py37&#x2F;lib&#x2F;python3.8&#x2F;site-packages&#x2F;pip&#x2F;_internal&#x2F;exceptions.py)]]></content>
+      <tags>
+        <tag>vnpy</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Python matplotlib.rcParams常用设置]]></title>
@@ -49,6 +52,9 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>matplotlib</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[IDEA自动生成对象赋值的所有set方法]]></title>
@@ -62,11 +68,18 @@
     <title><![CDATA[miniconda安装jupyter ipython]]></title>
     <url>%2F2021%2F05%2Fminiconda%E5%AE%89%E8%A3%85jupyter-ipython%2F</url>
     <content type="text"><![CDATA[通过命令安装ipython。 1conda install ipython jupyter 通过命令进入ipython研究环境： 1ipython 测试 123456In [1]: from math import sqrtIn [2]: sqrt(4)Out[2]: 2.0In [3]: exit]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[sudo command not found问题解决]]></title>
     <url>%2F2021%2F05%2Fsudo-command-not-found%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%2F</url>
     <content type="text"><![CDATA[在 Ubuntu 系统上面安装了 Miniconda，想克隆一个 python 的运行环境，却出现下面错误。 12$ sudo conda create --name py38 --clone basesudo: conda: command not found 其实这个问题在之前的文章有讲到过，解决sudo docker报错command not found 今天有个更好的方法去解决，就是设置环境变量。 1$ vim ~/.bashrc 在文件最后面添加如下语句： 1alias sudo&#x3D;&#39;sudo env PATH&#x3D;$PATH&#39; 保存退出，执行命令使其生效。 1$ source ~/.bashrc 创建环境解决，然后还安装了 jupyter notebook。 sudo conda install jupyter]]></content>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>sudo</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[locust性能测试框架]]></title>
@@ -75,6 +88,9 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>locust</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Python中使用requests库发送Http请求]]></title>
@@ -83,6 +99,10 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>requests</tag>
+        <tag>locust</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[常用颜色名字RGB和十六进制]]></title>
@@ -96,6 +116,10 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>anaconda</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Spring Cloud Alibaba限流降级Sentinel入门搭建]]></title>
@@ -104,6 +128,9 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>sentinel</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[IntelliJ IDEA配置Anaconda base(root)相同环境]]></title>
@@ -112,6 +139,9 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>anaconda</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Python列表推导式中if else判断]]></title>
@@ -128,16 +158,25 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>round</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[JVM调试基础]]></title>
     <url>%2F2020%2F12%2FJVM%E8%B0%83%E8%AF%95%E5%9F%BA%E7%A1%80%2F</url>
     <content type="text"><![CDATA[标准参数-help -version X参数X参数是非标准化参数 -Xint: 解释执行 -Xcomp: 第一次使用就编译成本地代码 -Xmixed: 混合模式，JVM自己来决定是否编译成本地代码 java -Xcomp -version XX参数XX参数也是非标准化参数 有两种类型 Boolean: -XX:[+-]启动或禁用name属性 -XX:+UseConcMarkSweepGC -XX:+UseG1GC 非Boolean类型 -XX:= -XX:MaxGCPauseMillis=500 -XX:GCTimeRatio=19 -Xmx -Xms 这是XX参数 -Xms = -XX:InitialHeapSize -Xmx = -XX:MaxHeapSize 12jinfo -flag MaxHeapSize 36247-XX:MaxHeapSize=4200595456 -Xss = -XX:ThreadStackSize -XX:+PrintFlagsInitial -XX:+PrintFlagFinal =默认值 := 修改过的值 jps -l参数代表：full package name 123# jps -l42826 sun.tools.jps.Jps102271 org.elasticsearch.bootstrap.Elasticsearch jstat查看JVM统计信息jstat -class -gc, -compiler S0C, S1C, S0U, S1U: C - 总量 U - 使用量 EC, EU, Eden OC, OU, Old区 MC, MU: Metaspace区 CCSC, CCSU, 压缩类空间总量/使用量 YGC, YGCT: YoungGC的次数与时间 FGC, FGCT: FullGC次数和时间 GCT: 总的GC时间 导出内存映像文件内存溢出自动导出，在VM arguments里面写入如下参数 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./ 使用jmap命令手动导出 jmap -help jmap -dump:format=b,file=./heap.hprofJV MAThttp://www.eclipse.org/mat]]></content>
+      <tags>
+        <tag>jvm</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[使用mdnice自定义样式]]></title>
     <url>%2F2020%2F12%2F%E4%BD%BF%E7%94%A8mdnice%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[使用 mdnice 来编辑公众号文章，我做了一个自定义的样式，记录一下。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153154155156157158159160161162163164165166167168169170171172173174175176177178179180181182183184185186187188189190191192193194195196197198199200201202203204205206207208209210211212213214215216217218219220221222223224225226227228229230231232233234235236237238239240241242243244245246247248249250251252253254255256257258259260261262263264265266267268269270271272273274275276277278279/*自定义样式，实时生效*//* simon * h2 默认大小为 font-size: 1.375em; * padding-left/right 默认为 *//* 全局属性 * 页边距 padding: 30px; * 全文字体 font-family: ptima-Regular; * 英文换行 word-break: break-all; */#nice &#123; line-height: 27.2px; min-height: 17px; //font-family: -apple-system-font,BlinkMacSystemFont,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei UI","Microsoft YaHei",Arial,sans-serif; padding-left: 6px; padding-right: 6px;&#125;/* 段落，下方未标注标签参数均同此处 * 上边距 margin-top: 5px; * 下边距 margin-bottom: 5px; * 行高 line-height: 26px; * 词间距 word-spacing: 3px; * 字间距 letter-spacing: 3px; * 对齐 text-align: left; * 颜色 color: #3e3e3e; * 字体大小 font-size: 16px; * 首行缩进 text-indent: 2em; */#nice p &#123; line-height: 27.2px; text-align: justify; font-size: 17px; letter-spacing: 0.544px; padding-top: 13px; padding-bottom: 13px; color: rgb(58, 58, 58);&#125;/* 一级标题 */#nice h1 &#123; // font-size: 1.8em; font-size: 1.5em; //color: #009688; color: rgb(239, 112, 96); margin: 1.2em auto; text-align: center; //border-bottom: 1px solid #009688; border-bottom: 1px solid rgb(239, 112, 96);&#125;/* 一级标题内容 */#nice h1 .content &#123;&#125;/* 一级标题修饰 请参考有实例的主题 */#nice h1:after &#123;&#125;/* 二级标题 */#nice h2 &#123; //color: #009688; color: rgb(239, 112, 96); padding-left: 10px; margin: 1em auto; // border-left: 3px solid #009688; border-left: 3px solid rgb(239, 112, 96);&#125;/* 二级标题内容 */#nice h2 .content &#123;&#125;/* 二级标题修饰 请参考有实例的主题 */#nice h2:after &#123;&#125;/* 三级标题 */#nice h3 &#123; margin: 0.6em auto; padding-left: 10px; // border-left: 2px solid #009688; border-left: 2px solid rgb(239, 112, 96)&#125;/* 三级标题内容 */#nice h3 .content &#123;&#125;/* 三级标题修饰 请参考有实例的主题 */#nice h3:after &#123;&#125;/* 四级标题 */#nice h4 &#123; margin: 0.6em auto; font-size: 1.2em; padding-left: 10px; // border-left: 2px dashed #009688; border-left: 2px dashed rgb(239, 112, 96);&#125;/* 五级标题 */#nice h5 &#123; margin: 0.6em auto; font-size: 1.1em; padding-left: 10px; // border-left: 1px dashed #009688; border-left: 1px dashed rgb(239, 112, 96);&#125;/* 六级标题 */#nice h6 &#123; margin: 0.6em auto; font-size: 1em; padding-left: 10px; // border-left: 1px dotted #009688; border-left: 1px dotted rgb(239, 112, 96);&#125;/* 无序列表整体样式 * list-style-type: square|circle|disc; */#nice ul &#123;&#125;/* 有序列表整体样式 * list-style-type: upper-roman|lower-greek|lower-alpha; */#nice ol &#123;&#125;/* 列表内容，不要设置li */#nice li section &#123;&#125;/* 引用 * 左边缘颜色 border-left-color: black; * 背景色 background: gray; */#nice .multiquote-1 &#123; //border-left: 2px solid #888; //border-right: 2px solid #888; border-left: 2px solid rgb(239, 112, 96); border-right: 2px solid rgb(239, 112, 96); padding-left: 1em; color: #777; background: rgb(255, 249, 249);&#125;/* 引用文字 */#nice .multiquote-1 p &#123;&#125;/* 链接 * border-bottom: 1px solid #009688; */#nice a &#123;// color: #009688; color: rgb(239, 112, 96);// border-bottom: 1px solid #009688; border-bottom: 1px solid rgb(239, 112, 96);&#125;/* 加粗 */#nice strong &#123;&#125;/* 斜体 */#nice em &#123;&#125;/* 加粗斜体 */#nice em strong &#123;&#125;/* 删除线 */#nice del &#123;&#125;/* 分隔线 * 粗细、样式和颜色 * border-top: 1px solid #3e3e3e; */#nice hr &#123; margin: 20px 0;&#125;/* 图片 * 宽度 width: 80%; * 居中 margin: 0 auto; * 居左 margin: 0 0; */#nice img &#123;&#125;/* 图片描述文字 */#nice figcaption &#123;&#125;/* 行内代码 */#nice p code, #nice li code &#123; // color: #009688; color: rgb(239, 112, 96);&#125;/* 非微信代码块 * 代码块不换行 display: -webkit-box !important; * 代码块换行 display: block; */#nice pre code &#123;&#125;/* 表格内的单元格 * 字体大小 font-size: 16px; * 边框 border: 1px solid #ccc; * 内边距 padding: 5px 10px; */#nice table tr th &#123;// border: 1px solid #009688; border: 1px solid rgb(239, 112, 96);// background-color: #009688; background-color: rgb(239, 112, 96); color: #f8f8f8; border-bottom: 0;&#125;#nice table tr td &#123; // border: 1px solid #009688; border: 1px solid rgb(239, 112, 96);&#125;#nice table tr:nth-child(2n) &#123; background-color: #f8f8f8;&#125;/* 脚注文字 */#nice .footnote-word &#123; // color: #009688; color: rgb(239, 112, 96);&#125;/* 脚注上标 */#nice .footnote-ref &#123; // color: #009688; color: rgb(239, 112, 96);&#125;/* "参考资料"四个字 * 内容 content: "参考资料"; */#nice .footnotes-sep:before &#123;&#125;/* 参考资料编号 */#nice .footnote-num &#123;&#125;/* 参考资料文字 */#nice .footnote-item p &#123; &#125;/* 参考资料解释 */#nice .footnote-item p em &#123;&#125;/* 行间公式 * 最大宽度 max-width: 300% !important; */#nice .block-equation svg &#123;&#125;/* 行内公式 */#nice .inline-equation svg &#123; &#125;]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Python Series和DataFrame的索引和切片]]></title>
@@ -146,6 +185,9 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[公众号文章Markdown的样式设置]]></title>
@@ -159,6 +201,9 @@
       <categories>
         <category>Tools</category>
       </categories>
+      <tags>
+        <tag>websocket</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Springboot多语言国际化]]></title>
@@ -167,6 +212,9 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>i18n</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Linux OpenSUSE安装字体字库]]></title>
@@ -175,6 +223,9 @@
       <categories>
         <category>Tools</category>
       </categories>
+      <tags>
+        <tag>pdfbox</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Python解析式推导式]]></title>
@@ -183,6 +234,9 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[python模块的引入和调用]]></title>
@@ -191,6 +245,9 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Mybatis一对多关系collection]]></title>
@@ -199,6 +256,9 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>mybatis</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[java AOP切面处理]]></title>
@@ -207,6 +267,9 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>aop</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[java中的枚举类]]></title>
@@ -215,6 +278,9 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[nginx启动报错[emerg] getpwnam(nginx) failed in]]></title>
@@ -224,6 +290,9 @@
         <category>Tools</category>
         <category>Nginx</category>
       </categories>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Mybatis开发中的一些最佳实践]]></title>
@@ -232,6 +301,9 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>mybatis</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[fasterxml jackson无法实例化非静态内部类]]></title>
@@ -240,6 +312,9 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>json</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[java LocalDateTime转Unix timestamp]]></title>
@@ -248,6 +323,10 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>timestamp</tag>
+        <tag>localdatetime</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[微信公众号开发]]></title>
@@ -256,6 +335,9 @@
       <categories>
         <category>Tools</category>
       </categories>
+      <tags>
+        <tag>公众号</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[IntelliJ IDEA插件市场Marketplace打不开的解决方法]]></title>
@@ -265,6 +347,9 @@
         <category>Tools</category>
         <category>IntelliJ IDEA</category>
       </categories>
+      <tags>
+        <tag>intellij idea</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Spring中处理集合和字符串]]></title>
@@ -273,6 +358,9 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>spring</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Spring Boot JUnit测试]]></title>
@@ -282,6 +370,10 @@
         <category>Java</category>
         <category>Spring Boot</category>
       </categories>
+      <tags>
+        <tag>spring boot</tag>
+        <tag>junit</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[java中Map转List并排序]]></title>
@@ -290,6 +382,9 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>hashMap</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[java中如何对Map中的元素进行排序]]></title>
@@ -298,6 +393,9 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>hashMap</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Spring Boot Actuator]]></title>
@@ -307,6 +405,10 @@
         <category>Java</category>
         <category>Spring Boot</category>
       </categories>
+      <tags>
+        <tag>spring boot</tag>
+        <tag>actuator</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[python处理.net 18位时间戳]]></title>
@@ -315,6 +417,10 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>datetime</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[使用pdfbox把pdf转图片时遇到的问题]]></title>
@@ -323,6 +429,9 @@
       <categories>
         <category>Tools</category>
       </categories>
+      <tags>
+        <tag>pdfbox</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[IntelliJ IDEA一键生成实体类所有Setter方法(GenerateAllSetter插件)]]></title>
@@ -331,6 +440,9 @@
       <categories>
         <category>Tools</category>
       </categories>
+      <tags>
+        <tag>intellij idea</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[IntelliJ IDEA中如何查看方法的每个出口]]></title>
@@ -339,6 +451,9 @@
       <categories>
         <category>IntelliJ IDEA</category>
       </categories>
+      <tags>
+        <tag>intellij idea</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[千千阙歌吉他谱]]></title>
@@ -352,6 +467,9 @@
     <title><![CDATA[百度网盘网页版倍速播放]]></title>
     <url>%2F2020%2F05%2F%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%BD%91%E9%A1%B5%E7%89%88%E5%80%8D%E9%80%9F%E6%92%AD%E6%94%BE%2F</url>
     <content type="text"><![CDATA[百度网盘的宣传是可以倍速播放的，除了在手机上可以用外，我用 mac chrome 浏览器，是找不到倍速播放的功能的。 今天突然发现通过这句脚本，竟然能神奇的控制播放速度，极大的提高了工作效率。 进入百度网盘播放页面的控制台，执行如下代码： 1videojs.getPlayers("video-player").html5player.tech_.setPlaybackRate(1.5) 即可以把播放速度变为正常速度的 1.5 倍。 但是如何调整网页版的画质清晰度，目前还没有找到方法。]]></content>
+      <tags>
+        <tag>百度</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[微信小程序移动设备分辨率与rpx]]></title>
@@ -360,6 +478,9 @@
       <categories>
         <category>小程序</category>
       </categories>
+      <tags>
+        <tag>小程序</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[腾迅云直播API调用]]></title>
@@ -369,6 +490,11 @@
         <category>Java</category>
         <category>Spring Boot</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>云直播</tag>
+        <tag>腾迅云</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Java模拟并发场景]]></title>
@@ -377,6 +503,9 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[搜狗输入法小米版删除工具栏上的广告按钮]]></title>
@@ -395,6 +524,9 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[依赖注入的原理]]></title>
@@ -403,6 +535,10 @@
       <categories>
         <category>Spring</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>spring</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Spring Boot Test无法自动注入@Autowired]]></title>
@@ -411,6 +547,9 @@
       <categories>
         <category>Spring Boot</category>
       </categories>
+      <tags>
+        <tag>spring boot</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[可微的充分必要条件]]></title>
@@ -419,6 +558,9 @@
       <categories>
         <category>Maths</category>
       </categories>
+      <tags>
+        <tag>maths</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[MySQL筛选多列重复的记录]]></title>
@@ -428,6 +570,9 @@
         <category>Database</category>
         <category>MySQL</category>
       </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Spring boot启动时不加载RabbitMQ]]></title>
@@ -437,6 +582,10 @@
         <category>Middleware</category>
         <category>RabbitMQ</category>
       </categories>
+      <tags>
+        <tag>spring boot</tag>
+        <tag>rabbitmq</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[用Hexo搭建属于自己的免费博客]]></title>
@@ -445,6 +594,9 @@
       <categories>
         <category>Hexo</category>
       </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Mac日语键盘如何输入反斜线&#92;]]></title>
@@ -459,6 +611,9 @@
         <category>Tools</category>
         <category>Hexo</category>
       </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Python itertools模拟排列组合]]></title>
@@ -467,6 +622,9 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Java如何在String.format中显示百分号&#37;]]></title>
@@ -475,6 +633,9 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Python matplotlib绘图时x轴标签重叠覆盖]]></title>
@@ -484,6 +645,10 @@
         <category>Python</category>
         <category>Matplotlib</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>matplotlib</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Python创建DataFrame]]></title>
@@ -493,6 +658,10 @@
         <category>Python</category>
         <category>Pandas</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pandas</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Windows 10环境生成Github SSH公钥]]></title>
@@ -502,6 +671,9 @@
         <category>Tools</category>
         <category>Git</category>
       </categories>
+      <tags>
+        <tag>github</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Python Pandas对DataFrame float数据进行四舍五入]]></title>
@@ -510,6 +682,10 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pandas</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[关于股票市值的几个指标差异]]></title>
@@ -518,6 +694,9 @@
       <categories>
         <category>Quant</category>
       </categories>
+      <tags>
+        <tag>quant</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[万矿WindQuant-API函数简介]]></title>
@@ -532,6 +711,10 @@
         <category>Python</category>
         <category>Pandas</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pandas</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[JPA, JMS, JTA与XA]]></title>
@@ -541,6 +724,10 @@
         <category>Java</category>
         <category>Spring</category>
       </categories>
+      <tags>
+        <tag>spring</tag>
+        <tag>transaction</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[解决RabbitMQ SimpleMessageConverter only supports String, byte[] and Serializable payloads]]></title>
@@ -550,6 +737,9 @@
         <category>Middleware</category>
         <category>RabbitMQ</category>
       </categories>
+      <tags>
+        <tag>rabbitmq</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Linux(CentOS)安装RabbitMQ]]></title>
@@ -559,6 +749,9 @@
         <category>Middleware</category>
         <category>RabbitMQ</category>
       </categories>
+      <tags>
+        <tag>rabbitmq</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[如何下载网页视频]]></title>
@@ -576,6 +769,10 @@
         <category>Java</category>
         <category>Spring</category>
       </categories>
+      <tags>
+        <tag>spring</tag>
+        <tag>transaction</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[线性代数的本质Essence of Linear Algebra]]></title>
@@ -584,6 +781,9 @@
       <categories>
         <category>Maths</category>
       </categories>
+      <tags>
+        <tag>线性代数</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Mac Docker安装MySQL]]></title>
@@ -593,6 +793,10 @@
         <category>Database</category>
         <category>MySQL</category>
       </categories>
+      <tags>
+        <tag>mysql</tag>
+        <tag>docker</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[MySQL事务隔离]]></title>
@@ -602,6 +806,10 @@
         <category>Database</category>
         <category>MySQL</category>
       </categories>
+      <tags>
+        <tag>mysql</tag>
+        <tag>transaction</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Lombok @Data, @Builder, @NoArgsConstructor注解实体类运行MyBatis报错]]></title>
@@ -610,6 +818,10 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>mybatis</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Java, MySQL开发关于时间时区的最佳实践]]></title>
@@ -618,6 +830,10 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>mysql</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Java Integer, String, Object互相转换]]></title>
@@ -626,6 +842,9 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Mac环境下编译安装Redis 4]]></title>
@@ -635,6 +854,9 @@
         <category>Middleware</category>
         <category>Redis</category>
       </categories>
+      <tags>
+        <tag>redis</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Linux清除系统缓存命令]]></title>
@@ -643,6 +865,9 @@
       <categories>
         <category>Tools</category>
       </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[解决IntelliJ IDEA Could not autowire. No beans of UserMapper type found]]></title>
@@ -652,6 +877,10 @@
         <category>Java</category>
         <category>Spring Boot</category>
       </categories>
+      <tags>
+        <tag>intellij idea</tag>
+        <tag>autowire</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[解决java.sql.SQLException: The server time zone value is unrecognized or represents more than one time zone]]></title>
@@ -660,6 +889,10 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>jdbc</tag>
+        <tag>timezone</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Spring Boot集成Alibaba Druid数据库连接池]]></title>
@@ -669,6 +902,10 @@
         <category>Java</category>
         <category>Spring Boot</category>
       </categories>
+      <tags>
+        <tag>spring boot</tag>
+        <tag>druid</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[解决调用Spring注解式事务方法不生效的问题]]></title>
@@ -678,6 +915,10 @@
         <category>Java</category>
         <category>Spring</category>
       </categories>
+      <tags>
+        <tag>spring</tag>
+        <tag>transaction</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Python函数的位置参数，默认参数，可变参数，关键字参数和命名关键字参数]]></title>
@@ -686,6 +927,9 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Python的数据结构]]></title>
@@ -694,6 +938,9 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[解决mac matplotlib中文乱码问题]]></title>
@@ -702,6 +949,10 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>matplotlib</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Mac环境修改Jupyter Notebook启动文件夹位置]]></title>
@@ -711,6 +962,10 @@
         <category>Python</category>
         <category>Jupyter Notebook</category>
       </categories>
+      <tags>
+        <tag>mac</tag>
+        <tag>jupyter notebook</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[快速从Github Clone下载项目]]></title>
@@ -720,6 +975,9 @@
         <category>Tools</category>
         <category>Git</category>
       </categories>
+      <tags>
+        <tag>github</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[使用Python matplotlib画图]]></title>
@@ -728,6 +986,10 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>matplotlib</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Win10环境修改Jupyter Notebook默认文件夹位置]]></title>
@@ -737,6 +999,10 @@
         <category>Python</category>
         <category>Jupyter Notebook</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>jupyter notebook</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Spring Boot yaml文件配置多维数组]]></title>
@@ -746,6 +1012,9 @@
         <category>Java</category>
         <category>Spring Boot</category>
       </categories>
+      <tags>
+        <tag>spring boot</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[解决IDEA卡住resolving maven dependencies, Failed to resolve org.junit.platform:junit-platform-launcher:1.5.2]]></title>
@@ -755,6 +1024,10 @@
         <category>Tools</category>
         <category>IntelliJ IDEA</category>
       </categories>
+      <tags>
+        <tag>intellij idea</tag>
+        <tag>junit</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Redis (error) NOAUTH Authentication required解决方法]]></title>
@@ -764,6 +1037,9 @@
         <category>Middleware</category>
         <category>Redis</category>
       </categories>
+      <tags>
+        <tag>redis</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Linux(CentOS)根据进程查找程序位置]]></title>
@@ -773,6 +1049,10 @@
         <category>OS</category>
         <category>CentOS</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>linux</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[腾迅云云直播混流开发环境搭建]]></title>
@@ -782,6 +1062,12 @@
         <category>Java</category>
         <category>Spring Boot</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>混流</tag>
+        <tag>云直播</tag>
+        <tag>腾迅云</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Spring Boot序列化对象时json忽略null值]]></title>
@@ -791,6 +1077,10 @@
         <category>Java</category>
         <category>Spring Boot</category>
       </categories>
+      <tags>
+        <tag>json</tag>
+        <tag>spring boot</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Spring Boot dev-tools实现项目热部署自动重启]]></title>
@@ -800,6 +1090,11 @@
         <category>Java</category>
         <category>Spring Boot</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>spring boot</tag>
+        <tag>dev-tools</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Java URL参数替换]]></title>
@@ -808,6 +1103,9 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Spring Boot使用@JsonProperty,@JsonIgnore,@JsonFormat注解]]></title>
@@ -817,6 +1115,11 @@
         <category>Java</category>
         <category>Spring Boot</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>json</tag>
+        <tag>spring boot</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Spring Boot通过DigestUtils计算MD5的值]]></title>
@@ -826,6 +1129,12 @@
         <category>Java</category>
         <category>Spring Boot</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>spring boot</tag>
+        <tag>digestUtils</tag>
+        <tag>md5</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[IntelliJ IDEA新建Maven Springboot项目Cannot find JRE '1.8']]></title>
@@ -835,6 +1144,12 @@
         <category>Tools</category>
         <category>IntelliJ IDEA</category>
       </categories>
+      <tags>
+        <tag>maven</tag>
+        <tag>intellij idea</tag>
+        <tag>spring boot</tag>
+        <tag>jre</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[pandas.apply()的axis参数]]></title>
@@ -844,6 +1159,10 @@
         <category>Python</category>
         <category>Pandas</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pandas</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[TCP三次握手四次挥手的过程]]></title>
@@ -852,6 +1171,11 @@
       <categories>
         <category>Network</category>
       </categories>
+      <tags>
+        <tag>network</tag>
+        <tag>tcp</tag>
+        <tag>http</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Linux(CentOS)环境下安装Redis 5]]></title>
@@ -861,6 +1185,9 @@
         <category>Middleware</category>
         <category>Redis</category>
       </categories>
+      <tags>
+        <tag>redis</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Chrome浏览器报错喔唷,崩溃啦]]></title>
@@ -870,6 +1197,10 @@
         <category>Tools</category>
         <category>Chrome</category>
       </categories>
+      <tags>
+        <tag>chrome</tag>
+        <tag>win10</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Intellij IDEA自动生成类注释]]></title>
@@ -879,6 +1210,9 @@
         <category>Tools</category>
         <category>IntelliJ IDEA</category>
       </categories>
+      <tags>
+        <tag>intellij idea</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Intellij IDEA从SVN导入工程]]></title>
@@ -888,6 +1222,10 @@
         <category>Tools</category>
         <category>IntelliJ IDEA</category>
       </categories>
+      <tags>
+        <tag>intellij idea</tag>
+        <tag>svn</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Git远程仓库版本回退]]></title>
@@ -897,6 +1235,13 @@
         <category>Tools</category>
         <category>Git</category>
       </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>github</tag>
+        <tag>gitlab</tag>
+        <tag>reset</tag>
+        <tag>commit</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Prometheus中指标,Servicemonitor,Targets的关系]]></title>
@@ -906,6 +1251,15 @@
         <category>Kubernetes</category>
         <category>Prometheus</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>监控</tag>
+        <tag>prometheus</tag>
+        <tag>metrics</tag>
+        <tag>servicemonitor</tag>
+        <tag>targets</tag>
+        <tag>指标</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Grafana各类指标理解]]></title>
@@ -915,6 +1269,12 @@
         <category>Kubernetes</category>
         <category>Grafana</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>grafana</tag>
+        <tag>prometheus</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Springboot使用profiles区分环境]]></title>
@@ -924,6 +1284,10 @@
         <category>Java</category>
         <category>Spring Boot</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>spring boot</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[会计基础]]></title>
@@ -932,6 +1296,13 @@
       <categories>
         <category>财务</category>
       </categories>
+      <tags>
+        <tag>会计</tag>
+        <tag>财务报表</tag>
+        <tag>利润表</tag>
+        <tag>资产负债表</tag>
+        <tag>现金流量表</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Grafana安装及持久化]]></title>
@@ -941,6 +1312,13 @@
         <category>Kubernetes</category>
         <category>Grafana</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>grafana</tag>
+        <tag>prometheus</tag>
+        <tag>monitoring</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[批量操作Shell终端]]></title>
@@ -950,6 +1328,13 @@
         <category>Tools</category>
         <category>SSH</category>
       </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>shell</tag>
+        <tag>terminal</tag>
+        <tag>xshell</tag>
+        <tag>iterm2</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Kubernetes持久化存储PV,PVC]]></title>
@@ -959,6 +1344,16 @@
         <category>Kubernetes</category>
         <category>PV</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>glusterfs</tag>
+        <tag>nfs</tag>
+        <tag>persistent volume</tag>
+        <tag>pv</tag>
+        <tag>persistent volume claim</tag>
+        <tag>pvc</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[CentOS上搭建NFS服务]]></title>
@@ -968,6 +1363,13 @@
         <category>FileSystem</category>
         <category>NFS</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>showmount</tag>
+        <tag>nfs</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Linux下Shell命令进行日期date和时间戳timestamp的转换]]></title>
@@ -976,6 +1378,13 @@
       <categories>
         <category>OS</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>linux</tag>
+        <tag>date</tag>
+        <tag>timestamp</tag>
+        <tag>shell</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Grafana迁移(导出导入)dashboard]]></title>
@@ -985,6 +1394,11 @@
         <category>Kubernetes</category>
         <category>Grafana</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>grafana</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Prometheus kubernetes-cadvisor服务自动发现]]></title>
@@ -994,6 +1408,11 @@
         <category>Kubernetes</category>
         <category>Prometheus</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>prometheus</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[/var/lib/docker/overlay2占用空间太大]]></title>
@@ -1002,6 +1421,11 @@
       <categories>
         <category>Docker</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>docker</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Prometheus monitoring/node-exporter监控指标]]></title>
@@ -1011,6 +1435,11 @@
         <category>Kubernetes</category>
         <category>Prometheus</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>prometheus</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Prometheus monitoring/kubelet监控指标]]></title>
@@ -1020,6 +1449,11 @@
         <category>Kubernetes</category>
         <category>Prometheus</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>prometheus</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Prometheus monitoring/kube-state-metrics监控指标]]></title>
@@ -1029,6 +1463,11 @@
         <category>Kubernetes</category>
         <category>Prometheus</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>prometheus</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[正则表达式删除行中从某字符串开始的所有内容]]></title>
@@ -1037,6 +1476,10 @@
       <categories>
         <category>Regex</category>
       </categories>
+      <tags>
+        <tag>regex</tag>
+        <tag>正则</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[mac主机待机后和虚拟机时间不统一的问题]]></title>
@@ -1046,6 +1489,11 @@
         <category>OS</category>
         <category>MacOS</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>vmware</tag>
+        <tag>date</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[CentOS7设置固定IP]]></title>
@@ -1055,6 +1503,12 @@
         <category>OS</category>
         <category>CentOS</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>vmware</tag>
+        <tag>ip</tag>
+        <tag>虚拟机</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[hexo博客在百度搜索引擎上的链接提交]]></title>
@@ -1064,6 +1518,10 @@
         <category>Tools</category>
         <category>Hexo</category>
       </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>sitemaps</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Prometheus监控配置kubernetes_sd_config]]></title>
@@ -1073,6 +1531,11 @@
         <category>Kubernetes</category>
         <category>Prometheus</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>prometheus</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Prometheus Kubelet ServiceMonitor]]></title>
@@ -1082,6 +1545,11 @@
         <category>Kubernetes</category>
         <category>Prometheus</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>prometheus</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Prometheus入门基础]]></title>
@@ -1091,6 +1559,11 @@
         <category>Kubernetes</category>
         <category>Prometheus</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>prometheus</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[k8s master节点nodePort方式不能访问服务]]></title>
@@ -1100,6 +1573,13 @@
         <category>Kubernetes</category>
         <category>Network</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>master node</tag>
+        <tag>nodePort</tag>
+        <tag>calico</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Docker网络Network]]></title>
@@ -1109,6 +1589,10 @@
         <category>Docker</category>
         <category>Network</category>
       </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>network</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[docker镜像仓库harbor的使用]]></title>
@@ -1118,6 +1602,11 @@
         <category>Docker</category>
         <category>Harbor</category>
       </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>image</tag>
+        <tag>harbor</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[docker镜像仓库harbor搭建]]></title>
@@ -1127,6 +1616,11 @@
         <category>Docker</category>
         <category>Harbor</category>
       </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>image</tag>
+        <tag>harbor</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[maven打包时跳过测试用例]]></title>
@@ -1136,6 +1630,11 @@
         <category>Java</category>
         <category>Maven</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>maven</tag>
+        <tag>skiptests</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Ubuntu ens33网卡无ip]]></title>
@@ -1145,6 +1644,9 @@
         <category>OS</category>
         <category>Ubuntu</category>
       </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Windows解压安装MySQL]]></title>
@@ -1153,6 +1655,10 @@
       <categories>
         <category>Database - MySQL</category>
       </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>MySQL</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Springboot报错:No converter found for return value of type: class]]></title>
@@ -1162,6 +1668,10 @@
         <category>Java</category>
         <category>Spring Boot</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>spring boot</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Java复制文件或目录]]></title>
@@ -1170,6 +1680,10 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>nio</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[FTP Java Client]]></title>
@@ -1178,11 +1692,18 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>ftp</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Linux批量删除指定后缀名的文件]]></title>
     <url>%2F2020%2F01%2FLinux%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4%E6%8C%87%E5%AE%9A%E5%90%8E%E7%BC%80%E5%90%8D%E7%9A%84%E6%96%87%E4%BB%B6%2F</url>
     <content type="text"><![CDATA[批量递归删除当前目录下，以.class为后缀的文件。 1find . -name '*.class' -type f -print -exec rm -rf &#123;&#125; \; .表示从当前目录开始递归查找 -name &#39;*.class&#39;根据名称来查找，查找指定目录下以.class结尾的文件 -type f查找的类型为文件 -print输出查找到的文件全路径名 -exec后面写要执行的命令。]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[通过yum源安装nginx]]></title>
@@ -1192,6 +1713,11 @@
         <category>Tools</category>
         <category>Nginx</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>nginx</tag>
+        <tag>yum</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[javascript中的Promise]]></title>
@@ -1200,6 +1726,11 @@
       <categories>
         <category>javascript</category>
       </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>js</tag>
+        <tag>es6</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[高德开放平台天气查询API]]></title>
@@ -1209,6 +1740,12 @@
         <category>Tools</category>
         <category>API</category>
       </categories>
+      <tags>
+        <tag>开放平台</tag>
+        <tag>天气</tag>
+        <tag>API</tag>
+        <tag>高德</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[百度地图开放平台天气预报查询API]]></title>
@@ -1218,6 +1755,9 @@
         <category>Tools</category>
         <category>API</category>
       </categories>
+      <tags>
+        <tag>开放平台</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[CentOS7搭建SVN服务及备份与恢复]]></title>
@@ -1227,6 +1767,10 @@
         <category>Tools</category>
         <category>SVN</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>SVN</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[彻底清除yum缓存]]></title>
@@ -1236,6 +1780,10 @@
         <category>OS</category>
         <category>CentOS</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>yum</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[CentOS7搭建本地yum源]]></title>
@@ -1245,6 +1793,10 @@
         <category>OS</category>
         <category>CentOS</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>yum</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Windows主机环境CentOS7虚拟机安装VMware Tools]]></title>
@@ -1254,6 +1806,11 @@
         <category>OS</category>
         <category>CentOS</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>vmware</tag>
+        <tag>windows</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[kubernetes中的静态Pod]]></title>
@@ -1262,6 +1819,11 @@
       <categories>
         <category>Kubernetes</category>
       </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>Kubernetes</tag>
+        <tag>pod</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[搭建reactjs和antd的原始项目]]></title>
@@ -1270,6 +1832,10 @@
       <categories>
         <category>React</category>
       </categories>
+      <tags>
+        <tag>react</tag>
+        <tag>antd</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[解决TypeError: this.cliEngine is not a constructor]]></title>
@@ -1278,6 +1844,11 @@
       <categories>
         <category>React</category>
       </categories>
+      <tags>
+        <tag>intellij idea</tag>
+        <tag>react</tag>
+        <tag>reactjs</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[java时间Date,timestamp,timezone]]></title>
@@ -1286,6 +1857,10 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>date</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[CentOS7安装json格式化工具jq]]></title>
@@ -1295,6 +1870,10 @@
         <category>OS</category>
         <category>CentOS</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>json</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[验证prometheus监控targets的metrics]]></title>
@@ -1304,6 +1883,11 @@
         <category>Kubernetes</category>
         <category>Prometheus</category>
       </categories>
+      <tags>
+        <tag>监控</tag>
+        <tag>prometheus</tag>
+        <tag>metrics</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[解决Failed to load module canberra-gtk-module错误]]></title>
@@ -1313,6 +1897,10 @@
         <category>OS</category>
         <category>Ubuntu</category>
       </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>canberra-gtk-module</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Ubuntu环境搭建Go语言开发环境]]></title>
@@ -1321,6 +1909,12 @@
       <categories>
         <category>Golang</category>
       </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>go</tag>
+        <tag>golang</tag>
+        <tag>intellij idea</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Grafana匿名登录Kubernetes设置]]></title>
@@ -1330,6 +1924,13 @@
         <category>Kubernetes</category>
         <category>Grafana</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>grafana</tag>
+        <tag>monitor</tag>
+        <tag>监控</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[kubernetes集群卸载flannel网络]]></title>
@@ -1339,6 +1940,12 @@
         <category>Kubernetes</category>
         <category>Network</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>flannel</tag>
+        <tag>network</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[在Prometheus Operator中添加自定义监控项，监控etcd集群]]></title>
@@ -1348,6 +1955,11 @@
         <category>Kubernetes</category>
         <category>Prometheus</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>prometheus</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[VMware非正常关闭后启动，提示该虚拟机似乎正在使用中]]></title>
@@ -1357,6 +1969,9 @@
         <category>Tools</category>
         <category>VMware</category>
       </categories>
+      <tags>
+        <tag>vmware</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Kubernetes监控方案kube-prometheus(prometheus, node-exporter, grafana)]]></title>
@@ -1366,6 +1981,13 @@
         <category>Kubernetes</category>
         <category>Prometheus</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>grafana</tag>
+        <tag>prometheus</tag>
+        <tag>kube-prometheus</tag>
+        <tag>node-exporter</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[部署Kubernetes Dashboard]]></title>
@@ -1375,6 +1997,10 @@
         <category>Kubernetes</category>
         <category>Dashboard</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[通过kubeadm离线安装k8s集群v1.15]]></title>
@@ -1383,6 +2009,12 @@
       <categories>
         <category>Kubernetes</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>docker</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[K8S国内的镜像源]]></title>
@@ -1391,6 +2023,10 @@
       <categories>
         <category>Kubernetes</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[CentOS7开机后无IP4地址]]></title>
@@ -1400,6 +2036,10 @@
         <category>OS</category>
         <category>CentOS</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>vmware</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[解决Google Chrome浏览器无法打开Kubernetes(K8S) Dashboard页面]]></title>
@@ -1409,6 +2049,10 @@
         <category>Kubernetes</category>
         <category>Dashboard</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[CentOS环境安装Docker]]></title>
@@ -1417,6 +2061,10 @@
       <categories>
         <category>Docker</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>docker</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[解决sudo docker报错command not found]]></title>
@@ -1425,6 +2073,10 @@
       <categories>
         <category>Docker</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>docker</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[在CentOS上以二进制方式安装Docker]]></title>
@@ -1433,6 +2085,10 @@
       <categories>
         <category>Docker</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>docker</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[如何为Ubuntu虚拟机扩展磁盘]]></title>
@@ -1442,6 +2098,11 @@
         <category>OS</category>
         <category>Ubuntu</category>
       </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>fdisk</tag>
+        <tag>VMWare</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Docker容器中使用systemctl报错Failed to get D-Bus connection: Operation not permitted]]></title>
@@ -1450,6 +2111,10 @@
       <categories>
         <category>Docker</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>docker</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[无法挂载NFS共享目录到Docker容器的解决方法]]></title>
@@ -1459,6 +2124,13 @@
         <category>FileSystem</category>
         <category>NFS</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>docker</tag>
+        <tag>showmount</tag>
+        <tag>mount</tag>
+        <tag>nfs</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[解决ubuntu上回环设备/dev/loop0占用100%的问题]]></title>
@@ -1467,6 +2139,9 @@
       <categories>
         <category>FileSystem</category>
       </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[nginx如何配置https]]></title>
@@ -1476,6 +2151,9 @@
         <category>Tools</category>
         <category>Nginx</category>
       </categories>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Docker镜像如何重命名]]></title>
@@ -1484,6 +2162,9 @@
       <categories>
         <category>Docker</category>
       </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Ubuntu环境下安装Docker]]></title>
@@ -1492,6 +2173,9 @@
       <categories>
         <category>Docker</category>
       </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Ubuntu搭建Maven环境]]></title>
@@ -1501,6 +2185,9 @@
         <category>Java</category>
         <category>Maven</category>
       </categories>
+      <tags>
+        <tag>maven</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Ubuntu配置Java开发环境]]></title>
@@ -1509,6 +2196,10 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>ubuntu</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Ubuntu安装sshd服务]]></title>
@@ -1518,6 +2209,9 @@
         <category>Tools</category>
         <category>SSH</category>
       </categories>
+      <tags>
+        <tag>SSH</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[VMware虚拟机Ubuntu设置自适应屏幕大小]]></title>
@@ -1527,6 +2221,10 @@
         <category>OS</category>
         <category>Ubuntu</category>
       </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>vmware</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Ubuntu设置国内源]]></title>
@@ -1536,6 +2234,9 @@
         <category>OS</category>
         <category>Ubuntu</category>
       </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[NIO的通道]]></title>
@@ -1545,6 +2246,11 @@
         <category>Java</category>
         <category>NIO</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>nio</tag>
+        <tag>io</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[NIO的缓冲区]]></title>
@@ -1554,6 +2260,11 @@
         <category>Java</category>
         <category>NIO</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>nio</tag>
+        <tag>io</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Docker CentOS容器里面安装GlusterFS]]></title>
@@ -1562,6 +2273,12 @@
       <categories>
         <category>FileSystem</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>docker</tag>
+        <tag>glusterfs</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[CentOS如何修改Hostname主机名]]></title>
@@ -1571,6 +2288,11 @@
         <category>OS</category>
         <category>CentOS</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>linux</tag>
+        <tag>hostname</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Docker容器中配置sshd服务]]></title>
@@ -1579,6 +2301,11 @@
       <categories>
         <category>Docker</category>
       </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>Kubernetes</tag>
+        <tag>SSH</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[macOS安装Postgresql]]></title>
@@ -1588,6 +2315,10 @@
         <category>Database</category>
         <category>Postgresql</category>
       </categories>
+      <tags>
+        <tag>macOS</tag>
+        <tag>Postgresql</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[MySQL分组Top N的问题]]></title>
@@ -1597,6 +2328,9 @@
         <category>Database</category>
         <category>MySQL</category>
       </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Qihoo360 Wayne backend启动时报错cannot load github.com/modern-go/reflect2]]></title>
@@ -1606,6 +2340,11 @@
         <category>Kubernetes</category>
         <category>Wayne</category>
       </categories>
+      <tags>
+        <tag>kubernetes</tag>
+        <tag>k8s</tag>
+        <tag>wayne</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Mac Docker安装配置]]></title>
@@ -1614,16 +2353,25 @@
       <categories>
         <category>Docker</category>
       </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[macOS升级nodejs到最新版本]]></title>
     <url>%2F2019%2F07%2FmacOS%E5%8D%87%E7%BA%A7nodejs%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%2F</url>
     <content type="text"><![CDATA[npm 从5.2版开始，增加了 npx 命令。Node 自带 npm 模块，所以可以直接使用 npx 命令。如果没有安装就手动安装一下。 1sudo npm install -g npx 当我运行 12345npx create-react-app my-appnpx: 91 安装成功，用时 9.606 秒You are running Node 6.3.1.Create React App requires Node 8 or higher.Please update your version of Node. 提示需要更新node。 查看本机node版本12node -vv6.3.1 清除node的cache1sudo npm cache clean -f 安装n工具1234sudo npm install -g n/usr/local/bin/n -&gt; /usr/local/lib/node_modules/n/bin/n/usr/local/lib└── n@4.1.0 安装最新版本的node1234567sudo n stableinstall : node-v10.16.0 mkdir : /usr/local/n/versions/node/10.16.0 fetch : https://nodejs.org/dist/v10.16.0/node-v10.16.0-darwin-x64.tar.gz################################################################################### 100.0% installed : v10.16.0 再次查看本机node版本12node -vv10.16.0 更新npm到最新版123456sudo npm install npm@latest -gPassword:/usr/local/bin/npm -&gt; /usr/local/lib/node_modules/npm/bin/npm-cli.js/usr/local/bin/npx -&gt; /usr/local/lib/node_modules/npm/bin/npx-cli.js+ npm@6.10.0added 14 packages from 10 contributors, removed 5 packages and updated 17 packages in 6.962s 验证版本号12node -vnpm -v]]></content>
+      <tags>
+        <tag>nodejs</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[mac执行brew install时卡在Updating Homebrew的解决方案]]></title>
     <url>%2F2019%2F06%2Fmac%E6%89%A7%E8%A1%8Cbrew-install%E6%97%B6%E5%8D%A1%E5%9C%A8Updating-Homebrew%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%2F</url>
     <content type="text"><![CDATA[今天通过homebrew安装软件，卡住了。其实以前也会经常遇到卡在更新Homebrew上面，主要是因为大陆网络环境的问题。 如下： 12brew install wgetUpdating Homebrew... 一般我们可以按下control + c取消更新操作，这时，安装会继续执行下去。 但推荐使用国内的Alibaba Homebrew镜像源进行替代。 我们执行brew命令安装软件的时候，跟如下三个仓库地址有关： brew.git homebrew-core.git homebrew-bottles 接下来我们将上述3个仓库的地址全部替换为Alibaba提供的地址 1234567cd "$(brew --repo)"git remote set-url origin https://mirrors.aliyun.com/homebrew/brew.gitgit remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.gitecho 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles' &gt;&gt; ~/.bash_profilesource ~/.bash_profile 通过上述步骤，我们在安装软件时，就不会卡在Updating Homebrew上面了。]]></content>
+      <tags>
+        <tag>homebrew</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[zsh: command not found解决方案]]></title>
@@ -1633,11 +2381,18 @@
         <category>Tools</category>
         <category>SSH</category>
       </categories>
+      <tags>
+        <tag>zsh</tag>
+        <tag>ssh</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[mac OS安装npm]]></title>
     <url>%2F2019%2F06%2Fmac-OS%E5%AE%89%E8%A3%85npm%2F</url>
     <content type="text"><![CDATA[检查brew -v是否安装了homebrew这个macOS缺失的软件包的管理器。如果安装，跳转到第3步，否则跳转到第二步； 安装homebrew。安装跳转到官网指导。等待安装好之后，输入brew -v，如果出现版本号说明已经安装好： 123brew -vHomebrew 2.1.6Homebrew/homebrew-core (git revision 10e6; last commit 2019-06-23) 执行brew update更新homebrew； 执行命令行brew install npm安装npm。执行npm -v即可看到安装好的npm版本，如下： 12npm -v6.9.0 接下来就是npm的使用了，详情请看npm官网]]></content>
+      <tags>
+        <tag>npm</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[SpringBean生命周期]]></title>
@@ -1646,6 +2401,9 @@
       <categories>
         <category>Spring</category>
       </categories>
+      <tags>
+        <tag>spring</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Codility Lesson 1 - BinaryGap]]></title>
@@ -1654,6 +2412,10 @@
       <categories>
         <category>算法</category>
       </categories>
+      <tags>
+        <tag>codility</tag>
+        <tag>binaryGap</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[解决java.lang.ClassNotFoundException: org.springframework.cloud.client.loadbalancer.LoadBalancedRetryFactory]]></title>
@@ -1664,11 +2426,17 @@
     <title><![CDATA[Java VisualVM添加Visual GC标签]]></title>
     <url>%2F2019%2F04%2FJava-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE%2F</url>
     <content type="text"><![CDATA[运行Java VisualVM执行命令 1jvisualvm JVisualVM启动成功后，如图所示： 安装Visual GC插件点击 工具 -&gt; 插件 选择设置标签，更新中心配置，也就是设置从哪里下载插件。 可以在 https://visualvm.github.io/pluginscenters.html 页面找到不同版本的插件源地址。 设置好以后，在可用插件标签下面，我们选择安装Visual GC插件。 安装好以后，重启Java VisualVM 就可以看到Visual GC的标签了。如下图所示：]]></content>
+      <tags>
+        <tag>JVM</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Mac下处理MAT(Memory Analyzer Tool)报错的问题]]></title>
     <url>%2F2019%2F04%2FMac%E4%B8%8B%E5%A4%84%E7%90%86MAT-Memory-Analyzer-Tool-%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[当程序出现内存泄露(Out of memory)时，我们需要通过Eclipse的Memory Analyzer Tool去定位错误的代码。 从Eclipse官网下载MAT，https://www.eclipse.org/mat/downloads.php 选择不同操作的版本。 123456789101112Memory Analyzer 1.8.1 ReleaseVersion: 1.8.1.20180910 | Date: 19 September 2018 | Type: ReleasedUpdate Site: http:&#x2F;&#x2F;download.eclipse.org&#x2F;mat&#x2F;1.8.1&#x2F;update-site&#x2F;Archived Update Site: MemoryAnalyzer-1.8.1.201809100846.zipStand-alone Eclipse RCP Applications Windows (x86) Windows (x86_64) Mac OSX (Mac&#x2F;Cocoa&#x2F;x86_64) Linux (x86&#x2F;GTK+) Linux (x86_64&#x2F;GTK+) Linux (PPC64&#x2F;GTK+) Linux (PPC64le&#x2F;GTK+) 当我在Mac系统双击mat.app打开MAT时，系统报错，查看日志内容如下： 12345678910111213141516!SESSION 2019-04-18 21:48:21.506 -----------------------------------------------eclipse.buildId&#x3D;unknownjava.version&#x3D;1.8.0_92java.vendor&#x3D;Oracle CorporationBootLoader constants: OS&#x3D;macosx, ARCH&#x3D;x86_64, WS&#x3D;cocoa, NL&#x3D;zh_CNFramework arguments: -keyring &#x2F;Users&#x2F;simon&#x2F;.eclipse_keyringCommand-line arguments: -os macosx -ws cocoa -arch x86_64 -keyring &#x2F;Users&#x2F;simon&#x2F;.eclipse_keyring!ENTRY org.eclipse.osgi 4 0 2019-04-18 21:48:24.893!MESSAGE Application error!STACK 1java.lang.IllegalStateException: The platform metadata area could not be written: &#x2F;private&#x2F;var&#x2F;folders&#x2F;cl&#x2F;kn5ppbpd28j0s6y5kcxm9rdm0000gn&#x2F;T&#x2F;AppTranslocation&#x2F;8157A927-01B7-4CF8-8F8B-AA4530391F8A&#x2F;d&#x2F;mat.app&#x2F;Contents&#x2F;MacOS&#x2F;workspace&#x2F;.metadata. By default the platform writes its contentunder the current working directory when the platform is launched. Use the -data parameter tospecify a different content area for the platform. at org.eclipse.core.internal.runtime.DataArea.assertLocationInitialized(DataArea.java:70)... 查看日志，分析原因，我们得知其中一个文件无写入权限。IllegalStateException: The platform metadata area could not be written. 我们可以指定一个具有写入权限的文件夹，设置如下： 编辑文件 /Applications/mat.app/Contents/Eclipse/MemoryAnalyzer.ini 添加-data参数： 12-data&#x2F;Users&#x2F;simon&#x2F;workspace data参数和路径必须在两个不同的行，data参数必须放在Laucher之前。 最终文件内容如下所示： 12345678910-startup..&#x2F;Eclipse&#x2F;plugins&#x2F;org.eclipse.equinox.launcher_1.5.0.v20180512-1130.jar-data&#x2F;Users&#x2F;simon&#x2F;workspace--launcher.library..&#x2F;Eclipse&#x2F;plugins&#x2F;org.eclipse.equinox.launcher.cocoa.macosx.x86_64_1.1.700.v20180518-1200-vmargs-Xmx1024m-Dorg.eclipse.swt.internal.carbon.smallFonts-XstartOnFirstThread 保存文件后，再次双击启动MAT，软件可以成功打开了。]]></content>
+      <tags>
+        <tag>JVM</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Mac下安装zsh]]></title>
@@ -1678,6 +2446,9 @@
         <category>Tools</category>
         <category>SSH</category>
       </categories>
+      <tags>
+        <tag>zsh</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Jupyter Notebook快捷键]]></title>
@@ -1686,6 +2457,9 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Jupyter Notebook设置代码提示自动补全]]></title>
@@ -1695,6 +2469,10 @@
         <category>Python</category>
         <category>Jupyter Notebook</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>jupyter notebook</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[如何在Anaconda中修改python版本]]></title>
@@ -1703,6 +2481,9 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Spark SQL处理外部数据源]]></title>
@@ -1713,6 +2494,9 @@
         <category>Spark</category>
         <category>Spark SQL</category>
       </categories>
+      <tags>
+        <tag>Spark</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Maven工程打包Spark Streaming程序]]></title>
@@ -1722,6 +2506,11 @@
         <category>Java</category>
         <category>Maven</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>maven</tag>
+        <tag>spark</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Mac下使用crontab报错crontab: "/usr/bin/vi" exited with status 1]]></title>
@@ -1731,6 +2520,9 @@
         <category>Tools</category>
         <category>SSH</category>
       </categories>
+      <tags>
+        <tag>crontab</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Bash Shell快捷键-光标移动到行首、行尾等]]></title>
@@ -1740,6 +2532,9 @@
         <category>Tools</category>
         <category>SSH</category>
       </categories>
+      <tags>
+        <tag>Bash</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Spark DataFrame和Dataset API基本操作]]></title>
@@ -1750,6 +2545,11 @@
         <category>Spark</category>
         <category>Spark SQL</category>
       </categories>
+      <tags>
+        <tag>Spark</tag>
+        <tag>Spark DataFrame</tag>
+        <tag>Spark Dataset</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[使用Thriftserver和Beeline]]></title>
@@ -1760,6 +2560,10 @@
         <category>Spark</category>
         <category>Spark SQL</category>
       </categories>
+      <tags>
+        <tag>Spark</tag>
+        <tag>Spark SQL</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[从Hive平滑过渡到Spark SQL]]></title>
@@ -1770,6 +2574,10 @@
         <category>Spark</category>
         <category>Spark SQL</category>
       </categories>
+      <tags>
+        <tag>Spark SQL</tag>
+        <tag>Hive</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[创建Spark SQL Hive程序]]></title>
@@ -1780,6 +2588,10 @@
         <category>Spark</category>
         <category>Spark SQL</category>
       </categories>
+      <tags>
+        <tag>Spark</tag>
+        <tag>Spark SQL</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[创建Spark SQL程序]]></title>
@@ -1789,6 +2601,9 @@
         <category>大数据</category>
         <category>Spark</category>
       </categories>
+      <tags>
+        <tag>Spark</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Spark的local和standalone模式运行]]></title>
@@ -1798,6 +2613,9 @@
         <category>大数据</category>
         <category>Spark</category>
       </categories>
+      <tags>
+        <tag>Spark</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[编译安装Spark]]></title>
@@ -1807,6 +2625,9 @@
         <category>大数据</category>
         <category>Spark</category>
       </categories>
+      <tags>
+        <tag>Spark</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Python多线程]]></title>
@@ -1815,6 +2636,9 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Python多进程]]></title>
@@ -1823,6 +2647,9 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Python如何打印日志]]></title>
@@ -1831,6 +2658,9 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[MongoDB文档操作]]></title>
@@ -1840,6 +2670,9 @@
         <category>Database</category>
         <category>MongoDB</category>
       </categories>
+      <tags>
+        <tag>MongoDB</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[MongoDB基本操作]]></title>
@@ -1849,6 +2682,9 @@
         <category>Database</category>
         <category>MongoDB</category>
       </categories>
+      <tags>
+        <tag>MongoDB</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[初识MongoDB]]></title>
@@ -1858,6 +2694,9 @@
         <category>Database</category>
         <category>MongoDB</category>
       </categories>
+      <tags>
+        <tag>MongoDB</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[NoSQL简介]]></title>
@@ -1866,6 +2705,9 @@
       <categories>
         <category>Database</category>
       </categories>
+      <tags>
+        <tag>NoSQL</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[运行Spark Streaming案例]]></title>
@@ -1875,6 +2717,9 @@
         <category>大数据</category>
         <category>Spark</category>
       </categories>
+      <tags>
+        <tag>Spark Streaming</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[IntelliJ IDEA Maven项目添加依赖自动提示]]></title>
@@ -1893,6 +2738,9 @@
         <category>大数据</category>
         <category>Spark</category>
       </categories>
+      <tags>
+        <tag>Spark</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[安装Spark]]></title>
@@ -1902,6 +2750,9 @@
         <category>大数据</category>
         <category>Spark</category>
       </categories>
+      <tags>
+        <tag>Spark</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[安装HBase]]></title>
@@ -1938,6 +2789,9 @@
         <category>OS</category>
         <category>MacOS</category>
       </categories>
+      <tags>
+        <tag>mac</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Hive环境搭建]]></title>
@@ -1947,6 +2801,9 @@
         <category>大数据</category>
         <category>Hive</category>
       </categories>
+      <tags>
+        <tag>Hive</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[YARN介绍及环境搭建]]></title>
@@ -1956,6 +2813,9 @@
         <category>大数据</category>
         <category>YARN</category>
       </categories>
+      <tags>
+        <tag>YARN</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[安装Hadoop]]></title>
@@ -1965,6 +2825,9 @@
         <category>大数据</category>
         <category>Hadoop</category>
       </categories>
+      <tags>
+        <tag>Hadoop</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[如何使用Sublime Text3格式化json]]></title>
@@ -1997,6 +2860,10 @@
         <category>Database</category>
         <category>MongoDB</category>
       </categories>
+      <tags>
+        <tag>NoSQL</tag>
+        <tag>MongoDB</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[连接Mysql时出现too many connections的一些解决办法]]></title>
@@ -2006,6 +2873,9 @@
         <category>Database</category>
         <category>MySQL</category>
       </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[在macOS上面安装elasticsearch组件及问题解决]]></title>
@@ -2029,6 +2899,9 @@
         <category>Middleware</category>
         <category>Redis</category>
       </categories>
+      <tags>
+        <tag>redis</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Virtualbox虚拟机设置桥接bridge网络模式]]></title>
@@ -2051,6 +2924,9 @@
       <categories>
         <category>Python</category>
       </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[macOS High Sierra(10.13)安装Virtualbox失败及解决方案]]></title>
@@ -2065,6 +2941,13 @@
         <category>Tools</category>
         <category>Git</category>
       </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>github</tag>
+        <tag>gitlab</tag>
+        <tag>reset</tag>
+        <tag>commit</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[macOS安装java jdk和maven并配置环境变量]]></title>
@@ -2074,6 +2957,10 @@
         <category>Java</category>
         <category>Maven</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>maven</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[macOS安装Homebrew]]></title>
@@ -2083,6 +2970,10 @@
         <category>Tools</category>
         <category>Homebrew</category>
       </categories>
+      <tags>
+        <tag>mac</tag>
+        <tag>homebrew</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[CentOS7源码编译安装、配置nginx]]></title>
@@ -2092,6 +2983,10 @@
         <category>Tools</category>
         <category>Nginx</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>nginx</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[CentOS7下安装vsftpd]]></title>
@@ -2101,6 +2996,10 @@
         <category>Tools</category>
         <category>FTP</category>
       </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>ftp</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[CentOS7上安装Tomcat7]]></title>
@@ -2110,6 +3009,11 @@
         <category>Java</category>
         <category>Tomcat</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>tomcat</tag>
+        <tag>centos</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[将Centos7的yum源更换为国内阿里云的源]]></title>
@@ -2124,6 +3028,10 @@
         <category>Database</category>
         <category>MySQL</category>
       </categories>
+      <tags>
+        <tag>mysql</tag>
+        <tag>mac</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Mac OS X系统Python3连接Mysql]]></title>
@@ -2141,6 +3049,11 @@
         <category>Java</category>
         <category>SpringMVC</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>springmvc</tag>
+        <tag>json</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Java中的Integer取值范围（-2^32 ~ 2^31 - 1）分析]]></title>
@@ -2149,6 +3062,9 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[java多线程编程（初级）]]></title>
@@ -2158,6 +3074,10 @@
         <category>Java</category>
         <category>Thread</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>thread</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[CentOS 7 如何关机重启]]></title>
@@ -2174,6 +3094,9 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[ssh连接远程服务器经常断线的解决办法]]></title>
@@ -2201,6 +3124,13 @@
         <category>Tools</category>
         <category>Git</category>
       </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>github</tag>
+        <tag>gitlab</tag>
+        <tag>reset</tag>
+        <tag>commit</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Git的工作区和暂存区]]></title>
@@ -2210,6 +3140,13 @@
         <category>Tools</category>
         <category>Git</category>
       </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>github</tag>
+        <tag>gitlab</tag>
+        <tag>reset</tag>
+        <tag>commit</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Git版本如何回退]]></title>
@@ -2219,6 +3156,13 @@
         <category>Tools</category>
         <category>Git</category>
       </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>github</tag>
+        <tag>gitlab</tag>
+        <tag>reset</tag>
+        <tag>commit</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Git管理下的项目如何更新文件]]></title>
@@ -2228,6 +3172,13 @@
         <category>Tools</category>
         <category>Git</category>
       </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>github</tag>
+        <tag>gitlab</tag>
+        <tag>reset</tag>
+        <tag>commit</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[如何创建Git版本库]]></title>
@@ -2237,6 +3188,13 @@
         <category>Tools</category>
         <category>Git</category>
       </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>github</tag>
+        <tag>gitlab</tag>
+        <tag>reset</tag>
+        <tag>commit</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[安装Git]]></title>
@@ -2246,6 +3204,13 @@
         <category>Tools</category>
         <category>Git</category>
       </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>github</tag>
+        <tag>gitlab</tag>
+        <tag>reset</tag>
+        <tag>commit</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[CentOS安装Mysql（MariaDb）及配置]]></title>
