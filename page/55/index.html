@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">171</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">172</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">279</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">280</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,121 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/12/Grafana%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95Kubernetes%E8%AE%BE%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/Grafana%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95Kubernetes%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">Grafana匿名登录Kubernetes设置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-20 22:50:04" itemprop="dateCreated datePublished" datetime="2019-12-20T22:50:04+08:00">2019-12-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-28 23:22:26" itemprop="dateModified" datetime="2020-03-28T23:22:26+08:00">2020-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kubernetes/Grafana/" itemprop="url" rel="index"><span itemprop="name">Grafana</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/12/Grafana%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95Kubernetes%E8%AE%BE%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Grafana匿名登录Kubernetes设置" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2019/12/Grafana%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95Kubernetes%E8%AE%BE%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/Grafana%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95Kubernetes%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在Kubernetes中，通过yaml文件安装Grafana。要实现匿名登录查看Dashboard，则需要在`spec.template.spec.containers[]下面添加如下内容：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">env:</span></span><br><span class="line"><span class="attr">- name:</span> <span class="string">GF_AUTH_ANONYMOUS_ENABLED</span></span><br><span class="line"><span class="attr">  value:</span> <span class="string">"true"</span></span><br><span class="line"><span class="attr">- name:</span> <span class="string">GF_AUTH_ANONYMOUS_ORG_ROLE</span></span><br><span class="line"><span class="attr">  value:</span> <span class="string">Viewer</span></span><br></pre></td></tr></table></figure>
+<p>部分内容如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  replicas:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">  selector:</span></span><br><span class="line"><span class="attr">    matchLabels:</span></span><br><span class="line"><span class="attr">      app:</span> <span class="string">grafana</span></span><br><span class="line"><span class="attr">  template:</span></span><br><span class="line"><span class="attr">    metadata:</span></span><br><span class="line"><span class="attr">      labels:</span></span><br><span class="line"><span class="attr">        app:</span> <span class="string">grafana</span></span><br><span class="line"><span class="attr">    spec:</span></span><br><span class="line"><span class="attr">      containers:</span></span><br><span class="line"><span class="attr">      - image:</span> <span class="string">grafana/grafana:6.3.3</span></span><br><span class="line"><span class="attr">        name:</span> <span class="string">grafana</span></span><br><span class="line"><span class="attr">        ports:</span></span><br><span class="line"><span class="attr">        - containerPort:</span> <span class="number">3000</span></span><br><span class="line"><span class="attr">          name:</span> <span class="string">http</span></span><br><span class="line"><span class="attr">        readinessProbe:</span></span><br><span class="line"><span class="attr">          httpGet:</span></span><br><span class="line"><span class="attr">            path:</span> <span class="string">/api/health</span></span><br><span class="line"><span class="attr">            port:</span> <span class="string">http</span></span><br><span class="line"><span class="attr">        resources:</span></span><br><span class="line"><span class="attr">          limits:</span></span><br><span class="line"><span class="attr">            cpu:</span> <span class="number">200</span><span class="string">m</span></span><br><span class="line"><span class="attr">            memory:</span> <span class="number">200</span><span class="string">Mi</span></span><br><span class="line"><span class="attr">          requests:</span></span><br><span class="line"><span class="attr">            cpu:</span> <span class="number">100</span><span class="string">m</span></span><br><span class="line"><span class="attr">            memory:</span> <span class="number">100</span><span class="string">Mi</span></span><br><span class="line"><span class="attr">        env:</span></span><br><span class="line"><span class="attr">        - name:</span> <span class="string">GF_AUTH_ANONYMOUS_ENABLED</span></span><br><span class="line"><span class="attr">          value:</span> <span class="string">"true"</span></span><br><span class="line"><span class="attr">        - name:</span> <span class="string">GF_AUTH_ANONYMOUS_ORG_ROLE</span></span><br><span class="line"><span class="attr">          value:</span> <span class="string">Viewer</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -461,130 +576,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/12/VMware%E9%9D%9E%E6%AD%A3%E5%B8%B8%E5%85%B3%E9%97%AD%E5%90%8E%E5%90%AF%E5%8A%A8%EF%BC%8C%E6%8F%90%E7%A4%BA%E8%AF%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BC%BC%E4%B9%8E%E6%AD%A3%E5%9C%A8%E4%BD%BF%E7%94%A8%E4%B8%AD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/VMware%E9%9D%9E%E6%AD%A3%E5%B8%B8%E5%85%B3%E9%97%AD%E5%90%8E%E5%90%AF%E5%8A%A8%EF%BC%8C%E6%8F%90%E7%A4%BA%E8%AF%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BC%BC%E4%B9%8E%E6%AD%A3%E5%9C%A8%E4%BD%BF%E7%94%A8%E4%B8%AD/" class="post-title-link" itemprop="url">VMware非正常关闭后启动，提示该虚拟机似乎正在使用中</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-12 22:29:32" itemprop="dateCreated datePublished" datetime="2019-12-12T22:29:32+08:00">2019-12-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-28 22:47:28" itemprop="dateModified" datetime="2020-03-28T22:47:28+08:00">2020-03-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/VMware/" itemprop="url" rel="index"><span itemprop="name">VMware</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/12/VMware%E9%9D%9E%E6%AD%A3%E5%B8%B8%E5%85%B3%E9%97%AD%E5%90%8E%E5%90%AF%E5%8A%A8%EF%BC%8C%E6%8F%90%E7%A4%BA%E8%AF%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BC%BC%E4%B9%8E%E6%AD%A3%E5%9C%A8%E4%BD%BF%E7%94%A8%E4%B8%AD/" class="post-meta-item leancloud_visitors" data-flag-title="VMware非正常关闭后启动，提示该虚拟机似乎正在使用中" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/12/VMware%E9%9D%9E%E6%AD%A3%E5%B8%B8%E5%85%B3%E9%97%AD%E5%90%8E%E5%90%AF%E5%8A%A8%EF%BC%8C%E6%8F%90%E7%A4%BA%E8%AF%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BC%BC%E4%B9%8E%E6%AD%A3%E5%9C%A8%E4%BD%BF%E7%94%A8%E4%B8%AD/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/VMware%E9%9D%9E%E6%AD%A3%E5%B8%B8%E5%85%B3%E9%97%AD%E5%90%8E%E5%90%AF%E5%8A%A8%EF%BC%8C%E6%8F%90%E7%A4%BA%E8%AF%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BC%BC%E4%B9%8E%E6%AD%A3%E5%9C%A8%E4%BD%BF%E7%94%A8%E4%B8%AD/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>VMware非正常关闭后启动，提示”该虚拟机似乎正在使用中“</p>
-<img src="/2019/12/VMware%E9%9D%9E%E6%AD%A3%E5%B8%B8%E5%85%B3%E9%97%AD%E5%90%8E%E5%90%AF%E5%8A%A8%EF%BC%8C%E6%8F%90%E7%A4%BA%E8%AF%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BC%BC%E4%B9%8E%E6%AD%A3%E5%9C%A8%E4%BD%BF%E7%94%A8%E4%B8%AD/1576115243615.png" class="">
-<p>点击”获取所有权“按钮</p>
-<img src="/2019/12/VMware%E9%9D%9E%E6%AD%A3%E5%B8%B8%E5%85%B3%E9%97%AD%E5%90%8E%E5%90%AF%E5%8A%A8%EF%BC%8C%E6%8F%90%E7%A4%BA%E8%AF%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BC%BC%E4%B9%8E%E6%AD%A3%E5%9C%A8%E4%BD%BF%E7%94%A8%E4%B8%AD/1576115407685.png" class="">
-<p>获取所有权失败，说明该虚拟机是非常正常关闭导致的，点击”取消”按钮。</p>
-<p>进入虚拟机存放目录，删除以.lck结尾的目录。</p>
-<img src="/2019/12/VMware%E9%9D%9E%E6%AD%A3%E5%B8%B8%E5%85%B3%E9%97%AD%E5%90%8E%E5%90%AF%E5%8A%A8%EF%BC%8C%E6%8F%90%E7%A4%BA%E8%AF%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BC%BC%E4%B9%8E%E6%AD%A3%E5%9C%A8%E4%BD%BF%E7%94%A8%E4%B8%AD/1576115663708.png" class="">
-<p>删除以后，则可以正常开机了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/54/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/">54</a><span class="page-number current">55</span><a class="page-number" href="/page/56/">56</a><span class="space">&hellip;</span><a class="page-number" href="/page/93/">93</a><a class="extend next" rel="next" href="/page/56/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/54/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/">54</a><span class="page-number current">55</span><a class="page-number" href="/page/56/">56</a><span class="space">&hellip;</span><a class="page-number" href="/page/94/">94</a><a class="extend next" rel="next" href="/page/56/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -663,7 +659,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">279</span>
+          <span class="site-state-item-count">280</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -676,7 +672,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">171</span>
+        <span class="site-state-item-count">172</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
