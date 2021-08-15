@@ -134,17 +134,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">172</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">173</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">74</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">75</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">280</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">281</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,134 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/11/%E8%A7%A3%E5%86%B3sudo-docker%E6%8A%A5%E9%94%99command-not-found/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/%E8%A7%A3%E5%86%B3sudo-docker%E6%8A%A5%E9%94%99command-not-found/" class="post-title-link" itemprop="url">解决sudo docker报错command not found</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-23 11:38:54" itemprop="dateCreated datePublished" datetime="2019-11-23T11:38:54+08:00">2019-11-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-07 22:12:46" itemprop="dateModified" datetime="2020-03-07T22:12:46+08:00">2020-03-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/11/%E8%A7%A3%E5%86%B3sudo-docker%E6%8A%A5%E9%94%99command-not-found/" class="post-meta-item leancloud_visitors" data-flag-title="解决sudo docker报错command not found" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2019/11/%E8%A7%A3%E5%86%B3sudo-docker%E6%8A%A5%E9%94%99command-not-found/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/11/%E8%A7%A3%E5%86%B3sudo-docker%E6%8A%A5%E9%94%99command-not-found/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>我们在执行<code>docker</code>命令时，比如<code>docker ps</code>时，可能会遇到如下<code>command not found</code>的错误。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo docker ps</span><br><span class="line">[sudo] password for simon: </span><br><span class="line">sudo: docker: command not found</span><br></pre></td></tr></table></figure>
+<p>这是什么原因呢？我们看看如下两条命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">env | grep PATH</span><br><span class="line">PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/simon/.local/bin:/home/simon/bin</span><br><span class="line"></span><br><span class="line">sudo env | grep PATH</span><br><span class="line">PATH=/sbin:/bin:/usr/sbin:/usr/bin</span><br></pre></td></tr></table></figure>
+<p>发现环境变量PATH是不相同的。之所以出现<code>sudo: docker: commmand not found</code>的问题，是因为在<code>PATH=/sbin:/bin:/usr/sbin:/usr/bin</code>下面找不到docker程序。</p>
+<p>可以添加一个docker组来解决。</p>
+<p>如果是通过二进制安装的话，就不会自动生成docker组，所以需要我们自己生成。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></figure>
+<p>同时把用户加入到这个组中，并重启docker。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo gpasswd -a simon docker</span><br><span class="line">Adding user simon to group docker</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+<p>用户以docker组重新登录一下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">newgrp docker</span><br></pre></td></tr></table></figure>
+<p>这时，就可以正常使用<code>docker</code>命令了。</p>
+<p>那我们会问，如果不把用户加入<code>docker</code>组，不加sudo执行docker命令又会怎样呢？</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br><span class="line">Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.38/containers/json: dial unix /var/run/docker.sock: connect: permission denied</span><br></pre></td></tr></table></figure>
+<p>会发现当我们连接socket的时候，没法访问<code>/var/run/docker.sock</code>这个文件。</p>
+<p>原因是，这个文件所属用户和用户组都是root的。我们用普通用户是没法访问的。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -l /var/run/docker.sock</span><br><span class="line">srw-rw----. 1 root root 0 Nov 21 21:27 /var/run/docker.sock</span><br></pre></td></tr></table></figure>
+<p>但是，当我们把普通用户加入到<code>docker</code>这个用户组以后，那生成的<code>/var/run/docker.sock</code>的用户组已经变成<code>docker</code>了，所以就可以连接了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -l /var/run/docker.sock</span><br><span class="line">srw-rw----.  1 root docker    0 Nov 22 09:48 docker.sock</span><br></pre></td></tr></table></figure>
+<p>当然，我们没有直接解决<code>sudo: docker: command not found</code>的问题，但我觉得以上是解决docker命令没法使用的最佳实践。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -480,133 +608,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/11/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E4%BD%BF%E7%94%A8systemctl%E6%8A%A5%E9%94%99Failed-to-get-D-Bus-connection-Operation-not-permitted/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E4%BD%BF%E7%94%A8systemctl%E6%8A%A5%E9%94%99Failed-to-get-D-Bus-connection-Operation-not-permitted/" class="post-title-link" itemprop="url">Docker容器中使用systemctl报错Failed to get D-Bus connection: Operation not permitted</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-16 12:01:12" itemprop="dateCreated datePublished" datetime="2019-11-16T12:01:12+08:00">2019-11-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-07 22:12:46" itemprop="dateModified" datetime="2020-03-07T22:12:46+08:00">2020-03-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/11/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E4%BD%BF%E7%94%A8systemctl%E6%8A%A5%E9%94%99Failed-to-get-D-Bus-connection-Operation-not-permitted/" class="post-meta-item leancloud_visitors" data-flag-title="Docker容器中使用systemctl报错Failed to get D-Bus connection: Operation not permitted" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/11/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E4%BD%BF%E7%94%A8systemctl%E6%8A%A5%E9%94%99Failed-to-get-D-Bus-connection-Operation-not-permitted/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/11/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E4%BD%BF%E7%94%A8systemctl%E6%8A%A5%E9%94%99Failed-to-get-D-Bus-connection-Operation-not-permitted/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在Docker容器中执行<code>systemctl</code>命令时，无论是启动nginx, 或者是vsftpd等服务，都会报如下错误。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl status vsftpd</span><br><span class="line">Failed to get D-Bus connection: Operation not permitted</span><br></pre></td></tr></table></figure>
-<p>解决方法</p>
-<ol>
-<li>在启动容器时，需要加上<code>--privileged</code>参数来添加权限。</li>
-<li>不能使用默认的bash，而需要执行<code>/usr/sbin/init</code></li>
-</ol>
-<p>执行命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit --privileged &lt;image_id&gt; /usr/sbin/init</span><br></pre></td></tr></table></figure>
-<p>以下我们以安装启动<code>vsftpd</code>服务来例子来讲解。</p>
-<p>启动centos的容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit --privileged 3816db78c729 /usr/sbin/init</span><br></pre></td></tr></table></figure>
-<p>进入刚才启动的容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it d9c3cf1ad7a bash</span><br></pre></td></tr></table></figure>
-<p>yum安装<code>vsftpd</code>服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y vsftpd</span><br></pre></td></tr></table></figure>
-<p>启动<code>vsftpd</code>服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start vsftpd</span><br></pre></td></tr></table></figure>
-<p>查看<code>vsftpd</code>服务的状态</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">systemctl status vsftpd</span><br><span class="line">● vsftpd.service - Vsftpd ftp daemon</span><br><span class="line">   Loaded: loaded (/usr/lib/systemd/system/vsftpd.service; disabled; vendor preset: disabled)</span><br><span class="line">   Active: active (running) since Sat 2019-11-16 03:55:51 UTC; 2s ago</span><br><span class="line">  Process: 176 ExecStart=/usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf (code=exited, status=0/SUCCESS)</span><br><span class="line"> Main PID: 177 (vsftpd)</span><br><span class="line">   CGroup: /docker/d9c3cf1ad7a9084f7563169cbac71b7a5687ebc25703c43f31b6f33a59e686e6/system.slice/vsftpd.service</span><br><span class="line">           └─177 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf</span><br><span class="line">           ‣ 177 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf</span><br><span class="line"></span><br><span class="line">Nov 16 03:55:51 d9c3cf1ad7a9 systemd[1]: Starting Vsftpd ftp daemon...</span><br><span class="line">Nov 16 03:55:51 d9c3cf1ad7a9 systemd[1]: Started Vsftpd ftp daemon.</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -690,20 +691,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">280</span>
+          <span class="site-state-item-count">281</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-count">75</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">172</span>
+        <span class="site-state-item-count">173</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
