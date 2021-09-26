@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[IDEA增加匹配查找记录数]]></title>
+    <url>%2F2021%2F09%2FIDEA%E5%A2%9E%E5%8A%A0%E5%8C%B9%E9%85%8D%E6%9F%A5%E6%89%BE%E8%AE%B0%E5%BD%95%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[我们使用 IDEA 在项目中查找某个字符串时，搜索结果的数量如果超过某个阈值，那就会显示不出来。 如图所示，100+ matches in 100+ files。 可以对 IDEA 进行设置，以显示更多数量的结果集。 Help -&gt; Find Action 输入Registry 找到参数 ide.usages.page.size，把结果设置为你想要的值。]]></content>
+      <categories>
+        <category>Tools</category>
+        <category>IntelliJ IDEA</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[java图片压缩处理]]></title>
+    <url>%2F2021%2F09%2Fjava%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%A4%84%E7%90%86%2F</url>
+    <content type="text"><![CDATA[获取图片的像素123BufferedImage bufferedImage = ImageIO.read(file);int width = bufferedImage.getWidth();int height = bufferedImage.getHeight(); 压缩图片使用一个开源的图片处理库 Thumbnailator，有一直在维护的。 12345&lt;dependency&gt; &lt;groupId&gt;net.coobird&lt;/groupId&gt; &lt;artifactId&gt;thumbnailator&lt;/artifactId&gt; &lt;version&gt;0.4.14&lt;/version&gt;&lt;/dependency&gt; 压缩时，按比例缩放，必须同时满足最大不超过size方法里面的width和height参数值。 直接转为文件输出： 123456String inputImage = "input.jpeg";String outputImage = "out.jpeg";Thumbnails.of(inputImage) .size(100, 60) .toFile(outputImage); 也可以转为输出流，再转为输入流供其他使用： 12345678910String inputImage = "input.jpeg";String outputImage = "out.jpeg";ByteArrayOutputStream baos = new ByteArrayOutputStream();Thumbnails.of(inputImage) .size(100, 60) .toOutputStream(baos);ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray()); 注意关闭文件。]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>thumbnailator</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[mybatis xml配置文件的写法]]></title>
     <url>%2F2021%2F09%2Fmybatis-xml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E5%86%99%E6%B3%95%2F</url>
     <content type="text"><![CDATA[在去 xml 的时代，使用 mybatis 的时候写 xml 我觉得并不是一个好的实践。不过在维护一些老的项目中，还是在使用xml配置文件，所以基本的配置还是得会。 创建设置 useGeneratedKeys 为 true 时，当插入记录后，自增的 id 的值会赋值到 UserPo 的 id 属性里面。 12345678910111213141516171819202122&lt;insert id="create" useGeneratedKeys="true" keyProperty="id" parameterType="UserPo"&gt; INSERT INTO user &lt;trim prefix="(" suffix=")" suffixOverrides=","&gt; &lt;if test="username != null"&gt; username, &lt;/if&gt; &lt;if test="age != null"&gt; age, &lt;/if&gt; &lt;/trim&gt; &lt;trim prefix="VALUES (" suffix=")" suffixOverrides=","&gt; &lt;if test="username != null"&gt; #&#123;username&#125;, &lt;/if&gt; &lt;if test="age != null"&gt; #&#123;age&#125;, &lt;/if&gt; &lt;/trim&gt;&lt;/insert&gt; 更新如果 id 没有值，就不用更新。 如果 username 和 age 都为空时，SQL语句会报错。如果你要更新，至少有一个字段一定是有值的。 注意，SET key1 = val1, key2 = val2，字段之间是由逗号分隔的，而不是AND，在生产上执行这条语句时得非常小心。 1234567891011121314&lt;update id="update" parameterType="UserPo"&gt; &lt;if test="id != null"&gt; UPDATE user &lt;set&gt; &lt;if test="username != null"&gt; username = #&#123;username&#125;, &lt;/if&gt; &lt;if test="age != null"&gt; age = #&#123;age&#125;, &lt;/if&gt; &lt;/set&gt; WHERE id = #&#123;id&#125; &lt;/if&gt;&lt;/update&gt; 查询WHERE 字句。 每句话前面加关键字 AND。 123456&lt;where&gt; &lt;if test="username != null"&gt; AND username = #&#123;username&#125; &lt;/if&gt; AND age = 18&lt;/where&gt; 运算假如我要在xml配置里面进行运算，比如把 age 加 1 ，写法如下： ${age + 1}]]></content>
@@ -109,7 +129,8 @@
     <url>%2F2021%2F06%2FIDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95%2F</url>
     <content type="text"><![CDATA[一个对象属性很多，要设置其属性的时候很麻烦，不小心还会漏掉。 IDEA可以使用一款插件，GenerateAllSetter，可以一键生成所有属性的set方法。 安装好插件以后，在语句 User user = new User() 中的 user 上使用快捷键 Alt + Enter，就会出现自动生成set方法的选项了。]]></content>
       <categories>
-        <category>IDE</category>
+        <category>Tools</category>
+        <category>IntelliJ IDEA</category>
       </categories>
   </entry>
   <entry>
@@ -497,6 +518,7 @@
     <url>%2F2020%2F06%2FIntelliJ-IDEA%E4%B8%AD%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E6%96%B9%E6%B3%95%E7%9A%84%E6%AF%8F%E4%B8%AA%E5%87%BA%E5%8F%A3%2F</url>
     <content type="text"><![CDATA[在 IntelliJ IDEA 中，如果方法体很长，这时想查看方法有哪些出口，可以这样操作： Windows: 把光标放在 return 上面，再按 ctrl + shift + F7]]></content>
       <categories>
+        <category>Tools</category>
         <category>IntelliJ IDEA</category>
       </categories>
       <tags>
@@ -1701,7 +1723,8 @@
     <url>%2F2020%2F01%2FWindows%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85MySQL%2F</url>
     <content type="text"><![CDATA[在Windows10下面解压安装MySQL5.7 下载安装包下载zip包，mysql-5.7.29-winx64.zip https://dev.mysql.com/downloads/mysql/5.7.html#downloads 选择x86, 64-bit 解压解压到D:\mysql\mysql-5.7.29-winx64。 编写配置文件D:\mysql\mysql-5.7.29-winx64\my.ini 内容如下： 123456789101112131415161718[mysql]# 设置mysql客户端默认字符集default-character-set=utf8[mysqld]#设置3306端口port = 3306# 设置mysql的安装目录 basedir=D:\mysql\mysql-5.7.29-winx64# 设置mysql数据库的数据的存放目录datadir=D:\mysql\data # 允许最大连接数max_connections=200# 服务端使用的字符集默认为UTF8character-set-server=utf8# 创建新表时将使用的默认存储引擎default-storage-engine=INNODB 注册环境变量MYSQL_HOME D:\mysql\mysql-5.7.29-winx64 在Path中加入%MYSQL_HOME%\bin 初始化MySQL以管理员方式打开cmd 1D:\mysql\mysql-5.7.29-winx64&gt;mysqld --initialize 执行后，data目录下会生成很多文件。 12D:\mysql\mysql-5.7.29-winx64&gt;mysqld installService successfully installed. 启动服务123D:\mysql\mysql-5.7.29-winx64&gt;net start mysqlMySQL 服务正在启动 .MySQL 服务已经启动成功。 登录12D:\mysql\mysql-5.7.29-winx64&gt;mysql -u root -pEnter password: 需要输入密码，这个初始密码，可以在data/*.err文件里面找到。 12020-01-19T08:15:03.393313Z 1 [Note] A temporary password is generated for root@localhost: (waO?FJ/E8mW 输入密码，登录成功后，修改root用户的密码。 1ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';]]></content>
       <categories>
-        <category>Database - MySQL</category>
+        <category>Database</category>
+        <category>MySQL</category>
       </categories>
       <tags>
         <tag>Windows</tag>
@@ -2878,18 +2901,18 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[下载Sublime Text3]]></title>
-    <url>%2F2018%2F11%2F%E4%B8%8B%E8%BD%BDSublime-Text3%2F</url>
-    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 1import urllib.request,os,hashlib; h &#x3D; &#39;6f4c264a24d933ce70df5dedcf1dcaee&#39; + &#39;ebe013ee18cced0ef93d5f746d80ef60&#39;; pf &#x3D; &#39;Package Control.sublime-package&#39;; ipp &#x3D; sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by &#x3D; urllib.request.urlopen( &#39;http:&#x2F;&#x2F;packagecontrol.io&#x2F;&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh &#x3D; hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh !&#x3D; h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by) 安装pretty json快捷键ctrl+shift+p,打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
+    <title><![CDATA[如何使用Sublime Text3格式化json]]></title>
+    <url>%2F2018%2F11%2F%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Sublime-Text3%E6%A0%BC%E5%BC%8F%E5%8C%96json%2F</url>
+    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 安装pretty json快捷键ctrl+shift+p, 打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
       <categories>
         <category>Tools</category>
         <category>Sublime</category>
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[如何使用Sublime Text3格式化json]]></title>
-    <url>%2F2018%2F11%2F%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Sublime-Text3%E6%A0%BC%E5%BC%8F%E5%8C%96json%2F</url>
-    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 安装pretty json快捷键ctrl+shift+p, 打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
+    <title><![CDATA[下载Sublime Text3]]></title>
+    <url>%2F2018%2F11%2F%E4%B8%8B%E8%BD%BDSublime-Text3%2F</url>
+    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 1import urllib.request,os,hashlib; h &#x3D; &#39;6f4c264a24d933ce70df5dedcf1dcaee&#39; + &#39;ebe013ee18cced0ef93d5f746d80ef60&#39;; pf &#x3D; &#39;Package Control.sublime-package&#39;; ipp &#x3D; sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by &#x3D; urllib.request.urlopen( &#39;http:&#x2F;&#x2F;packagecontrol.io&#x2F;&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh &#x3D; hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh !&#x3D; h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by) 安装pretty json快捷键ctrl+shift+p,打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
       <categories>
         <category>Tools</category>
         <category>Sublime</category>
