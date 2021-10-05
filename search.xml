@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python range和arange的区别]]></title>
+    <url>%2F2021%2F10%2FPython-range%E5%92%8Carange%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[range 函数用于生成一个整数（integer）序列。 range(start, end, step)，返回类型为range，左闭右开区间。 12345678for i in range(1, 10, 2): print(i) 13579 arange 是 numpy 包下面的函数，生成一个 float64 的 Array。 1234567891011121314import numpy as npfor i in np.arange(1, 2, 0.1): print(i) 1.01.11.20000000000000021.30000000000000031.40000000000000041.50000000000000041.60000000000000051.70000000000000061.80000000000000071.9000000000000008 这里涉及到一个问题就是 float 比较大小的问题，可以使用 math.isclose() 函数。 1if math.isclose(1.2000000000000002, 1.2, rel_tol=1e-5)]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>range</tag>
+        <tag>arange</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[IDEA增加匹配查找记录数]]></title>
     <url>%2F2021%2F09%2FIDEA%E5%A2%9E%E5%8A%A0%E5%8C%B9%E9%85%8D%E6%9F%A5%E6%89%BE%E8%AE%B0%E5%BD%95%E6%95%B0%2F</url>
     <content type="text"><![CDATA[我们使用 IDEA 在项目中查找某个字符串时，搜索结果的数量如果超过某个阈值，那就会显示不出来。 如图所示，100+ matches in 100+ files。 可以对 IDEA 进行设置，以显示更多数量的结果集。 Help -&gt; Find Action 输入Registry 找到参数 ide.usages.page.size，把结果设置为你想要的值。]]></content>
@@ -620,6 +632,7 @@
     <url>%2F2020%2F05%2FSpring-Boot-Test%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5-Autowired%2F</url>
     <content type="text"><![CDATA[Springboot 版本 2.1.5.RELEASE 引用的 spring-boot-starter-test 版本为：2.1.2.RELEASE 依赖的 junit 版本为 4.12 必须要按如下写注解，才可以把类注入成功。 123456789101112@RunWith(SpringRunner.class)@SpringBootTest(classes = SpringBootApplication.class)public class ControllerTests &#123; @Autowired private UserController userController; @Test public void test() &#123; System.out.println(userController); &#125;&#125; 需要写 @RunWith 注解 @SpringBootTest 注解需要添加 classes 属性，值为启动类的 class 对象。 test() 方法必须为 public 上述几点在新版本的 Springboot 中（比如2.2及以上）可能有变化。]]></content>
       <categories>
+        <category>Java</category>
         <category>Spring Boot</category>
       </categories>
       <tags>
@@ -667,6 +680,7 @@
     <url>%2F2020%2F05%2F%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%2F</url>
     <content type="text"><![CDATA[之前一直使用 hexo 和 next 的主题，后来做了一些自定义的修改，然后发现 hexo 和 next theme 官方都做了升级，我也跟着升级了。但升级的部分和我自定义修改的 layout 部分就产生冲突了。搞了很久，也没能修复，所以还是重新搭建一套吧，然后把再自定义部分添加上去。 安装 hexo-cli 客户端根据官方文档，安装最新的 hexo-cli。 12345$ npm install hexo-cli -g/usr/local/bin/hexo -&gt; /usr/local/lib/node_modules/hexo-cli/bin/hexo+ hexo-cli@3.1.0added 27 packages from 12 contributors, removed 238 packages and updated 38 packages in 6.648s 搭建博客初始化博客创建一个你将用于放置博客系统的目录，然后在此目录下执行如下命令： 1234567891011121314151617181920212223242526272829303132$ hexo init blogINFO Cloning hexo-starter https://github.com/hexojs/hexo-starter.gitCloning into '/Users/simon/Development/workspace/blog'...remote: Enumerating objects: 30, done.remote: Counting objects: 100% (30/30), done.remote: Compressing objects: 100% (24/24), done.remote: Total 161 (delta 12), reused 12 (delta 4), pack-reused 131Receiving objects: 100% (161/161), 31.79 KiB | 5.00 KiB/s, done.Resolving deltas: 100% (74/74), done.Submodule 'themes/landscape' (https://github.com/hexojs/hexo-theme-landscape.git) registered for path 'themes/landscape'Cloning into '/Users/simon/Development/workspace/blog/themes/landscape'...remote: Enumerating objects: 4, done.remote: Counting objects: 100% (4/4), done.remote: Compressing objects: 100% (4/4), done.remote: Total 1067 (delta 0), reused 0 (delta 0), pack-reused 1063Receiving objects: 100% (1067/1067), 3.22 MiB | 3.00 KiB/s, done.Resolving deltas: 100% (585/585), done.Submodule path 'themes/landscape': checked out '73a23c51f8487cfcd7c6deec96ccc7543960d350'INFO Install dependenciesyarn install v1.21.1info No lockfile found.[1/4] 🔍 Resolving packages...[2/4] 🚚 Fetching packages...[3/4] 🔗 Linking dependencies...[4/4] 🔨 Building fresh packages...success Saved lockfile.warning Your current version of Yarn is out of date. The latest version is "1.22.4", while you're on "1.21.1".info To upgrade, run the following command:$ curl --compressed -o- -L https://yarnpkg.com/install.sh | bash✨ Done in 5.11s.INFO Start blogging with Hexo! 提示说 Yarn 版本低了，所以按提示方法更新了 Yarn。 安装依赖包12$ cd blog$ npm install 本地运行博客1hexo s 就可以通过 http://localhost:4000/ 本地访问到博客了。 安装 Next 主题主题各有所爱，我在这里演示安装 Next 主题。 12$ cd blog$ git clone https://github.com/theme-next/hexo-theme-next themes/next]]></content>
       <categories>
+        <category>Tools</category>
         <category>Hexo</category>
       </categories>
       <tags>
