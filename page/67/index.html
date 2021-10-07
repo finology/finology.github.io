@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">286</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">287</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,139 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">Docker容器中配置sshd服务</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-03 18:32:44" itemprop="dateCreated datePublished" datetime="2019-10-03T18:32:44+08:00">2019-10-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/" class="post-meta-item leancloud_visitors" data-flag-title="Docker容器中配置sshd服务" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>以前我们要做一个实验，需要安装虚拟机，安装需要耗费一定的时间，就算是复制虚拟机，也会占用大量磁盘空间。现在我们只需要创建一个CentOS的Docker容器就可以了，比较方便。</p>
+<h1 id="拉取操作系统镜像"><a href="#拉取操作系统镜像" class="headerlink" title="拉取操作系统镜像"></a>拉取操作系统镜像</h1><p>这里我们采用CentOS</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull centos</span><br></pre></td></tr></table></figure>
+<p>centos镜像拉取到本地后，我们查看一下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker images </span><br><span class="line">REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">centos                        latest              67fa590cfc1c        6 weeks ago         202MB</span><br></pre></td></tr></table></figure>
+<h1 id="运行容器并进入容器"><a href="#运行容器并进入容器" class="headerlink" title="运行容器并进入容器"></a>运行容器并进入容器</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -it centos bash</span><br><span class="line">[root@ca6a84a514c2 /]#</span><br></pre></td></tr></table></figure>
+<h2 id="修改yum源"><a href="#修改yum源" class="headerlink" title="修改yum源"></a>修改yum源</h2><p>如果是在公司内网环境，需要改为内网的源。如果是国外的源，也可以换成国内的源。<br>具体方法请参考 <a href="/2018/06/%E5%B0%86Centos7%E7%9A%84yum%E6%BA%90%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E9%98%BF%E9%87%8C%E4%BA%91%E7%9A%84%E6%BA%90/" title="将Centos7的yum源更换为国内阿里云的源">将Centos7的yum源更换为国内阿里云的源</a></p>
+<h2 id="安装所需软件"><a href="#安装所需软件" class="headerlink" title="安装所需软件"></a>安装所需软件</h2><h3 id="安装ip工具"><a href="#安装ip工具" class="headerlink" title="安装ip工具"></a>安装<code>ip</code>工具</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y iproute</span><br></pre></td></tr></table></figure>
+<h3 id="安装ssh软件"><a href="#安装ssh软件" class="headerlink" title="安装ssh软件"></a>安装ssh软件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssh-server openssh-clients</span><br></pre></td></tr></table></figure>
+<p>会有ssh相关软件被拷贝到/usr/sbin目录</p>
+<p>需要软件sshd的绝对路径去启动sshd服务，不然会报如下错误。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./sshd</span><br><span class="line">sshd re-exec requires execution with an absolute path</span><br></pre></td></tr></table></figure>
+<p>输入全路径执行命令，继续出现错误，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/sshd</span><br><span class="line">Could not load host key: /etc/ssh/ssh_host_rsa_key</span><br><span class="line">Could not load host key: /etc/ssh/ssh_host_ecdsa_key</span><br><span class="line">Could not load host key: /etc/ssh/ssh_host_ed25519_key</span><br><span class="line">sshd: no hostkeys available -- exiting.</span><br></pre></td></tr></table></figure>
+<p>执行<code>sshd-keygen</code>命令解决上述问题</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/sshd-keygen </span><br><span class="line">Generating SSH2 RSA host key:                              [  OK  ]</span><br><span class="line">Generating SSH2 ECDSA host key:                            [  OK  ]</span><br><span class="line">Generating SSH2 ED25519 host key:                          [  OK  ]</span><br></pre></td></tr></table></figure>
+<p>给root生成一个密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">passwd root</span><br><span class="line">Changing password for user root.</span><br><span class="line">New password: </span><br><span class="line">BAD PASSWORD: The password is shorter than 8 characters</span><br><span class="line">Retype new password: </span><br><span class="line">passwd: all authentication tokens updated successfully.</span><br></pre></td></tr></table></figure>
+<p>启动sshd服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/sshd</span><br><span class="line">[root@ca6a84a514c2 sbin]# ps -ef | grep sshd</span><br><span class="line">root        108      1  0 09:14 ?        00:00:00 /usr/sbin/sshd</span><br></pre></td></tr></table></figure>
+<p>验证sshd服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh root@localhost</span><br><span class="line">root@localhost's password: </span><br><span class="line">Last failed login: Sun Sep 29 09:16:59 UTC 2019 from localhost on ssh:notty</span><br><span class="line">There were 3 failed login attempts since the last successful login.</span><br><span class="line">Connection to localhost closed.</span><br></pre></td></tr></table></figure>
+<p>会遇到连不上去的问题，这时，需要修改<code>/etc/ssh/sshd_config</code>配置。</p>
+<p>把里面的<code>UsePAM yes</code>改为<code>UsePAM no</code></p>
+<p>杀掉之前sshd进程后，再次启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/sshd</span><br><span class="line">WARNING: 'UsePAM no' is not supported in Red Hat Enterprise Linux and may cause several problems.</span><br></pre></td></tr></table></figure>
+<p>这时就可以成功登录了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@localhost</span><br><span class="line">root@localhost's password: </span><br><span class="line">Last login: Sun Sep 29 09:20:41 2019 from localhost</span><br></pre></td></tr></table></figure>
+<h1 id="生成一个新的镜像"><a href="#生成一个新的镜像" class="headerlink" title="生成一个新的镜像"></a>生成一个新的镜像</h1><h2 id="退出容器，并查看容器id"><a href="#退出容器，并查看容器id" class="headerlink" title="退出容器，并查看容器id"></a>退出容器，并查看容器id</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br><span class="line">CONTAINER ID        IMAGE                            COMMAND                  CREATED             STATUS                         PORTS                    NAMES</span><br><span class="line">ca6a84a514c2        centos                           "bash"                   34 minutes ago      Exited (255) 11 seconds ago                             musing_goodall</span><br></pre></td></tr></table></figure>
+<h2 id="生成一个新的镜像-1"><a href="#生成一个新的镜像-1" class="headerlink" title="生成一个新的镜像"></a>生成一个新的镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker commit ca6a84a514c2 basic_centos </span><br><span class="line">sha256:2f965d1db627968f66bf968db7c052f1dec02b84a0b508ef896b3c8d93f97fb7</span><br></pre></td></tr></table></figure>
+<h2 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line">REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">basic_centos                  latest              2f965d1db627        26 seconds ago      284MB</span><br></pre></td></tr></table></figure>
+<h1 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit basic_centos /usr/sbin/sshd -D</span><br></pre></td></tr></table></figure>
+<p>此时，就可以通过ssh client连接上去了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -436,125 +569,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/08/Qihoo360-Wayne-backend%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99cannot-load-github-com-modern-go-reflect2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/Qihoo360-Wayne-backend%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99cannot-load-github-com-modern-go-reflect2/" class="post-title-link" itemprop="url">Qihoo360 Wayne backend启动时报错cannot load github.com/modern-go/reflect2</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-08-10 08:21:32" itemprop="dateCreated datePublished" datetime="2019-08-10T08:21:32+08:00">2019-08-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-07 22:12:46" itemprop="dateModified" datetime="2020-03-07T22:12:46+08:00">2020-03-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/Wayne/" itemprop="url" rel="index"><span itemprop="name">Wayne</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/08/Qihoo360-Wayne-backend%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99cannot-load-github-com-modern-go-reflect2/" class="post-meta-item leancloud_visitors" data-flag-title="Qihoo360 Wayne backend启动时报错cannot load github.com/modern-go/reflect2" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/08/Qihoo360-Wayne-backend%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99cannot-load-github-com-modern-go-reflect2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/08/Qihoo360-Wayne-backend%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99cannot-load-github-com-modern-go-reflect2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Qihoo360 Wayne的文件目录为<code>/Development/wayne</code>。</p>
-<p>运行<code>bee run</code>命令时，会遇到如下错误。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">cd src/backend</span><br><span class="line"></span><br><span class="line">bee run -runargs=apiserver</span><br><span class="line">______</span><br><span class="line">| ___ \</span><br><span class="line">| |_/ /  ___   ___</span><br><span class="line">| ___ \ / _ \ / _ \</span><br><span class="line">| |_/ /|  __/|  __/</span><br><span class="line">\____/  \___| \___| v1.10.0</span><br><span class="line">2019/08/10 08:17:53 WARN     ▶ 0001 Running application outside of GOPATH</span><br><span class="line">2019/08/10 08:17:53 INFO     ▶ 0002 Using 'backend' as 'appname'</span><br><span class="line">2019/08/10 08:17:53 INFO     ▶ 0003 Initializing watcher...</span><br><span class="line">Fetching https://goproxy.io/github.com/modern-go/reflect2/@v/list</span><br><span class="line">Fetching https://goproxy.io/sigs.k8s.io/yaml/@v/list</span><br><span class="line">Fetching https://goproxy.io/sigs.k8s.io/@v/list</span><br><span class="line">Fetching https://goproxy.io/github.com/modern-go/@v/list</span><br><span class="line">Fetching https://goproxy.io/github.com/@v/list</span><br><span class="line">build github.com/Qihoo360/wayne/src/backend: cannot load github.com/modern-go/reflect2: cannot find module providing package github.com/modern-go/reflect2</span><br><span class="line">2019/08/10 08:17:55 ERROR    ▶ 0004 Failed to build the application: build github.com/Qihoo360/wayne/src/backend: cannot load github.com/modern-go/reflect2: cannot find module providing package github.com/modern-go/reflect2</span><br></pre></td></tr></table></figure>
-<p>解决方法，在终端先执行如下命令，以GO MODULE的方式加载包，即可以正常运行。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export GO111MODULE=on   // mac, linux</span><br><span class="line">set $GO111MODULE=on     // windows</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">bee run -runargs=apiserver</span><br><span class="line">______</span><br><span class="line">| ___ \</span><br><span class="line">| |_/ /  ___   ___</span><br><span class="line">| ___ \ / _ \ / _ \</span><br><span class="line">| |_/ /|  __/|  __/</span><br><span class="line">\____/  \___| \___| v1.10.0</span><br><span class="line">2019/08/10 08:19:26 WARN     ▶ 0001 Running application outside of GOPATH</span><br><span class="line">2019/08/10 08:19:26 INFO     ▶ 0002 Using 'backend' as 'appname'</span><br><span class="line">2019/08/10 08:19:26 INFO     ▶ 0003 Initializing watcher...</span><br><span class="line">Fetching https://goproxy.io/sigs.k8s.io/yaml/@v/list</span><br><span class="line">Fetching https://goproxy.io/github.com/modern-go/reflect2/@v/list</span><br><span class="line">2019/08/10 08:19:35 SUCCESS  ▶ 0004 Built Successfully!</span><br><span class="line">2019/08/10 08:19:35 INFO     ▶ 0005 Restarting 'backend'...</span><br><span class="line">2019/08/10 08:19:35 SUCCESS  ▶ 0006 './backend' is running...</span><br><span class="line">2019/08/10 08:19:35.057 [D] [db.go:75]  Initialize database connection: ****:root@tcp(127.0.0.1:3306)/</span><br><span class="line">2019/08/10 08:19:35.076 [I] [asm_amd64.s:1337]  http server Running on http://:8080</span><br><span class="line">2019/08/10 08:19:35.076 [I] [asm_amd64.s:1337]  Admin server Running on :8088</span><br></pre></td></tr></table></figure>
-<p>如果有些包下载不了，还可以设置<code>GOPROXY</code>环境变量。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export GOPROXY=https://goproxy.io       // mac, linux</span><br><span class="line">set $GOPROXY=on                         // windows</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -638,7 +652,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">286</span>
+          <span class="site-state-item-count">287</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[pandas常用函数操作]]></title>
+    <url>%2F2021%2F10%2Fpandas%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[删除列df.drop([col1, col2], axis=1)df.drop(columns=[col1, col2]) 删除行df.drop([index1, index2], axis=0)df.drop(index=[index1, index2]) 查找唯一df[col].unique() 按值筛选df[df[col].isin([‘银行’, ‘保险’])] 分类bins = [0, 10, 20, 30]pd.cut(df[col], bins, labels=[l1, l2, …]) 分为5个桶pd.qcut(df[col], 5) 长宽转换df.stack() 原来的Index变成MultiIndex: (index1, col1), (index1, col2), (index1, col1), (index2, col2) 宽表转长表 平安银行 yoy_2019 yoy_2020 yoy_2021 df.melt(id_vars=[col1], var_name=[‘year’], value_name=’yoy’) 长表转宽表 df.pivot_table(index=[col1], columns=[‘year’], values=[‘yoy’]) apply()和applymap()apply按列、行应用函数 分位数pd.quantile([0.1, 0.2]) 相关性df[col1].corr(df[col2]) date_rangepd.date_range(‘2020-01-31’, ‘2021-12-31’, freq=’M’) 就会生成每个月最后一天的日期序列。]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>pandas</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python range和arange的区别]]></title>
     <url>%2F2021%2F10%2FPython-range%E5%92%8Carange%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
     <content type="text"><![CDATA[range 函数用于生成一个整数（integer）序列。 range(start, end, step)，返回类型为range，左闭右开区间。 12345678for i in range(1, 10, 2): print(i) 13579 arange 是 numpy 包下面的函数，生成一个 float64 的 Array。 1234567891011121314import numpy as npfor i in np.arange(1, 2, 0.1): print(i) 1.01.11.20000000000000021.30000000000000031.40000000000000041.50000000000000041.60000000000000051.70000000000000061.80000000000000071.9000000000000008 这里涉及到一个问题就是 float 比较大小的问题，可以使用 math.isclose() 函数。 1if math.isclose(1.2000000000000002, 1.2, rel_tol=1e-5)]]></content>
