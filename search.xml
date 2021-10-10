@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python matlibplot画图最佳实践]]></title>
+    <url>%2F2021%2F10%2FPython-matlibplot%E7%94%BB%E5%9B%BE%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%2F</url>
+    <content type="text"><![CDATA[之前也写过一些关于使用 Python matplotlib 画图的文章，写得都比较初级，内容繁多，有些可能根本就用不到。 根据工作中画图的经验，总结了一些最佳实践，主要涉及到一些设置方面的，商业逻辑不包含在内。此文章会一直更新。 设置1234567891011121314# 导入画图工具import matplotlib.pyplot as plt# 让图表直接在juypter notebook中展示出来，高版本貌似已经不需要这条语句了# %matplotlib inline# 解决中文乱码问题，高版本貌似不需要这条语句了# plt.rcParams['font.sans-serif'] = 'SimHei'# 解决负号无法显示的问题# plt.rcParams['axes.unicode_minus'] = False# 设置图片格式为svg矢量图，更加清晰%config InlineBackend.figure_format = 'svg' 画布创建画布创建一个画布，分为两行两列。 1fig, axes = plt.subplots(2, 2) 展示画布的时候，只需要输出fig就行了，貌似也不需要设置%matplotlib inline。 1fig 删除子图当某个子图不需要展现时，可以使用如下语句： 删除某子图 12ax = axes[0, 1]fig.delaxes(ax) 隐藏某子图 1ax.set_axis_off() 不遮挡布局设置了x轴标签后，可能被下方的子图遮挡，使用如下语句可以让遮挡部分显示出来。 1fig.tight_layout() 画图在第0行，第0列画图。 1axes[0, 0].plot(x, y) 设置x, y轴标签12ax.set_xlabel('时间')ax.set_ylabel('销量')]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>matplotlib</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[如何查看MacBook各大机型的硬件规格]]></title>
     <url>%2F2021%2F10%2F%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8BMacBook%E5%90%84%E5%A4%A7%E6%9C%BA%E5%9E%8B%E7%9A%84%E7%A1%AC%E4%BB%B6%E8%A7%84%E6%A0%BC%2F</url>
     <content type="text"><![CDATA[如果在好几年前买了mac电脑，现在想升级，所以需要查看一下电脑的硬件规格信息。 我的macOS是High Sierra。 可以直接通过如下路径查看：关于本机 -&gt; 系统报告 或者访问苹果官网：https://support.apple.com/zh-cn/HT201300 最后附上SSD硬盘接口标准。 MacBook Air (2013-2014）： PCI-E 2.0 X2（1GB/s），不支持原生休眠MacBook Air 11” Mid 2013 (MacBookAir6,1)MacBook Air 13” Mid 2013 (MacBookAir6,2)MacBook Air 11” early 2014 (MacBookAir6,1)MacBook Air 13” early 2014 (MacBookAir6,2) MacBook Air （2015-2017）：PCI-E 2.0 X4（2GB/s），支持原生休眠MacBook Air 13” early 2015 (MacBookAir7,1)MacBook Air 13” 2017 (MacBookAir7,2) 3.MacBook Pro （2013-2014）：PCI-E 2.0 X4（2GB/s），不支持原生休眠MacBook Pro Retina 13” late 2013 (MacBookPro11,1)MacBook Pro Retina 15” late 2013 (MacBookPro11,2 &amp; MacBookPro11,3)MacBook Pro Retina 13” mid 2014 (MacBookPro11,1)MacBook Pro Retina 15” mid 2014 (MacBookPro11,2 &amp; 11,3) 4.MacBook Pro （2015）：PCI-E 2.0或者3.0 X4，支持原生休眠MacBook Pro Retina 13” early 2015 (MacBookPro12,1) ，为PCI-E 2.0规格，速度2GB/sMacBook Pro Retina 15” mid 2015 (MacBookPro11,4-11,5)，为PCI-E 3.0规格，速度3.94GB/s]]></content>
@@ -2955,18 +2966,18 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[下载Sublime Text3]]></title>
-    <url>%2F2018%2F11%2F%E4%B8%8B%E8%BD%BDSublime-Text3%2F</url>
-    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 1import urllib.request,os,hashlib; h &#x3D; &#39;6f4c264a24d933ce70df5dedcf1dcaee&#39; + &#39;ebe013ee18cced0ef93d5f746d80ef60&#39;; pf &#x3D; &#39;Package Control.sublime-package&#39;; ipp &#x3D; sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by &#x3D; urllib.request.urlopen( &#39;http:&#x2F;&#x2F;packagecontrol.io&#x2F;&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh &#x3D; hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh !&#x3D; h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by) 安装pretty json快捷键ctrl+shift+p,打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
+    <title><![CDATA[如何使用Sublime Text3格式化json]]></title>
+    <url>%2F2018%2F11%2F%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Sublime-Text3%E6%A0%BC%E5%BC%8F%E5%8C%96json%2F</url>
+    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 安装pretty json快捷键ctrl+shift+p, 打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
       <categories>
         <category>Tools</category>
         <category>Sublime</category>
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[如何使用Sublime Text3格式化json]]></title>
-    <url>%2F2018%2F11%2F%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Sublime-Text3%E6%A0%BC%E5%BC%8F%E5%8C%96json%2F</url>
-    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 安装pretty json快捷键ctrl+shift+p, 打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
+    <title><![CDATA[下载Sublime Text3]]></title>
+    <url>%2F2018%2F11%2F%E4%B8%8B%E8%BD%BDSublime-Text3%2F</url>
+    <content type="text"><![CDATA[有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。 下载Sublime Text3http://www.sublimetext.com/3 我们选择OS X系统 安装Package Control使用快捷键ctrl+ 或 View -&gt; Show Console 打开输入框，复制以下内容到输入框。 SUBLIME TEXT 3 1import urllib.request,os,hashlib; h &#x3D; &#39;6f4c264a24d933ce70df5dedcf1dcaee&#39; + &#39;ebe013ee18cced0ef93d5f746d80ef60&#39;; pf &#x3D; &#39;Package Control.sublime-package&#39;; ipp &#x3D; sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by &#x3D; urllib.request.urlopen( &#39;http:&#x2F;&#x2F;packagecontrol.io&#x2F;&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh &#x3D; hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh !&#x3D; h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by) 安装pretty json快捷键ctrl+shift+p,打开面板，选中Package Control: Install Package并回车，然后再输入pretty json，找到插件回车安装即可。 使用pretty json使用ctrl+alt+j快捷键来格式化当前页面的内容。]]></content>
       <categories>
         <category>Tools</category>
         <category>Sublime</category>
