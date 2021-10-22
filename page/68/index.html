@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">182</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">183</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">292</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">293</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,145 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/10/NIO%E7%9A%84%E7%BC%93%E5%86%B2%E5%8C%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/NIO%E7%9A%84%E7%BC%93%E5%86%B2%E5%8C%BA/" class="post-title-link" itemprop="url">NIO的缓冲区</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-13 15:45:15" itemprop="dateCreated datePublished" datetime="2019-10-13T15:45:15+08:00">2019-10-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-01 22:39:48" itemprop="dateModified" datetime="2020-04-01T22:39:48+08:00">2020-04-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/NIO/" itemprop="url" rel="index"><span itemprop="name">NIO</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/10/NIO%E7%9A%84%E7%BC%93%E5%86%B2%E5%8C%BA/" class="post-meta-item leancloud_visitors" data-flag-title="NIO的缓冲区" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2019/10/NIO%E7%9A%84%E7%BC%93%E5%86%B2%E5%8C%BA/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/NIO%E7%9A%84%E7%BC%93%E5%86%B2%E5%8C%BA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近需要对文件做一些处理，之前接触得比较多的还是基于流的IO，但现在用得比较多的还是NIO(New IO)，可以理解为Non-blocking IO。</p>
+<h1 id="缓冲区-Buffer"><a href="#缓冲区-Buffer" class="headerlink" title="缓冲区(Buffer)"></a>缓冲区(Buffer)</h1><p>缓冲区主要是负责数据的存取的。</p>
+<p>除了boolean这个基础类型外，其他数据类型都对应一个缓冲Buffer。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ByteBuffer</span><br><span class="line">CharBuffer</span><br><span class="line">ShortBuffer</span><br><span class="line">IntBuffer</span><br><span class="line">LongBuffer</span><br><span class="line">FloatBuffer</span><br><span class="line">DoubleBuffer</span><br></pre></td></tr></table></figure>
+<h1 id="两个核心方法"><a href="#两个核心方法" class="headerlink" title="两个核心方法"></a>两个核心方法</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">put() 存入数据到缓冲区</span><br><span class="line">get() 从缓冲区获取数据</span><br></pre></td></tr></table></figure>
+<h1 id="四个核心属性"><a href="#四个核心属性" class="headerlink" title="四个核心属性"></a>四个核心属性</h1><ul>
+<li>capacity</li>
+</ul>
+<p>容量，一旦声明，不可改变</p>
+<ul>
+<li>limit</li>
+</ul>
+<p>界限，表示缓冲区可以操作数据的大小。limit后数据不能进行读写操作</p>
+<ul>
+<li>position</li>
+</ul>
+<p>位置，表示缓冲区正在操作数据的位置 </p>
+<ul>
+<li>mark</li>
+</ul>
+<p>标记，记录当前position的位置，后续操作之后，可以通过reset()恢复到mark的位置。</p>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><h2 id="1-分配一个指定大小的缓冲区"><a href="#1-分配一个指定大小的缓冲区" class="headerlink" title="1. 分配一个指定大小的缓冲区"></a>1. 分配一个指定大小的缓冲区</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"abcde"</span>;</span><br><span class="line"></span><br><span class="line">ByteBuffer buffer = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"--- allocate() ---"</span>);</span><br><span class="line">System.out.println(buffer.position());</span><br><span class="line">System.out.println(buffer.limit());</span><br><span class="line">System.out.println(buffer.capacity());</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 0</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-执行put-把数据存入缓冲区"><a href="#2-执行put-把数据存入缓冲区" class="headerlink" title="2. 执行put()把数据存入缓冲区"></a>2. 执行put()把数据存入缓冲区</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">buffer.put(str.getBytes());</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"--- put() ---"</span>);</span><br><span class="line">System.out.println(buffer.position());</span><br><span class="line">System.out.println(buffer.limit());</span><br><span class="line">System.out.println(buffer.capacity());</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 5</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-切换到读取数据模式"><a href="#3-切换到读取数据模式" class="headerlink" title="3. 切换到读取数据模式"></a>3. 切换到读取数据模式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">buffer.flip();</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"--- flip() ---"</span>);</span><br><span class="line">System.out.println(buffer.position());</span><br><span class="line">System.out.println(buffer.limit());</span><br><span class="line">System.out.println(buffer.capacity());</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 0</span></span><br><span class="line"><span class="comment"> * 5</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-执行get-读取缓冲区数据"><a href="#4-执行get-读取缓冲区数据" class="headerlink" title="4. 执行get()读取缓冲区数据"></a>4. 执行get()读取缓冲区数据</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[buffer.limit()];</span><br><span class="line">buffer.get(bytes);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"--- get() ---"</span>);</span><br><span class="line">System.out.println(<span class="keyword">new</span> String(bytes));</span><br><span class="line"></span><br><span class="line">System.out.println(buffer.position());</span><br><span class="line">System.out.println(buffer.limit());</span><br><span class="line">System.out.println(buffer.capacity());</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * abcde</span></span><br><span class="line"><span class="comment"> * 5</span></span><br><span class="line"><span class="comment"> * 5</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-重新读取缓冲区"><a href="#5-重新读取缓冲区" class="headerlink" title="5. 重新读取缓冲区"></a>5. 重新读取缓冲区</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">buffer.rewind();</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"--- rewind() ---"</span>);</span><br><span class="line">System.out.println(buffer.position());</span><br><span class="line">System.out.println(buffer.limit());</span><br><span class="line">System.out.println(buffer.capacity());</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 0</span></span><br><span class="line"><span class="comment"> * 5</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<h2 id="6-mark-reset"><a href="#6-mark-reset" class="headerlink" title="6. mark/reset"></a>6. mark/reset</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">buffer.get(bytes, <span class="number">0</span>, <span class="number">2</span>);</span><br><span class="line">System.out.println(<span class="keyword">new</span> String(bytes, <span class="number">0</span>, <span class="number">2</span>));</span><br><span class="line">buffer.mark();</span><br><span class="line">buffer.get(bytes, <span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">buffer.reset();</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"--- reset() ---"</span>);</span><br><span class="line">System.out.println(buffer.position());</span><br><span class="line">System.out.println(buffer.limit());</span><br><span class="line">System.out.println(buffer.capacity());</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 2</span></span><br><span class="line"><span class="comment"> * 5</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (buffer.hasRemaining()) &#123;</span><br><span class="line">    System.out.println(buffer.remaining());</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 3</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="7-清空缓冲区"><a href="#7-清空缓冲区" class="headerlink" title="7. 清空缓冲区"></a>7. 清空缓冲区</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">buffer.clear();</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"--- clear() ---"</span>);</span><br><span class="line">System.out.println(buffer.position());</span><br><span class="line">System.out.println(buffer.limit());</span><br><span class="line">System.out.println(buffer.capacity());</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 0</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -479,139 +618,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">Docker容器中配置sshd服务</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-03 18:32:44" itemprop="dateCreated datePublished" datetime="2019-10-03T18:32:44+08:00">2019-10-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/" class="post-meta-item leancloud_visitors" data-flag-title="Docker容器中配置sshd服务" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>以前我们要做一个实验，需要安装虚拟机，安装需要耗费一定的时间，就算是复制虚拟机，也会占用大量磁盘空间。现在我们只需要创建一个CentOS的Docker容器就可以了，比较方便。</p>
-<h1 id="拉取操作系统镜像"><a href="#拉取操作系统镜像" class="headerlink" title="拉取操作系统镜像"></a>拉取操作系统镜像</h1><p>这里我们采用CentOS</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull centos</span><br></pre></td></tr></table></figure>
-<p>centos镜像拉取到本地后，我们查看一下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker images </span><br><span class="line">REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">centos                        latest              67fa590cfc1c        6 weeks ago         202MB</span><br></pre></td></tr></table></figure>
-<h1 id="运行容器并进入容器"><a href="#运行容器并进入容器" class="headerlink" title="运行容器并进入容器"></a>运行容器并进入容器</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -it centos bash</span><br><span class="line">[root@ca6a84a514c2 /]#</span><br></pre></td></tr></table></figure>
-<h2 id="修改yum源"><a href="#修改yum源" class="headerlink" title="修改yum源"></a>修改yum源</h2><p>如果是在公司内网环境，需要改为内网的源。如果是国外的源，也可以换成国内的源。<br>具体方法请参考 <a href="/2018/06/%E5%B0%86Centos7%E7%9A%84yum%E6%BA%90%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E9%98%BF%E9%87%8C%E4%BA%91%E7%9A%84%E6%BA%90/" title="将Centos7的yum源更换为国内阿里云的源">将Centos7的yum源更换为国内阿里云的源</a></p>
-<h2 id="安装所需软件"><a href="#安装所需软件" class="headerlink" title="安装所需软件"></a>安装所需软件</h2><h3 id="安装ip工具"><a href="#安装ip工具" class="headerlink" title="安装ip工具"></a>安装<code>ip</code>工具</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y iproute</span><br></pre></td></tr></table></figure>
-<h3 id="安装ssh软件"><a href="#安装ssh软件" class="headerlink" title="安装ssh软件"></a>安装ssh软件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssh-server openssh-clients</span><br></pre></td></tr></table></figure>
-<p>会有ssh相关软件被拷贝到/usr/sbin目录</p>
-<p>需要软件sshd的绝对路径去启动sshd服务，不然会报如下错误。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./sshd</span><br><span class="line">sshd re-exec requires execution with an absolute path</span><br></pre></td></tr></table></figure>
-<p>输入全路径执行命令，继续出现错误，如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/sshd</span><br><span class="line">Could not load host key: /etc/ssh/ssh_host_rsa_key</span><br><span class="line">Could not load host key: /etc/ssh/ssh_host_ecdsa_key</span><br><span class="line">Could not load host key: /etc/ssh/ssh_host_ed25519_key</span><br><span class="line">sshd: no hostkeys available -- exiting.</span><br></pre></td></tr></table></figure>
-<p>执行<code>sshd-keygen</code>命令解决上述问题</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/sshd-keygen </span><br><span class="line">Generating SSH2 RSA host key:                              [  OK  ]</span><br><span class="line">Generating SSH2 ECDSA host key:                            [  OK  ]</span><br><span class="line">Generating SSH2 ED25519 host key:                          [  OK  ]</span><br></pre></td></tr></table></figure>
-<p>给root生成一个密码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">passwd root</span><br><span class="line">Changing password for user root.</span><br><span class="line">New password: </span><br><span class="line">BAD PASSWORD: The password is shorter than 8 characters</span><br><span class="line">Retype new password: </span><br><span class="line">passwd: all authentication tokens updated successfully.</span><br></pre></td></tr></table></figure>
-<p>启动sshd服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/sshd</span><br><span class="line">[root@ca6a84a514c2 sbin]# ps -ef | grep sshd</span><br><span class="line">root        108      1  0 09:14 ?        00:00:00 /usr/sbin/sshd</span><br></pre></td></tr></table></figure>
-<p>验证sshd服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh root@localhost</span><br><span class="line">root@localhost's password: </span><br><span class="line">Last failed login: Sun Sep 29 09:16:59 UTC 2019 from localhost on ssh:notty</span><br><span class="line">There were 3 failed login attempts since the last successful login.</span><br><span class="line">Connection to localhost closed.</span><br></pre></td></tr></table></figure>
-<p>会遇到连不上去的问题，这时，需要修改<code>/etc/ssh/sshd_config</code>配置。</p>
-<p>把里面的<code>UsePAM yes</code>改为<code>UsePAM no</code></p>
-<p>杀掉之前sshd进程后，再次启动</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/sshd</span><br><span class="line">WARNING: 'UsePAM no' is not supported in Red Hat Enterprise Linux and may cause several problems.</span><br></pre></td></tr></table></figure>
-<p>这时就可以成功登录了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@localhost</span><br><span class="line">root@localhost's password: </span><br><span class="line">Last login: Sun Sep 29 09:20:41 2019 from localhost</span><br></pre></td></tr></table></figure>
-<h1 id="生成一个新的镜像"><a href="#生成一个新的镜像" class="headerlink" title="生成一个新的镜像"></a>生成一个新的镜像</h1><h2 id="退出容器，并查看容器id"><a href="#退出容器，并查看容器id" class="headerlink" title="退出容器，并查看容器id"></a>退出容器，并查看容器id</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br><span class="line">CONTAINER ID        IMAGE                            COMMAND                  CREATED             STATUS                         PORTS                    NAMES</span><br><span class="line">ca6a84a514c2        centos                           "bash"                   34 minutes ago      Exited (255) 11 seconds ago                             musing_goodall</span><br></pre></td></tr></table></figure>
-<h2 id="生成一个新的镜像-1"><a href="#生成一个新的镜像-1" class="headerlink" title="生成一个新的镜像"></a>生成一个新的镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker commit ca6a84a514c2 basic_centos </span><br><span class="line">sha256:2f965d1db627968f66bf968db7c052f1dec02b84a0b508ef896b3c8d93f97fb7</span><br></pre></td></tr></table></figure>
-<h2 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line">REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">basic_centos                  latest              2f965d1db627        26 seconds ago      284MB</span><br></pre></td></tr></table></figure>
-<h1 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit basic_centos /usr/sbin/sshd -D</span><br></pre></td></tr></table></figure>
-<p>此时，就可以通过ssh client连接上去了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -695,7 +701,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">292</span>
+          <span class="site-state-item-count">293</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -708,7 +714,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">182</span>
+        <span class="site-state-item-count">183</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
