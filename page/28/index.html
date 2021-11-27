@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">293</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">294</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,122 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/04/Python-Pandas%E5%AF%B9DataFrame-float%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/Python-Pandas%E5%AF%B9DataFrame-float%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/" class="post-title-link" itemprop="url">Python Pandas对DataFrame float数据进行四舍五入</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-28 20:01:17" itemprop="dateCreated datePublished" datetime="2020-04-28T20:01:17+08:00">2020-04-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-30 01:02:29" itemprop="dateModified" datetime="2020-04-30T01:02:29+08:00">2020-04-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/04/Python-Pandas%E5%AF%B9DataFrame-float%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/" class="post-meta-item leancloud_visitors" data-flag-title="Python Pandas对DataFrame float数据进行四舍五入" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/04/Python-Pandas%E5%AF%B9DataFrame-float%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/Python-Pandas%E5%AF%B9DataFrame-float%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>原始数据如图：</p>
+<img src="/2020/04/Python-Pandas%E5%AF%B9DataFrame-float%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/industry_df.png" class="">
+<p>我们要对float数据四舍五入，并把单位改为亿元。</p>
+<p>方法一</p>
+<p>使用 lambda 表达式。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cap_list = industry_df[<span class="string">'MKT_CAP_ARD'</span>].apply(<span class="keyword">lambda</span> x: round(x / <span class="number">100000000</span>, <span class="number">0</span>)).astype(int)</span><br><span class="line">cap_list</span><br></pre></td></tr></table></figure>
+<p>方法二</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cap_list = round(industry_df[<span class="string">'MKT_CAP_ARD'</span>] / <span class="number">100000000</span>, <span class="number">0</span>).astype(int)</span><br><span class="line">cap_list</span><br></pre></td></tr></table></figure>
+<p>最后需要使用 astype 函数把 float 转为 int。不然数据还是会带一位小数的，哪怕是0。</p>
+<img src="/2020/04/Python-Pandas%E5%AF%B9DataFrame-float%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/result_df.png" class="">
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -449,206 +565,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/04/Python-Pandas-groupby-with-count-sum-and-avg-etc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/Python-Pandas-groupby-with-count-sum-and-avg-etc/" class="post-title-link" itemprop="url">Python Pandas groupby with count, sum, and avg etc</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-21 23:55:17" itemprop="dateCreated datePublished" datetime="2020-04-21T23:55:17+08:00">2020-04-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/Pandas/" itemprop="url" rel="index"><span itemprop="name">Pandas</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/04/Python-Pandas-groupby-with-count-sum-and-avg-etc/" class="post-meta-item leancloud_visitors" data-flag-title="Python Pandas groupby with count, sum, and avg etc" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2020/04/Python-Pandas-groupby-with-count-sum-and-avg-etc/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/Python-Pandas-groupby-with-count-sum-and-avg-etc/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>我们要对一个 DataFrame 做分组统计时，其实跟 SQL 语句的逻辑是差不多的。</p>
-<p>groupby.sum(), groupby.count() 等等。</p>
-<p>如果要把一个 DataFrame 里的不同列各做 sum(), count() 该如何操作呢？在这里给大家做一个演示。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 原始数据</span></span><br><span class="line">keyword_list = [<span class="string">'dog'</span>, <span class="string">'cat'</span>, <span class="string">'horse'</span>, <span class="string">'dog'</span>, <span class="string">'dog'</span>, <span class="string">'horse'</span>]</span><br><span class="line">weight_list = [<span class="number">0.12</span>, <span class="number">0.5</span>, <span class="number">0.07</span>, <span class="number">0.1</span>, <span class="number">0.2</span>, <span class="number">0.3</span>]</span><br><span class="line">other_keywords_list = [[<span class="string">'cat'</span>, <span class="string">'horse'</span>, <span class="string">'pig'</span>], [<span class="string">'dog'</span>, <span class="string">'pig'</span>, <span class="string">'camel'</span>], [<span class="string">'dog'</span>, <span class="string">'camel'</span>, <span class="string">'cat'</span>], [<span class="string">'cat'</span>, <span class="string">'horse'</span>], [<span class="string">'cat'</span>, <span class="string">'horse'</span>, <span class="string">'pig'</span>], [<span class="string">'camel'</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成DataFrame</span></span><br><span class="line">dict = &#123;<span class="string">'keyword'</span>: keyword_list, <span class="string">'weight'</span>: weight_list, <span class="string">'other keywords'</span>: other_keywords_list&#125;</span><br><span class="line">animaldf = pd.DataFrame(data=dict)</span><br><span class="line">animaldf</span><br></pre></td></tr></table></figure>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>&nbsp;</th>
-<th>keyword</th>
-<th>weight</th>
-<th>other keywords</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>dog</td>
-<td>0.12</td>
-<td>[cat, horse, pig]</td>
-</tr>
-<tr>
-<td>1</td>
-<td>cat</td>
-<td>0.50</td>
-<td>[dog, pig, camel]</td>
-</tr>
-<tr>
-<td>2</td>
-<td>horse</td>
-<td>0.07</td>
-<td>[dog, camel, cat]</td>
-</tr>
-<tr>
-<td>3</td>
-<td>dog</td>
-<td>0.10</td>
-<td>[cat, horse]</td>
-</tr>
-<tr>
-<td>4</td>
-<td>dog</td>
-<td>0.20</td>
-<td>[cat, horse, pig]</td>
-</tr>
-<tr>
-<td>5</td>
-<td>horse</td>
-<td>0.30</td>
-<td>[camel]</td>
-</tr>
-</tbody>
-</table>
-</div>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = animaldf.groupby(<span class="string">'keyword'</span>).agg(&#123;<span class="string">'keyword'</span>: <span class="string">'count'</span>, <span class="string">'weight'</span>: <span class="string">'sum'</span>, <span class="string">'other keywords'</span>: <span class="string">'sum'</span>&#125;)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>&nbsp;</th>
-<th>keyword</th>
-<th>weight</th>
-<th>other keywords</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>keyword</td>
-<td></td>
-</tr>
-<tr>
-<td>cat</td>
-<td>1</td>
-<td>0.50</td>
-<td>[dog, pig, camel]</td>
-</tr>
-<tr>
-<td>dog</td>
-<td>3</td>
-<td>0.42</td>
-<td>[cat, horse, pig, cat, horse, cat, horse, pig]</td>
-</tr>
-<tr>
-<td>horse</td>
-<td>2</td>
-<td>0.37</td>
-<td>[dog, camel, cat, camel]</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>这样就已经达到效果了。</p>
-<p>如果接下来要继续对数据进行处理，可以先把 index 的名字 keyword 去掉，不去掉的话，转成列时就和现有列 keyword 名字冲突了。</p>
-<p>然后把索引转换成列。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.index.name = <span class="keyword">None</span></span><br><span class="line">df.reset_index()</span><br></pre></td></tr></table></figure>
-<p>最后你想把列改成什么名字就随你了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -732,7 +648,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">293</span>
+          <span class="site-state-item-count">294</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

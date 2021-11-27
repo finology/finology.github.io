@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">293</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">294</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,125 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/10/CentOS%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9Hostname%E4%B8%BB%E6%9C%BA%E5%90%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/CentOS%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9Hostname%E4%B8%BB%E6%9C%BA%E5%90%8D/" class="post-title-link" itemprop="url">CentOS如何修改Hostname主机名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-04 21:34:42" itemprop="dateCreated datePublished" datetime="2019-10-04T21:34:42+08:00">2019-10-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-07 22:12:46" itemprop="dateModified" datetime="2020-03-07T22:12:46+08:00">2020-03-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OS/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/10/CentOS%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9Hostname%E4%B8%BB%E6%9C%BA%E5%90%8D/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS如何修改Hostname主机名" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2019/10/CentOS%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9Hostname%E4%B8%BB%E6%9C%BA%E5%90%8D/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/CentOS%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9Hostname%E4%B8%BB%E6%9C%BA%E5%90%8D/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="CentOS-7环境修改主机名"><a href="#CentOS-7环境修改主机名" class="headerlink" title="CentOS 7环境修改主机名"></a>CentOS 7环境修改主机名</h1><h2 id="修改主机名"><a href="#修改主机名" class="headerlink" title="修改主机名"></a>修改主机名</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname node1</span><br></pre></td></tr></table></figure>
+<p>立即生效，重启以后也不会失效。</p>
+<h2 id="查看主机名"><a href="#查看主机名" class="headerlink" title="查看主机名"></a>查看主机名</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hostname</span><br><span class="line">node1</span><br></pre></td></tr></table></figure>
+<h2 id="设置hosts"><a href="#设置hosts" class="headerlink" title="设置hosts"></a>设置hosts</h2><p>设置hostname对应的ip，主要是在其他节点上面设置node1节点的IP</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hosts</span><br></pre></td></tr></table></figure>
+<h1 id="CentOS-6环境修改主机名"><a href="#CentOS-6环境修改主机名" class="headerlink" title="CentOS 6环境修改主机名"></a>CentOS 6环境修改主机名</h1><p>在文件<code>/etc/sysconfig/network</code>里面添加</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HOSTNAME=node2</span><br></pre></td></tr></table></figure>
+<p>重启生效。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -450,125 +569,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/09/MySQL%E5%88%86%E7%BB%84Top-N%E7%9A%84%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/09/MySQL%E5%88%86%E7%BB%84Top-N%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">MySQL分组Top N的问题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-09-10 23:29:54" itemprop="dateCreated datePublished" datetime="2019-09-10T23:29:54+08:00">2019-09-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-04 14:38:31" itemprop="dateModified" datetime="2020-05-04T14:38:31+08:00">2020-05-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/09/MySQL%E5%88%86%E7%BB%84Top-N%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL分组Top N的问题" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/09/MySQL%E5%88%86%E7%BB%84Top-N%E7%9A%84%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/MySQL%E5%88%86%E7%BB%84Top-N%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>经常会遇到分组求前几名的问题。比如，求每个班级中总分排名前三的学生。</p>
-<p>我们通过如下实验看看怎么解决这个问题。</p>
-<h1 id="创建学生分数表"><a href="#创建学生分数表" class="headerlink" title="创建学生分数表"></a>创建学生分数表</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`score`</span> (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT <span class="keyword">COMMENT</span> <span class="string">'自增主键'</span>,</span><br><span class="line">  <span class="string">`name`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'学生姓名'</span>,</span><br><span class="line">  <span class="string">`class`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'班级'</span>,</span><br><span class="line">  <span class="string">`score`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'总分'</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br></pre></td></tr></table></figure>
-<h1 id="创建若干条数据"><a href="#创建若干条数据" class="headerlink" title="创建若干条数据"></a>创建若干条数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">DELIMITER //</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> batchInsert;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> batchInsert(n <span class="built_in">INT</span>)</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line"><span class="keyword">DECLARE</span> i <span class="built_in">INT</span>;</span><br><span class="line"><span class="keyword">SET</span> i = <span class="number">0</span>;</span><br><span class="line">WHILE i &lt; n DO</span><br><span class="line">	<span class="keyword">INSERT</span> <span class="keyword">INTO</span> score(<span class="keyword">name</span>, <span class="keyword">class</span>, score) <span class="keyword">VALUES</span></span><br><span class="line">		(<span class="keyword">substring</span>(<span class="keyword">MD5</span>(<span class="keyword">RAND</span>()), <span class="number">1</span>, <span class="number">10</span>), <span class="keyword">CONCAT</span>(<span class="string">'G'</span>, <span class="keyword">ROUND</span>(<span class="keyword">RAND</span>() * <span class="number">9</span>)), <span class="keyword">ROUND</span>(<span class="keyword">RAND</span>() * <span class="number">100</span>));</span><br><span class="line">	<span class="keyword">SET</span> i = i + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">WHILE</span>;</span><br><span class="line"><span class="keyword">END</span></span><br><span class="line">//</span><br><span class="line">DELIMITER ;</span><br><span class="line"><span class="keyword">CALL</span> batchInsert(<span class="number">50</span>);</span><br></pre></td></tr></table></figure>
-<h1 id="TOP-N"><a href="#TOP-N" class="headerlink" title="TOP N"></a>TOP N</h1><p>HAVING子句中的&lt; 3表示取前两条。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> s1.class, s1.score <span class="keyword">FROM</span> score s1</span><br><span class="line">	<span class="keyword">LEFT</span> <span class="keyword">JOIN</span> score s2 <span class="keyword">ON</span> s1.class = s2.class <span class="keyword">AND</span> s1.score &lt;= s2.score</span><br><span class="line">	<span class="keyword">GROUP</span> <span class="keyword">BY</span> s1.class, s1.score</span><br><span class="line">	<span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(<span class="number">1</span>) &lt; <span class="number">3</span></span><br><span class="line">	<span class="keyword">ORDER</span> <span class="keyword">BY</span> s1.class, s1.score <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
-<p>如果是取TOP 1，那就不能用这个自连接了，不然效率非常低下。还是得用MIN, MAX函数来解决。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class   score</span><br><span class="line">G0	66</span><br><span class="line">G0	17</span><br><span class="line">G1	96</span><br><span class="line">G1	92</span><br><span class="line">G2	87</span><br><span class="line">G2	83</span><br><span class="line">G3	67</span><br><span class="line">G3	32</span><br><span class="line">G4	94</span><br><span class="line">G4	37</span><br><span class="line">G5	99</span><br><span class="line">G5	74</span><br><span class="line">G6	40</span><br><span class="line">G7	98</span><br><span class="line">G7	78</span><br><span class="line">G8	100</span><br><span class="line">G8	93</span><br><span class="line">G9	99</span><br><span class="line">G9	92</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -652,7 +652,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">293</span>
+          <span class="site-state-item-count">294</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
