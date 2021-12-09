@@ -134,17 +134,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">183</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">184</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">69</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">70</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">295</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">298</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/07/Mac-Docker%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/09/macOS%E5%AE%89%E8%A3%85Postgresql/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +218,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/07/Mac-Docker%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Mac Docker安装配置</a>
+            <a href="/2019/09/macOS%E5%AE%89%E8%A3%85Postgresql/" class="post-title-link" itemprop="url">macOS安装Postgresql</a>
         </h2>
 
         <div class="post-meta">
@@ -228,14 +228,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-20 18:09:44" itemprop="dateCreated datePublished" datetime="2019-07-20T18:09:44+08:00">2019-07-20</time>
+              <time title="创建时间：2019-09-19 22:39:39" itemprop="dateCreated datePublished" datetime="2019-09-19T22:39:39+08:00">2019-09-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-30 09:00:50" itemprop="dateModified" datetime="2019-09-30T09:00:50+08:00">2019-09-30</time>
+                <time title="修改时间：2020-05-04 14:36:47" itemprop="dateModified" datetime="2020-05-04T14:36:47+08:00">2020-05-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -243,12 +243,16 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/Postgresql/" itemprop="url" rel="index"><span itemprop="name">Postgresql</span></a>
                 </span>
             </span>
 
           
-            <span id="/2019/07/Mac-Docker%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Mac Docker安装配置" title="阅读次数">
+            <span id="/2019/09/macOS%E5%AE%89%E8%A3%85Postgresql/" class="post-meta-item leancloud_visitors" data-flag-title="macOS安装Postgresql" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -264,8 +268,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2019/07/Mac-Docker%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/07/Mac-Docker%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
+    <a title="valine" href="/2019/09/macOS%E5%AE%89%E8%A3%85Postgresql/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/macOS%E5%AE%89%E8%A3%85Postgresql/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -292,39 +296,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Docker在生产环境中的运用越来越多，已经非常成熟。这篇文章将从入门级操作视角，来讲解如何入门学习Docker。</p>
-<h1 id="下载Docker安装软件"><a href="#下载Docker安装软件" class="headerlink" title="下载Docker安装软件"></a>下载Docker安装软件</h1><p>从<a href="http://www.docker.com">Docker官网</a>下载mac版本Docker软件。</p>
-<p>目前的链接是：<a href="https://download.docker.com/mac/stable/Docker.dmg">https://download.docker.com/mac/stable/Docker.dmg</a></p>
-<p>双击Docker图标，运行程序。</p>
-<p>运行<code>docker version</code>命令，出现如下Client和Server信息，表明安装成功了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br><span class="line">Client: Docker Engine - Community</span><br><span class="line"> Version:           18.09.2</span><br><span class="line"> API version:       1.39</span><br><span class="line"> Go version:        go1.10.8</span><br><span class="line"> Git commit:        6247962</span><br><span class="line"> Built:             Sun Feb 10 04:12:39 2019</span><br><span class="line"> OS/Arch:           darwin/amd64</span><br><span class="line"> Experimental:      false</span><br><span class="line"></span><br><span class="line">Server: Docker Engine - Community</span><br><span class="line"> Engine:</span><br><span class="line">  Version:          18.09.2</span><br><span class="line">  API version:      1.39 (minimum version 1.12)</span><br><span class="line">  Go version:       go1.10.6</span><br><span class="line">  Git commit:       6247962</span><br><span class="line">  Built:            Sun Feb 10 04:13:06 2019</span><br><span class="line">  OS/Arch:          linux/amd64</span><br><span class="line">  Experimental:     false</span><br></pre></td></tr></table></figure>
-<h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><p>执行命令<code>docker pull hello-world</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker pull hello-world</span><br><span class="line">Using default tag: latest</span><br><span class="line">Error response from daemon: Get https://registry-1.docker.io/v2/: net/http: request</span><br><span class="line"> canceled while waiting forconnection (Client.Timeout exceeded while awaiting headers)</span><br></pre></td></tr></table></figure>
-<p>出现上述网络不通的问题，所以要换成国内的镜像源。</p>
-<p>我目前使用的阿里云的容器镜像服务。镜像加速器地址为：<code>https://w3344f23.mirror.aliyuncs.com</code>。每个登录用户都不相同。</p>
-<p>在mac系统上任何栏点击Docker小图标，Preference -&gt; Daemon -&gt; Registry mirrors添加上述镜像url。重启Docker。</p>
-<p>更换国内镜像后再次执行命令，就成功了</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker pull hello-world</span><br><span class="line">Using default tag: latest</span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line">1b930d010525: Pull complete</span><br><span class="line">Digest: sha256:6540fc08ee6e6b7b63468dc3317e3303aae178cb8a45ed3123180328bcc1d20f</span><br><span class="line">Status: Downloaded newer image for hello-world:latest</span><br></pre></td></tr></table></figure>
-<h2 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">hello-world         latest              fce289e99eb9        6 months ago        1.84kB</span><br></pre></td></tr></table></figure>
-<h2 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br><span class="line"></span><br><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.</span><br><span class="line">    (amd64)</span><br><span class="line"> 3. The Docker daemon created a new container from that image which runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"><span class="meta"> $</span><span class="bash"> docker run -it ubuntu bash</span></span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker ID:</span><br><span class="line"> https://hub.docker.com/</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/get-started/</span><br></pre></td></tr></table></figure>
-<h1 id="运行Nginx镜像"><a href="#运行Nginx镜像" class="headerlink" title="运行Nginx镜像"></a>运行Nginx镜像</h1><h2 id="拉取镜像-1"><a href="#拉取镜像-1" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker pull hub.c.163.com/library/nginx</span><br><span class="line">Using default tag: latest</span><br><span class="line">latest: Pulling from library/nginx</span><br><span class="line">5de4b4d551f8: Pull complete</span><br><span class="line">d4b36a5e9443: Pull complete</span><br><span class="line">0af1f0713557: Pull complete</span><br><span class="line">Digest: sha256:f84932f738583e0169f94af9b2d5201be2dbacc1578de73b09a6dfaaa07801d6</span><br><span class="line">Status: Downloaded newer image for hub.c.163.com/library/nginx:latest</span><br></pre></td></tr></table></figure>
-<h2 id="运行镜像-1"><a href="#运行镜像-1" class="headerlink" title="运行镜像"></a>运行镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -d hub.c.163.com/library/nginx</span><br><span class="line">89979036016d6d09b5cf072e4ad72069e83c0c19929d439233393d0610eefb89</span><br></pre></td></tr></table></figure>
-<h2 id="查看运行的容器"><a href="#查看运行的容器" class="headerlink" title="查看运行的容器"></a>查看运行的容器</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br><span class="line">CONTAINER ID        IMAGE                         COMMAND                  CREATED             STATUS              PORTS               NAMES</span><br><span class="line">89979036016d        hub.c.163.com/library/nginx   "nginx -g 'daemon of…"   2 minutes ago       Up 2 minutes        80/tcp              epic_thompson</span><br></pre></td></tr></table></figure>
-<h2 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h2><p>容器就相当于一个虚拟机，我们进入到容器中看看。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it 89979036016d bash</span><br><span class="line">root@89979036016d:/#</span><br></pre></td></tr></table></figure>
-<p>执行<code>ps</code>命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@89979036016d:/# ps</span><br><span class="line">bash: ps: command not found</span><br></pre></td></tr></table></figure>
-<p>命令找不到。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@89979036016d:/# apt-get update &amp;&amp; apt-get install procps</span><br></pre></td></tr></table></figure>
-<p>再次执行<code>ps</code>查看<code>nginx</code>进程是否启动成功。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@89979036016d:/# ps -ef</span><br><span class="line">UID        PID  PPID  C STIME TTY          TIME CMD</span><br><span class="line">root         1     0  0 08:13 ?        00:00:00 nginx: master process nginx -g daemon off;</span><br><span class="line">nginx        7     1  0 08:13 ?        00:00:00 nginx: worker process</span><br><span class="line">root         8     0  0 08:16 pts/0    00:00:00 bash</span><br><span class="line">root       350     8  0 09:07 pts/0    00:00:00 ps -ef</span><br></pre></td></tr></table></figure>
-<h2 id="设定端口转发"><a href="#设定端口转发" class="headerlink" title="设定端口转发"></a>设定端口转发</h2><p>停止容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop 89979036016d</span><br></pre></td></tr></table></figure>
-<p>重新运行镜像</p>
-<p>我们把主机<code>8080</code>端口的请求转发到容器内部的<code>80</code>端口，使用<code>-p fromport:toport</code>参数</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8080:80 hub.c.163.com/library/nginx</span><br><span class="line">38068e229ea71e29de8cf1992dded3520d2334122bfbdc145958788b48de563a</span><br></pre></td></tr></table></figure>
-<h2 id="访问页面"><a href="#访问页面" class="headerlink" title="访问页面"></a>访问页面</h2><p><code>http://localhost:8080</code></p>
-<p>就能成功看到nginx的欢迎页面了。</p>
+          <p>pip安装依赖的时候报错，<code>pg_config executable not found</code>, 所以需要在mac上安装postgresql。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install postgresql</span><br></pre></td></tr></table></figure>
+<p>如果出现<code>Updating Homebrew</code>并且卡住了，请参考 </p>
+<p>安装过程中，有可能会遇到操作文件权限不够的情况，添加一下权限就可以了。</p>
+<p>安装成功，将有如下提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">To migrate existing data from a previous major version of PostgreSQL run:</span><br><span class="line">  brew postgresql-upgrade-database</span><br><span class="line"></span><br><span class="line">To have launchd start postgresql now and restart at login:</span><br><span class="line">  brew services start postgresql</span><br><span class="line">Or, if you don&#39;t want&#x2F;need a background service you can just run:</span><br><span class="line">  pg_ctl -D &#x2F;usr&#x2F;local&#x2F;var&#x2F;postgres start</span><br><span class="line">&#x3D;&#x3D;&gt; Summary</span><br><span class="line">🍺  &#x2F;usr&#x2F;local&#x2F;Cellar&#x2F;postgresql&#x2F;11.5_1: 3,189 files, 35.6MB</span><br><span class="line">&#x3D;&#x3D;&gt; &#96;brew cleanup&#96; has not been run in 30 days, running now...</span><br><span class="line">Pruned 4 symbolic links and 58 directories from &#x2F;usr&#x2F;local</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -344,7 +321,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/07/macOS%E5%8D%87%E7%BA%A7nodejs%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/09/MySQL%E5%88%86%E7%BB%84Top-N%E7%9A%84%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -358,7 +335,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/07/macOS%E5%8D%87%E7%BA%A7nodejs%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC/" class="post-title-link" itemprop="url">macOS升级nodejs到最新版本</a>
+            <a href="/2019/09/MySQL%E5%88%86%E7%BB%84Top-N%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">MySQL分组Top N的问题</a>
         </h2>
 
         <div class="post-meta">
@@ -368,11 +345,31 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-07 12:01:55" itemprop="dateCreated datePublished" datetime="2019-07-07T12:01:55+08:00">2019-07-07</time>
+              <time title="创建时间：2019-09-10 23:29:54" itemprop="dateCreated datePublished" datetime="2019-09-10T23:29:54+08:00">2019-09-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-04 14:38:31" itemprop="dateModified" datetime="2020-05-04T14:38:31+08:00">2020-05-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+                </span>
             </span>
 
           
-            <span id="/2019/07/macOS%E5%8D%87%E7%BA%A7nodejs%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC/" class="post-meta-item leancloud_visitors" data-flag-title="macOS升级nodejs到最新版本" title="阅读次数">
+            <span id="/2019/09/MySQL%E5%88%86%E7%BB%84Top-N%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL分组Top N的问题" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -388,8 +385,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2019/07/macOS%E5%8D%87%E7%BA%A7nodejs%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/07/macOS%E5%8D%87%E7%BA%A7nodejs%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC/" itemprop="commentCount"></span>
+    <a title="valine" href="/2019/09/MySQL%E5%88%86%E7%BB%84Top-N%E7%9A%84%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/MySQL%E5%88%86%E7%BB%84Top-N%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -416,18 +413,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>npm 从5.2版开始，增加了 npx 命令。Node 自带 npm 模块，所以可以直接使用 npx 命令。如果没有安装就手动安装一下。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g npx</span><br></pre></td></tr></table></figure>
-<p>当我运行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npx create-react-app my-app</span><br><span class="line">npx: 91 安装成功，用时 9.606 秒</span><br><span class="line">You are running Node 6.3.1.</span><br><span class="line">Create React App requires Node 8 or higher.</span><br><span class="line">Please update your version of Node.</span><br></pre></td></tr></table></figure>
-<p>提示需要更新node。</p>
-<h1 id="查看本机node版本"><a href="#查看本机node版本" class="headerlink" title="查看本机node版本"></a>查看本机node版本</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">v6.3.1</span><br></pre></td></tr></table></figure>
-<h1 id="清除node的cache"><a href="#清除node的cache" class="headerlink" title="清除node的cache"></a>清除node的cache</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm cache clean -f</span><br></pre></td></tr></table></figure>
-<h1 id="安装n工具"><a href="#安装n工具" class="headerlink" title="安装n工具"></a>安装<code>n</code>工具</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g n</span><br><span class="line">/usr/local/bin/n -&gt; /usr/local/lib/node_modules/n/bin/n</span><br><span class="line">/usr/local/lib</span><br><span class="line">└── n@4.1.0</span><br></pre></td></tr></table></figure>
-<h1 id="安装最新版本的node"><a href="#安装最新版本的node" class="headerlink" title="安装最新版本的node"></a>安装最新版本的node</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo n stable</span><br><span class="line"></span><br><span class="line">install : node-v10.16.0</span><br><span class="line">       mkdir : /usr/local/n/versions/node/10.16.0</span><br><span class="line">       fetch : https://nodejs.org/dist/v10.16.0/node-v10.16.0-darwin-x64.tar.gz</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">################################################################################## 100.0%</span></span></span><br><span class="line">   installed : v10.16.0</span><br></pre></td></tr></table></figure>
-<h1 id="再次查看本机node版本"><a href="#再次查看本机node版本" class="headerlink" title="再次查看本机node版本"></a>再次查看本机node版本</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">v10.16.0</span><br></pre></td></tr></table></figure>
-<h1 id="更新npm到最新版"><a href="#更新npm到最新版" class="headerlink" title="更新npm到最新版"></a>更新npm到最新版</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install npm@latest -g</span><br><span class="line">Password:</span><br><span class="line">/usr/local/bin/npm -&gt; /usr/local/lib/node_modules/npm/bin/npm-cli.js</span><br><span class="line">/usr/local/bin/npx -&gt; /usr/local/lib/node_modules/npm/bin/npx-cli.js</span><br><span class="line">+ npm@6.10.0</span><br><span class="line">added 14 packages from 10 contributors, removed 5 packages and updated 17 packages in 6.962s</span><br></pre></td></tr></table></figure>
-<h1 id="验证版本号"><a href="#验证版本号" class="headerlink" title="验证版本号"></a>验证版本号</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+          <p>经常会遇到分组求前几名的问题。比如，求每个班级中总分排名前三的学生。</p>
+<p>我们通过如下实验看看怎么解决这个问题。</p>
+<h1 id="创建学生分数表"><a href="#创建学生分数表" class="headerlink" title="创建学生分数表"></a>创建学生分数表</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`score`</span> (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT <span class="keyword">COMMENT</span> <span class="string">'自增主键'</span>,</span><br><span class="line">  <span class="string">`name`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'学生姓名'</span>,</span><br><span class="line">  <span class="string">`class`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'班级'</span>,</span><br><span class="line">  <span class="string">`score`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'总分'</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br></pre></td></tr></table></figure>
+<h1 id="创建若干条数据"><a href="#创建若干条数据" class="headerlink" title="创建若干条数据"></a>创建若干条数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">DELIMITER //</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> batchInsert;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> batchInsert(n <span class="built_in">INT</span>)</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line"><span class="keyword">DECLARE</span> i <span class="built_in">INT</span>;</span><br><span class="line"><span class="keyword">SET</span> i = <span class="number">0</span>;</span><br><span class="line">WHILE i &lt; n DO</span><br><span class="line">	<span class="keyword">INSERT</span> <span class="keyword">INTO</span> score(<span class="keyword">name</span>, <span class="keyword">class</span>, score) <span class="keyword">VALUES</span></span><br><span class="line">		(<span class="keyword">substring</span>(<span class="keyword">MD5</span>(<span class="keyword">RAND</span>()), <span class="number">1</span>, <span class="number">10</span>), <span class="keyword">CONCAT</span>(<span class="string">'G'</span>, <span class="keyword">ROUND</span>(<span class="keyword">RAND</span>() * <span class="number">9</span>)), <span class="keyword">ROUND</span>(<span class="keyword">RAND</span>() * <span class="number">100</span>));</span><br><span class="line">	<span class="keyword">SET</span> i = i + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">WHILE</span>;</span><br><span class="line"><span class="keyword">END</span></span><br><span class="line">//</span><br><span class="line">DELIMITER ;</span><br><span class="line"><span class="keyword">CALL</span> batchInsert(<span class="number">50</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="TOP-N"><a href="#TOP-N" class="headerlink" title="TOP N"></a>TOP N</h1><p>HAVING子句中的&lt; 3表示取前两条。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> s1.class, s1.score <span class="keyword">FROM</span> score s1</span><br><span class="line">	<span class="keyword">LEFT</span> <span class="keyword">JOIN</span> score s2 <span class="keyword">ON</span> s1.class = s2.class <span class="keyword">AND</span> s1.score &lt;= s2.score</span><br><span class="line">	<span class="keyword">GROUP</span> <span class="keyword">BY</span> s1.class, s1.score</span><br><span class="line">	<span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(<span class="number">1</span>) &lt; <span class="number">3</span></span><br><span class="line">	<span class="keyword">ORDER</span> <span class="keyword">BY</span> s1.class, s1.score <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+<p>如果是取TOP 1，那就不能用这个自连接了，不然效率非常低下。还是得用MIN, MAX函数来解决。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class   score</span><br><span class="line">G0	66</span><br><span class="line">G0	17</span><br><span class="line">G1	96</span><br><span class="line">G1	92</span><br><span class="line">G2	87</span><br><span class="line">G2	83</span><br><span class="line">G3	67</span><br><span class="line">G3	32</span><br><span class="line">G4	94</span><br><span class="line">G4	37</span><br><span class="line">G5	99</span><br><span class="line">G5	74</span><br><span class="line">G6	40</span><br><span class="line">G7	98</span><br><span class="line">G7	78</span><br><span class="line">G8	100</span><br><span class="line">G8	93</span><br><span class="line">G9	99</span><br><span class="line">G9	92</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -446,7 +440,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/06/mac%E6%89%A7%E8%A1%8Cbrew-install%E6%97%B6%E5%8D%A1%E5%9C%A8Updating-Homebrew%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/08/Qihoo360-Wayne-backend%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99cannot-load-github-com-modern-go-reflect2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -460,7 +454,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/06/mac%E6%89%A7%E8%A1%8Cbrew-install%E6%97%B6%E5%8D%A1%E5%9C%A8Updating-Homebrew%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">mac执行brew install时卡在Updating Homebrew的解决方案</a>
+            <a href="/2019/08/Qihoo360-Wayne-backend%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99cannot-load-github-com-modern-go-reflect2/" class="post-title-link" itemprop="url">Qihoo360 Wayne backend启动时报错cannot load github.com/modern-go/reflect2</a>
         </h2>
 
         <div class="post-meta">
@@ -469,13 +463,32 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-06-27 15:12:08 / 修改时间：23:42:11" itemprop="dateCreated datePublished" datetime="2019-06-27T15:12:08+08:00">2019-06-27</time>
+              <time title="创建时间：2019-08-10 08:21:32" itemprop="dateCreated datePublished" datetime="2019-08-10T08:21:32+08:00">2019-08-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-07 22:12:46" itemprop="dateModified" datetime="2020-03-07T22:12:46+08:00">2020-03-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kubernetes/Wayne/" itemprop="url" rel="index"><span itemprop="name">Wayne</span></a>
+                </span>
             </span>
 
           
-            <span id="/2019/06/mac%E6%89%A7%E8%A1%8Cbrew-install%E6%97%B6%E5%8D%A1%E5%9C%A8Updating-Homebrew%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-meta-item leancloud_visitors" data-flag-title="mac执行brew install时卡在Updating Homebrew的解决方案" title="阅读次数">
+            <span id="/2019/08/Qihoo360-Wayne-backend%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99cannot-load-github-com-modern-go-reflect2/" class="post-meta-item leancloud_visitors" data-flag-title="Qihoo360 Wayne backend启动时报错cannot load github.com/modern-go/reflect2" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -491,8 +504,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2019/06/mac%E6%89%A7%E8%A1%8Cbrew-install%E6%97%B6%E5%8D%A1%E5%9C%A8Updating-Homebrew%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/06/mac%E6%89%A7%E8%A1%8Cbrew-install%E6%97%B6%E5%8D%A1%E5%9C%A8Updating-Homebrew%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="commentCount"></span>
+    <a title="valine" href="/2019/08/Qihoo360-Wayne-backend%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99cannot-load-github-com-modern-go-reflect2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/08/Qihoo360-Wayne-backend%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99cannot-load-github-com-modern-go-reflect2/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -519,23 +532,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>今天通过homebrew安装软件，卡住了。其实以前也会经常遇到卡在更新Homebrew上面，主要是因为大陆网络环境的问题。</p>
-<p>如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install wget</span><br><span class="line">Updating Homebrew...</span><br></pre></td></tr></table></figure>
-<p>一般我们可以按下<code>control + c</code>取消更新操作，这时，安装会继续执行下去。</p>
-<p>但推荐使用国内的Alibaba Homebrew镜像源进行替代。</p>
-<p>我们执行<code>brew</code>命令安装软件的时候，跟如下三个仓库地址有关：</p>
-<ol>
-<li><p>brew.git</p>
-</li>
-<li><p>homebrew-core.git</p>
-</li>
-<li><p>homebrew-bottles</p>
-</li>
-</ol>
-<p>接下来我们将上述3个仓库的地址全部替换为Alibaba提供的地址</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd "$(brew --repo)"</span><br><span class="line"></span><br><span class="line">git remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git</span><br><span class="line">git remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git</span><br><span class="line"></span><br><span class="line">echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles' &gt;&gt; ~/.bash_profile</span><br><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
-<p>通过上述步骤，我们在安装软件时，就不会卡在Updating Homebrew上面了。</p>
+          <p>Qihoo360 Wayne的文件目录为<code>/Development/wayne</code>。</p>
+<p>运行<code>bee run</code>命令时，会遇到如下错误。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">cd src/backend</span><br><span class="line"></span><br><span class="line">bee run -runargs=apiserver</span><br><span class="line">______</span><br><span class="line">| ___ \</span><br><span class="line">| |_/ /  ___   ___</span><br><span class="line">| ___ \ / _ \ / _ \</span><br><span class="line">| |_/ /|  __/|  __/</span><br><span class="line">\____/  \___| \___| v1.10.0</span><br><span class="line">2019/08/10 08:17:53 WARN     ▶ 0001 Running application outside of GOPATH</span><br><span class="line">2019/08/10 08:17:53 INFO     ▶ 0002 Using 'backend' as 'appname'</span><br><span class="line">2019/08/10 08:17:53 INFO     ▶ 0003 Initializing watcher...</span><br><span class="line">Fetching https://goproxy.io/github.com/modern-go/reflect2/@v/list</span><br><span class="line">Fetching https://goproxy.io/sigs.k8s.io/yaml/@v/list</span><br><span class="line">Fetching https://goproxy.io/sigs.k8s.io/@v/list</span><br><span class="line">Fetching https://goproxy.io/github.com/modern-go/@v/list</span><br><span class="line">Fetching https://goproxy.io/github.com/@v/list</span><br><span class="line">build github.com/Qihoo360/wayne/src/backend: cannot load github.com/modern-go/reflect2: cannot find module providing package github.com/modern-go/reflect2</span><br><span class="line">2019/08/10 08:17:55 ERROR    ▶ 0004 Failed to build the application: build github.com/Qihoo360/wayne/src/backend: cannot load github.com/modern-go/reflect2: cannot find module providing package github.com/modern-go/reflect2</span><br></pre></td></tr></table></figure>
+<p>解决方法，在终端先执行如下命令，以GO MODULE的方式加载包，即可以正常运行。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export GO111MODULE=on   // mac, linux</span><br><span class="line">set $GO111MODULE=on     // windows</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">bee run -runargs=apiserver</span><br><span class="line">______</span><br><span class="line">| ___ \</span><br><span class="line">| |_/ /  ___   ___</span><br><span class="line">| ___ \ / _ \ / _ \</span><br><span class="line">| |_/ /|  __/|  __/</span><br><span class="line">\____/  \___| \___| v1.10.0</span><br><span class="line">2019/08/10 08:19:26 WARN     ▶ 0001 Running application outside of GOPATH</span><br><span class="line">2019/08/10 08:19:26 INFO     ▶ 0002 Using 'backend' as 'appname'</span><br><span class="line">2019/08/10 08:19:26 INFO     ▶ 0003 Initializing watcher...</span><br><span class="line">Fetching https://goproxy.io/sigs.k8s.io/yaml/@v/list</span><br><span class="line">Fetching https://goproxy.io/github.com/modern-go/reflect2/@v/list</span><br><span class="line">2019/08/10 08:19:35 SUCCESS  ▶ 0004 Built Successfully!</span><br><span class="line">2019/08/10 08:19:35 INFO     ▶ 0005 Restarting 'backend'...</span><br><span class="line">2019/08/10 08:19:35 SUCCESS  ▶ 0006 './backend' is running...</span><br><span class="line">2019/08/10 08:19:35.057 [D] [db.go:75]  Initialize database connection: ****:root@tcp(127.0.0.1:3306)/</span><br><span class="line">2019/08/10 08:19:35.076 [I] [asm_amd64.s:1337]  http server Running on http://:8080</span><br><span class="line">2019/08/10 08:19:35.076 [I] [asm_amd64.s:1337]  Admin server Running on :8088</span><br></pre></td></tr></table></figure>
+<p>如果有些包下载不了，还可以设置<code>GOPROXY</code>环境变量。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export GOPROXY=https://goproxy.io       // mac, linux</span><br><span class="line">set $GOPROXY=on                         // windows</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -555,7 +559,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/70/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/70/">70</a><span class="page-number current">71</span><a class="page-number" href="/page/72/">72</a><span class="space">&hellip;</span><a class="page-number" href="/page/99/">99</a><a class="extend next" rel="next" href="/page/72/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/70/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/70/">70</a><span class="page-number current">71</span><a class="page-number" href="/page/72/">72</a><span class="space">&hellip;</span><a class="page-number" href="/page/100/">100</a><a class="extend next" rel="next" href="/page/72/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -634,20 +638,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">295</span>
+          <span class="site-state-item-count">298</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">70</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">183</span>
+        <span class="site-state-item-count">184</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
