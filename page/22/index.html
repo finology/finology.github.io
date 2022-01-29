@@ -139,12 +139,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">70</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">71</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">298</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">302</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/06/IntelliJ-IDEA%E4%B8%AD%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E6%96%B9%E6%B3%95%E7%9A%84%E6%AF%8F%E4%B8%AA%E5%87%BA%E5%8F%A3/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/06/Spring-Boot-Actuator/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +218,138 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/06/IntelliJ-IDEA%E4%B8%AD%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E6%96%B9%E6%B3%95%E7%9A%84%E6%AF%8F%E4%B8%AA%E5%87%BA%E5%8F%A3/" class="post-title-link" itemprop="url">IntelliJ IDEA中如何查看方法的每个出口</a>
+            <a href="/2020/06/Spring-Boot-Actuator/" class="post-title-link" itemprop="url">Spring Boot Actuator</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-28 22:17:21 / 修改时间：22:25:53" itemprop="dateCreated datePublished" datetime="2020-06-28T22:17:21+08:00">2020-06-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/06/Spring-Boot-Actuator/" class="post-meta-item leancloud_visitors" data-flag-title="Spring Boot Actuator" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/06/Spring-Boot-Actuator/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/Spring-Boot-Actuator/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Spring Boot Actuator 是 Spring Boot 的一套监控系统。</p>
+<p>依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>顺便提一句，spring boot 的官方依赖，一般是 spring-boot-starter-xxxx 这种格式的。非官方依赖则是 xxxx-spring-boot-starter 这种格式的。</p>
+<p>启动项目。</p>
+<p>访问 <code>http://localhost:8080/actuator</code></p>
+<p>可以看到有两个endpoints，一个是 health, 一个是 info。</p>
+<p>访问 health：</p>
+<p><code>http://localhost:8080/actuator/health</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  status: "UP"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>访问 info:</p>
+<p><code>http://localhost:8080/actuator/info</code></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; &#125;</span><br></pre></td></tr></table></figure>
+<p>是一个空对象。</p>
+<p>我们可以在 application.yml 配置文件中做如下配置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">management:</span></span><br><span class="line"><span class="attr">  endpoint:</span></span><br><span class="line"><span class="attr">    health:</span></span><br><span class="line"><span class="attr">      show-details:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">  endpoints:</span></span><br><span class="line"><span class="attr">    web:</span></span><br><span class="line"><span class="attr">      exposure:</span></span><br><span class="line"><span class="attr">        include:</span> <span class="string">metrics,</span> <span class="string">health,</span> <span class="string">info</span></span><br></pre></td></tr></table></figure>
+<p><code>management.endpoint.health.show-details=always</code> 表示在访问 health 时，除了显示 UP 这个状态以外，还要显示更多的信息。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  status: "UP",</span><br><span class="line">  components: &#123;</span><br><span class="line">    db: &#123;</span><br><span class="line">      status: "UP",</span><br><span class="line">      details: &#123;</span><br><span class="line">        database: "MySQL",</span><br><span class="line">        result: 1,</span><br><span class="line">        validationQuery: "/* ping */ SELECT 1"</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    diskSpace: &#123;</span><br><span class="line">      status: "UP",</span><br><span class="line">      details: &#123;</span><br><span class="line">        total: 250790436864,</span><br><span class="line">        free: 18968088576,</span><br><span class="line">        threshold: 10485760</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    ping: &#123;</span><br><span class="line">      status: "UP"</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>endpoints.web.exposure.include=metrics, health, info</code> 这个表示可以显示的endpoint。</p>
+<p>这个值可以填写 <code>*</code>，但是，如果是yaml文件，必须是<code>&#39;*&#39;&#39;</code>，而 application.properties 可以直接写 <code>*</code>。这是 yaml 文件和 properties 文件的区别。</p>
+<p>我们可以设置 info:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">info:</span></span><br><span class="line"><span class="attr">  app-name:</span> <span class="string">springboot-mybatis-plus</span></span><br><span class="line"><span class="attr">  author:</span> <span class="string">simon</span></span><br></pre></td></tr></table></figure>
+<p>这样，在访问 info endpoint 时，就可以显示上面配置的信息了。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  app-name: "springboot-mybatis-plus",</span><br><span class="line">  author: "simon"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果 yaml 里面带了环境变量，在开发时，可以在 IDEA 里面设置。在控制台运行时，命令如下：</p>
+<p><code>java -jar xxx.jar --SOME_ENV=certain_env</code></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/06/python%E5%A4%84%E7%90%86-net-18%E4%BD%8D%E6%97%B6%E9%97%B4%E6%88%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/python%E5%A4%84%E7%90%86-net-18%E4%BD%8D%E6%97%B6%E9%97%B4%E6%88%B3/" class="post-title-link" itemprop="url">python处理.net 18位时间戳</a>
         </h2>
 
         <div class="post-meta">
@@ -228,15 +359,112 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-06-04 10:26:56" itemprop="dateCreated datePublished" datetime="2020-06-04T10:26:56+08:00">2020-06-04</time>
+              <time title="创建时间：2020-06-25 22:32:54" itemprop="dateCreated datePublished" datetime="2020-06-25T22:32:54+08:00">2020-06-25</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-26 19:18:02" itemprop="dateModified" datetime="2021-09-26T19:18:02+08:00">2021-09-26</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
               </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/06/python%E5%A4%84%E7%90%86-net-18%E4%BD%8D%E6%97%B6%E9%97%B4%E6%88%B3/" class="post-meta-item leancloud_visitors" data-flag-title="python处理.net 18位时间戳" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/06/python%E5%A4%84%E7%90%86-net-18%E4%BD%8D%E6%97%B6%E9%97%B4%E6%88%B3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/python%E5%A4%84%E7%90%86-net-18%E4%BD%8D%E6%97%B6%E9%97%B4%E6%88%B3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>平时我们使用的时间时间戳一般都是13位带毫秒数和10位不带毫秒数的。.net有个 ticks 的概念，是18位的时间戳。</p>
+<p>意义是从公元1月1日零点开始的，到现在有多少个100纳秒。</p>
+<p>这个 ticks * 100 为纳秒数，然后除以 1000 变为微秒数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> *</span><br><span class="line">ticks = <span class="number">637170897393060000</span></span><br><span class="line">t = datetime(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>) + timedelta(microseconds = ticks // <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">print(datetime.strftime(t, <span class="string">'%Y-%m-%d %H:%M:%S'</span>))</span><br><span class="line"></span><br><span class="line"><span class="number">2020</span><span class="number">-02</span><span class="number">-12</span> <span class="number">07</span>:<span class="number">35</span>:<span class="number">39</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/06/%E4%BD%BF%E7%94%A8pdfbox%E6%8A%8Apdf%E8%BD%AC%E5%9B%BE%E7%89%87%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/%E4%BD%BF%E7%94%A8pdfbox%E6%8A%8Apdf%E8%BD%AC%E5%9B%BE%E7%89%87%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">使用pdfbox把pdf转图片时遇到的问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-24 23:16:40" itemprop="dateCreated datePublished" datetime="2020-06-24T23:16:40+08:00">2020-06-24</time>
+            </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -245,14 +473,10 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
                 </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/IntelliJ-IDEA/" itemprop="url" rel="index"><span itemprop="name">IntelliJ IDEA</span></a>
-                </span>
             </span>
 
           
-            <span id="/2020/06/IntelliJ-IDEA%E4%B8%AD%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E6%96%B9%E6%B3%95%E7%9A%84%E6%AF%8F%E4%B8%AA%E5%87%BA%E5%8F%A3/" class="post-meta-item leancloud_visitors" data-flag-title="IntelliJ IDEA中如何查看方法的每个出口" title="阅读次数">
+            <span id="/2020/06/%E4%BD%BF%E7%94%A8pdfbox%E6%8A%8Apdf%E8%BD%AC%E5%9B%BE%E7%89%87%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="使用pdfbox把pdf转图片时遇到的问题" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -268,8 +492,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2020/06/IntelliJ-IDEA%E4%B8%AD%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E6%96%B9%E6%B3%95%E7%9A%84%E6%AF%8F%E4%B8%AA%E5%87%BA%E5%8F%A3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/IntelliJ-IDEA%E4%B8%AD%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E6%96%B9%E6%B3%95%E7%9A%84%E6%AF%8F%E4%B8%AA%E5%87%BA%E5%8F%A3/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/06/%E4%BD%BF%E7%94%A8pdfbox%E6%8A%8Apdf%E8%BD%AC%E5%9B%BE%E7%89%87%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/%E4%BD%BF%E7%94%A8pdfbox%E6%8A%8Apdf%E8%BD%AC%E5%9B%BE%E7%89%87%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -296,208 +520,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在 IntelliJ IDEA 中，如果方法体很长，这时想查看方法有哪些出口，可以这样操作：</p>
-<p>Windows:</p>
-<p>把光标放在 return 上面，再按 ctrl + shift + F7</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/05/%E5%8D%83%E5%8D%83%E9%98%99%E6%AD%8C%E5%90%89%E4%BB%96%E8%B0%B1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/%E5%8D%83%E5%8D%83%E9%98%99%E6%AD%8C%E5%90%89%E4%BB%96%E8%B0%B1/" class="post-title-link" itemprop="url">千千阙歌吉他谱</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-31 22:00:27" itemprop="dateCreated datePublished" datetime="2020-05-31T22:00:27+08:00">2020-05-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%90%89%E4%BB%96%E8%B0%B1/" itemprop="url" rel="index"><span itemprop="name">吉他谱</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/05/%E5%8D%83%E5%8D%83%E9%98%99%E6%AD%8C%E5%90%89%E4%BB%96%E8%B0%B1/" class="post-meta-item leancloud_visitors" data-flag-title="千千阙歌吉他谱" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2020/05/%E5%8D%83%E5%8D%83%E9%98%99%E6%AD%8C%E5%90%89%E4%BB%96%E8%B0%B1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/%E5%8D%83%E5%8D%83%E9%98%99%E6%AD%8C%E5%90%89%E4%BB%96%E8%B0%B1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <img src="/2020/05/%E5%8D%83%E5%8D%83%E9%98%99%E6%AD%8C%E5%90%89%E4%BB%96%E8%B0%B1/%E5%8D%83%E5%8D%83%E9%98%99%E6%AD%8C1.jpeg" class="">
-<img src="/2020/05/%E5%8D%83%E5%8D%83%E9%98%99%E6%AD%8C%E5%90%89%E4%BB%96%E8%B0%B1/%E5%8D%83%E5%8D%83%E9%98%99%E6%AD%8C2.jpeg" class="">
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/05/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%BD%91%E9%A1%B5%E7%89%88%E5%80%8D%E9%80%9F%E6%92%AD%E6%94%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%BD%91%E9%A1%B5%E7%89%88%E5%80%8D%E9%80%9F%E6%92%AD%E6%94%BE/" class="post-title-link" itemprop="url">百度网盘网页版倍速播放</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-30 22:37:14" itemprop="dateCreated datePublished" datetime="2020-05-30T22:37:14+08:00">2020-05-30</time>
-            </span>
-
-          
-            <span id="/2020/05/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%BD%91%E9%A1%B5%E7%89%88%E5%80%8D%E9%80%9F%E6%92%AD%E6%94%BE/" class="post-meta-item leancloud_visitors" data-flag-title="百度网盘网页版倍速播放" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2020/05/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%BD%91%E9%A1%B5%E7%89%88%E5%80%8D%E9%80%9F%E6%92%AD%E6%94%BE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%BD%91%E9%A1%B5%E7%89%88%E5%80%8D%E9%80%9F%E6%92%AD%E6%94%BE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>百度网盘的宣传是可以倍速播放的，除了在手机上可以用外，我用 mac chrome 浏览器，是找不到倍速播放的功能的。</p>
-<p>今天突然发现通过这句脚本，竟然能神奇的控制播放速度，极大的提高了工作效率。</p>
-<p>进入百度网盘播放页面的控制台，执行如下代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">videojs.getPlayers(<span class="string">"video-player"</span>).html5player.tech_.setPlaybackRate(<span class="number">1.5</span>)</span><br></pre></td></tr></table></figure>
-<p>即可以把播放速度变为正常速度的 1.5 倍。</p>
-<p>但是如何调整网页版的画质清晰度，目前还没有找到方法。</p>
+          <p>我们使用 apache 的 pdfbox 工具，来处理 pdf。在把 pdf 转图片时，会遇到如下一些问题。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WARN 8776 --- [           main] o.a.pdfbox.pdmodel.font.PDType0Font      : No Unicode mapping for CID+3585 (3585) in font DJXXII+PingFangSC-Regular</span><br></pre></td></tr></table></figure>
+<p>这个应该是找不到字体，不过是 WARN 级别，在这里可以不用太在意。我找到很多方法，也没能解决掉这个警告。</p>
+<p>处理字体时，需要加入以下依赖。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.pdfbox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fontbox<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.19<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 8776 --- [           main] o.a.p.contentstream.PDFStreamEngine      : Cannot read JBIG2 image: jbig2-imageio is not installed</span><br></pre></td></tr></table></figure>
+<p>需要添加如下依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.pdfbox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jbig2-imageio<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 9074 --- [           main] o.a.p.contentstream.PDFStreamEngine      : Cannot read JPEG2000 image: Java Advanced Imaging (JAI) Image I/O Tools are not installed</span><br></pre></td></tr></table></figure>
+<p>需要添加如下依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.jai-imageio<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jai-imageio-jpeg2000<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>jai-imageio-jpeg2000</code> 会依赖相同版本的 <code>jai-imageio-core</code>，但我们可以使用最新版本的 <code>jai-imageio-core</code>。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.jai-imageio<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jai-imageio-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.4.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -517,7 +552,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/21/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/100/">100</a><a class="extend next" rel="next" href="/page/23/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/21/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/101/">101</a><a class="extend next" rel="next" href="/page/23/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -596,14 +631,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">298</span>
+          <span class="site-state-item-count">302</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">70</span>
+        <span class="site-state-item-count">71</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -640,7 +675,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
