@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">184</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">185</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">302</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">305</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/05/Python-itertools%E6%A8%A1%E6%8B%9F%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/05/%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,120 +218,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/05/Python-itertools%E6%A8%A1%E6%8B%9F%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/" class="post-title-link" itemprop="url">Python itertools模拟排列组合</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-05-04 19:28:02 / 修改时间：23:37:24" itemprop="dateCreated datePublished" datetime="2020-05-04T19:28:02+08:00">2020-05-04</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/05/Python-itertools%E6%A8%A1%E6%8B%9F%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/" class="post-meta-item leancloud_visitors" data-flag-title="Python itertools模拟排列组合" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2020/05/Python-itertools%E6%A8%A1%E6%8B%9F%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/Python-itertools%E6%A8%A1%E6%8B%9F%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="公式回顾"><a href="#公式回顾" class="headerlink" title="公式回顾"></a>公式回顾</h1><p>高中所学的排列组合，我们用程序来模拟一下。</p>
-<p>如果是从 n 个元素中取出 n 个元素进行排列，那一共有 n! 种排法。</p>
-<p>因为，有 n 个元素，放入 n 个盒子里，第1个盒子有 n 种取法，第2个盒子有 n - 1 种取法，第 n 个盒子有 1 种取法，根据分步算法，n <em> (n - 1) </em> (n - 2) <em> … </em> 1 = n! 。</p>
-<p>那如果是 n 个元素，任取 m 个排列，那同理能得出如下公式。</p>
-<p>$ P_n^m=\frac{n!}{(n-m)!} $</p>
-<p>如果是组合，我们把 m 个元素的阶乘除掉即可。</p>
-<p>$ C_n^m=\frac{n!}{(n-m)!m!} $</p>
-<p>同时，排列组合还有如下两个重要公式：</p>
-<p>$ P_{n+1}^m=P_n^m+mP_n^{m-1} $</p>
-<p>$ C_{n+1}^m=C_n^m+C_n^{m-1} $</p>
-<h1 id="排列"><a href="#排列" class="headerlink" title="排列"></a>排列</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line">list = range(<span class="number">3</span>)</span><br><span class="line">p = itertools.permutations(list, <span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> p:</span><br><span class="line">    print(i)</span><br><span class="line">    </span><br><span class="line">(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">(<span class="number">0</span>, <span class="number">2</span>)</span><br><span class="line">(<span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">(<span class="number">2</span>, <span class="number">0</span>)</span><br><span class="line">(<span class="number">2</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<h1 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">c = itertools.combinations(list, <span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> c:</span><br><span class="line">    print(i)</span><br><span class="line">    </span><br><span class="line">(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">(<span class="number">0</span>, <span class="number">2</span>)</span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/05/Java%E5%A6%82%E4%BD%95%E5%9C%A8String-format%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%99%BE%E5%88%86%E5%8F%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/Java%E5%A6%82%E4%BD%95%E5%9C%A8String-format%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%99%BE%E5%88%86%E5%8F%B7/" class="post-title-link" itemprop="url">Java如何在String.format中显示百分号&#37;</a>
+            <a href="/2020/05/%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">用Hexo搭建属于自己的免费博客</a>
         </h2>
 
         <div class="post-meta">
@@ -341,14 +228,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-05-03 15:38:55" itemprop="dateCreated datePublished" datetime="2020-05-03T15:38:55+08:00">2020-05-03</time>
+              <time title="创建时间：2020-05-05 18:03:08" itemprop="dateCreated datePublished" datetime="2020-05-05T18:03:08+08:00">2020-05-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-04 13:54:44" itemprop="dateModified" datetime="2020-05-04T13:54:44+08:00">2020-05-04</time>
+                <time title="修改时间：2021-09-26 19:49:36" itemprop="dateModified" datetime="2021-09-26T19:49:36+08:00">2021-09-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -356,126 +243,16 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/05/Java%E5%A6%82%E4%BD%95%E5%9C%A8String-format%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%99%BE%E5%88%86%E5%8F%B7/" class="post-meta-item leancloud_visitors" data-flag-title="Java如何在String.format中显示百分号&#37;" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2020/05/Java%E5%A6%82%E4%BD%95%E5%9C%A8String-format%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%99%BE%E5%88%86%E5%8F%B7/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/Java%E5%A6%82%E4%BD%95%E5%9C%A8String-format%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%99%BE%E5%88%86%E5%8F%B7/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>如果要显示 <code>%</code>，我们需要在前面再加一个 <code>%</code>，做为转义用。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String.format(<span class="string">"%d%%"</span>, <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
-<p>这时才会正确显示 <code>100%</code>。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/" class="post-title-link" itemprop="url">Python matplotlib绘图时x轴标签重叠覆盖</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-03 11:29:01" itemprop="dateCreated datePublished" datetime="2020-05-03T11:29:01+08:00">2020-05-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-04 13:55:12" itemprop="dateModified" datetime="2020-05-04T13:55:12+08:00">2020-05-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/Matplotlib/" itemprop="url" rel="index"><span itemprop="name">Matplotlib</span></a>
+                  <a href="/categories/Tools/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/" class="post-meta-item leancloud_visitors" data-flag-title="Python matplotlib绘图时x轴标签重叠覆盖" title="阅读次数">
+            <span id="/2020/05/%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/" class="post-meta-item leancloud_visitors" data-flag-title="用Hexo搭建属于自己的免费博客" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -491,8 +268,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/05/%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -519,24 +296,230 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>当标签文本很长时，或者是某维度的数据列表长度很长时，都会造成标签的重叠覆盖。</p>
-<img src="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/bar1.png" class="">
-<p>解决方法有以下几种。我们使用的数据如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">industry = [<span class="string">'交通运输'</span>, <span class="string">'休闲服务'</span>, <span class="string">'传媒'</span>, <span class="string">'公用事业'</span>, <span class="string">'农林牧渔'</span>, <span class="string">'化工'</span>,</span><br><span class="line">            <span class="string">'医药生物'</span>, <span class="string">'商业贸易'</span>, <span class="string">'国防军工'</span>, <span class="string">'家用电器'</span>, <span class="string">'建筑材料'</span>, <span class="string">'建筑装饰'</span>,</span><br><span class="line">            <span class="string">'房地产'</span>, <span class="string">'有色金属'</span>, <span class="string">'机械设备'</span>, <span class="string">'汽车'</span>, <span class="string">'电子'</span>, <span class="string">'电气设备'</span>, <span class="string">'纺织服装'</span>,</span><br><span class="line">            <span class="string">'综合'</span>, <span class="string">'计算机'</span>, <span class="string">'轻工制造'</span>, <span class="string">'采掘'</span>, <span class="string">'银行'</span>, <span class="string">'非银金融'</span>, <span class="string">'食品饮料'</span>]</span><br><span class="line">cap = [<span class="number">4572</span>, <span class="number">253</span>, <span class="number">84</span>, <span class="number">119</span>, <span class="number">23</span>, <span class="number">352</span>, <span class="number">1059</span>, <span class="number">631</span>, <span class="number">900</span>, <span class="number">95</span>, <span class="number">43</span>, <span class="number">430</span>, <span class="number">1524</span>, <span class="number">52</span>, <span class="number">1254</span>,</span><br><span class="line">       <span class="number">2581</span>, <span class="number">3012</span>, <span class="number">195</span>, <span class="number">70</span>, <span class="number">31</span>, <span class="number">1338</span>, <span class="number">61</span>, <span class="number">111</span>, <span class="number">4964</span>, <span class="number">2782</span>, <span class="number">291</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成Series</span></span><br><span class="line">s = pd.Series(cap, industry)</span><br><span class="line"><span class="comment"># 排序</span></span><br><span class="line">sort_s = series.sort_values(ascending=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成x轴 y轴序列</span></span><br><span class="line">x = sort_s.index</span><br><span class="line">y = sort_s.values</span><br><span class="line"></span><br><span class="line">fig, axs = plt.subplots()</span><br><span class="line">axs.bar(x, y)</span><br></pre></td></tr></table></figure>
-<h1 id="拉长画布"><a href="#拉长画布" class="headerlink" title="拉长画布"></a>拉长画布</h1><p>查看画布默认大小</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.rcParams[<span class="string">'figure.figsize'</span>]</span><br><span class="line">[<span class="number">6.0</span>, <span class="number">4.0</span>]</span><br></pre></td></tr></table></figure>
-<p>我们把画布拉长一倍，设置 figsize 参数。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fig, axs = plt.subplots(figsize=(<span class="number">12</span>, <span class="number">4</span>))</span><br><span class="line">axs.bar(x, y)</span><br></pre></td></tr></table></figure>
-<img src="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/bar2.png" class="">
-<p>拉长以后，bar 的宽度也变大了。</p>
-<p>由于 x 轴的数据太多了，还是有覆盖现象。</p>
-<h1 id="调整标签字体字号"><a href="#调整标签字体字号" class="headerlink" title="调整标签字体字号"></a>调整标签字体字号</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fig, axs = plt.subplots()</span><br><span class="line"><span class="comment"># 调整x轴标签的大小</span></span><br><span class="line">axs.tick_params(axis=<span class="string">'x'</span>, labelsize=<span class="number">6</span>)</span><br><span class="line">axs.bar(x, y)</span><br></pre></td></tr></table></figure>
-<img src="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/bar3.png" class="">
-<h1 id="x轴和y轴互换"><a href="#x轴和y轴互换" class="headerlink" title="x轴和y轴互换"></a>x轴和y轴互换</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fig, axs = plt.subplots()</span><br><span class="line">axs.barh(x, y)</span><br></pre></td></tr></table></figure>
-<img src="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/bar4.png" class="">
-<h1 id="标签旋转"><a href="#标签旋转" class="headerlink" title="标签旋转"></a>标签旋转</h1><p>目前比较好的解决方案可能是标签旋转，再适当的放大x轴。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fig, axs = plt.subplots(figsize=(<span class="number">12</span>, <span class="number">4</span>))</span><br><span class="line"><span class="comment"># x轴标签旋转</span></span><br><span class="line">axs.tick_params(axis=<span class="string">'x'</span>, labelrotation=<span class="number">-60</span>)</span><br><span class="line">axs.bar(x, y)</span><br></pre></td></tr></table></figure>
-<img src="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/bar5.png" class="">
+          <p>之前一直使用 hexo 和 next 的主题，后来做了一些自定义的修改，然后发现 hexo 和 next theme 官方都做了升级，我也跟着升级了。但升级的部分和我自定义修改的 layout 部分就产生冲突了。搞了很久，也没能修复，所以还是重新搭建一套吧，然后把再自定义部分添加上去。</p>
+<h1 id="安装-hexo-cli-客户端"><a href="#安装-hexo-cli-客户端" class="headerlink" title="安装 hexo-cli 客户端"></a>安装 hexo-cli 客户端</h1><p>根据官方文档，安装最新的 hexo-cli。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install hexo-cli -g</span></span><br><span class="line"></span><br><span class="line">/usr/local/bin/hexo -&gt; /usr/local/lib/node_modules/hexo-cli/bin/hexo</span><br><span class="line">+ hexo-cli@3.1.0</span><br><span class="line">added 27 packages from 12 contributors, removed 238 packages and updated 38 packages in 6.648s</span><br></pre></td></tr></table></figure>
+<h1 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h1><h2 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h2><p>创建一个你将用于放置博客系统的目录，然后在此目录下执行如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo init blog</span></span><br><span class="line"></span><br><span class="line">INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git</span><br><span class="line">Cloning into '/Users/simon/Development/workspace/blog'...</span><br><span class="line">remote: Enumerating objects: 30, done.</span><br><span class="line">remote: Counting objects: 100% (30/30), done.</span><br><span class="line">remote: Compressing objects: 100% (24/24), done.</span><br><span class="line">remote: Total 161 (delta 12), reused 12 (delta 4), pack-reused 131</span><br><span class="line">Receiving objects: 100% (161/161), 31.79 KiB | 5.00 KiB/s, done.</span><br><span class="line">Resolving deltas: 100% (74/74), done.</span><br><span class="line">Submodule 'themes/landscape' (https://github.com/hexojs/hexo-theme-landscape.git) registered for path 'themes/landscape'</span><br><span class="line">Cloning into '/Users/simon/Development/workspace/blog/themes/landscape'...</span><br><span class="line">remote: Enumerating objects: 4, done.</span><br><span class="line">remote: Counting objects: 100% (4/4), done.</span><br><span class="line">remote: Compressing objects: 100% (4/4), done.</span><br><span class="line">remote: Total 1067 (delta 0), reused 0 (delta 0), pack-reused 1063</span><br><span class="line">Receiving objects: 100% (1067/1067), 3.22 MiB | 3.00 KiB/s, done.</span><br><span class="line">Resolving deltas: 100% (585/585), done.</span><br><span class="line">Submodule path 'themes/landscape': checked out '73a23c51f8487cfcd7c6deec96ccc7543960d350'</span><br><span class="line">INFO  Install dependencies</span><br><span class="line">yarn install v1.21.1</span><br><span class="line">info No lockfile found.</span><br><span class="line">[1/4] 🔍  Resolving packages...</span><br><span class="line">[2/4] 🚚  Fetching packages...</span><br><span class="line">[3/4] 🔗  Linking dependencies...</span><br><span class="line">[4/4] 🔨  Building fresh packages...</span><br><span class="line">success Saved lockfile.</span><br><span class="line">warning Your current version of Yarn is out of date. The latest version is "1.22.4", while you're on "1.21.1".</span><br><span class="line">info To upgrade, run the following command:</span><br><span class="line"><span class="meta">$</span><span class="bash"> curl --compressed -o- -L https://yarnpkg.com/install.sh | bash</span></span><br><span class="line">✨  Done in 5.11s.</span><br><span class="line">INFO  Start blogging with Hexo!</span><br></pre></td></tr></table></figure>
+<p>提示说 Yarn 版本低了，所以按提示方法更新了 Yarn。</p>
+<h2 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> blog</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install</span></span><br></pre></td></tr></table></figure>
+<h2 id="本地运行博客"><a href="#本地运行博客" class="headerlink" title="本地运行博客"></a>本地运行博客</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>就可以通过 <code>http://localhost:4000/</code> 本地访问到博客了。</p>
+<h1 id="安装-Next-主题"><a href="#安装-Next-主题" class="headerlink" title="安装 Next 主题"></a>安装 Next 主题</h1><p>主题各有所爱，我在这里演示安装 Next 主题。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> blog</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/05/Mac%E6%97%A5%E8%AF%AD%E9%94%AE%E7%9B%98%E5%A6%82%E4%BD%95%E8%BE%93%E5%85%A5%E5%8F%8D%E6%96%9C%E7%BA%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/Mac%E6%97%A5%E8%AF%AD%E9%94%AE%E7%9B%98%E5%A6%82%E4%BD%95%E8%BE%93%E5%85%A5%E5%8F%8D%E6%96%9C%E7%BA%BF/" class="post-title-link" itemprop="url">Mac日语键盘如何输入反斜线&#92;</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-04 23:24:59" itemprop="dateCreated datePublished" datetime="2020-05-04T23:24:59+08:00">2020-05-04</time>
+            </span>
+
+          
+            <span id="/2020/05/Mac%E6%97%A5%E8%AF%AD%E9%94%AE%E7%9B%98%E5%A6%82%E4%BD%95%E8%BE%93%E5%85%A5%E5%8F%8D%E6%96%9C%E7%BA%BF/" class="post-meta-item leancloud_visitors" data-flag-title="Mac日语键盘如何输入反斜线&#92;" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/05/Mac%E6%97%A5%E8%AF%AD%E9%94%AE%E7%9B%98%E5%A6%82%E4%BD%95%E8%BE%93%E5%85%A5%E5%8F%8D%E6%96%9C%E7%BA%BF/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/Mac%E6%97%A5%E8%AF%AD%E9%94%AE%E7%9B%98%E5%A6%82%E4%BD%95%E8%BE%93%E5%85%A5%E5%8F%8D%E6%96%9C%E7%BA%BF/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Mac 日语键盘，输入反斜线 <code>\</code>，<code>Option + ￥</code></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/05/Hexo%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%90%AFLaTex%E7%BC%96%E5%86%99%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/Hexo%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%90%AFLaTex%E7%BC%96%E5%86%99%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" class="post-title-link" itemprop="url">Hexo博客开启LaTex编写数学公式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-04 23:11:24" itemprop="dateCreated datePublished" datetime="2020-05-04T23:11:24+08:00">2020-05-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-05 11:56:24" itemprop="dateModified" datetime="2020-05-05T11:56:24+08:00">2020-05-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tools/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/Hexo%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%90%AFLaTex%E7%BC%96%E5%86%99%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo博客开启LaTex编写数学公式" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/05/Hexo%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%90%AFLaTex%E7%BC%96%E5%86%99%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/Hexo%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%90%AFLaTex%E7%BC%96%E5%86%99%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在 Hexo 博客中，我们往往会编写一些数学公式，所以不得不启动 LaTex。LaTeX（LATEX，音译“拉泰赫”）是一种基于 ΤΕΧ 的排版系统，可以生成非常复杂的数学公式。</p>
+<h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked –save</span><br><span class="line">npm install hexo-renderer-kramed –save</span><br></pre></td></tr></table></figure>
+<h1 id="解决语义冲突"><a href="#解决语义冲突" class="headerlink" title="解决语义冲突"></a>解决语义冲突</h1><p>在博客根目录下，修改 <code>node_modules\kramed\lib\rules\inline.js</code>。</p>
+<p>第11行和第20行，修改如下内容：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,</span></span><br><span class="line">  <span class="built_in">escape</span>: <span class="regexp">/^\\([`*\[\]()#$+\-.!_&gt;])/</span>,</span><br><span class="line">  </span><br><span class="line"><span class="comment">//  em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span></span><br><span class="line">  em: <span class="regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure>
+<h1 id="更新主题里面的配置"><a href="#更新主题里面的配置" class="headerlink" title="更新主题里面的配置"></a>更新主题里面的配置</h1><p>mathjax 设置为 true。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line"><span class="attr">  mathjax:</span></span><br><span class="line"><span class="attr">    enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h1 id="在博客中声明"><a href="#在博客中声明" class="headerlink" title="在博客中声明"></a>在博客中声明</h1><p>在博客头部，声明如下内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--</span><br><span class="line">mathjax: true</span><br><span class="line">--</span><br></pre></td></tr></table></figure>
+<p>这时就可以插入数学公式了。</p>
 
       
     </div>
@@ -556,7 +539,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/28/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><span class="page-number current">29</span><a class="page-number" href="/page/30/">30</a><span class="space">&hellip;</span><a class="page-number" href="/page/101/">101</a><a class="extend next" rel="next" href="/page/30/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/28/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><span class="page-number current">29</span><a class="page-number" href="/page/30/">30</a><span class="space">&hellip;</span><a class="page-number" href="/page/102/">102</a><a class="extend next" rel="next" href="/page/30/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -635,7 +618,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">302</span>
+          <span class="site-state-item-count">305</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -648,7 +631,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">184</span>
+        <span class="site-state-item-count">185</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -860,59 +843,6 @@
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 
