@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">185</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">186</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">305</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">306</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,111 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/06/mac-OS%E5%AE%89%E8%A3%85npm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/06/mac-OS%E5%AE%89%E8%A3%85npm/" class="post-title-link" itemprop="url">mac OS安装npm</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-06-26 14:13:55" itemprop="dateCreated datePublished" datetime="2019-06-26T14:13:55+08:00">2019-06-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-06-27 23:04:42" itemprop="dateModified" datetime="2019-06-27T23:04:42+08:00">2019-06-27</time>
+              </span>
+
+          
+            <span id="/2019/06/mac-OS%E5%AE%89%E8%A3%85npm/" class="post-meta-item leancloud_visitors" data-flag-title="mac OS安装npm" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2019/06/mac-OS%E5%AE%89%E8%A3%85npm/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/06/mac-OS%E5%AE%89%E8%A3%85npm/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>检查<code>brew -v</code>是否安装了homebrew这个macOS缺失的软件包的管理器。如果安装，跳转到第3步，否则跳转到第二步；</p>
+<p>安装homebrew。安装跳转到<a href="https://brew.sh/index_zh-cn">官网指导</a>。等待安装好之后，输入brew -v，如果出现版本号说明已经安装好：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew -v</span><br><span class="line">Homebrew 2.1.6</span><br><span class="line">Homebrew/homebrew-core (git revision 10e6; last commit 2019-06-23)</span><br></pre></td></tr></table></figure>
+<p>执行brew update更新homebrew；</p>
+<p>执行命令行brew install npm安装npm。执行npm -v即可看到安装好的npm版本，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br><span class="line">6.9.0</span><br></pre></td></tr></table></figure>
+<p>接下来就是npm的使用了，详情请看<a href="https://www.npmjs.com/">npm官网</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -476,104 +581,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/04/%E8%A7%A3%E5%86%B3java-lang-ClassNotFoundException-org-springframework-cloud-client-loadbalancer-LoadBalancedRetryFactory/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/%E8%A7%A3%E5%86%B3java-lang-ClassNotFoundException-org-springframework-cloud-client-loadbalancer-LoadBalancedRetryFactory/" class="post-title-link" itemprop="url">解决java.lang.ClassNotFoundException: org.springframework.cloud.client.loadbalancer.LoadBalancedRetryFactory</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-04-24 11:34:49 / 修改时间：12:04:05" itemprop="dateCreated datePublished" datetime="2019-04-24T11:34:49+08:00">2019-04-24</time>
-            </span>
-
-          
-            <span id="/2019/04/%E8%A7%A3%E5%86%B3java-lang-ClassNotFoundException-org-springframework-cloud-client-loadbalancer-LoadBalancedRetryFactory/" class="post-meta-item leancloud_visitors" data-flag-title="解决java.lang.ClassNotFoundException: org.springframework.cloud.client.loadbalancer.LoadBalancedRetryFactory" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/04/%E8%A7%A3%E5%86%B3java-lang-ClassNotFoundException-org-springframework-cloud-client-loadbalancer-LoadBalancedRetryFactory/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/04/%E8%A7%A3%E5%86%B3java-lang-ClassNotFoundException-org-springframework-cloud-client-loadbalancer-LoadBalancedRetryFactory/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>使用Spring Cloud Feign时遇到如下Class Not Found Error</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.NoClassDefFoundError: org&#x2F;springframework&#x2F;cloud&#x2F;client&#x2F;loadbalancer&#x2F;LoadBalancedRetryFactory</span><br><span class="line">	at java.lang.Class.getDeclaredMethods0(Native Method) ~[na:1.8.0_92]</span><br><span class="line">	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701) ~[na:1.8.0_92]</span><br><span class="line">	at java.lang.Class.getDeclaredMethods(Class.java:1975) ~[na:1.8.0_92]</span><br><span class="line">	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:641) ~[spring-core-5.0.0.RC3.jar:5.0.0.RC3]</span><br><span class="line">	... 20 common frames omitted</span><br><span class="line">Caused by: java.lang.ClassNotFoundException: org.springframework.cloud.client.loadbalancer.LoadBalancedRetryFactory</span><br><span class="line">	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_92]</span><br><span class="line">	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_92]</span><br><span class="line">	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_92]</span><br><span class="line">	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_92]</span><br><span class="line">	... 24 common frames omitted</span><br></pre></td></tr></table></figure>
-<p>我使用的软件版本信息如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">springCloudVersion &#x3D; &#39;Finchley.M2&#39;</span><br><span class="line">springBootVersion &#x3D; &#39;2.0.0.M3&#39;</span><br></pre></td></tr></table></figure>
-<p>解决办法</p>
-<p>把openfeign的版本从原来默认的springCloudVersion改为springBootVersion，也就是2.0.0.M3</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Feign</span><br><span class="line">compile(&quot;org.springframework.cloud:spring-cloud-starter-openfeign:$&#123;springBootVersion&#125;&quot;)</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -657,7 +664,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">305</span>
+          <span class="site-state-item-count">306</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -670,7 +677,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">185</span>
+        <span class="site-state-item-count">186</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
