@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">187</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">189</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">307</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">308</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,148 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/" class="post-title-link" itemprop="url">在Prometheus Operator中添加自定义监控项，监控etcd集群</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-12 22:38:38" itemprop="dateCreated datePublished" datetime="2019-12-12T22:38:38+08:00">2019-12-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/" class="post-meta-item leancloud_visitors" data-flag-title="在Prometheus Operator中添加自定义监控项，监控etcd集群" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="添加自定义监控项流程"><a href="#添加自定义监控项流程" class="headerlink" title="添加自定义监控项流程"></a>添加自定义监控项流程</h1><ol>
+<li>创建ServiceMonitor对象</li>
+<li>创建Service对象，提供metrics数据接口，并将其和ServiceMonitor关联</li>
+<li>确保Service对象可以正确获取metrics数据</li>
+</ol>
+<img src="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/1576154786034.png" class="">
+<h1 id="配置etcd证书"><a href="#配置etcd证书" class="headerlink" title="配置etcd证书"></a>配置etcd证书</h1><p>查看etcd启动时的证书路径</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po -n kube-system</span><br><span class="line">...</span><br><span class="line">etcd-k8s-master                            1/1     Running   1          6h28m</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po etcd-k8s-master -n kube-system -o yaml</span><br><span class="line">...</span><br><span class="line">spec:</span><br><span class="line">  containers:</span><br><span class="line">  - command:</span><br><span class="line">    - etcd</span><br><span class="line">    - --advertise-client-urls=https://192.168.229.134:2379</span><br><span class="line">    - --cert-file=/etc/kubernetes/pki/etcd/server.crt</span><br><span class="line">    - --client-cert-auth=true</span><br><span class="line">    - --data-dir=/var/lib/etcd</span><br><span class="line">    - --initial-advertise-peer-urls=https://192.168.229.134:2380</span><br><span class="line">    - --initial-cluster=k8s-master=https://192.168.229.134:2380</span><br><span class="line">    - --key-file=/etc/kubernetes/pki/etcd/server.key</span><br><span class="line">    - --listen-client-urls=https://127.0.0.1:2379,https://192.168.229.134:2379</span><br><span class="line">    - --listen-peer-urls=https://192.168.229.134:2380</span><br><span class="line">    - --name=k8s-master</span><br><span class="line">    - --peer-cert-file=/etc/kubernetes/pki/etcd/peer.crt</span><br><span class="line">    - --peer-client-cert-auth=true</span><br><span class="line">    - --peer-key-file=/etc/kubernetes/pki/etcd/peer.key</span><br><span class="line">    - --peer-trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt</span><br><span class="line">    - --snapshot-count=10000</span><br><span class="line">    - --trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt</span><br><span class="line">    image: k8s.gcr.io/etcd:3.3.10</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>可以看出etcd使用的证书都在对应节点的<code>/etc/kubernetes/pki/etcd/</code>目录下面。所以先将需要使用的证书通过secret对象保存到集群中：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl -n monitoring create secret generic etcd-certs \</span><br><span class="line">--from-file=/etc/kubernetes/pki/etcd/healthcheck-client.crt \</span><br><span class="line">--from-file=/etc/kubernetes/pki/etcd/healthcheck-client.key \</span><br><span class="line">--from-file=/etc/kubernetes/pki/etcd/ca.crt </span><br><span class="line">secret/etcd-certs created</span><br></pre></td></tr></table></figure>
+<p>将创建etcd-certs对象配置到prometheus资源对象中，直接更新：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl edit prometheus k8s -n monitoring</span><br></pre></td></tr></table></figure>
+<p>添加secrets的如下属性：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nodeSelector:</span><br><span class="line">  kubernetes.io/os: linux</span><br><span class="line">podMonitorSelector: &#123;&#125;</span><br><span class="line">replicas: 2</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加如下两行</span></span><br><span class="line">secrets:</span><br><span class="line">- etcd-certs</span><br></pre></td></tr></table></figure>
+<p>更新完成后，就可以在Prometheus的Pod中获取之前创建的etcd证书文件了。先查看一下pod名字。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po -n monitoring </span><br><span class="line">NAME                                  READY   STATUS    RESTARTS   AGE</span><br><span class="line">...</span><br><span class="line">prometheus-k8s-0                      3/3     Running   1          2m20s</span><br><span class="line">prometheus-k8s-1                      3/3     Running   1          3m19s</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>进入两个容器，查看一下证书的具体路径：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl exec -it prometheus-k8s-0 /bin/sh -n monitoring</span><br><span class="line">Defaulting container name to prometheus.</span><br><span class="line">Use 'kubectl describe pod/prometheus-k8s-0 -n monitoring' to see all of the containers in this pod.</span><br><span class="line">/prometheus $ ls /etc/prometheus/secrets/etcd-certs/</span><br><span class="line">ca.crt                  healthcheck-client.crt  healthcheck-client.key</span><br></pre></td></tr></table></figure>
+<h1 id="创建ServiceMonitor"><a href="#创建ServiceMonitor" class="headerlink" title="创建ServiceMonitor"></a>创建ServiceMonitor</h1><p>创建<code>prometheus-serviceMonitorEtcd.yaml</code>文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: monitoring.coreos.com/v1</span><br><span class="line">kind: ServiceMonitor</span><br><span class="line">metadata:</span><br><span class="line">  labels:</span><br><span class="line">    k8s-app: etcd-k8s</span><br><span class="line">  name: etcd-k8s</span><br><span class="line">  namespace: monitoring</span><br><span class="line">spec:</span><br><span class="line">  endpoints:</span><br><span class="line">  - port: port</span><br><span class="line">    interval: 30s</span><br><span class="line">    scheme: https</span><br><span class="line">    tlsConfig:</span><br><span class="line">      caFile: /etc/prometheus/secrets/etcd-certs/ca.crt</span><br><span class="line">      certFile: /etc/prometheus/secrets/etcd-certs/healthcheck-client.crt</span><br><span class="line">      keyFile: /etc/prometheus/secrets/etcd-certs/healthcheck-client.key</span><br><span class="line">      insecureSkipVerify: true</span><br><span class="line">  jobLabel: k8s-app</span><br><span class="line">  namespaceSelector:</span><br><span class="line">    matchNames:</span><br><span class="line">    - kube-system</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      k8s-app: etcd</span><br></pre></td></tr></table></figure>
+<p>创建这个serviceMonitor对象：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f prometheus-serviceMonitorEtcd.yaml </span><br><span class="line">servicemonitor.monitoring.coreos.com/etcd-k8s created</span><br></pre></td></tr></table></figure>
+<h1 id="创建Service"><a href="#创建Service" class="headerlink" title="创建Service"></a>创建Service</h1><p>ServiceMonitor已经创建完成了，需要创建一个对应的Service对象。<code>prometheus-etcdService.yaml</code>内容如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  labels:</span><br><span class="line">    k8s-app: etcd</span><br><span class="line">  name: etcd-k8s</span><br><span class="line">  namespace: kube-system</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">  - name: port</span><br><span class="line">    port: 2379</span><br><span class="line">    protocol: TCP</span><br><span class="line">  type: ClusterIP</span><br><span class="line">  clusterIP: None</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: Endpoints</span><br><span class="line">metadata:</span><br><span class="line">  name: etcd-k8s</span><br><span class="line">  namespace: kube-system</span><br><span class="line">  labels:</span><br><span class="line">    k8s-app: etcd</span><br><span class="line">subsets:</span><br><span class="line">- addresses:</span><br><span class="line">  - ip: 192.168.229.134</span><br><span class="line">    nodeName: etcd-master</span><br><span class="line"><span class="meta">#</span><span class="bash">  - ip: 192.168.229.135</span></span><br><span class="line"><span class="meta">#</span><span class="bash">    nodeName: etcd02</span></span><br><span class="line"><span class="meta">#</span><span class="bash">  - ip: 192.168.229.136</span></span><br><span class="line"><span class="meta">#</span><span class="bash">    nodeName: etcd03</span></span><br><span class="line">  ports:</span><br><span class="line">  - name: port</span><br><span class="line">    port: 2379</span><br><span class="line">    protocol: TCP</span><br></pre></td></tr></table></figure>
+<p>etcd集群独立于集群之外，所以需要定义一个Endpoints。Endpoints的metadata区域的内容要和Service保持一致，并且将Service的clusterIP设置为None。</p>
+<p>在Endpoints的subsets中填写etcd的地址，如果是集群，则在addresses属性下面添加多个地址。</p>
+<p>创建Service, Endpoints资源：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f prometheus-etcdService.yaml </span><br><span class="line">service/etcd-k8s created</span><br><span class="line">endpoints/etcd-k8s created</span><br></pre></td></tr></table></figure>
+<img src="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/1576154696810.png" class="">
+<p>采集到数据以后，在Grafana中导入编号为3070的Dashboard。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -477,168 +619,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/12/%E9%83%A8%E7%BD%B2Kubernetes-Dashboard/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/%E9%83%A8%E7%BD%B2Kubernetes-Dashboard/" class="post-title-link" itemprop="url">部署Kubernetes Dashboard</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-08 15:47:52" itemprop="dateCreated datePublished" datetime="2019-12-08T15:47:52+08:00">2019-12-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/Dashboard/" itemprop="url" rel="index"><span itemprop="name">Dashboard</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/12/%E9%83%A8%E7%BD%B2Kubernetes-Dashboard/" class="post-meta-item leancloud_visitors" data-flag-title="部署Kubernetes Dashboard" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/12/%E9%83%A8%E7%BD%B2Kubernetes-Dashboard/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/%E9%83%A8%E7%BD%B2Kubernetes-Dashboard/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在K8S v1.15.6环境下部署Kubernetes Dashboard。</p>
-<h1 id="查看官网"><a href="#查看官网" class="headerlink" title="查看官网"></a>查看官网</h1><p>先查看Dashboard的版本，进入官网：<code>https://github.com/kubernetes/dashboard</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">To deploy Dashboard, execute following command:</span><br><span class="line"></span><br><span class="line">$ kubectl apply -f https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;kubernetes&#x2F;dashboard&#x2F;v1.10.1&#x2F;src&#x2F;deploy&#x2F;recommended&#x2F;kubernetes-dashboard.yaml</span><br></pre></td></tr></table></figure>
-<p>我们在Releases页面，v1.10.1版本是不支持K8S v1.15的。就算安装上以后页面也是打不开的。</p>
-<p>Compatibility</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>Kubernetes version</th>
-<th>1.11</th>
-<th>1.12</th>
-<th>1.13</th>
-<th>1.14</th>
-<th>1.15</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Compatibility</td>
-<td>?</td>
-<td>?</td>
-<td>?</td>
-<td>?</td>
-<td>✓</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>所以我们选择<code>v2.0.0-beta4</code>。</p>
-<h1 id="下载yml文件"><a href="#下载yml文件" class="headerlink" title="下载yml文件"></a>下载yml文件</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta4/aio/deploy/recommended.yaml -O kubernetes-dashboard.yaml</span><br></pre></td></tr></table></figure>
-<p>编辑<code>/root/k8s/dashboard/kubernetes-dashboard.yaml</code>文件，在名为<code>kubernetes-dashboard</code>的Service这块，加两行。</p>
-<p>增加<code>type: NodePort</code>和<code>nodePort: 30001</code>，最终内容如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">kind: Service</span><br><span class="line">apiVersion: v1</span><br><span class="line">metadata:</span><br><span class="line">  labels:</span><br><span class="line">    k8s-app: kubernetes-dashboard</span><br><span class="line">  name: kubernetes-dashboard</span><br><span class="line">  namespace: kubernetes-dashboard</span><br><span class="line">spec:</span><br><span class="line">  type: NodePort</span><br><span class="line">  ports:</span><br><span class="line">    - port: 443</span><br><span class="line">      targetPort: 8443</span><br><span class="line">      noePort: 30001</span><br><span class="line">  selector:</span><br><span class="line">    k8s-app: kubernetes-dashboard</span><br></pre></td></tr></table></figure>
-<h1 id="安装kubernetes-dashboard"><a href="#安装kubernetes-dashboard" class="headerlink" title="安装kubernetes dashboard"></a>安装kubernetes dashboard</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f kubernetes-dashboard.yaml</span><br><span class="line">namespace/kubernetes-dashboard unchanged</span><br><span class="line">serviceaccount/kubernetes-dashboard unchanged</span><br><span class="line">service/kubernetes-dashboard created</span><br><span class="line">secret/kubernetes-dashboard-certs created</span><br><span class="line">secret/kubernetes-dashboard-csrf created</span><br><span class="line">secret/kubernetes-dashboard-key-holder created</span><br><span class="line">configmap/kubernetes-dashboard-settings created</span><br><span class="line">role.rbac.authorization.k8s.io/kubernetes-dashboard created</span><br><span class="line">clusterrole.rbac.authorization.k8s.io/kubernetes-dashboard created</span><br><span class="line">rolebinding.rbac.authorization.k8s.io/kubernetes-dashboard created</span><br><span class="line">clusterrolebinding.rbac.authorization.k8s.io/kubernetes-dashboard created</span><br><span class="line">deployment.apps/kubernetes-dashboard created</span><br><span class="line">service/dashboard-metrics-scraper created</span><br><span class="line">deployment.apps/dashboard-metrics-scraper created</span><br></pre></td></tr></table></figure>
-<h1 id="查看pod状态"><a href="#查看pod状态" class="headerlink" title="查看pod状态"></a>查看pod状态</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po -n kubernetes-dashboard</span><br><span class="line">NAME                                        READY   STATUS    RESTARTS   AGE</span><br><span class="line">dashboard-metrics-scraper-fb986f88d-n2fkv   1/1     Running   0          115s</span><br><span class="line">kubernetes-dashboard-6bb65fcc49-bm676       1/1     Running   0          115s</span><br></pre></td></tr></table></figure>
-<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><p>这时，使用Firefox浏览器，通过<code>https://&lt;NodeIP&gt;:30001</code>就可以访问到页面了。</p>
-<p>如果使用的是IE或Chrome浏览器，还是打不开的。解决方案请参考：<a href="/2019/12/%E8%A7%A3%E5%86%B3Google-Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80Kubernetes-K8S-Dashboard%E9%A1%B5%E9%9D%A2/" title="解决Google Chrome浏览器无法打开Kubernetes(K8S) Dashboard页面">解决Google Chrome浏览器无法打开Kubernetes(K8S) Dashboard页面</a></p>
-<h1 id="创建Dashboard管理员"><a href="#创建Dashboard管理员" class="headerlink" title="创建Dashboard管理员"></a>创建Dashboard管理员</h1><h2 id="创建一个ServiceAccount"><a href="#创建一个ServiceAccount" class="headerlink" title="创建一个ServiceAccount"></a>创建一个ServiceAccount</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create serviceaccount dashboard-admin -n kubernetes-dashboard</span><br></pre></td></tr></table></figure>
-<p>查看一下详情</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe sa dashboard-admin -n kubernetes-dashboard</span><br><span class="line">Name:                dashboard-admin</span><br><span class="line">Namespace:           kubernetes-dashboard</span><br><span class="line">Labels:              &lt;none&gt;</span><br><span class="line">Annotations:         &lt;none&gt;</span><br><span class="line">Image pull secrets:  &lt;none&gt;</span><br><span class="line">Mountable secrets:   dashboard-admin-token-trt79</span><br><span class="line">Tokens:              dashboard-admin-token-trt79</span><br><span class="line">Events:              &lt;none&gt;</span><br></pre></td></tr></table></figure>
-<p><code>dashboard-admin-token-trt79</code>将成为Secret的名字。</p>
-<h2 id="创建Clusterrolebinding"><a href="#创建Clusterrolebinding" class="headerlink" title="创建Clusterrolebinding"></a>创建Clusterrolebinding</h2><p>我们可以先看看有哪些<code>clusterrole</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">kubectl get clusterrole</span><br><span class="line">NAME                                                                   AGE</span><br><span class="line">admin                                                                  18h</span><br><span class="line">cluster-admin                                                          18h</span><br><span class="line">edit                                                                   18h</span><br><span class="line">flannel                                                                17h</span><br><span class="line">kubernetes-dashboard                                                   15h</span><br><span class="line">system:aggregate-to-admin                                              18h</span><br><span class="line">system:aggregate-to-edit                                               18h</span><br><span class="line">system:aggregate-to-view                                               18h</span><br><span class="line">system:auth-delegator                                                  18h</span><br><span class="line">system:basic-user                                                      18h</span><br><span class="line">system:certificates.k8s.io:certificatesigningrequests:nodeclient       18h</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>绑定</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create clusterrolebinding dashboard-admin --clusterrole=cluster-admin --serviceaccount=kubernetes-dashboard:dashboard-admin</span><br></pre></td></tr></table></figure>
-<p>查看一下绑定关系</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe  clusterrolebinding dashboard-admin</span><br><span class="line">Name:         dashboard-admin</span><br><span class="line">Labels:       &lt;none&gt;</span><br><span class="line">Annotations:  &lt;none&gt;</span><br><span class="line">Role:</span><br><span class="line">  Kind:  ClusterRole</span><br><span class="line">  Name:  cluster-admin</span><br><span class="line">Subjects:</span><br><span class="line">  Kind            Name             Namespace</span><br><span class="line">  ----            ----             ---------</span><br><span class="line">  ServiceAccount  dashboard-admin  kubernetes-dashboard</span><br></pre></td></tr></table></figure>
-<h1 id="获取登录Token"><a href="#获取登录Token" class="headerlink" title="获取登录Token"></a>获取登录Token</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe secret -n kubernetes-dashboard $(kubectl get secrets -n kubernetes-dashboard | awk '/dashboard-admin/&#123;print $1&#125;' )</span><br><span class="line">Name:         dashboard-admin-token-trt79</span><br><span class="line">Namespace:    kubernetes-dashboard</span><br><span class="line">Labels:       &lt;none&gt;</span><br><span class="line">Annotations:  kubernetes.io/service-account.name: dashboard-admin</span><br><span class="line">              kubernetes.io/service-account.uid: 084970f9-48cd-44db-8106-887ee76db771</span><br><span class="line"></span><br><span class="line">Type:  kubernetes.io/service-account-token</span><br><span class="line"></span><br><span class="line">Data</span><br><span class="line">====</span><br><span class="line">ca.crt:     1025 bytes</span><br><span class="line">namespace:  20 bytes</span><br><span class="line">token:      eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZ</span><br><span class="line">XJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8</span><br><span class="line">vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJkYXNoYm9hcmQtYWRtaW4tdG9rZW4tdHJ0NzkiLCJrdWJlcm5ldGVzLmlvL</span><br><span class="line">3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGFzaGJvYXJkLWFkbWluIiwia3ViZXJuZXRlcy5pby9zZXJ</span><br><span class="line">2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiMDg0OTcwZjktNDhjZC00NGRiLTgxMDYtODg3ZWU3NmRiNzcxIiwic</span><br><span class="line">3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Omt1YmVybmV0ZXMtZGFzaGJvYXJkOmRhc2hib2FyZC1hZG1pbiJ9.m1twrtEAUC</span><br><span class="line">zup9vc0xVJwL3lOKwa4Pizyj4iMNoUctHKBfHD6vKO-NlxJo-jyCwvpDg-Pe8E82haUYQDu5L_HgA_Qa7xyTXSOXAwKVfcifdZ</span><br><span class="line">yhAjkXJSmZCpklqnAfp91rp7iaCPow8LKTNBkvreSVGEtQO6Fta-fWeQtqdn-4FGCoXX2ICbGTp-j3MTCeE2b2PfkhKcZcaEYu</span><br><span class="line">3fho2P6rFvjxH-Xp8pHl6fDDdw01IJHqSGcUmmvE-qkuEMSRkJ9x1P6mAR12w6LbEJH9C5qyq4d-P55zDHYTACsMls0elaHrHY</span><br><span class="line">wAURVT2OJjLmkcW38p73uADAIYBLtuTv67phPQ</span><br></pre></td></tr></table></figure>
-<p>把这个token复制后，拷贝到登录Dashboard的token输入框中，就能以<code>cluster-admin</code>的角色成功登录了。如图：</p>
-<img src="/2019/12/%E9%83%A8%E7%BD%B2Kubernetes-Dashboard/kubernetes-dashboard.png" class="">
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -722,7 +702,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">307</span>
+          <span class="site-state-item-count">308</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -735,7 +715,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">187</span>
+        <span class="site-state-item-count">189</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
