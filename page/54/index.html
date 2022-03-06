@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">189</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">190</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">308</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">309</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,136 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/02/CentOS7%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9AIP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/CentOS7%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9AIP/" class="post-title-link" itemprop="url">CentOS7设置固定IP</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-22 19:48:46" itemprop="dateCreated datePublished" datetime="2020-02-22T19:48:46+08:00">2020-02-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OS/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/02/CentOS7%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9AIP/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS7设置固定IP" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/02/CentOS7%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9AIP/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/CentOS7%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9AIP/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>主机操作系统为macOS，在VMware Fusion上安装了数台CentOS7虚拟机，在其上面安装Kubernetes集群。</p>
+<p>主机待机或休眠后，再次进入虚拟机时，发现虚拟机的时间并不与主机保持同步。这个问题在<a href="/2020/02/mac%E4%B8%BB%E6%9C%BA%E5%BE%85%E6%9C%BA%E5%90%8E%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E9%97%B4%E4%B8%8D%E7%BB%9F%E4%B8%80%E7%9A%84%E9%97%AE%E9%A2%98/" title="mac主机待机后和虚拟机时间不统一的问题">mac主机待机后和虚拟机时间不统一的问题</a>中解决。</p>
+<p>然后我通过命令<code>date -s</code>把虚拟机延迟的时间统一修改为当前时间。时间是修改好了，却出了一个严重的问题，连到虚拟机的ssh全部断开了，发现虚拟机的IP地址全部变了。随之而来的便是Prometheus的各种报警，监控的Targets<br>全都变红了。</p>
+<p>所以需要把虚拟机从原来的DHCP动态分配IP改为静态固定好的IP。</p>
+<p>修改<code>/etc/sysconfig/network-scripts/ifcfg-ens33</code>文件的内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BOOTPROTO&#x3D;static</span><br><span class="line"></span><br><span class="line">DNS1&#x3D;114.114.114.114</span><br><span class="line">IPADDR&#x3D;172.16.64.233</span><br><span class="line">NETMASK&#x3D;255.255.255.0</span><br><span class="line">GATEWAY&#x3D;172.16.64.2</span><br></pre></td></tr></table></figure>
+<p>把<code>BOOTPROTO</code>由<code>dhcp</code>改为<code>static</code>。</p>
+<p>添加<code>DNS1</code> Domain Name Server设置为114.114.114.114，这个是全国统一的。<br>添加<code>IPADDR</code>设置为变化之前的IP地址。</p>
+<p>每次安装vmware fusion，自动生成的ip段都不一样。为了保持一致，可以修改vmware fusion的配置文件。</p>
+<blockquote>
+<p>VMnet1: 对应Host-only模式，也就是自定下的“仅供我的Mac专用”</p>
+<p>VMnet8:对应NAT模式，也就是网络配置中的Internet共享下的“与我的Mac共享”</p>
+<p>VMnet0:对应桥接模式，也就是桥接模式网络链接下的“自动检测”</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat /Library/Preferences/VMware\ Fusion/networking</span><br><span class="line">...</span><br><span class="line">answer VNET_8_HOSTONLY_NETMASK 255.255.255.0</span><br><span class="line">answer VNET_8_HOSTONLY_SUBNET 172.16.64.0</span><br><span class="line">answer VNET_8_NAT yes</span><br><span class="line">answer VNET_8_VIRTUAL_ADAPTER yes</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>添加<code>GATEWAY</code>。</p>
+<p>执行<code>ip route show</code>，获取GATEWAY的地址为：<code>172.16.64.2</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ip route show</span><br><span class="line">default via 172.16.64.2 dev ens33 proto static metric 100</span><br><span class="line">10.244.36.64/26 via 172.16.64.232 dev tunl0 proto bird onlink</span><br><span class="line">10.244.169.128/26 via 172.16.64.235 dev tunl0 proto bird onlink</span><br><span class="line">blackhole 10.244.235.192/26 proto bird</span><br><span class="line">10.244.235.232 dev calia6f6ed2a513 scope link</span><br><span class="line">10.244.235.233 dev cali9716a65ec87 scope link</span><br><span class="line">10.244.235.234 dev cali26873b73fbd scope link</span><br><span class="line">172.16.64.0/24 dev ens33 proto kernel scope link src 172.16.64.233 metric 100</span><br><span class="line">172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1</span><br><span class="line">172.19.0.0/16 dev br-bebfcba064b2 proto kernel scope link src 172.19.0.1</span><br></pre></td></tr></table></figure>
+<p>保存退出后，重启网络<code>systemctl restart network</code>。过一会儿，Kubernetes集群又能正常工作了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -462,122 +592,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/02/Prometheus-Kubelet-ServiceMonitor/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/Prometheus-Kubelet-ServiceMonitor/" class="post-title-link" itemprop="url">Prometheus Kubelet ServiceMonitor</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-17 17:30:49" itemprop="dateCreated datePublished" datetime="2020-02-17T17:30:49+08:00">2020-02-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/02/Prometheus-Kubelet-ServiceMonitor/" class="post-meta-item leancloud_visitors" data-flag-title="Prometheus Kubelet ServiceMonitor" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2020/02/Prometheus-Kubelet-ServiceMonitor/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/Prometheus-Kubelet-ServiceMonitor/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get serviceMonitor -n monitoring kubelet -o yaml</span><br></pre></td></tr></table></figure>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">monitoring.coreos.com/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ServiceMonitor</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  annotations:</span></span><br><span class="line">    <span class="string">kubectl.kubernetes.io/last-applied-configuration:</span> <span class="string">|</span></span><br><span class="line"><span class="string">      &#123;"apiVersion":"monitoring.coreos.com/v1","kind":"ServiceMonitor","metadata":&#123;"annotations":&#123;&#125;,"labels":&#123;"k8s-app":"kubelet"&#125;,"name":"kubelet","namespace":"monitoring"&#125;,"spec":&#123;"endpoints":[&#123;"bearerTokenFile":"/var/run/secrets/kubernetes.io/serviceaccount/token","honorLabels":true,"interval":"30s","port":"https-metrics","scheme":"https","tlsConfig":&#123;"insecureSkipVerify":true&#125;&#125;,&#123;"bearerTokenFile":"/var/run/secrets/kubernetes.io/serviceaccount/token","honorLabels":true,"interval":"30s","metricRelabelings":[&#123;"action":"drop","regex":"container_(network_tcp_usage_total|network_udp_usage_total|tasks_state|cpu_load_average_10s)","sourceLabels":["__name__"]&#125;],"path":"/metrics/cadvisor","port":"https-metrics","scheme":"https","tlsConfig":&#123;"insecureSkipVerify":true&#125;&#125;],"jobLabel":"k8s-app","namespaceSelector":&#123;"matchNames":["kube-system"]&#125;,"selector":&#123;"matchLabels":&#123;"k8s-app":"kubelet"&#125;&#125;&#125;&#125;</span></span><br><span class="line"><span class="string"></span><span class="attr">  creationTimestamp:</span> <span class="string">"2019-12-29T06:40:27Z"</span></span><br><span class="line"><span class="attr">  generation:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">  labels:</span></span><br><span class="line"><span class="attr">    k8s-app:</span> <span class="string">kubelet</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">kubelet</span></span><br><span class="line"><span class="attr">  namespace:</span> <span class="string">monitoring</span></span><br><span class="line"><span class="attr">  resourceVersion:</span> <span class="string">"2602"</span></span><br><span class="line"><span class="attr">  selfLink:</span> <span class="string">/apis/monitoring.coreos.com/v1/namespaces/monitoring/servicemonitors/kubelet</span></span><br><span class="line"><span class="attr">  uid:</span> <span class="number">327</span><span class="string">bae9c-d09c-4d00-b293-354870b19f91</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  endpoints:</span></span><br><span class="line"><span class="attr">  - bearerTokenFile:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line"><span class="attr">    honorLabels:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    interval:</span> <span class="number">30</span><span class="string">s</span></span><br><span class="line"><span class="attr">    port:</span> <span class="string">https-metrics</span></span><br><span class="line"><span class="attr">    scheme:</span> <span class="string">https</span></span><br><span class="line"><span class="attr">    tlsConfig:</span></span><br><span class="line"><span class="attr">      insecureSkipVerify:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  - bearerTokenFile:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line"><span class="attr">    honorLabels:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    interval:</span> <span class="number">30</span><span class="string">s</span></span><br><span class="line"><span class="attr">    metricRelabelings:</span></span><br><span class="line"><span class="attr">    - action:</span> <span class="string">drop</span></span><br><span class="line"><span class="attr">      regex:</span> <span class="string">container_(network_tcp_usage_total|network_udp_usage_total|tasks_state|cpu_load_average_10s)</span></span><br><span class="line"><span class="attr">      sourceLabels:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">__name__</span></span><br><span class="line"><span class="attr">    path:</span> <span class="string">/metrics/cadvisor</span></span><br><span class="line"><span class="attr">    port:</span> <span class="string">https-metrics</span></span><br><span class="line"><span class="attr">    scheme:</span> <span class="string">https</span></span><br><span class="line"><span class="attr">    tlsConfig:</span></span><br><span class="line"><span class="attr">      insecureSkipVerify:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  jobLabel:</span> <span class="string">k8s-app</span></span><br><span class="line"><span class="attr">  namespaceSelector:</span></span><br><span class="line"><span class="attr">    matchNames:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">kube-system</span></span><br><span class="line"><span class="attr">  selector:</span></span><br><span class="line"><span class="attr">    matchLabels:</span></span><br><span class="line"><span class="attr">      k8s-app:</span> <span class="string">kubelet</span></span><br></pre></td></tr></table></figure>
-<p>根据上面的namespaceSelector和selector</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get ep -n kube-system -l k8s-app=kubelet -o yaml</span><br></pre></td></tr></table></figure>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">items:</span></span><br><span class="line"><span class="attr">- apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">  kind:</span> <span class="string">Endpoints</span></span><br><span class="line"><span class="attr">  metadata:</span></span><br><span class="line"><span class="attr">    creationTimestamp:</span> <span class="string">"2019-12-29T06:40:06Z"</span></span><br><span class="line"><span class="attr">    labels:</span></span><br><span class="line"><span class="attr">      k8s-app:</span> <span class="string">kubelet</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">kubelet</span></span><br><span class="line"><span class="attr">    namespace:</span> <span class="string">kube-system</span></span><br><span class="line"><span class="attr">    resourceVersion:</span> <span class="string">"2371"</span></span><br><span class="line"><span class="attr">    selfLink:</span> <span class="string">/api/v1/namespaces/kube-system/endpoints/kubelet</span></span><br><span class="line"><span class="attr">    uid:</span> <span class="number">326583</span><span class="string">cc-3379-4883-8426-5a856c29c77e</span></span><br><span class="line"><span class="attr">  subsets:</span></span><br><span class="line"><span class="attr">  - addresses:</span></span><br><span class="line"><span class="attr">    - ip:</span> <span class="number">172.16</span><span class="number">.64</span><span class="number">.232</span></span><br><span class="line"><span class="attr">      targetRef:</span></span><br><span class="line"><span class="attr">        kind:</span> <span class="string">Node</span></span><br><span class="line"><span class="attr">        name:</span> <span class="string">k8s-node1</span></span><br><span class="line"><span class="attr">        uid:</span> <span class="number">09</span><span class="string">ffae8e-e3f1-456b-a398-7891487712da</span></span><br><span class="line"><span class="attr">    - ip:</span> <span class="number">172.16</span><span class="number">.64</span><span class="number">.233</span></span><br><span class="line"><span class="attr">      targetRef:</span></span><br><span class="line"><span class="attr">        kind:</span> <span class="string">Node</span></span><br><span class="line"><span class="attr">        name:</span> <span class="string">k8s-master</span></span><br><span class="line"><span class="attr">        uid:</span> <span class="number">774</span><span class="string">ddb3e-2c3c-4af8-8e1c-15b0c2c3b8c1</span></span><br><span class="line"><span class="attr">    - ip:</span> <span class="number">172.16</span><span class="number">.64</span><span class="number">.235</span></span><br><span class="line"><span class="attr">      targetRef:</span></span><br><span class="line"><span class="attr">        kind:</span> <span class="string">Node</span></span><br><span class="line"><span class="attr">        name:</span> <span class="string">k8s-node2</span></span><br><span class="line"><span class="attr">        uid:</span> <span class="number">7</span><span class="string">c1cc5f0-2b71-462a-907e-191b0d3ee819</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="attr">    - name:</span> <span class="string">http-metrics</span></span><br><span class="line"><span class="attr">      port:</span> <span class="number">10255</span></span><br><span class="line"><span class="attr">      protocol:</span> <span class="string">TCP</span></span><br><span class="line"><span class="attr">    - name:</span> <span class="string">cadvisor</span></span><br><span class="line"><span class="attr">      port:</span> <span class="number">4194</span></span><br><span class="line"><span class="attr">      protocol:</span> <span class="string">TCP</span></span><br><span class="line"><span class="attr">    - name:</span> <span class="string">https-metrics</span></span><br><span class="line"><span class="attr">      port:</span> <span class="number">10250</span></span><br><span class="line"><span class="attr">      protocol:</span> <span class="string">TCP</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">List</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  resourceVersion:</span> <span class="string">""</span></span><br><span class="line"><span class="attr">  selfLink:</span> <span class="string">""</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -661,7 +675,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">308</span>
+          <span class="site-state-item-count">309</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -674,7 +688,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">189</span>
+        <span class="site-state-item-count">190</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">189</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">190</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">308</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">309</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,118 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/" class="post-title-link" itemprop="url">/var/lib/docker/overlay2占用空间太大</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-27 16:27:01" itemprop="dateCreated datePublished" datetime="2020-02-27T16:27:01+08:00">2020-02-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/" class="post-meta-item leancloud_visitors" data-flag-title="/var/lib/docker/overlay2占用空间太大" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>执行<code>df -h</code>命令发现<code>/var/lib/docker</code>目录占用空间太大。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> df -h</span></span><br><span class="line">文件系统                 容量  已用  可用 已用% 挂载点</span><br><span class="line">devtmpfs                 898M     0  898M    0% /dev</span><br><span class="line">tmpfs                    910M     0  910M    0% /dev/shm</span><br><span class="line">tmpfs                    910M   60M  851M    7% /run</span><br><span class="line">tmpfs                    910M     0  910M    0% /sys/fs/cgroup</span><br><span class="line">/dev/mapper/centos-root   17G  5.9G   12G   35% /</span><br><span class="line">/dev/sda1               1014M  150M  865M   15% /boot</span><br><span class="line">tmpfs                    910M  4.0K  910M    1% /var/lib/kubelet/pods/0914bac1-2c2f-4294-a036-afe6fb5d2a16/volumes/kubernetes.io~secret/config</span><br><span class="line">tmpfs                    910M  4.0K  910M    1% /var/lib/kubelet/pods/7975066f-117d-4523-a55e-53262ed8f131/volumes/kubernetes.io~secret/config-volume</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/7454b8be-1bd2-4c17-9784-55bf49d0e6fd/volumes/kubernetes.io~secret/node-exporter-token-hwqlc</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/7975066f-117d-4523-a55e-53262ed8f131/volumes/kubernetes.io~secret/alertmanager-main-token-z4qrq</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/71e0ccae-267d-4025-b4ec-a5ccbd1f0adc/volumes/kubernetes.io~secret/kube-proxy-token-kq9lp</span><br><span class="line">tmpfs                    910M  4.0K  910M    1% /var/lib/kubelet/pods/e685593b-9684-48cc-a304-040b30707088/volumes/kubernetes.io~secret/config</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/53e83a95-4db5-48f7-b166-b37df18b38e0/volumes/kubernetes.io~secret/calico-node-token-f6g2m</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/0914bac1-2c2f-4294-a036-afe6fb5d2a16/volumes/kubernetes.io~secret/prometheus-k8s-token-sm6gd</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/e685593b-9684-48cc-a304-040b30707088/volumes/kubernetes.io~secret/prometheus-k8s-token-sm6gd</span><br><span class="line">overlay                   17G  5.9G   12G   35% /var/lib/docker/overlay2/70944089660c7647c7a83e1dcef9d6297e3e440d4d2d4742f5d68448bde9ad95/merged</span><br><span class="line">shm                       64M     0   64M    0% /var/lib/docker/containers/e59d5037dc150cf7c2ed10ea94d8549c3b98e0b847980a1a306eda8dcaf7e6de/mounts/shm</span><br><span class="line">overlay                   17G  5.9G   12G   35% /var/lib/docker/overlay2/bbdeb82071f8c4cbb2d59e26721735d5f3fd82f8139c0a448133156a0f12631f/merged</span><br><span class="line">overlay                   17G  5.9G   12G   35% /var/lib/docker/overlay2/383c5b7d30028f38eca1e4f2b3ac6144d52b5b1e8f296f2314de9ca0fd867f7d/merged</span><br><span class="line">shm                       64M     0   64M    0% /var/lib/docker/containers/df1ee27e97c823d18fe76ca3a7195cd081e466527b3cf9169a9a9f816b4c3391/mounts/shm</span><br></pre></td></tr></table></figure>
+<p>执行<code>docker ps -a</code>发现大量已经停止或退出的容器，需要清理空间。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker system prune</span></span><br><span class="line">WARNING! This will remove:</span><br><span class="line">        - all stopped containers</span><br><span class="line">        - all networks not used by at least one container</span><br><span class="line">        - all dangling images</span><br><span class="line">        - all build cache</span><br><span class="line">Are you sure you want to continue? [y/N] y</span><br><span class="line">Deleted Containers:</span><br><span class="line">64d81b1dc03026478f0114b657d4cd938967868967e5e5ee9b8ea3d72814a736</span><br><span class="line">c5f180a1c5c2804d45d13d11f338d241e482ada9673bff0ba8cc18759ae4fcae</span><br><span class="line">aa06316b5fd638c22fc41bd8f8ea4c511566c4c537c81bf5aad5f276ac6c2fae</span><br><span class="line">ce5048ebf25bd48bbe1372aaf38c68078a05c06157ffcb4a8e646470f647acb0</span><br><span class="line">0c4b37413e3483366fb640b94ad33596aef149a50bc610a2d720663159280871</span><br><span class="line">7575ec0a092bc9d3dd1a54ac2e3b92ce0dd8f3f570565ecc918684b0c51087ea</span><br><span class="line">1e335ee77f4167c19f6e54a1728d3d49775f651d871009752b1cfb7ec9fd7867</span><br><span class="line">393bd6280ecf423804c27f264cfc95e72df7580dc6881bb1a249152b4554b10e</span><br><span class="line">63ad5c44a30c80645e84b16cc8e1009e46235bd7001153f8d8d3c4887ed18786</span><br><span class="line">ee8c92a30092e7c30338d2a6721d13f250c2a426947a29c2e2c30f9936c0e07a</span><br><span class="line">cd49e432a75a5f9719e8436af70a40e9869e02db51c4f8c08f02ad26a6bdc3ba</span><br><span class="line">35435e8cd10d2dd9b26993da909aba31f4d52df3475b30ba7536d473004c7e91</span><br><span class="line">6028cf4eac7090a89c05edad7e45096130ee7e3336f28d2c0e2a890111d80043</span><br><span class="line">6e1d20022ecdd871a684b016c89d4d1122c9c5a00de998f921e2eacbd54da482</span><br><span class="line">6417077821f3fc76da1e436401b0ed58a842b8afec6134c3895d5f3c7ae8d069</span><br><span class="line">b49f44b5a26aad43d9d7b0f1ff57b659d4aab90d13477063160862018d3ba6f3</span><br><span class="line"></span><br><span class="line">Deleted Images:</span><br><span class="line">untagged: nginx@sha256:b2d89d0a210398b4d1120b3e3a7672c16a4ba09c2c4a0395f18b9f7999b768f2</span><br><span class="line">deleted: sha256:f7bb5701a33c0e572ed06ca554edca1bee96cbbc1f76f3b01c985de7e19d0657</span><br><span class="line">deleted: sha256:8f1984cf0de0461043fcabd6b2a2040325ac001d9897a242e0d80486fe71575e</span><br><span class="line">deleted: sha256:59d91a36ba4b720eadfbf346ddb825c2faa2d66cc7a915238eaf926c4b4b40ee</span><br><span class="line">deleted: sha256:556c5fb0d91b726083a8ce42e2faaed99f11bc68d3f70e2c7bbce87e7e0b3e10</span><br><span class="line">untagged: nginx@sha256:ee380d57f01eac528f59d031cbeff5eba98b077d25ebdc7d6aef6734f00a41b7</span><br><span class="line">deleted: sha256:231d40e811cd970168fb0c4770f2161aa30b9ba6fe8e68527504df69643aa145</span><br><span class="line">deleted: sha256:dc8adf8fa0fc82a56c32efac9d0da5f84153888317c88ab55123d9e71777bc62</span><br><span class="line">deleted: sha256:77fcff986d3b13762e4777046b9210a109fda20cb261bd3bbe5d7161d4e73c8e</span><br><span class="line"></span><br><span class="line">Total reclaimed space: 183.4MB</span><br></pre></td></tr></table></figure>
+<p>这样就删除了不用的容器和镜像了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -448,137 +560,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/02/Prometheus-monitoring-kube-state-metrics%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/Prometheus-monitoring-kube-state-metrics%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" class="post-title-link" itemprop="url">Prometheus monitoring/kube-state-metrics监控指标</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-25 21:53:28" itemprop="dateCreated datePublished" datetime="2020-02-25T21:53:28+08:00">2020-02-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/02/Prometheus-monitoring-kube-state-metrics%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" class="post-meta-item leancloud_visitors" data-flag-title="Prometheus monitoring/kube-state-metrics监控指标" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2020/02/Prometheus-monitoring-kube-state-metrics%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/Prometheus-monitoring-kube-state-metrics%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>通过<code>kube-prometheus</code>安装的k8s监控系统。</p>
-<p>在targets页面，我们来分析一下<code>monitoring/kube-state-metrics</code>的两个Targets。</p>
-<img src="/2020/02/Prometheus-monitoring-kube-state-metrics%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/kube-state-metrics.png" class="">
-<p><code>kube-state-metrics-serviceMonitor.yaml</code>内容：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">endpoints:</span></span><br><span class="line"><span class="attr">- bearerTokenFile:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line"><span class="attr">  honorLabels:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  interval:</span> <span class="number">30</span><span class="string">s</span></span><br><span class="line"><span class="attr">  port:</span> <span class="string">https-main</span></span><br><span class="line"><span class="attr">  scheme:</span> <span class="string">https</span></span><br><span class="line"><span class="attr">  scrapeTimeout:</span> <span class="number">30</span><span class="string">s</span></span><br><span class="line"><span class="attr">  tlsConfig:</span></span><br><span class="line"><span class="attr">    insecureSkipVerify:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">- bearerTokenFile:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line"><span class="attr">  interval:</span> <span class="number">30</span><span class="string">s</span></span><br><span class="line"><span class="attr">  port:</span> <span class="string">https-self</span></span><br><span class="line"><span class="attr">  scheme:</span> <span class="string">https</span></span><br><span class="line"><span class="attr">  tlsConfig:</span></span><br><span class="line"><span class="attr">    insecureSkipVerify:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">jobLabel:</span> <span class="string">k8s-app</span></span><br><span class="line"><span class="attr">selector:</span></span><br><span class="line"><span class="attr">  matchLabels:</span></span><br><span class="line"><span class="attr">    k8s-app:</span> <span class="string">kube-state-metrics</span></span><br></pre></td></tr></table></figure>
-<h1 id="Endpoint"><a href="#Endpoint" class="headerlink" title="Endpoint"></a>Endpoint</h1><p>这里面有两个Targets，是因为在<code>kube-state-metrics-serviceMonitor.yaml</code>文件中的<code>spec</code>下面配置了两个endpoints。</p>
-<p>并且这两个都是用<code>bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token</code>来获取权限的。</p>
-<p>进入prometheus-k8s-0容器查看这个文件的内容，或者通过secret直接查看，我们选择后者。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl get secret -n monitoring</span><br><span class="line">NAME                              TYPE                                  DATA   AGE</span><br><span class="line">prometheus-k8s                    Opaque                                1      3h12m</span><br><span class="line">prometheus-k8s-token-sm6gd        kubernetes.io/service-account-token   3      58d</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe secret prometheus-k8s-token-sm6gd -n monitoring</span><br></pre></td></tr></table></figure>
-<p>取到token</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJtb25pdG9yaW5nIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6InByb21ldGhldXMtazhzLXRva2VuLXNtNmdkIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6InByb21ldGhldXMtazhzIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiMTk2OTkyOTItNDY2Yi00NWQ4LWJmYmYtYzkyZjIwNjczOWY3Iiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Om1vbml0b3Jpbmc6cHJvbWV0aGV1cy1rOHMifQ.iggZ4ZxmD0y04OQfDlo4P6zRgzn0ryVhcdhlgncpnBY5BJ39Xz0a2AA51ePa78R2njFDjPcecgDJRcqPv76X3o-C-G7EZvN_Ru8zSdB51YxqlLNoIW5hy6Jr27aw74lMslg1MYX_31kkRTqD9DxVn6lq6Uqf4Djebj_E-2maiwl863GCeNRfS1X6KM8idsVknLlpdVINbM8U_l1Yuw-auNzelAk1NQlBdbJqsm1CZKIg_YBsT-KbiyTsbjX2v0uL1D6-Q5Xs9NZMLEAa7dfwz_EOYMDnIGbv-eyhD-924H4_pGOIoQ0dCBP01cxFm7pLJPGouwLaEwPs5BRS0B6u-w</span><br></pre></td></tr></table></figure>
-<h2 id="monitoring-kube-state-metrics-0"><a href="#monitoring-kube-state-metrics-0" class="headerlink" title="monitoring/kube-state-metrics/0"></a>monitoring/kube-state-metrics/0</h2><p>Endpoint: <code>https://10.244.36.69:8443/metrics</code></p>
-<p>执行如下命令即可获取所有指标了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -k https://10.244.36.69:8443/metrics -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJtb25pdG9yaW5nIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6InByb21ldGhldXMtazhzLXRva2VuLXNtNmdkIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6InByb21ldGhldXMtazhzIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiMTk2OTkyOTItNDY2Yi00NWQ4LWJmYmYtYzkyZjIwNjczOWY3Iiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Om1vbml0b3Jpbmc6cHJvbWV0aGV1cy1rOHMifQ.iggZ4ZxmD0y04OQfDlo4P6zRgzn0ryVhcdhlgncpnBY5BJ39Xz0a2AA51ePa78R2njFDjPcecgDJRcqPv76X3o-C-G7EZvN_Ru8zSdB51YxqlLNoIW5hy6Jr27aw74lMslg1MYX_31kkRTqD9DxVn6lq6Uqf4Djebj_E-2maiwl863GCeNRfS1X6KM8idsVknLlpdVINbM8U_l1Yuw-auNzelAk1NQlBdbJqsm1CZKIg_YBsT-KbiyTsbjX2v0uL1D6-Q5Xs9NZMLEAa7dfwz_EOYMDnIGbv-eyhD-924H4_pGOIoQ0dCBP01cxFm7pLJPGouwLaEwPs5BRS0B6u-w"</span><br></pre></td></tr></table></figure>
-<p>指标以<code>kube_</code>开始。<br><code>kube_configmap_</code><br><code>kube_cronjob_</code><br><code>kube_daemonset_</code><br><code>kube_deployment_</code><br><code>kube_endpoint_</code><br><code>kube_namespace_</code><br><code>kube_node_</code><br><code>kube_persistentvolumeclaim_</code><br><code>kube_persistentvolume_</code><br><code>kube_pod_</code><br><code>kube_pod_container_</code><br><code>kube_secret_</code><br><code>kube_statefulset_</code><br><code>kube_storageclass_</code></p>
-<p>我将指标存入<code>kube-state-metrics-0.txt</code> <a href="/2020/02/Prometheus-monitoring-kube-state-metrics%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/kube-state-metrics-0.txt" title="点击查看">点击查看</a>，供下载查看。</p>
-<h2 id="monitoring-kube-state-metrics-1"><a href="#monitoring-kube-state-metrics-1" class="headerlink" title="monitoring/kube-state-metrics/1"></a>monitoring/kube-state-metrics/1</h2><p>Endpoint: <code>https://10.244.36.69:9443/metrics</code></p>
-<p>指标为<code>go</code>系统级别指标。</p>
-<p>同理可得其指标。<code>kube-state-metrics-1.txt</code> <a href="/2020/02/Prometheus-monitoring-kube-state-metrics%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/kube-state-metrics-1.txt" title="点击查看">点击查看</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -662,7 +643,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">308</span>
+          <span class="site-state-item-count">309</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -675,7 +656,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">189</span>
+        <span class="site-state-item-count">190</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
