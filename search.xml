@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[pip国内源配置]]></title>
+    <url>%2F2022%2F03%2Fpip%E5%9B%BD%E5%86%85%E6%BA%90%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[通过pip安装软件，使用默认源的时候，往往下载速度很慢，所以需要配置到国内的源。 临时安装某个包。 1pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package 设为默认。 12pip install pip -Upip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple 临时使用某个镜像。 1pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>pip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[jupyter lab画图不显示的问题]]></title>
     <url>%2F2022%2F03%2Fjupyter-lab%E7%94%BB%E5%9B%BE%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[使用jupyter lab画图时，图片不显示。 需要安装一个扩展工具。 1$ jupyter labextension install jupyterlab-plotly 重启jupyter lab，图片即可正常显示。]]></content>
+    <content type="text"><![CDATA[使用jupyter lab画图时，图片不显示。 需要安装一个扩展工具。 1$ jupyter labextension install jupyterlab-plotly 这个工具需要依赖nodejs，如果没有安装的话，需要安装一下。 1$ conda install nodejs 重启jupyter lab，图片即可正常显示。]]></content>
       <categories>
         <category>Python</category>
       </categories>
