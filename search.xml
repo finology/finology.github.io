@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[python plotly画两个y轴]]></title>
+    <url>%2F2022%2F03%2Fpython-plotly%E7%94%BB%E4%B8%A4%E4%B8%AAy%E8%BD%B4%2F</url>
+    <content type="text"><![CDATA[使用 plotly 画图的时候，如果有两个指标的数值相差很大时，这时候需要y轴拆分成两个，这样能更清楚的看到两个指标的关系。 下面代码展示了跨期价差套利的图像。 12345678910111213141516171819202122232425import plotly.graph_objects as gofrom plotly.subplots import make_subplotsih2106 = go.Scatter( x=data.index, y=data["IH2106"], name="IH2106")ih2109 = go.Scatter( x=data.index, y=data["IH2109"], name="IH2109")spread = go.Scatter( x=data.index, y=data["spread"], name="spread")fig = make_subplots(specs=[[&#123;"secondary_y": True&#125;]])fig.add_trace(ih2106)fig.add_trace(ih2109)fig.add_trace(spread, secondary_y=True)]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>plotly</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[pip国内源配置]]></title>
     <url>%2F2022%2F03%2Fpip%E5%9B%BD%E5%86%85%E6%BA%90%E9%85%8D%E7%BD%AE%2F</url>
     <content type="text"><![CDATA[通过pip安装软件，使用默认源的时候，往往下载速度很慢，所以需要配置到国内的源。 临时安装某个包。 1pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package 设为默认。 12pip install pip -Upip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple 临时使用某个镜像。 1pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U]]></content>
