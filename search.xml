@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[解决cannot import name 'Qsci' from 'PyQt5']]></title>
+    <url>%2F2022%2F03%2F%E8%A7%A3%E5%86%B3cannot-import-name-Qsci-from-PyQt5%2F</url>
+    <content type="text"><![CDATA[Windows 10 安装 vnpy 2.7.0，报错： 12345678910Traceback (most recent call last): File "run.py", line 5, in &lt;module&gt; from vnpy.trader.ui import MainWindow, create_qapp File "C:\ProgramData\Miniconda3\lib\site-packages\vnpy\trader\ui\__init__.py", line 11, in &lt;module&gt; from .mainwindow import MainWindow File "C:\ProgramData\Miniconda3\lib\site-packages\vnpy\trader\ui\mainwindow.py", line 28, in &lt;module&gt; from .editor import CodeEditor File "C:\ProgramData\Miniconda3\lib\site-packages\vnpy\trader\ui\editor.py", line 4, in &lt;module&gt; from PyQt5 import QtWidgets, Qsci, QtGuiImportError: cannot import name 'Qsci' from 'PyQt5' (C:\ProgramData\Miniconda3\lib\site-packages\PyQt5\__init__.py) 解决方案： 1pip install QScintilla]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>vnpy</tag>
+        <tag>pyqt5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Android手机存储空间不足及微信数据备份]]></title>
+    <url>%2F2022%2F03%2FAndroid%E6%89%8B%E6%9C%BA%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E4%B8%8D%E8%B6%B3%E5%8F%8A%E5%BE%AE%E4%BF%A1%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%2F</url>
+    <content type="text"><![CDATA[电脑和pad我都是使用的iOS的，不过手机我却一直在用Android。并不是说苹果手机不好，我想以更加开放的心态，接受更多优秀的事物。 我目前使用的手机是小米Mi 9，存储一共128G。用了几年，发现有个问题，手机存储不够了。 微信和QQ占用的存储非常大，大几十个G。有时候通过百度网盘看一些视频，所以缓存也非常大。 之前我都是手工删除一些大文件，但微信占用空间的越来越大，已经影响到我使用手机的效率了，所以必须要彻底清理一下。 备份微信数据微信数据分为聊天数据和非聊天数据（图片、视频和其他文档） 备份非聊天数据通过USB把手机连到mac上，使用Commander One软件，把如下几个文件夹的文件拷出来备份。 Android/data/com.tencent.mm/MicroMsg/Download Pictures/WeiXin 下面两个是老版本的微信放文件的地址 tencent/MicroMsg/Download tencent/MicroMsg/WeiXin 备份聊天数据装一个微信电脑版本，上面有备份聊天记录的功能。 微信还有一个自带的清除缓存的功能，可以降低很多空间，而且聊天记录还保存着，只是历史的图片打不开了。]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[python plotly画两个y轴]]></title>
     <url>%2F2022%2F03%2Fpython-plotly%E7%94%BB%E4%B8%A4%E4%B8%AAy%E8%BD%B4%2F</url>
     <content type="text"><![CDATA[使用 plotly 画图的时候，如果有两个指标的数值相差很大时，这时候需要y轴拆分成两个，这样能更清楚的看到两个指标的关系。 下面代码展示了跨期价差套利的图像。 12345678910111213141516171819202122232425import plotly.graph_objects as gofrom plotly.subplots import make_subplotsih2106 = go.Scatter( x=data.index, y=data["IH2106"], name="IH2106")ih2109 = go.Scatter( x=data.index, y=data["IH2109"], name="IH2109")spread = go.Scatter( x=data.index, y=data["spread"], name="spread")fig = make_subplots(specs=[[&#123;"secondary_y": True&#125;]])fig.add_trace(ih2106)fig.add_trace(ih2109)fig.add_trace(spread, secondary_y=True)]]></content>
