@@ -134,17 +134,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">194</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">196</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">72</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">73</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">316</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">320</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/01/CentOS7%E6%90%AD%E5%BB%BASVN%E6%9C%8D%E5%8A%A1%E5%8F%8A%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/01/javascript%E4%B8%AD%E7%9A%84Promise/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +218,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/01/CentOS7%E6%90%AD%E5%BB%BASVN%E6%9C%8D%E5%8A%A1%E5%8F%8A%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" class="post-title-link" itemprop="url">CentOS7搭建SVN服务及备份与恢复</a>
+            <a href="/2020/01/javascript%E4%B8%AD%E7%9A%84Promise/" class="post-title-link" itemprop="url">javascript中的Promise</a>
         </h2>
 
         <div class="post-meta">
@@ -228,7 +228,119 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-01-09 22:19:27" itemprop="dateCreated datePublished" datetime="2020-01-09T22:19:27+08:00">2020-01-09</time>
+              <time title="创建时间：2020-01-12 22:25:56" itemprop="dateCreated datePublished" datetime="2020-01-12T22:25:56+08:00">2020-01-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/01/javascript%E4%B8%AD%E7%9A%84Promise/" class="post-meta-item leancloud_visitors" data-flag-title="javascript中的Promise" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/01/javascript%E4%B8%AD%E7%9A%84Promise/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/javascript%E4%B8%AD%E7%9A%84Promise/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Promise最大的好处是在异步执行过程中，把执行代码逻辑和处理请求后的结果分离了，解偶合了。</p>
+<img src="/2020/01/javascript%E4%B8%AD%E7%9A%84Promise/jspromise.png" class="">
+<p>执行代码逻辑，比如请求api后，返回http code 200怎么做，返回400又怎么做。</p>
+<p>可以把如下代码复制到Chrome的Console里面执行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> return_code = <span class="number">400</span> <span class="comment">// 任意设置</span></span><br><span class="line">    <span class="keyword">if</span> (return_code == <span class="number">200</span>) &#123;</span><br><span class="line">        resolve(<span class="string">'OK'</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        reject(&#123;<span class="attr">code</span>: <span class="number">400</span>&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;).catch(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/01/%E9%AB%98%E5%BE%B7%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%A4%A9%E6%B0%94%E6%9F%A5%E8%AF%A2API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/%E9%AB%98%E5%BE%B7%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%A4%A9%E6%B0%94%E6%9F%A5%E8%AF%A2API/" class="post-title-link" itemprop="url">高德开放平台天气查询API</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-12 18:45:21" itemprop="dateCreated datePublished" datetime="2020-01-12T18:45:21+08:00">2020-01-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -247,12 +359,12 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/SVN/" itemprop="url" rel="index"><span itemprop="name">SVN</span></a>
+                  <a href="/categories/Tools/API/" itemprop="url" rel="index"><span itemprop="name">API</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/01/CentOS7%E6%90%AD%E5%BB%BASVN%E6%9C%8D%E5%8A%A1%E5%8F%8A%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS7搭建SVN服务及备份与恢复" title="阅读次数">
+            <span id="/2020/01/%E9%AB%98%E5%BE%B7%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%A4%A9%E6%B0%94%E6%9F%A5%E8%AF%A2API/" class="post-meta-item leancloud_visitors" data-flag-title="高德开放平台天气查询API" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -268,8 +380,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2020/01/CentOS7%E6%90%AD%E5%BB%BASVN%E6%9C%8D%E5%8A%A1%E5%8F%8A%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/CentOS7%E6%90%AD%E5%BB%BASVN%E6%9C%8D%E5%8A%A1%E5%8F%8A%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/01/%E9%AB%98%E5%BE%B7%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%A4%A9%E6%B0%94%E6%9F%A5%E8%AF%A2API/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/%E9%AB%98%E5%BE%B7%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%A4%A9%E6%B0%94%E6%9F%A5%E8%AF%A2API/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -296,41 +408,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="安装SVN"><a href="#安装SVN" class="headerlink" title="安装SVN"></a>安装SVN</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install subversion</span><br></pre></td></tr></table></figure>
-<h1 id="创建SVN仓库"><a href="#创建SVN仓库" class="headerlink" title="创建SVN仓库"></a>创建SVN仓库</h1><p>先创建仓库目录，用来放仓库文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /usr/local/svn/repo</span><br></pre></td></tr></table></figure>
-<p>在上面目录下创建SVN仓库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnadmin create /usr/local/svn/repo</span><br></pre></td></tr></table></figure>
-<h1 id="配置SVN"><a href="#配置SVN" class="headerlink" title="配置SVN"></a>配置SVN</h1><p>进入SVN配置目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/svn/repo/conf</span><br></pre></td></tr></table></figure>
-<h2 id="配置svnserve-conf"><a href="#配置svnserve-conf" class="headerlink" title="配置svnserve.conf"></a>配置svnserve.conf</h2><p>至少有三个地方需要取消注释。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">auth-access &#x3D; write</span><br><span class="line">password-db &#x3D; passwd</span><br><span class="line">authz-db &#x3D; authz</span><br></pre></td></tr></table></figure>
-<h2 id="配置passwd"><a href="#配置passwd" class="headerlink" title="配置passwd"></a>配置passwd</h2><p>比如增加一个admin用户</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[users]</span><br><span class="line"># harry &#x3D; harryssecret</span><br><span class="line"># sally &#x3D; sallyssecret</span><br><span class="line">admin &#x3D; admin</span><br></pre></td></tr></table></figure>
-<h2 id="配置authz"><a href="#配置authz" class="headerlink" title="配置authz"></a>配置authz</h2><p>给admin用户设置根目录的读写权限</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[/]</span><br><span class="line">admin = rw</span><br></pre></td></tr></table></figure>
-<h1 id="启动SVN服务"><a href="#启动SVN服务" class="headerlink" title="启动SVN服务"></a>启动SVN服务</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnserve -d -r /usr/local/svn/repo/</span><br></pre></td></tr></table></figure>
-<p><code>-d</code>参数是daemon</p>
-<p><code>-r</code>参数是root，也即是仓库的根目录</p>
-<p>服务启动后，SVN服务在3690端口进行监听</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ss -tunlp | grep 3690</span><br><span class="line">tcp    LISTEN     0      7         *:3690                  *:*</span><br></pre></td></tr></table></figure>
-<h1 id="SVN备份"><a href="#SVN备份" class="headerlink" title="SVN备份"></a>SVN备份</h1><h2 id="全量备份"><a href="#全量备份" class="headerlink" title="全量备份"></a>全量备份</h2><p>把<code>/usr/local/svn/repo</code>仓库的内容备份到<code>/usr/local/svn-bak/</code>目录下。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo svnadmin dump /usr/local/svn/repo/ &gt; /usr/local/svn-bak/repobak-all</span><br><span class="line">\* Dumped revision 0.</span><br><span class="line">\* Dumped revision 1.</span><br><span class="line">\* Dumped revision 2.</span><br></pre></td></tr></table></figure>
-<h2 id="增量备份"><a href="#增量备份" class="headerlink" title="增量备份"></a>增量备份</h2><h3 id="查看svn最新的版本号"><a href="#查看svn最新的版本号" class="headerlink" title="查看svn最新的版本号"></a>查看svn最新的版本号</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svnlook youngest /usr/local/svn/repo</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-<p>可得知svn的版本号为1。</p>
-<h3 id="初始备份"><a href="#初始备份" class="headerlink" title="初始备份"></a>初始备份</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo svnadmin dump /usr/local/svn/repo/ -r 0:1 --incremental &gt; /usr/local/svn-bak/repobak0-1</span><br><span class="line">\* Dumped revision 0.</span><br><span class="line">\* Dumped revision 1.</span><br></pre></td></tr></table></figure>
-<p><code>-r</code>参数：<start-revision-no.>:<end-revision-no.>，上面例子是<code>0:1</code>，指定备份的开始与结束版本号。</p>
-<p><code>--incremental</code>参数：表示增量备份。</p>
-<h3 id="再次备份"><a href="#再次备份" class="headerlink" title="再次备份"></a>再次备份</h3><p>下次备份时，查看最新的svn版本号：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svnlook youngest /usr/local/svn/repo</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
-<p>说明这两次备份之间，只更新了一个版本。</p>
-<p>执行增量备份：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo svnadmin dump /usr/local/svn/repo/ -r 2:2 --incremental &gt; /usr/local/svn-bak/repobak2-2</span><br><span class="line">\* Dumped revision 2.</span><br></pre></td></tr></table></figure>
-<h1 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h1><p>灾难过后，新建svn仓库，如：<code>/usr/local/svn/recovery-repo/</code>。</p>
-<h2 id="全量恢复"><a href="#全量恢复" class="headerlink" title="全量恢复"></a>全量恢复</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo svnadmin load /usr/local/svn/recovery-repo/ &lt; /usr/local/svn-bak/repobak</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 增量恢复</span></span></span><br><span class="line"></span><br><span class="line">先恢复最早的版本。</span><br><span class="line"></span><br><span class="line">```shell</span><br><span class="line">sudo svnadmin load /usr/local/svn/recovery-repo/ &lt; /usr/local/svn-bak/repobak0-1 </span><br><span class="line">&lt;&lt;&lt; Started new transaction, based on original revision 1</span><br><span class="line">​     \* adding path : project1 ... done.</span><br><span class="line">​     \* adding path : project1/new ... done.</span><br><span class="line"></span><br><span class="line">------- Committed revision 1 &gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-<p>再恢复最近的版本。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo svnadmin load /usr/local/svn/recovery-repo/ &lt; /usr/local/svn-bak/repobak2-2 </span><br><span class="line">&lt;&lt;&lt; Started new transaction, based on original revision 2</span><br><span class="line">​     \* editing path : project1/new ... done.</span><br><span class="line"></span><br><span class="line">------- Committed revision 2 &gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-<p>恢复后，设置好密码、权限等配置，启动svnserve服务，就算是恢复完成了。</p>
+          <p>高德开放平台下的天气查询接口文档</p>
+<p><a href="https://lbs.amap.com/api/webservice/guide/api/weatherinfo">https://lbs.amap.com/api/webservice/guide/api/weatherinfo</a></p>
+<p>注册开发者账号，获取Key</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://restapi.amap.com/v3/weather/weatherInfo?parameters</span><br></pre></td></tr></table></figure>
+<p>parameters代表的参数包括必填参数和可选参数。</p>
+<p><a href="https://restapi.amap.com/v3/weather/weatherInfo?key=[key]&amp;city=310115">https://restapi.amap.com/v3/weather/weatherInfo?key=[key]&amp;city=310115</a></p>
+<p>返回结果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "status": "1",</span><br><span class="line">    "count": "1",</span><br><span class="line">    "info": "OK",</span><br><span class="line">    "infocode": "10000",</span><br><span class="line">    "lives": [</span><br><span class="line">        &#123;</span><br><span class="line">            "province": "上海",</span><br><span class="line">            "city": "浦东新区",</span><br><span class="line">            "adcode": "310115",</span><br><span class="line">            "weather": "多云",</span><br><span class="line">            "temperature": "6",</span><br><span class="line">            "winddirection": "北",</span><br><span class="line">            "windpower": "≤3",</span><br><span class="line">            "humidity": "56",</span><br><span class="line">            "reporttime": "2020-01-12 17:57:21"</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>百度api是jsonp的方式获取数据，而高德地图的api是允许跨域的。</p>
+
 
       
     </div>
@@ -350,7 +437,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/01/%E5%BD%BB%E5%BA%95%E6%B8%85%E9%99%A4yum%E7%BC%93%E5%AD%98/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/01/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5%E6%9F%A5%E8%AF%A2API/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -364,7 +451,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/01/%E5%BD%BB%E5%BA%95%E6%B8%85%E9%99%A4yum%E7%BC%93%E5%AD%98/" class="post-title-link" itemprop="url">彻底清除yum缓存</a>
+            <a href="/2020/01/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5%E6%9F%A5%E8%AF%A2API/" class="post-title-link" itemprop="url">百度地图开放平台天气预报查询API</a>
         </h2>
 
         <div class="post-meta">
@@ -374,7 +461,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-01-07 23:13:08" itemprop="dateCreated datePublished" datetime="2020-01-07T23:13:08+08:00">2020-01-07</time>
+              <time title="创建时间：2020-01-12 00:41:44" itemprop="dateCreated datePublished" datetime="2020-01-12T00:41:44+08:00">2020-01-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -389,16 +476,16 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a>
+                  <a href="/categories/Tools/API/" itemprop="url" rel="index"><span itemprop="name">API</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/01/%E5%BD%BB%E5%BA%95%E6%B8%85%E9%99%A4yum%E7%BC%93%E5%AD%98/" class="post-meta-item leancloud_visitors" data-flag-title="彻底清除yum缓存" title="阅读次数">
+            <span id="/2020/01/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5%E6%9F%A5%E8%AF%A2API/" class="post-meta-item leancloud_visitors" data-flag-title="百度地图开放平台天气预报查询API" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -414,8 +501,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2020/01/%E5%BD%BB%E5%BA%95%E6%B8%85%E9%99%A4yum%E7%BC%93%E5%AD%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/%E5%BD%BB%E5%BA%95%E6%B8%85%E9%99%A4yum%E7%BC%93%E5%AD%98/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/01/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5%E6%9F%A5%E8%AF%A2API/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5%E6%9F%A5%E8%AF%A2API/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -442,143 +529,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum clean all</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /var/cache/yum/*</span><br></pre></td></tr></table></figure>
+          <p>获取天气查询服务的文档地址</p>
+<p><a href="http://lbsyun.baidu.com/index.php?title=car/api/weather">http://lbsyun.baidu.com/index.php?title=car/api/weather</a></p>
+<img src="/2020/01/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5%E6%9F%A5%E8%AF%A2API/weather.png" class="">
+<p>首先得拿到到<code>ak</code>参数的值，也就是密钥。</p>
+<p>点击”获取密钥”链接，进入页面，注册成为百度地图开放平台开发者。</p>
+<img src="/2020/01/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5%E6%9F%A5%E8%AF%A2API/baidudeveloper.png" class="">
+<p>获取密钥</p>
+<p>查询api:</p>
+<p><a href="http://api.map.baidu.com/telematics/v3/weather?location=上海&amp;output=json&amp;ak=[ak密钥">http://api.map.baidu.com/telematics/v3/weather?location=上海&amp;output=json&amp;ak=[ak密钥</a>]</p>
+<p>这个api，已经不开放给新注册的用户了。</p>
+<p>如果是新注册的开发者用户，得看看我下一篇文章了，换成高德开放平台了。</p>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/01/CentOS7%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0yum%E6%BA%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/CentOS7%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0yum%E6%BA%90/" class="post-title-link" itemprop="url">CentOS7搭建本地yum源</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-07 23:11:44" itemprop="dateCreated datePublished" datetime="2020-01-07T23:11:44+08:00">2020-01-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/01/CentOS7%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0yum%E6%BA%90/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS7搭建本地yum源" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2020/01/CentOS7%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0yum%E6%BA%90/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/CentOS7%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0yum%E6%BA%90/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="加载光盘iso"><a href="#加载光盘iso" class="headerlink" title="加载光盘iso"></a>加载光盘iso</h1><p>首先在VMware里面，把<code>CentOS-7-x86_64-Everything-1908.iso</code>镜像文件加载到CD/DVD设备中。</p>
-<p>加载成功后，查看状态：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ll /dev/cdrom </span><br><span class="line">lrwxrwxrwx. 1 root root 3 Jan  7 09:54 /dev/cdrom -&gt; sr0</span><br></pre></td></tr></table></figure>
-<h1 id="创建挂载目录"><a href="#创建挂载目录" class="headerlink" title="创建挂载目录"></a>创建挂载目录</h1><p>此目录用于显示光盘内容</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /mnt/cdrom</span><br></pre></td></tr></table></figure>
-<h1 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h1><p>查看挂载类型</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/filesystems</span><br><span class="line">nodev	sysfs</span><br><span class="line">nodev	rootfs</span><br><span class="line">nodev	ramfs</span><br><span class="line">...</span><br><span class="line">nodev	selinuxfs</span><br><span class="line">	    xfs</span><br><span class="line">	    iso9660</span><br></pre></td></tr></table></figure>
-<p>我们看到类型有<code>iso9660</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t iso9660 -o ro /dev/cdrom /mnt/cdrom</span><br></pre></td></tr></table></figure>
-<p>把参数<code>-t</code>省略也是可以的，即：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount &#x2F;dev&#x2F;cdrom &#x2F;mnt&#x2F;cdrom&#x2F;</span><br></pre></td></tr></table></figure>
-<p>系统会提示按只读方式挂载。</p>
-<p>查看挂载状态：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br><span class="line">Filesystem               Size  Used Avail Use% Mounted on</span><br><span class="line">...</span><br><span class="line">/dev/sr0                  11G   11G     0 100% /mnt/cdrom</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h1 id="添加yum配置文件"><a href="#添加yum配置文件" class="headerlink" title="添加yum配置文件"></a>添加yum配置文件</h1><p>备份<code>CentOS-Base.repo</code>文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak</span><br></pre></td></tr></table></figure>
-<p>创建文件<code>/etc/yum.repos.d/CentOS-Base-Local.repo</code></p>
-<p>内容如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[base-local]</span><br><span class="line">name=CentOS-$releasever - Base-Local</span><br><span class="line">baseurl=file:///mnt/cdrom</span><br><span class="line">gpgcheck=0  </span><br><span class="line">enabled=1              </span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br></pre></td></tr></table></figure>
-<p>清理yum缓存</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum clean all</span><br></pre></td></tr></table></figure>
-<p>查看本地yum源是否生效</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum repolist</span><br><span class="line">Loaded plugins: fastestmirror</span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line">repo id                                                        repo name                                                                  status</span><br><span class="line">base-local                                                     CentOS-7 - Base-Local                                                      10,097</span><br><span class="line">repolist: 10,097</span><br></pre></td></tr></table></figure>
-<p>到此，我们就可以通过<code>yum install</code>安装软件了。</p>
 
       
     </div>
@@ -598,7 +560,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/62/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><span class="page-number current">63</span><a class="page-number" href="/page/64/">64</a><span class="space">&hellip;</span><a class="page-number" href="/page/106/">106</a><a class="extend next" rel="next" href="/page/64/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/62/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><span class="page-number current">63</span><a class="page-number" href="/page/64/">64</a><span class="space">&hellip;</span><a class="page-number" href="/page/107/">107</a><a class="extend next" rel="next" href="/page/64/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -677,20 +639,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">316</span>
+          <span class="site-state-item-count">320</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-count">73</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">194</span>
+        <span class="site-state-item-count">196</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

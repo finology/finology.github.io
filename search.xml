@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[json优美打印]]></title>
+    <url>%2F2022%2F03%2Fjson%E4%BC%98%E7%BE%8E%E6%89%93%E5%8D%B0%2F</url>
+    <content type="text"><![CDATA[打印日志时，一个对象比较大的时候，json字符串比较长，阅读性不强。 这时可以通过一些工具，把json格式化，美化一下，能更方便的阅读。 jackson方式1mapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj); Gson方式12Gson gson = new GsonBuilder().setPrettyPrinting().create();gson.toJson(obj);]]></content>
+      <tags>
+        <tag>json</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[GlusterFS Java API使用]]></title>
+    <url>%2F2022%2F03%2FGlusterFS-Java-API%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[我们在使用官方提供的GlusterFS Java API，可能会遇到很多坑。 123456789Exception in thread "main" java.lang.UnsatisfiedLinkError: Could not load library. Reasons: [no libgfapi-jni64-1.0.5-SNAPSHOT in java.library.path, no libgfapi-jni-1.0.5-SNAPSHOT in java.library.path, no libgfapi-jni in java.library.path, /tmp/liblibgfapi-jni-64-1-5094135110056410243.0: libgfapi.so.0: cannot open shared object file: No such file or directory] at org.fusesource.hawtjni.runtime.Library.doLoad(Library.java:182) at org.fusesource.hawtjni.runtime.Library.load(Library.java:140) at com.peircean.libgfapi_jni.internal.GLFS.&lt;clinit&gt;(GLFS.java:52) at com.peircean.glusterfs.GlusterFileSystemProvider.glfsNew(GlusterFileSystemProvider.java:70) at com.peircean.glusterfs.GlusterFileSystemProvider.newFileSystem(GlusterFileSystemProvider.java:43) at com.peircean.glusterfs.GlusterFileSystemProvider.getPath(GlusterFileSystemProvider.java:111) at java.nio.file.Paths.get(Paths.java:143) at com.peircean.glusterfs.example.Example.main(Example.java:43)]]></content>
+      <categories>
+        <category>FileSystem</category>
+      </categories>
+      <tags>
+        <tag>GlusterFS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[java 8 stream groupingBy分组]]></title>
+    <url>%2F2022%2F03%2Fjava-8-stream-groupingBy%E5%88%86%E7%BB%84%2F</url>
+    <content type="text"><![CDATA[有时候需要在程序里面做分组操作，类似MySQL中的group by语句。 比如有如下数据： id name 1 A 1 B 2 C 我们想把它分组成这样的形式：{1=[A, B], 2=[C]} 12345678910111213141516171819202122232425262728293031323334public class GroupingByDemo &#123; @Data static class IdNamePair &#123; private int id; private String name; &#125; public static void main(String[] args) &#123; IdNamePair pair = new IdNamePair(); pair.id = 1; pair.name = "A"; IdNamePair pair2 = new IdNamePair(); pair2.id = 1; pair2.name = "B"; IdNamePair pair3 = new IdNamePair(); pair3.id = 2; pair3.name = "C"; List&lt;IdNamePair&gt; list = new ArrayList&lt;&gt;(); list.add(pair); list.add(pair2); list.add(pair3); Map&lt;Integer, List&lt;String&gt;&gt; map = list.stream() .collect(Collectors.groupingBy(IdNamePair::getId, Collectors.mapping(IdNamePair::getName, Collectors.toList()))); System.out.println(map); &#125;&#125; Collectors.mapping(IdNamePair::getName, Collectors.toList()) 相当于再往里面拨一层，取对象里面的一个属性。]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>java8</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[MySQL表名作为变量的查询]]></title>
     <url>%2F2022%2F03%2FMySQL%E8%A1%A8%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%9F%A5%E8%AF%A2%2F</url>
     <content type="text"><![CDATA[在应用中，很多会用到数据库的存储过程，一般都会在程序里面实现数据库的逻辑。 但有时候要快速的获取某个值，逻辑比较复杂的时候，可能会用到存储过程。 比如接下来的案例，会把数据库的表作为一个变量传入。 12345678910111213DROP PROCEDURE IF EXISTS getInfo;DELIMITER $$CREATE PROCEDURE getInfo(IN tableName VARCHAR(100), IN id INT, OUT name VARCHAR(100))BEGIN SET @stmt :&#x3D; CONCAT(&quot;SELECT name INTO @var FROM &quot;, tableName, &quot; WHERE id &#x3D; &quot;, id); PREPARE stmt FROM @stmt; EXECUTE stmt; DEALLOCATE PREPARE stmt; SET name :&#x3D; @var;END$$DELIMITER ; 当创建好存储过程以后，可以通过以下方式调用。 123SET @tableName :&#x3D; &quot;tb_user&quot;;CALL getInfo(@tableName, 4, @name);SELECT @name; 如果不写存储过程，还可以通过执行下面代码的方式获取结果。 123SET @user :&#x3D; 123456;SELECT @group :&#x3D; &#96;group&#96; FROM user WHERE user &#x3D; @user;SELECT * FROM user WHERE &#96;group&#96; &#x3D; @group; 1SET @group &#x3D; (SELECT &#96;group&#96; FROM user WHERE user &#x3D; @user); 或者 1SELECT &#96;group&#96; INTO @group FROM user WHERE user &#x3D; @user);]]></content>
@@ -3356,6 +3386,14 @@
         <tag>reset</tag>
         <tag>commit</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[IntelliJ IDEA验证码 license server]]></title>
+    <url>%2F2018%2F08%2FIntelliJ-IDEA%E9%AA%8C%E8%AF%81%E7%A0%81-license-server%2F</url>
+    <content type="text"><![CDATA[首先表明必须支持正版，尊重知识产权。 最早的方法可能已经不能成功使用了，看最新的方法就是了。 2019/10/20日更新链接: https://pan.baidu.com/s/1EtXP4MS7jgrhCvT6XX5a8A&amp;shfl=shareset 提取码: uerw 下载jetbrains-agent.jar到idea-IU-192.6817.14/bin目录，具体哪个目录无所谓，只要IDEA能通过绝对路径访问到就行了。 先点击Evaluation进入，在IDEA欢迎页面，点击Configure -&gt; Edit Custom VM Options... 在最后一行添加内容 1-javaagent:/usr/local/idea-IU-192.6817.14/bin/jetbrains-agent.jar 保存退出，重启IDEA。 注：需要用root启动。用sudo都不行。 如果显示下面内容，代表设置成功了。 123456789101112bin/idea.sh OpenJDK 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in version 9.0 and will likely be removed in a future release. ==================================================== ======= Jetbrains License Crack ======= ======= https://zhile.io ======= ==================================================== @See: https://zhile.io/2018/08/17/jetbrains-license-server-crack.html @Version: 2.2.0, @Build Date: 2019-07-19 启动以后，Configure -&gt; Manage License，这时在License server选项中，就会有http://jetbrains-license-server。点击Activate按钮激活就可以了。 2018/8/3日更新以下是IntelliJ的license server地址 2018-7-30亲测可用http://idea.congm.in 2018-8-3亲测可用http://idea.toocruel.net]]></content>
+      <categories>
+        <category>IDE</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[macOS安装java jdk和maven并配置环境变量]]></title>
