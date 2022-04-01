@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python带时区时间处理]]></title>
+    <url>%2F2022%2F04%2FPython%E5%B8%A6%E6%97%B6%E5%8C%BA%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%2F</url>
+    <content type="text"><![CDATA[我们从外部获取到的时间数据，是str类型的。如果时间的时区为UTC+0时区，要转成东八区来显示，可以按如下方法来操作。 1234567from datetime import datetimeimport pytzformat = "%Y-%m-%d %H:%M:%S"date = datetime.strptime("2022-04-01 12:00:00", format)converted_date = date.replace(tzinfo=pytz.utc).astimezone(pytz.timezone("Asia/Shanghai"))print(datetime.strftime(converted_date, format)) 如果是在DataFrame里，比如从Excel里面读出来的数据。可用下面方法。 1234567import pandas as pddf = pd.DataFrame(["2022-03-22 12:00:05", "2022-03-22 13:10:05"], columns=['date'])df['date2'] = pd.to_datetime(df['date'], format="%Y-%m-%d %H:%M:%S")df['date3'] = df['date2'].dt.tz_localize(pytz.utc).dt.tz_convert("Asia/Shanghai").dt.strftime("%Y-%m-%d %H:%M:%S")df 这个dt不能缺少，用于Datetime上面的。 123df['date2'].dt&lt;pandas.core.indexes.accessors.DatetimeProperties object at 0x7fbe14fd2f10&gt;]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>pandas</tag>
+        <tag>timezone</tag>
+        <tag>datetime</tag>
+        <tag>时区</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MySQL实践操作技巧]]></title>
+    <url>%2F2022%2F04%2FMySQL%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7%2F</url>
+    <content type="text"><![CDATA[同表，根据查找出来的主键id，进行删除，会报错。 比如： 123DELETE FROM t_user WHERE id IN( SELECT id FROM t_user WHERE name &#x3D; &quot;Hello&quot;) Error Code: 1093. You can&#39;t specify target table &#39;t_user&#39; for update in FROM clause 解决方案： 把查出来的结果生成一个临时表。 1234DELETE FROM t_user WHERE id IN( SELECT tmp.id FROM (SELECT id FROM t_user WHERE name &#x3D; &quot;Hello&quot;) tmp) 但这时有可能还会报个错，提示这是不安全的操作方法。 Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column. To disable safe mode, toggle the option in Preference -&gt; SQL Editor and reconnect. 这时可以通过以下语句关掉安全阀。 1SET SQL_SAFE_UPDATES &#x3D; 0; 再次执行删除命令就可以成功执行了。]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[json优美打印]]></title>
     <url>%2F2022%2F03%2Fjson%E4%BC%98%E7%BE%8E%E6%89%93%E5%8D%B0%2F</url>
     <content type="text"><![CDATA[打印日志时，一个对象比较大的时候，json字符串比较长，阅读性不强。 这时可以通过一些工具，把json格式化，美化一下，能更方便的阅读。 jackson方式1mapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj); Gson方式12Gson gson = new GsonBuilder().setPrettyPrinting().create();gson.toJson(obj);]]></content>
