@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[python中的dump, dumps, load和loads]]></title>
+    <url>%2F2022%2F06%2Fpython%E4%B8%AD%E7%9A%84dump-dumps-load%E5%92%8Cloads%2F</url>
+    <content type="text"><![CDATA[初学这几个函数的时候，有可能搞得比较懵。 dump和load操作，是对文件流进行操作。 dumps和loads，是对字符串进行操作，单词后的s，可以理解为string。 123456789a_json = json.load(open('demo.json','r'))a = json.loads('&#123;'a':'1111','b':'2222'&#125;')a_dict = &#123;'a':'1111','b':'2222'&#125;json.dump(a_dict, open('demo.json', 'w')a_dict = &#123;'a':'1111','b':'2222'&#125;a_str = json.dumps(a_dict)]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>dump</tag>
+        <tag>dumps</tag>
+        <tag>load</tag>
+        <tag>loads</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[查看Log日志时的一些Shell常用技巧]]></title>
     <url>%2F2022%2F06%2F%E6%9F%A5%E7%9C%8BLog%E6%97%A5%E5%BF%97%E6%97%B6%E7%9A%84%E4%B8%80%E4%BA%9BShell%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7%2F</url>
     <content type="text"><![CDATA[grep使用grep可以多次管道使用，相当于逻辑 AND 的功能 grep -P 使用正则，-o 只显示匹配字符串 显示匹配的子串sed ‘s/userId: (.*)/\1/‘ 排序sort 统计uniq -c]]></content>
