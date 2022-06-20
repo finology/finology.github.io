@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">210</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">211</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">333</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">334</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,108 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2022/02/Hexo%E5%8F%8Ahexo-next-theme%E5%8D%87%E7%BA%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/02/Hexo%E5%8F%8Ahexo-next-theme%E5%8D%87%E7%BA%A7/" class="post-title-link" itemprop="url">Hexo及hexo next theme升级</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-27 14:51:27" itemprop="dateCreated datePublished" datetime="2022-02-27T14:51:27+08:00">2022-02-27</time>
+            </span>
+
+          
+            <span id="/2022/02/Hexo%E5%8F%8Ahexo-next-theme%E5%8D%87%E7%BA%A7/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo及hexo next theme升级" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2022/02/Hexo%E5%8F%8Ahexo-next-theme%E5%8D%87%E7%BA%A7/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/02/Hexo%E5%8F%8Ahexo-next-theme%E5%8D%87%E7%BA%A7/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="升级安装Hexo"><a href="#升级安装Hexo" class="headerlink" title="升级安装Hexo"></a>升级安装Hexo</h1><h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><p>Hexo和我使用的主题都一直在升级，我的版本还是比较老，存在很多兼容性问题。使用一些自动化部署到互联网也会遇到一些问题，今天干脆把Hexo及我使用的Hexo Next主题都升级到较新的版本。</p>
+<p>这里做一下记录，以便以后在升级当中会方便一些。</p>
+<p>升级到Hexo 5.4.1。</p>
+<p>我使用的是Source Tree，直接切换到 tag 5.4.1，如果是克隆，可以直接指定tag 5.4.1。</p>
+<p><code>git clone git@github.com:hexojs/hexo.git new-blog -b 5.4.1</code></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install hexo-cli -g</span></span><br></pre></td></tr></table></figure>
+<h2 id="初始化Blog"><a href="#初始化Blog" class="headerlink" title="初始化Blog"></a>初始化Blog</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo init new-blog</span></span><br><span class="line">INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git</span><br><span class="line">INFO  Install dependencies</span><br><span class="line">INFO  Start blogging with Hexo!</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> new-blog</span></span><br></pre></td></tr></table></figure>
+<h2 id="启动Blog"><a href="#启动Blog" class="headerlink" title="启动Blog"></a>启动Blog</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo s</span></span><br></pre></td></tr></table></figure>
+<h1 id="安装Hexo-Next主题"><a href="#安装Hexo-Next主题" class="headerlink" title="安装Hexo Next主题"></a>安装Hexo Next主题</h1><p>安装Hexo Next主题的v8.10.0版本。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:next-theme/hexo-theme-next.git themes/next -b v8.10.0</span><br></pre></td></tr></table></figure>
+<p>主题部分要改动的东西太多了，放弃了。以后有时间的时候再弄吧。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -457,131 +559,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2022/02/Python%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/Python%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">Python模拟鼠标键盘操作</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-02-17 16:10:05" itemprop="dateCreated datePublished" datetime="2022-02-17T16:10:05+08:00">2022-02-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2022/02/Python%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/" class="post-meta-item leancloud_visitors" data-flag-title="Python模拟鼠标键盘操作" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2022/02/Python%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/02/Python%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>安装PyUserInput前，需要安装如下依赖：</p>
-<p>Linux - Xlib<br>Mac - Quartz, AppKit<br>Windows - pywin32, pyHook</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pywin32</span><br></pre></td></tr></table></figure>
-<p><code>https://www.lfd.uci.edu/~gohlke/pythonlibs/</code></p>
-<p>安装pyHook，找到python对应的版本，比如：<code>pyHook‑1.5.1‑cp37‑cp37m‑win_amd64.whl</code></p>
-<p>下载到本地，安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyHook‑1.5.1‑cp37‑cp37m‑win_amd64.whl</span><br></pre></td></tr></table></figure>
-<p>安装PyUserInput</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install PyUserInput</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymouse <span class="keyword">import</span> PyMouse</span><br><span class="line"><span class="keyword">from</span> pykeyboard <span class="keyword">import</span> PyKeyboard</span><br><span class="line"></span><br><span class="line">m = PyMouse()</span><br><span class="line">k = PyKeyboard()</span><br></pre></td></tr></table></figure>
-<p>调用api</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">x_dim, y_dim = m.screen_size()</span><br><span class="line">m.click(x_dim/<span class="number">2</span>, y_dim/<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">k.type_string(<span class="string">'Hello, World!'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># pressing a key</span></span><br><span class="line">k.press_key(<span class="string">'H'</span>)</span><br><span class="line"><span class="comment"># which you then follow with a release of the key</span></span><br><span class="line">k.release_key(<span class="string">'H'</span>)</span><br><span class="line"><span class="comment"># or you can 'tap' a key which does both</span></span><br><span class="line">k.tap_key(<span class="string">'e'</span>)</span><br><span class="line"><span class="comment"># note that that tap_key does support a way of repeating keystrokes with a interval time between each</span></span><br><span class="line">k.tap_key(<span class="string">'l'</span>,n=<span class="number">2</span>,interval=<span class="number">5</span>) </span><br><span class="line"><span class="comment"># and you can send a string if needed too</span></span><br><span class="line">k.type_string(<span class="string">'o World!'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#Create an Alt+Tab combo</span></span><br><span class="line">k.press_key(k.alt_key)</span><br><span class="line">k.tap_key(k.tab_key)</span><br><span class="line">k.release_key(k.alt_key)</span><br><span class="line"></span><br><span class="line">k.tap_key(k.function_keys[<span class="number">5</span>])  <span class="comment"># Tap F5</span></span><br><span class="line">k.tap_key(k.numpad_keys[<span class="string">'Home'</span>])  <span class="comment"># Tap 'Home' on the numpad</span></span><br><span class="line">k.tap_key(k.numpad_keys[<span class="number">5</span>], n=<span class="number">3</span>)  <span class="comment"># Tap 5 on the numpad, thrice</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Mac example</span></span><br><span class="line">k.press_keys([<span class="string">'Command'</span>,<span class="string">'shift'</span>,<span class="string">'3'</span>])</span><br><span class="line"><span class="comment"># Windows example</span></span><br><span class="line">k.press_keys([k.windows_l_key,<span class="string">'d'</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Windows</span></span><br><span class="line">k.tap_key(k.alt_key)</span><br><span class="line"><span class="comment"># Mac</span></span><br><span class="line">k.tap_key(<span class="string">'Alternate'</span>)</span><br></pre></td></tr></table></figure>
-<p>eg.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymouse <span class="keyword">import</span> PyMouseEvent</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fibo</span><span class="params">()</span>:</span></span><br><span class="line">    a = <span class="number">0</span></span><br><span class="line">    <span class="keyword">yield</span> a</span><br><span class="line">    b = <span class="number">1</span></span><br><span class="line">    <span class="keyword">yield</span> b</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        a, b = b, a+b</span><br><span class="line">        <span class="keyword">yield</span> b</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clickonacci</span><span class="params">(PyMouseEvent)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        PyMouseEvent.__init__(self)</span><br><span class="line">        self.fibo = fibo()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">click</span><span class="params">(self, x, y, button, press)</span>:</span></span><br><span class="line">        <span class="string">'''Print Fibonacci numbers when the left click is pressed.'''</span></span><br><span class="line">        <span class="keyword">if</span> button == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">if</span> press:</span><br><span class="line">                print(self.fibo.next())</span><br><span class="line">        <span class="keyword">else</span>:  <span class="comment"># Exit if any other mouse button used</span></span><br><span class="line">            self.stop()</span><br><span class="line"></span><br><span class="line">C = Clickonacci()</span><br><span class="line">C.run()</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/111/">111</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/112/">112</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -660,7 +642,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">333</span>
+          <span class="site-state-item-count">334</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -673,7 +655,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">210</span>
+        <span class="site-state-item-count">211</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
