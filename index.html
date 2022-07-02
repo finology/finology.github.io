@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2022/07/Windows10%E8%AE%BE%E7%BD%AEMiniconda%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%83/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2022/07/Windows10%E5%92%8CMac%E8%AE%BE%E7%BD%AEMiniconda%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +218,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/07/Windows10%E8%AE%BE%E7%BD%AEMiniconda%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">Windows10设置Miniconda启动环境</a>
+            <a href="/2022/07/Windows10%E5%92%8CMac%E8%AE%BE%E7%BD%AEMiniconda%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">Windows10和Mac设置Miniconda启动环境</a>
         </h2>
 
         <div class="post-meta">
@@ -227,8 +227,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-07-02 11:42:32" itemprop="dateCreated datePublished" datetime="2022-07-02T11:42:32+08:00">2022-07-02</time>
+              <time title="创建时间：2022-07-02 11:42:32 / 修改时间：13:00:03" itemprop="dateCreated datePublished" datetime="2022-07-02T11:42:32+08:00">2022-07-02</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -241,7 +242,7 @@
             </span>
 
           
-            <span id="/2022/07/Windows10%E8%AE%BE%E7%BD%AEMiniconda%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="Windows10设置Miniconda启动环境" title="阅读次数">
+            <span id="/2022/07/Windows10%E5%92%8CMac%E8%AE%BE%E7%BD%AEMiniconda%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="Windows10和Mac设置Miniconda启动环境" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -257,8 +258,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2022/07/Windows10%E8%AE%BE%E7%BD%AEMiniconda%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%83/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/Windows10%E8%AE%BE%E7%BD%AEMiniconda%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
+    <a title="valine" href="/2022/07/Windows10%E5%92%8CMac%E8%AE%BE%E7%BD%AEMiniconda%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%83/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/Windows10%E5%92%8CMac%E8%AE%BE%E7%BD%AEMiniconda%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -285,13 +286,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>启动Miniconda Prompt命令提示行时，默认会进入到默认的<code>base</code>环境中。</p>
+          <h1 id="Windows10"><a href="#Windows10" class="headerlink" title="Windows10"></a>Windows10</h1><p>启动Miniconda Prompt命令提示行时，默认会进入到默认的<code>base</code>环境中。</p>
 <p>要切换到用户使用的环境，都需要人工去切换一下，比较麻烦。</p>
 <p>按照如下方法，设置成用户想要的环境。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">conda env list</span><br><span class="line"></span><br><span class="line"># conda environments:</span><br><span class="line">#</span><br><span class="line">base                  *  C:\ProgramData\Miniconda3</span><br><span class="line">py310                    C:\ProgramData\Miniconda3\envs\py310</span><br></pre></td></tr></table></figure>
 <p>然后右击<code>Miniconda Prompt</code>，进入到如下图片所示</p>
-<img src="/2022/07/Windows10%E8%AE%BE%E7%BD%AEMiniconda%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%83/miniconda_env.png" class="">
+<img src="/2022/07/Windows10%E5%92%8CMac%E8%AE%BE%E7%BD%AEMiniconda%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%83/miniconda_env.png" class="">
 <p>在<code>目标</code>位置，把后面的参数改为用户想设置的环境的具体位置<code>C:\ProgramData\Miniconda3\envs\py310</code>。</p>
+<h1 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h1><p>如果是mac系统，则是编译<code>bash_profile</code>配置文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vi ~/.bash_profile</span></span><br></pre></td></tr></table></figure>
+<p>移动到最下面，添加如下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Development/python/</span><br><span class="line">conda activate py310</span><br></pre></td></tr></table></figure>
 
       
     </div>

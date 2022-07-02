@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Windows10设置Miniconda启动环境]]></title>
-    <url>%2F2022%2F07%2FWindows10%E8%AE%BE%E7%BD%AEMiniconda%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%83%2F</url>
-    <content type="text"><![CDATA[启动Miniconda Prompt命令提示行时，默认会进入到默认的base环境中。 要切换到用户使用的环境，都需要人工去切换一下，比较麻烦。 按照如下方法，设置成用户想要的环境。 123456conda env list# conda environments:#base * C:\ProgramData\Miniconda3py310 C:\ProgramData\Miniconda3\envs\py310 然后右击Miniconda Prompt，进入到如下图片所示 在目标位置，把后面的参数改为用户想设置的环境的具体位置C:\ProgramData\Miniconda3\envs\py310。]]></content>
+    <title><![CDATA[Windows10和Mac设置Miniconda启动环境]]></title>
+    <url>%2F2022%2F07%2FWindows10%E5%92%8CMac%E8%AE%BE%E7%BD%AEMiniconda%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%83%2F</url>
+    <content type="text"><![CDATA[Windows10启动Miniconda Prompt命令提示行时，默认会进入到默认的base环境中。 要切换到用户使用的环境，都需要人工去切换一下，比较麻烦。 按照如下方法，设置成用户想要的环境。 123456conda env list# conda environments:#base * C:\ProgramData\Miniconda3py310 C:\ProgramData\Miniconda3\envs\py310 然后右击Miniconda Prompt，进入到如下图片所示 在目标位置，把后面的参数改为用户想设置的环境的具体位置C:\ProgramData\Miniconda3\envs\py310。 Mac如果是mac系统，则是编译bash_profile配置文件。 1$ vi ~/.bash_profile 移动到最下面，添加如下内容： 12cd ~/Development/python/conda activate py310]]></content>
       <categories>
         <category>Python</category>
       </categories>
