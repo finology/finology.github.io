@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Windows10设置Miniconda启动环境]]></title>
+    <url>%2F2022%2F07%2FWindows10%E8%AE%BE%E7%BD%AEMiniconda%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%83%2F</url>
+    <content type="text"><![CDATA[启动Miniconda Prompt命令提示行时，默认会进入到默认的base环境中。 要切换到用户使用的环境，都需要人工去切换一下，比较麻烦。 按照如下方法，设置成用户想要的环境。 123456conda env list# conda environments:#base * C:\ProgramData\Miniconda3py310 C:\ProgramData\Miniconda3\envs\py310 然后右击Miniconda Prompt，进入到如下图片所示 在目标位置，把后面的参数改为用户想设置的环境的具体位置C:\ProgramData\Miniconda3\envs\py310。]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>conda</tag>
+        <tag>miniconda</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[jupyter notebook的环境和conda环境不一致]]></title>
     <url>%2F2022%2F06%2Fjupyter-notebook%E7%9A%84%E7%8E%AF%E5%A2%83%E5%92%8Cconda%E7%8E%AF%E5%A2%83%E4%B8%8D%E4%B8%80%E8%87%B4%2F</url>
     <content type="text"><![CDATA[在conda py310环境下启动 jupyter lab，发现notebook里面运行的python环境并不是conda的环境。 解决方案： 在myenv环境下运行如下语句 12conda install nb_condaconda install ipykernel 如图如示，在jupyter notebook上面可以选择环境了。]]></content>
