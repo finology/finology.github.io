@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">214</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">215</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">337</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">339</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,229 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2022/02/Pandas%E4%B8%ADlambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/02/Pandas%E4%B8%ADlambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">Pandas中lambda表达式的应用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-15 15:43:34" itemprop="dateCreated datePublished" datetime="2022-02-15T15:43:34+08:00">2022-02-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2022/02/Pandas%E4%B8%ADlambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%BA%94%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Pandas中lambda表达式的应用" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2022/02/Pandas%E4%B8%ADlambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%BA%94%E7%94%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/02/Pandas%E4%B8%ADlambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%BA%94%E7%94%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在一些方法当中会使用到 axis, 一开始的时候会对这个参数的意义很模糊，现在罗列出来，做一下初步的讲解。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(x, y )</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line">    </span><br><span class="line">df[<span class="string">'col3'</span>] = df.apply(<span class="keyword">lambda</span> x: func(x[<span class="string">'col1] + x['</span>col2<span class="string">']), axis = 1)</span></span><br></pre></td></tr></table></figure>
+<p>axis默认为0，代表参数x为一列。<br>axis=1时，代表参数为一行。</p>
+<h1 id="筛选数据时的与或非"><a href="#筛选数据时的与或非" class="headerlink" title="筛选数据时的与或非"></a>筛选数据时的与或非</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">And_df = df[(df[<span class="string">'Rating'</span>]&gt;<span class="number">5</span>) &amp; (df[<span class="string">'Votes'</span>]&gt;<span class="number">100000</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 多个条件: OR - 满足评分高于5分或者投票大于100000的</span></span><br><span class="line">Or_df = df[(df[<span class="string">'Rating'</span>]&gt;<span class="number">5</span>) | (df[<span class="string">'Votes'</span>]&gt;<span class="number">100000</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 多个条件：NOT - 将满足评分高于5分或者投票大于100000的数据排除掉</span></span><br><span class="line">Not_df = df[~((df[<span class="string">'Rating'</span>]&gt;<span class="number">5</span>) | (df[<span class="string">'Votes'</span>]&gt;<span class="number">100000</span>))]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[len(df[<span class="string">'Title'</span>].split(<span class="string">" "</span>))&gt;=<span class="number">5</span>] <span class="comment"># 报错 AttributeError: 'Series' object has no attribute 'split'</span></span><br></pre></td></tr></table></figure>
+<p>很容易看得出来，df[‘Title’]是一列，是一个Series，所以没有split方法。</p>
+<p>是否可以用 <code>df[&#39;Title&#39;].str.split(&quot; &quot;)</code> ？？</p>
+<p>可以通过如下方法来解决。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建一个新的列来存储每一影片名的长度</span></span><br><span class="line">df[<span class="string">'num_words_title'</span>] = df.apply(<span class="keyword">lambda</span> x : len(x[<span class="string">'Title'</span>].split(<span class="string">" "</span>)),axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#筛选出影片名长度大于5的部分</span></span><br><span class="line">new_df = df[df[<span class="string">'num_words_title'</span>]&gt;=<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<p>x代表一行了，x[‘Title’]就是一个字符串了。</p>
+<h1 id="复杂筛选"><a href="#复杂筛选" class="headerlink" title="复杂筛选"></a>复杂筛选</h1><p>筛选出那些影片的票房低于当年平均水平的数据。</p>
+<p>我们先要对每年票房的的平均值做一个归总</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">year_revenue_dict = df.groupby([<span class="string">'Year'</span>]).agg(&#123;<span class="string">'Revenue(Millions)'</span>:np.mean&#125;).to_dict()[<span class="string">'Revenue(Millions)'</span>]</span><br></pre></td></tr></table></figure>
+<p>然后我们定义一个函数来判断是否存在该影片的票房低于当年平均水平的情况，返回的是布尔值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bool_provider</span><span class="params">(revenue, year)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> revenue&lt;year_revenue_dict[year]</span><br></pre></td></tr></table></figure>
+<p>然后我们通过结合apply方法和lambda方法应用到数据集当中去</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_df = df[df.apply(<span class="keyword">lambda</span> x : bool_provider(x[<span class="string">'Revenue(Millions)'</span>], x[<span class="string">'Year'</span>]), axis = <span class="number">1</span>)]</span><br></pre></td></tr></table></figure>
+<h1 id="方法调用过程的可视化"><a href="#方法调用过程的可视化" class="headerlink" title="方法调用过程的可视化"></a>方法调用过程的可视化</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm, tqdm_notebook</span><br><span class="line">tqdm_notebook().pandas()</span><br><span class="line"></span><br><span class="line">df[<span class="string">"CustomRating"</span>] = df.progress_apply(<span class="keyword">lambda</span> x: custom_rating(x[<span class="string">'Genre'</span>],x[<span class="string">'Rating'</span>]),axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2022/01/%E5%B9%82%E5%87%BD%E6%95%B0%E7%9A%84%E5%9B%BE%E5%83%8F%E5%8F%8A%E5%8F%98%E5%8C%96%E8%B6%8B%E5%8A%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/%E5%B9%82%E5%87%BD%E6%95%B0%E7%9A%84%E5%9B%BE%E5%83%8F%E5%8F%8A%E5%8F%98%E5%8C%96%E8%B6%8B%E5%8A%BF/" class="post-title-link" itemprop="url">幂函数的图像及变化趋势</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-29 23:01:44" itemprop="dateCreated datePublished" datetime="2022-01-29T23:01:44+08:00">2022-01-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
+              </span>
+
+          
+            <span id="/2022/01/%E5%B9%82%E5%87%BD%E6%95%B0%E7%9A%84%E5%9B%BE%E5%83%8F%E5%8F%8A%E5%8F%98%E5%8C%96%E8%B6%8B%E5%8A%BF/" class="post-meta-item leancloud_visitors" data-flag-title="幂函数的图像及变化趋势" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2022/01/%E5%B9%82%E5%87%BD%E6%95%B0%E7%9A%84%E5%9B%BE%E5%83%8F%E5%8F%8A%E5%8F%98%E5%8C%96%E8%B6%8B%E5%8A%BF/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/01/%E5%B9%82%E5%87%BD%E6%95%B0%E7%9A%84%E5%9B%BE%E5%83%8F%E5%8F%8A%E5%8F%98%E5%8C%96%E8%B6%8B%E5%8A%BF/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <img src="/2022/01/%E5%B9%82%E5%87%BD%E6%95%B0%E7%9A%84%E5%9B%BE%E5%83%8F%E5%8F%8A%E5%8F%98%E5%8C%96%E8%B6%8B%E5%8A%BF/%E5%B9%82%E5%87%BD%E6%95%B0.png" class="">
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -304,257 +527,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2022/01/Elasticsearch%E5%A4%9A%E5%9B%A0%E7%B4%A0%E6%8E%92%E5%BA%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/Elasticsearch%E5%A4%9A%E5%9B%A0%E7%B4%A0%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">Elasticsearch多因素排序</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-01-26 17:13:38" itemprop="dateCreated datePublished" datetime="2022-01-26T17:13:38+08:00">2022-01-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Middleware/" itemprop="url" rel="index"><span itemprop="name">Middleware</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Middleware/Elasticsearch/" itemprop="url" rel="index"><span itemprop="name">Elasticsearch</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2022/01/Elasticsearch%E5%A4%9A%E5%9B%A0%E7%B4%A0%E6%8E%92%E5%BA%8F/" class="post-meta-item leancloud_visitors" data-flag-title="Elasticsearch多因素排序" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2022/01/Elasticsearch%E5%A4%9A%E5%9B%A0%E7%B4%A0%E6%8E%92%E5%BA%8F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/01/Elasticsearch%E5%A4%9A%E5%9B%A0%E7%B4%A0%E6%8E%92%E5%BA%8F/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>查询语句没有经过测试，暂时做个记录。</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"query"</span>: &#123;</span><br><span class="line">		<span class="attr">"function_score"</span>: &#123;</span><br><span class="line">			<span class="attr">"query"</span>: &#123;</span><br><span class="line">				<span class="attr">"match"</span>: &#123;</span><br><span class="line">					<span class="attr">"title"</span>: <span class="string">"搜索内容"</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125;,</span><br><span class="line">			<span class="attr">"functions"</span>: [</span><br><span class="line">			    &#123;</span><br><span class="line">					<span class="attr">"script_score"</span>: &#123;</span><br><span class="line">						<span class="attr">"script"</span>: <span class="string">"return doc['flag'].value == TRUE ? 1 : 0"</span></span><br><span class="line">					&#125;</span><br><span class="line">				&#125;,</span><br><span class="line">				&#123;</span><br><span class="line">					<span class="attr">"gauss"</span>: &#123;</span><br><span class="line">						<span class="attr">"start_time"</span>: &#123;</span><br><span class="line">							<span class="attr">"origin"</span>: <span class="string">"$now"</span>,</span><br><span class="line">							<span class="attr">"offset"</span>: <span class="string">"1w"</span>,</span><br><span class="line">							<span class="attr">"scale"</span>: <span class="string">"1m"</span></span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			],</span><br><span class="line">			<span class="attr">"score_mode"</span>: <span class="string">"sum"</span>,</span><br><span class="line">			<span class="attr">"boost_mode"</span>: <span class="string">"multiply"</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2022/01/Spring-Boot%E9%9B%86%E6%88%90Kafka%E5%AE%A2%E6%88%B7%E7%AB%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/Spring-Boot%E9%9B%86%E6%88%90Kafka%E5%AE%A2%E6%88%B7%E7%AB%AF/" class="post-title-link" itemprop="url">Spring Boot集成Kafka客户端</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-01-18 17:51:18" itemprop="dateCreated datePublished" datetime="2022-01-18T17:51:18+08:00">2022-01-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-04 22:14:53" itemprop="dateModified" datetime="2022-03-04T22:14:53+08:00">2022-03-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Middleware/" itemprop="url" rel="index"><span itemprop="name">Middleware</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Middleware/Kafka/" itemprop="url" rel="index"><span itemprop="name">Kafka</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2022/01/Spring-Boot%E9%9B%86%E6%88%90Kafka%E5%AE%A2%E6%88%B7%E7%AB%AF/" class="post-meta-item leancloud_visitors" data-flag-title="Spring Boot集成Kafka客户端" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2022/01/Spring-Boot%E9%9B%86%E6%88%90Kafka%E5%AE%A2%E6%88%B7%E7%AB%AF/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/01/Spring-Boot%E9%9B%86%E6%88%90Kafka%E5%AE%A2%E6%88%B7%E7%AB%AF/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Spring Boot 2.1.x集成Kafka，其他版本也是类似方法。</p>
-<h1 id="确定Kafka版本"><a href="#确定Kafka版本" class="headerlink" title="确定Kafka版本"></a>确定Kafka版本</h1><p>在Spring Boot中添加Kafka Client依赖。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.kafka<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-kafka<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>进入此依赖，查看kafka-clients版本号。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.kafka<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>kafka-clients<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>所以在安装Kafka的时候，选择2.0.1版本就可以了。Scala版本选择最高版本就行。</p>
-<h1 id="安装Kafka集群"><a href="#安装Kafka集群" class="headerlink" title="安装Kafka集群"></a>安装Kafka集群</h1><p>zookeeper单机，Kafka在同一台机器上安装两个实例。</p>
-<p>在<code>config/server.properties</code>里面修改如下属性。</p>
-<p><code>broker.id=0</code></p>
-<p>Broker的id号，第一个实例为0，第二个实例为1。</p>
-<p><code>listeners=PLAINTEXT://:9092</code></p>
-<p>第一个实例用默认端口9092，第二个实例用9093。</p>
-<p><code>advertised.listeners=PLAINTEXT://{host-ip}:9092</code></p>
-<p>第一个实例用默认端口9092，第二个实例用9093。</p>
-<p>如果不设置上述暴露给生产者和消费者的地址和端口，可能会出现如下错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.io.IOException: Can&#39;t resolve address</span><br></pre></td></tr></table></figure>
-<p>网上有说到解决这个问题的办法是在hosts里面配置主机的ip地址，个人觉得这个办法不是最佳实践。</p>
-<p><code>log.dirs=/tmp/kafka-logs</code></p>
-<p>单机时，这个文件夹得用不同的。</p>
-<p>启动zookeeper和kafka我就不在这里讲了。第二个实例启动后可以看到如下信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO [KafkaServer id&#x3D;1] started (kafka.server.KafkaServer)</span><br></pre></td></tr></table></figure>
-<h1 id="Spring-Boot集成"><a href="#Spring-Boot集成" class="headerlink" title="Spring Boot集成"></a>Spring Boot集成</h1><p>在application.yml里面需要配置如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  kafka:</span><br><span class="line">    bootstrap-servers:</span><br><span class="line">      - &#123;host-ip&#125;:9092</span><br><span class="line">      - &#123;host-ip&#125;:9093</span><br></pre></td></tr></table></figure>
-<p>我们再看看默认配置的值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">[16:38:24.889] INFO  org.apache.kafka.common.config.AbstractConfig 279 logAll - ProducerConfig values: </span><br><span class="line">	acks &#x3D; 1</span><br><span class="line">	batch.size &#x3D; 16384</span><br><span class="line">	bootstrap.servers &#x3D; [&#123;host-ip&#125;:9092, &#123;host-ip&#125;:9093:9093]</span><br><span class="line">	buffer.memory &#x3D; 33554432</span><br><span class="line">	client.id &#x3D; </span><br><span class="line">	compression.type &#x3D; none</span><br><span class="line">	connections.max.idle.ms &#x3D; 540000</span><br><span class="line">	enable.idempotence &#x3D; false</span><br><span class="line">	interceptor.classes &#x3D; []</span><br><span class="line">	key.serializer &#x3D; class org.apache.kafka.common.serialization.StringSerializer</span><br><span class="line">	linger.ms &#x3D; 0</span><br><span class="line">	max.block.ms &#x3D; 60000</span><br><span class="line">	max.in.flight.requests.per.connection &#x3D; 5</span><br><span class="line">	max.request.size &#x3D; 1048576</span><br><span class="line">	metadata.max.age.ms &#x3D; 300000</span><br><span class="line">	metric.reporters &#x3D; []</span><br><span class="line">	metrics.num.samples &#x3D; 2</span><br><span class="line">	metrics.recording.level &#x3D; INFO</span><br><span class="line">	metrics.sample.window.ms &#x3D; 30000</span><br><span class="line">	partitioner.class &#x3D; class org.apache.kafka.clients.producer.internals.DefaultPartitioner</span><br><span class="line">	receive.buffer.bytes &#x3D; 32768</span><br><span class="line">	reconnect.backoff.max.ms &#x3D; 1000</span><br><span class="line">	reconnect.backoff.ms &#x3D; 50</span><br><span class="line">	request.timeout.ms &#x3D; 30000</span><br><span class="line">	retries &#x3D; 0</span><br><span class="line">	retry.backoff.ms &#x3D; 100</span><br><span class="line">	sasl.client.callback.handler.class &#x3D; null</span><br><span class="line">	sasl.jaas.config &#x3D; null</span><br><span class="line">	sasl.kerberos.kinit.cmd &#x3D; &#x2F;usr&#x2F;bin&#x2F;kinit</span><br><span class="line">	sasl.kerberos.min.time.before.relogin &#x3D; 60000</span><br><span class="line">	sasl.kerberos.service.name &#x3D; null</span><br><span class="line">	sasl.kerberos.ticket.renew.jitter &#x3D; 0.05</span><br><span class="line">	sasl.kerberos.ticket.renew.window.factor &#x3D; 0.8</span><br><span class="line">	sasl.login.callback.handler.class &#x3D; null</span><br><span class="line">	sasl.login.class &#x3D; null</span><br><span class="line">	sasl.login.refresh.buffer.seconds &#x3D; 300</span><br><span class="line">	sasl.login.refresh.min.period.seconds &#x3D; 60</span><br><span class="line">	sasl.login.refresh.window.factor &#x3D; 0.8</span><br><span class="line">	sasl.login.refresh.window.jitter &#x3D; 0.05</span><br><span class="line">	sasl.mechanism &#x3D; GSSAPI</span><br><span class="line">	security.protocol &#x3D; PLAINTEXT</span><br><span class="line">	send.buffer.bytes &#x3D; 131072</span><br><span class="line">	ssl.cipher.suites &#x3D; null</span><br><span class="line">	ssl.enabled.protocols &#x3D; [TLSv1.2, TLSv1.1, TLSv1]</span><br><span class="line">	ssl.endpoint.identification.algorithm &#x3D; https</span><br><span class="line">	ssl.key.password &#x3D; null</span><br><span class="line">	ssl.keymanager.algorithm &#x3D; SunX509</span><br><span class="line">	ssl.keystore.location &#x3D; null</span><br><span class="line">	ssl.keystore.password &#x3D; null</span><br><span class="line">	ssl.keystore.type &#x3D; JKS</span><br><span class="line">	ssl.protocol &#x3D; TLS</span><br><span class="line">	ssl.provider &#x3D; null</span><br><span class="line">	ssl.secure.random.implementation &#x3D; null</span><br><span class="line">	ssl.trustmanager.algorithm &#x3D; PKIX</span><br><span class="line">	ssl.truststore.location &#x3D; null</span><br><span class="line">	ssl.truststore.password &#x3D; null</span><br><span class="line">	ssl.truststore.type &#x3D; JKS</span><br><span class="line">	transaction.timeout.ms &#x3D; 60000</span><br><span class="line">	transactional.id &#x3D; null</span><br><span class="line">	value.serializer &#x3D; class org.apache.kafka.common.serialization.StringSerializer</span><br></pre></td></tr></table></figure>
-<p>Java代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KafkaProducer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> KafkaTemplate&lt;String, Object&gt; kafkaTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/kafka/&#123;message&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">(@PathVariable String message)</span> </span>&#123;</span><br><span class="line">        kafkaTemplate.send(<span class="string">"test-topic"</span>, message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通过console-consumer就可以消费消息了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -638,7 +610,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">339</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -651,7 +623,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">214</span>
+        <span class="site-state-item-count">215</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

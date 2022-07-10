@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Ubuntu上安装和使用Miniconda]]></title>
+    <url>%2F2022%2F07%2FUbuntu%E4%B8%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8Miniconda%2F</url>
+    <content type="text"><![CDATA[安装miniconda下载 1$ wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh 1$ sudo chmod +x Miniconda3-py39_4.9.2-Linux-x86_64.sh 安装 1$ sudo ./Miniconda3-py39_4.9.2-Linux-x86_64.sh 选择一个安装位置，比如/usr/local/miniconda3 选择yes，即可安装成功。 软件自动修改了~/.bashrc文件，把miniconda3的添加到PATH中了。 关闭窗口，再次打开时，命令行就进入默认的base环境了。 创建环境旧的环境如果要删除 1$ conda env remove -n py310 指定环境位置可以用prefix参数，此时，name参数就不可用了，路径最后面的字符串即为环境名。 1$ conda create --prefix=~/development/python/envs/py310 python=3.10]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>miniconda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java过滤utf8mb4字符串]]></title>
+    <url>%2F2022%2F07%2FJava%E8%BF%87%E6%BB%A4utf8mb4%E5%AD%97%E7%AC%A6%E4%B8%B2%2F</url>
+    <content type="text"><![CDATA[两个数据库迁移，有一个字符集用的utf8mb4，放入到utf8里面，就会报错。 通过如下方法，可以把utf8mb4的字符串全部过滤掉。 12String source = "your input string";String target = source.replaceAll("[^\\u0000-\\uD7FF\\uE000-\\uFFFF]", "");]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>utf8mb4</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Windows10和Mac设置Miniconda启动环境]]></title>
     <url>%2F2022%2F07%2FWindows10%E5%92%8CMac%E8%AE%BE%E7%BD%AEMiniconda%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%83%2F</url>
-    <content type="text"><![CDATA[Windows10启动Miniconda Prompt命令提示行时，默认会进入到默认的base环境中。 要切换到用户使用的环境，都需要人工去切换一下，比较麻烦。 按照如下方法，设置成用户想要的环境。 123456conda env list# conda environments:#base * C:\ProgramData\Miniconda3py310 C:\ProgramData\Miniconda3\envs\py310 然后右击Miniconda Prompt，进入到如下图片所示 在目标位置，把后面的参数改为用户想设置的环境的具体位置C:\ProgramData\Miniconda3\envs\py310。 Mac如果是mac系统，则是编译bash_profile配置文件。 1$ vi ~/.bash_profile 移动到最下面，添加如下内容： 12cd ~/Development/python/conda activate py310]]></content>
+    <content type="text"><![CDATA[Windows10启动Miniconda Prompt命令提示行时，默认会进入到默认的base环境中。 要切换到用户使用的环境，都需要人工去切换一下，比较麻烦。 按照如下方法，设置成用户想要的环境。 123456conda env list# conda environments:#base * C:\ProgramData\Miniconda3py310 C:\ProgramData\Miniconda3\envs\py310 然后右击Miniconda Prompt，进入到如下图片所示 在目标位置，把后面的参数改为用户想设置的环境的具体位置C:\ProgramData\Miniconda3\envs\py310。 Mac如果是mac系统，则是编译bash_profile配置文件。 1$ vi ~/.bash_profile 移动到最下面，添加如下内容： 12cd ~/Development/python/conda activate py310 Ubuntu1$ vi ~/.bashrc 内容修改为： 1conda activate py310]]></content>
       <categories>
         <category>Python</category>
       </categories>
@@ -15,7 +37,7 @@
   <entry>
     <title><![CDATA[jupyter notebook的环境和conda环境不一致]]></title>
     <url>%2F2022%2F06%2Fjupyter-notebook%E7%9A%84%E7%8E%AF%E5%A2%83%E5%92%8Cconda%E7%8E%AF%E5%A2%83%E4%B8%8D%E4%B8%80%E8%87%B4%2F</url>
-    <content type="text"><![CDATA[在conda py310环境下启动 jupyter lab，发现notebook里面运行的python环境并不是conda的环境。 解决方案： 在myenv环境下运行如下语句 12conda install nb_condaconda install ipykernel 如图如示，在jupyter notebook上面可以选择环境了。]]></content>
+    <content type="text"><![CDATA[在conda py310环境下启动 jupyter lab，发现notebook里面运行的python环境并不是conda的环境。 解决方案： 在my-conda-env环境下运行如下语句，安装nb_conda_kernels时，要换一个conda环境。 1234567conda activate base # base环境conda install ipykernelconda deactivateconda activate my-conda-env # this is the environment for your project and codeconda install nb_conda_kernelsjupyter lab 最后再切换回my-conda-env，启动jupyter lab即可。 如图如示，在jupyter notebook上面可以选择环境了。]]></content>
       <categories>
         <category>Python</category>
       </categories>
@@ -97,7 +119,7 @@
   <entry>
     <title><![CDATA[查看Log日志时的一些Shell常用技巧]]></title>
     <url>%2F2022%2F06%2F%E6%9F%A5%E7%9C%8BLog%E6%97%A5%E5%BF%97%E6%97%B6%E7%9A%84%E4%B8%80%E4%BA%9BShell%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7%2F</url>
-    <content type="text"><![CDATA[grep使用grep可以多次管道使用，相当于逻辑 AND 的功能 grep -P 使用正则，-o 只显示匹配字符串 显示匹配的子串sed ‘s/userId: (.*)/\1/‘ 排序sort 统计uniq -c]]></content>
+    <content type="text"><![CDATA[grep使用grep可以多次管道使用，相当于逻辑 AND 的功能 grep -P 使用正则，-o 只显示匹配字符串 数字串 1\d+ 显示匹配的子串1sed 's/userId: \(\.*\)/\1/' 排序1sort 统计1uniq -c]]></content>
       <categories>
         <category>Tools</category>
       </categories>
@@ -265,7 +287,7 @@
   <entry>
     <title><![CDATA[pip国内源配置]]></title>
     <url>%2F2022%2F03%2Fpip%E5%9B%BD%E5%86%85%E6%BA%90%E9%85%8D%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[通过pip安装软件，使用默认源的时候，往往下载速度很慢，所以需要配置到国内的源。 临时安装某个包。 1pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package 设为默认。 12pip install pip -Upip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple 临时使用某个镜像。 1pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U]]></content>
+    <content type="text"><![CDATA[通过pip安装软件，使用默认源的时候，往往下载速度很慢，所以需要配置到国内的源。 临时安装某个包。 1pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package 设为默认。 12pip install pip -U # 更新pippip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple 或者创建一个配置文件 ~/.pip/pip.conf 内容为： 12[global]index-url = https://pypi.tuna.tsinghua.edu.cn/simple 临时使用某个镜像。 1pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U]]></content>
       <categories>
         <category>Python</category>
       </categories>
