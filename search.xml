@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Jupyter lab获取当前文件名及路径]]></title>
+    <url>%2F2022%2F07%2FJupyter-lab%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E5%90%8D%E5%8F%8A%E8%B7%AF%E5%BE%84%2F</url>
+    <content type="text"><![CDATA[在 jupyter notebook / lab 里面，使用 file 获取不了文件名。 可以通过如下方法获取当前文件名和路径。 安装 ipynbname 1pip install ipynbname 12ipynbname.name()ipynbname.path()]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>jupyter lab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[java根据对象属性排序]]></title>
+    <url>%2F2022%2F07%2Fjava%E6%A0%B9%E6%8D%AE%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E6%8E%92%E5%BA%8F%2F</url>
+    <content type="text"><![CDATA[Collections.sort() Comparable对象123public class User implements Comparable&lt;User&gt; &#123; &#125; 排序 12Collections.sort(users);Collections.reverse(users); Collections.sort() 传入Comparator比较器123456Collections.sort(users, new Comparator&lt;User&gt;() &#123; @Override public int compare(User u1, User u2) &#123; return u1.getCreatedOn().compareTo(u2.getCreatedOn()); &#125;&#125;); List接口的sort12users.sort(Comparator.comparing(User::getCreatedOn));users.sort(Comparator.comparing(User::getCreatedOn).reversed()); Stream接口的sorted [Java8]1234567List&lt;User&gt; sortedUsers = users.stream() .sorted(Comparator.comparing(User::getCreatedOn)) .collect(Collectors.toList());List&lt;User&gt; sortedUsers = users.stream() .sorted(Comparator.comparing(User::getCreatedOn).reversed()) .collect(Collectors.toList());]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mac Vmware Fusion安装windows虚拟机黑屏]]></title>
+    <url>%2F2022%2F07%2FMac-Vmware-Fusion%E5%AE%89%E8%A3%85windows%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%BB%91%E5%B1%8F%2F</url>
+    <content type="text"><![CDATA[Mac OS 安装了 Vmware Fusion，在里面安装了 Windows 10 虚拟机，这个虚拟机，有时候有时候黑屏，看不到任何界面。 解决办法： 重启mac，并在启动时一直按着 Command + R，进入恢复模式。 屏幕顶上，选择实用工具 -&gt; 终端。 执行命令关闭SIP 1csrutil disable 重启电脑，进入 mac os 系统后，执行如下命令。 1234567tccutil reset All com.vmware.fusion sudo sqlite3 "/Library/Application Support/com.apple.TCC/TCC.db" 'insert into access values ("kTCCServiceScreenCapture", "com.vmware.fusion", 0, 1, 1, "", "", "", "UNUSED", "", 0,1565595574)' sudo sqlite3 "/Library/Application Support/com.apple.TCC/TCC.db" 'insert into access values ("kTCCServiceListenEvent", "com.vmware.fusion", 0, 1, 1, "", "", "", "UNUSED", "", 0,1565595574)' sudo sqlite3 "/Library/Application Support/com.apple.TCC/TCC.db" 'insert into access values ("kTCCServicePostEvent", "com.vmware.fusion", 0, 1, 1, "", "", "", "UNUSED", "", 0,1565595574)' 再次重启电脑，并进入 Command + R，进入恢复模式。 并开启SIP 1csrutil enable 最后重启电脑 进入以后，关掉 Vmware Fusion 软件。 进入安全性和隐私，分别在项目辅助功能、输入监视、屏幕录制中，把 Vmware Fusion 复选框选中。 再次启动 Vmware Fusion 中的 Windows 虚拟机，屏幕不会黑屏了。]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>vmware</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[MacOS Vmware Fusion安装虚拟机CPU占用率高发烫]]></title>
     <url>%2F2022%2F07%2FMacOS-Vmware-Fusion%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BACPU%E5%8D%A0%E7%94%A8%E7%8E%87%E9%AB%98%E5%8F%91%E7%83%AB%2F</url>
     <content type="text"><![CDATA[mac系统基于vmware安装虚拟机，然后主机CPU占用率飙升，风扇狂转，发烫的现象，好几年都没有解决。 网上很多人说限制CPU的功率，减少虚拟机CPU个数，这些都没有办法。 目前发现一个方法，效率好了很多。就是关掉虚拟机3D图像展示，以OpenGL来替代。 在宿主机系统中，编辑虚拟机.vmx文件，在文件末尾添加如下内容。 12mks.enableMTLRenderer &#x3D; &quot;FALSE&quot;mks.enableGLRenderer &#x3D; &quot;TRUE&quot; 保存后重启虚拟机，CPU占用率的确变小了，也没有那么烫了。]]></content>
