@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[查看Windows和Linux端口占用情况]]></title>
+    <url>%2F2022%2F08%2F%E6%9F%A5%E7%9C%8BWindows%E5%92%8CLinux%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5%2F</url>
+    <content type="text"><![CDATA[Windows查看端口占用情况1netstat -ano | findstr &lt;port&gt; 杀掉进程 1taskkill /pid /f &lt;port&gt; Linux 查看端口占用情况1lsof -i:&lt;port&gt;]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>port</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java繁体中文和简体中文的互相转换]]></title>
+    <url>%2F2022%2F08%2FJava%E7%B9%81%E4%BD%93%E4%B8%AD%E6%96%87%E5%92%8C%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E7%9A%84%E4%BA%92%E7%9B%B8%E8%BD%AC%E6%8D%A2%2F</url>
+    <content type="text"><![CDATA[判断字符串中是否包含简体、繁体中文，或者简体和繁体之间的转换，可以使用如下API。 maven项目，添加如下依赖。 12345&lt;dependency&gt; &lt;groupId&gt;com.github.houbb&lt;/groupId&gt; &lt;artifactId&gt;opencc4j&lt;/artifactId&gt; &lt;version&gt;1.7.2&lt;/version&gt;&lt;/dependency&gt; 123ZhConverterUtil.isTraditional("中華");ZhConverterUtil.toSimple("中華");]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>简体</tag>
+        <tag>繁体</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[java8合并map]]></title>
+    <url>%2F2022%2F08%2Fjava8%E5%90%88%E5%B9%B6map%2F</url>
+    <content type="text"><![CDATA[有个需求是合并两个map，并对相同key的元素的value进行求和。 1234567891011121314151617181920212223242526272829303132public static void main(String[] args) &#123; List&lt;String&gt; list = new ArrayList&lt;&gt;(); list.add("A"); list.add("B"); list.add("C"); list.add("B"); list.add("B"); list.add("C"); list.add("A"); list.add("D"); Map&lt;String, Long&gt; map = list.stream().collect(Collectors.groupingBy(k -&gt; k, Collectors.counting())); System.out.println("map: " + map); List&lt;String&gt; list2 = new ArrayList&lt;&gt;(); list2.add("B"); list2.add("B"); list2.add("B"); list2.add("B"); list2.add("B"); list2.add("C"); list2.add("A"); Map&lt;String, Long&gt; map2 = list2.stream().collect(Collectors.groupingBy(k -&gt; k, Collectors.counting())); System.out.println("map2: " + map2); map2.forEach((k, v) -&gt; map.merge(k, v, (v1, v2) -&gt; v1 + v2)); System.out.println("map: " + map); &#125; 假如说有以下List，List的元素存放的数据为：苹果:2, 香蕉:3 类似这样的数据。要统计每类水果的数量。 1234567891011Map&lt;String, Integer&gt; fruitCountMap = fruitStrList.stream() // 过滤掉空字符串 .filter(StringUtils::isNotEmpty) // 按逗号拆分，并压平 .flatMap(row -&gt; Arrays.stream(row.split(","))) // 生成map，相同的Key，累加value .collect(Collectors.toMap( entry -&gt; entry.split(":")[0], entry -&gt; Integer.parseInt(entry.split(":")[1]), Integer::sum) );]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>merge</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[详解cron表达式]]></title>
+    <url>%2F2022%2F08%2F%E8%AF%A6%E8%A7%A3cron%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[cron表达式，一般情况下，六位。 cron = “ “ [秒] [分] [时] [日] [月] [星期几] {年份} 每个字段允许的值是不一样的 秒Second 0-59 , - * /分 0-59 , - * /小时 0-23 , - * /日期 1-31 , - * ? / L W C月份 1-12 或者 JAN-DEC , - * /星期 1-7 或者 SUN-SAT , - * ? / L C #年（可选）留空, 1970-2099 , - * / Seconds (秒) ：可以用数字0－59 表示，Minutes(分) ：可以用数字0－59 表示，Hours(时) ：可以用数字0-23表示,Day-of-Month(天) ：可以用数字1-31 中的任一一个值，但要注意一些特别的月份Month(月) ：可以用0-11 或用字符串 “JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV and DEC” 表示Day-of-Week(每周)：可以用数字1-7表示（1 ＝ 星期日）或用字符口串“SUN, MON, TUE, WED, THU, FRI and SAT”表示 每个符号的意义： 表示所有值；? 表示未说明的值，即不关心它为何值； 表示一个指定的范围；, 表示附加一个可能值；/ 符号前表示开始时间，符号后表示每次递增的值；L(“last”) (“last”) “L” 用在day-of-month字段意思是 “这个月最后一天”；用在 day-of-week字段, 它简单意思是 “7” or “SAT”。 如果在day-of-week字段里和数字联合使用，它的意思就是 “这个月的最后一个星期几” – 例如： “6L” means “这个月的最后一个星期五”. 当我们用“L”时，不指明一个列表值或者范围是很重要的，不然的话，我们会得到一些意想不到的结果。W(“weekday”) 只能用在day-of-month字段。用来描叙最接近指定天的工作日（周一到周五）。例如：在day-of-month字段用“15W”指“最接近这个 月第15天的工作日”，即如果这个月第15天是周六，那么触发器将会在这个月第14天即周五触发；如果这个月第15天是周日，那么触发器将会在这个月第 16天即周一触发；如果这个月第15天是周二，那么就在触发器这天触发。注意一点：这个用法只会在当前月计算值，不会越过当前月。“W”字符仅能在 day-of-month指明一天，不能是一个范围或列表。也可以用“LW”来指定这个月的最后一个工作日。 只能用在day-of-week字段。用来指定这个月的第几个周几。例：在day-of-week字段用”6#3”指这个月第3个周五（6指周五，3指第3个）。如果指定的日期不存在，触发器就不会触发。C 指和calendar联系后计算过的值。例：在day-of-month 字段用“5C”指在这个月第5天或之后包括calendar的第一天；在day-of-week字段用“1C”指在这周日或之后包括calendar的第一天。 一些cron表达式案例/5 ? 每隔5秒执行一次0 /1 ? 每隔1分钟执行一次0 0 5-15 ? 每天5-15点整点触发0 0/3 ? 每三分钟触发一次0 0-5 14 ? 在每天下午2点到下午2:05期间的每1分钟触发0 0/5 14 ? 在每天下午2点到下午2:55期间的每5分钟触发0 0/5 14,18 ? 在每天下午2点到2:55期间和下午6点到6:55期间的每5分钟触发0 0/30 9-17 ? 朝九晚五工作时间内每半小时0 0 10,14,16 ? 每天上午10点，下午2点，4点 0 0 12 ? WED 表示每个星期三中午12点0 0 17 ? TUES,THUR,SAT 每周二、四、六下午五点0 10,44 14 ? 3 WED 每年三月的星期三的下午2:10和2:44触发0 15 10 ? MON-FRI 周一至周五的上午10:15触发0 0 23 L ? 每月最后一天23点执行一次0 15 10 L ? 每月最后一日的上午10:15触发0 15 10 ? 6L 每月的最后一个星期五上午10:15触发0 15 10 ? 2005 2005年的每天上午10:15触发0 15 10 ? 6L 2002-2005 2002年至2005年的每月的最后一个星期五上午10:15触发0 15 10 ? 6#3 每月的第三个星期五上午10:15触发 “30 ?” 每半分钟触发任务“30 10 ?” 每小时的10分30秒触发任务“30 10 1 ?” 每天1点10分30秒触发任务“30 10 1 20 ?” 每月20号1点10分30秒触发任务“30 10 1 20 10 ? “ 每年10月20号1点10分30秒触发任务“30 10 1 20 10 ? 2011” 2011年10月20号1点10分30秒触发任务“30 10 1 ? 10 2011” 2011年10月每天1点10分30秒触发任务“30 10 1 ? 10 SUN 2011” 2011年10月每周日1点10分30秒触发任务“15,30,45 ?” 每15秒，30秒，45秒时触发任务“15-45 ?” 15到45秒内，每秒都触发任务“15/5 ?” 每分钟的每15秒开始触发，每隔5秒触发一次“15-30/5 ?” 每分钟的15秒到30秒之间开始触发，每隔5秒触发一次“0 0/3 ?” 每小时的第0分0秒开始，每三分钟触发一次“0 15 10 ? MON-FRI” 星期一到星期五的10点15分0秒触发任务“0 15 10 L ?” 每个月最后一天的10点15分0秒触发任务“0 15 10 LW ?” 每个月最后一个工作日的10点15分0秒触发任务“0 15 10 ? 5L” 每个月最后一个星期四的10点15分0秒触发任务“0 15 10 ? 5#3” 每个月第三周的星期四的10点15分0秒触发任务]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>cron</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Jupyter lab获取当前文件名及路径]]></title>
     <url>%2F2022%2F07%2FJupyter-lab%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E5%90%8D%E5%8F%8A%E8%B7%AF%E5%BE%84%2F</url>
     <content type="text"><![CDATA[在 jupyter notebook / lab 里面，使用 file 获取不了文件名。 可以通过如下方法获取当前文件名和路径。 安装 ipynbname 1pip install ipynbname 12ipynbname.name()ipynbname.path()]]></content>
@@ -3833,7 +3879,7 @@
   <entry>
     <title><![CDATA[Git撤销修改]]></title>
     <url>%2F2018%2F03%2FGit%E6%92%A4%E9%94%80%E4%BF%AE%E6%94%B9%2F</url>
-    <content type="text"><![CDATA[总结一下，文件在三种状态下面的撤销修改 当在工作区修改了文件内容，想直接丢弃掉工作区的修改，用命令git checkout -- file 当在工作区修改了文件内容，并已经执行了命令git add file，也即是，文件已经被添加到了暂存区，想丢弃修改，分两步，第一步执行命令git reset HEAD file，文件回到工作区，第二步，git checkout -- file 当已经提交了不合适的修改到版本库时，也即是执行了git commit -m &quot;some comment&quot;时，想要撤销本次提交，那就需要执行git reset --hard commit_id。此前提是没有推送到远程库。]]></content>
+    <content type="text"><![CDATA[总结一下，文件在三种状态下面的撤销修改 当在工作区修改了文件内容，想直接丢弃掉工作区的修改，用命令git checkout -- &lt;file path&gt; 当在工作区修改了文件内容，并已经执行了命令git add &lt;file path&gt;，也即是，文件已经被添加到了暂存区，想丢弃修改，分两步，第一步执行命令git reset HEAD &lt;file path&gt;，文件回到工作区，第二步，git checkout -- &lt;file path&gt; 当已经提交了不合适的修改到版本库时，也即是执行了git commit -m &quot;some comment&quot;时，想要撤销本次提交，那就需要执行git reset --hard commit_id。此前提是没有推送到远程库。]]></content>
       <categories>
         <category>Tools</category>
         <category>Git</category>
