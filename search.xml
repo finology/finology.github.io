@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[test]]></title>
+    <url>%2F2023%2F06%2Ftest%2F</url>
+    <content type="text"><![CDATA[hi]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Java 8 Stream filter过滤Map]]></title>
+    <url>%2F2022%2F12%2FJava-8-Stream-filter%E8%BF%87%E6%BB%A4Map-String-List-String%2F</url>
+    <content type="text"><![CDATA[过滤复杂的Map，map的value是一个List，把这个List中不满足要求的元素过滤掉。 使用java8 stream api应该这样写： 123456789101112131415161718192021222324252627282930313233public static void main(String[] args) &#123; Map&lt;String, List&lt;String&gt;&gt; map = new HashMap&lt;&gt;(); List&lt;String&gt; g1 = new ArrayList&lt;&gt;(); g1.add("M"); g1.add("F"); g1.add("M"); map.put("1", g1); map.put("2", null); List&lt;String&gt; g2 = new ArrayList&lt;&gt;(); g2.add("M"); g2.add("M"); g2.add("X"); g2.add("F"); g2.add("Y"); map.put("3", g2); System.out.println(map); Map&lt;String, List&lt;String&gt;&gt; newMap = map.entrySet().stream() .filter(e -&gt; CollectionUtils.isNotEmpty(e.getValue())) .collect(Collectors.toMap( Map.Entry::getKey, e -&gt; e.getValue().stream() .filter(i -&gt; "M".equals(i)) .collect(Collectors.toList()) )); System.out.println(newMap);&#125; 结果： 123&#123;1=[M, F, M], 2=null, 3=[M, M, X, F, Y]&#125;&#123;1=[M, M], 3=[M, M]&#125;]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>java 8</tag>
+        <tag>stream</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[安装sklearn]]></title>
+    <url>%2F2022%2F11%2F%E5%AE%89%E8%A3%85sklearn%2F</url>
+    <content type="text"><![CDATA[Windows使用sklearn，需要安装Numpy+MKL或者Numpy+Vanilla。 下载地址： 1https:&#x2F;&#x2F;www.lfd.uci.edu&#x2F;~gohlke&#x2F;pythonlibs&#x2F;#numpy 查看安装的版本。 12345678910pip debug --verbose...Compatible tags: 36 cp310-cp310-win_amd64 cp310-abi3-win_amd64 cp310-none-win_amd64 cp39-abi3-win_amd64 cp38-abi3-win_amd64 cp37-abi3-win_amd64 所以下载版本numpy‑1.22.4+vanilla‑cp310‑cp310‑win_amd64.whl 安装numpy+vanilla 1pip install "numpy-1.22.4+vanilla-cp310-cp310-win_amd64.whl" --user 最后安装scikit-learn 1pip install scikit-learn --user]]></content>
+      <categories>
+        <category>Python</category>
+        <category>ML</category>
+      </categories>
+      <tags>
+        <tag>sklearn</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[查看Windows和Linux端口占用情况]]></title>
     <url>%2F2022%2F08%2F%E6%9F%A5%E7%9C%8BWindows%E5%92%8CLinux%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5%2F</url>
     <content type="text"><![CDATA[Windows查看端口占用情况1netstat -ano | findstr &lt;port&gt; 杀掉进程 1taskkill /pid /f &lt;port&gt; Linux 查看端口占用情况1lsof -i:&lt;port&gt;]]></content>
@@ -26,7 +55,7 @@
   <entry>
     <title><![CDATA[java8合并map]]></title>
     <url>%2F2022%2F08%2Fjava8%E5%90%88%E5%B9%B6map%2F</url>
-    <content type="text"><![CDATA[有个需求是合并两个map，并对相同key的元素的value进行求和。 1234567891011121314151617181920212223242526272829303132public static void main(String[] args) &#123; List&lt;String&gt; list = new ArrayList&lt;&gt;(); list.add("A"); list.add("B"); list.add("C"); list.add("B"); list.add("B"); list.add("C"); list.add("A"); list.add("D"); Map&lt;String, Long&gt; map = list.stream().collect(Collectors.groupingBy(k -&gt; k, Collectors.counting())); System.out.println("map: " + map); List&lt;String&gt; list2 = new ArrayList&lt;&gt;(); list2.add("B"); list2.add("B"); list2.add("B"); list2.add("B"); list2.add("B"); list2.add("C"); list2.add("A"); Map&lt;String, Long&gt; map2 = list2.stream().collect(Collectors.groupingBy(k -&gt; k, Collectors.counting())); System.out.println("map2: " + map2); map2.forEach((k, v) -&gt; map.merge(k, v, (v1, v2) -&gt; v1 + v2)); System.out.println("map: " + map); &#125; 假如说有以下List，List的元素存放的数据为：苹果:2, 香蕉:3 类似这样的数据。要统计每类水果的数量。 1234567891011Map&lt;String, Integer&gt; fruitCountMap = fruitStrList.stream() // 过滤掉空字符串 .filter(StringUtils::isNotEmpty) // 按逗号拆分，并压平 .flatMap(row -&gt; Arrays.stream(row.split(","))) // 生成map，相同的Key，累加value .collect(Collectors.toMap( entry -&gt; entry.split(":")[0], entry -&gt; Integer.parseInt(entry.split(":")[1]), Integer::sum) );]]></content>
+    <content type="text"><![CDATA[有个需求是合并两个map，并对相同key的元素的value进行求和。 1234567891011121314151617181920212223242526272829303132public static void main(String[] args) &#123; List&lt;String&gt; list = new ArrayList&lt;&gt;(); list.add("A"); list.add("B"); list.add("C"); list.add("B"); list.add("B"); list.add("C"); list.add("A"); list.add("D"); Map&lt;String, Long&gt; map = list.stream().collect(Collectors.groupingBy(k -&gt; k, Collectors.counting())); System.out.println("map: " + map); List&lt;String&gt; list2 = new ArrayList&lt;&gt;(); list2.add("B"); list2.add("B"); list2.add("B"); list2.add("B"); list2.add("B"); list2.add("C"); list2.add("A"); Map&lt;String, Long&gt; map2 = list2.stream().collect(Collectors.groupingBy(k -&gt; k, Collectors.counting())); System.out.println("map2: " + map2); map2.forEach((k, v) -&gt; map.merge(k, v, (v1, v2) -&gt; v1 + v2)); System.out.println("map: " + map); &#125; 上面这种方法会修改map的值，还有一种方法不会修改map的值，会新生成一个map。 12345678910111213141516171819202122public class MapMergeDemo &#123; public static void main(String[] args) &#123; HashMap&lt;String, Integer&gt; m = new HashMap&lt;&gt;(); HashMap&lt;String, Integer&gt; m2 = new HashMap&lt;&gt;(); m.put("apple", 2); m.put("pear", 3); m2.put("apple", 9); m2.put("banana", 6); // method1 Map&lt;String, Long&gt; mapResult = Stream.of(m, m2) .flatMap(map -&gt; map.entrySet().stream()) .collect(Collectors.groupingBy(Map.Entry::getKey, Collectors.summingLong(Map.Entry::getValue))); System.out.println(mapResult); &#125;&#125; 假如说有以下List，List的元素存放的数据为：苹果:2, 香蕉:3 类似这样的数据。要统计每类水果的数量。 1234567891011Map&lt;String, Integer&gt; fruitCountMap = fruitStrList.stream() // 过滤掉空字符串 .filter(StringUtils::isNotEmpty) // 按逗号拆分，并压平 .flatMap(row -&gt; Arrays.stream(row.split(","))) // 生成map，相同的Key，累加value .collect(Collectors.toMap( entry -&gt; entry.split(":")[0], entry -&gt; Integer.parseInt(entry.split(":")[1]), Integer::sum) );]]></content>
       <categories>
         <category>Java</category>
       </categories>
