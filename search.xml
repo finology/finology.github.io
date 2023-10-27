@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[美国国债命名方式]]></title>
+    <url>%2F2023%2F10%2F%E7%BE%8E%E5%9B%BD%E5%9B%BD%E5%80%BA%E5%91%BD%E5%90%8D%E6%96%B9%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[美国国债 US Treasury 的命名方式为：名称+票息+到期日 如 UST 3 3/4 4/25 的意思是： UST 3 3/4 4/25中的3 3/4表示票息，是3+3/4即是3.75%的票息，4/25表示到期的年和月，是2025年4月到期。]]></content>
+      <categories>
+        <category>债券</category>
+      </categories>
+      <tags>
+        <tag>美债</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Vmware安装Windows虚拟机]]></title>
+    <url>%2F2023%2F10%2FVmware%E5%AE%89%E8%A3%85Windows%E8%99%9A%E6%8B%9F%E6%9C%BA%2F</url>
+    <content type="text"><![CDATA[很少在Vmware上安装Windows系统，不过还是会遇到一些特殊情况，只能在Windows操作系统上使用某些软件。 在网上下载了一些安装光盘iso镜像，但却不能正常安装。这些iso文件，都是不能正常引动安装启动的。 后来在 https://next.itellyou.cn/ 这个网站上找到系统安装的iso镜像文件，最后成功安装。]]></content>
+      <categories>
+        <category>OS</category>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>vmware</tag>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Java 8 Stream filter过滤Map]]></title>
     <url>%2F2022%2F12%2FJava-8-Stream-filter%E8%BF%87%E6%BB%A4Map-String-List-String%2F</url>
     <content type="text"><![CDATA[过滤复杂的Map，map的value是一个List，把这个List中不满足要求的元素过滤掉。 使用java8 stream api应该这样写： 123456789101112131415161718192021222324252627282930313233public static void main(String[] args) &#123; Map&lt;String, List&lt;String&gt;&gt; map = new HashMap&lt;&gt;(); List&lt;String&gt; g1 = new ArrayList&lt;&gt;(); g1.add("M"); g1.add("F"); g1.add("M"); map.put("1", g1); map.put("2", null); List&lt;String&gt; g2 = new ArrayList&lt;&gt;(); g2.add("M"); g2.add("M"); g2.add("X"); g2.add("F"); g2.add("Y"); map.put("3", g2); System.out.println(map); Map&lt;String, List&lt;String&gt;&gt; newMap = map.entrySet().stream() .filter(e -&gt; CollectionUtils.isNotEmpty(e.getValue())) .collect(Collectors.toMap( Map.Entry::getKey, e -&gt; e.getValue().stream() .filter(i -&gt; "M".equals(i)) .collect(Collectors.toList()) )); System.out.println(newMap);&#125; 结果： 123&#123;1=[M, F, M], 2=null, 3=[M, M, X, F, Y]&#125;&#123;1=[M, M], 3=[M, M]&#125;]]></content>
