@@ -134,17 +134,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">226</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">228</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">77</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">78</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">353</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">358</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -211,6 +211,29 @@
       </div>
 
       
+    <div class="collection-year">
+      <span class="collection-header">2023</span>
+    </div>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2023-12-01T19:58:18+08:00"
+              content="2023-12-01">
+          12-01
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2023/12/JVM%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/" itemprop="url">
+            <span itemprop="name">JVM相关命令</span>
+          </a>
+      </div>
+
+    </header>
+  </article>
     <div class="collection-year">
       <span class="collection-header">2020</span>
     </div>
@@ -319,20 +342,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">353</span>
+          <span class="site-state-item-count">358</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-count">78</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">226</span>
+        <span class="site-state-item-count">228</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -578,28 +601,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 
 </body>
 </html>
-ck', 'mail', 'link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item => {
-      return GUEST.includes(item);
-    });
-    new Valine({
-      el         : '#valine-comments',
-      verify     : false,
-      notify     : true,
-      appId      : 'SfaSE3g5tgBX5HeHdlgjym1o-gzGzoHsz',
-      appKey     : 'iTsJGCNiGxrdBjV47UDN6X8p',
-      placeholder: "讲讲你的看法",
-      avatar     : 'mm',
-      meta       : guest,
-      pageSize   : '10' || 10,
-      visitor    : false,
-      lang       : '' || 'zh-cn',
-      path       : location.pathname,
-      recordIP   : false,
-      serverURLs : ''
-    });
-  }, window.Valine);
+.Valine);
 });
 </script>
 

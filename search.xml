@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[股票指标解释]]></title>
+    <url>%2F2023%2F12%2F%E8%82%A1%E7%A5%A8%E6%8C%87%E6%A0%87%E8%A7%A3%E9%87%8A%2F</url>
+    <content type="text"><![CDATA[有些金融指标，不太好理解，这里做一个解释说明。 流入额流入额一般就是买入额。 指定日内(超大单、大单、中单或小单)的买入金额。 净买入额指定日内(超大单、大单、中单或小单)的买入金额-(超大单、大单、中单或小单)的卖出金额。 主动买入额主动指主动去成交已经存在的对手单；被动是指挂单等待成交。 主动买入额(全单)全单和非全单的区别在于，全单包含机构、大户、中户和散户。而非全单必须选择某一种类型单独统计。 净主动买入额主动指主动去成交已经存在的对手单；被动是指挂单等待成交。 净主动买入额占比当日资金净流入金额 / 流通市值，仅主动。 净主动买入率(金额)即净流入率，当日净流入 / 成交额，仅主动 开盘买入额一般指9:30 ~ 10:00 收盘买入额一般指14:30 ~ 15:00 注：算法中根据挂单金额来划分超大单、大单、中单或小单。具体标准如下： 1）挂单额小于4万元，小单； 2）挂单额4万元到20万元之间，中单； 3）挂单额20万元至100万元之间，大单； 4）挂单额大于100万元，超大单。 指数数据为当天未停牌的成份股买入金额总和。 统计数据时，求占比时，如果是单只股票，就用量的占比。如果是指数或板块，就用总金额的占比。]]></content>
+      <categories>
+        <category>金融</category>
+      </categories>
+      <tags>
+        <tag>股票</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java中的锁]]></title>
+    <url>%2F2023%2F12%2FJava%E4%B8%AD%E7%9A%84%E9%94%81%2F</url>
+    <content type="text"><![CDATA[锁的分类可重入锁、不可重入锁重入的意思，在获取到锁A以后，再次获取A锁。 可重入锁：synchronized, ReentrantLock, ReentrantReadWriteLock 不可重入，在获取到锁A以后，再次获取锁A之前，自己必须先释放前面加的锁。 乐观锁、悲观锁悲观锁就是，当获取不到锁资源时，会将当前线程挂起，即进入BLOCKED或WAITING状态。 线程的挂起会涉及到用户态和内核态的切换。 用户态：JVM可以自行执行的指令。 内核态：需要操作系统才可以执行。 悲观锁：synchronized, ReentrantLock, ReentrantReadWriteLock 乐观锁：获取不到锁资源，可以再次让CPU调度，重新尝试获取锁资源。 Atomic原子类中，基于CAS乐观锁实现的。 公平锁、非公平锁synchronized只能是非公平锁。 ReentrantLock, ReentrantReadWriteLock 可以实现公平与非公平锁。 公平锁，未获取到锁时，去排队。 非公平锁，先尝试竞争抢锁，抢不到再去排队。 互斥锁、共享锁互斥锁：synchronized、ReentrantLock ReentrantReadWriteLock，有互斥锁，也有共享锁。 互斥锁：同一时间点，只有一个线程持有这个锁。 共享锁：同一时间点，多个线程持有。]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>Lock</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JVM相关命令]]></title>
+    <url>%2F2023%2F12%2FJVM%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[查看JVM相关的信息。 jinfo [option] &lt;pid&gt; 查看JVM使用的哪个垃圾回收器 jinfo -flags &lt;pid&gt; 12345678# jinfo -flags 58256Attaching to process ID 58256, please wait...Debugger attached successfully.Server compiler detected.JVM version is 25.212-b10Non-default VM flags: -XX:CICompilerCount=4 -XX:InitialHeapSize=264241152 -XX:MaxHeapSize=4200595456 -XX:MaxNewSize=1399848960 -XX:MinHeapDeltaBytes=524288 -XX:NewSize=88080384 -XX:OldSize=176160768 -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseParallelGC 可以看出是使用的 UseParallelGC。 通过如下命令也可以印证。 12# jinfo -flag UseParallelGC 58256-XX:+UseParallelGC 查看类加载的信息 123456789# jstat -class 58256 1000 10Loaded Bytes Unloaded Bytes Time 14582 26192.0 1 0.9 23.92 14582 26192.0 1 0.9 23.92 14582 26192.0 1 0.9 23.92 14582 26192.0 1 0.9 23.92 14582 26192.0 1 0.9 23.92 14582 26192.0 1 0.9 23.92 14582 26192.0 1 0.9 23.92 查看垃圾回收器的信息 12345678# jstat -gc 58256 1000 10 S0C S1C S0U S1U EC EU OC OU MC MU CCSC CCSU YGC YGCT FGC FGCT GCT28160.0 10240.0 0.0 9808.1 597504.0 430347.2 251904.0 69700.9 78612.0 74904.0 10300.0 9577.3 17 0.643 3 1.166 1.80928160.0 10240.0 0.0 9808.1 597504.0 430347.2 251904.0 69700.9 78612.0 74904.0 10300.0 9577.3 17 0.643 3 1.166 1.80928160.0 10240.0 0.0 9808.1 597504.0 430347.2 251904.0 69700.9 78612.0 74904.0 10300.0 9577.3 17 0.643 3 1.166 1.80928160.0 10240.0 0.0 9808.1 597504.0 430347.2 251904.0 69700.9 78612.0 74904.0 10300.0 9577.3 17 0.643 3 1.166 1.80928160.0 10240.0 0.0 9808.1 597504.0 430347.2 251904.0 69700.9 78612.0 74904.0 10300.0 9577.3 17 0.643 3 1.166 1.80928160.0 10240.0 0.0 9808.1 597504.0 430347.2 251904.0 69700.9 78612.0 74904.0 10300.0 9577.3 17 0.643 3 1.166 1.809 查看是否有死锁 1# jstack 58256 查看堆内存数据 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647# jmap -heap 58256Attaching to process ID 58256, please wait...Debugger attached successfully.Server compiler detected.JVM version is 25.212-b10using thread-local object allocation.Parallel GC with 8 thread(s)Heap Configuration: MinHeapFreeRatio = 0 MaxHeapFreeRatio = 100 MaxHeapSize = 4200595456 (4006.0MB) NewSize = 88080384 (84.0MB) MaxNewSize = 1399848960 (1335.0MB) OldSize = 176160768 (168.0MB) NewRatio = 2 SurvivorRatio = 8 MetaspaceSize = 21807104 (20.796875MB) CompressedClassSpaceSize = 1073741824 (1024.0MB) MaxMetaspaceSize = 17592186044415 MB G1HeapRegionSize = 0 (0.0MB)Heap Usage:PS Young GenerationEden Space: capacity = 589299712 (562.0MB) used = 93162144 (88.84634399414062MB) free = 496137568 (473.1536560058594MB) 15.808958006074844% usedFrom Space: capacity = 10485760 (10.0MB) used = 10174544 (9.703201293945312MB) free = 311216 (0.2967987060546875MB) 97.03201293945312% usedTo Space: capacity = 30408704 (29.0MB) used = 0 (0.0MB) free = 30408704 (29.0MB) 0.0% usedPS Old Generation capacity = 257949696 (246.0MB) used = 71381888 (68.0750732421875MB) free = 186567808 (177.9249267578125MB) 27.672794000889226% used29817 interned Strings occupying 3078576 bytes.]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>jvm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mybatis xml一对多的写法]]></title>
+    <url>%2F2023%2F12%2FMybatis-xml%E4%B8%80%E5%AF%B9%E5%A4%9A%E7%9A%84%E5%86%99%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[返回类 123456789List&lt;StudentCourses&gt; queryStudentCourses();package xxx.StudentCourses@Datapublic class StudentCourses &#123; private String name; private List&lt;String&gt; courses;&#125; 123456&lt;resultMap id="resultMap" type="xxx.StudentCourses"&gt; &lt;result column="name" property="name" /&gt; &lt;collection property="courses" ofType="string"&gt; &lt;result column="course" /&gt; &lt;/collection&gt;&lt;/resultMap&gt; 1234&lt;select id="queryStudentCourses" resultMap=""&gt; SELECT s.name, sc.course FROM student_course sc JOIN student s ON(s.id = sc.student_id)&lt;/select&gt;]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+        <tag>mybatis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SpringBoot测试类用@Value获取server.port的值]]></title>
+    <url>%2F2023%2F12%2FSpringBoot%E6%B5%8B%E8%AF%95%E7%B1%BB%E7%94%A8-Value%E8%8E%B7%E5%8F%96server-port%E7%9A%84%E5%80%BC%2F</url>
+    <content type="text"><![CDATA[我使用的springboot版本：2.1.2.RELEASE，在测试类中，通过@Value获取server.port的值，得到值 -1。 解决方法，可以在测试类上面加上如下注解： 123@RunWith(SpringRunner.class)@SpringBootTest(classes = MyApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>springboot</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[美国国债命名方式]]></title>
     <url>%2F2023%2F10%2F%E7%BE%8E%E5%9B%BD%E5%9B%BD%E5%80%BA%E5%91%BD%E5%90%8D%E6%96%B9%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[美国国债 US Treasury 的命名方式为：名称+票息+到期日 如 UST 3 3/4 4/25 的意思是： UST 3 3/4 4/25中的3 3/4表示票息，是3+3/4即是3.75%的票息，4/25表示到期的年和月，是2025年4月到期。]]></content>
@@ -14,7 +72,7 @@
   <entry>
     <title><![CDATA[Vmware安装Windows虚拟机]]></title>
     <url>%2F2023%2F10%2FVmware%E5%AE%89%E8%A3%85Windows%E8%99%9A%E6%8B%9F%E6%9C%BA%2F</url>
-    <content type="text"><![CDATA[很少在Vmware上安装Windows系统，不过还是会遇到一些特殊情况，只能在Windows操作系统上使用某些软件。 在网上下载了一些安装光盘iso镜像，但却不能正常安装。这些iso文件，都是不能正常引动安装启动的。 后来在 https://next.itellyou.cn/ 这个网站上找到系统安装的iso镜像文件，最后成功安装。]]></content>
+    <content type="text"><![CDATA[很少在Vmware上安装Windows系统，不过还是会遇到一些特殊情况，只能在Windows操作系统上使用某些软件。 在网上下载了一些安装光盘iso镜像，但却不能正常安装。这些iso文件，都是不能正常引动安装启动的。 后来在 https://next.itellyou.cn/ 这个网站上找到系统安装的iso镜像文件，最后成功安装。 如果设置系统激活的问题，可以从链接 https://dnmjun.lanzoui.com/b0e7m2fof 下载 HEU_KMS_Activator_v41.1.0.rar 激活工具。 在使用前需要把杀毒程序关闭，不然系统会把这个工具做为病毒而删除。]]></content>
       <categories>
         <category>OS</category>
         <category>Windows</category>

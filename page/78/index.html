@@ -134,17 +134,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">226</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">228</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">77</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">78</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">353</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">358</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/12/%E9%AA%8C%E8%AF%81prometheus%E7%9B%91%E6%8E%A7targets%E7%9A%84metrics/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/01/kubernetes%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81Pod/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +218,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/%E9%AA%8C%E8%AF%81prometheus%E7%9B%91%E6%8E%A7targets%E7%9A%84metrics/" class="post-title-link" itemprop="url">验证prometheus监控targets的metrics</a>
+            <a href="/2020/01/kubernetes%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81Pod/" class="post-title-link" itemprop="url">kubernetes中的静态Pod</a>
         </h2>
 
         <div class="post-meta">
@@ -228,7 +228,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-12-29 22:57:17" itemprop="dateCreated datePublished" datetime="2019-12-29T22:57:17+08:00">2019-12-29</time>
+              <time title="创建时间：2020-01-06 23:37:58" itemprop="dateCreated datePublished" datetime="2020-01-06T23:37:58+08:00">2020-01-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -245,14 +245,10 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
                 </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
-                </span>
             </span>
 
           
-            <span id="/2019/12/%E9%AA%8C%E8%AF%81prometheus%E7%9B%91%E6%8E%A7targets%E7%9A%84metrics/" class="post-meta-item leancloud_visitors" data-flag-title="验证prometheus监控targets的metrics" title="阅读次数">
+            <span id="/2020/01/kubernetes%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81Pod/" class="post-meta-item leancloud_visitors" data-flag-title="kubernetes中的静态Pod" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -268,8 +264,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2019/12/%E9%AA%8C%E8%AF%81prometheus%E7%9B%91%E6%8E%A7targets%E7%9A%84metrics/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/%E9%AA%8C%E8%AF%81prometheus%E7%9B%91%E6%8E%A7targets%E7%9A%84metrics/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/01/kubernetes%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81Pod/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/kubernetes%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81Pod/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -296,19 +292,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在Prometheus监控Targets页面，显示的都是监控标的列表。我们如何验证访问此/metrics的结果呢？</p>
-<h1 id="monitoring-kube-apiserver"><a href="#monitoring-kube-apiserver" class="headerlink" title="monitoring/kube-apiserver"></a>monitoring/kube-apiserver</h1>
-<p>这种<code>https://172.16.64.233:6443/metrics</code> URL，是需要带证书才能访问的：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">curl -k --key /etc/kubernetes/pki/apiserver-kubelet-client.key \</span><br><span class="line">--cert /etc/kubernetes/pki/apiserver-kubelet-client.crt \</span><br><span class="line">https://172.16.64.233:6443/metrics</span><br><span class="line">...</span><br><span class="line"><span class="meta">#</span><span class="bash"> HELP go_gc_duration_seconds A summary of the GC invocation durations.</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> TYPE go_gc_duration_seconds summary</span></span><br><span class="line">go_gc_duration_seconds&#123;quantile="0"&#125; 1.2317e-05</span><br><span class="line">go_gc_duration_seconds&#123;quantile="0.25"&#125; 3.1153e-05</span><br><span class="line">go_gc_duration_seconds&#123;quantile="0.5"&#125; 4.6201e-05</span><br></pre></td></tr></table></figure>
-<h1 id="monitoring-kube-state-metrics"><a href="#monitoring-kube-state-metrics" class="headerlink" title="monitoring/kube-state-metrics"></a>monitoring/kube-state-metrics</h1><p>在页面上显示的Endpoint是<a href="https://10.244.169.167:9443/metrics">https://10.244.169.167:9443/metrics</a></p>
-<p>然后查看<code>kube-state-metrics-serviceMonitor.yaml</code></p>
-<p>发现有个配置<code>bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token</code></p>
-<p>进入到pod <code>prometheus-k8s-0</code>, 通过<code>/var/run/secrets/kubernetes.io/serviceaccount/token</code>文件拿到token。</p>
-<p>然后执行下面的命令就可以拿到指标数据了。</p>
-<p>更多详情请看此文 <a href="/2020/02/Prometheus-monitoring-kube-state-metrics%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" title="Prometheus monitoring&#x2F;kube-state-metrics监控指标">Prometheus monitoring&#x2F;kube-state-metrics监控指标</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -k https://10.244.169.167:9443/metrics -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJtb25pdG9yaW5nIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6InByb21ldGhldXMtazhzLXRva2VuLXNtNmdkIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6InByb21ldGhldXMtazhzIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiMTk2OTkyOTItNDY2Yi00NWQ4LWJmYmYtYzkyZjIwNjczOWY3Iiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Om1vbml0b3Jpbmc6cHJvbWV0aGV1cy1rOHMifQ.iggZ4ZxmD0y04OQfDlo4P6zRgzn0ryVhcdhlgncpnBY5BJ39Xz0a2AA51ePa78R2njFDjPcecgDJRcqPv76X3o-C-G7EZvN_Ru8zSdB51YxqlLNoIW5hy6Jr27aw74lMslg1MYX_31kkRTqD9DxVn6lq6Uqf4Djebj_E-2maiwl863GCeNRfS1X6KM8idsVknLlpdVINbM8U_l1Yuw-auNzelAk1NQlBdbJqsm1CZKIg_YBsT-KbiyTsbjX2v0uL1D6-Q5Xs9NZMLEAa7dfwz_EOYMDnIGbv-eyhD-924H4_pGOIoQ0dCBP01cxFm7pLJPGouwLaEwPs5BRS0B6u-w"</span><br></pre></td></tr></table></figure>
-<h1 id="monitoring-kubelet"><a href="#monitoring-kubelet" class="headerlink" title="monitoring/kubelet"></a>monitoring/kubelet</h1><p><a href="https://172.16.64.233:10250/metrics">https://172.16.64.233:10250/metrics</a></p>
-<h1 id="monitoring-node-exporter"><a href="#monitoring-node-exporter" class="headerlink" title="monitoring/node-exporter"></a>monitoring/node-exporter</h1><p><a href="https://172.16.64.233:9100/metrics">https://172.16.64.233:9100/metrics</a></p>
+          <p>平常我们提得比较多的Pod，都是通过Deployment，DaemonSet，StatefulSet等方式创建管理的。今天我们介绍一种特殊的Pod，叫静态(Static) Pod。</p>
+<h1 id="什么是静态Pod"><a href="#什么是静态Pod" class="headerlink" title="什么是静态Pod"></a>什么是静态Pod</h1><p>静态Pod是由kubelet进行管理，仅存在于特定Node上的Pod，这些Pod是不能通过API Server进行管理的，无法与ReplicationController，Deployment或DaemonSet关联。</p>
+<h1 id="静态Pod的创建"><a href="#静态Pod的创建" class="headerlink" title="静态Pod的创建"></a>静态Pod的创建</h1><p>通过配置yaml文件可以创建静态Pod。只要有kubelet进程，就可以在所在节点运行静态Pod。</p>
+<p>如果通过二进制启动的kubelet，可以在kubelet执行时添加配置参数<code>--pod-manifest-path=&lt;yaml directory&gt;</code>，kubelet会定期扫描目录，应用<yaml directory>目录下面的yaml文件来创建静态Pod。</p>
+<p>我是通过kubeadm安装的集群，我们以<code>kube-scheduler</code>这个静态Pod为例，看看它是如何运行的。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep kubelet</span><br><span class="line">root       6088      1  3 Dec23 ?        01:45:47 /usr/bin/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubernetes/kubelet.conf --config=/var/lib/kubelet/config.yaml --cgroup-driver=systemd --network-plugin=cni --pod-infra-container-image=k8s.gcr.io/pause:3.1</span><br></pre></td></tr></table></figure>
+<p>看到<code>--config</code>的目录为<code>/var/lib/kubelet/config.yaml</code>，查看此文件内容，我们可以看到参数<code>staticPodPath</code>的值：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /var/lib/kubelet/config.yaml | grep staticPodPath</span><br><span class="line">staticPodPath: /etc/kubernetes/manifests</span><br></pre></td></tr></table></figure>
+<p>查看目录内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ll /etc/kubernetes/manifests</span><br><span class="line">total 16</span><br><span class="line">-rw------- 1 root root 1928 Dec 12 10:38 etcd.yaml</span><br><span class="line">-rw------- 1 root root 2610 Dec 12 10:38 kube-apiserver.yaml</span><br><span class="line">-rw------- 1 root root 2486 Dec 12 10:38 kube-controller-manager.yaml</span><br><span class="line">-rw------- 1 root root  990 Dec 12 10:38 kube-scheduler.yaml</span><br></pre></td></tr></table></figure>
+<p>由此得知，kubelet会扫描staticPodPath，检测到这个目录下有yaml文件，就创建Pod了。如果要删除Pod，把这些配置文件删除即可。</p>
 
       
     </div>
@@ -328,7 +322,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/12/%E8%A7%A3%E5%86%B3Failed-to-load-module-canberra-gtk-module%E9%94%99%E8%AF%AF/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/01/%E6%90%AD%E5%BB%BAreactjs%E5%92%8Cantd%E7%9A%84%E5%8E%9F%E5%A7%8B%E9%A1%B9%E7%9B%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -342,7 +336,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/%E8%A7%A3%E5%86%B3Failed-to-load-module-canberra-gtk-module%E9%94%99%E8%AF%AF/" class="post-title-link" itemprop="url">解决Failed to load module canberra-gtk-module错误</a>
+            <a href="/2020/01/%E6%90%AD%E5%BB%BAreactjs%E5%92%8Cantd%E7%9A%84%E5%8E%9F%E5%A7%8B%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">搭建reactjs和antd的原始项目</a>
         </h2>
 
         <div class="post-meta">
@@ -352,7 +346,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-12-20 23:11:09" itemprop="dateCreated datePublished" datetime="2019-12-20T23:11:09+08:00">2019-12-20</time>
+              <time title="创建时间：2020-01-05 20:25:09" itemprop="dateCreated datePublished" datetime="2020-01-05T20:25:09+08:00">2020-01-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -367,16 +361,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+                  <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
                 </span>
             </span>
 
           
-            <span id="/2019/12/%E8%A7%A3%E5%86%B3Failed-to-load-module-canberra-gtk-module%E9%94%99%E8%AF%AF/" class="post-meta-item leancloud_visitors" data-flag-title="解决Failed to load module canberra-gtk-module错误" title="阅读次数">
+            <span id="/2020/01/%E6%90%AD%E5%BB%BAreactjs%E5%92%8Cantd%E7%9A%84%E5%8E%9F%E5%A7%8B%E9%A1%B9%E7%9B%AE/" class="post-meta-item leancloud_visitors" data-flag-title="搭建reactjs和antd的原始项目" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -392,8 +382,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2019/12/%E8%A7%A3%E5%86%B3Failed-to-load-module-canberra-gtk-module%E9%94%99%E8%AF%AF/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/%E8%A7%A3%E5%86%B3Failed-to-load-module-canberra-gtk-module%E9%94%99%E8%AF%AF/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/01/%E6%90%AD%E5%BB%BAreactjs%E5%92%8Cantd%E7%9A%84%E5%8E%9F%E5%A7%8B%E9%A1%B9%E7%9B%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/%E6%90%AD%E5%BB%BAreactjs%E5%92%8Cantd%E7%9A%84%E5%8E%9F%E5%A7%8B%E9%A1%B9%E7%9B%AE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -420,15 +410,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在Ubuntu环境里，运行程序时，报错：</p>
-<img src="/2019/12/%E8%A7%A3%E5%86%B3Failed-to-load-module-canberra-gtk-module%E9%94%99%E8%AF%AF/1576805206947.png" class="">
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Gtk-Message: 09:10:26.571: Failed to load module &quot;canberra-gtk-module&quot;</span><br></pre></td></tr></table></figure>
-<p>查看一下模块位置</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">locate libcanberra-gtk-module</span><br><span class="line">/usr/lib/x86_64-linux-gnu/gtk-3.0/modules/libcanberra-gtk-module.so</span><br></pre></td></tr></table></figure>
-<p>发现已经安装了，却加载不了。</p>
-<p>重新安装一下吧。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libcanberra-gtk-module</span><br><span class="line">[sudo] password for simon: </span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">The following additional packages will be installed:</span><br><span class="line">  libcanberra-gtk0</span><br><span class="line">The following NEW packages will be installed:</span><br><span class="line">  libcanberra-gtk-module libcanberra-gtk0</span><br><span class="line">0 upgraded, 2 newly installed, 0 to remove and 175 not upgraded.</span><br><span class="line">Need to get 17.8 kB of archives.</span><br><span class="line">After this operation, 92.2 kB of additional disk space will be used.</span><br><span class="line">Do you want to continue? [Y/n] y</span><br></pre></td></tr></table></figure>
-<p>安装成功，再次启动程序，就不会报错了。</p>
+          <h1 id="安装node-npm"><a href="#安装node-npm" class="headerlink" title="安装node, npm"></a>安装node, npm</h1><p>查看安装的版本信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">v10.16.0</span><br><span class="line"></span><br><span class="line">npm -v</span><br><span class="line">6.10.0</span><br></pre></td></tr></table></figure>
+<h1 id="安装react脚手架工具"><a href="#安装react脚手架工具" class="headerlink" title="安装react脚手架工具"></a>安装react脚手架工具</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br></pre></td></tr></table></figure>
+<p>查看安装版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create-react-app -V</span><br><span class="line">3.3.0</span><br></pre></td></tr></table></figure>
+<h1 id="新建一个项目"><a href="#新建一个项目" class="headerlink" title="新建一个项目"></a>新建一个项目</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create-react-app my-app</span><br></pre></td></tr></table></figure>
+<p>启动项目</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd my-app</span><br><span class="line">yarn start</span><br></pre></td></tr></table></figure>
+<h1 id="安装react-router-dom"><a href="#安装react-router-dom" class="headerlink" title="安装react-router-dom"></a>安装react-router-dom</h1><p>react-router 4.0版本以后，就只需要安装<code>react-router-dom</code>了，dom代表有dom元素在里面。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add react-router-dom</span><br></pre></td></tr></table></figure>
+<h1 id="安装less-loader-less"><a href="#安装less-loader-less" class="headerlink" title="安装less-loader, less"></a>安装less-loader, less</h1><p>如果写一个<code>.less</code>的样式文件，react脚手架工具创建出来的项目默认是不支持的，所以需要安装<code>less-loader</code>模块。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add less-loader less</span><br></pre></td></tr></table></figure>
+<p>安装好less-loader后，需要做一些配置才能生效。</p>
+<p>执行<code>yarn eject</code>，把配置文件把暴露出来。系统可能会提示让把<code>package.json</code>和<code>yarn.lock</code>commit掉。</p>
+<p>可以看到工程中多出了<code>scripts</code>和<code>config</code>目录</p>
+<p>编译<code>config/webpack.config.js</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">oneOf: [</span><br><span class="line">    // "url" loader works like "file" loader except that it embeds assets</span><br><span class="line">    // smaller than specified limit in bytes as data URLs to avoid requests.</span><br><span class="line">    // A missing `test` is equivalent to a match.</span><br><span class="line">    // 添加如下内容</span><br><span class="line">    &#123;</span><br><span class="line">      test: /\.less$/,</span><br><span class="line">      use: [&#123;</span><br><span class="line">        loader: 'style-loader',</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        loader: 'css-loader', // translates CSS into CommonJS</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        loader: 'less-loader', // compiles Less to CSS</span><br><span class="line">        options: &#123;</span><br><span class="line">          sourceMap: true,</span><br><span class="line">          modifyVars: &#123;</span><br><span class="line">            // '@primary-color': '#F0CF13',</span><br><span class="line">          &#125;,</span><br><span class="line">          javascriptEnabled: true,</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;]</span><br><span class="line">    &#125;,</span><br><span class="line">    // 添加上面内容</span><br><span class="line">    &#123;</span><br><span class="line">      test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],</span><br><span class="line">      loader: require.resolve('url-loader'),</span><br><span class="line">      options: &#123;</span><br><span class="line">        limit: imageInlineSizeLimit,</span><br><span class="line">        name: 'static/media/[name].[hash:8].[ext]',</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>@primary-color可以不用设置。</p>
+<p>因为修改了配置，所以需要重启项目。</p>
+<p>这时我们发现，less的样式已经生效了。</p>
+<h1 id="安装axios"><a href="#安装axios" class="headerlink" title="安装axios"></a>安装axios</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add axios</span><br></pre></td></tr></table></figure>
+<h1 id="安装antd"><a href="#安装antd" class="headerlink" title="安装antd"></a>安装antd</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add antd</span><br></pre></td></tr></table></figure>
+<p>在使用时，引入css文件。如果要使用Button组件，引入即可。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import 'antd/dist/antd.css'</span><br><span class="line">import &#123;Button&#125; from "antd";</span><br></pre></td></tr></table></figure>
+<p>antd是用less来写的，我们加载的antd.css是全部的样式，这样加载的内容太多了。</p>
+<p>我们如果要达到按需加载的目的，还得安装<code>babel-plugin-import</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add babel-plugin-import</span><br></pre></td></tr></table></figure>
+<p>安装好以后，在<code>package.json</code>里面的<code>babel</code>属性里面添加如下内容：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">"babel": &#123;</span><br><span class="line">  "presets": [</span><br><span class="line">    <span class="string">"react-app"</span></span><br><span class="line">  ],</span><br><span class="line">  // 添加下面的内容</span><br><span class="line">  "plugins": [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">"import"</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"libraryName"</span>: <span class="string">"antd"</span>,</span><br><span class="line">        <span class="attr">"style"</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">  // 添加上面的内容</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重启项目，我们发现，当我们注释掉css以后，antd的样式还是可以正常输出。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import 'antd/dist/antd.css'</span></span><br><span class="line"><span class="keyword">import</span> &#123;Button&#125; <span class="keyword">from</span> <span class="string">"antd"</span>;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -448,7 +460,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/01/%E8%A7%A3%E5%86%B3TypeError-this-cliEngine-is-not-a-constructor/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -462,7 +474,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">Ubuntu环境搭建Go语言开发环境</a>
+            <a href="/2020/01/%E8%A7%A3%E5%86%B3TypeError-this-cliEngine-is-not-a-constructor/" class="post-title-link" itemprop="url">解决TypeError: this.cliEngine is not a constructor</a>
         </h2>
 
         <div class="post-meta">
@@ -472,7 +484,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-12-20 23:06:52" itemprop="dateCreated datePublished" datetime="2019-12-20T23:06:52+08:00">2019-12-20</time>
+              <time title="创建时间：2020-01-04 16:43:01" itemprop="dateCreated datePublished" datetime="2020-01-04T16:43:01+08:00">2020-01-04</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -487,12 +499,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Golang/" itemprop="url" rel="index"><span itemprop="name">Golang</span></a>
+                  <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
                 </span>
             </span>
 
           
-            <span id="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu环境搭建Go语言开发环境" title="阅读次数">
+            <span id="/2020/01/%E8%A7%A3%E5%86%B3TypeError-this-cliEngine-is-not-a-constructor/" class="post-meta-item leancloud_visitors" data-flag-title="解决TypeError: this.cliEngine is not a constructor" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -508,8 +520,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/01/%E8%A7%A3%E5%86%B3TypeError-this-cliEngine-is-not-a-constructor/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/%E8%A7%A3%E5%86%B3TypeError-this-cliEngine-is-not-a-constructor/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -536,35 +548,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="下载Golang安装文件"><a href="#下载Golang安装文件" class="headerlink" title="下载Golang安装文件"></a>下载Golang安装文件</h1><p>官方下载页面：<a href="https://golang.org/dl/">https://golang.org/dl/</a></p>
-<p>也可以到国内下载地址下载：<a href="https://studygolang.com/dl">https://studygolang.com/dl</a></p>
-<p>我下载的版本是go1.12.14，下载到<code>/usr/local/go1.12.14.linux-amd64.tar.gz</code></p>
-<h1 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -zxvf go1.12.14.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
-<h1 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/bash.bashrc</span><br></pre></td></tr></table></figure>
-<p>在文件末尾添加如下内容：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> go</span></span><br><span class="line">export GOROOT=/usr/local/go/ # golang installation path</span><br><span class="line">export GOPATH=/usr/local/development/gopath # go working path</span><br><span class="line">export GOBIN=$GOPATH/bin/</span><br><span class="line">export PATH=$GOBIN:$GOROOT/bin:$PATH</span><br></pre></td></tr></table></figure>
-<p>使配置生效</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/bash.bashrc</span><br></pre></td></tr></table></figure>
-<p>安装成功，查看go版本信息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go version</span><br><span class="line">go version go1.12.14 linux/amd64</span><br></pre></td></tr></table></figure>
-<h1 id="安装intellij-Go插件"><a href="#安装intellij-Go插件" class="headerlink" title="安装intellij Go插件"></a>安装intellij Go插件</h1><p>如果在线下载不了，可以进入<code>https://plugins.jetbrains.com/plugin/9568-go</code>下载，注意选择对应的版本。</p>
-<p>进入Configure -&gt; Settings -&gt; Plugings -&gt; Install Plugin from Disk…，选择刚才下载好的插件安装。</p>
-<p>安装成功后，如下图所示，重启IDEA。</p>
-<img src="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/1576726075818.png" class="">
-<h1 id="设置go语言sdk"><a href="#设置go语言sdk" class="headerlink" title="设置go语言sdk"></a>设置go语言sdk</h1><p>Configure -&gt; Settings -&gt; Language &amp; Frameworks -&gt; Go</p>
-<img src="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/1576726632660.png" class="">
-<h1 id="设置GOPATH"><a href="#设置GOPATH" class="headerlink" title="设置GOPATH"></a>设置GOPATH</h1><img src="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/1576726942195.png" class="">
-<p>从本地，或者git上面导入工程代码。</p>
-<h1 id="配置GO依赖代理"><a href="#配置GO依赖代理" class="headerlink" title="配置GO依赖代理"></a>配置GO依赖代理</h1><p>如果在网络受限的情况下，可能是需要设置GO依赖代理的。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> go proxy</span></span><br><span class="line">export GO111MODULE=on</span><br><span class="line">export GOPROXY=https://goproxy.io</span><br></pre></td></tr></table></figure>
-<p>如果公司有启用go代理的话，则把GOPROXY设置成相应的地址就行了。</p>
-<p>当执行go build或go run时，依赖包会自动下载到<code>$GOPATH/pkg/mod</code>下面。</p>
-<h1 id="设置git代理"><a href="#设置git代理" class="headerlink" title="设置git代理"></a>设置git代理</h1><p>如果网络受限不能访问github.com，那还需要设置git代理。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global url."http://&lt;server-address&gt;/".insteadOf "git@github.com:"</span><br></pre></td></tr></table></figure>
-<p>设置好以后，查看结果：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.gitconfig</span><br><span class="line">[url "http://&lt;server-address&gt;/"]</span><br><span class="line">	insteadOf = git@github.com:</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global -l</span><br><span class="line">url.http://&lt;server-address&gt;/.insteadof=git@github.com:</span><br></pre></td></tr></table></figure>
+          <p>用<code>create-react-app</code>工具创建了一个项目，使用IDEA打开项目，出现如下错误提示：</p>
+
+<p>点击Detail查看：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">TypeError: this.cliEngine is not a constructor</span><br><span class="line"></span><br><span class="line">TypeError: this.cliEngine is not a constructor</span><br><span class="line">    at ESLintPlugin.invokeESLint (/Applications/IntelliJ IDEA.app/Contents/plugins/JavaScriptLanguage/languageService/eslint/bin/eslint-plugin.js:97:25)</span><br><span class="line">    at ESLintPlugin.getErrors (/Applications/IntelliJ IDEA.app/Contents/plugins/JavaScriptLanguage/languageService/eslint/bin/eslint-plugin.js:76:21)</span><br><span class="line">    at ESLintPlugin.onMessage (/Applications/IntelliJ IDEA.app/Contents/plugins/JavaScriptLanguage/languageService/eslint/bin/eslint-plugin.js:42:29)</span><br><span class="line">    at Interface.&lt;anonymous&gt; (/Applications/IntelliJ IDEA.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/js-language-service.js:105:39)</span><br><span class="line">    at Interface.emit (events.js:198:13)</span><br><span class="line">    at Interface._onLine (readline.js:308:10)</span><br><span class="line">    at Interface._normalWrite (readline.js:451:12)</span><br><span class="line">    at Socket.ondata (readline.js:165:10)</span><br><span class="line">    at Socket.emit (events.js:198:13)</span><br><span class="line">    at addChunk (_stream_readable.js:288:12)</span><br><span class="line">Process finished with exit code -1</span><br></pre></td></tr></table></figure>
+<p>编辑文件</p>
+<p>把如下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.cliEngine = require(packagePath + "lib/cli-engine");</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.cliEngine = require(packagePath + "lib/cli-engine").CLIEngine;</span><br></pre></td></tr></table></figure>
+<p>关闭项目，重新打开项目就可以了。</p>
 
       
     </div>
@@ -584,7 +577,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/77/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/77/">77</a><span class="page-number current">78</span><a class="page-number" href="/page/79/">79</a><span class="space">&hellip;</span><a class="page-number" href="/page/118/">118</a><a class="extend next" rel="next" href="/page/79/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/77/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/77/">77</a><span class="page-number current">78</span><a class="page-number" href="/page/79/">79</a><span class="space">&hellip;</span><a class="page-number" href="/page/120/">120</a><a class="extend next" rel="next" href="/page/79/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -663,20 +656,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">353</span>
+          <span class="site-state-item-count">358</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-count">78</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">226</span>
+        <span class="site-state-item-count">228</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -134,17 +134,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">226</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">228</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">77</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">78</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">353</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">358</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/02/Python%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/02/%E5%88%9B%E5%BB%BASpark-SQL%E7%A8%8B%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +218,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/02/Python%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/" class="post-title-link" itemprop="url">Python如何打印日志</a>
+            <a href="/2019/02/%E5%88%9B%E5%BB%BASpark-SQL%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">创建Spark SQL程序</a>
         </h2>
 
         <div class="post-meta">
@@ -228,7 +228,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-02-07 21:55:24" itemprop="dateCreated datePublished" datetime="2019-02-07T21:55:24+08:00">2019-02-07</time>
+              <time title="创建时间：2019-02-10 22:04:55" itemprop="dateCreated datePublished" datetime="2019-02-10T22:04:55+08:00">2019-02-10</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -243,12 +243,16 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
                 </span>
             </span>
 
           
-            <span id="/2019/02/Python%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/" class="post-meta-item leancloud_visitors" data-flag-title="Python如何打印日志" title="阅读次数">
+            <span id="/2019/02/%E5%88%9B%E5%BB%BASpark-SQL%E7%A8%8B%E5%BA%8F/" class="post-meta-item leancloud_visitors" data-flag-title="创建Spark SQL程序" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -264,8 +268,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2019/02/Python%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/Python%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/" itemprop="commentCount"></span>
+    <a title="valine" href="/2019/02/%E5%88%9B%E5%BB%BASpark-SQL%E7%A8%8B%E5%BA%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/%E5%88%9B%E5%BB%BASpark-SQL%E7%A8%8B%E5%BA%8F/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -292,49 +296,163 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h1><p>日志是跟踪软件运行时所发生的事件的一种方法。软件开发者在代码中调用日志函数，表明发生了特定的事件。事件由描述性消息描述，该描述性消息可以可选地包含可变数据（即，对于事件的每次出现都潜在地不同的数据）。事件还具有开发者归因于事件的重要性；重要性也可以称为级别或严重性。</p>
-<h2 id="什么时候使用Logging"><a href="#什么时候使用Logging" class="headerlink" title="什么时候使用Logging"></a>什么时候使用Logging</h2><p>logging提供了一组便利的函数，用来做简单的日志。它们是 debug()、 info()、 warning()、 error() 和 critical()。</p>
-<p>logging函数根据它们用来跟踪的事件的级别或严重程度来命名。标准级别及其适用性描述如下（以严重程度递增排序）：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>级别</th>
-<th>何时使用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>DEBUG</td>
-<td>详细信息，一般只在调试问题时使用。</td>
-</tr>
-<tr>
-<td>INFO</td>
-<td>证明事情按预期工作。</td>
-</tr>
-<tr>
-<td>WARNING</td>
-<td>某些没有预料到的事件的提示，或者在将来可能会出现的问题提示。例如：磁盘空间不足。但是软件还是会照常运行。</td>
-</tr>
-<tr>
-<td>ERROR</td>
-<td>由于更严重的问题，软件已不能执行一些功能了。</td>
-</tr>
-<tr>
-<td>CRITICAL</td>
-<td>严重错误，表明软件已不能继续运行了。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h1 id="打印日志到控制台"><a href="#打印日志到控制台" class="headerlink" title="打印日志到控制台"></a>打印日志到控制台</h1><p>由于默认设置的等级是warning，所有只有warning的信息会输出到控制台。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">logging.warning(<span class="string">'Watch out!'</span>)  <span class="comment"># will print a message to the console</span></span><br><span class="line">logging.info(<span class="string">'I told you so'</span>)  <span class="comment"># will not print anything</span></span><br><span class="line"></span><br><span class="line">WARNING:root:Watch out!</span><br></pre></td></tr></table></figure>
-<h1 id="打印日志到文件"><a href="#打印日志到文件" class="headerlink" title="打印日志到文件"></a>打印日志到文件</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">logging.basicConfig(filename=<span class="string">'example.log'</span>,level=logging.DEBUG)</span><br><span class="line">logging.debug(<span class="string">'This message should go to the log file'</span>)</span><br><span class="line">logging.info(<span class="string">'So should this'</span>)</span><br><span class="line">logging.warning(<span class="string">'And this, too'</span>)</span><br><span class="line"></span><br><span class="line">DEBUG:root:This message should go to the log file</span><br><span class="line">INFO:root:So should this</span><br><span class="line">WARNING:root:And this, too</span><br></pre></td></tr></table></figure>
-<p>我们设置了logging的级别为DEBUG，所以所有信息都将被写入到<code>example.log</code>文件中。</p>
-<p>如果想要每次启动时，原来的打印日志都被清空的话，则需要把<code>filemode</code>由默认的<code>a</code>改为<code>w</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logging.basicConfig(filename=<span class="string">'example.log'</span>, filemode=<span class="string">'w'</span>, level=logging.DEBUG)</span><br></pre></td></tr></table></figure>
-<h1 id="日志的格式"><a href="#日志的格式" class="headerlink" title="日志的格式"></a>日志的格式</h1><h2 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logging.basicConfig(format=<span class="string">'%(levelname)s:%(message)s'</span>, level=logging.DEBUG)</span><br><span class="line">logging.debug(<span class="string">'This message should appear on the console'</span>)</span><br><span class="line">logging.info(<span class="string">'So should this'</span>)</span><br><span class="line">logging.warning(<span class="string">'And this, too'</span>)</span><br><span class="line"></span><br><span class="line">DEBUG:This message should appear on the console</span><br><span class="line">INFO:So should this</span><br><span class="line">WARNING:And this, too</span><br></pre></td></tr></table></figure>
-<h2 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logging.basicConfig(format=<span class="string">'%(asctime)s %(message)s'</span>)</span><br><span class="line">logging.warning(<span class="string">'is when this event was logged.'</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">2019</span><span class="number">-02</span><span class="number">-07</span> <span class="number">22</span>:<span class="number">21</span>:<span class="number">20</span>,<span class="number">993</span> <span class="keyword">is</span> when this event was logged.</span><br></pre></td></tr></table></figure>
+          <p>这篇博文将讲述如何创建一个Spark SQL的demo程序。</p>
+<h1 id="创建Maven工程"><a href="#创建Maven工程" class="headerlink" title="创建Maven工程"></a>创建Maven工程</h1><p>在pom.xml文件中需要两个依赖。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scala.version</span>&gt;</span>2.11.12<span class="tag">&lt;/<span class="name">scala.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scala.compat.version</span>&gt;</span>2.11<span class="tag">&lt;/<span class="name">scala.compat.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">spark.version</span>&gt;</span>2.2.3<span class="tag">&lt;/<span class="name">spark.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.scala-lang<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>scala-library<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;scala.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.spark<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spark-sql_$&#123;scala.compat.version&#125;<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spark.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="创建SparkSessionApp"><a href="#创建SparkSessionApp" class="headerlink" title="创建SparkSessionApp"></a>创建SparkSessionApp</h1><p>在Spark 1.x时，是通过创建SQLContext()来获取context的。</p>
+<p>在Spark 2.x后，改为使用SparkSession了。</p>
+<p>args(0)表示输入文件的地址。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> gy.finolo.spark</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.sql.<span class="type">SparkSession</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">SparkSessionApp</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> path = args(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> sparkSession = <span class="type">SparkSession</span>.builder()</span><br><span class="line">      .master(<span class="string">"local[2]"</span>)</span><br><span class="line">      .appName(<span class="string">"Spark Session App"</span>)</span><br><span class="line">      .getOrCreate()</span><br><span class="line">    <span class="keyword">val</span> people = sparkSession.read.format(<span class="string">"json"</span>).load(path)</span><br><span class="line">    people.printSchema()</span><br><span class="line">    people.show()</span><br><span class="line">    sparkSession.stop()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在IDEA中运行时，需要指定<code>Program Arguments</code>为<code>/usr/local/spark/spark-2.2.3-bin-hadoop2.6/examples/src/main/resources/people.json</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;usr&#x2F;local&#x2F;spark&#x2F;spark-2.2.3-bin-hadoop2.6&#x2F;examples&#x2F;src&#x2F;main&#x2F;resources&#x2F;people.json</span><br><span class="line">&#123;&quot;name&quot;:&quot;Michael&quot;&#125;</span><br><span class="line">&#123;&quot;name&quot;:&quot;Andy&quot;, &quot;age&quot;:30&#125;</span><br><span class="line">&#123;&quot;name&quot;:&quot;Justin&quot;, &quot;age&quot;:19&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="提交作业"><a href="#提交作业" class="headerlink" title="提交作业"></a>提交作业</h1><p>在本地测试完成后，可以打包，通过<code>spark-submit</code>提交作业运行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;spark-submit \</span><br><span class="line">--master local[2] \</span><br><span class="line">--class gy.finolo.spark.SparkSessionApp \</span><br><span class="line">&#x2F;Users&#x2F;simon&#x2F;Development&#x2F;workspace&#x2F;scala&#x2F;spark-sql-demo&#x2F;target&#x2F;spark-sql-demo-1.0-SNAPSHOT.jar \</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;spark&#x2F;spark-2.2.3-bin-hadoop2.6&#x2F;examples&#x2F;src&#x2F;main&#x2F;resources&#x2F;people.json</span><br></pre></td></tr></table></figure>
+<p>可以在console中看到输出的信息。</p>
+<p>其中<code>printSchema()</code>语句打印的内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root</span><br><span class="line"> |-- age: long (nullable &#x3D; true)</span><br><span class="line"> |-- name: string (nullable &#x3D; true)</span><br></pre></td></tr></table></figure>
+<p><code>people.show()</code>输出的内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+----+-------+</span><br><span class="line">| age|   name|</span><br><span class="line">+----+-------+</span><br><span class="line">|null|Michael|</span><br><span class="line">|  30|   Andy|</span><br><span class="line">|  19| Justin|</span><br><span class="line">+----+-------+</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/02/Spark%E7%9A%84local%E5%92%8Cstandalone%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/02/Spark%E7%9A%84local%E5%92%8Cstandalone%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C/" class="post-title-link" itemprop="url">Spark的local和standalone模式运行</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-02-10 13:21:49" itemprop="dateCreated datePublished" datetime="2019-02-10T13:21:49+08:00">2019-02-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/02/Spark%E7%9A%84local%E5%92%8Cstandalone%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C/" class="post-meta-item leancloud_visitors" data-flag-title="Spark的local和standalone模式运行" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2019/02/Spark%E7%9A%84local%E5%92%8Cstandalone%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/Spark%E7%9A%84local%E5%92%8Cstandalone%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Spark运行模式"><a href="#Spark运行模式" class="headerlink" title="Spark运行模式"></a>Spark运行模式</h1><p>Spark 有很多种模式，最简单就是单机本地模式，还有单机伪分布式模式，复杂的则运行在集群中，目前能很好的运行在 Yarn和 Mesos 中，当然 Spark 还有自带的 Standalone 模式，对于大多数情况 Standalone 模式就足够了，如果企业已经有 Yarn 或者 Mesos 环境，也是很方便部署的。</p>
+<ul>
+<li>local(本地模式)：常用于本地开发测试，本地还分为local单线程和local-cluster多线程;</li>
+<li>standalone(集群模式)：典型的Mater/slave模式，不过也能看出Master是有单点故障的；Spark支持ZooKeeper来实现 HA</li>
+<li>on yarn(集群模式)： 运行在 yarn 资源管理器框架之上，由 yarn 负责资源管理，Spark 负责任务调度和计算</li>
+<li>on mesos(集群模式)： 运行在 mesos 资源管理器框架之上，由 mesos 负责资源管理，Spark 负责任务调度和计算</li>
+<li>on cloud(集群模式)：比如 AWS 的 EC2，使用这个模式能很方便的访问 Amazon的 S3;Spark 支持多种分布式存储系统：HDFS 和 S3</li>
+</ul>
+<h1 id="local模式运行"><a href="#local模式运行" class="headerlink" title="local模式运行"></a>local模式运行</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-shell --master local[2]</span><br></pre></td></tr></table></figure>
+<p>2代表2个worker。</p>
+<p>如果<code>local[*]</code>，也是默认master选项，则自动获取机器cores数量。</p>
+<h1 id="standalone模式运行"><a href="#standalone模式运行" class="headerlink" title="standalone模式运行"></a>standalone模式运行</h1><p>Spark Standalone模式的架构和Hadoop hdfs/yarn很类似，1 master +  n workers</p>
+<h2 id="配置conf-spark-env-sh文件"><a href="#配置conf-spark-env-sh文件" class="headerlink" title="配置conf/spark-env.sh文件"></a>配置conf/spark-env.sh文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME</span><br><span class="line">cd conf</span><br><span class="line">cp spark-env.sh.template spark-env.sh</span><br><span class="line">vi spark-env.sh</span><br></pre></td></tr></table></figure>
+<p>添加如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SPARK_MASTER_HOST&#x3D;localhost</span><br><span class="line">SPARK_WORKER_CORES&#x3D;1</span><br><span class="line">SPARK_WORKER_MEMORY&#x3D;2g</span><br></pre></td></tr></table></figure>
+<h2 id="启动Spark"><a href="#启动Spark" class="headerlink" title="启动Spark"></a>启动Spark</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME</span><br><span class="line">sbin&#x2F;start-all.sh</span><br><span class="line">starting org.apache.spark.deploy.master.Master, logging to &#x2F;usr&#x2F;local&#x2F;spark&#x2F;spark-2.2.3-bin-2.6.0-cdh5.7.0&#x2F;logs&#x2F;spark-simon-org.apache.spark.deploy.master.Master-1-localhost.out</span><br><span class="line">localhost: starting org.apache.spark.deploy.worker.Worker, logging to &#x2F;usr&#x2F;local&#x2F;spark&#x2F;spark-2.2.3-bin-2.6.0-cdh5.7.0&#x2F;logs&#x2F;spark-simon-org.apache.spark.deploy.worker.Worker-1-localhost.out</span><br></pre></td></tr></table></figure>
+<p>查看master日志</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">19&#x2F;02&#x2F;10 13:11:09 INFO Master: I have been elected leader! New state: ALIVE</span><br><span class="line">19&#x2F;02&#x2F;10 13:11:12 INFO Master: Registering worker 192.168.1.6:51683 with 1 cores, 2.0 GB RAM</span><br></pre></td></tr></table></figure>
+<p>查看worker日志</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">19&#x2F;02&#x2F;10 13:11:12 INFO Worker: Successfully registered with master spark:&#x2F;&#x2F;localhost:7077</span><br></pre></td></tr></table></figure>
+<p>执行<code>jps</code>命令，可以看到有<code>Master</code>和<code>Worker</code>进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3424 Master</span><br><span class="line">3459 Worker</span><br></pre></td></tr></table></figure>
+<h2 id="生成wordCount的输入文件"><a href="#生成wordCount的输入文件" class="headerlink" title="生成wordCount的输入文件"></a>生成wordCount的输入文件</h2><p>新建<code>/usr/local/spark/data/words</code>文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;usr&#x2F;local&#x2F;spark&#x2F;data&#x2F;words</span><br></pre></td></tr></table></figure>
+<p>添加如下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hello,hello,world</span><br><span class="line">hello,world,</span><br><span class="line">welcome</span><br></pre></td></tr></table></figure>
+<h2 id="启动Spark-shell"><a href="#启动Spark-shell" class="headerlink" title="启动Spark-shell"></a>启动Spark-shell</h2><p>以standalone模式启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;spark-shell --master spark:&#x2F;&#x2F;localhost:7077</span><br><span class="line">Using Spark&#39;s default log4j profile: org&#x2F;apache&#x2F;spark&#x2F;log4j-defaults.properties</span><br><span class="line">Setting default log level to &quot;WARN&quot;.</span><br><span class="line">To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).</span><br><span class="line">19&#x2F;02&#x2F;10 13:12:41 WARN Utils: Your hostname, localhost resolves to a loopback address: 127.0.0.1; using 192.168.1.6 instead (on interface en0)</span><br><span class="line">19&#x2F;02&#x2F;10 13:12:41 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address</span><br><span class="line">19&#x2F;02&#x2F;10 13:12:42 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Spark context Web UI available at http:&#x2F;&#x2F;192.168.1.6:4040</span><br><span class="line">Spark context available as &#39;sc&#39; (master &#x3D; spark:&#x2F;&#x2F;localhost:7077, app id &#x3D; app-20190210131243-0000).</span><br><span class="line">Spark session available as &#39;spark&#39;.</span><br><span class="line">Welcome to</span><br><span class="line">      ____              __</span><br><span class="line">     &#x2F; __&#x2F;__  ___ _____&#x2F; &#x2F;__</span><br><span class="line">    _\ \&#x2F; _ \&#x2F; _ &#96;&#x2F; __&#x2F;  &#39;_&#x2F;</span><br><span class="line">   &#x2F;___&#x2F; .__&#x2F;\_,_&#x2F;_&#x2F; &#x2F;_&#x2F;\_\   version 2.2.3</span><br><span class="line">      &#x2F;_&#x2F;</span><br><span class="line"></span><br><span class="line">Using Scala version 2.11.8 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_181)</span><br><span class="line">Type in expressions to have them evaluated.</span><br><span class="line">Type :help for more information.</span><br><span class="line"></span><br><span class="line">scala&gt;</span><br></pre></td></tr></table></figure>
+<p>输入wordCount程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; var file &#x3D; spark.sparkContext.textFile(&quot;file:&#x2F;&#x2F;&#x2F;usr&#x2F;local&#x2F;spark&#x2F;data&#x2F;words&quot;)</span><br><span class="line">file: org.apache.spark.rdd.RDD[String] &#x3D; file:&#x2F;&#x2F;&#x2F;usr&#x2F;local&#x2F;spark&#x2F;data MapPartitionsRDD[6] at textFile at &lt;console&gt;:23</span><br><span class="line"></span><br><span class="line">scala&gt; val wordCounts &#x3D; file.flatMap(line &#x3D;&gt; line.split(&quot;,&quot;)).map(word &#x3D;&gt; (word, 1)).reduceByKey(_ + _)</span><br><span class="line">wordCounts: org.apache.spark.rdd.RDD[(String, Int)] &#x3D; ShuffledRDD[9] at reduceByKey at &lt;console&gt;:25</span><br><span class="line"></span><br><span class="line">scala&gt; wordCounts.collect</span><br><span class="line">res1: Array[(String, Int)] &#x3D; Array((hello,3), (welcome,1), (world,2))</span><br><span class="line"></span><br><span class="line">scala&gt;</span><br></pre></td></tr></table></figure>
+<p>可以看到/usr/local/spark/data/words文件里面的单词被成功的统计了。</p>
 
       
     </div>
@@ -354,7 +472,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/02/MongoDB%E6%96%87%E6%A1%A3%E6%93%8D%E4%BD%9C/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/02/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Spark/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -368,7 +486,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/02/MongoDB%E6%96%87%E6%A1%A3%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">MongoDB文档操作</a>
+            <a href="/2019/02/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Spark/" class="post-title-link" itemprop="url">编译安装Spark</a>
         </h2>
 
         <div class="post-meta">
@@ -378,7 +496,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-02-07 15:32:09" itemprop="dateCreated datePublished" datetime="2019-02-07T15:32:09+08:00">2019-02-07</time>
+              <time title="创建时间：2019-02-10 12:16:21" itemprop="dateCreated datePublished" datetime="2019-02-10T12:16:21+08:00">2019-02-10</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -393,16 +511,16 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a>
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
                 </span>
             </span>
 
           
-            <span id="/2019/02/MongoDB%E6%96%87%E6%A1%A3%E6%93%8D%E4%BD%9C/" class="post-meta-item leancloud_visitors" data-flag-title="MongoDB文档操作" title="阅读次数">
+            <span id="/2019/02/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Spark/" class="post-meta-item leancloud_visitors" data-flag-title="编译安装Spark" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -418,8 +536,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2019/02/MongoDB%E6%96%87%E6%A1%A3%E6%93%8D%E4%BD%9C/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/MongoDB%E6%96%87%E6%A1%A3%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
+    <a title="valine" href="/2019/02/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Spark/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Spark/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -446,219 +564,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本章节中我们将向大家介绍如何将数据插入到MongoDB的集合中。</p>
-<p>文档的数据结构和JSON基本一样。</p>
-<p>所有存储在集合中的数据都是BSON格式。</p>
-<p>BSON是一种类json的一种二进制形式的存储格式,简称Binary JSON。</p>
-<h1 id="插入文档"><a href="#插入文档" class="headerlink" title="插入文档"></a>插入文档</h1><p>MongoDB 使用 insert() 或 save() 方法向集合中插入文档，语法如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.COLLECTION_NAME.insert(document)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; document &#x3D; (&#123;&quot;name&quot;: &quot;simon&quot;, &quot;age&quot;: 20, &quot;interests&quot;: [&quot;badminton&quot;, &quot;swimming&quot;, &quot;music&quot;]&#125;)</span><br><span class="line">&#123;</span><br><span class="line">	&quot;name&quot; : &quot;simon&quot;,</span><br><span class="line">	&quot;age&quot; : 20,</span><br><span class="line">	&quot;interests&quot; : [</span><br><span class="line">		&quot;badminton&quot;,</span><br><span class="line">		&quot;swimming&quot;,</span><br><span class="line">		&quot;music&quot;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br><span class="line">&gt; db.col.insert(document)</span><br><span class="line">WriteResult(&#123; &quot;nInserted&quot; : 1 &#125;)</span><br></pre></td></tr></table></figure>
-<p>插入文档你也可以使用 db.col.save(document) 命令。如果不指定 _id 字段 save() 方法类似于 insert() 方法。如果指定 _id 字段，则会更新该 _id 的数据。</p>
-<p>指定_id字段是<code>{&quot;_id&quot;: ObjectId(&quot;5c5be011dd377f0cd58338ae&quot;)}</code></p>
-<h1 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h1><h2 id="update-方法"><a href="#update-方法" class="headerlink" title="update() 方法"></a>update() 方法</h2><p>update() 方法用于更新已存在的文档。语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">db.collection.update(</span><br><span class="line">   &lt;query&gt;,</span><br><span class="line">   &lt;update&gt;,</span><br><span class="line">   &#123;</span><br><span class="line">     upsert: &lt;boolean&gt;,</span><br><span class="line">     multi: &lt;boolean&gt;,</span><br><span class="line">     writeConcern: &lt;document&gt;</span><br><span class="line">   &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>参数说明：</p>
-<ul>
-<li><p>query : update的查询条件，类似sql update查询内where后面的。</p>
-</li>
-<li><p>update : update的对象和一些更新的操作符（如$,$inc…）等，也可以理解为sql update查询内set后面的</p>
-</li>
-<li><p>upsert : 可选，这个参数的意思是，如果不存在update的记录，是否插入objNew,true为插入，默认是false，不插入。</p>
-</li>
-<li><p>multi : 可选，mongodb 默认是false,只更新找到的第一条记录，如果这个参数为true,就把按条件查出来多条记录全部更新。</p>
-</li>
-<li><p>writeConcern :可选，抛出异常的级别。</p>
-</li>
-</ul>
-<h2 id="save-方法"><a href="#save-方法" class="headerlink" title="save() 方法"></a>save() 方法</h2><p>save() 方法通过传入的文档来替换已有文档。语法格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.collection.save(</span><br><span class="line">   &lt;document&gt;,</span><br><span class="line">   &#123;</span><br><span class="line">     writeConcern: &lt;document&gt;</span><br><span class="line">   &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>参数说明：</p>
-<p>document : 文档数据。</p>
-<p>writeConcern :可选，抛出异常的级别。</p>
-<h1 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">db.collection.remove(</span><br><span class="line">   &lt;query&gt;,</span><br><span class="line">   &#123;</span><br><span class="line">     justOne: &lt;boolean&gt;,</span><br><span class="line">     writeConcern: &lt;document&gt;</span><br><span class="line">   &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>参数说明：</p>
-<ul>
-<li><p>query :（可选）删除的文档的条件。</p>
-</li>
-<li><p>justOne : （可选）如果设为 true 或 1，则只删除一个文档，如果不设置该参数，或使用默认值 false，则删除所有匹配条件的文档。</p>
-</li>
-<li><p>writeConcern :（可选）抛出异常的级别。</p>
-</li>
-</ul>
-<p>remove() 方法已经过时了，现在官方推荐使用 deleteOne() 和 deleteMany() 方法。</p>
-<p>如删除集合下全部文档：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.inventory.deleteMany(&#123;&#125;)</span><br></pre></td></tr></table></figure>
-<p>删除 status 等于 A 的全部文档：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.inventory.deleteMany(&#123; status : &quot;A&quot; &#125;)</span><br></pre></td></tr></table></figure>
-<p>删除 status 等于 D 的一个文档：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.inventory.deleteOne( &#123; status: &quot;D&quot; &#125; )</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/02/MongoDB%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/02/MongoDB%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">MongoDB基本操作</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-02-07 14:32:58" itemprop="dateCreated datePublished" datetime="2019-02-07T14:32:58+08:00">2019-02-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/02/MongoDB%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="post-meta-item leancloud_visitors" data-flag-title="MongoDB基本操作" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/02/MongoDB%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/MongoDB%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="MongoDB创建数据库"><a href="#MongoDB创建数据库" class="headerlink" title="MongoDB创建数据库"></a>MongoDB创建数据库</h1><p><code>use DATABASE_NAME</code></p>
-<p>如果数据库不存在，则创建数据库，否则切换到指定数据库。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; use test2</span><br><span class="line">switched to db test2</span><br><span class="line">&gt; db</span><br><span class="line">test2</span><br></pre></td></tr></table></figure>
-<p>查看所有数据库，使用<code>show dbs</code>命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; show dbs</span><br><span class="line">admin      0.000GB</span><br><span class="line">config     0.000GB</span><br><span class="line">local      0.000GB</span><br><span class="line">test       0.000GB</span><br></pre></td></tr></table></figure>
-<p>可以看到，我们刚创建的数据库 <code>test2</code> 并不在数据库的列表中， 要显示它，我们需要向 runoob 数据库插入一些数据。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">db.test2.insert(&#123;&quot;name&quot;:&quot;simon&quot;&#125;)</span><br><span class="line">WriteResult(&#123; &quot;nInserted&quot; : 1 &#125;)</span><br><span class="line"></span><br><span class="line">&gt; show dbs</span><br><span class="line">admin      0.000GB</span><br><span class="line">config     0.000GB</span><br><span class="line">local      0.000GB</span><br><span class="line">test       0.000GB</span><br><span class="line">test2      0.000GB</span><br></pre></td></tr></table></figure>
-<h1 id="MongoDB删除数据库"><a href="#MongoDB删除数据库" class="headerlink" title="MongoDB删除数据库"></a>MongoDB删除数据库</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.dropDatabase()</span><br><span class="line">&#123; &quot;dropped&quot; : &quot;test2&quot;, &quot;ok&quot; : 1 &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="删除集合collection"><a href="#删除集合collection" class="headerlink" title="删除集合collection"></a>删除集合collection</h1><p><code>show collections</code>和<code>show tables</code>都可以查看集合列表。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; show collections</span><br><span class="line">collection1</span><br><span class="line">collection2</span><br><span class="line"></span><br><span class="line">&gt; db.collection1.drop()</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
-<h1 id="MongoDB创建集合"><a href="#MongoDB创建集合" class="headerlink" title="MongoDB创建集合"></a>MongoDB创建集合</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.createCollection(name, options)</span><br></pre></td></tr></table></figure>
-<p>name: 要创建的集合名称</p>
-<p>options: 可选参数, 指定有关内存大小及索引的选项</p>
-<p>options 可以是如下参数：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>字段</th>
-<th>类型</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>capped</td>
-<td>布尔</td>
-<td>（可选）如果为 true，则创建固定集合。固定集合是指有着固定大小的集合，当达到最大值时，它会自动覆盖最早的文档。当 该值为 true 时，必须指定 size 参数。</td>
-</tr>
-<tr>
-<td>autoIndexId</td>
-<td>布尔</td>
-<td>（可选）如为 true，自动在 _id 字段创建索引。默认为 false。</td>
-</tr>
-<tr>
-<td>size</td>
-<td>数值</td>
-<td>（可选）为固定集合指定一个最大值（以字节计）。如果 capped 为 true，也需要指定该字段。</td>
-</tr>
-<tr>
-<td>max</td>
-<td>数值</td>
-<td>（可选）指定固定集合中包含文档的最大数量。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>在插入文档时，MongoDB 首先检查固定集合的 size 字段，然后检查 max 字段。</p>
-<p>在<code>test</code>数据库中创建<code>coll1</code>集合</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; use test</span><br><span class="line">switched to db test</span><br><span class="line">&gt; db.createCollection(&#39;coll1&#39;)</span><br><span class="line">&#123; &quot;ok&quot; : 1 &#125;</span><br></pre></td></tr></table></figure>
-<p>创建固定集合 mycol，整个集合空间大小 6142800 KB, 文档最大个数为 10000 个。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.createCollection(&quot;mycol&quot;, &#123;capped: true, autoIndexId: true, size: 6142800, max: 10000&#125;)</span><br><span class="line">&#123;</span><br><span class="line">	&quot;note&quot; : &quot;the autoIndexId option is deprecated and will be removed in a future release&quot;,</span><br><span class="line">	&quot;ok&quot; : 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在 MongoDB 中，你不需要创建集合。当你插入一些文档时，MongoDB 会自动创建集合。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.mycol2.insert(&#123;&quot;name&quot;: &quot;simon&quot;&#125;)</span><br><span class="line">WriteResult(&#123; &quot;nInserted&quot; : 1 &#125;)</span><br><span class="line">show collections</span><br><span class="line">mycol2</span><br></pre></td></tr></table></figure>
-<h1 id="MongoDB删除集合"><a href="#MongoDB删除集合" class="headerlink" title="MongoDB删除集合"></a>MongoDB删除集合</h1><p>db.collection.drop()</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; show collections</span><br><span class="line">mycol2</span><br><span class="line">&gt; db.mycol2.drop()</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+          <p>Spark会依赖Hadoop版本，当我们使用cdh版本的hadoop时，在Spark官网上下载不了对应的版本，这时就需要编译Spark了。</p>
+<h1 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h1><p>到Spark官网 <a href="http://spark.apache.org/downloads.html">http://spark.apache.org/downloads.html</a> 下载Spark的源码，并非已经Build好的安装包。</p>
+<p>Spark release我选择的是<code>2.2.3</code></p>
+<p>package type选择Source Code</p>
+<p>下载并解压</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;spark</span><br><span class="line">wget https:&#x2F;&#x2F;archive.apache.org&#x2F;dist&#x2F;spark&#x2F;spark-2.2.3&#x2F;spark-2.2.3.tgz</span><br><span class="line"></span><br><span class="line">tar -zxvf spark-2.2.3.tgz</span><br></pre></td></tr></table></figure>
+<h1 id="构建发布版本"><a href="#构建发布版本" class="headerlink" title="构建发布版本"></a>构建发布版本</h1><p>查看<code>dev/make-distribution.sh</code>源码，可以知道构建后的包的文件名为<code>spark-$VERSION-bin-$NAME.tgz</code>，所以<code>--name</code>参数设置为<code>2.6.0-cdh5.7.0</code>，-P是指定使用pom.xml中指定的profile，-D是指使用指定的Dependency。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd spark-2.2.3</span><br><span class="line">.&#x2F;dev&#x2F;make-distribution.sh --name 2.6.0-cdh5.7.0 --tgz -Phadoop-2.6 -Phive -Phive-thriftserver -Pmesos -Pyarn -Dhadoop.version&#x3D;2.6.0-cdh5.7.0</span><br></pre></td></tr></table></figure>
+<p>构建过程中，我们会发现出现了以下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] BUILD FAILURE</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] Total time: 46.000 s (Wall Clock)</span><br><span class="line">[INFO] Finished at: 2019-02-10T11:28:39+08:00</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[ERROR] Failed to execute goal on project spark-launcher_2.11: Could not resolve dependencies for project org.apache.spark:spark-launcher_2.11:jar:2.2.3: Could not find artifact org.apache.hadoop:hadoop-client:jar:2.6.0-cdh5.7.0 in alimaven (http:&#x2F;&#x2F;maven.aliyun.com&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&#x2F;) -&gt; [Help 1]</span><br></pre></td></tr></table></figure>
+<p>表明在现有的maven仓库中，找不到cdh版本的jar包。所以，我们得在pom.xml中的repositories中添加cdh的仓库地址。</p>
+<p>编辑<code>pom.xml</code>文件，在<code>repositories</code>标签下的maven central仓库后面添加cloudera的仓库。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;repository&gt;</span><br><span class="line">    &lt;id&gt;cloudera&lt;&#x2F;id&gt;</span><br><span class="line">    &lt;url&gt;https:&#x2F;&#x2F;repository.cloudera.com&#x2F;artifactory&#x2F;cloudera-repos&#x2F;&lt;&#x2F;url&gt;</span><br><span class="line">&lt;&#x2F;repository&gt;</span><br></pre></td></tr></table></figure>
+<p>然后再执行刚才的命令，经过12分钟，<code>spark-2.2.3-bin-2.6.0-cdh5.7.0.tgz</code>安装包构建成功。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] BUILD SUCCESS</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] Total time: 12:08 min (Wall Clock)</span><br><span class="line">[INFO] Finished at: 2019-02-10T11:59:57+08:00</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+<p>解压spark-2.2.3-bin-2.6.0-cdh5.7.0.tgz包到上级spark目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br><span class="line">tar -zxvf spark-2.2.3&#x2F;spark-2.2.3-bin-2.6.0-cdh5.7.0.tgz -C .</span><br></pre></td></tr></table></figure>
+<h1 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~&#x2F;.bash_profile</span><br></pre></td></tr></table></figure>
+<p>添加内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export SPARK_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;spark&#x2F;spark-2.2.3-bin-2.6.0-cdh5.7.0</span><br></pre></td></tr></table></figure>
+<p>使设置生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.bash_profile</span><br></pre></td></tr></table></figure>
+<h1 id="启动Spark"><a href="#启动Spark" class="headerlink" title="启动Spark"></a>启动Spark</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME</span><br><span class="line">bin&#x2F;spark-shell --master local[*]</span><br><span class="line"></span><br><span class="line">Using Spark&#39;s default log4j profile: org&#x2F;apache&#x2F;spark&#x2F;log4j-defaults.properties</span><br><span class="line">Setting default log level to &quot;WARN&quot;.</span><br><span class="line">To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).</span><br><span class="line">19&#x2F;02&#x2F;10 12:13:43 WARN Utils: Your hostname, localhost resolves to a loopback address: 127.0.0.1; using 192.168.1.6 instead (on interface en0)</span><br><span class="line">19&#x2F;02&#x2F;10 12:13:43 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address</span><br><span class="line">19&#x2F;02&#x2F;10 12:13:43 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Spark context Web UI available at http:&#x2F;&#x2F;192.168.1.6:4040</span><br><span class="line">Spark context available as &#39;sc&#39; (master &#x3D; local[*], app id &#x3D; local-1549772024897).</span><br><span class="line">Spark session available as &#39;spark&#39;.</span><br><span class="line">Welcome to</span><br><span class="line">      ____              __</span><br><span class="line">     &#x2F; __&#x2F;__  ___ _____&#x2F; &#x2F;__</span><br><span class="line">    _\ \&#x2F; _ \&#x2F; _ &#96;&#x2F; __&#x2F;  &#39;_&#x2F;</span><br><span class="line">   &#x2F;___&#x2F; .__&#x2F;\_,_&#x2F;_&#x2F; &#x2F;_&#x2F;\_\   version 2.2.3</span><br><span class="line">      &#x2F;_&#x2F;</span><br><span class="line"></span><br><span class="line">Using Scala version 2.11.8 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_181)</span><br><span class="line">Type in expressions to have them evaluated.</span><br><span class="line">Type :help for more information.</span><br><span class="line"></span><br><span class="line">scala&gt;</span><br></pre></td></tr></table></figure>
+<p>Spark成功启动。</p>
 
       
     </div>
@@ -678,7 +607,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/98/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/98/">98</a><span class="page-number current">99</span><a class="page-number" href="/page/100/">100</a><span class="space">&hellip;</span><a class="page-number" href="/page/118/">118</a><a class="extend next" rel="next" href="/page/100/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/98/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/98/">98</a><span class="page-number current">99</span><a class="page-number" href="/page/100/">100</a><span class="space">&hellip;</span><a class="page-number" href="/page/120/">120</a><a class="extend next" rel="next" href="/page/100/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -757,20 +686,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">353</span>
+          <span class="site-state-item-count">358</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-count">78</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">226</span>
+        <span class="site-state-item-count">228</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
