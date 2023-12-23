@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Faile to import cython option pricing model, please rebuild with cython in cmd.]]></title>
+    <url>%2F2023%2F12%2FFaile-to-import-cython-option-pricing-model-please-rebuild-with-cython-in-cmd%2F</url>
+    <content type="text"><![CDATA[运行vnpy 3.9.0时，命令行提示如下异常： Faile to import cython option pricing model, please rebuild with cython in cmd. 进入模型文件夹 /vnpy_optionmaster/vnpy_optionmaster/pricing/cython_model/black_scholes_cython 执行命令： $ python setup.py build_ext --inplace 生成的.so和.pyx拷贝到目录/site-packages/vnpy_optionmaster/pricing下面就可以解决了。]]></content>
+      <categories>
+        <category>Vnpy</category>
+      </categories>
+      <tags>
+        <tag>vnpy</tag>
+        <tag>cython</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[股票指标解释]]></title>
     <url>%2F2023%2F12%2F%E8%82%A1%E7%A5%A8%E6%8C%87%E6%A0%87%E8%A7%A3%E9%87%8A%2F</url>
     <content type="text"><![CDATA[有些金融指标，不太好理解，这里做一个解释说明。 流入额流入额一般就是买入额。 指定日内(超大单、大单、中单或小单)的买入金额。 净买入额指定日内(超大单、大单、中单或小单)的买入金额-(超大单、大单、中单或小单)的卖出金额。 主动买入额主动指主动去成交已经存在的对手单；被动是指挂单等待成交。 主动买入额(全单)全单和非全单的区别在于，全单包含机构、大户、中户和散户。而非全单必须选择某一种类型单独统计。 净主动买入额主动指主动去成交已经存在的对手单；被动是指挂单等待成交。 净主动买入额占比当日资金净流入金额 / 流通市值，仅主动。 净主动买入率(金额)即净流入率，当日净流入 / 成交额，仅主动 开盘买入额一般指9:30 ~ 10:00 收盘买入额一般指14:30 ~ 15:00 注：算法中根据挂单金额来划分超大单、大单、中单或小单。具体标准如下： 1）挂单额小于4万元，小单； 2）挂单额4万元到20万元之间，中单； 3）挂单额20万元至100万元之间，大单； 4）挂单额大于100万元，超大单。 指数数据为当天未停牌的成份股买入金额总和。 统计数据时，求占比时，如果是单只股票，就用量的占比。如果是指数或板块，就用总金额的占比。]]></content>
