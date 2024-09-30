@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"finolo.gy","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="我们已经有了spark-shell和spark-sql，为什么还要使用Thriftserver呢？  每一个spark-shell &#x2F; spark-sql都是一个Spark Application。  Thriftserver不管启动多少个客户端（beeline &#x2F; code），都只会产生一个Spark Application   启动thriftserver需要把MySQL JDBC驱动通过ja">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Thriftserver和Beeline">
+<meta property="og:url" content="finolo.gy/2019/02/%E4%BD%BF%E7%94%A8Thriftserver%E5%92%8CBeeline/index.html">
+<meta property="og:site_name" content="Finology 大数据金融">
+<meta property="og:description" content="我们已经有了spark-shell和spark-sql，为什么还要使用Thriftserver呢？  每一个spark-shell &#x2F; spark-sql都是一个Spark Application。  Thriftserver不管启动多少个客户端（beeline &#x2F; code），都只会产生一个Spark Application   启动thriftserver需要把MySQL JDBC驱动通过ja">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-02-12T11:16:40.000Z">
+<meta property="article:modified_time" content="2022-02-19T12:12:05.633Z">
+<meta property="article:author" content="Simon">
+<meta property="article:tag" content="Spark">
+<meta property="article:tag" content="Spark SQL">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="finolo.gy/2019/02/%E4%BD%BF%E7%94%A8Thriftserver%E5%92%8CBeeline/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>使用Thriftserver和Beeline | Finology 大数据金融</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <script data-ad-client="ca-pub-7430210016629671" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <!-- simon <div class="headband"></div> -->
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Finology 大数据金融</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">通过大数据以量化金融</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-markdown">
+
+    <a href="https://md.finolo.gy" rel="noopener" target="_blank"><i class="fa fa-fw fa-edit"></i>公众号编辑</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">230</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">79</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">363</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/02/%E4%BD%BF%E7%94%A8Thriftserver%E5%92%8CBeeline/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用Thriftserver和Beeline
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-02-12 19:16:40" itemprop="dateCreated datePublished" datetime="2019-02-12T19:16:40+08:00">2019-02-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/Spark-SQL/" itemprop="url" rel="index"><span itemprop="name">Spark SQL</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/02/%E4%BD%BF%E7%94%A8Thriftserver%E5%92%8CBeeline/" class="post-meta-item leancloud_visitors" data-flag-title="使用Thriftserver和Beeline" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2019/02/%E4%BD%BF%E7%94%A8Thriftserver%E5%92%8CBeeline/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/%E4%BD%BF%E7%94%A8Thriftserver%E5%92%8CBeeline/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>我们已经有了<code>spark-shell</code>和<code>spark-sql</code>，为什么还要使用<code>Thriftserver</code>呢？</p>
+<ol>
+<li><p>每一个spark-shell / spark-sql都是一个Spark Application。</p>
+</li>
+<li><p>Thriftserver不管启动多少个客户端（beeline / code），都只会产生一个Spark Application</p>
+</li>
+</ol>
+<h1 id="启动thriftserver"><a href="#启动thriftserver" class="headerlink" title="启动thriftserver"></a>启动thriftserver</h1><p>需要把MySQL JDBC驱动通过<code>jars</code>参数加入进来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME&#x2F;</span><br><span class="line"></span><br><span class="line">sbin&#x2F;start-thriftserver.sh --master local[2] \</span><br><span class="line">--jars ~&#x2F;.m2&#x2F;repository&#x2F;mysql&#x2F;mysql-connector-java&#x2F;5.1.46&#x2F;mysql-connector-java-5.1.46.jar</span><br></pre></td></tr></table></figure>
+<h2 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">jps -m</span><br><span class="line"></span><br><span class="line">21522 SparkSubmit --master local[2] --class org.apache.spark.sql.hive.thriftserver.HiveThriftServer2</span><br><span class="line">--name Thrift JDBC&#x2F;ODBC Server </span><br><span class="line">--jars &#x2F;Users&#x2F;simon&#x2F;.m2&#x2F;repository&#x2F;mysql&#x2F;mysql-connector-java&#x2F;5.1.46&#x2F;mysql-connector-java-5.1.46.jar spark-internal</span><br><span class="line">3459 Worker --webui-port 8081 spark:&#x2F;&#x2F;localhost:7077</span><br><span class="line">18420 SparkSubmit --master local[2] --class org.apache.spark.sql.hive.thriftserver.SparkSQLCLIDriver </span><br><span class="line">--jars &#x2F;Users&#x2F;simon&#x2F;.m2&#x2F;repository&#x2F;mysql&#x2F;mysql-connector-java&#x2F;5.1.46&#x2F;mysql-connector-java-5.1.46.jar spark-internal</span><br></pre></td></tr></table></figure>
+<p>我们看到有两个SparkSubmit进程，21522那个进程就是刚才启动的那个，class是<code>HiveThriftServer2</code>。</p>
+<p>以spark-shell方式启动的class是<code>SparkSQLCLIDriver</code>。</p>
+<h2 id="thriftserver端口"><a href="#thriftserver端口" class="headerlink" title="thriftserver端口"></a>thriftserver端口</h2><p>默认端口为<code>10000</code>，可以修改为其他端口。</p>
+<p>在启动时增加<code>hiveconf</code>参数，比如把端口号设置为<code>14000</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--hiveconf hive.server2.thrift.port &#x3D; 14000</span><br></pre></td></tr></table></figure>
+<h1 id="beeline访问thriftserver"><a href="#beeline访问thriftserver" class="headerlink" title="beeline访问thriftserver"></a>beeline访问thriftserver</h1><p>需要设置jdbc uri: jdbc:hive2://localhost:10000</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;beeline -u jdbc:hive2:&#x2F;&#x2F;localhost:10000 -n simon</span><br><span class="line">Connecting to jdbc:hive2:&#x2F;&#x2F;localhost:10000</span><br><span class="line">log4j:WARN No appenders could be found for logger (org.apache.hive.jdbc.Utils).</span><br><span class="line">log4j:WARN Please initialize the log4j system properly.</span><br><span class="line">log4j:WARN See http:&#x2F;&#x2F;logging.apache.org&#x2F;log4j&#x2F;1.2&#x2F;faq.html#noconfig for more info.</span><br><span class="line">Connected to: Spark SQL (version 2.2.3)</span><br><span class="line">Driver: Hive JDBC (version 1.2.1.spark2)</span><br><span class="line">Transaction isolation: TRANSACTION_REPEATABLE_READ</span><br><span class="line">Beeline version 1.2.1.spark2 by Apache Hive</span><br><span class="line">0: jdbc:hive2:&#x2F;&#x2F;localhost:10000&gt;</span><br></pre></td></tr></table></figure>
+<p>查看<code>emp</code>表的内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">0: jdbc:hive2:&#x2F;&#x2F;localhost:10000&gt; SELECT * FROM emp;</span><br><span class="line">+--------+---------+------------+-------+-----------+---------+---------+---------+--+</span><br><span class="line">| empno  |  ename  |    job     |  mgr  | hiredate  |   sal   |  comm   | deptno  |</span><br><span class="line">+--------+---------+------------+-------+-----------+---------+---------+---------+--+</span><br><span class="line">| 7369   | SMITH   | CLERK      | 7902  | NULL      | 800.0   | NULL    | 20      |</span><br><span class="line">| 7499   | ALLEN   | SALESMAN   | 7698  | NULL      | 1600.0  | 300.0   | 30      |</span><br><span class="line">| 7521   | WARD    | SALESMAN   | 7698  | NULL      | 1250.0  | 500.0   | 30      |</span><br><span class="line">| 7566   | JONES   | MANAGER    | 7839  | NULL      | 2975.0  | NULL    | 20      |</span><br><span class="line">| 7654   | MARTIN  | SALESMAN   | 7698  | NULL      | 1250.0  | 1400.0  | 30      |</span><br><span class="line">| 7698   | BLAKE   | MANAGER    | 7839  | NULL      | 2850.0  | NULL    | 30      |</span><br><span class="line">| 7782   | CLARK   | MANAGER    | 7839  | NULL      | 2450.0  | NULL    | 10      |</span><br><span class="line">| 7788   | SCOTT   | ANALYST    | 7566  | NULL      | 3000.0  | NULL    | 20      |</span><br><span class="line">| 7839   | KING    | PRESIDENT  | NULL  | NULL      | 5000.0  | NULL    | 10      |</span><br><span class="line">| 7844   | TURNER  | SALESMAN   | 7698  | NULL      | 1500.0  | 0.0     | 30      |</span><br><span class="line">| 7876   | ADAMS   | CLERK      | 7788  | NULL      | 1100.0  | NULL    | 20      |</span><br><span class="line">| 7900   | JAMES   | CLERK      | 7698  | NULL      | 950.0   | NULL    | 30      |</span><br><span class="line">| 7902   | FORD    | ANALYST    | 7566  | NULL      | 3000.0  | NULL    | 20      |</span><br><span class="line">| 7934   | MILLER  | CLERK      | 7782  | NULL      | 1300.0  | NULL    | 10      |</span><br><span class="line">+--------+---------+------------+-------+-----------+---------+---------+---------+--+</span><br><span class="line">14 rows selected (0.411 seconds)</span><br></pre></td></tr></table></figure>
+<h1 id="通过程序访问thriftserver"><a href="#通过程序访问thriftserver" class="headerlink" title="通过程序访问thriftserver"></a>通过程序访问thriftserver</h1><h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Thriftserver 支持 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hive<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hive-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="SparkSQLThriftServerApp"><a href="#SparkSQLThriftServerApp" class="headerlink" title="SparkSQLThriftServerApp"></a>SparkSQLThriftServerApp</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> gy.finolo.spark</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.<span class="type">DriverManager</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">SparkSQLThriftServerApp</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 加载驱动</span></span><br><span class="line">    <span class="type">Class</span>.forName(<span class="string">"org.apache.hive.jdbc.HiveDriver"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 获取连接</span></span><br><span class="line">    <span class="keyword">val</span> conn = <span class="type">DriverManager</span>.getConnection(<span class="string">"jdbc:hive2://localhost:10000"</span>, <span class="string">"root"</span>, <span class="string">""</span>)</span><br><span class="line">    <span class="keyword">val</span> ps = conn.prepareStatement(<span class="string">"SELECT empno, ename, sal FROM emp"</span>)</span><br><span class="line">    <span class="keyword">val</span> rs = ps.executeQuery()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (rs.next()) &#123;</span><br><span class="line">      println(<span class="string">"empno: "</span> + rs.getInt(<span class="string">"empno"</span>) +</span><br><span class="line">        <span class="string">", ename: "</span> + rs.getString(<span class="string">"ename"</span>) +</span><br><span class="line">        <span class="string">", salary: "</span> + rs.getDouble(<span class="string">"sal"</span>))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    rs.close()</span><br><span class="line">    ps.close()</span><br><span class="line">    conn.close()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">empno: 7369, ename: SMITH, salary: 800.0</span><br><span class="line">empno: 7499, ename: ALLEN, salary: 1600.0</span><br><span class="line">empno: 7521, ename: WARD, salary: 1250.0</span><br><span class="line">empno: 7566, ename: JONES, salary: 2975.0</span><br><span class="line">empno: 7654, ename: MARTIN, salary: 1250.0</span><br><span class="line">empno: 7698, ename: BLAKE, salary: 2850.0</span><br><span class="line">empno: 7782, ename: CLARK, salary: 2450.0</span><br><span class="line">empno: 7788, ename: SCOTT, salary: 3000.0</span><br><span class="line">empno: 7839, ename: KING, salary: 5000.0</span><br><span class="line">empno: 7844, ename: TURNER, salary: 1500.0</span><br><span class="line">empno: 7876, ename: ADAMS, salary: 1100.0</span><br><span class="line">empno: 7900, ename: JAMES, salary: 950.0</span><br><span class="line">empno: 7902, ename: FORD, salary: 3000.0</span><br><span class="line">empno: 7934, ename: MILLER, salary: 1300.0</span><br></pre></td></tr></table></figure>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol>
+<li>通过程序访问thriftserver前，得保证thriftserver已经启动，不然运行程序时，会遇到如下错误：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread &quot;main&quot; java.sql.SQLException: Could not open client transport with JDBC Uri: </span><br><span class="line">jdbc:hive2:&#x2F;&#x2F;localhost:10000: java.net.ConnectException: Connection refused (Connection refused)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>我安装的Hive版本是<code>hive-1.1.0-cdh5.7.0</code>，但我在pom.xml里依赖的jar版本不对时，可能遇到如下异常。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread &quot;main&quot; java.sql.SQLException: Could not open client transport with JDBC Uri: </span><br><span class="line">jdbc:hive2:&#x2F;&#x2F;localhost:10000: Could not establish connection to jdbc:hive2:&#x2F;&#x2F;localhost:10000: </span><br><span class="line">Required field &#39;client_protocol&#39; is unset! Struct:TOpenSessionReq(client_protocol:null, </span><br><span class="line">configuration:&#123;use:database&#x3D;default&#125;)</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2019/02/创建Spark-SQL-Hive程序/" rel="bookmark">创建Spark SQL Hive程序</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2019/01/安装Spark/" rel="bookmark">安装Spark</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2019/01/创建Spark-Streaming-Maven项目/" rel="bookmark">创建Spark Streaming Maven项目</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2019/02/Spark的local和standalone模式运行/" rel="bookmark">Spark的local和standalone模式运行</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2019/02/Spark-DataFrame和Dataset-API基本操作/" rel="bookmark">Spark DataFrame和Dataset API基本操作</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Simon
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="/finolo.gy/2019/02/%E4%BD%BF%E7%94%A8Thriftserver%E5%92%8CBeeline/" title="使用Thriftserver和Beeline">finolo.gy/2019/02/使用Thriftserver和Beeline/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Spark/" rel="tag"><i class="fa fa-tag"></i> Spark</a>
+              <a href="/tags/Spark-SQL/" rel="tag"><i class="fa fa-tag"></i> Spark SQL</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/02/%E4%BB%8EHive%E5%B9%B3%E6%BB%91%E8%BF%87%E6%B8%A1%E5%88%B0Spark-SQL/" rel="prev" title="从Hive平滑过渡到Spark SQL">
+      <i class="fa fa-chevron-left"></i> 从Hive平滑过渡到Spark SQL
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/02/Spark-DataFrame%E5%92%8CDataset-API%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" rel="next" title="Spark DataFrame和Dataset API基本操作">
+      Spark DataFrame和Dataset API基本操作 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- header -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-7430210016629671"
+       data-ad-slot="4960252259"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- header -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-7430210016629671"
+           data-ad-slot="4960252259"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#启动thriftserver"><span class="nav-number">1.</span> <span class="nav-text">启动thriftserver</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看进程"><span class="nav-number">1.1.</span> <span class="nav-text">查看进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#thriftserver端口"><span class="nav-number">1.2.</span> <span class="nav-text">thriftserver端口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#beeline访问thriftserver"><span class="nav-number">2.</span> <span class="nav-text">beeline访问thriftserver</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过程序访问thriftserver"><span class="nav-number">3.</span> <span class="nav-text">通过程序访问thriftserver</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加依赖"><span class="nav-number">3.1.</span> <span class="nav-text">添加依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SparkSQLThriftServerApp"><span class="nav-number">3.2.</span> <span class="nav-text">SparkSQLThriftServerApp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行结果"><span class="nav-number">3.3.</span> <span class="nav-text">运行结果</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意"><span class="nav-number">4.</span> <span class="nav-text">注意</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Simon</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">363</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">79</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">230</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+      
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Simon</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"SfaSE3g5tgBX5HeHdlgjym1o-gzGzoHsz","app_key":"iTsJGCNiGxrdBjV47UDN6X8p","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'SfaSE3g5tgBX5HeHdlgjym1o-gzGzoHsz',
+      appKey     : 'iTsJGCNiGxrdBjV47UDN6X8p',
+      placeholder: "讲讲你的看法",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
