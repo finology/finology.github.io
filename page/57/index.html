@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">363</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">364</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,6 +200,118 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/04/%E8%A7%A3%E5%86%B3java-sql-SQLException-The-server-time-zone-value-is-unrecognized-or-represents-more-than-one-time-zone/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/%E8%A7%A3%E5%86%B3java-sql-SQLException-The-server-time-zone-value-is-unrecognized-or-represents-more-than-one-time-zone/" class="post-title-link" itemprop="url">解决java.sql.SQLException: The server time zone value is unrecognized or represents more than one time zone</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-08 22:19:16" itemprop="dateCreated datePublished" datetime="2020-04-08T22:19:16+08:00">2020-04-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/04/%E8%A7%A3%E5%86%B3java-sql-SQLException-The-server-time-zone-value-is-unrecognized-or-represents-more-than-one-time-zone/" class="post-meta-item leancloud_visitors" data-flag-title="解决java.sql.SQLException: The server time zone value is unrecognized or represents more than one time zone" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/04/%E8%A7%A3%E5%86%B3java-sql-SQLException-The-server-time-zone-value-is-unrecognized-or-represents-more-than-one-time-zone/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/%E8%A7%A3%E5%86%B3java-sql-SQLException-The-server-time-zone-value-is-unrecognized-or-represents-more-than-one-time-zone/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>我使用了 <code>mysql-connector-java-8.0.19</code>，运行程序时报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java.sql.SQLException: The server time zone value &#39;�й���׼ʱ��&#39; is unrecognized or represents more than one time zone.</span><br><span class="line">You must configure either the server or JDBC driver (via the &#39;serverTimezone&#39; configuration property) to use a more </span><br><span class="line">specifc time zone value if you want to utilize time zone support.</span><br></pre></td></tr></table></figure>
+<p>按错误提示，需要在 <code>spring.datasource.url</code> 添加 <code>serverTimezone=Asia/Shanghai</code> 参数或者 <code>GMT%2b8</code> 表示 <code>GMT+8</code> ，有些网友说写 <code>CTT</code>，我不知道写台湾的时区有啥意义。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="comment"># jdbc配置</span></span><br><span class="line"><span class="attr">  datasource:</span></span><br><span class="line"><span class="attr">    url:</span> <span class="attr">jdbc:mysql://localhost:3306/db?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false</span></span><br></pre></td></tr></table></figure>
+<p>如果<code>mysql-connector-java</code>用的6.0以上的，需要把<code>com.mysql.jdbc.Driver</code> 改为<code>com.mysql.cj.jdbc.Driver</code>，不然每次启动项目，都会有红色提示。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -449,134 +561,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/04/Python%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0-%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0-%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0-%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0%E5%92%8C%E5%91%BD%E5%90%8D%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/Python%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0-%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0-%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0-%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0%E5%92%8C%E5%91%BD%E5%90%8D%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0/" class="post-title-link" itemprop="url">Python函数的位置参数，默认参数，可变参数，关键字参数和命名关键字参数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-05 13:41:50" itemprop="dateCreated datePublished" datetime="2020-04-05T13:41:50+08:00">2020-04-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/04/Python%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0-%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0-%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0-%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0%E5%92%8C%E5%91%BD%E5%90%8D%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0/" class="post-meta-item leancloud_visitors" data-flag-title="Python函数的位置参数，默认参数，可变参数，关键字参数和命名关键字参数" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2020/04/Python%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0-%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0-%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0-%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0%E5%92%8C%E5%91%BD%E5%90%8D%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/Python%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0-%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0-%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0-%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0%E5%92%8C%E5%91%BD%E5%90%8D%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Python 函数具有非常多的参数形态，刚开始接触时很多人不一定了解所有参数的含义。</p>
-<h1 id="位置参数"><a href="#位置参数" class="headerlink" title="位置参数"></a>位置参数</h1><p>这个很简单吧，跟其他语言都是一样的。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可以设置多个位置参数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">stock_information</span><span class="params">(code, name)</span>:</span></span><br><span class="line">    print(<span class="string">'code:'</span>, code)</span><br><span class="line">    print(<span class="string">'name:'</span>, name)</span><br><span class="line">    </span><br><span class="line">stock_information(<span class="string">'000001.SZ'</span>, <span class="string">'平安银行'</span>)</span><br><span class="line"></span><br><span class="line">code: <span class="number">000001.</span>SZ</span><br><span class="line">name: 平安银行</span><br></pre></td></tr></table></figure>
-<h1 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 若不知道股票名称时，可以将股票名默认为“股票”</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">stock_information</span><span class="params">(code, name=<span class="string">'股票'</span>)</span>:</span></span><br><span class="line">    print(<span class="string">'code:'</span>, code)</span><br><span class="line">    print(<span class="string">'name:'</span>, name)</span><br><span class="line">    </span><br><span class="line">stock_information(<span class="string">'000001.SZ'</span>)</span><br><span class="line"></span><br><span class="line">code: <span class="number">000001.</span>SZ</span><br><span class="line">name: 股票</span><br></pre></td></tr></table></figure>
-<h1 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h1><p>可变参数可以是0个到任意个，调用函数时，会自动将可变参数组装成<code>元组</code>。可变参数的形式为 <code>*args</code>。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 若不知道要存几天的收盘价</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">stock_information</span><span class="params">(code, name=<span class="string">'股票'</span>, *args)</span>:</span></span><br><span class="line">    print(<span class="string">'code:'</span>, code)</span><br><span class="line">    print(<span class="string">'name:'</span>, name)</span><br><span class="line">    print(<span class="string">'others:'</span>, args)</span><br><span class="line">    </span><br><span class="line">stock_information(<span class="string">'000001.SZ'</span>, <span class="string">'平安银行'</span>, <span class="string">'1987-12-22'</span>, <span class="string">'银行'</span>)</span><br><span class="line"></span><br><span class="line">code: <span class="number">000001.</span>SZ</span><br><span class="line">name: 平安银行</span><br><span class="line">others: (<span class="string">'1987-12-22'</span>, <span class="string">'银行'</span>)</span><br></pre></td></tr></table></figure>
-<p>这里需要注意的是，如果是赋值语句：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">code, *list = <span class="string">'000001.SZ'</span>, <span class="string">'平安银行'</span>, <span class="string">'1987-12-22'</span>, <span class="string">'银行'</span></span><br><span class="line">print(type(list))</span><br><span class="line"></span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">list</span>'&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这时，list就是一个<code>list</code>类型的变量了。</p>
-<h1 id="关键字参数"><a href="#关键字参数" class="headerlink" title="关键字参数"></a>关键字参数</h1><p>和上面不同的是，调用函数时，会自动将关键字参数组装成字典。可变参数的形式为 <code>**kws</code>。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 想要传入其他别的信息，比如公司成立日期、所属行业</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">stock_information</span><span class="params">(code, name =<span class="string">'股票'</span>, **kws)</span>:</span></span><br><span class="line">    print(<span class="string">'code:'</span>, code)</span><br><span class="line">    print(<span class="string">'name:'</span>, name)</span><br><span class="line">    print(<span class="string">'others:'</span>, kws)</span><br><span class="line">    </span><br><span class="line">stock_information(<span class="string">'000001.SZ'</span>,<span class="string">'平安银行'</span>, date=<span class="string">'1987-12-22'</span>, industry=<span class="string">'银行'</span> )</span><br><span class="line"></span><br><span class="line">code: <span class="number">000001.</span>SZ</span><br><span class="line">name: 平安银行</span><br><span class="line">others: &#123;<span class="string">'date'</span>: <span class="string">'1987-12-22'</span>, <span class="string">'industry'</span>: <span class="string">'银行'</span>&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="命名关键字参数"><a href="#命名关键字参数" class="headerlink" title="命名关键字参数"></a>命名关键字参数</h1><p>用户想要输入的关键字参数，在关键字参数前加分隔符 <code>*</code> ，即<code>*, nkw</code>，命名关键字不能缺少参数名。Python2貌似是不支持的。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">stock_information</span><span class="params">(code, name=<span class="string">'股票'</span>, *, industry)</span>:</span></span><br><span class="line">    print(<span class="string">'code:'</span>, code)</span><br><span class="line">    print(<span class="string">'name:'</span>, name)</span><br><span class="line">    print(<span class="string">'industry:'</span>, industry)</span><br><span class="line">    </span><br><span class="line">stock_information(<span class="string">'000001.SZ'</span>, <span class="string">'平安银行'</span>, industry=<span class="string">'银行'</span> )</span><br><span class="line"></span><br><span class="line">code: <span class="number">000001.</span>SZ</span><br><span class="line">name: 平安银行</span><br><span class="line">industry: 银行</span><br></pre></td></tr></table></figure>
-<h1 id="参数组合"><a href="#参数组合" class="headerlink" title="参数组合"></a>参数组合</h1><p>5种参数中的4种可以组合在一起使用，但组合有顺序。</p>
-<p>位置参数、默认参数、可变参数、关键字参数</p>
-<p>位置参数、默认参数、命名关键字参数、关键字参数</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/56/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><span class="page-number current">57</span><a class="page-number" href="/page/58/">58</a><span class="space">&hellip;</span><a class="page-number" href="/page/121/">121</a><a class="extend next" rel="next" href="/page/58/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/56/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><span class="page-number current">57</span><a class="page-number" href="/page/58/">58</a><span class="space">&hellip;</span><a class="page-number" href="/page/122/">122</a><a class="extend next" rel="next" href="/page/58/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -655,7 +644,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">363</span>
+          <span class="site-state-item-count">364</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
