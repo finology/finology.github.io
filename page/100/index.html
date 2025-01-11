@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">368</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">375</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/02/Maven%E5%B7%A5%E7%A8%8B%E6%89%93%E5%8C%85Spark-Streaming%E7%A8%8B%E5%BA%8F/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +218,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/02/Maven%E5%B7%A5%E7%A8%8B%E6%89%93%E5%8C%85Spark-Streaming%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">Maven工程打包Spark Streaming程序 </a>
+            <a href="/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/" class="post-title-link" itemprop="url">Java VisualVM添加Visual GC标签</a>
         </h2>
 
         <div class="post-meta">
@@ -228,7 +228,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-02-23 16:19:30" itemprop="dateCreated datePublished" datetime="2019-02-23T16:19:30+08:00">2019-02-23</time>
+              <time title="创建时间：2019-04-19 18:21:08" itemprop="dateCreated datePublished" datetime="2019-04-19T18:21:08+08:00">2019-04-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -237,22 +237,9 @@
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
               </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/Maven/" itemprop="url" rel="index"><span itemprop="name">Maven</span></a>
-                </span>
-            </span>
 
           
-            <span id="/2019/02/Maven%E5%B7%A5%E7%A8%8B%E6%89%93%E5%8C%85Spark-Streaming%E7%A8%8B%E5%BA%8F/" class="post-meta-item leancloud_visitors" data-flag-title="Maven工程打包Spark Streaming程序 " title="阅读次数">
+            <span id="/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/" class="post-meta-item leancloud_visitors" data-flag-title="Java VisualVM添加Visual GC标签" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -268,8 +255,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2019/02/Maven%E5%B7%A5%E7%A8%8B%E6%89%93%E5%8C%85Spark-Streaming%E7%A8%8B%E5%BA%8F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/Maven%E5%B7%A5%E7%A8%8B%E6%89%93%E5%8C%85Spark-Streaming%E7%A8%8B%E5%BA%8F/" itemprop="commentCount"></span>
+    <a title="valine" href="/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -296,37 +283,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>当我们把Spark Streaming程序开发好以后，放到测试环境测试时，如何通过Maven打包呢？</p>
-<p>在这篇文章中，我将介绍两种Maven的build方式。</p>
-<p>推荐使用第二种方式。</p>
-<h1 id="所有依赖打成一个jar包"><a href="#所有依赖打成一个jar包" class="headerlink" title="所有依赖打成一个jar包"></a>所有依赖打成一个jar包</h1><p>通过这种方式，把所有的依赖都打成一个大的jar包。</p>
-<ul>
-<li>优点</li>
-</ul>
-<p>通过<code>spark-submit</code>执行程序时，简单方便，不需要指定<code>jars</code>参数。</p>
-<ul>
-<li>缺点</li>
-</ul>
-<p>依赖多的时候，有时候包会有几百M，在网络传输过程时效率不高。</p>
-<p><code>pom.xml</code>文件的<code>build</code>节点需要添加如下两个Maven插件。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.scala-tools<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-scala-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>testCompile<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-assembly-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">descriptorRefs</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">descriptorRef</span>&gt;</span>jar-with-dependencies<span class="tag">&lt;/<span class="name">descriptorRef</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">descriptorRefs</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">archive</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">manifest</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span><span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">archive</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">id</span>&gt;</span>make-assembly<span class="tag">&lt;/<span class="name">id</span>&gt;</span> <span class="comment">&lt;!-- this is used for inheritance merges --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span> <span class="comment">&lt;!-- bind to the packaging phase --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>single<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>使用<code>org.scala-tools:maven-scala-plugin</code>插件有个好处是，如果项目里面有<code>src/main/java</code>和<code>src/main/scala</code>两种语言混编时，可以成功编译源码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[INFO] &#x2F;Users&#x2F;simon&#x2F;Development&#x2F;workspace&#x2F;scala&#x2F;spark-streaming-demo&#x2F;src&#x2F;main&#x2F;java:-1: info: compiling</span><br><span class="line">[INFO] &#x2F;Users&#x2F;simon&#x2F;Development&#x2F;workspace&#x2F;scala&#x2F;spark-streaming-demo&#x2F;src&#x2F;main&#x2F;scala:-1: info: compiling</span><br></pre></td></tr></table></figure>
-<p>执行Spark任务命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;spark-submit --master local[2] \</span><br><span class="line">--class gy.finolo.spark.project.StreamingApp \</span><br><span class="line">..&#x2F;data&#x2F;app&#x2F;spark-streaming-demo-1.0-SNAPSHOT.jar localhost:9092 streamingtopic</span><br></pre></td></tr></table></figure>
-<h1 id="打成一个小jar和lib依赖文件夹"><a href="#打成一个小jar和lib依赖文件夹" class="headerlink" title="打成一个小jar和lib依赖文件夹"></a>打成一个小jar和lib依赖文件夹</h1><ul>
-<li>优点</li>
-</ul>
-<p>Spark Streaming源码被修改后，打成小包就可以上传服务器，传输流量小，速度快。</p>
-<ul>
-<li>缺点</li>
-</ul>
-<p>提交任务时，需要指定jars参数</p>
-<p><code>pom.xml</code>文件的<code>build</code>节点需要添加如下两个Maven插件。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.scala-tools<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-scala-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>testCompile<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-dependency-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.10<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">id</span>&gt;</span>copy-dependencies<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>copy-dependencies<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">outputDirectory</span>&gt;</span>$&#123;project.build.directory&#125;/lib<span class="tag">&lt;/<span class="name">outputDirectory</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">excludeScope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">excludeScope</span>&gt;</span> <span class="comment">&lt;!-- provided scope的依赖不需要放入到lib中 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>执行Spark任务命令，需要指定jars参数，注意：这里不是lib的地址。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;spark-submit --master local[2] \</span><br><span class="line">--class gy.finolo.spark.project.StreamingApp \</span><br><span class="line">--jars $(echo ..&#x2F;data&#x2F;app&#x2F;lib&#x2F;*.jar | tr &#39; &#39; &#39;,&#39;) \</span><br><span class="line">..&#x2F;data&#x2F;lib&#x2F;spark-streaming-demo-1.0-SNAPSHOT.jar localhost:9092 streamingtopic</span><br></pre></td></tr></table></figure>
-<p><code>$(echo ../data/app/lib/*.jar | tr &#39; &#39; &#39;,&#39;)</code>代码的意思是把jar包名以逗号分隔符拼接成一个字符串。</p>
+          <h1 id="运行Java-VisualVM"><a href="#运行Java-VisualVM" class="headerlink" title="运行Java VisualVM"></a>运行Java VisualVM</h1><p>执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jvisualvm</span><br></pre></td></tr></table></figure>
+<p>JVisualVM启动成功后，如图所示：</p>
+<img src="/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/javaVisualVM.jpg" class="" title="Java VisualVM主界面">
+<h1 id="安装Visual-GC插件"><a href="#安装Visual-GC插件" class="headerlink" title="安装Visual GC插件"></a>安装Visual GC插件</h1><p>点击 <code>工具</code> -&gt; <code>插件</code></p>
+<p>选择<code>设置</code>标签，更新中心配置，也就是设置从哪里下载插件。</p>
+<p>可以在 <a href="https://visualvm.github.io/pluginscenters.html">https://visualvm.github.io/pluginscenters.html</a> 页面找到不同版本的插件源地址。</p>
+<p>设置好以后，在<code>可用插件</code>标签下面，我们选择安装<code>Visual GC</code>插件。</p>
+<p>安装好以后，重启Java VisualVM</p>
+<p>就可以看到<code>Visual GC</code>的标签了。如下图所示：</p>
+<img src="/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/visualgc.jpg" class="" title="VisualGC标签">
 
       
     </div>
@@ -346,7 +313,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/02/Mac%E4%B8%8B%E4%BD%BF%E7%94%A8crontab%E6%8A%A5%E9%94%99crontab-usr-bin-vi-exited-with-status-1/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/04/Mac%E4%B8%8B%E5%A4%84%E7%90%86MAT-Memory-Analyzer-Tool-%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -360,7 +327,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/02/Mac%E4%B8%8B%E4%BD%BF%E7%94%A8crontab%E6%8A%A5%E9%94%99crontab-usr-bin-vi-exited-with-status-1/" class="post-title-link" itemprop="url">Mac下使用crontab报错crontab: "/usr/bin/vi" exited with status 1</a>
+            <a href="/2019/04/Mac%E4%B8%8B%E5%A4%84%E7%90%86MAT-Memory-Analyzer-Tool-%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Mac下处理MAT(Memory Analyzer Tool)报错的问题</a>
         </h2>
 
         <div class="post-meta">
@@ -370,7 +337,120 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-02-22 14:42:34" itemprop="dateCreated datePublished" datetime="2019-02-22T14:42:34+08:00">2019-02-22</time>
+              <time title="创建时间：2019-04-19 10:02:27" itemprop="dateCreated datePublished" datetime="2019-04-19T10:02:27+08:00">2019-04-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
+              </span>
+
+          
+            <span id="/2019/04/Mac%E4%B8%8B%E5%A4%84%E7%90%86MAT-Memory-Analyzer-Tool-%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="Mac下处理MAT(Memory Analyzer Tool)报错的问题" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2019/04/Mac%E4%B8%8B%E5%A4%84%E7%90%86MAT-Memory-Analyzer-Tool-%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/04/Mac%E4%B8%8B%E5%A4%84%E7%90%86MAT-Memory-Analyzer-Tool-%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>当程序出现内存泄露(Out of memory)时，我们需要通过Eclipse的Memory Analyzer Tool去定位错误的代码。</p>
+<p>从Eclipse官网下载MAT，<a href="https://www.eclipse.org/mat/downloads.php">https://www.eclipse.org/mat/downloads.php</a></p>
+<p>选择不同操作的版本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Memory Analyzer 1.8.1 Release</span><br><span class="line">Version: 1.8.1.20180910 | Date: 19 September 2018 | Type: Released</span><br><span class="line">Update Site: http:&#x2F;&#x2F;download.eclipse.org&#x2F;mat&#x2F;1.8.1&#x2F;update-site&#x2F;</span><br><span class="line">Archived Update Site: MemoryAnalyzer-1.8.1.201809100846.zip</span><br><span class="line">Stand-alone Eclipse RCP Applications</span><br><span class="line">   Windows (x86)</span><br><span class="line">   Windows (x86_64)</span><br><span class="line">   Mac OSX (Mac&#x2F;Cocoa&#x2F;x86_64)</span><br><span class="line">   Linux (x86&#x2F;GTK+)</span><br><span class="line">   Linux (x86_64&#x2F;GTK+)</span><br><span class="line">   Linux (PPC64&#x2F;GTK+)</span><br><span class="line">   Linux (PPC64le&#x2F;GTK+)</span><br></pre></td></tr></table></figure>
+<p>当我在Mac系统双击mat.app打开MAT时，系统报错，查看日志内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">!SESSION 2019-04-18 21:48:21.506 -----------------------------------------------</span><br><span class="line">eclipse.buildId&#x3D;unknown</span><br><span class="line">java.version&#x3D;1.8.0_92</span><br><span class="line">java.vendor&#x3D;Oracle Corporation</span><br><span class="line">BootLoader constants: OS&#x3D;macosx, ARCH&#x3D;x86_64, WS&#x3D;cocoa, NL&#x3D;zh_CN</span><br><span class="line">Framework arguments:  -keyring &#x2F;Users&#x2F;simon&#x2F;.eclipse_keyring</span><br><span class="line">Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring &#x2F;Users&#x2F;simon&#x2F;.eclipse_keyring</span><br><span class="line"></span><br><span class="line">!ENTRY org.eclipse.osgi 4 0 2019-04-18 21:48:24.893</span><br><span class="line">!MESSAGE Application error</span><br><span class="line">!STACK 1</span><br><span class="line">java.lang.IllegalStateException: The platform metadata area could not be written: &#x2F;private&#x2F;var&#x2F;folders&#x2F;cl&#x2F;kn5ppbpd28j0s6y5kcxm9rdm0000gn&#x2F;T&#x2F;AppTranslocation&#x2F;8157A927-01B7-4CF8-8F8B-AA4530391F8A&#x2F;d&#x2F;mat.app&#x2F;Contents&#x2F;MacOS&#x2F;workspace&#x2F;.metadata.  By default the platform writes its content</span><br><span class="line">under the current working directory when the platform is launched.  Use the -data parameter to</span><br><span class="line">specify a different content area for the platform.</span><br><span class="line">	at org.eclipse.core.internal.runtime.DataArea.assertLocationInitialized(DataArea.java:70)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>查看日志，分析原因，我们得知其中一个文件无写入权限。IllegalStateException: The platform metadata area could not be written.</p>
+<p>我们可以指定一个具有写入权限的文件夹，设置如下：</p>
+<p>编辑文件 <code>/Applications/mat.app/Contents/Eclipse/MemoryAnalyzer.ini</code></p>
+<p>添加<code>-data</code>参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-data</span><br><span class="line">&#x2F;Users&#x2F;simon&#x2F;workspace</span><br></pre></td></tr></table></figure>
+<p>data参数和路径必须在两个不同的行，data参数必须放在Laucher之前。</p>
+<p>最终文件内容如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-startup</span><br><span class="line">..&#x2F;Eclipse&#x2F;plugins&#x2F;org.eclipse.equinox.launcher_1.5.0.v20180512-1130.jar</span><br><span class="line">-data</span><br><span class="line">&#x2F;Users&#x2F;simon&#x2F;workspace</span><br><span class="line">--launcher.library</span><br><span class="line">..&#x2F;Eclipse&#x2F;plugins&#x2F;org.eclipse.equinox.launcher.cocoa.macosx.x86_64_1.1.700.v20180518-1200</span><br><span class="line">-vmargs</span><br><span class="line">-Xmx1024m</span><br><span class="line">-Dorg.eclipse.swt.internal.carbon.smallFonts</span><br><span class="line">-XstartOnFirstThread</span><br></pre></td></tr></table></figure>
+<p>保存文件后，再次双击启动MAT，软件可以成功打开了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/04/Mac%E4%B8%8B%E5%AE%89%E8%A3%85zsh/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/Mac%E4%B8%8B%E5%AE%89%E8%A3%85zsh/" class="post-title-link" itemprop="url">Mac下安装zsh</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-04-19 00:00:31" itemprop="dateCreated datePublished" datetime="2019-04-19T00:00:31+08:00">2019-04-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -394,7 +474,7 @@
             </span>
 
           
-            <span id="/2019/02/Mac%E4%B8%8B%E4%BD%BF%E7%94%A8crontab%E6%8A%A5%E9%94%99crontab-usr-bin-vi-exited-with-status-1/" class="post-meta-item leancloud_visitors" data-flag-title="Mac下使用crontab报错crontab: "/usr/bin/vi" exited with status 1" title="阅读次数">
+            <span id="/2019/04/Mac%E4%B8%8B%E5%AE%89%E8%A3%85zsh/" class="post-meta-item leancloud_visitors" data-flag-title="Mac下安装zsh" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -410,8 +490,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2019/02/Mac%E4%B8%8B%E4%BD%BF%E7%94%A8crontab%E6%8A%A5%E9%94%99crontab-usr-bin-vi-exited-with-status-1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/Mac%E4%B8%8B%E4%BD%BF%E7%94%A8crontab%E6%8A%A5%E9%94%99crontab-usr-bin-vi-exited-with-status-1/" itemprop="commentCount"></span>
+    <a title="valine" href="/2019/04/Mac%E4%B8%8B%E5%AE%89%E8%A3%85zsh/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/04/Mac%E4%B8%8B%E5%AE%89%E8%A3%85zsh/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -438,228 +518,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在Mac OS X下使用crontab创建定时任务时报错。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontab: no crontab for root - using an empty one</span><br><span class="line">crontab: &quot;&#x2F;usr&#x2F;bin&#x2F;vi&quot; exited with status 1</span><br></pre></td></tr></table></figure>
-<p>原因大概是因为没有安装vi，目前我们使用的vi都是vim</p>
-<p>所以，可以按如下方式使用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EDITOR&#x3D;vim crontab -e</span><br></pre></td></tr></table></figure>
-<p>成功退出后，控制台上会打印如下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab: installing new crontab</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/02/Bash-Shell%E5%BF%AB%E6%8D%B7%E9%94%AE-%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8%E5%88%B0%E8%A1%8C%E9%A6%96%E3%80%81%E8%A1%8C%E5%B0%BE%E7%AD%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/02/Bash-Shell%E5%BF%AB%E6%8D%B7%E9%94%AE-%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8%E5%88%B0%E8%A1%8C%E9%A6%96%E3%80%81%E8%A1%8C%E5%B0%BE%E7%AD%89/" class="post-title-link" itemprop="url">Bash Shell快捷键-光标移动到行首、行尾等</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-02-21 14:38:40" itemprop="dateCreated datePublished" datetime="2019-02-21T14:38:40+08:00">2019-02-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/SSH/" itemprop="url" rel="index"><span itemprop="name">SSH</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/02/Bash-Shell%E5%BF%AB%E6%8D%B7%E9%94%AE-%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8%E5%88%B0%E8%A1%8C%E9%A6%96%E3%80%81%E8%A1%8C%E5%B0%BE%E7%AD%89/" class="post-meta-item leancloud_visitors" data-flag-title="Bash Shell快捷键-光标移动到行首、行尾等" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/02/Bash-Shell%E5%BF%AB%E6%8D%B7%E9%94%AE-%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8%E5%88%B0%E8%A1%8C%E9%A6%96%E3%80%81%E8%A1%8C%E5%B0%BE%E7%AD%89/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/Bash-Shell%E5%BF%AB%E6%8D%B7%E9%94%AE-%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8%E5%88%B0%E8%A1%8C%E9%A6%96%E3%80%81%E8%A1%8C%E5%B0%BE%E7%AD%89/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="ctrl键组合"><a href="#ctrl键组合" class="headerlink" title="ctrl键组合"></a>ctrl键组合</h1><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ctrl+a</td>
-<td>光标移到行首</td>
-</tr>
-<tr>
-<td>ctrl+b</td>
-<td>光标左移一个字母</td>
-</tr>
-<tr>
-<td>ctrl+c</td>
-<td>杀死当前进程</td>
-</tr>
-<tr>
-<td>ctrl+d</td>
-<td>退出当前 Shell</td>
-</tr>
-<tr>
-<td>ctrl+e</td>
-<td>光标移到行尾</td>
-</tr>
-<tr>
-<td>ctrl+h</td>
-<td>删除光标前一个字符，同 backspace 键相同</td>
-</tr>
-<tr>
-<td>ctrl+k</td>
-<td>清除光标后至行尾的内容</td>
-</tr>
-<tr>
-<td>ctrl+l</td>
-<td>清屏，相当于clear</td>
-</tr>
-<tr>
-<td>ctrl+r</td>
-<td>搜索之前打过的命令会有一个提示，根据你输入的关键字进行搜索bash的history</td>
-</tr>
-<tr>
-<td>ctrl+u</td>
-<td>清除光标前至行首间的所有内容</td>
-</tr>
-<tr>
-<td>ctrl+w</td>
-<td>移除光标前的一个单词</td>
-</tr>
-<tr>
-<td>ctrl+t</td>
-<td>交换光标位置前的两个字符</td>
-</tr>
-<tr>
-<td>ctrl+y</td>
-<td>粘贴或者恢复上次的删除</td>
-</tr>
-<tr>
-<td>ctrl+d</td>
-<td>删除光标所在字母；注意和backspace以及ctrl+h的区别，这2个是删除光标前的字符</td>
-</tr>
-<tr>
-<td>ctrl+f</td>
-<td>光标右移</td>
-</tr>
-<tr>
-<td>ctrl+z</td>
-<td>把当前进程转到后台运行，使用<code>fg</code>命令恢复比如top -d1 然后<code>ctrl+z</code>，到后台，然后<code>fg</code>，重新恢复</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h1 id="esc组合"><a href="#esc组合" class="headerlink" title="esc组合"></a>esc组合</h1><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>esc+d</td>
-<td>删除光标后的一个词</td>
-</tr>
-<tr>
-<td>esc+f</td>
-<td>往右跳一个词</td>
-</tr>
-<tr>
-<td>esc+b</td>
-<td>往左跳一个词</td>
-</tr>
-<tr>
-<td>esc+t</td>
-<td>交换光标位置前的两个单词</td>
-</tr>
-</tbody>
-</table>
-</div>
+          <h1 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a>iTerm2</h1><p>首先推荐安装iTerm2终端，可在官网 <a href="http://iterm2.com/">http://iterm2.com/</a> 免费下载安装。</p>
+<h1 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h1><h2 id="查看系统的shell"><a href="#查看系统的shell" class="headerlink" title="查看系统的shell"></a>查看系统的shell</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shells</span><br><span class="line"><span class="meta">#</span><span class="bash"> List of acceptable shells <span class="keyword">for</span> chpass(1).</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Ftpd will not allow users to connect who are not using</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> one of these shells.</span></span><br><span class="line"></span><br><span class="line">/bin/bash</span><br><span class="line">/bin/csh</span><br><span class="line">/bin/ksh</span><br><span class="line">/bin/sh</span><br><span class="line">/bin/tcsh</span><br><span class="line">/bin/zsh</span><br></pre></td></tr></table></figure>
+<p>bash是mac中terminal自带的shell，把它换成zsh，这个的功能要多得多。拥有语法高亮，命令行tab补全，自动提示符，显示Git仓库状态等功能。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
+<h2 id="安装oh-my-zsh-1"><a href="#安装oh-my-zsh-1" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h2><p>使用<code>curl</code>安装oh-my-zsh</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</span><br><span class="line"></span><br><span class="line">Cloning Oh My Zsh...</span><br><span class="line">Cloning into '/Users/simon/.oh-my-zsh'...</span><br><span class="line">remote: Enumerating objects: 1023, done.</span><br><span class="line">remote: Counting objects: 100% (1023/1023), done.</span><br><span class="line">remote: Compressing objects: 100% (940/940), done.</span><br><span class="line">remote: Total 1023 (delta 23), reused 848 (delta 20), pack-reused 0</span><br><span class="line">Receiving objects: 100% (1023/1023), 681.01 KiB | 5.00 KiB/s, done.</span><br><span class="line">Resolving deltas: 100% (23/23), done.</span><br><span class="line">Looking for an existing zsh config...</span><br><span class="line">Using the Oh My Zsh template file and adding it to ~/.zshrc</span><br><span class="line">         __                                     __</span><br><span class="line">  ____  / /_     ____ ___  __  __   ____  _____/ /_</span><br><span class="line"> / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \</span><br><span class="line">/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / /</span><br><span class="line">\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/</span><br><span class="line">                        /____/                       ....is now installed!</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please look over the ~/.zshrc file to select plugins, themes, and options.</span><br><span class="line"></span><br><span class="line">p.s. Follow us at https://twitter.com/ohmyzsh.</span><br><span class="line"></span><br><span class="line">p.p.s. Get stickers, shirts, and coffee mugs at https://shop.planetargon.com/collections/oh-my-zsh.</span><br></pre></td></tr></table></figure>
+<p>安装成功。</p>
+<p>如何切换主题就不在这里详述了。</p>
 
       
     </div>
@@ -679,7 +545,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/99/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/99/">99</a><span class="page-number current">100</span><a class="page-number" href="/page/101/">101</a><span class="space">&hellip;</span><a class="page-number" href="/page/123/">123</a><a class="extend next" rel="next" href="/page/101/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/99/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/99/">99</a><span class="page-number current">100</span><a class="page-number" href="/page/101/">101</a><span class="space">&hellip;</span><a class="page-number" href="/page/125/">125</a><a class="extend next" rel="next" href="/page/101/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -758,7 +624,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">368</span>
+          <span class="site-state-item-count">375</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

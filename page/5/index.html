@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">368</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">375</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2023/12/JVM%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2024/01/Jupyter-Lab%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8CPython%E5%86%85%E6%A0%B8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +218,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/12/JVM%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">JVM相关命令</a>
+            <a href="/2024/01/Jupyter-Lab%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8CPython%E5%86%85%E6%A0%B8/" class="post-title-link" itemprop="url">Jupyter Lab环境中切换不同Python内核</a>
         </h2>
 
         <div class="post-meta">
@@ -228,14 +228,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-12-01 19:58:18" itemprop="dateCreated datePublished" datetime="2023-12-01T19:58:18+08:00">2023-12-01</time>
+              <time title="创建时间：2024-01-17 22:44:33" itemprop="dateCreated datePublished" datetime="2024-01-17T22:44:33+08:00">2024-01-17</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-30 23:09:22" itemprop="dateModified" datetime="2024-09-30T23:09:22+08:00">2024-09-30</time>
+                <time title="修改时间：2024-10-30 23:49:20" itemprop="dateModified" datetime="2024-10-30T23:49:20+08:00">2024-10-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -243,12 +243,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
                 </span>
             </span>
 
           
-            <span id="/2023/12/JVM%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/" class="post-meta-item leancloud_visitors" data-flag-title="JVM相关命令" title="阅读次数">
+            <span id="/2024/01/Jupyter-Lab%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8CPython%E5%86%85%E6%A0%B8/" class="post-meta-item leancloud_visitors" data-flag-title="Jupyter Lab环境中切换不同Python内核" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -264,8 +264,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2023/12/JVM%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/JVM%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
+    <a title="valine" href="/2024/01/Jupyter-Lab%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8CPython%E5%86%85%E6%A0%B8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/01/Jupyter-Lab%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8CPython%E5%86%85%E6%A0%B8/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -292,132 +292,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>查看JVM相关的信息。</p>
-<p><code>jinfo [option] &lt;pid&gt;</code></p>
-<p>查看JVM使用的哪个垃圾回收器</p>
-<p><code>jinfo -flags &lt;pid&gt;</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> jinfo -flags 58256</span></span><br><span class="line">Attaching to process ID 58256, please wait...</span><br><span class="line">Debugger attached successfully.</span><br><span class="line">Server compiler detected.</span><br><span class="line">JVM version is 25.212-b10</span><br><span class="line">Non-default VM flags: -XX:CICompilerCount=4 -XX:InitialHeapSize=264241152 -XX:MaxHeapSize=4200595456</span><br><span class="line"> -XX:MaxNewSize=1399848960 -XX:MinHeapDeltaBytes=524288 -XX:NewSize=88080384 -XX:OldSize=176160768</span><br><span class="line">  -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseParallelGC</span><br></pre></td></tr></table></figure>
-<p>可以看出是使用的 <code>UseParallelGC</code>。</p>
-<p>通过如下命令也可以印证。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> jinfo -flag UseParallelGC 58256</span></span><br><span class="line">-XX:+UseParallelGC</span><br></pre></td></tr></table></figure>
-<p>查看类加载的信息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> jstat -class 58256 1000 10</span></span><br><span class="line">Loaded  Bytes  Unloaded  Bytes     Time</span><br><span class="line"> 14582 26192.0        1     0.9      23.92</span><br><span class="line"> 14582 26192.0        1     0.9      23.92</span><br><span class="line"> 14582 26192.0        1     0.9      23.92</span><br><span class="line"> 14582 26192.0        1     0.9      23.92</span><br><span class="line"> 14582 26192.0        1     0.9      23.92</span><br><span class="line"> 14582 26192.0        1     0.9      23.92</span><br><span class="line"> 14582 26192.0        1     0.9      23.92</span><br></pre></td></tr></table></figure>
-<p>查看垃圾回收器的信息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> jstat -gc 58256 1000 10</span></span><br><span class="line"> S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT</span><br><span class="line">28160.0 10240.0  0.0   9808.1 597504.0 430347.2  251904.0   69700.9   78612.0 74904.0 10300.0 9577.3     17    0.643   3      1.166    1.809</span><br><span class="line">28160.0 10240.0  0.0   9808.1 597504.0 430347.2  251904.0   69700.9   78612.0 74904.0 10300.0 9577.3     17    0.643   3      1.166    1.809</span><br><span class="line">28160.0 10240.0  0.0   9808.1 597504.0 430347.2  251904.0   69700.9   78612.0 74904.0 10300.0 9577.3     17    0.643   3      1.166    1.809</span><br><span class="line">28160.0 10240.0  0.0   9808.1 597504.0 430347.2  251904.0   69700.9   78612.0 74904.0 10300.0 9577.3     17    0.643   3      1.166    1.809</span><br><span class="line">28160.0 10240.0  0.0   9808.1 597504.0 430347.2  251904.0   69700.9   78612.0 74904.0 10300.0 9577.3     17    0.643   3      1.166    1.809</span><br><span class="line">28160.0 10240.0  0.0   9808.1 597504.0 430347.2  251904.0   69700.9   78612.0 74904.0 10300.0 9577.3     17    0.643   3      1.166    1.809</span><br></pre></td></tr></table></figure>
-<p>查看是否有死锁</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> jstack 58256</span></span><br></pre></td></tr></table></figure>
-<p>查看堆内存数据</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> jmap -heap 58256</span></span><br><span class="line">Attaching to process ID 58256, please wait...</span><br><span class="line">Debugger attached successfully.</span><br><span class="line">Server compiler detected.</span><br><span class="line">JVM version is 25.212-b10</span><br><span class="line"></span><br><span class="line">using thread-local object allocation.</span><br><span class="line">Parallel GC with 8 thread(s)</span><br><span class="line"></span><br><span class="line">Heap Configuration:</span><br><span class="line">   MinHeapFreeRatio         = 0</span><br><span class="line">   MaxHeapFreeRatio         = 100</span><br><span class="line">   MaxHeapSize              = 4200595456 (4006.0MB)</span><br><span class="line">   NewSize                  = 88080384 (84.0MB)</span><br><span class="line">   MaxNewSize               = 1399848960 (1335.0MB)</span><br><span class="line">   OldSize                  = 176160768 (168.0MB)</span><br><span class="line">   NewRatio                 = 2</span><br><span class="line">   SurvivorRatio            = 8</span><br><span class="line">   MetaspaceSize            = 21807104 (20.796875MB)</span><br><span class="line">   CompressedClassSpaceSize = 1073741824 (1024.0MB)</span><br><span class="line">   MaxMetaspaceSize         = 17592186044415 MB</span><br><span class="line">   G1HeapRegionSize         = 0 (0.0MB)</span><br><span class="line"></span><br><span class="line">Heap Usage:</span><br><span class="line">PS Young Generation</span><br><span class="line">Eden Space:</span><br><span class="line">   capacity = 589299712 (562.0MB)</span><br><span class="line">   used     = 93162144 (88.84634399414062MB)</span><br><span class="line">   free     = 496137568 (473.1536560058594MB)</span><br><span class="line">   15.808958006074844% used</span><br><span class="line">From Space:</span><br><span class="line">   capacity = 10485760 (10.0MB)</span><br><span class="line">   used     = 10174544 (9.703201293945312MB)</span><br><span class="line">   free     = 311216 (0.2967987060546875MB)</span><br><span class="line">   97.03201293945312% used</span><br><span class="line">To Space:</span><br><span class="line">   capacity = 30408704 (29.0MB)</span><br><span class="line">   used     = 0 (0.0MB)</span><br><span class="line">   free     = 30408704 (29.0MB)</span><br><span class="line">   0.0% used</span><br><span class="line">PS Old Generation</span><br><span class="line">   capacity = 257949696 (246.0MB)</span><br><span class="line">   used     = 71381888 (68.0750732421875MB)</span><br><span class="line">   free     = 186567808 (177.9249267578125MB)</span><br><span class="line">   27.672794000889226% used</span><br><span class="line"></span><br><span class="line">29817 interned Strings occupying 3078576 bytes.</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2023/12/Mybatis-xml%E4%B8%80%E5%AF%B9%E5%A4%9A%E7%9A%84%E5%86%99%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/12/Mybatis-xml%E4%B8%80%E5%AF%B9%E5%A4%9A%E7%9A%84%E5%86%99%E6%B3%95/" class="post-title-link" itemprop="url">Mybatis xml一对多的写法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-12-01 19:57:59" itemprop="dateCreated datePublished" datetime="2023-12-01T19:57:59+08:00">2023-12-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-30 23:09:22" itemprop="dateModified" datetime="2024-09-30T23:09:22+08:00">2024-09-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2023/12/Mybatis-xml%E4%B8%80%E5%AF%B9%E5%A4%9A%E7%9A%84%E5%86%99%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="Mybatis xml一对多的写法" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2023/12/Mybatis-xml%E4%B8%80%E5%AF%B9%E5%A4%9A%E7%9A%84%E5%86%99%E6%B3%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/Mybatis-xml%E4%B8%80%E5%AF%B9%E5%A4%9A%E7%9A%84%E5%86%99%E6%B3%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>返回类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">List&lt;StudentCourses&gt; <span class="title">queryStudentCourses</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> xxx.StudentCourses</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudentCourses</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; courses;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">"resultMap"</span> <span class="attr">type</span>=<span class="string">"xxx.StudentCourses"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"name"</span> <span class="attr">property</span>=<span class="string">"name"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">collection</span> <span class="attr">property</span>=<span class="string">"courses"</span> <span class="attr">ofType</span>=<span class="string">"string"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"course"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">collection</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"queryStudentCourses"</span> <span class="attr">resultMap</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">    SELECT s.name, sc.course FROM student_course sc</span><br><span class="line">    JOIN student s ON(s.id = sc.student_id)</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+          <p>我一般选择在 <code>base</code> 环境中安装 <code>jupyter lab</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) D:\development\python&gt;mamba install jupyterlab</span><br></pre></td></tr></table></figure>
+<p>在 <code>base</code> 环境中，可以安装 <code>nb_conda_kernels</code>，这个是一个与 Conda 集成的 Jupyter 插件，它允许你在 Jupyter 中使用 Conda 环境中的不同内核。也可以不安装，而安装下面所说的ipykernel。</p>
+<p>创建一个新的环境，比如 <code>py310</code>，在这个环境里面安装 <code>ipykernel</code>，<code>mamba install ipykernel</code>。然后执行命令 <code>python -m ipykernel install --user --name py310</code>，其中<code>py310</code>是环境的名字。</p>
+<p>ipykernel 包是 Jupyter 的一个关键组件，它提供了 IPython 内核，允许 Jupyter 与 IPython 交互式计算环境进行通信。</p>
+<p>在jupyter lab页面中刷新，就可以自由选择 python 环境了，如下图所示：</p>
+<img src="/2024/01/Jupyter-Lab%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8CPython%E5%86%85%E6%A0%B8/nb_conda_kernels.png" class="">
+<p>这时会在Start Preferred Kernel里面显示新的环境。</p>
+<img src="/2024/01/Jupyter-Lab%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8CPython%E5%86%85%E6%A0%B8/ipykernel.png" class="">
 
       
     </div>
@@ -437,7 +320,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2023/12/SpringBoot%E6%B5%8B%E8%AF%95%E7%B1%BB%E7%94%A8-Value%E8%8E%B7%E5%8F%96server-port%E7%9A%84%E5%80%BC/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2024/01/conda%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -451,7 +334,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/12/SpringBoot%E6%B5%8B%E8%AF%95%E7%B1%BB%E7%94%A8-Value%E8%8E%B7%E5%8F%96server-port%E7%9A%84%E5%80%BC/" class="post-title-link" itemprop="url">SpringBoot测试类用@Value获取server.port的值</a>
+            <a href="/2024/01/conda%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/" class="post-title-link" itemprop="url">conda安装国内源</a>
         </h2>
 
         <div class="post-meta">
@@ -461,7 +344,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-12-01 19:57:41" itemprop="dateCreated datePublished" datetime="2023-12-01T19:57:41+08:00">2023-12-01</time>
+              <time title="创建时间：2024-01-16 23:32:54" itemprop="dateCreated datePublished" datetime="2024-01-16T23:32:54+08:00">2024-01-16</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -476,12 +359,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
                 </span>
             </span>
 
           
-            <span id="/2023/12/SpringBoot%E6%B5%8B%E8%AF%95%E7%B1%BB%E7%94%A8-Value%E8%8E%B7%E5%8F%96server-port%E7%9A%84%E5%80%BC/" class="post-meta-item leancloud_visitors" data-flag-title="SpringBoot测试类用@Value获取server.port的值" title="阅读次数">
+            <span id="/2024/01/conda%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/" class="post-meta-item leancloud_visitors" data-flag-title="conda安装国内源" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -497,8 +380,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2023/12/SpringBoot%E6%B5%8B%E8%AF%95%E7%B1%BB%E7%94%A8-Value%E8%8E%B7%E5%8F%96server-port%E7%9A%84%E5%80%BC/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/12/SpringBoot%E6%B5%8B%E8%AF%95%E7%B1%BB%E7%94%A8-Value%E8%8E%B7%E5%8F%96server-port%E7%9A%84%E5%80%BC/" itemprop="commentCount"></span>
+    <a title="valine" href="/2024/01/conda%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/01/conda%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -525,9 +408,147 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>我使用的springboot版本：2.1.2.RELEASE，在测试类中，通过@Value获取server.port的值，得到值 -1。</p>
-<p>解决方法，可以在测试类上面加上如下注解：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringRunner.class)</span><br><span class="line"><span class="meta">@SpringBootTest</span>(classes = MyApplication.class,</span><br><span class="line">        webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)</span><br></pre></td></tr></table></figure>
+          <p>Anaconda 是一个用于科学计算的 Python 发行版，支持 Linux, Mac, Windows, 包含了众多流行的科学计算、数据分析的 Python 包。</p>
+<p>Anaconda 安装包可以到 <code>https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</code> 下载。</p>
+<p>TUNA 还提供了 Anaconda 仓库与第三方源（conda-forge、msys2、pytorch等，查看完整列表，更多第三方源可以前往校园网联合镜像站查看）的镜像，各系统都可以通过修改用户目录下的 .condarc 文件来使用 TUNA 镜像源。Windows 用户无法直接创建名为 .condarc 的文件，可先执行 conda config —set show_channel_urls yes 生成该文件之后再修改。</p>
+<p>注：由于更新过快难以同步，他们不同步pytorch-nightly, pytorch-nightly-cpu, ignite-nightly这三个包。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - defaults</span><br><span class="line">show_channel_urls: true</span><br><span class="line">default_channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span><br><span class="line">custom_channels:</span><br><span class="line">  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  deepmodeling: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/</span><br></pre></td></tr></table></figure>
+<p>即可添加 Anaconda Python 免费仓库。</p>
+<p>运行 conda clean -i 清除索引缓存，保证用的是镜像站提供的索引。</p>
+<p>Miniconda 是一个 Anaconda 的轻量级替代，默认只包含了 python 和 conda，但是可以通过 pip 和 conda 来安装所需要的包。</p>
+<p>Miniconda 安装包可以到 <code>https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/</code> 下载。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/" class="post-title-link" itemprop="url">macOS安装Qlib爬坑心路历程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-01-07 23:28:03" itemprop="dateCreated datePublished" datetime="2024-01-07T23:28:03+08:00">2024-01-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-09-30 23:09:22" itemprop="dateModified" datetime="2024-09-30T23:09:22+08:00">2024-09-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Quant/" itemprop="url" rel="index"><span itemprop="name">Quant</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="macOS安装Qlib爬坑心路历程" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>我的操作系统是macOS Catalina 10.15.7<br>Python 3.8</p>
+<p>通过源码安装Qlib，记录一下掉过的坑。</p>
+<p>总的来说，按照官方说明文档，执行安装命令，一般不会有问题。</p>
+<p>cython一定要更新，upgrade</p>
+<p>pip要和python环境里面的版本一致，不确定是否一致，可以python -m pip install xxx的方式。</p>
+<p>也可以通过pip show pip查看位置。</p>
+<p>通过源码安装，<code>pip install .</code>，尽量不通过 <code>pip install pyqlib</code>来安装，更不能通过 <code>python setup.py install</code>来安装。</p>
+<p>qlib安装在python=3.8下面，3.9目前支持不好。</p>
+<p>创建python=3.8的虚拟环境后，想要在 jupyter lab 里面的 kernel select 中显示出来，需要在3.8的虚拟环境中执行命令：<br><code>pip install ipykernel</code></p>
+<p>如果错误的添加了kernel，需要这样删除：<code>jupyter kernelspec remove kernel_name</code></p>
+<p>在python3.8的环境里面，要安装<code>pip install ipywidgets</code>，还有<code>pip install tqdm</code>。</p>
+<p>安装好了以后，运行qlib/examples/workflow_by_code.ipynb，在train model这里，有报错：</p>
+<img src="/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/libomp_err.png" class="">
+<p>意思就是libomp这个库文件没有被加载到。</p>
+<p>后来尝试了很多方法，按网上说的，都是<code>brew install libomp</code>。</p>
+<p>我的macOS版本太旧，brew都已经不支持了。要升级到macOS 12，但我的笔记本又不支持。</p>
+<p>然后又找了各种办法通过源码来安装libomp。</p>
+<p>又去搞了半天编译工具。</p>
+<p>最后通过简单的两步搞定了问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ pip uninstall lightgbm</span><br><span class="line"></span><br><span class="line">Found existing installation: lightgbm 4.2.0</span><br><span class="line">Uninstalling lightgbm-4.2.0:</span><br><span class="line">  Would remove:</span><br><span class="line">    &#x2F;opt&#x2F;anaconda3&#x2F;envs&#x2F;py38&#x2F;lib&#x2F;python3.8&#x2F;site-packages&#x2F;lightgbm-4.2.0.dist-info&#x2F;*</span><br><span class="line">    &#x2F;opt&#x2F;anaconda3&#x2F;envs&#x2F;py38&#x2F;lib&#x2F;python3.8&#x2F;site-packages&#x2F;lightgbm&#x2F;*</span><br><span class="line">Proceed (Y&#x2F;n)? y</span><br><span class="line">  Successfully uninstalled lightgbm-4.2.0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">$ conda install lightgbm</span><br><span class="line">Collecting package metadata (current_repodata.json): done</span><br><span class="line">Solving environment: done</span><br><span class="line"></span><br><span class="line">## Package Plan ##</span><br><span class="line"></span><br><span class="line">  environment location: &#x2F;opt&#x2F;anaconda3&#x2F;envs&#x2F;py38</span><br><span class="line"></span><br><span class="line">  added &#x2F; updated specs:</span><br><span class="line">    - lightgbm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">The following packages will be downloaded:</span><br><span class="line"></span><br><span class="line">    package                    |            build</span><br><span class="line">    ---------------------------|-----------------</span><br><span class="line">    blas-1.0                   |         openblas          45 KB</span><br><span class="line">    libgfortran-5.0.0          |11_3_0_hecd8cb5_28         142 KB</span><br><span class="line">    libgfortran5-11.3.0        |      h9dfd629_28         1.4 MB</span><br><span class="line">    libopenblas-0.3.21         |       h54e7dc3_0         4.9 MB</span><br><span class="line">    lightgbm-4.1.0             |   py38hcec6c5f_0         1.4 MB</span><br><span class="line">    llvm-openmp-14.0.6         |       h0dcd299_0         288 KB</span><br><span class="line">    numpy-1.24.3               |   py38h57a7bef_0          12 KB</span><br><span class="line">    numpy-base-1.24.3          |   py38hc93c6d9_0         6.5 MB</span><br><span class="line">    pooch-1.7.0                |   py38hecd8cb5_0          85 KB</span><br><span class="line">    scipy-1.10.1               |   py38h9034365_1        20.9 MB</span><br><span class="line">    ------------------------------------------------------------</span><br><span class="line">                                           Total:        35.8 MB</span><br><span class="line"></span><br><span class="line">The following NEW packages will be INSTALLED:</span><br><span class="line"></span><br><span class="line">  blas               pkgs&#x2F;main&#x2F;osx-64::blas-1.0-openblas</span><br><span class="line">  libgfortran        pkgs&#x2F;main&#x2F;osx-64::libgfortran-5.0.0-11_3_0_hecd8cb5_28</span><br><span class="line">  libgfortran5       pkgs&#x2F;main&#x2F;osx-64::libgfortran5-11.3.0-h9dfd629_28</span><br><span class="line">  libopenblas        pkgs&#x2F;main&#x2F;osx-64::libopenblas-0.3.21-h54e7dc3_0</span><br><span class="line">  lightgbm           pkgs&#x2F;main&#x2F;osx-64::lightgbm-4.1.0-py38hcec6c5f_0</span><br><span class="line">  llvm-openmp        pkgs&#x2F;main&#x2F;osx-64::llvm-openmp-14.0.6-h0dcd299_0</span><br><span class="line">  numpy              pkgs&#x2F;main&#x2F;osx-64::numpy-1.24.3-py38h57a7bef_0</span><br><span class="line">  numpy-base         pkgs&#x2F;main&#x2F;osx-64::numpy-base-1.24.3-py38hc93c6d9_0</span><br><span class="line">  pooch              pkgs&#x2F;main&#x2F;osx-64::pooch-1.7.0-py38hecd8cb5_0</span><br><span class="line">  scipy              pkgs&#x2F;main&#x2F;osx-64::scipy-1.10.1-py38h9034365_1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Proceed ([y]&#x2F;n)? y</span><br></pre></td></tr></table></figure>
+<p>核心错误就出在我们之前都是通过<code>pip</code>来安装的，像这种有大量依赖的库，最好还是要通过<code>conda install</code>来安装。</p>
+<p>最后qlib的work_flow在macOS下成功运行。</p>
+<img src="/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/qlib_workflow.png" class="">
+
       
     </div>
 
@@ -546,7 +567,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/123/">123</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/125/">125</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -625,7 +646,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">368</span>
+          <span class="site-state-item-count">375</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

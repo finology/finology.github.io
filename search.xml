@@ -1,6 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[通过python plotly画图]]></title>
+    <url>%2F2025%2F01%2F%E9%80%9A%E8%BF%87python-plotly%E7%94%BB%E5%9B%BE%2F</url>
+    <content type="text"><![CDATA[之前一直是通过matplotlib来画图的，数据量大了以后，画图的速度较慢。 如果使用plotly，效率较高，主要是通过浏览器来渲染图片的，通过js效果，还可以随意放大缩小查看细节。 基本绘图折线图123import plotly.express as pxfig1 = px.line(df["balance"])fig1.show() 或者更简便一些 12import plotly.express as pxpx.line(df["balance"]) 柱状图1px.bar(df["pnl"]) 散点图1px.scatter(df["drawdown"]) 对象方式绘图 创建绘图区域12345678910import plotly.graph_objects as gofrom plotly.subplots import make_subplots# 创建绘图区域, 4行1列fig = make_subplots( rows=4, cols=1, subplot_titles=["累计盈亏", "净值回撤", "交易盈亏", "盈亏分布"], vertical_spacing=0.06) 创建四幅子图Scatter取代了Line 12345678910# 绘制资金曲线balance_line = go.Scatter( x=df.index, y=df["balance"], mode="lines", name="累计盈亏")highlevel_scatter = go.Scatter(x=df.index, y=df["highlevel"], name="高水位") 这个有填充的效果 123456789# 绘制回撤区域drawdown_scatter = go.Scatter( x=df.index, y=df["drawdown"], fillcolor="red", fill='tozeroy', mode="lines", name="回撤") 12# 绘制交易盈亏pnl_bar = go.Bar(y=df["pnl"], name="交易盈亏") 12# 绘制盈亏分布pnl_histogram = go.Histogram(x=df["pnl"], nbinsx=100, name="盈亏分布") 把子图添加到画布上面 12345678910# 绘制图表fig.add_trace(balance_line, row=1, col=1)fig.add_trace(highlevel_scatter, row=1, col=1)fig.add_trace(drawdown_scatter, row=2, col=1)fig.add_trace(pnl_bar, row=3, col=1)fig.add_trace(pnl_histogram, row=4, col=1)fig.update_layout(height=1000, width=1000)fig.show() # 可以省略]]></content>
+      <categories>
+        <category>Python</category>
+        <category>Plotly</category>
+      </categories>
+      <tags>
+        <tag>plotly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Windows安装Qlib]]></title>
+    <url>%2F2025%2F01%2FWindows%E5%AE%89%E8%A3%85Qlib%2F</url>
+    <content type="text"><![CDATA[安装异常 12Failed to build pyqlibERROR: Could not build wheels for pyqlib, which is required to install pyproject.toml-based projects 1234567C:\Users\simon\AppData\Local\Temp\pip-build-env-uuivrj87\overlay\Lib\site-packages\Cython\Compiler\Main.py:381: FutureWarning: Cython directive &#39;language_level&#39; not set, using &#39;3str&#39; for now (Py3). This has changed from earlier releases! File: D:\development\python\qlib\qlib\data\_libs\rolling.pyx tree &#x3D; Parsing.p_module(s, pxd, full_module_name) error: Microsoft Visual C++ 14.0 or greater is required. Get it with &quot;Microsoft C++ Build Tools&quot;: https:&#x2F;&#x2F;visualstudio.microsoft.com&#x2F;visual-cpp-build-tools&#x2F; [end of output] note: This error originates from a subprocess, and is likely not a problem with pip. ERROR: Failed building wheel for pyqlib 需要安装”Microsoft C++ Build Tools”。 需要更新安装 cython 1pip install cython --upgrade]]></content>
+      <tags>
+        <tag>qlib</tag>
+        <tag>vnpy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python进阶]]></title>
+    <url>%2F2025%2F01%2Fpython%E8%BF%9B%E9%98%B6%2F</url>
+    <content type="text"><![CDATA[可以使用 for 循环的，就叫做可迭代对象，叫Iterable。 使用next()的，叫Iterator。 生成器，只是在next()时，再生成数据，不过早的占用内存。 装饰器的实现方案。 输入函数，返回函数。 不带参数的，带参数的，带返回值的，在装饰器上传入参数的。]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python Pandas数据选择df[], df.loc[], df.iloc区别]]></title>
+    <url>%2F2025%2F01%2FPython-Pandas%E6%95%B0%E6%8D%AE%E9%80%89%E6%8B%A9df-df-loc-df-iloc%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[刚入门 pandas 的同学，对 DataFrame 也用了很久，但对 df[], df.loc[] 和 df.iloc[] 的认识总是不够清晰，什么时候该用哪个，不能很好很简便的进行选择。 他们的区别主要在于： df[] 是对单行或单列进行选取，也就是说只能单维度的选取，设置筛选条件时，也只能是对一个维度设置筛选条件。 df.loc[] 和 df.iloc[] 则是对区域的选择，可以对两个维度设置筛选条件。 我们先创建一个 DataFrame。 df[] 行或列单维选取]]></content>
+      <categories>
+        <category>Python</category>
+        <category>Pandas</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Jupyter lab外部访问配置]]></title>
+    <url>%2F2025%2F01%2FJupyter-lab%E5%A4%96%E9%83%A8%E8%AE%BF%E9%97%AE%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[设置外部可以访问，即非本地访问。 设置启动时不默认打开浏览器。 设置jupyter打开哪个文件夹。 12jupyter lab --no-browser --ip "*" \ --notebook-dir /burg/glab/users/luke]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>jupyter lab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[facebook audioseal踩坑指南]]></title>
+    <url>%2F2025%2F01%2Ffacebook-audioseal%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97%2F</url>
+    <content type="text"><![CDATA[mamba install 需要指定渠道 -c pytorch 在 jupyter lab 中加载 pytorch 相关包时，控制台报错： 12OMP: Error #15: Initializing libiomp5md.dll, but found libiomp5md.dll already initialized.OMP: Hint This means that multiple copies of the OpenMP runtime have been linked into the program. That is dangerous, since it can degrade performance or cause incorrect results. The best thing to do is to ensure that only a single OpenMP runtime is linked into the process, e.g. by avoiding static linking of the OpenMP runtime in any library. As an unsafe, unsupported, undocumented workaround you can set the environment variable KMP_DUPLICATE_LIB_OK&#x3D;TRUE to allow the program to continue to execute, but that may cause crashes or silently produce incorrect results. For more information, please see http:&#x2F;&#x2F;www.intel.com&#x2F;software&#x2F;products&#x2F;support&#x2F;. 在虚拟环境下面的 \Library\bin 下面，找到 libiomp5md.dll 文件，改个名字就可以了。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[conda相关的坑]]></title>
+    <url>%2F2025%2F01%2Fconda%E7%9B%B8%E5%85%B3%E7%9A%84%E5%9D%91%2F</url>
+    <content type="text"><![CDATA[查看 conda 的版本：conda -V conda 4.x 版本，提示要升级到 23.x 版本，使用 conda update conda 失效，提示很多包冲突。 使用 conda list -r，然后回退到前面的版本。conda install --revision 0，也不行。 遇到这种情况，是conda的版本太低了，直播删除软件，重新安装 anaconda 就行了。 使用 conda env list 出现一些没有名字的环境，直播删除文件夹，如果还不行，修改用户目录下面的 .conda\environments.txt 文件，把不要环境的内容删除就行了。(windows环境) 环境创建好以后，在这个环境里面会默认安装 pip 的，通过 pip -V 可以查看版本及安装路径信息。]]></content>
+      <tags>
+        <tag>conda</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[java单元测试jacoco插件]]></title>
     <url>%2F2025%2F01%2Fjava%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95jacoco%E6%8F%92%E4%BB%B6%2F</url>
     <content type="text"><![CDATA[java springboot 项目，配置单元测试，并要求到达一定的代码覆盖率。 在 maven pom.xml 文件中，需要注意以下几点。 跳过测试阶段改为false。 123&lt;properties&gt; &lt;maven.test.skip&gt;false&lt;/maven.test.skip&gt;&lt;/properties&gt; build 阶段，skip 要改为 false。 如果只要单元测试指定类，就在 include 标签里面指定。 123456789101112131415&lt;build&gt; &lt;plugins&gt; &lt;plugin&gt; &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt; &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt; &lt;version&gt;2.22.0&lt;/version&gt; &lt;configuration&gt; &lt;skip&gt;false&lt;/skip&gt; &lt;includes&gt; &lt;include&gt;**/XXXTest&lt;/include&gt; &lt;!-- 替换为您的测试类路径 --&gt; &lt;/includes&gt; &lt;/configuration&gt; &lt;/plugin&gt; &lt;/plugins&gt;&lt;/build&gt; 配置单元测试依赖，mockito-core 如果配置成4版本会有其他问题。 12345678910111213141516171819&lt;!-- 代码覆盖率 --&gt;&lt;dependency&gt; &lt;groupId&gt;org.jacoco&lt;/groupId&gt; &lt;artifactId&gt;jacoco-maven-plugin&lt;/artifactId&gt; &lt;version&gt;0.8.12&lt;/version&gt; &lt;scope&gt;test&lt;/scope&gt;&lt;/dependency&gt;&lt;dependency&gt; &lt;groupId&gt;junit&lt;/groupId&gt; &lt;artifactId&gt;junit&lt;/artifactId&gt; &lt;version&gt;4.13.2&lt;/version&gt; &lt;scope&gt;test&lt;/scope&gt;&lt;/dependency&gt;&lt;dependency&gt; &lt;groupId&gt;org.mockito&lt;/groupId&gt; &lt;artifactId&gt;mockito-core&lt;/artifactId&gt; &lt;version&gt;3.12.4&lt;/version&gt; &lt;scope&gt;test&lt;/scope&gt;&lt;/dependency&gt; 1234567891011121314151617181920212223242526272829303132&lt;build&gt; &lt;pluginManagement&gt; &lt;plugins&gt; &lt;plugin&gt; &lt;groupId&gt;org.jacoco&lt;/groupId&gt; &lt;artifactId&gt;jacoco-maven-plugin&lt;/artifactId&gt; &lt;version&gt;0.8.12&lt;/version&gt; &lt;/plugin&gt; &lt;/plugins&gt; &lt;/pluginManagement&gt; &lt;plugins&gt; &lt;!-- jacoco --&gt; &lt;plugin&gt; &lt;groupId&gt;org.jacoco&lt;/groupId&gt; &lt;artifactId&gt;jacoco-maven-plugin&lt;/artifactId&gt; &lt;executions&gt; &lt;execution&gt; &lt;goals&gt; &lt;goal&gt;prepare-agent&lt;/goal&gt; &lt;/goals&gt; &lt;/execution&gt; &lt;execution&gt; &lt;id&gt;report&lt;/id&gt; &lt;phase&gt;test&lt;/phase&gt; &lt;goals&gt; &lt;goal&gt;report&lt;/goal&gt; &lt;/goals&gt; &lt;/execution&gt; &lt;/executions&gt; &lt;/plugin&gt; &lt;/plugins&gt;&lt;/build&gt; 配置结束后，点击 Lifecycle 下面的 test，通过html文件 \target\site\jacoco\index.html 就可以看到覆盖率的页面了]]></content>

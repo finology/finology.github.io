@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">368</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">375</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/07/Python-matplotlib-rcParams%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +218,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">IntelliJ IDEA新建一个Anaconda Python项目</a>
+            <a href="/2021/07/Python-matplotlib-rcParams%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">Python matplotlib.rcParams常用设置</a>
         </h2>
 
         <div class="post-meta">
@@ -228,7 +228,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-02-21 00:13:03" itemprop="dateCreated datePublished" datetime="2021-02-21T00:13:03+08:00">2021-02-21</time>
+              <time title="创建时间：2021-07-04 22:11:22" itemprop="dateCreated datePublished" datetime="2021-07-04T22:11:22+08:00">2021-07-04</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -248,7 +248,7 @@
             </span>
 
           
-            <span id="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/" class="post-meta-item leancloud_visitors" data-flag-title="IntelliJ IDEA新建一个Anaconda Python项目" title="阅读次数">
+            <span id="/2021/07/Python-matplotlib-rcParams%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Python matplotlib.rcParams常用设置" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -264,8 +264,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/07/Python-matplotlib-rcParams%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/Python-matplotlib-rcParams%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -292,33 +292,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>这篇文章讲讲在macOS系统中，如何一步一步创建一个基于Anaconda的项目。</p>
-<p>首先我们得确定已经在macOS中安装好了Anaconda。</p>
-<h1 id="新建Python环境"><a href="#新建Python环境" class="headerlink" title="新建Python环境"></a>新建Python环境</h1><p>先查看一下当前环境，只有一个base。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> conda env list</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> conda environments:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">base                  *  /opt/anaconda3</span><br></pre></td></tr></table></figure>
-<p>以克隆方式创建一个和Anaconda base(root)环境一样的环境，取名叫<code>py37</code>。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> conda create --name py37 --<span class="built_in">clone</span> base</span></span><br><span class="line">Source:      /opt/anaconda3</span><br><span class="line">Destination: /opt/anaconda3/envs/py37</span><br></pre></td></tr></table></figure>
-<p>按提示激活命令激活环境。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> conda activate py37</span></span><br></pre></td></tr></table></figure>
-<h1 id="新建Python项目"><a href="#新建Python项目" class="headerlink" title="新建Python项目"></a>新建Python项目</h1><p>File -&gt; New -&gt; Project…</p>
-<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/new.png" class="">
-<p>选择Python项目，<code>New</code>一个<code>Project SDK</code>。</p>
-<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/newproject.png" class="">
-<p>添加Python解析器</p>
-<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/env.png" class="">
-<p>选择 Conda Environment，使用Conda来管理包。</p>
-<p>我们前面使用命令行的方式创建一个env，所以选择Existing Environment。</p>
-<p>指定Interpreter，为刚才新建环境py37目录下的python。</p>
-<p><code>/opt/anaconda3/envs/py37/bin/python</code></p>
-<p>然后下一步，确定就创建好了。</p>
-<h1 id="检查"><a href="#检查" class="headerlink" title="检查"></a>检查</h1><p>创建好项目后，我们写两行python代码。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">print(<span class="string">'hello world'</span>)</span><br></pre></td></tr></table></figure>
-<p>检查，pandas, print下面没有红线，按Command，同时鼠标点击pandas或print，均能查看得到源代码，运行时，也会正常运行，说明配置一切正常。</p>
-<p>我们再看看项目结构。</p>
-<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/project.png" class="">
-<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/modules.png" class="">
-<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/sdks.png" class="">
-<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/globallib.png" class="">
+          <p>matplotlib是Python的画图工具。</p>
+<p>可以通过对 matplotlib.rcParams 字典做一些常用的设置，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 中文支持，不会显示小方框</span></span><br><span class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 正常显示负号</span></span><br><span class="line">plt.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置线条宽度</span></span><br><span class="line">plt.rcParams[<span class="string">'lines.linewidth'</span>] = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置线条颜色</span></span><br><span class="line">plt.rcParams[<span class="string">'lines.color'</span>] = <span class="string">'red'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置线条样式，样式的各类还有 `--`为虚线，`-.`为点虚线</span></span><br><span class="line">plt.rcParams[<span class="string">'lines.linestyle'</span>] = <span class="string">'-'</span> <span class="comment"># 直线</span></span><br></pre></td></tr></table></figure>
+<p>其实在新的版本中，中文显示和负号显示已经默认显示正常了。</p>
 
       
     </div>
@@ -338,7 +315,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/02/Spring-Cloud-Alibaba%E9%99%90%E6%B5%81%E9%99%8D%E7%BA%A7Sentinel%E5%85%A5%E9%97%A8%E6%90%AD%E5%BB%BA/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/06/IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -352,7 +329,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/Spring-Cloud-Alibaba%E9%99%90%E6%B5%81%E9%99%8D%E7%BA%A7Sentinel%E5%85%A5%E9%97%A8%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">Spring Cloud Alibaba限流降级Sentinel入门搭建</a>
+            <a href="/2021/06/IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">IDEA自动生成对象赋值的所有set方法</a>
         </h2>
 
         <div class="post-meta">
@@ -362,7 +339,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-02-19 19:58:17" itemprop="dateCreated datePublished" datetime="2021-02-19T19:58:17+08:00">2021-02-19</time>
+              <time title="创建时间：2021-06-09 15:54:46" itemprop="dateCreated datePublished" datetime="2021-06-09T15:54:46+08:00">2021-06-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -377,12 +354,16 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tools/IntelliJ-IDEA/" itemprop="url" rel="index"><span itemprop="name">IntelliJ IDEA</span></a>
                 </span>
             </span>
 
           
-            <span id="/2021/02/Spring-Cloud-Alibaba%E9%99%90%E6%B5%81%E9%99%8D%E7%BA%A7Sentinel%E5%85%A5%E9%97%A8%E6%90%AD%E5%BB%BA/" class="post-meta-item leancloud_visitors" data-flag-title="Spring Cloud Alibaba限流降级Sentinel入门搭建" title="阅读次数">
+            <span id="/2021/06/IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="IDEA自动生成对象赋值的所有set方法" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -398,8 +379,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2021/02/Spring-Cloud-Alibaba%E9%99%90%E6%B5%81%E9%99%8D%E7%BA%A7Sentinel%E5%85%A5%E9%97%A8%E6%90%AD%E5%BB%BA/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/Spring-Cloud-Alibaba%E9%99%90%E6%B5%81%E9%99%8D%E7%BA%A7Sentinel%E5%85%A5%E9%97%A8%E6%90%AD%E5%BB%BA/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/06/IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/06/IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -426,18 +407,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="启动-sentinel-dashboard"><a href="#启动-sentinel-dashboard" class="headerlink" title="启动 sentinel dashboard"></a>启动 sentinel dashboard</h1><p>在官网下载 <code>sentinel-dashboard-1.8.1.jar</code>，并运行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Dserver.port=8081 -Dcsp.sentinel.dashboard.server=localhost:8081 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard-1.8.1.jar</span><br></pre></td></tr></table></figure>
-<p>8081端口是指访问dashboard的端口。</p>
-<p>启动以后，可以通过链接 <code>http://localhost:8081</code> 访问到页面，用户名和密码都是 <code>sentinel</code>。</p>
-<img src="/2021/02/Spring-Cloud-Alibaba%E9%99%90%E6%B5%81%E9%99%8D%E7%BA%A7Sentinel%E5%85%A5%E9%97%A8%E6%90%AD%E5%BB%BA/sentinel-dashboard.png" class="">
-<h1 id="把项目加入到-dashboard"><a href="#把项目加入到-dashboard" class="headerlink" title="把项目加入到 dashboard"></a>把项目加入到 dashboard</h1><p>写一个标准的Springboot项目。</p>
-<p>pom.xml文件里面添加如下依赖：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-sentinel<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;sentinel.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在项目的 <code>application.yml</code> 配置文件里面添加如下内容：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  cloud:</span></span><br><span class="line"><span class="attr">    sentinel:</span></span><br><span class="line"><span class="attr">      transport:</span></span><br><span class="line"><span class="attr">        dashboard:</span> <span class="attr">localhost:8081</span></span><br></pre></td></tr></table></figure>
-<p>在需要加入限流的业务逻辑里面添加如下内容：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserServiceImpl</span> <span class="keyword">implements</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 限流的规则设置</span></span><br><span class="line">    <span class="meta">@PostConstruct</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initFlowRules</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        List&lt;FlowRule&gt; rules = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        FlowRule flowRule = <span class="keyword">new</span> FlowRule();</span><br><span class="line">        flowRule.setResource(<span class="string">"UserFlowRule"</span>);</span><br><span class="line">        <span class="comment">// 设置QPS为1</span></span><br><span class="line">        flowRule.setGrade(RuleConstant.FLOW_GRADE_QPS);</span><br><span class="line">        flowRule.setCount(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        rules.add(flowRule);</span><br><span class="line">        FlowRuleManager.loadRules(rules);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@SentinelResource</span>(value = <span class="string">"UserFlowRule"</span>, blockHandler = <span class="string">"degradeMethod"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"executed..."</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"hello, "</span> + name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 降级方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> blockException</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">degradeMethod</span><span class="params">(String name, BlockException blockException)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"限流"</span> + blockException.getRule().getResource();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>一个对象属性很多，要设置其属性的时候很麻烦，不小心还会漏掉。</p>
+<p>IDEA可以使用一款插件，GenerateAllSetter，可以一键生成所有属性的set方法。</p>
+<img src="/2021/06/IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95/generateAllSetter.jpg" class="">
+<p>安装好插件以后，在语句 <code>User user = new User()</code> 中的 <code>user</code> 上使用快捷键 Alt + Enter，就会出现自动生成set方法的选项了。</p>
 
       
     </div>
@@ -457,7 +430,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/02/IntelliJ-IDEA%E9%85%8D%E7%BD%AEAnaconda-base-root-%E7%9B%B8%E5%90%8C%E7%8E%AF%E5%A2%83/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/05/miniconda%E5%AE%89%E8%A3%85jupyter-ipython/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -471,7 +444,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/IntelliJ-IDEA%E9%85%8D%E7%BD%AEAnaconda-base-root-%E7%9B%B8%E5%90%8C%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">IntelliJ IDEA配置Anaconda base(root)相同环境</a>
+            <a href="/2021/05/miniconda%E5%AE%89%E8%A3%85jupyter-ipython/" class="post-title-link" itemprop="url">miniconda安装jupyter ipython</a>
         </h2>
 
         <div class="post-meta">
@@ -481,7 +454,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-02-18 15:54:45" itemprop="dateCreated datePublished" datetime="2021-02-18T15:54:45+08:00">2021-02-18</time>
+              <time title="创建时间：2021-05-28 21:40:40" itemprop="dateCreated datePublished" datetime="2021-05-28T21:40:40+08:00">2021-05-28</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -490,18 +463,9 @@
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
               </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-                </span>
-            </span>
 
           
-            <span id="/2021/02/IntelliJ-IDEA%E9%85%8D%E7%BD%AEAnaconda-base-root-%E7%9B%B8%E5%90%8C%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="IntelliJ IDEA配置Anaconda base(root)相同环境" title="阅读次数">
+            <span id="/2021/05/miniconda%E5%AE%89%E8%A3%85jupyter-ipython/" class="post-meta-item leancloud_visitors" data-flag-title="miniconda安装jupyter ipython" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -517,8 +481,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2021/02/IntelliJ-IDEA%E9%85%8D%E7%BD%AEAnaconda-base-root-%E7%9B%B8%E5%90%8C%E7%8E%AF%E5%A2%83/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/IntelliJ-IDEA%E9%85%8D%E7%BD%AEAnaconda-base-root-%E7%9B%B8%E5%90%8C%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/05/miniconda%E5%AE%89%E8%A3%85jupyter-ipython/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/miniconda%E5%AE%89%E8%A3%85jupyter-ipython/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -545,18 +509,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Anaconda的基本操作，可以参考这篇文章 <a href="/2018/08/macOS%E4%B8%8BAnaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%88%87%E6%8D%A2%EF%BC%88Python2-Python3%EF%BC%89/" title="macOS下Anaconda的安装及环境切换（Python2&#x2F;Python3）">macOS下Anaconda的安装及环境切换（Python2&#x2F;Python3）</a></p>
-<p>这篇文章讲讲如何clone一个和Anaconda base(root)一样的环境，也就是和base(root)有一样的多的包的环境。</p>
-<p>复制的命令如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name &lt;new_env_name&gt; --clone &lt;copied_env_name&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name new_env --clone base</span><br></pre></td></tr></table></figure>
-<p>创建Python项目的时候，</p>
-<p>New Project -&gt; Project SDK (New…) -&gt; Add Interpreter -&gt; Conda Environment -&gt; Existing Environment，<br>这里面就填刚才新建的新环境路径。</p>
-<h1 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h1><p>首先要切换环境，linux是<code>source activate &lt;env&gt;</code>，而Windows系统是<code>activate &lt;env&gt;</code>。</p>
-<p>安装包命令：</p>
-<p><code>conda install &lt;package&gt;</code>，如果没有的话，那就用<code>pip</code>来安装。</p>
-<p><code>pip install &lt;package&gt;</code></p>
-
+          <p>通过命令安装ipython。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install ipython jupyter</span><br></pre></td></tr></table></figure>
+<p>通过命令进入ipython研究环境：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipython</span><br></pre></td></tr></table></figure>
+<p>测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">In [1]: from math import sqrt</span><br><span class="line"></span><br><span class="line">In [2]: sqrt(4)</span><br><span class="line">Out[2]: 2.0</span><br><span class="line"></span><br><span class="line">In [3]: exit</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -575,7 +533,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/34/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><span class="space">&hellip;</span><a class="page-number" href="/page/123/">123</a><a class="extend next" rel="next" href="/page/36/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/34/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><span class="space">&hellip;</span><a class="page-number" href="/page/125/">125</a><a class="extend next" rel="next" href="/page/36/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -654,7 +612,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">368</span>
+          <span class="site-state-item-count">375</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">368</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">375</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/10/Python-matlibplot%E7%94%BB%E5%9B%BE%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/12/Elasticsearch%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%EF%BC%88%E4%BA%8C%EF%BC%89%E5%B5%8C%E5%A5%97%E5%AF%B9%E8%B1%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +218,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/10/Python-matlibplot%E7%94%BB%E5%9B%BE%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">Python matlibplot画图最佳实践</a>
+            <a href="/2021/12/Elasticsearch%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%EF%BC%88%E4%BA%8C%EF%BC%89%E5%B5%8C%E5%A5%97%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">Elasticsearch关联关系数据建模（二）嵌套对象</a>
         </h2>
 
         <div class="post-meta">
@@ -228,7 +228,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-10-10 12:50:21" itemprop="dateCreated datePublished" datetime="2021-10-10T12:50:21+08:00">2021-10-10</time>
+              <time title="创建时间：2021-12-09 23:12:30" itemprop="dateCreated datePublished" datetime="2021-12-09T23:12:30+08:00">2021-12-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -243,140 +243,16 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/10/Python-matlibplot%E7%94%BB%E5%9B%BE%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-meta-item leancloud_visitors" data-flag-title="Python matlibplot画图最佳实践" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2021/10/Python-matlibplot%E7%94%BB%E5%9B%BE%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/Python-matlibplot%E7%94%BB%E5%9B%BE%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>之前也写过一些关于使用 Python matplotlib 画图的文章，写得都比较初级，内容繁多，有些可能根本就用不到。</p>
-<p>根据工作中画图的经验，总结了一些最佳实践，主要涉及到一些设置方面的，商业逻辑不包含在内。此文章会一直更新。</p>
-<h1 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入画图工具</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 让图表直接在juypter notebook中展示出来，高版本貌似已经不需要这条语句了</span></span><br><span class="line"><span class="comment"># %matplotlib inline</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 解决中文乱码问题，高版本貌似不需要这条语句了</span></span><br><span class="line"><span class="comment"># plt.rcParams['font.sans-serif'] = 'SimHei'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 解决负号无法显示的问题</span></span><br><span class="line"><span class="comment"># plt.rcParams['axes.unicode_minus'] = False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置图片格式为svg矢量图，更加清晰</span></span><br><span class="line">%config InlineBackend.figure_format = <span class="string">'svg'</span></span><br></pre></td></tr></table></figure>
-<h1 id="画布"><a href="#画布" class="headerlink" title="画布"></a>画布</h1><h2 id="创建画布"><a href="#创建画布" class="headerlink" title="创建画布"></a>创建画布</h2><p>创建一个画布，分为两行两列。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fig, axes = plt.subplots(<span class="number">2</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-<p>展示画布的时候，只需要输出<code>fig</code>就行了，貌似也不需要设置<code>%matplotlib inline</code>。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fig</span><br></pre></td></tr></table></figure>
-<h2 id="删除子图"><a href="#删除子图" class="headerlink" title="删除子图"></a>删除子图</h2><p>当某个子图不需要展现时，可以使用如下语句：</p>
-<p>删除某子图</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ax = axes[<span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">fig.delaxes(ax)</span><br></pre></td></tr></table></figure>
-<p>隐藏某子图</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ax.set_axis_off()</span><br></pre></td></tr></table></figure>
-<h2 id="不遮挡布局"><a href="#不遮挡布局" class="headerlink" title="不遮挡布局"></a>不遮挡布局</h2><p>设置了x轴标签后，可能被下方的子图遮挡，使用如下语句可以让遮挡部分显示出来。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fig.tight_layout()</span><br></pre></td></tr></table></figure>
-<h1 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h1><p>在第0行，第0列画图。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axes[<span class="number">0</span>, <span class="number">0</span>].plot(x, y)</span><br></pre></td></tr></table></figure>
-<h2 id="设置x-y轴标签"><a href="#设置x-y轴标签" class="headerlink" title="设置x, y轴标签"></a>设置x, y轴标签</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ax.set_xlabel(<span class="string">'时间'</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'销量'</span>)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/10/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8BMacBook%E5%90%84%E5%A4%A7%E6%9C%BA%E5%9E%8B%E7%9A%84%E7%A1%AC%E4%BB%B6%E8%A7%84%E6%A0%BC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8BMacBook%E5%90%84%E5%A4%A7%E6%9C%BA%E5%9E%8B%E7%9A%84%E7%A1%AC%E4%BB%B6%E8%A7%84%E6%A0%BC/" class="post-title-link" itemprop="url">如何查看MacBook各大机型的硬件规格</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-10-09 22:24:08" itemprop="dateCreated datePublished" datetime="2021-10-09T22:24:08+08:00">2021-10-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/MacOS/" itemprop="url" rel="index"><span itemprop="name">MacOS</span></a>
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Elasticsearch/" itemprop="url" rel="index"><span itemprop="name">Elasticsearch</span></a>
                 </span>
             </span>
 
           
-            <span id="/2021/10/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8BMacBook%E5%90%84%E5%A4%A7%E6%9C%BA%E5%9E%8B%E7%9A%84%E7%A1%AC%E4%BB%B6%E8%A7%84%E6%A0%BC/" class="post-meta-item leancloud_visitors" data-flag-title="如何查看MacBook各大机型的硬件规格" title="阅读次数">
+            <span id="/2021/12/Elasticsearch%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%EF%BC%88%E4%BA%8C%EF%BC%89%E5%B5%8C%E5%A5%97%E5%AF%B9%E8%B1%A1/" class="post-meta-item leancloud_visitors" data-flag-title="Elasticsearch关联关系数据建模（二）嵌套对象" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -392,8 +268,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2021/10/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8BMacBook%E5%90%84%E5%A4%A7%E6%9C%BA%E5%9E%8B%E7%9A%84%E7%A1%AC%E4%BB%B6%E8%A7%84%E6%A0%BC/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8BMacBook%E5%90%84%E5%A4%A7%E6%9C%BA%E5%9E%8B%E7%9A%84%E7%A1%AC%E4%BB%B6%E8%A7%84%E6%A0%BC/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/12/Elasticsearch%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%EF%BC%88%E4%BA%8C%EF%BC%89%E5%B5%8C%E5%A5%97%E5%AF%B9%E8%B1%A1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/12/Elasticsearch%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%EF%BC%88%E4%BA%8C%EF%BC%89%E5%B5%8C%E5%A5%97%E5%AF%B9%E8%B1%A1/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -420,19 +296,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>如果在好几年前买了mac电脑，现在想升级，所以需要查看一下电脑的硬件规格信息。</p>
-<p>我的macOS是High Sierra。</p>
-<p>可以直接通过如下路径查看：<code>关于本机</code> -&gt; <code>系统报告</code></p>
-<p>或者访问苹果官网：<code>https://support.apple.com/zh-cn/HT201300</code></p>
-<p>最后附上SSD硬盘接口标准。</p>
-<ol>
-<li><p>MacBook Air (2013-2014）： PCI-E 2.0 X2（1GB/s），不支持原生休眠<br>MacBook Air 11” Mid 2013 (MacBookAir6,1)<br>MacBook Air 13” Mid 2013 (MacBookAir6,2)<br>MacBook Air 11” early 2014 (MacBookAir6,1)<br>MacBook Air 13” early 2014 (MacBookAir6,2)</p>
-</li>
-<li><p>MacBook Air （2015-2017）：PCI-E 2.0 X4（2GB/s），支持原生休眠<br>MacBook Air 13” early 2015 (MacBookAir7,1)<br>MacBook Air 13” 2017 (MacBookAir7,2)</p>
-</li>
-</ol>
-<p>3.MacBook Pro （2013-2014）：PCI-E 2.0 X4（2GB/s），不支持原生休眠<br>MacBook Pro Retina 13” late 2013 (MacBookPro11,1)<br>MacBook Pro Retina 15” late 2013 (MacBookPro11,2 &amp; MacBookPro11,3)<br>MacBook Pro Retina 13” mid 2014 (MacBookPro11,1)<br>MacBook Pro Retina 15” mid 2014 (MacBookPro11,2 &amp; 11,3)</p>
-<p>4.MacBook Pro （2015）：PCI-E 2.0或者3.0 X4，支持原生休眠<br>MacBook Pro Retina 13” early 2015 (MacBookPro12,1) ，为PCI-E 2.0规格，速度2GB/s<br>MacBook Pro Retina 15” mid 2015 (MacBookPro11,4-11,5)，为PCI-E 3.0规格，速度3.94GB/s</p>
+          <p>案例：一篇博客对应多个评论。</p>
+<p>字段类型由object改为nested即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">PUT &#x2F;my_index</span><br><span class="line">&#123;</span><br><span class="line">  &quot;mappings&quot;: &#123;</span><br><span class="line">    &quot;blogpost&quot;: &#123;</span><br><span class="line">      &quot;properties&quot;: &#123;</span><br><span class="line">        &quot;comments&quot;: &#123;</span><br><span class="line">          &quot;type&quot;: &quot;nested&quot;, </span><br><span class="line">          &quot;properties&quot;: &#123;</span><br><span class="line">            &quot;name&quot;:    &#123; &quot;type&quot;: &quot;string&quot;  &#125;,</span><br><span class="line">            &quot;comment&quot;: &#123; &quot;type&quot;: &quot;string&quot;  &#125;,</span><br><span class="line">            &quot;age&quot;:     &#123; &quot;type&quot;: &quot;short&quot;   &#125;,</span><br><span class="line">            &quot;stars&quot;:   &#123; &quot;type&quot;: &quot;short&quot;   &#125;,</span><br><span class="line">            &quot;date&quot;:    &#123; &quot;type&quot;: &quot;date&quot;    &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="嵌套对象的查询"><a href="#嵌套对象的查询" class="headerlink" title="嵌套对象的查询"></a>嵌套对象的查询</h1><p>嵌套对象被索引在独立隐藏的文档中，所以必须使用<code>nested查询</code>去获取数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;my_index&#x2F;blogpost&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;bool&quot;: &#123;</span><br><span class="line">      &quot;must&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;match&quot;: &#123;</span><br><span class="line">            &quot;title&quot;: &quot;eggs&quot; </span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;nested&quot;: &#123;</span><br><span class="line">            &quot;path&quot;: &quot;comments&quot;, </span><br><span class="line">            &quot;query&quot;: &#123;</span><br><span class="line">              &quot;bool&quot;: &#123;</span><br><span class="line">                &quot;must&quot;: [ </span><br><span class="line">                  &#123;</span><br><span class="line">                    &quot;match&quot;: &#123;</span><br><span class="line">                      &quot;comments.name&quot;: &quot;john&quot;</span><br><span class="line">                    &#125;</span><br><span class="line">                  &#125;,</span><br><span class="line">                  &#123;</span><br><span class="line">                    &quot;match&quot;: &#123;</span><br><span class="line">                      &quot;comments.age&quot;: 28</span><br><span class="line">                    &#125;</span><br><span class="line">                  &#125;</span><br><span class="line">                ]</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>nested子句作用于嵌套字段comments。comments.name和comments.age子句操作在同一个嵌套文档中。</p>
+<p>nested查询还可以多层嵌套。</p>
+<p>默认情况下，根文档的分数是这些嵌套文档分数的平均值。可以通过设置 score_mode 参数来控制这个得分策略，相关策略有 avg (平均值), max (最大值), sum (加和) 和 none (直接返回 1.0 常数值分数)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;my_index&#x2F;blogpost&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;bool&quot;: &#123;</span><br><span class="line">      &quot;must&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;match&quot;: &#123;</span><br><span class="line">            &quot;title&quot;: &quot;eggs&quot;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;nested&quot;: &#123;</span><br><span class="line">            &quot;path&quot;: &quot;comments&quot;,</span><br><span class="line">            &quot;score_mode&quot;: &quot;max&quot;, </span><br><span class="line">            &quot;query&quot;: &#123;</span><br><span class="line">              &quot;bool&quot;: &#123;</span><br><span class="line">                &quot;must&quot;: [</span><br><span class="line">                  &#123;</span><br><span class="line">                    &quot;match&quot;: &#123;</span><br><span class="line">                      &quot;comments.name&quot;: &quot;john&quot;</span><br><span class="line">                    &#125;</span><br><span class="line">                  &#125;,</span><br><span class="line">                  &#123;</span><br><span class="line">                    &quot;match&quot;: &#123;</span><br><span class="line">                      &quot;comments.age&quot;: 28</span><br><span class="line">                    &#125;</span><br><span class="line">                  &#125;</span><br><span class="line">                ]</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果nested查询放在filter子句中，则score_mode参数不再生效，因为filter不是打分查询。</p>
+<h1 id="使用嵌套字段排序"><a href="#使用嵌套字段排序" class="headerlink" title="使用嵌套字段排序"></a>使用嵌套字段排序</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">PUT &#x2F;my_index&#x2F;blogpost&#x2F;2</span><br><span class="line">&#123;</span><br><span class="line">  &quot;title&quot;: &quot;Investment secrets&quot;,</span><br><span class="line">  &quot;body&quot;:  &quot;What they don&#39;t tell you ...&quot;,</span><br><span class="line">  &quot;tags&quot;:  [ &quot;shares&quot;, &quot;equities&quot; ],</span><br><span class="line">  &quot;comments&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;name&quot;:    &quot;Mary Brown&quot;,</span><br><span class="line">      &quot;comment&quot;: &quot;Lies, lies, lies&quot;,</span><br><span class="line">      &quot;age&quot;:     42,</span><br><span class="line">      &quot;stars&quot;:   1,</span><br><span class="line">      &quot;date&quot;:    &quot;2014-10-18&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;name&quot;:    &quot;John Smith&quot;,</span><br><span class="line">      &quot;comment&quot;: &quot;You&#39;re making it up!&quot;,</span><br><span class="line">      &quot;age&quot;:     28,</span><br><span class="line">      &quot;stars&quot;:   2,</span><br><span class="line">      &quot;date&quot;:    &quot;2014-10-16&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>查询某个时间范围内，有评论的文章，并按stars升序排序。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;nested&quot;: &#123; </span><br><span class="line">      &quot;path&quot;: &quot;comments&quot;,</span><br><span class="line">      &quot;filter&quot;: &#123;</span><br><span class="line">        &quot;range&quot;: &#123;</span><br><span class="line">          &quot;comments.date&quot;: &#123;</span><br><span class="line">            &quot;gte&quot;: &quot;2014-10-01&quot;,</span><br><span class="line">            &quot;lt&quot;:  &quot;2014-11-01&quot;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;sort&quot;: &#123;</span><br><span class="line">    &quot;comments.stars&quot;: &#123; </span><br><span class="line">      &quot;order&quot;: &quot;asc&quot;,   </span><br><span class="line">      &quot;mode&quot;:  &quot;min&quot;,   </span><br><span class="line">      &quot;nested_path&quot;: &quot;comments&quot;, </span><br><span class="line">      &quot;nested_filter&quot;: &#123;</span><br><span class="line">        &quot;range&quot;: &#123;</span><br><span class="line">          &quot;comments.date&quot;: &#123;</span><br><span class="line">            &quot;gte&quot;: &quot;2014-10-01&quot;,</span><br><span class="line">            &quot;lt&quot;:  &quot;2014-11-01&quot;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>sort排序子句中的nested_path和nested_filter的查询条件和上面的path、filter重复。原因在于，排序发生在查询执行之后。我们是按某一时间范围<br>的stars数排序，而不是按所有时间的stars排序。比如blog1的在10月stars:1, blog2在10月stars:2，但blog1的所有stars：20，blog2的所有stars：10。<br>他们最后的结果是不一样的。</p>
+<h1 id="嵌套聚合"><a href="#嵌套聚合" class="headerlink" title="嵌套聚合"></a>嵌套聚合</h1><p><code>https://www.elastic.co/guide/cn/elasticsearch/guide/current/nested-aggregation.html</code></p>
 
       
     </div>
@@ -452,7 +330,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/10/python%E6%A8%A1%E5%9D%97import%E5%92%8Cfrom-import/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/12/Elasticsearch%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%EF%BC%88%E4%B8%80%EF%BC%89%E5%BA%94%E7%94%A8%E5%B1%82%E8%81%94%E6%8E%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -466,7 +344,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/10/python%E6%A8%A1%E5%9D%97import%E5%92%8Cfrom-import/" class="post-title-link" itemprop="url">python模块import和from import</a>
+            <a href="/2021/12/Elasticsearch%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%EF%BC%88%E4%B8%80%EF%BC%89%E5%BA%94%E7%94%A8%E5%B1%82%E8%81%94%E6%8E%A5/" class="post-title-link" itemprop="url">Elasticsearch关联关系数据建模（一）应用层联接</a>
         </h2>
 
         <div class="post-meta">
@@ -476,7 +354,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-10-08 15:08:36" itemprop="dateCreated datePublished" datetime="2021-10-08T15:08:36+08:00">2021-10-08</time>
+              <time title="创建时间：2021-12-09 23:12:05" itemprop="dateCreated datePublished" datetime="2021-12-09T23:12:05+08:00">2021-12-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -491,12 +369,16 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Elasticsearch/" itemprop="url" rel="index"><span itemprop="name">Elasticsearch</span></a>
                 </span>
             </span>
 
           
-            <span id="/2021/10/python%E6%A8%A1%E5%9D%97import%E5%92%8Cfrom-import/" class="post-meta-item leancloud_visitors" data-flag-title="python模块import和from import" title="阅读次数">
+            <span id="/2021/12/Elasticsearch%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%EF%BC%88%E4%B8%80%EF%BC%89%E5%BA%94%E7%94%A8%E5%B1%82%E8%81%94%E6%8E%A5/" class="post-meta-item leancloud_visitors" data-flag-title="Elasticsearch关联关系数据建模（一）应用层联接" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -512,8 +394,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2021/10/python%E6%A8%A1%E5%9D%97import%E5%92%8Cfrom-import/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/python%E6%A8%A1%E5%9D%97import%E5%92%8Cfrom-import/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/12/Elasticsearch%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%EF%BC%88%E4%B8%80%EF%BC%89%E5%BA%94%E7%94%A8%E5%B1%82%E8%81%94%E6%8E%A5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/12/Elasticsearch%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%EF%BC%88%E4%B8%80%EF%BC%89%E5%BA%94%E7%94%A8%E5%B1%82%E8%81%94%E6%8E%A5/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -540,17 +422,131 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="模块的引入"><a href="#模块的引入" class="headerlink" title="模块的引入"></a>模块的引入</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> module1[, module2[,... moduleN]]</span><br></pre></td></tr></table></figure>
-<p>调用模块中的函数，格式：<code>模块名.函数名</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module1.fun()</span><br></pre></td></tr></table></figure>
-<h1 id="from…import"><a href="#from…import" class="headerlink" title="from…import"></a>from…import</h1><p>导入module模块中的fun1，可以导入函数，也可以是一个类。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> module <span class="keyword">import</span> fun1</span><br><span class="line"></span><br><span class="line">fun1()</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> module <span class="keyword">import</span> clz</span><br><span class="line"></span><br><span class="line">clz.fun1()</span><br></pre></td></tr></table></figure>
-<p>导入module模块中所有函数，这种写法不推荐使用。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> module <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">fun1()</span><br></pre></td></tr></table></figure>
-<h1 id="子模块"><a href="#子模块" class="headerlink" title="子模块"></a>子模块</h1><p>当把一个模块放到一个文件夹下面时</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> module1.module2</span><br></pre></td></tr></table></figure>
-<p>module1就是这个文件夹的名字，module2为子模块。</p>
+          <p>从关系型数据库迁移数据到Elasticsearch时，总要处理很多关联数据，如何进行数据建模，下面给出了四种方案可供大家参考。</p>
+<p>其中最简单的一种就是数据冗余扁平化，这个不做过多讲解。</p>
+<p>应用层联接有点类型关系型数据库的子查询。第一次查询的结果作为第二次查询的条件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">PUT &#x2F;my_index&#x2F;user&#x2F;1 </span><br><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;:     &quot;John Smith&quot;,</span><br><span class="line">  &quot;email&quot;:    &quot;john@smith.com&quot;,</span><br><span class="line">  &quot;dob&quot;:      &quot;1970&#x2F;10&#x2F;24&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">PUT &#x2F;my_index&#x2F;blogpost&#x2F;2 </span><br><span class="line">&#123;</span><br><span class="line">  &quot;title&quot;:    &quot;Relationships&quot;,</span><br><span class="line">  &quot;body&quot;:     &quot;It&#39;s complicated...&quot;,</span><br><span class="line">  &quot;user&quot;:     1 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>blogpost 通过用户的 id 链接到用户。</p>
+<p>通过用户的 ID 1 可以很容易的找到博客帖子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;my_index&#x2F;blogpost&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;filtered&quot;: &#123;</span><br><span class="line">      &quot;filter&quot;: &#123;</span><br><span class="line">        &quot;term&quot;: &#123; &quot;user&quot;: 1 &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为了找到用户叫做 John 的博客帖子，我们需要运行两次查询。先查询名字包含 John 的所有用户的 id 集合，再像上面一样根据 id 查询 blogpost。</p>
+<p>执行第一个查询得到的结果将填充到 terms 过滤器中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;my_index&#x2F;user&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;name&quot;: &quot;John&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">GET &#x2F;my_index&#x2F;blogpost&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;filtered&quot;: &#123;</span><br><span class="line">      &quot;filter&quot;: &#123;</span><br><span class="line">        &quot;terms&quot;: &#123; &quot;user&quot;: [1, 3, 7] &#125;  </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总结：应用层联接的主要优点是可以对数据进行标准化处理。缺点就是需要2次查询，有时间消耗。<br>如果说叫 John 的用户有很多，比如百万以上，那查询是非常没有效率的。<br>这种方法适合于 user 只有少量文档的情况，并且最好它们很少改变，这将允许应用程序对结果进行缓存，避免经常运行第一次查询。</p>
+<p>eg. 搜索用户名称和博客标题，展示用户及其最相关的博客列表。</p>
+<p>需要按用户名称进行分组，根据score进行排序选TOPN。</p>
+<p><code>https://www.elastic.co/guide/cn/elasticsearch/guide/current/top-hits.html</code></p>
+<p>eg. 文件目录的搜索，可以参考如下链接。</p>
+<p><code>https://www.elastic.co/guide/cn/elasticsearch/guide/current/denormalization-concurrency.html</code></p>
+<p>eg. 并发问题</p>
+<p><code>https://www.elastic.co/guide/cn/elasticsearch/guide/current/concurrency-solutions.html</code></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/11/%E8%A7%A3%E5%86%B3ANOMALY-use-of-REX-w-is-meaningless-default-operand-size-is-64/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/%E8%A7%A3%E5%86%B3ANOMALY-use-of-REX-w-is-meaningless-default-operand-size-is-64/" class="post-title-link" itemprop="url">解决ANOMALY: use of REX.w is meaningless (default operand size is 64)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-27 08:43:26" itemprop="dateCreated datePublished" datetime="2021-11-27T08:43:26+08:00">2021-11-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
+              </span>
+
+          
+            <span id="/2021/11/%E8%A7%A3%E5%86%B3ANOMALY-use-of-REX-w-is-meaningless-default-operand-size-is-64/" class="post-meta-item leancloud_visitors" data-flag-title="解决ANOMALY: use of REX.w is meaningless (default operand size is 64)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2021/11/%E8%A7%A3%E5%86%B3ANOMALY-use-of-REX-w-is-meaningless-default-operand-size-is-64/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/%E8%A7%A3%E5%86%B3ANOMALY-use-of-REX-w-is-meaningless-default-operand-size-is-64/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Windows10环境，某天突然就没法使用 git, svn了，IntelliJ IDEA下面的git, svn也没法正常使用。</p>
+<p>使用git desktop时，提示<code>cannot publish unborn HEAD</code>。</p>
+<p>使用 cmd 时，也会提示信息 <code>ANOMALY: use of REX.w is meaningless (default operand size is 64)</code>。</p>
+<p>导致这个事情的原因是Win10的自动更新和某监控软件产生了冲突。</p>
+<p>使用如下语句可以查看到这个软件的连接。</p>
+<p><code>netstat -ano | findstr 8237</code></p>
+<p>我们可以通过修改注册表的方式解决上述问题。</p>
+<p>在运行中输入regedit打开注册表，然后打开到目录计算机<code>\HKEY_LOCAL_MACHINE\SOFTWARE\TEC\Ocular.3\agent\config</code> 下新建 <code>字符串值</code><br><code>hookapi_filterproc_external</code>，值为<code>cmd.exe;powershell.exe;git.exe;idea64.exe</code>。</p>
+<p>重启软件，一切恢复正常。</p>
 
       
     </div>
@@ -570,7 +566,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/26/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><span class="page-number current">27</span><a class="page-number" href="/page/28/">28</a><span class="space">&hellip;</span><a class="page-number" href="/page/123/">123</a><a class="extend next" rel="next" href="/page/28/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/26/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><span class="page-number current">27</span><a class="page-number" href="/page/28/">28</a><span class="space">&hellip;</span><a class="page-number" href="/page/125/">125</a><a class="extend next" rel="next" href="/page/28/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -649,7 +645,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">368</span>
+          <span class="site-state-item-count">375</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

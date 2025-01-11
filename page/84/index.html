@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">368</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">375</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/12/Grafana%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95Kubernetes%E8%AE%BE%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/01/%E6%90%AD%E5%BB%BAreactjs%E5%92%8Cantd%E7%9A%84%E5%8E%9F%E5%A7%8B%E9%A1%B9%E7%9B%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +218,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/Grafana%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95Kubernetes%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">Grafana匿名登录Kubernetes设置</a>
+            <a href="/2020/01/%E6%90%AD%E5%BB%BAreactjs%E5%92%8Cantd%E7%9A%84%E5%8E%9F%E5%A7%8B%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">搭建reactjs和antd的原始项目</a>
         </h2>
 
         <div class="post-meta">
@@ -228,7 +228,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-12-20 22:50:04" itemprop="dateCreated datePublished" datetime="2019-12-20T22:50:04+08:00">2019-12-20</time>
+              <time title="创建时间：2020-01-05 20:25:09" itemprop="dateCreated datePublished" datetime="2020-01-05T20:25:09+08:00">2020-01-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -243,16 +243,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/Grafana/" itemprop="url" rel="index"><span itemprop="name">Grafana</span></a>
+                  <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
                 </span>
             </span>
 
           
-            <span id="/2019/12/Grafana%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95Kubernetes%E8%AE%BE%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Grafana匿名登录Kubernetes设置" title="阅读次数">
+            <span id="/2020/01/%E6%90%AD%E5%BB%BAreactjs%E5%92%8Cantd%E7%9A%84%E5%8E%9F%E5%A7%8B%E9%A1%B9%E7%9B%AE/" class="post-meta-item leancloud_visitors" data-flag-title="搭建reactjs和antd的原始项目" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -268,8 +264,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2019/12/Grafana%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95Kubernetes%E8%AE%BE%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/Grafana%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95Kubernetes%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/01/%E6%90%AD%E5%BB%BAreactjs%E5%92%8Cantd%E7%9A%84%E5%8E%9F%E5%A7%8B%E9%A1%B9%E7%9B%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/%E6%90%AD%E5%BB%BAreactjs%E5%92%8Cantd%E7%9A%84%E5%8E%9F%E5%A7%8B%E9%A1%B9%E7%9B%AE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -296,10 +292,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在Kubernetes中，通过yaml文件安装Grafana。要实现匿名登录查看Dashboard，则需要在`spec.template.spec.containers[]下面添加如下内容：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">env:</span></span><br><span class="line"><span class="attr">- name:</span> <span class="string">GF_AUTH_ANONYMOUS_ENABLED</span></span><br><span class="line"><span class="attr">  value:</span> <span class="string">"true"</span></span><br><span class="line"><span class="attr">- name:</span> <span class="string">GF_AUTH_ANONYMOUS_ORG_ROLE</span></span><br><span class="line"><span class="attr">  value:</span> <span class="string">Viewer</span></span><br></pre></td></tr></table></figure>
-<p>部分内容如下：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  replicas:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">  selector:</span></span><br><span class="line"><span class="attr">    matchLabels:</span></span><br><span class="line"><span class="attr">      app:</span> <span class="string">grafana</span></span><br><span class="line"><span class="attr">  template:</span></span><br><span class="line"><span class="attr">    metadata:</span></span><br><span class="line"><span class="attr">      labels:</span></span><br><span class="line"><span class="attr">        app:</span> <span class="string">grafana</span></span><br><span class="line"><span class="attr">    spec:</span></span><br><span class="line"><span class="attr">      containers:</span></span><br><span class="line"><span class="attr">      - image:</span> <span class="string">grafana/grafana:6.3.3</span></span><br><span class="line"><span class="attr">        name:</span> <span class="string">grafana</span></span><br><span class="line"><span class="attr">        ports:</span></span><br><span class="line"><span class="attr">        - containerPort:</span> <span class="number">3000</span></span><br><span class="line"><span class="attr">          name:</span> <span class="string">http</span></span><br><span class="line"><span class="attr">        readinessProbe:</span></span><br><span class="line"><span class="attr">          httpGet:</span></span><br><span class="line"><span class="attr">            path:</span> <span class="string">/api/health</span></span><br><span class="line"><span class="attr">            port:</span> <span class="string">http</span></span><br><span class="line"><span class="attr">        resources:</span></span><br><span class="line"><span class="attr">          limits:</span></span><br><span class="line"><span class="attr">            cpu:</span> <span class="number">200</span><span class="string">m</span></span><br><span class="line"><span class="attr">            memory:</span> <span class="number">200</span><span class="string">Mi</span></span><br><span class="line"><span class="attr">          requests:</span></span><br><span class="line"><span class="attr">            cpu:</span> <span class="number">100</span><span class="string">m</span></span><br><span class="line"><span class="attr">            memory:</span> <span class="number">100</span><span class="string">Mi</span></span><br><span class="line"><span class="attr">        env:</span></span><br><span class="line"><span class="attr">        - name:</span> <span class="string">GF_AUTH_ANONYMOUS_ENABLED</span></span><br><span class="line"><span class="attr">          value:</span> <span class="string">"true"</span></span><br><span class="line"><span class="attr">        - name:</span> <span class="string">GF_AUTH_ANONYMOUS_ORG_ROLE</span></span><br><span class="line"><span class="attr">          value:</span> <span class="string">Viewer</span></span><br></pre></td></tr></table></figure>
+          <h1 id="安装node-npm"><a href="#安装node-npm" class="headerlink" title="安装node, npm"></a>安装node, npm</h1><p>查看安装的版本信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">v10.16.0</span><br><span class="line"></span><br><span class="line">npm -v</span><br><span class="line">6.10.0</span><br></pre></td></tr></table></figure>
+<h1 id="安装react脚手架工具"><a href="#安装react脚手架工具" class="headerlink" title="安装react脚手架工具"></a>安装react脚手架工具</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br></pre></td></tr></table></figure>
+<p>查看安装版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create-react-app -V</span><br><span class="line">3.3.0</span><br></pre></td></tr></table></figure>
+<h1 id="新建一个项目"><a href="#新建一个项目" class="headerlink" title="新建一个项目"></a>新建一个项目</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create-react-app my-app</span><br></pre></td></tr></table></figure>
+<p>启动项目</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd my-app</span><br><span class="line">yarn start</span><br></pre></td></tr></table></figure>
+<h1 id="安装react-router-dom"><a href="#安装react-router-dom" class="headerlink" title="安装react-router-dom"></a>安装react-router-dom</h1><p>react-router 4.0版本以后，就只需要安装<code>react-router-dom</code>了，dom代表有dom元素在里面。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add react-router-dom</span><br></pre></td></tr></table></figure>
+<h1 id="安装less-loader-less"><a href="#安装less-loader-less" class="headerlink" title="安装less-loader, less"></a>安装less-loader, less</h1><p>如果写一个<code>.less</code>的样式文件，react脚手架工具创建出来的项目默认是不支持的，所以需要安装<code>less-loader</code>模块。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add less-loader less</span><br></pre></td></tr></table></figure>
+<p>安装好less-loader后，需要做一些配置才能生效。</p>
+<p>执行<code>yarn eject</code>，把配置文件把暴露出来。系统可能会提示让把<code>package.json</code>和<code>yarn.lock</code>commit掉。</p>
+<p>可以看到工程中多出了<code>scripts</code>和<code>config</code>目录</p>
+<p>编译<code>config/webpack.config.js</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">oneOf: [</span><br><span class="line">    // "url" loader works like "file" loader except that it embeds assets</span><br><span class="line">    // smaller than specified limit in bytes as data URLs to avoid requests.</span><br><span class="line">    // A missing `test` is equivalent to a match.</span><br><span class="line">    // 添加如下内容</span><br><span class="line">    &#123;</span><br><span class="line">      test: /\.less$/,</span><br><span class="line">      use: [&#123;</span><br><span class="line">        loader: 'style-loader',</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        loader: 'css-loader', // translates CSS into CommonJS</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        loader: 'less-loader', // compiles Less to CSS</span><br><span class="line">        options: &#123;</span><br><span class="line">          sourceMap: true,</span><br><span class="line">          modifyVars: &#123;</span><br><span class="line">            // '@primary-color': '#F0CF13',</span><br><span class="line">          &#125;,</span><br><span class="line">          javascriptEnabled: true,</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;]</span><br><span class="line">    &#125;,</span><br><span class="line">    // 添加上面内容</span><br><span class="line">    &#123;</span><br><span class="line">      test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],</span><br><span class="line">      loader: require.resolve('url-loader'),</span><br><span class="line">      options: &#123;</span><br><span class="line">        limit: imageInlineSizeLimit,</span><br><span class="line">        name: 'static/media/[name].[hash:8].[ext]',</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>@primary-color可以不用设置。</p>
+<p>因为修改了配置，所以需要重启项目。</p>
+<p>这时我们发现，less的样式已经生效了。</p>
+<h1 id="安装axios"><a href="#安装axios" class="headerlink" title="安装axios"></a>安装axios</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add axios</span><br></pre></td></tr></table></figure>
+<h1 id="安装antd"><a href="#安装antd" class="headerlink" title="安装antd"></a>安装antd</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add antd</span><br></pre></td></tr></table></figure>
+<p>在使用时，引入css文件。如果要使用Button组件，引入即可。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import 'antd/dist/antd.css'</span><br><span class="line">import &#123;Button&#125; from "antd";</span><br></pre></td></tr></table></figure>
+<p>antd是用less来写的，我们加载的antd.css是全部的样式，这样加载的内容太多了。</p>
+<p>我们如果要达到按需加载的目的，还得安装<code>babel-plugin-import</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add babel-plugin-import</span><br></pre></td></tr></table></figure>
+<p>安装好以后，在<code>package.json</code>里面的<code>babel</code>属性里面添加如下内容：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">"babel": &#123;</span><br><span class="line">  "presets": [</span><br><span class="line">    <span class="string">"react-app"</span></span><br><span class="line">  ],</span><br><span class="line">  // 添加下面的内容</span><br><span class="line">  "plugins": [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">"import"</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"libraryName"</span>: <span class="string">"antd"</span>,</span><br><span class="line">        <span class="attr">"style"</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">  // 添加上面的内容</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重启项目，我们发现，当我们注释掉css以后，antd的样式还是可以正常输出。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import 'antd/dist/antd.css'</span></span><br><span class="line"><span class="keyword">import</span> &#123;Button&#125; <span class="keyword">from</span> <span class="string">"antd"</span>;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -319,7 +342,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/12/kubernetes%E9%9B%86%E7%BE%A4%E5%8D%B8%E8%BD%BDflannel%E7%BD%91%E7%BB%9C/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/01/%E8%A7%A3%E5%86%B3TypeError-this-cliEngine-is-not-a-constructor/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -333,7 +356,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/kubernetes%E9%9B%86%E7%BE%A4%E5%8D%B8%E8%BD%BDflannel%E7%BD%91%E7%BB%9C/" class="post-title-link" itemprop="url">kubernetes集群卸载flannel网络</a>
+            <a href="/2020/01/%E8%A7%A3%E5%86%B3TypeError-this-cliEngine-is-not-a-constructor/" class="post-title-link" itemprop="url">解决TypeError: this.cliEngine is not a constructor</a>
         </h2>
 
         <div class="post-meta">
@@ -343,7 +366,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-12-16 22:43:08" itemprop="dateCreated datePublished" datetime="2019-12-16T22:43:08+08:00">2019-12-16</time>
+              <time title="创建时间：2020-01-04 16:43:01" itemprop="dateCreated datePublished" datetime="2020-01-04T16:43:01+08:00">2020-01-04</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -358,16 +381,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/Network/" itemprop="url" rel="index"><span itemprop="name">Network</span></a>
+                  <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
                 </span>
             </span>
 
           
-            <span id="/2019/12/kubernetes%E9%9B%86%E7%BE%A4%E5%8D%B8%E8%BD%BDflannel%E7%BD%91%E7%BB%9C/" class="post-meta-item leancloud_visitors" data-flag-title="kubernetes集群卸载flannel网络" title="阅读次数">
+            <span id="/2020/01/%E8%A7%A3%E5%86%B3TypeError-this-cliEngine-is-not-a-constructor/" class="post-meta-item leancloud_visitors" data-flag-title="解决TypeError: this.cliEngine is not a constructor" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -383,8 +402,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2019/12/kubernetes%E9%9B%86%E7%BE%A4%E5%8D%B8%E8%BD%BDflannel%E7%BD%91%E7%BB%9C/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/kubernetes%E9%9B%86%E7%BE%A4%E5%8D%B8%E8%BD%BDflannel%E7%BD%91%E7%BB%9C/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/01/%E8%A7%A3%E5%86%B3TypeError-this-cliEngine-is-not-a-constructor/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/%E8%A7%A3%E5%86%B3TypeError-this-cliEngine-is-not-a-constructor/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -411,14 +430,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在生产环境中，最好还是要提前规划好网络。</p>
-<p>测试环境中，我们可以尝试以这种方式来卸载flannel网络。</p>
-<p>找到最初安装flannel时的yaml文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete -f kube-flannel.yml</span><br></pre></td></tr></table></figure>
-<p>在所有master、worker节点上执行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ip link delete cni0</span><br><span class="line">ip link delete flannel.1</span><br><span class="line">rm -rf /var/lib/cni/</span><br><span class="line">rm -f /etc/cni/net.d/*</span><br></pre></td></tr></table></figure>
-<p>重启<code>kubelet</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart kubelet</span><br></pre></td></tr></table></figure>
+          <p>用<code>create-react-app</code>工具创建了一个项目，使用IDEA打开项目，出现如下错误提示：</p>
+
+<p>点击Detail查看：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">TypeError: this.cliEngine is not a constructor</span><br><span class="line"></span><br><span class="line">TypeError: this.cliEngine is not a constructor</span><br><span class="line">    at ESLintPlugin.invokeESLint (/Applications/IntelliJ IDEA.app/Contents/plugins/JavaScriptLanguage/languageService/eslint/bin/eslint-plugin.js:97:25)</span><br><span class="line">    at ESLintPlugin.getErrors (/Applications/IntelliJ IDEA.app/Contents/plugins/JavaScriptLanguage/languageService/eslint/bin/eslint-plugin.js:76:21)</span><br><span class="line">    at ESLintPlugin.onMessage (/Applications/IntelliJ IDEA.app/Contents/plugins/JavaScriptLanguage/languageService/eslint/bin/eslint-plugin.js:42:29)</span><br><span class="line">    at Interface.&lt;anonymous&gt; (/Applications/IntelliJ IDEA.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/js-language-service.js:105:39)</span><br><span class="line">    at Interface.emit (events.js:198:13)</span><br><span class="line">    at Interface._onLine (readline.js:308:10)</span><br><span class="line">    at Interface._normalWrite (readline.js:451:12)</span><br><span class="line">    at Socket.ondata (readline.js:165:10)</span><br><span class="line">    at Socket.emit (events.js:198:13)</span><br><span class="line">    at addChunk (_stream_readable.js:288:12)</span><br><span class="line">Process finished with exit code -1</span><br></pre></td></tr></table></figure>
+<p>编辑文件</p>
+<p>把如下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.cliEngine = require(packagePath + "lib/cli-engine");</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.cliEngine = require(packagePath + "lib/cli-engine").CLIEngine;</span><br></pre></td></tr></table></figure>
+<p>关闭项目，重新打开项目就可以了。</p>
 
       
     </div>
@@ -438,7 +459,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2020/01/java%E6%97%B6%E9%97%B4Date-timestamp-timezone/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -452,7 +473,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/" class="post-title-link" itemprop="url">在Prometheus Operator中添加自定义监控项，监控etcd集群</a>
+            <a href="/2020/01/java%E6%97%B6%E9%97%B4Date-timestamp-timezone/" class="post-title-link" itemprop="url">java时间Date,timestamp,timezone</a>
         </h2>
 
         <div class="post-meta">
@@ -462,7 +483,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-12-12 22:38:38" itemprop="dateCreated datePublished" datetime="2019-12-12T22:38:38+08:00">2019-12-12</time>
+              <time title="创建时间：2020-01-03 23:23:26" itemprop="dateCreated datePublished" datetime="2020-01-03T23:23:26+08:00">2020-01-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -477,16 +498,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
                 </span>
             </span>
 
           
-            <span id="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/" class="post-meta-item leancloud_visitors" data-flag-title="在Prometheus Operator中添加自定义监控项，监控etcd集群" title="阅读次数">
+            <span id="/2020/01/java%E6%97%B6%E9%97%B4Date-timestamp-timezone/" class="post-meta-item leancloud_visitors" data-flag-title="java时间Date,timestamp,timezone" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -502,8 +519,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/01/java%E6%97%B6%E9%97%B4Date-timestamp-timezone/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/java%E6%97%B6%E9%97%B4Date-timestamp-timezone/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -530,37 +547,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="添加自定义监控项流程"><a href="#添加自定义监控项流程" class="headerlink" title="添加自定义监控项流程"></a>添加自定义监控项流程</h1><ol>
-<li>创建ServiceMonitor对象</li>
-<li>创建Service对象，提供metrics数据接口，并将其和ServiceMonitor关联</li>
-<li>确保Service对象可以正确获取metrics数据</li>
-</ol>
-<img src="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/1576154786034.png" class="">
-<h1 id="配置etcd证书"><a href="#配置etcd证书" class="headerlink" title="配置etcd证书"></a>配置etcd证书</h1><p>查看etcd启动时的证书路径</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po -n kube-system</span><br><span class="line">...</span><br><span class="line">etcd-k8s-master                            1/1     Running   1          6h28m</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po etcd-k8s-master -n kube-system -o yaml</span><br><span class="line">...</span><br><span class="line">spec:</span><br><span class="line">  containers:</span><br><span class="line">  - command:</span><br><span class="line">    - etcd</span><br><span class="line">    - --advertise-client-urls=https://192.168.229.134:2379</span><br><span class="line">    - --cert-file=/etc/kubernetes/pki/etcd/server.crt</span><br><span class="line">    - --client-cert-auth=true</span><br><span class="line">    - --data-dir=/var/lib/etcd</span><br><span class="line">    - --initial-advertise-peer-urls=https://192.168.229.134:2380</span><br><span class="line">    - --initial-cluster=k8s-master=https://192.168.229.134:2380</span><br><span class="line">    - --key-file=/etc/kubernetes/pki/etcd/server.key</span><br><span class="line">    - --listen-client-urls=https://127.0.0.1:2379,https://192.168.229.134:2379</span><br><span class="line">    - --listen-peer-urls=https://192.168.229.134:2380</span><br><span class="line">    - --name=k8s-master</span><br><span class="line">    - --peer-cert-file=/etc/kubernetes/pki/etcd/peer.crt</span><br><span class="line">    - --peer-client-cert-auth=true</span><br><span class="line">    - --peer-key-file=/etc/kubernetes/pki/etcd/peer.key</span><br><span class="line">    - --peer-trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt</span><br><span class="line">    - --snapshot-count=10000</span><br><span class="line">    - --trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt</span><br><span class="line">    image: k8s.gcr.io/etcd:3.3.10</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>可以看出etcd使用的证书都在对应节点的<code>/etc/kubernetes/pki/etcd/</code>目录下面。所以先将需要使用的证书通过secret对象保存到集群中：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl -n monitoring create secret generic etcd-certs \</span><br><span class="line">--from-file=/etc/kubernetes/pki/etcd/healthcheck-client.crt \</span><br><span class="line">--from-file=/etc/kubernetes/pki/etcd/healthcheck-client.key \</span><br><span class="line">--from-file=/etc/kubernetes/pki/etcd/ca.crt </span><br><span class="line">secret/etcd-certs created</span><br></pre></td></tr></table></figure>
-<p>将创建etcd-certs对象配置到prometheus资源对象中，直接更新：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl edit prometheus k8s -n monitoring</span><br></pre></td></tr></table></figure>
-<p>添加secrets的如下属性：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nodeSelector:</span><br><span class="line">  kubernetes.io/os: linux</span><br><span class="line">podMonitorSelector: &#123;&#125;</span><br><span class="line">replicas: 2</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加如下两行</span></span><br><span class="line">secrets:</span><br><span class="line">- etcd-certs</span><br></pre></td></tr></table></figure>
-<p>更新完成后，就可以在Prometheus的Pod中获取之前创建的etcd证书文件了。先查看一下pod名字。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po -n monitoring </span><br><span class="line">NAME                                  READY   STATUS    RESTARTS   AGE</span><br><span class="line">...</span><br><span class="line">prometheus-k8s-0                      3/3     Running   1          2m20s</span><br><span class="line">prometheus-k8s-1                      3/3     Running   1          3m19s</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>进入两个容器，查看一下证书的具体路径：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl exec -it prometheus-k8s-0 /bin/sh -n monitoring</span><br><span class="line">Defaulting container name to prometheus.</span><br><span class="line">Use 'kubectl describe pod/prometheus-k8s-0 -n monitoring' to see all of the containers in this pod.</span><br><span class="line">/prometheus $ ls /etc/prometheus/secrets/etcd-certs/</span><br><span class="line">ca.crt                  healthcheck-client.crt  healthcheck-client.key</span><br></pre></td></tr></table></figure>
-<h1 id="创建ServiceMonitor"><a href="#创建ServiceMonitor" class="headerlink" title="创建ServiceMonitor"></a>创建ServiceMonitor</h1><p>创建<code>prometheus-serviceMonitorEtcd.yaml</code>文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: monitoring.coreos.com/v1</span><br><span class="line">kind: ServiceMonitor</span><br><span class="line">metadata:</span><br><span class="line">  labels:</span><br><span class="line">    k8s-app: etcd-k8s</span><br><span class="line">  name: etcd-k8s</span><br><span class="line">  namespace: monitoring</span><br><span class="line">spec:</span><br><span class="line">  endpoints:</span><br><span class="line">  - port: port</span><br><span class="line">    interval: 30s</span><br><span class="line">    scheme: https</span><br><span class="line">    tlsConfig:</span><br><span class="line">      caFile: /etc/prometheus/secrets/etcd-certs/ca.crt</span><br><span class="line">      certFile: /etc/prometheus/secrets/etcd-certs/healthcheck-client.crt</span><br><span class="line">      keyFile: /etc/prometheus/secrets/etcd-certs/healthcheck-client.key</span><br><span class="line">      insecureSkipVerify: true</span><br><span class="line">  jobLabel: k8s-app</span><br><span class="line">  namespaceSelector:</span><br><span class="line">    matchNames:</span><br><span class="line">    - kube-system</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      k8s-app: etcd</span><br></pre></td></tr></table></figure>
-<p>创建这个serviceMonitor对象：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f prometheus-serviceMonitorEtcd.yaml </span><br><span class="line">servicemonitor.monitoring.coreos.com/etcd-k8s created</span><br></pre></td></tr></table></figure>
-<h1 id="创建Service"><a href="#创建Service" class="headerlink" title="创建Service"></a>创建Service</h1><p>ServiceMonitor已经创建完成了，需要创建一个对应的Service对象。<code>prometheus-etcdService.yaml</code>内容如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  labels:</span><br><span class="line">    k8s-app: etcd</span><br><span class="line">  name: etcd-k8s</span><br><span class="line">  namespace: kube-system</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">  - name: port</span><br><span class="line">    port: 2379</span><br><span class="line">    protocol: TCP</span><br><span class="line">  type: ClusterIP</span><br><span class="line">  clusterIP: None</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: Endpoints</span><br><span class="line">metadata:</span><br><span class="line">  name: etcd-k8s</span><br><span class="line">  namespace: kube-system</span><br><span class="line">  labels:</span><br><span class="line">    k8s-app: etcd</span><br><span class="line">subsets:</span><br><span class="line">- addresses:</span><br><span class="line">  - ip: 192.168.229.134</span><br><span class="line">    nodeName: etcd-master</span><br><span class="line"><span class="meta">#</span><span class="bash">  - ip: 192.168.229.135</span></span><br><span class="line"><span class="meta">#</span><span class="bash">    nodeName: etcd02</span></span><br><span class="line"><span class="meta">#</span><span class="bash">  - ip: 192.168.229.136</span></span><br><span class="line"><span class="meta">#</span><span class="bash">    nodeName: etcd03</span></span><br><span class="line">  ports:</span><br><span class="line">  - name: port</span><br><span class="line">    port: 2379</span><br><span class="line">    protocol: TCP</span><br></pre></td></tr></table></figure>
-<p>etcd集群独立于集群之外，所以需要定义一个Endpoints。Endpoints的metadata区域的内容要和Service保持一致，并且将Service的clusterIP设置为None。</p>
-<p>在Endpoints的subsets中填写etcd的地址，如果是集群，则在addresses属性下面添加多个地址。</p>
-<p>创建Service, Endpoints资源：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f prometheus-etcdService.yaml </span><br><span class="line">service/etcd-k8s created</span><br><span class="line">endpoints/etcd-k8s created</span><br></pre></td></tr></table></figure>
-<img src="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/1576154696810.png" class="">
-<p>采集到数据以后，在Grafana中导入编号为3070的Dashboard。</p>
+          <p>文中输出的时间，都是相同的，便于读者观看。</p>
+<h1 id="Date转Timestamp"><a href="#Date转Timestamp" class="headerlink" title="Date转Timestamp"></a>Date转Timestamp</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Date date = <span class="keyword">new</span> Date();</span><br><span class="line"><span class="keyword">long</span> currentMillis = date.getTime()</span><br><span class="line">System.out.println(currentMillis);</span><br><span class="line"></span><br><span class="line"><span class="number">1578064861125</span></span><br></pre></td></tr></table></figure>
+<p><code>java.util.Date</code>, 这个类跟时区是无关的。</p>
+<h1 id="Timestamp转Date"><a href="#Timestamp转Date" class="headerlink" title="Timestamp转Date"></a>Timestamp转Date</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> timeMillis = System.currentTimeMillis();</span><br><span class="line">Date date = <span class="keyword">new</span> Date(timeMillis);</span><br><span class="line">System.out.println(date);</span><br><span class="line"></span><br><span class="line">Fri Jan <span class="number">03</span> <span class="number">23</span>:<span class="number">21</span>:<span class="number">01</span> CST <span class="number">2020</span></span><br></pre></td></tr></table></figure>
+<h1 id="Date转日期字符串"><a href="#Date转日期字符串" class="headerlink" title="Date转日期字符串"></a>Date转日期字符串</h1><p>当我们打印出Date时，显示的时间，就是带有时区的字符串了。那为什么是CST（China Standard Time)呢？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String timeZoneId = TimeZone.getDefault().getID();</span><br><span class="line">System.out.println(timeZoneId);</span><br><span class="line"></span><br><span class="line">Asia/Shanghai</span><br></pre></td></tr></table></figure>
+<p>发现系统默认的时区id为<code>Asia/Shanghai</code>。</p>
+<p>如何查看有哪些时区id呢？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">String[] availableIDs = TimeZone.getAvailableIDs();</span><br><span class="line"><span class="keyword">for</span> (String availableID : availableIDs) &#123;</span><br><span class="line">    System.out.println(availableID);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Africa/Abidjan</span><br><span class="line">Africa/Accra</span><br><span class="line">Africa/Addis_Ababa</span><br><span class="line">Africa/Algiers</span><br><span class="line">...</span><br><span class="line">Asia/Shanghai</span><br><span class="line">Asia/Singapore</span><br><span class="line">Asia/Srednekolymsk</span><br><span class="line">Asia/Taipei</span><br></pre></td></tr></table></figure>
+<p>如果我们想查看日本东京的时间呢？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Date date = <span class="keyword">new</span> Date();</span><br><span class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss.SSS Z"</span>);</span><br><span class="line">sdf.setTimeZone(TimeZone.getTimeZone(<span class="string">"Asia/Tokyo"</span>));</span><br><span class="line">String dateStr = sdf.format(date);</span><br><span class="line">System.out.println(dateStr);</span><br><span class="line"></span><br><span class="line"><span class="number">2020</span>-<span class="number">01</span>-<span class="number">04</span> <span class="number">00</span>:<span class="number">21</span>:<span class="number">01.125</span> +<span class="number">0900</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -580,7 +577,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/83/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/83/">83</a><span class="page-number current">84</span><a class="page-number" href="/page/85/">85</a><span class="space">&hellip;</span><a class="page-number" href="/page/123/">123</a><a class="extend next" rel="next" href="/page/85/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/83/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/83/">83</a><span class="page-number current">84</span><a class="page-number" href="/page/85/">85</a><span class="space">&hellip;</span><a class="page-number" href="/page/125/">125</a><a class="extend next" rel="next" href="/page/85/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -659,7 +656,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">368</span>
+          <span class="site-state-item-count">375</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

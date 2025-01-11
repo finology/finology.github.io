@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">368</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">375</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2025/01/java%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95jacoco%E6%8F%92%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2025/01/%E9%80%9A%E8%BF%87python-plotly%E7%94%BB%E5%9B%BE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +218,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/01/java%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95jacoco%E6%8F%92%E4%BB%B6/" class="post-title-link" itemprop="url">java单元测试jacoco插件</a>
+            <a href="/2025/01/%E9%80%9A%E8%BF%87python-plotly%E7%94%BB%E5%9B%BE/" class="post-title-link" itemprop="url">通过python plotly画图</a>
         </h2>
 
         <div class="post-meta">
@@ -228,18 +228,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-01-06 13:36:04" itemprop="dateCreated datePublished" datetime="2025-01-06T13:36:04+08:00">2025-01-06</time>
+              <time title="创建时间：2025-01-11 21:38:35" itemprop="dateCreated datePublished" datetime="2025-01-11T21:38:35+08:00">2025-01-11</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-01-11 20:55:34" itemprop="dateModified" datetime="2025-01-11T20:55:34+08:00">2025-01-11</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
               </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/Plotly/" itemprop="url" rel="index"><span itemprop="name">Plotly</span></a>
+                </span>
+            </span>
 
           
-            <span id="/2025/01/java%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95jacoco%E6%8F%92%E4%BB%B6/" class="post-meta-item leancloud_visitors" data-flag-title="java单元测试jacoco插件" title="阅读次数">
+            <span id="/2025/01/%E9%80%9A%E8%BF%87python-plotly%E7%94%BB%E5%9B%BE/" class="post-meta-item leancloud_visitors" data-flag-title="通过python plotly画图" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -255,8 +261,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2025/01/java%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95jacoco%E6%8F%92%E4%BB%B6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2025/01/java%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95jacoco%E6%8F%92%E4%BB%B6/" itemprop="commentCount"></span>
+    <a title="valine" href="/2025/01/%E9%80%9A%E8%BF%87python-plotly%E7%94%BB%E5%9B%BE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/01/%E9%80%9A%E8%BF%87python-plotly%E7%94%BB%E5%9B%BE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -283,17 +289,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>java springboot 项目，配置单元测试，并要求到达一定的代码覆盖率。</p>
-<p>在 maven pom.xml 文件中，需要注意以下几点。</p>
-<p>跳过测试阶段改为false。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">maven.test.skip</span>&gt;</span>false<span class="tag">&lt;/<span class="name">maven.test.skip</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>build 阶段，skip 要改为 false。</p>
-<p>如果只要单元测试指定类，就在 include 标签里面指定。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-surefire-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.22.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">skip</span>&gt;</span>false<span class="tag">&lt;/<span class="name">skip</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/XXXTest<span class="tag">&lt;/<span class="name">include</span>&gt;</span> <span class="comment">&lt;!-- 替换为您的测试类路径 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>配置单元测试依赖，mockito-core 如果配置成4版本会有其他问题。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 代码覆盖率 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.jacoco<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jacoco-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.8.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.13.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mockito<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mockito-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.12.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pluginManagement</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.jacoco<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jacoco-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.8.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">pluginManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- jacoco --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.jacoco<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jacoco-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">goal</span>&gt;</span>prepare-agent<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">id</span>&gt;</span>report<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">phase</span>&gt;</span>test<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">goal</span>&gt;</span>report<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>配置结束后，点击 Lifecycle 下面的 test，通过html文件 <code>\target\site\jacoco\index.html</code> 就可以看到覆盖率的页面了</p>
+          <p>之前一直是通过matplotlib来画图的，数据量大了以后，画图的速度较慢。</p>
+<p>如果使用plotly，效率较高，主要是通过浏览器来渲染图片的，通过js效果，还可以随意放大缩小查看细节。</p>
+<h1 id="基本绘图"><a href="#基本绘图" class="headerlink" title="基本绘图"></a>基本绘图</h1><h2 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> plotly.express <span class="keyword">as</span> px</span><br><span class="line">fig1 = px.line(df[<span class="string">"balance"</span>])</span><br><span class="line">fig1.show()</span><br></pre></td></tr></table></figure>
+<p>或者更简便一些</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> plotly.express <span class="keyword">as</span> px</span><br><span class="line">px.line(df[<span class="string">"balance"</span>])</span><br></pre></td></tr></table></figure>
+<h2 id="柱状图"><a href="#柱状图" class="headerlink" title="柱状图"></a>柱状图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">px.bar(df[<span class="string">"pnl"</span>])</span><br></pre></td></tr></table></figure>
+<h2 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">px.scatter(df[<span class="string">"drawdown"</span>])</span><br></pre></td></tr></table></figure>
+<h1 id="对象方式绘图"><a href="#对象方式绘图" class="headerlink" title="对象方式绘图"></a>对象方式绘图</h1><img src="/2025/01/%E9%80%9A%E8%BF%87python-plotly%E7%94%BB%E5%9B%BE/plot-demo.png" class="">
+<h2 id="创建绘图区域"><a href="#创建绘图区域" class="headerlink" title="创建绘图区域"></a>创建绘图区域</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> plotly.graph_objects <span class="keyword">as</span> go</span><br><span class="line"><span class="keyword">from</span> plotly.subplots <span class="keyword">import</span> make_subplots</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建绘图区域, 4行1列</span></span><br><span class="line">fig = make_subplots(</span><br><span class="line">    rows=<span class="number">4</span>,</span><br><span class="line">    cols=<span class="number">1</span>,</span><br><span class="line">    subplot_titles=[<span class="string">"累计盈亏"</span>, <span class="string">"净值回撤"</span>, <span class="string">"交易盈亏"</span>, <span class="string">"盈亏分布"</span>],</span><br><span class="line">    vertical_spacing=<span class="number">0.06</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="创建四幅子图"><a href="#创建四幅子图" class="headerlink" title="创建四幅子图"></a>创建四幅子图</h2><p>Scatter取代了Line</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 绘制资金曲线</span></span><br><span class="line"></span><br><span class="line">balance_line = go.Scatter(</span><br><span class="line">    x=df.index,</span><br><span class="line">    y=df[<span class="string">"balance"</span>],</span><br><span class="line">    mode=<span class="string">"lines"</span>,</span><br><span class="line">    name=<span class="string">"累计盈亏"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">highlevel_scatter = go.Scatter(x=df.index, y=df[<span class="string">"highlevel"</span>], name=<span class="string">"高水位"</span>)</span><br></pre></td></tr></table></figure>
+<p>这个有填充的效果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 绘制回撤区域</span></span><br><span class="line">drawdown_scatter = go.Scatter(</span><br><span class="line">    x=df.index,</span><br><span class="line">    y=df[<span class="string">"drawdown"</span>],</span><br><span class="line">    fillcolor=<span class="string">"red"</span>,</span><br><span class="line">    fill=<span class="string">'tozeroy'</span>,</span><br><span class="line">    mode=<span class="string">"lines"</span>,</span><br><span class="line">    name=<span class="string">"回撤"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 绘制交易盈亏</span></span><br><span class="line">pnl_bar = go.Bar(y=df[<span class="string">"pnl"</span>], name=<span class="string">"交易盈亏"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 绘制盈亏分布</span></span><br><span class="line">pnl_histogram = go.Histogram(x=df[<span class="string">"pnl"</span>], nbinsx=<span class="number">100</span>, name=<span class="string">"盈亏分布"</span>)</span><br></pre></td></tr></table></figure>
+<p>把子图添加到画布上面</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 绘制图表</span></span><br><span class="line">fig.add_trace(balance_line, row=<span class="number">1</span>, col=<span class="number">1</span>)</span><br><span class="line">fig.add_trace(highlevel_scatter, row=<span class="number">1</span>, col=<span class="number">1</span>)</span><br><span class="line">fig.add_trace(drawdown_scatter, row=<span class="number">2</span>, col=<span class="number">1</span>)</span><br><span class="line">fig.add_trace(pnl_bar, row=<span class="number">3</span>, col=<span class="number">1</span>)</span><br><span class="line">fig.add_trace(pnl_histogram, row=<span class="number">4</span>, col=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">fig.update_layout(height=<span class="number">1000</span>, width=<span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line">fig.show() <span class="comment"># 可以省略</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -313,7 +325,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2024/12/pydub-AudioSegment%E5%90%84%E7%A7%8D%E9%94%99%E8%AF%AF%E7%9A%84%E5%A4%84%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2025/01/Windows%E5%AE%89%E8%A3%85Qlib/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -327,7 +339,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/12/pydub-AudioSegment%E5%90%84%E7%A7%8D%E9%94%99%E8%AF%AF%E7%9A%84%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">pydub AudioSegment各种错误的处理</a>
+            <a href="/2025/01/Windows%E5%AE%89%E8%A3%85Qlib/" class="post-title-link" itemprop="url">Windows安装Qlib</a>
         </h2>
 
         <div class="post-meta">
@@ -337,27 +349,11 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2024-12-17 11:04:55" itemprop="dateCreated datePublished" datetime="2024-12-17T11:04:55+08:00">2024-12-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-01-11 20:55:34" itemprop="dateModified" datetime="2025-01-11T20:55:34+08:00">2025-01-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-                </span>
+              <time title="创建时间：2025-01-11 21:38:10" itemprop="dateCreated datePublished" datetime="2025-01-11T21:38:10+08:00">2025-01-11</time>
             </span>
 
           
-            <span id="/2024/12/pydub-AudioSegment%E5%90%84%E7%A7%8D%E9%94%99%E8%AF%AF%E7%9A%84%E5%A4%84%E7%90%86/" class="post-meta-item leancloud_visitors" data-flag-title="pydub AudioSegment各种错误的处理" title="阅读次数">
+            <span id="/2025/01/Windows%E5%AE%89%E8%A3%85Qlib/" class="post-meta-item leancloud_visitors" data-flag-title="Windows安装Qlib" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -373,8 +369,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2024/12/pydub-AudioSegment%E5%90%84%E7%A7%8D%E9%94%99%E8%AF%AF%E7%9A%84%E5%A4%84%E7%90%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/12/pydub-AudioSegment%E5%90%84%E7%A7%8D%E9%94%99%E8%AF%AF%E7%9A%84%E5%A4%84%E7%90%86/" itemprop="commentCount"></span>
+    <a title="valine" href="/2025/01/Windows%E5%AE%89%E8%A3%85Qlib/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/01/Windows%E5%AE%89%E8%A3%85Qlib/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -401,17 +397,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>执行pydub下AudioSegment的api, </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pydub <span class="keyword">import</span> AudioSegment</span><br><span class="line"></span><br><span class="line">audiofile = AudioSegment.from_file(<span class="string">"data/music_8k.mp3"</span>)</span><br></pre></td></tr></table></figure>
-<p>不管是from_file, from_mp3, from_ogg等等函数，都大概会遇到如下错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RuntimeWarning: Couldn’t find ffprobe or avprobe - defaulting to ffprobe, but may not work</span><br><span class="line">warn(“Couldn’t find ffprobe or avprobe - defaulting to ffprobe, but may not work”,RuntimeWarning)</span><br></pre></td></tr></table></figure>
-<p>这时需要安装<code>ffmpeg</code>，<code>mamba install ffmpeg</code>。</p>
-<p>这时执行代码，遇到另一个错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FileNotFoundError: [WinError 2] 系统找不到指定的文件。</span><br></pre></td></tr></table></figure>
-<p>下载mpeg可执行文件，官方地址：<code>https://www.gyan.dev/ffmpeg/builds/</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pydub</span><br><span class="line">pydub.AudioSegment.ffmpeg = <span class="string">"/absolute/path/to/ffmpeg"</span></span><br><span class="line">sound = AudioSegment.from_mp3(<span class="string">"test.mp3"</span>)</span><br></pre></td></tr></table></figure>
-<p>或者把ffmpeg文件放到python文件当前目录下面。</p>
-
+          <p>安装异常</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Failed to build pyqlib</span><br><span class="line">ERROR: Could not build wheels for pyqlib, which is required to install pyproject.toml-based projects</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\simon\AppData\Local\Temp\pip-build-env-uuivrj87\overlay\Lib\site-packages\Cython\Compiler\Main.py:381: FutureWarning: Cython directive &#39;language_level&#39; not set, using &#39;3str&#39; for now (Py3). This has changed from earlier releases! File: D:\development\python\qlib\qlib\data\_libs\rolling.pyx</span><br><span class="line">       tree &#x3D; Parsing.p_module(s, pxd, full_module_name)</span><br><span class="line">     error: Microsoft Visual C++ 14.0 or greater is required. Get it with &quot;Microsoft C++ Build Tools&quot;: https:&#x2F;&#x2F;visualstudio.microsoft.com&#x2F;visual-cpp-build-tools&#x2F;</span><br><span class="line">     [end of output]</span><br><span class="line"></span><br><span class="line"> note: This error originates from a subprocess, and is likely not a problem with pip.</span><br><span class="line"> ERROR: Failed building wheel for pyqlib</span><br></pre></td></tr></table></figure>
+<p>需要安装”Microsoft C++ Build Tools”。</p>
+<p>需要更新安装 cython</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install cython --upgrade</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -430,7 +421,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2024/10/Windows-10-VSCode%E9%85%8D%E7%BD%AEMiniforge-Python%E7%8E%AF%E5%A2%83/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2025/01/python%E8%BF%9B%E9%98%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -444,7 +435,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/10/Windows-10-VSCode%E9%85%8D%E7%BD%AEMiniforge-Python%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">Windows 10 VSCode配置Miniforge Python环境</a>
+            <a href="/2025/01/python%E8%BF%9B%E9%98%B6/" class="post-title-link" itemprop="url">python进阶</a>
         </h2>
 
         <div class="post-meta">
@@ -453,9 +444,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-10-22 19:21:29 / 修改时间：22:22:57" itemprop="dateCreated datePublished" datetime="2024-10-22T19:21:29+08:00">2024-10-22</time>
+              <time title="创建时间：2025-01-11 21:37:51" itemprop="dateCreated datePublished" datetime="2025-01-11T21:37:51+08:00">2025-01-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -468,7 +458,7 @@
             </span>
 
           
-            <span id="/2024/10/Windows-10-VSCode%E9%85%8D%E7%BD%AEMiniforge-Python%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="Windows 10 VSCode配置Miniforge Python环境" title="阅读次数">
+            <span id="/2025/01/python%E8%BF%9B%E9%98%B6/" class="post-meta-item leancloud_visitors" data-flag-title="python进阶" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -484,8 +474,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2024/10/Windows-10-VSCode%E9%85%8D%E7%BD%AEMiniforge-Python%E7%8E%AF%E5%A2%83/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/10/Windows-10-VSCode%E9%85%8D%E7%BD%AEMiniforge-Python%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
+    <a title="valine" href="/2025/01/python%E8%BF%9B%E9%98%B6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/01/python%E8%BF%9B%E9%98%B6/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -512,24 +502,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在Windows 10操作系统上面安装Miniforge，同时配置VSCode用来开发python。</p>
-<p>执行文件时，可能会遇到如下错误：</p>
-<img src="/2024/10/Windows-10-VSCode%E9%85%8D%E7%BD%AEMiniforge-Python%E7%8E%AF%E5%A2%83/vscode_error.jpg" class="">
-<p>然后执行命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Get-ExecutionPolicy</span><br><span class="line">Restricted</span><br></pre></td></tr></table></figure>
-<p>执行如下命令解决：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser</span><br></pre></td></tr></table></figure>
-<p>这时会变为<code>Unrestricted</code>。</p>
-<h1 id="配置VSCode的Python开发环境"><a href="#配置VSCode的Python开发环境" class="headerlink" title="配置VSCode的Python开发环境"></a>配置VSCode的Python开发环境</h1><p>打开 VSCode，按 Ctrl + Shift + P 打开命令面板。</p>
-<p>输入并选择 Python: Select Interpreter 命令。</p>
-<p>选择Python解释器</p>
-<h1 id="配置VSCode使用Miniforge终端"><a href="#配置VSCode使用Miniforge终端" class="headerlink" title="配置VSCode使用Miniforge终端"></a>配置VSCode使用Miniforge终端</h1><p>打开 VSCode，点击左下角齿轮图标，选择 设置。</p>
-<p>在搜索框中搜索 <code>terminal.integrated.profiles.windows</code></p>
-<img src="/2024/10/Windows-10-VSCode%E9%85%8D%E7%BD%AEMiniforge-Python%E7%8E%AF%E5%A2%83/vscode_settings.jpg" class="">
-<h1 id="添加代码"><a href="#添加代码" class="headerlink" title="添加代码"></a>添加代码</h1><p>在settings.json中添加如下代码：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">"terminal.integrated.defaultProfile.windows": "Miniforge Prompt",</span><br><span class="line">"terminal.integrated.profiles.windows": &#123;</span><br><span class="line"></span><br><span class="line">    "PowerShell": &#123;</span><br><span class="line">        "source": "PowerShell",</span><br><span class="line">        "icon": "terminal-powershell"</span><br><span class="line">    &#125;,</span><br><span class="line">    "Command Prompt": &#123;</span><br><span class="line">        "path": [</span><br><span class="line">            "$&#123;env:windir&#125;\\Sysnative\\cmd.exe",</span><br><span class="line">            <span class="string">"$&#123;env:windir&#125;\\System32\\cmd.exe"</span></span><br><span class="line">        ],</span><br><span class="line">        "args": [],</span><br><span class="line">        "icon": "terminal-cmd"</span><br><span class="line">    &#125;,</span><br><span class="line">    "Git Bash": &#123;</span><br><span class="line">        "source": "Git Bash"</span><br><span class="line">    &#125;,</span><br><span class="line">    "Miniforge Prompt": &#123;</span><br><span class="line">        "path": "$&#123;env:windir&#125;\\system32\\cmd.exe",</span><br><span class="line">        "args": ["/K", "D:\\miniforge3\\Scripts\\activate.bat D:\\miniforge3"]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p>添加 Miniforge Prompt，path和args就照抄安装Miniforge时Miniforge Prompt的属性里面的东西。</p>
-<p><code>terminal.integrated.defaultProfile.windows</code>改成新配置的Miniforge Prompt。</p>
+          <p>可以使用 for 循环的，就叫做可迭代对象，叫Iterable。</p>
+<p>使用next()的，叫Iterator。</p>
+<p>生成器，只是在next()时，再生成数据，不过早的占用内存。</p>
+<p>装饰器的实现方案。</p>
+<p>输入函数，返回函数。</p>
+<p>不带参数的，带参数的，带返回值的，在装饰器上传入参数的。</p>
 
       
     </div>
@@ -549,7 +527,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/123/">123</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/125/">125</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -628,7 +606,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">368</span>
+          <span class="site-state-item-count">375</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

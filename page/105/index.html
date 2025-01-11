@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">368</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">375</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/02/%E5%88%9D%E8%AF%86MongoDB/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/02/Spark%E7%9A%84local%E5%92%8Cstandalone%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +218,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/02/%E5%88%9D%E8%AF%86MongoDB/" class="post-title-link" itemprop="url">初识MongoDB</a>
+            <a href="/2019/02/Spark%E7%9A%84local%E5%92%8Cstandalone%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C/" class="post-title-link" itemprop="url">Spark的local和standalone模式运行</a>
         </h2>
 
         <div class="post-meta">
@@ -228,376 +228,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-02-06 23:34:50" itemprop="dateCreated datePublished" datetime="2019-02-06T23:34:50+08:00">2019-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/02/%E5%88%9D%E8%AF%86MongoDB/" class="post-meta-item leancloud_visitors" data-flag-title="初识MongoDB" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/02/%E5%88%9D%E8%AF%86MongoDB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/%E5%88%9D%E8%AF%86MongoDB/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="MySQL和MongoDB概念对比"><a href="#MySQL和MongoDB概念对比" class="headerlink" title="MySQL和MongoDB概念对比"></a>MySQL和MongoDB概念对比</h1><p>在mongodb中基本的概念是文档、集合、数据库。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>SQL术语/概念</th>
-<th>MongoDB术语/概念</th>
-<th>解释/说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>atabase</td>
-<td>database</td>
-<td>数据库</td>
-</tr>
-<tr>
-<td>table</td>
-<td>collection</td>
-<td>数据库表/集合</td>
-</tr>
-<tr>
-<td>row</td>
-<td>document</td>
-<td>数据记录行/文档</td>
-</tr>
-<tr>
-<td>column</td>
-<td>field</td>
-<td>数据字段/域</td>
-</tr>
-<tr>
-<td>index</td>
-<td>index</td>
-<td>索引</td>
-</tr>
-<tr>
-<td>table</td>
-<td>joins</td>
-<td>表连接, MongoDB不支持</td>
-</tr>
-<tr>
-<td>primary key</td>
-<td>primary key</td>
-<td>主键, MongoDB自动将_id字段设置为主键</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><p>进入MongoDB shell</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;mongo</span><br><span class="line">MongoDB shell version v4.0.2</span><br><span class="line">connecting to: mongodb:&#x2F;&#x2F;127.0.0.1:27017</span><br><span class="line">MongoDB server version: 4.0.2</span><br></pre></td></tr></table></figure>
-<p>查看所有的数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; show dbs</span><br><span class="line">admin      0.000GB</span><br><span class="line">config     0.000GB</span><br><span class="line">local      0.000GB</span><br><span class="line">mongo1-db  0.000GB</span><br></pre></td></tr></table></figure>
-<p>执行<code>db</code>命令可以显示当前数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; db</span><br><span class="line">local</span><br></pre></td></tr></table></figure>
-<p>运行<code>use</code>命令，可以连接到一个指定的数据库。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; use mongo1-db</span><br><span class="line">switched to db mongo1-db</span><br></pre></td></tr></table></figure>
-<h1 id="ObjectId"><a href="#ObjectId" class="headerlink" title="ObjectId"></a>ObjectId</h1><p>ObjectId 类似唯一主键，可以很快的去生成和排序，包含 12 bytes，含义是：</p>
-<p>前 4 个字节表示创建 unix 时间戳,格林尼治时间 UTC 时间，比北京时间晚了 8 个小时</p>
-<p>接下来的 3 个字节是机器标识码</p>
-<p>紧接的两个字节由进程 id 组成 PID</p>
-<p>最后三个字节是随机数</p>
-<p>MongoDB 中存储的文档必须有一个 _id 键。这个键的值可以是任何类型的，默认是个 ObjectId 对象</p>
-<p>由于 ObjectId 中保存了创建的时间戳，所以你不需要为你的文档保存时间戳字段，你可以通过 getTimestamp 函数来获取文档的创建时间:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; var newObj &#x3D; ObjectId()</span><br><span class="line">&gt; newObj.getTimestamp()</span><br><span class="line">ISODate(&quot;2019-02-06T16:01:21Z&quot;)</span><br><span class="line"></span><br><span class="line">&gt; newObj.str</span><br><span class="line">5c5b04d1dd377f0cd58338aa</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/02/NoSQL%E7%AE%80%E4%BB%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/02/NoSQL%E7%AE%80%E4%BB%8B/" class="post-title-link" itemprop="url">NoSQL简介</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-02-06 22:55:11" itemprop="dateCreated datePublished" datetime="2019-02-06T22:55:11+08:00">2019-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/02/NoSQL%E7%AE%80%E4%BB%8B/" class="post-meta-item leancloud_visitors" data-flag-title="NoSQL简介" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-<!--      <span class="post-meta-item-text">Valine：</span>-->
-      <span class="post-meta-item-text">评论数：</span>
-    
-    <a title="valine" href="/2019/02/NoSQL%E7%AE%80%E4%BB%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/NoSQL%E7%AE%80%E4%BB%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- header -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7430210016629671"
-         data-ad-slot="4960252259"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="什么叫NoSQL"><a href="#什么叫NoSQL" class="headerlink" title="什么叫NoSQL"></a>什么叫NoSQL</h1><p>NoSQL(NoSQL = Not Only SQL )，意即”不仅仅是SQL”。</p>
-<p>在现代的计算系统上每天网络上都会产生庞大的数据量。</p>
-<p>这些数据有很大一部分是由关系数据库管理系统（RDMBSs）来处理。 1970年 E.F.Codd’s提出的关系模型的论文 “A relational model of data for large shared data banks”，这使得数据建模和应用程序编程更加简单。</p>
-<p>通过应用实践证明，关系模型是非常适合于客户服务器编程，远远超出预期的利益，今天它是结构化数据存储在网络和商务应用的主导技术。</p>
-<p>NoSQL 是一项全新的数据库革命性运动，早期就有人提出，发展至2009年趋势越发高涨。NoSQL的拥护者们提倡运用非关系型的数据存储，相对于铺天盖地的关系型数据库运用，这一概念无疑是一种全新的思维的注入。</p>
-<h1 id="关系型数据库遵循ACID规则"><a href="#关系型数据库遵循ACID规则" class="headerlink" title="关系型数据库遵循ACID规则"></a>关系型数据库遵循ACID规则</h1><p>事务在英文中是transaction，和现实世界中的交易很类似，它有如下四个特性：</p>
-<ol>
-<li><p>A (Atomicity) 原子性<br>原子性很容易理解，也就是说事务里的所有操作要么全部做完，要么都不做，事务成功的条件是事务里的所有操作都成功，只要有一个操作失败，整个事务就失败，需要回滚。<br>比如银行转账，从A账户转100元至B账户，分为两个步骤：1）从A账户取100元；2）存入100元至B账户。这两步要么一起完成，要么一起不完成，如果只完成第一步，第二步失败，钱会莫名其妙少了100元。</p>
-</li>
-<li><p>C (Consistency) 一致性<br>一致性也比较容易理解，也就是说数据库要一直处于一致的状态，事务的运行不会改变数据库原本的一致性约束。<br>例如现有完整性约束a+b=10，如果一个事务改变了a，那么必须得改变b，使得事务结束后依然满足a+b=10，否则事务失败。</p>
-</li>
-<li><p>I (Isolation) 独立性<br>所谓的独立性是指并发的事务之间不会互相影响，如果一个事务要访问的数据正在被另外一个事务修改，只要另外一个事务未提交，它所访问的数据就不受未提交事务的影响。<br>比如现有有个交易是从A账户转100元至B账户，在这个交易还未完成的情况下，如果此时B查询自己的账户，是看不到新增加的100元的。</p>
-</li>
-<li><p>D (Durability) 持久性<br>持久性是指一旦事务提交后，它所做的修改将会永久的保存在数据库上，即使出现宕机也不会丢失。</p>
-</li>
-</ol>
-<h1 id="RDBMS-vs-NoSQL"><a href="#RDBMS-vs-NoSQL" class="headerlink" title="RDBMS vs NoSQL"></a>RDBMS vs NoSQL</h1><h2 id="RDBMS"><a href="#RDBMS" class="headerlink" title="RDBMS"></a>RDBMS</h2><ul>
-<li>高度组织化结构化数据 </li>
-<li>结构化查询语言（SQL） (SQL) </li>
-<li>数据和关系都存储在单独的表中。 </li>
-<li>数据操纵语言，数据定义语言 </li>
-<li>严格的一致性</li>
-<li>基础事务</li>
-</ul>
-<h2 id="NoSQL"><a href="#NoSQL" class="headerlink" title="NoSQL"></a>NoSQL</h2><ul>
-<li>代表着不仅仅是SQL</li>
-<li>没有声明性查询语言</li>
-<li>没有预定义的模式</li>
-<li>键 - 值对存储，列存储，文档存储，图形数据库</li>
-<li>最终一致性，而非ACID属性</li>
-<li>非结构化和不可预知的数据</li>
-<li>CAP定理 </li>
-<li>高性能，高可用性和可伸缩性</li>
-</ul>
-<h1 id="CAP定理（CAP-theorem）"><a href="#CAP定理（CAP-theorem）" class="headerlink" title="CAP定理（CAP theorem）"></a>CAP定理（CAP theorem）</h1><p>在计算机科学中, CAP定理（CAP theorem）, 又被称作 布鲁尔定理（Brewer’s theorem）, 它指出对于一个分布式计算系统来说，不可能同时满足以下三点:</p>
-<p>一致性(Consistency) (所有节点在同一时间具有相同的数据)</p>
-<p>可用性(Availability) (保证每个请求不管成功或者失败都有响应)</p>
-<p>分隔容忍(Partition tolerance) (系统中任意信息的丢失或失败不会影响系统的继续运作)</p>
-<p>CAP理论的核心是：一个分布式系统不可能同时很好的满足一致性，可用性和分区容错性这三个需求，最多只能同时较好的满足两个。</p>
-<p>因此，根据 CAP 原理将 NoSQL 数据库分成了满足 CA 原则、满足 CP 原则和满足 AP 原则三 大类：</p>
-<p>CA - 单点集群，满足一致性，可用性的系统，通常在可扩展性上不太强大。</p>
-<p>CP - 满足一致性，分区容忍性的系统，通常性能不是特别高。</p>
-<p>AP - 满足可用性，分区容忍性的系统，通常可能对一致性要求低一些。</p>
-<h1 id="NoSQL-数据库分类"><a href="#NoSQL-数据库分类" class="headerlink" title="NoSQL 数据库分类"></a>NoSQL 数据库分类</h1><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>部分代表</th>
-<th>特点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>列存储</td>
-<td>Hbase, Cassandra, Hypertable</td>
-<td>顾名思义，是按列存储数据的。最大的特点是方便存储结构化和半结构化数据，方便做数据压缩，对针对某一列或者某几列的查询有非常大的IO优势。</td>
-</tr>
-<tr>
-<td>文档存储</td>
-<td>MongoDB, CouchDB</td>
-<td>文档存储一般用类似json的格式存储，存储的内容是文档型的。这样也就有有机会对某些字段建立索引，实现关系数据库的某些功能。</td>
-</tr>
-<tr>
-<td>key-value存储</td>
-<td>Tokyo Cabinet / Tyrant, Berkeley DB, MemcacheDB, Redis</td>
-<td>可以通过key快速查询到其value。一般来说，存储不管value的格式，照单全收。（Redis包含了其他功能）</td>
-</tr>
-<tr>
-<td>图存储</td>
-<td>Neo4J, FlockDB</td>
-<td>图形关系的最佳存储。使用传统关系数据库来解决的话性能低下，而且设计使用不方便。</td>
-</tr>
-<tr>
-<td>对象存储</td>
-<td>db4o, Versant</td>
-<td>通过类似面向对象语言的语法操作数据库，通过对象的方式存取数据。</td>
-</tr>
-<tr>
-<td>xml数据库</td>
-<td>Berkeley DB XML, BaseX</td>
-<td>高效的存储XML数据，并支持XML的内部查询语法，比如XQuery,Xpath</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/01/%E8%BF%90%E8%A1%8CSpark-Streaming%E6%A1%88%E4%BE%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/01/%E8%BF%90%E8%A1%8CSpark-Streaming%E6%A1%88%E4%BE%8B/" class="post-title-link" itemprop="url">运行Spark Streaming案例</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-01-24 10:25:32" itemprop="dateCreated datePublished" datetime="2019-01-24T10:25:32+08:00">2019-01-24</time>
+              <time title="创建时间：2019-02-10 13:21:49" itemprop="dateCreated datePublished" datetime="2019-02-10T13:21:49+08:00">2019-02-10</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -621,7 +252,7 @@
             </span>
 
           
-            <span id="/2019/01/%E8%BF%90%E8%A1%8CSpark-Streaming%E6%A1%88%E4%BE%8B/" class="post-meta-item leancloud_visitors" data-flag-title="运行Spark Streaming案例" title="阅读次数">
+            <span id="/2019/02/Spark%E7%9A%84local%E5%92%8Cstandalone%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C/" class="post-meta-item leancloud_visitors" data-flag-title="Spark的local和standalone模式运行" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -637,8 +268,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2019/01/%E8%BF%90%E8%A1%8CSpark-Streaming%E6%A1%88%E4%BE%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/01/%E8%BF%90%E8%A1%8CSpark-Streaming%E6%A1%88%E4%BE%8B/" itemprop="commentCount"></span>
+    <a title="valine" href="/2019/02/Spark%E7%9A%84local%E5%92%8Cstandalone%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/Spark%E7%9A%84local%E5%92%8Cstandalone%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -665,33 +296,329 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p>Spark Streaming is an extension of the core Spark API that enables scalable, high-throughput, fault-tolerant stream processing of live data streams.</p>
-</blockquote>
-<p>这篇文章将描述运行Spark官网上一个案例程序。</p>
-<p>执行<code>spark-submit</code>命令，查看命令使用方法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME</span><br><span class="line"></span><br><span class="line">bin&#x2F;spark-submit</span><br><span class="line"></span><br><span class="line">Usage: spark-submit [options] &lt;app jar | python file&gt; [app arguments]</span><br><span class="line">Usage: spark-submit --kill [submission ID] --master [spark:&#x2F;&#x2F;...]</span><br><span class="line">Usage: spark-submit --status [submission ID] --master [spark:&#x2F;&#x2F;...]</span><br><span class="line">Usage: spark-submit run-example [options] example-class [example args]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  --master MASTER_URL         spark:&#x2F;&#x2F;host:port, mesos:&#x2F;&#x2F;host:port, yarn, or local.</span><br><span class="line">  --deploy-mode DEPLOY_MODE   Whether to launch the driver program locally (&quot;client&quot;) or</span><br><span class="line">                              on one of the worker machines inside the cluster (&quot;cluster&quot;)</span><br><span class="line">                              (Default: client).</span><br><span class="line">  --class CLASS_NAME          Your application&#39;s main class (for Java &#x2F; Scala apps).</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
-<p>运行<code>NetworkWordCount</code>案例，我们需要指定<code>master</code>, <code>class</code>参数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;spark-submit --master local[2] --class org.apache.spark.examples.streaming.NetworkWordCount examples&#x2F;jars&#x2F;spark-examples_2.11-2.2.3.jar</span><br><span class="line"></span><br><span class="line">Usage: NetworkWordCount &lt;hostname&gt; &lt;port&gt;</span><br></pre></td></tr></table></figure>
-<p>终端又给我们使用方法的提示，需要提供网络服务器地址<code>hostname</code>和端口<code>port</code>。</p>
-<p>如果网络上还没有提供服务时，执行上述命令，则会遇到如下错误。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">19&#x2F;01&#x2F;24 10:49:42 ERROR ReceiverTracker: Deregistered receiver for stream 0: Restarting receiver with delay 2000ms: Error connecting</span><br><span class="line">to localhost:9999 - java.net.ConnectException: Connection refused (Connection refused)</span><br></pre></td></tr></table></figure>
-<p>所以，另开一个Shell终端，启动<code>Netcat</code>, 在端口<code>9999</code>上提供服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -lk 9999</span><br></pre></td></tr></table></figure>
-<p>继续执行<code>NetworkWordCount</code>案例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;spark-submit --master local[2] --class org.apache.spark.examples.streaming.NetworkWordCount examples&#x2F;jars&#x2F;spark-examples_2.11-2.2.3.jar localhost 9999</span><br><span class="line"></span><br><span class="line">Using Spark&#39;s default log4j profile: org&#x2F;apache&#x2F;spark&#x2F;log4j-defaults.properties</span><br><span class="line">19&#x2F;01&#x2F;24 11:04:46 INFO StreamingExamples: Setting log level to [WARN] for streaming example. To override add a custom log4j.properties to the classpath.</span><br><span class="line">19&#x2F;01&#x2F;24 11:04:47 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">19&#x2F;01&#x2F;24 11:04:47 WARN Utils: Your hostname, localhost resolves to a loopback address: 127.0.0.1; using 192.168.1.112 instead (on interface en0)</span><br><span class="line">19&#x2F;01&#x2F;24 11:04:47 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address</span><br><span class="line">19&#x2F;01&#x2F;24 11:04:47 WARN Utils: Service &#39;SparkUI&#39; could not bind on port 4040. Attempting port 4041.</span><br><span class="line">-------------------------------------------</span><br><span class="line">Time: 1548299089000 ms</span><br><span class="line">-------------------------------------------</span><br></pre></td></tr></table></figure>
-<p>我们在Netcat终端上输入几个单词，看看统计的结果。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello hello spark spark spark</span><br></pre></td></tr></table></figure>
-<p>很快的，我们在spark终端上就能看到统计的结果了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">-------------------------------------------</span><br><span class="line">Time: 1548298250000 ms</span><br><span class="line">-------------------------------------------</span><br><span class="line">(hello,2)</span><br><span class="line">(spark,3)</span><br></pre></td></tr></table></figure>
-<p>我们再换一种方式，通过<code>spark-shell</code>的方式，输入代码，运行一下单词统计的程序。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;spark-shell --master local[2]</span><br><span class="line"></span><br><span class="line">Using Spark&#39;s default log4j profile: org&#x2F;apache&#x2F;spark&#x2F;log4j-defaults.properties</span><br><span class="line">Setting default log level to &quot;WARN&quot;.</span><br><span class="line">To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).</span><br><span class="line">19&#x2F;01&#x2F;24 12:45:00 WARN Utils: Your hostname, localhost resolves to a loopback address: 127.0.0.1; using 192.168.1.112 instead (on interface en0)</span><br><span class="line">19&#x2F;01&#x2F;24 12:45:00 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address</span><br><span class="line">19&#x2F;01&#x2F;24 12:45:00 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Spark context Web UI available at http:&#x2F;&#x2F;192.168.1.112:4040</span><br><span class="line">Spark context available as &#39;sc&#39; (master &#x3D; local[2], app id &#x3D; local-1548305101841).</span><br><span class="line">Spark session available as &#39;spark&#39;.</span><br><span class="line">Welcome to</span><br><span class="line">      ____              __</span><br><span class="line">     &#x2F; __&#x2F;__  ___ _____&#x2F; &#x2F;__</span><br><span class="line">    _\ \&#x2F; _ \&#x2F; _ &#96;&#x2F; __&#x2F;  &#39;_&#x2F;</span><br><span class="line">   &#x2F;___&#x2F; .__&#x2F;\_,_&#x2F;_&#x2F; &#x2F;_&#x2F;\_\   version 2.2.3</span><br><span class="line">      &#x2F;_&#x2F;</span><br><span class="line"></span><br><span class="line">Using Scala version 2.11.8 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_181)</span><br><span class="line">Type in expressions to have them evaluated.</span><br><span class="line">Type :help for more information.</span><br><span class="line"></span><br><span class="line">scala&gt;</span><br></pre></td></tr></table></figure>
-<p>我们按exmaples案例，输入以下代码。源代码可参看 <a href="https://github.com/apache/spark/blob/master/examples/src/main/scala/org/apache/spark/examples/streaming/NetworkWordCount.scala">https://github.com/apache/spark/blob/master/examples/src/main/scala/org/apache/spark/examples/streaming/NetworkWordCount.scala</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">scala&gt;</span><br><span class="line"></span><br><span class="line">import org.apache.spark.storage.StorageLevel</span><br><span class="line">import org.apache.spark.streaming.&#123;Seconds, StreamingContext&#125;</span><br><span class="line">val ssc &#x3D; new StreamingContext(sc, Seconds(1))</span><br><span class="line">val lines &#x3D; ssc.socketTextStream(&quot;localhost&quot;, 9999, StorageLevel.MEMORY_AND_DISK_SER)</span><br><span class="line">val words &#x3D; lines.flatMap(_.split(&quot; &quot;))</span><br><span class="line">val wordCounts &#x3D; words.map(x &#x3D;&gt; (x, 1)).reduceByKey(_ + _)</span><br><span class="line">wordCounts.print()</span><br><span class="line">ssc.start()</span><br><span class="line">ssc.awaitTermination()</span><br></pre></td></tr></table></figure>
-<p>在<code>netcat</code>终端输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello hello spark spark spark</span><br></pre></td></tr></table></figure>
-<p>我们一样能看到统计的结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">-------------------------------------------</span><br><span class="line">Time: 1548305187000 ms</span><br><span class="line">-------------------------------------------</span><br><span class="line">(hello,2)</span><br><span class="line">(spark,3)</span><br></pre></td></tr></table></figure>
+          <h1 id="Spark运行模式"><a href="#Spark运行模式" class="headerlink" title="Spark运行模式"></a>Spark运行模式</h1><p>Spark 有很多种模式，最简单就是单机本地模式，还有单机伪分布式模式，复杂的则运行在集群中，目前能很好的运行在 Yarn和 Mesos 中，当然 Spark 还有自带的 Standalone 模式，对于大多数情况 Standalone 模式就足够了，如果企业已经有 Yarn 或者 Mesos 环境，也是很方便部署的。</p>
+<ul>
+<li>local(本地模式)：常用于本地开发测试，本地还分为local单线程和local-cluster多线程;</li>
+<li>standalone(集群模式)：典型的Mater/slave模式，不过也能看出Master是有单点故障的；Spark支持ZooKeeper来实现 HA</li>
+<li>on yarn(集群模式)： 运行在 yarn 资源管理器框架之上，由 yarn 负责资源管理，Spark 负责任务调度和计算</li>
+<li>on mesos(集群模式)： 运行在 mesos 资源管理器框架之上，由 mesos 负责资源管理，Spark 负责任务调度和计算</li>
+<li>on cloud(集群模式)：比如 AWS 的 EC2，使用这个模式能很方便的访问 Amazon的 S3;Spark 支持多种分布式存储系统：HDFS 和 S3</li>
+</ul>
+<h1 id="local模式运行"><a href="#local模式运行" class="headerlink" title="local模式运行"></a>local模式运行</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-shell --master local[2]</span><br></pre></td></tr></table></figure>
+<p>2代表2个worker。</p>
+<p>如果<code>local[*]</code>，也是默认master选项，则自动获取机器cores数量。</p>
+<h1 id="standalone模式运行"><a href="#standalone模式运行" class="headerlink" title="standalone模式运行"></a>standalone模式运行</h1><p>Spark Standalone模式的架构和Hadoop hdfs/yarn很类似，1 master +  n workers</p>
+<h2 id="配置conf-spark-env-sh文件"><a href="#配置conf-spark-env-sh文件" class="headerlink" title="配置conf/spark-env.sh文件"></a>配置conf/spark-env.sh文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME</span><br><span class="line">cd conf</span><br><span class="line">cp spark-env.sh.template spark-env.sh</span><br><span class="line">vi spark-env.sh</span><br></pre></td></tr></table></figure>
+<p>添加如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SPARK_MASTER_HOST&#x3D;localhost</span><br><span class="line">SPARK_WORKER_CORES&#x3D;1</span><br><span class="line">SPARK_WORKER_MEMORY&#x3D;2g</span><br></pre></td></tr></table></figure>
+<h2 id="启动Spark"><a href="#启动Spark" class="headerlink" title="启动Spark"></a>启动Spark</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME</span><br><span class="line">sbin&#x2F;start-all.sh</span><br><span class="line">starting org.apache.spark.deploy.master.Master, logging to &#x2F;usr&#x2F;local&#x2F;spark&#x2F;spark-2.2.3-bin-2.6.0-cdh5.7.0&#x2F;logs&#x2F;spark-simon-org.apache.spark.deploy.master.Master-1-localhost.out</span><br><span class="line">localhost: starting org.apache.spark.deploy.worker.Worker, logging to &#x2F;usr&#x2F;local&#x2F;spark&#x2F;spark-2.2.3-bin-2.6.0-cdh5.7.0&#x2F;logs&#x2F;spark-simon-org.apache.spark.deploy.worker.Worker-1-localhost.out</span><br></pre></td></tr></table></figure>
+<p>查看master日志</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">19&#x2F;02&#x2F;10 13:11:09 INFO Master: I have been elected leader! New state: ALIVE</span><br><span class="line">19&#x2F;02&#x2F;10 13:11:12 INFO Master: Registering worker 192.168.1.6:51683 with 1 cores, 2.0 GB RAM</span><br></pre></td></tr></table></figure>
+<p>查看worker日志</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">19&#x2F;02&#x2F;10 13:11:12 INFO Worker: Successfully registered with master spark:&#x2F;&#x2F;localhost:7077</span><br></pre></td></tr></table></figure>
+<p>执行<code>jps</code>命令，可以看到有<code>Master</code>和<code>Worker</code>进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3424 Master</span><br><span class="line">3459 Worker</span><br></pre></td></tr></table></figure>
+<h2 id="生成wordCount的输入文件"><a href="#生成wordCount的输入文件" class="headerlink" title="生成wordCount的输入文件"></a>生成wordCount的输入文件</h2><p>新建<code>/usr/local/spark/data/words</code>文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;usr&#x2F;local&#x2F;spark&#x2F;data&#x2F;words</span><br></pre></td></tr></table></figure>
+<p>添加如下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hello,hello,world</span><br><span class="line">hello,world,</span><br><span class="line">welcome</span><br></pre></td></tr></table></figure>
+<h2 id="启动Spark-shell"><a href="#启动Spark-shell" class="headerlink" title="启动Spark-shell"></a>启动Spark-shell</h2><p>以standalone模式启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;spark-shell --master spark:&#x2F;&#x2F;localhost:7077</span><br><span class="line">Using Spark&#39;s default log4j profile: org&#x2F;apache&#x2F;spark&#x2F;log4j-defaults.properties</span><br><span class="line">Setting default log level to &quot;WARN&quot;.</span><br><span class="line">To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).</span><br><span class="line">19&#x2F;02&#x2F;10 13:12:41 WARN Utils: Your hostname, localhost resolves to a loopback address: 127.0.0.1; using 192.168.1.6 instead (on interface en0)</span><br><span class="line">19&#x2F;02&#x2F;10 13:12:41 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address</span><br><span class="line">19&#x2F;02&#x2F;10 13:12:42 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Spark context Web UI available at http:&#x2F;&#x2F;192.168.1.6:4040</span><br><span class="line">Spark context available as &#39;sc&#39; (master &#x3D; spark:&#x2F;&#x2F;localhost:7077, app id &#x3D; app-20190210131243-0000).</span><br><span class="line">Spark session available as &#39;spark&#39;.</span><br><span class="line">Welcome to</span><br><span class="line">      ____              __</span><br><span class="line">     &#x2F; __&#x2F;__  ___ _____&#x2F; &#x2F;__</span><br><span class="line">    _\ \&#x2F; _ \&#x2F; _ &#96;&#x2F; __&#x2F;  &#39;_&#x2F;</span><br><span class="line">   &#x2F;___&#x2F; .__&#x2F;\_,_&#x2F;_&#x2F; &#x2F;_&#x2F;\_\   version 2.2.3</span><br><span class="line">      &#x2F;_&#x2F;</span><br><span class="line"></span><br><span class="line">Using Scala version 2.11.8 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_181)</span><br><span class="line">Type in expressions to have them evaluated.</span><br><span class="line">Type :help for more information.</span><br><span class="line"></span><br><span class="line">scala&gt;</span><br></pre></td></tr></table></figure>
+<p>输入wordCount程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; var file &#x3D; spark.sparkContext.textFile(&quot;file:&#x2F;&#x2F;&#x2F;usr&#x2F;local&#x2F;spark&#x2F;data&#x2F;words&quot;)</span><br><span class="line">file: org.apache.spark.rdd.RDD[String] &#x3D; file:&#x2F;&#x2F;&#x2F;usr&#x2F;local&#x2F;spark&#x2F;data MapPartitionsRDD[6] at textFile at &lt;console&gt;:23</span><br><span class="line"></span><br><span class="line">scala&gt; val wordCounts &#x3D; file.flatMap(line &#x3D;&gt; line.split(&quot;,&quot;)).map(word &#x3D;&gt; (word, 1)).reduceByKey(_ + _)</span><br><span class="line">wordCounts: org.apache.spark.rdd.RDD[(String, Int)] &#x3D; ShuffledRDD[9] at reduceByKey at &lt;console&gt;:25</span><br><span class="line"></span><br><span class="line">scala&gt; wordCounts.collect</span><br><span class="line">res1: Array[(String, Int)] &#x3D; Array((hello,3), (welcome,1), (world,2))</span><br><span class="line"></span><br><span class="line">scala&gt;</span><br></pre></td></tr></table></figure>
+<p>可以看到/usr/local/spark/data/words文件里面的单词被成功的统计了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/02/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Spark/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/02/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Spark/" class="post-title-link" itemprop="url">编译安装Spark</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-02-10 12:16:21" itemprop="dateCreated datePublished" datetime="2019-02-10T12:16:21+08:00">2019-02-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/02/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Spark/" class="post-meta-item leancloud_visitors" data-flag-title="编译安装Spark" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2019/02/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Spark/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Spark/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Spark会依赖Hadoop版本，当我们使用cdh版本的hadoop时，在Spark官网上下载不了对应的版本，这时就需要编译Spark了。</p>
+<h1 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h1><p>到Spark官网 <a href="http://spark.apache.org/downloads.html">http://spark.apache.org/downloads.html</a> 下载Spark的源码，并非已经Build好的安装包。</p>
+<p>Spark release我选择的是<code>2.2.3</code></p>
+<p>package type选择Source Code</p>
+<p>下载并解压</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;spark</span><br><span class="line">wget https:&#x2F;&#x2F;archive.apache.org&#x2F;dist&#x2F;spark&#x2F;spark-2.2.3&#x2F;spark-2.2.3.tgz</span><br><span class="line"></span><br><span class="line">tar -zxvf spark-2.2.3.tgz</span><br></pre></td></tr></table></figure>
+<h1 id="构建发布版本"><a href="#构建发布版本" class="headerlink" title="构建发布版本"></a>构建发布版本</h1><p>查看<code>dev/make-distribution.sh</code>源码，可以知道构建后的包的文件名为<code>spark-$VERSION-bin-$NAME.tgz</code>，所以<code>--name</code>参数设置为<code>2.6.0-cdh5.7.0</code>，-P是指定使用pom.xml中指定的profile，-D是指使用指定的Dependency。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd spark-2.2.3</span><br><span class="line">.&#x2F;dev&#x2F;make-distribution.sh --name 2.6.0-cdh5.7.0 --tgz -Phadoop-2.6 -Phive -Phive-thriftserver -Pmesos -Pyarn -Dhadoop.version&#x3D;2.6.0-cdh5.7.0</span><br></pre></td></tr></table></figure>
+<p>构建过程中，我们会发现出现了以下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] BUILD FAILURE</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] Total time: 46.000 s (Wall Clock)</span><br><span class="line">[INFO] Finished at: 2019-02-10T11:28:39+08:00</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[ERROR] Failed to execute goal on project spark-launcher_2.11: Could not resolve dependencies for project org.apache.spark:spark-launcher_2.11:jar:2.2.3: Could not find artifact org.apache.hadoop:hadoop-client:jar:2.6.0-cdh5.7.0 in alimaven (http:&#x2F;&#x2F;maven.aliyun.com&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&#x2F;) -&gt; [Help 1]</span><br></pre></td></tr></table></figure>
+<p>表明在现有的maven仓库中，找不到cdh版本的jar包。所以，我们得在pom.xml中的repositories中添加cdh的仓库地址。</p>
+<p>编辑<code>pom.xml</code>文件，在<code>repositories</code>标签下的maven central仓库后面添加cloudera的仓库。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;repository&gt;</span><br><span class="line">    &lt;id&gt;cloudera&lt;&#x2F;id&gt;</span><br><span class="line">    &lt;url&gt;https:&#x2F;&#x2F;repository.cloudera.com&#x2F;artifactory&#x2F;cloudera-repos&#x2F;&lt;&#x2F;url&gt;</span><br><span class="line">&lt;&#x2F;repository&gt;</span><br></pre></td></tr></table></figure>
+<p>然后再执行刚才的命令，经过12分钟，<code>spark-2.2.3-bin-2.6.0-cdh5.7.0.tgz</code>安装包构建成功。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] BUILD SUCCESS</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] Total time: 12:08 min (Wall Clock)</span><br><span class="line">[INFO] Finished at: 2019-02-10T11:59:57+08:00</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+<p>解压spark-2.2.3-bin-2.6.0-cdh5.7.0.tgz包到上级spark目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br><span class="line">tar -zxvf spark-2.2.3&#x2F;spark-2.2.3-bin-2.6.0-cdh5.7.0.tgz -C .</span><br></pre></td></tr></table></figure>
+<h1 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~&#x2F;.bash_profile</span><br></pre></td></tr></table></figure>
+<p>添加内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export SPARK_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;spark&#x2F;spark-2.2.3-bin-2.6.0-cdh5.7.0</span><br></pre></td></tr></table></figure>
+<p>使设置生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.bash_profile</span><br></pre></td></tr></table></figure>
+<h1 id="启动Spark"><a href="#启动Spark" class="headerlink" title="启动Spark"></a>启动Spark</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME</span><br><span class="line">bin&#x2F;spark-shell --master local[*]</span><br><span class="line"></span><br><span class="line">Using Spark&#39;s default log4j profile: org&#x2F;apache&#x2F;spark&#x2F;log4j-defaults.properties</span><br><span class="line">Setting default log level to &quot;WARN&quot;.</span><br><span class="line">To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).</span><br><span class="line">19&#x2F;02&#x2F;10 12:13:43 WARN Utils: Your hostname, localhost resolves to a loopback address: 127.0.0.1; using 192.168.1.6 instead (on interface en0)</span><br><span class="line">19&#x2F;02&#x2F;10 12:13:43 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address</span><br><span class="line">19&#x2F;02&#x2F;10 12:13:43 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Spark context Web UI available at http:&#x2F;&#x2F;192.168.1.6:4040</span><br><span class="line">Spark context available as &#39;sc&#39; (master &#x3D; local[*], app id &#x3D; local-1549772024897).</span><br><span class="line">Spark session available as &#39;spark&#39;.</span><br><span class="line">Welcome to</span><br><span class="line">      ____              __</span><br><span class="line">     &#x2F; __&#x2F;__  ___ _____&#x2F; &#x2F;__</span><br><span class="line">    _\ \&#x2F; _ \&#x2F; _ &#96;&#x2F; __&#x2F;  &#39;_&#x2F;</span><br><span class="line">   &#x2F;___&#x2F; .__&#x2F;\_,_&#x2F;_&#x2F; &#x2F;_&#x2F;\_\   version 2.2.3</span><br><span class="line">      &#x2F;_&#x2F;</span><br><span class="line"></span><br><span class="line">Using Scala version 2.11.8 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_181)</span><br><span class="line">Type in expressions to have them evaluated.</span><br><span class="line">Type :help for more information.</span><br><span class="line"></span><br><span class="line">scala&gt;</span><br></pre></td></tr></table></figure>
+<p>Spark成功启动。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2019/02/Python%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/02/Python%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="post-title-link" itemprop="url">Python多线程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-02-08 23:20:45" itemprop="dateCreated datePublished" datetime="2019-02-08T23:20:45+08:00">2019-02-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-19 20:12:05" itemprop="dateModified" datetime="2022-02-19T20:12:05+08:00">2022-02-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/02/Python%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="Python多线程" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+<!--      <span class="post-meta-item-text">Valine：</span>-->
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2019/02/Python%E5%A4%9A%E7%BA%BF%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/Python%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- header -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7430210016629671"
+         data-ad-slot="4960252259"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>多任务可以由多进程完成，也可以由一个进程内的多线程完成。</p>
+<p>我们前面提到了进程是由若干线程组成的，一个进程至少有一个线程。</p>
+<p>由于线程是操作系统直接支持的执行单元，因此，高级语言通常都内置多线程的支持，Python也不例外，并且，Python的线程是真正的Posix Thread，而不是模拟出来的线程。</p>
+<p>Python的标准库提供了两个模块：_thread和threading，_thread是低级模块，threading是高级模块，对_thread进行了封装。绝大多数情况下，我们只需要使用threading这个高级模块。</p>
+<p>启动一个线程就是把一个函数传入并创建Thread实例，然后调用start()开始执行：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time, threading</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新线程执行的代码:</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loop</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'thread %s is running...'</span> % threading.current_thread().name)</span><br><span class="line">    n = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> n &lt; <span class="number">5</span>:</span><br><span class="line">        n = n + <span class="number">1</span></span><br><span class="line">        print(<span class="string">'thread %s &gt;&gt;&gt; %s'</span> % (threading.current_thread().name, n))</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">    print(<span class="string">'thread %s ended.'</span> % threading.current_thread().name)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'thread %s is running...'</span> % threading.current_thread().name)</span><br><span class="line">t = threading.Thread(target=loop, name=<span class="string">'LoopThread'</span>)</span><br><span class="line">t.start()</span><br><span class="line">t.join()</span><br><span class="line">print(<span class="string">'thread %s ended.'</span> % threading.current_thread().name)</span><br></pre></td></tr></table></figure>
+<p>执行结果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">thread MainThread <span class="keyword">is</span> running...</span><br><span class="line">thread LoopThread <span class="keyword">is</span> running...</span><br><span class="line">thread LoopThread &gt;&gt;&gt; <span class="number">1</span></span><br><span class="line">thread LoopThread &gt;&gt;&gt; <span class="number">2</span></span><br><span class="line">thread LoopThread &gt;&gt;&gt; <span class="number">3</span></span><br><span class="line">thread LoopThread &gt;&gt;&gt; <span class="number">4</span></span><br><span class="line">thread LoopThread &gt;&gt;&gt; <span class="number">5</span></span><br><span class="line">thread LoopThread ended.</span><br><span class="line">thread MainThread ended.</span><br></pre></td></tr></table></figure>
+<p>由于任何进程默认就会启动一个线程，我们把该线程称为主线程，主线程又可以启动新的线程，Python的threading模块有个current_thread()函数，它永远返回当前线程的实例。主线程实例的名字叫MainThread，子线程的名字在创建时指定，我们用LoopThread命名子线程。名字仅仅在打印时用来显示，完全没有其他意义，如果不起名字Python就自动给线程命名为Thread-1，Thread-2…</p>
+<h1 id="Lock"><a href="#Lock" class="headerlink" title="Lock"></a>Lock</h1><p>多线程和多进程最大的不同在于，多进程中，同一个变量，各自有一份拷贝存在于每个进程中，互不影响，而多线程中，所有变量都由所有线程共享，所以，任何一个变量都可以被任何一个线程修改，因此，线程之间共享数据最大的危险在于多个线程同时改一个变量，把内容给改乱了。</p>
+<p>来看看多个线程同时操作一个变量怎么把内容给改乱了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time, threading</span><br><span class="line"></span><br><span class="line"><span class="comment"># 假定这是你的银行存款:</span></span><br><span class="line">balance = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">change_it</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="comment"># 先存后取，结果应该为0:</span></span><br><span class="line">    <span class="keyword">global</span> balance</span><br><span class="line">    balance = balance + n</span><br><span class="line">    balance = balance - n</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_thread</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100000</span>):</span><br><span class="line">        change_it(n)</span><br><span class="line"></span><br><span class="line">t1 = threading.Thread(target=run_thread, args=(<span class="number">5</span>,))</span><br><span class="line">t2 = threading.Thread(target=run_thread, args=(<span class="number">8</span>,))</span><br><span class="line">t1.start()</span><br><span class="line">t2.start()</span><br><span class="line">t1.join()</span><br><span class="line">t2.join()</span><br><span class="line">print(balance)</span><br></pre></td></tr></table></figure>
+<p>我们定义了一个共享变量balance，初始值为0，并且启动两个线程，先存后取，理论上结果应该为0，但是，由于线程的调度是由操作系统决定的，当t1、t2交替执行时，只要循环次数足够多，balance的结果就不一定是0了。</p>
+<p>原因是因为高级语言的一条语句在CPU执行时是若干条语句，即使一个简单的计算：</p>
+<p>balance = balance + n<br>也分两步：</p>
+<p>计算balance + n，存入临时变量中；<br>将临时变量的值赋给balance。<br>也就是可以看成：</p>
+<p>x = balance + n<br>balance = x<br>由于x是局部变量，两个线程各自都有自己的x，当代码正常执行时：</p>
+<p>初始值 balance = 0</p>
+<p>t1: x1 = balance + 5 # x1 = 0 + 5 = 5<br>t1: balance = x1     # balance = 5<br>t1: x1 = balance - 5 # x1 = 5 - 5 = 0<br>t1: balance = x1     # balance = 0</p>
+<p>t2: x2 = balance + 8 # x2 = 0 + 8 = 8<br>t2: balance = x2     # balance = 8<br>t2: x2 = balance - 8 # x2 = 8 - 8 = 0<br>t2: balance = x2     # balance = 0</p>
+<p>结果 balance = 0<br>但是t1和t2是交替运行的，如果操作系统以下面的顺序执行t1、t2：</p>
+<p>初始值 balance = 0</p>
+<p>t1: x1 = balance + 5  # x1 = 0 + 5 = 5</p>
+<p>t2: x2 = balance + 8  # x2 = 0 + 8 = 8<br>t2: balance = x2      # balance = 8</p>
+<p>t1: balance = x1      # balance = 5<br>t1: x1 = balance - 5  # x1 = 5 - 5 = 0<br>t1: balance = x1      # balance = 0</p>
+<p>t2: x2 = balance - 8  # x2 = 0 - 8 = -8<br>t2: balance = x2   # balance = -8</p>
+<p>结果 balance = -8<br>究其原因，是因为修改balance需要多条语句，而执行这几条语句时，线程可能中断，从而导致多个线程把同一个对象的内容改乱了。</p>
+<p>两个线程同时一存一取，就可能导致余额不对，你肯定不希望你的银行存款莫名其妙地变成了负数，所以，我们必须确保一个线程在修改balance的时候，别的线程一定不能改。</p>
+<p>如果我们要确保balance计算正确，就要给change_it()上一把锁，当某个线程开始执行change_it()时，我们说，该线程因为获得了锁，因此其他线程不能同时执行change_it()，只能等待，直到锁被释放后，获得该锁以后才能改。由于锁只有一个，无论多少线程，同一时刻最多只有一个线程持有该锁，所以，不会造成修改的冲突。创建一个锁就是通过threading.Lock()来实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">balance = <span class="number">0</span></span><br><span class="line">lock = threading.Lock()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_thread</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100000</span>):</span><br><span class="line">        <span class="comment"># 先要获取锁:</span></span><br><span class="line">        lock.acquire()</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="comment"># 放心地改吧:</span></span><br><span class="line">            change_it(n)</span><br><span class="line">        <span class="keyword">finally</span>:</span><br><span class="line">            <span class="comment"># 改完了一定要释放锁:</span></span><br><span class="line">            lock.release()</span><br></pre></td></tr></table></figure>
+<p>当多个线程同时执行lock.acquire()时，只有一个线程能成功地获取锁，然后继续执行代码，其他线程就继续等待直到获得锁为止。</p>
+<p>获得锁的线程用完后一定要释放锁，否则那些苦苦等待锁的线程将永远等待下去，成为死线程。所以我们用try…finally来确保锁一定会被释放。</p>
+<p>锁的好处就是确保了某段关键代码只能由一个线程从头到尾完整地执行，坏处当然也很多，首先是阻止了多线程并发执行，包含锁的某段代码实际上只能以单线程模式执行，效率就大大地下降了。其次，由于可以存在多个锁，不同的线程持有不同的锁，并试图获取对方持有的锁时，可能会造成死锁，导致多个线程全部挂起，既不能执行，也无法结束，只能靠操作系统强制终止。</p>
+<p>多核CPU<br>如果你不幸拥有一个多核CPU，你肯定在想，多核应该可以同时执行多个线程。</p>
+<p>如果写一个死循环的话，会出现什么情况呢？</p>
+<p>打开Mac OS X的Activity Monitor，或者Windows的Task Manager，都可以监控某个进程的CPU使用率。</p>
+<p>我们可以监控到一个死循环线程会100%占用一个CPU。</p>
+<p>如果有两个死循环线程，在多核CPU中，可以监控到会占用200%的CPU，也就是占用两个CPU核心。</p>
+<p>要想把N核CPU的核心全部跑满，就必须启动N个死循环线程。</p>
+<p>试试用Python写个死循环：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading, multiprocessing</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loop</span><span class="params">()</span>:</span></span><br><span class="line">    x = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        x = x ^ <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(multiprocessing.cpu_count()):</span><br><span class="line">    t = threading.Thread(target=loop)</span><br><span class="line">    t.start()</span><br></pre></td></tr></table></figure>
+<p>启动与CPU核心数量相同的N个线程，在4核CPU上可以监控到CPU占用率仅有102%，也就是仅使用了一核。</p>
+<p>但是用C、C++或Java来改写相同的死循环，直接可以把全部核心跑满，4核就跑到400%，8核就跑到800%，为什么Python不行呢？</p>
+<p>因为Python的线程虽然是真正的线程，但解释器执行代码时，有一个GIL锁：Global Interpreter Lock，任何Python线程执行前，必须先获得GIL锁，然后，每执行100条字节码，解释器就自动释放GIL锁，让别的线程有机会执行。这个GIL全局锁实际上把所有线程的执行代码都给上了锁，所以，多线程在Python中只能交替执行，即使100个线程跑在100核CPU上，也只能用到1个核。</p>
+<p>GIL是Python解释器设计的历史遗留问题，通常我们用的解释器是官方实现的CPython，要真正利用多核，除非重写一个不带GIL的解释器。</p>
+<p>所以，在Python中，可以使用多线程，但不要指望能有效利用多核。如果一定要通过多线程利用多核，那只能通过C扩展来实现，不过这样就失去了Python简单易用的特点。</p>
+<p>不过，也不用过于担心，Python虽然不能利用多线程实现多核任务，但可以通过多进程实现多核任务。多个Python进程有各自独立的GIL锁，互不影响。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>多线程编程，模型复杂，容易发生冲突，必须用锁加以隔离，同时，又要小心死锁的发生。</p>
+<p>Python解释器由于设计时有GIL全局锁，导致了多线程无法利用多核。</p>
+
       
     </div>
 
@@ -710,7 +637,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/104/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/104/">104</a><span class="page-number current">105</span><a class="page-number" href="/page/106/">106</a><span class="space">&hellip;</span><a class="page-number" href="/page/123/">123</a><a class="extend next" rel="next" href="/page/106/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/104/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/104/">104</a><span class="page-number current">105</span><a class="page-number" href="/page/106/">106</a><span class="space">&hellip;</span><a class="page-number" href="/page/125/">125</a><a class="extend next" rel="next" href="/page/106/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -789,7 +716,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">368</span>
+          <span class="site-state-item-count">375</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

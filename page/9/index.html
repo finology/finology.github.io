@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">368</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">375</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2022/07/java%E6%A0%B9%E6%8D%AE%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E6%8E%92%E5%BA%8F/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2022/12/Java-8-Stream-filter%E8%BF%87%E6%BB%A4Map-String-List-String/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +218,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/07/java%E6%A0%B9%E6%8D%AE%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">java根据对象属性排序</a>
+            <a href="/2022/12/Java-8-Stream-filter%E8%BF%87%E6%BB%A4Map-String-List-String/" class="post-title-link" itemprop="url">Java 8 Stream filter过滤Map<String, List<String>></a>
         </h2>
 
         <div class="post-meta">
@@ -227,10 +227,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-07-26 17:08:25 / 修改时间：22:05:40" itemprop="dateCreated datePublished" datetime="2022-07-26T17:08:25+08:00">2022-07-26</time>
+              <time title="创建时间：2022-12-12 11:07:27" itemprop="dateCreated datePublished" datetime="2022-12-12T11:07:27+08:00">2022-12-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-02-06 23:04:24" itemprop="dateModified" datetime="2023-02-06T23:04:24+08:00">2023-02-06</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -242,7 +248,7 @@
             </span>
 
           
-            <span id="/2022/07/java%E6%A0%B9%E6%8D%AE%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E6%8E%92%E5%BA%8F/" class="post-meta-item leancloud_visitors" data-flag-title="java根据对象属性排序" title="阅读次数">
+            <span id="/2022/12/Java-8-Stream-filter%E8%BF%87%E6%BB%A4Map-String-List-String/" class="post-meta-item leancloud_visitors" data-flag-title="Java 8 Stream filter过滤Map<String, List<String>>" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -258,8 +264,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2022/07/java%E6%A0%B9%E6%8D%AE%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E6%8E%92%E5%BA%8F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/java%E6%A0%B9%E6%8D%AE%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E6%8E%92%E5%BA%8F/" itemprop="commentCount"></span>
+    <a title="valine" href="/2022/12/Java-8-Stream-filter%E8%BF%87%E6%BB%A4Map-String-List-String/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/12/Java-8-Stream-filter%E8%BF%87%E6%BB%A4Map-String-List-String/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -286,13 +292,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Collections-sort-Comparable对象"><a href="#Collections-sort-Comparable对象" class="headerlink" title="Collections.sort() Comparable对象"></a>Collections.sort() Comparable对象</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">User</span>&gt; </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>排序</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Collections.sort(users);</span><br><span class="line">Collections.reverse(users);</span><br></pre></td></tr></table></figure>
-<h1 id="Collections-sort-传入Comparator比较器"><a href="#Collections-sort-传入Comparator比较器" class="headerlink" title="Collections.sort() 传入Comparator比较器"></a>Collections.sort() 传入Comparator比较器</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Collections.sort(users, <span class="keyword">new</span> Comparator&lt;User&gt;() &#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(User u1, User u2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> u1.getCreatedOn().compareTo(u2.getCreatedOn());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h1 id="List接口的sort"><a href="#List接口的sort" class="headerlink" title="List接口的sort"></a>List接口的sort</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">users.sort(Comparator.comparing(User::getCreatedOn));</span><br><span class="line">users.sort(Comparator.comparing(User::getCreatedOn).reversed());</span><br></pre></td></tr></table></figure>
-<h1 id="Stream接口的sorted-Java8"><a href="#Stream接口的sorted-Java8" class="headerlink" title="Stream接口的sorted [Java8]"></a>Stream接口的sorted [Java8]</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">List&lt;User&gt; sortedUsers = users.stream()</span><br><span class="line">  .sorted(Comparator.comparing(User::getCreatedOn))</span><br><span class="line">  .collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">List&lt;User&gt; sortedUsers = users.stream()</span><br><span class="line">  .sorted(Comparator.comparing(User::getCreatedOn).reversed())</span><br><span class="line">  .collect(Collectors.toList());</span><br></pre></td></tr></table></figure>
-
+          <p>过滤复杂的Map，map的value是一个List，把这个List中不满足要求的元素过滤掉。</p>
+<p>使用java8 stream api应该这样写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    Map&lt;String, List&lt;String&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    List&lt;String&gt; g1 = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    g1.add(<span class="string">"M"</span>);</span><br><span class="line">    g1.add(<span class="string">"F"</span>);</span><br><span class="line">    g1.add(<span class="string">"M"</span>);</span><br><span class="line"></span><br><span class="line">    map.put(<span class="string">"1"</span>, g1);</span><br><span class="line">    map.put(<span class="string">"2"</span>, <span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">    List&lt;String&gt; g2 = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    g2.add(<span class="string">"M"</span>);</span><br><span class="line">    g2.add(<span class="string">"M"</span>);</span><br><span class="line">    g2.add(<span class="string">"X"</span>);</span><br><span class="line">    g2.add(<span class="string">"F"</span>);</span><br><span class="line">    g2.add(<span class="string">"Y"</span>);</span><br><span class="line"></span><br><span class="line">    map.put(<span class="string">"3"</span>, g2);</span><br><span class="line"></span><br><span class="line">    System.out.println(map);</span><br><span class="line"></span><br><span class="line">    Map&lt;String, List&lt;String&gt;&gt; newMap = map.entrySet().stream()</span><br><span class="line">            .filter(e -&gt; CollectionUtils.isNotEmpty(e.getValue()))</span><br><span class="line">            .collect(Collectors.toMap(</span><br><span class="line">                    Map.Entry::getKey,</span><br><span class="line">                    e -&gt; e.getValue().stream()</span><br><span class="line">                            .filter(i -&gt; <span class="string">"M"</span>.equals(i))</span><br><span class="line">                            .collect(Collectors.toList())</span><br><span class="line">            ));</span><br><span class="line"></span><br><span class="line">    System.out.println(newMap);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;1=[M, F, M], 2=null, 3=[M, M, X, F, Y]&#125;</span><br><span class="line"></span><br><span class="line">&#123;1=[M, M], 3=[M, M]&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -311,7 +315,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2022/07/Mac-Vmware-Fusion%E5%AE%89%E8%A3%85windows%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%BB%91%E5%B1%8F/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2022/11/%E5%AE%89%E8%A3%85sklearn/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -325,7 +329,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/07/Mac-Vmware-Fusion%E5%AE%89%E8%A3%85windows%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%BB%91%E5%B1%8F/" class="post-title-link" itemprop="url">Mac Vmware Fusion安装windows虚拟机黑屏</a>
+            <a href="/2022/11/%E5%AE%89%E8%A3%85sklearn/" class="post-title-link" itemprop="url">安装sklearn</a>
         </h2>
 
         <div class="post-meta">
@@ -335,20 +339,31 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-07-23 12:49:09" itemprop="dateCreated datePublished" datetime="2022-07-23T12:49:09+08:00">2022-07-23</time>
+              <time title="创建时间：2022-11-28 19:31:53" itemprop="dateCreated datePublished" datetime="2022-11-28T19:31:53+08:00">2022-11-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-02-06 23:04:24" itemprop="dateModified" datetime="2023-02-06T23:04:24+08:00">2023-02-06</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/ML/" itemprop="url" rel="index"><span itemprop="name">ML</span></a>
                 </span>
             </span>
 
           
-            <span id="/2022/07/Mac-Vmware-Fusion%E5%AE%89%E8%A3%85windows%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%BB%91%E5%B1%8F/" class="post-meta-item leancloud_visitors" data-flag-title="Mac Vmware Fusion安装windows虚拟机黑屏" title="阅读次数">
+            <span id="/2022/11/%E5%AE%89%E8%A3%85sklearn/" class="post-meta-item leancloud_visitors" data-flag-title="安装sklearn" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -364,8 +379,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2022/07/Mac-Vmware-Fusion%E5%AE%89%E8%A3%85windows%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%BB%91%E5%B1%8F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/Mac-Vmware-Fusion%E5%AE%89%E8%A3%85windows%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%BB%91%E5%B1%8F/" itemprop="commentCount"></span>
+    <a title="valine" href="/2022/11/%E5%AE%89%E8%A3%85sklearn/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/11/%E5%AE%89%E8%A3%85sklearn/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -392,33 +407,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Mac OS 安装了 Vmware Fusion，在里面安装了 Windows 10 虚拟机，这个虚拟机，有时候有时候黑屏，看不到任何界面。</p>
-<p>解决办法：</p>
-<ol>
-<li><p>重启mac，并在启动时一直按着 Command + R，进入恢复模式。</p>
-</li>
-<li><p>屏幕顶上，选择<code>实用工具</code> -&gt; <code>终端</code>。</p>
-</li>
-<li><p>执行命令关闭SIP</p>
-</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">csrutil disable</span><br></pre></td></tr></table></figure>
-<ol>
-<li>重启电脑，进入 mac os 系统后，执行如下命令。</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tccutil reset All com.vmware.fusion</span><br><span class="line"> </span><br><span class="line">sudo sqlite3 "/Library/Application Support/com.apple.TCC/TCC.db" 'insert into access values ("kTCCServiceScreenCapture", "com.vmware.fusion", 0, 1, 1, "", "", "", "UNUSED", "", 0,1565595574)'</span><br><span class="line"> </span><br><span class="line">sudo sqlite3 "/Library/Application Support/com.apple.TCC/TCC.db" 'insert into access values ("kTCCServiceListenEvent", "com.vmware.fusion", 0, 1, 1, "", "", "", "UNUSED", "", 0,1565595574)'</span><br><span class="line"> </span><br><span class="line">sudo sqlite3 "/Library/Application Support/com.apple.TCC/TCC.db" 'insert into access values ("kTCCServicePostEvent", "com.vmware.fusion", 0, 1, 1, "", "", "", "UNUSED", "", 0,1565595574)'</span><br></pre></td></tr></table></figure>
-<ol>
-<li>再次重启电脑，并进入 Command + R，进入恢复模式。</li>
-</ol>
-<p>并开启SIP</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">csrutil enable</span><br></pre></td></tr></table></figure>
-<ol>
-<li>最后重启电脑</li>
-</ol>
-<p>进入以后，关掉 Vmware Fusion 软件。</p>
-<p>进入<code>安全性和隐私</code>，分别在项目<code>辅助功能</code>、<code>输入监视</code>、<code>屏幕录制</code>中，把 Vmware Fusion 复选框选中。</p>
-<p>再次启动 Vmware Fusion 中的 Windows 虚拟机，屏幕不会黑屏了。</p>
-
+          <p>Windows使用sklearn，需要安装Numpy+MKL或者Numpy+Vanilla。</p>
+<p>下载地址：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.lfd.uci.edu&#x2F;~gohlke&#x2F;pythonlibs&#x2F;#numpy</span><br></pre></td></tr></table></figure>
+<p>查看安装的版本。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pip debug --verbose</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">Compatible tags: 36</span><br><span class="line">  cp310-cp310-win_amd64</span><br><span class="line">  cp310-abi3-win_amd64</span><br><span class="line">  cp310-none-win_amd64</span><br><span class="line">  cp39-abi3-win_amd64</span><br><span class="line">  cp38-abi3-win_amd64</span><br><span class="line">  cp37-abi3-win_amd64</span><br></pre></td></tr></table></figure>
+<p>所以下载版本<code>numpy‑1.22.4+vanilla‑cp310‑cp310‑win_amd64.whl</code></p>
+<p>安装numpy+vanilla</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install "numpy-1.22.4+vanilla-cp310-cp310-win_amd64.whl" --user</span><br></pre></td></tr></table></figure>
+<p>最后安装scikit-learn</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install scikit-learn --user</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -437,7 +435,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2022/07/MacOS-Vmware-Fusion%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BACPU%E5%8D%A0%E7%94%A8%E7%8E%87%E9%AB%98%E5%8F%91%E7%83%AB/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2022/08/%E6%9F%A5%E7%9C%8BWindows%E5%92%8CLinux%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -451,7 +449,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/07/MacOS-Vmware-Fusion%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BACPU%E5%8D%A0%E7%94%A8%E7%8E%87%E9%AB%98%E5%8F%91%E7%83%AB/" class="post-title-link" itemprop="url">MacOS Vmware Fusion安装虚拟机CPU占用率高发烫</a>
+            <a href="/2022/08/%E6%9F%A5%E7%9C%8BWindows%E5%92%8CLinux%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/" class="post-title-link" itemprop="url">查看Windows和Linux端口占用情况</a>
         </h2>
 
         <div class="post-meta">
@@ -461,8 +459,15 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-07-16 13:48:40" itemprop="dateCreated datePublished" datetime="2022-07-16T13:48:40+08:00">2022-07-16</time>
+              <time title="创建时间：2022-08-30 19:34:55" itemprop="dateCreated datePublished" datetime="2022-08-30T19:34:55+08:00">2022-08-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-31 00:05:10" itemprop="dateModified" datetime="2022-08-31T00:05:10+08:00">2022-08-31</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -474,7 +479,7 @@
             </span>
 
           
-            <span id="/2022/07/MacOS-Vmware-Fusion%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BACPU%E5%8D%A0%E7%94%A8%E7%8E%87%E9%AB%98%E5%8F%91%E7%83%AB/" class="post-meta-item leancloud_visitors" data-flag-title="MacOS Vmware Fusion安装虚拟机CPU占用率高发烫" title="阅读次数">
+            <span id="/2022/08/%E6%9F%A5%E7%9C%8BWindows%E5%92%8CLinux%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/" class="post-meta-item leancloud_visitors" data-flag-title="查看Windows和Linux端口占用情况" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -490,8 +495,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2022/07/MacOS-Vmware-Fusion%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BACPU%E5%8D%A0%E7%94%A8%E7%8E%87%E9%AB%98%E5%8F%91%E7%83%AB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/MacOS-Vmware-Fusion%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BACPU%E5%8D%A0%E7%94%A8%E7%8E%87%E9%AB%98%E5%8F%91%E7%83%AB/" itemprop="commentCount"></span>
+    <a title="valine" href="/2022/08/%E6%9F%A5%E7%9C%8BWindows%E5%92%8CLinux%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/%E6%9F%A5%E7%9C%8BWindows%E5%92%8CLinux%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -518,13 +523,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>mac系统基于vmware安装虚拟机，然后主机CPU占用率飙升，风扇狂转，发烫的现象，好几年都没有解决。</p>
-<p>网上很多人说限制CPU的功率，减少虚拟机CPU个数，这些都没有办法。</p>
-<p>目前发现一个方法，效率好了很多。就是关掉虚拟机3D图像展示，以OpenGL来替代。</p>
-<p>在宿主机系统中，编辑虚拟机.vmx文件，在文件末尾添加如下内容。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mks.enableMTLRenderer &#x3D; &quot;FALSE&quot;</span><br><span class="line">mks.enableGLRenderer &#x3D; &quot;TRUE&quot;</span><br></pre></td></tr></table></figure>
-<p>保存后重启虚拟机，CPU占用率的确变小了，也没有那么烫了。</p>
-
+          <h1 id="Windows查看端口占用情况"><a href="#Windows查看端口占用情况" class="headerlink" title="Windows查看端口占用情况"></a>Windows查看端口占用情况</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano | findstr &lt;port&gt;</span><br></pre></td></tr></table></figure>
+<p>杀掉进程</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskkill /pid /f &lt;port&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="Linux-查看端口占用情况"><a href="#Linux-查看端口占用情况" class="headerlink" title="Linux 查看端口占用情况"></a>Linux 查看端口占用情况</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:&lt;port&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -543,7 +545,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/123/">123</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/125/">125</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -622,7 +624,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">368</span>
+          <span class="site-state-item-count">375</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">368</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">375</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/08/mybatis-plus%E5%9C%A8Console%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8C%E9%9D%A2%E6%89%93%E5%8D%B0sql%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/10/python%E6%A8%A1%E5%9D%97import%E5%92%8Cfrom-import/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +218,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/mybatis-plus%E5%9C%A8Console%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8C%E9%9D%A2%E6%89%93%E5%8D%B0sql%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" class="post-title-link" itemprop="url">mybatis-plus在Console控制台里面打印sql查询语句</a>
+            <a href="/2021/10/python%E6%A8%A1%E5%9D%97import%E5%92%8Cfrom-import/" class="post-title-link" itemprop="url">python模块import和from import</a>
         </h2>
 
         <div class="post-meta">
@@ -228,7 +228,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-15 15:25:37" itemprop="dateCreated datePublished" datetime="2021-08-15T15:25:37+08:00">2021-08-15</time>
+              <time title="创建时间：2021-10-08 15:08:36" itemprop="dateCreated datePublished" datetime="2021-10-08T15:08:36+08:00">2021-10-08</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -243,16 +243,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
                 </span>
             </span>
 
           
-            <span id="/2021/08/mybatis-plus%E5%9C%A8Console%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8C%E9%9D%A2%E6%89%93%E5%8D%B0sql%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" class="post-meta-item leancloud_visitors" data-flag-title="mybatis-plus在Console控制台里面打印sql查询语句" title="阅读次数">
+            <span id="/2021/10/python%E6%A8%A1%E5%9D%97import%E5%92%8Cfrom-import/" class="post-meta-item leancloud_visitors" data-flag-title="python模块import和from import" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -268,8 +264,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2021/08/mybatis-plus%E5%9C%A8Console%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8C%E9%9D%A2%E6%89%93%E5%8D%B0sql%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/08/mybatis-plus%E5%9C%A8Console%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8C%E9%9D%A2%E6%89%93%E5%8D%B0sql%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/10/python%E6%A8%A1%E5%9D%97import%E5%92%8Cfrom-import/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/python%E6%A8%A1%E5%9D%97import%E5%92%8Cfrom-import/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -296,9 +292,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>使用Springboot集成了 mybatis-plus，在开发时，往往希望在控制台里面能看到 sql 语句，甚至查询结果，以便于高效开发。</p>
-<p>在 Springboot 的yml文件里面加入如下内容：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mybatis-plus:</span></span><br><span class="line"><span class="attr">  configuration:</span> </span><br><span class="line">    <span class="comment"># 是否将sql打印到控制面板(该配置会将sql语句和查询的结果都打印到控制台)</span></span><br><span class="line"><span class="attr">    log-impl:</span> <span class="string">org.apache.ibatis.logging.stdout.StdOutImpl</span></span><br></pre></td></tr></table></figure>
+          <h1 id="模块的引入"><a href="#模块的引入" class="headerlink" title="模块的引入"></a>模块的引入</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> module1[, module2[,... moduleN]]</span><br></pre></td></tr></table></figure>
+<p>调用模块中的函数，格式：<code>模块名.函数名</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module1.fun()</span><br></pre></td></tr></table></figure>
+<h1 id="from…import"><a href="#from…import" class="headerlink" title="from…import"></a>from…import</h1><p>导入module模块中的fun1，可以导入函数，也可以是一个类。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> module <span class="keyword">import</span> fun1</span><br><span class="line"></span><br><span class="line">fun1()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> module <span class="keyword">import</span> clz</span><br><span class="line"></span><br><span class="line">clz.fun1()</span><br></pre></td></tr></table></figure>
+<p>导入module模块中所有函数，这种写法不推荐使用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> module <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">fun1()</span><br></pre></td></tr></table></figure>
+<h1 id="子模块"><a href="#子模块" class="headerlink" title="子模块"></a>子模块</h1><p>当把一个模块放到一个文件夹下面时</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> module1.module2</span><br></pre></td></tr></table></figure>
+<p>module1就是这个文件夹的名字，module2为子模块。</p>
 
       
     </div>
@@ -318,7 +322,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/08/Warning-Generating-equals-hashCode-implementation-but-without-a-call-to-superclass/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/10/pandas%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -332,7 +336,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/Warning-Generating-equals-hashCode-implementation-but-without-a-call-to-superclass/" class="post-title-link" itemprop="url">Warning: Generating equals/hashCode implementation but without a call to superclass</a>
+            <a href="/2021/10/pandas%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">pandas常用函数操作</a>
         </h2>
 
         <div class="post-meta">
@@ -342,7 +346,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-06 11:38:21" itemprop="dateCreated datePublished" datetime="2021-08-06T11:38:21+08:00">2021-08-06</time>
+              <time title="创建时间：2021-10-07 19:03:17" itemprop="dateCreated datePublished" datetime="2021-10-07T19:03:17+08:00">2021-10-07</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -357,12 +361,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
                 </span>
             </span>
 
           
-            <span id="/2021/08/Warning-Generating-equals-hashCode-implementation-but-without-a-call-to-superclass/" class="post-meta-item leancloud_visitors" data-flag-title="Warning: Generating equals/hashCode implementation but without a call to superclass" title="阅读次数">
+            <span id="/2021/10/pandas%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%93%8D%E4%BD%9C/" class="post-meta-item leancloud_visitors" data-flag-title="pandas常用函数操作" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -378,8 +382,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2021/08/Warning-Generating-equals-hashCode-implementation-but-without-a-call-to-superclass/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/08/Warning-Generating-equals-hashCode-implementation-but-without-a-call-to-superclass/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/10/pandas%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%93%8D%E4%BD%9C/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/pandas%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -406,16 +410,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>编译项目时，遇到这样一个错误提示。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Warning:(12, 1) Generating equals&#x2F;hashCode implementation but without a call to superclass, even though</span><br><span class="line"> this class does not extend java.lang.Object. If this is intentional, add &#39;(callSuper&#x3D;false)&#39; to your type.</span><br></pre></td></tr></table></figure>
-<p>这是由于我们使用lombok的<code>@Data</code>注解时造成的。使用@Data注解时，子类的equals和hashCode方法，默认是不比较父类的属性的。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> PRIME = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">int</span> result = <span class="keyword">super</span>.hashCode(); <span class="comment">// 默认这句话是没有的</span></span><br><span class="line">    Object $ext = <span class="keyword">this</span>.getExt();</span><br><span class="line">    result = result * <span class="number">59</span> + ($ext == <span class="keyword">null</span> ? <span class="number">43</span> : $ext.hashCode());</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>解决方案有两个。</p>
-<p>在类上再添加一个注解：<code>@EqualsAndHashCode(callSuper = true)</code></p>
-<p>这样有个问题就是，只要继承了其他类，都要加这个注解。</p>
-<p>还有一个通用的解决方法，在<code>src/main/java</code>文件夹下面，注意，不是<code>src/main/resources</code>下面，添加配置文件<code>lombok.config</code></p>
-<p>文件里面的内容为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lombok.equalsAndHashCode.callSuper&#x3D;call</span><br></pre></td></tr></table></figure>
+          <h1 id="删除列"><a href="#删除列" class="headerlink" title="删除列"></a>删除列</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.drop([col1, col2], axis=<span class="number">1</span>)</span><br><span class="line">df.drop(columns=[col1, col2])</span><br></pre></td></tr></table></figure>
+<h1 id="删除行"><a href="#删除行" class="headerlink" title="删除行"></a>删除行</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.drop([index1, index2], axis=<span class="number">0</span>)</span><br><span class="line">df.drop(index=[index1, index2])</span><br></pre></td></tr></table></figure>
+<h1 id="查找唯一"><a href="#查找唯一" class="headerlink" title="查找唯一"></a>查找唯一</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[col].unique()</span><br></pre></td></tr></table></figure>
+<h1 id="按值筛选"><a href="#按值筛选" class="headerlink" title="按值筛选"></a>按值筛选</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[df[col].isin([<span class="string">'银行'</span>, <span class="string">'保险'</span>])]</span><br></pre></td></tr></table></figure>
+<h1 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bins = [<span class="number">0</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>]</span><br><span class="line">pd.cut(df[col], bins, labels=[l1, l2, ...])</span><br></pre></td></tr></table></figure>
+<p>分为5个桶 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.qcut(df[col], <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="长宽转换"><a href="#长宽转换" class="headerlink" title="长宽转换"></a>长宽转换</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.stack()</span><br></pre></td></tr></table></figure>
+<p>原来的Index变成MultiIndex: (index1, col1), (index1, col2), (index1, col1), (index2, col2)</p>
+<p>宽表转长表</p>
+<p>平安银行 yoy_2019 yoy_2020 yoy_2021</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.melt(id_vars=[col1], var_name=[<span class="string">'year'</span>], value_name=<span class="string">'yoy'</span>)</span><br></pre></td></tr></table></figure>
+<p>长表转宽表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.pivot_table(index=[col1], columns=[<span class="string">'year'</span>], values=[<span class="string">'yoy'</span>])</span><br></pre></td></tr></table></figure>
+<h1 id="apply-和applymap"><a href="#apply-和applymap" class="headerlink" title="apply()和applymap()"></a>apply()和applymap()</h1><p>apply按列、行应用函数</p>
+<h1 id="分位数"><a href="#分位数" class="headerlink" title="分位数"></a>分位数</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.quantile([<span class="number">0.1</span>, <span class="number">0.2</span>])</span><br></pre></td></tr></table></figure>
+<h1 id="相关性"><a href="#相关性" class="headerlink" title="相关性"></a>相关性</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[col1].corr(df[col2])</span><br></pre></td></tr></table></figure>
+<h1 id="date-range"><a href="#date-range" class="headerlink" title="date_range"></a>date_range</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.date_range(<span class="string">'2020-01-31'</span>, <span class="string">'2021-12-31'</span>, freq=<span class="string">'M'</span>)</span><br></pre></td></tr></table></figure>
+<p>就会生成每个月最后一天的日期序列。</p>
+
       
     </div>
 
@@ -434,7 +448,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/08/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96Kafka%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%B7/">
+    <link itemprop="mainEntityOfPage" href="finolo.gy/2021/10/Python-range%E5%92%8Carange%E7%9A%84%E5%8C%BA%E5%88%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -448,7 +462,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96Kafka%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%B7/" class="post-title-link" itemprop="url">如何获取Kafka的版本号</a>
+            <a href="/2021/10/Python-range%E5%92%8Carange%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">Python range和arange的区别</a>
         </h2>
 
         <div class="post-meta">
@@ -458,7 +472,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-05 15:44:18" itemprop="dateCreated datePublished" datetime="2021-08-05T15:44:18+08:00">2021-08-05</time>
+              <time title="创建时间：2021-10-05 11:06:51" itemprop="dateCreated datePublished" datetime="2021-10-05T11:06:51+08:00">2021-10-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -473,16 +487,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Middleware/" itemprop="url" rel="index"><span itemprop="name">Middleware</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Middleware/Kafka/" itemprop="url" rel="index"><span itemprop="name">Kafka</span></a>
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
                 </span>
             </span>
 
           
-            <span id="/2021/08/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96Kafka%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%B7/" class="post-meta-item leancloud_visitors" data-flag-title="如何获取Kafka的版本号" title="阅读次数">
+            <span id="/2021/10/Python-range%E5%92%8Carange%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-meta-item leancloud_visitors" data-flag-title="Python range和arange的区别" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -498,8 +508,8 @@
 <!--      <span class="post-meta-item-text">Valine：</span>-->
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2021/08/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96Kafka%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%B7/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/08/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96Kafka%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%B7/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/10/Python-range%E5%92%8Carange%E7%9A%84%E5%8C%BA%E5%88%AB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/Python-range%E5%92%8Carange%E7%9A%84%E5%8C%BA%E5%88%AB/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -526,14 +536,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>一般执行命令时带个-version参数，就能看到程序的版本号，但Kafka不行。</p>
-<p>如何查看呢，先看到kafka的进程id。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ps -ef | grep kafka</span></span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> jps</span></span><br><span class="line">29190 Kafka</span><br><span class="line">29675 Jps</span><br><span class="line">28734 QuorumPeerMain</span><br></pre></td></tr></table></figure>
-<p>然后看查此进程的启动位置。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> pwdx 29190</span></span><br><span class="line">29190: /usr/local/kafka/kafka_2.12-2.6.2</span><br></pre></td></tr></table></figure>
-<p>就能查看到Kafka的版本了，正常人在安装时，都不会修改这个路径的。</p>
+          <p><code>range</code> 函数用于生成一个整数（integer）序列。</p>
+<p>range(start, end, step)，返回类型为range，左闭右开区间。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>):</span><br><span class="line">    print(i)</span><br><span class="line">    </span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">9</span></span><br></pre></td></tr></table></figure>
+<p><code>arange</code> 是 numpy 包下面的函数，生成一个 float64 的 Array。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> np.arange(<span class="number">1</span>, <span class="number">2</span>, <span class="number">0.1</span>):</span><br><span class="line">    print(i)</span><br><span class="line">    </span><br><span class="line"><span class="number">1.0</span></span><br><span class="line"><span class="number">1.1</span></span><br><span class="line"><span class="number">1.2000000000000002</span></span><br><span class="line"><span class="number">1.3000000000000003</span></span><br><span class="line"><span class="number">1.4000000000000004</span></span><br><span class="line"><span class="number">1.5000000000000004</span></span><br><span class="line"><span class="number">1.6000000000000005</span></span><br><span class="line"><span class="number">1.7000000000000006</span></span><br><span class="line"><span class="number">1.8000000000000007</span></span><br><span class="line"><span class="number">1.9000000000000008</span></span><br></pre></td></tr></table></figure>
+<p>这里涉及到一个问题就是 float 比较大小的问题，可以使用 <code>math.isclose()</code> 函数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> math.isclose(<span class="number">1.2000000000000002</span>, <span class="number">1.2</span>, rel_tol=<span class="number">1e-5</span>)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -553,7 +562,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/29/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><span class="space">&hellip;</span><a class="page-number" href="/page/123/">123</a><a class="extend next" rel="next" href="/page/31/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/29/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><span class="space">&hellip;</span><a class="page-number" href="/page/125/">125</a><a class="extend next" rel="next" href="/page/31/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -632,7 +641,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">368</span>
+          <span class="site-state-item-count">375</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
