@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"finolo.gy","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"finolo.gy","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Finology 大数据金融">
@@ -49,16 +49,21 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
 <script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
   
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-
-
-
-
-  
-
-
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"SfaSE3g5tgBX5HeHdlgjym1o-gzGzoHsz","app_key":"iTsJGCNiGxrdBjV47UDN6X8p","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js" defer></script>
 
 
 
@@ -93,6 +98,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -101,11 +107,37 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </header>
         
@@ -137,7 +169,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">376</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -165,191 +197,6 @@
     </div>
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/05/Python-itertools%E6%A8%A1%E6%8B%9F%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/05/Python-itertools%E6%A8%A1%E6%8B%9F%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/" class="post-title-link" itemprop="url">Python itertools模拟排列组合</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-05-04 19:28:02" itemprop="dateCreated datePublished" datetime="2020-05-04T19:28:02+08:00">2020-05-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="公式回顾"><a href="#公式回顾" class="headerlink" title="公式回顾"></a>公式回顾</h1><p>高中所学的排列组合，我们用程序来模拟一下。</p>
-<p>如果是从 n 个元素中取出 n 个元素进行排列，那一共有 n! 种排法。</p>
-<p>因为，有 n 个元素，放入 n 个盒子里，第1个盒子有 n 种取法，第2个盒子有 n - 1 种取法，第 n 个盒子有 1 种取法，根据分步算法，n * (n - 1) * (n - 2) * … * 1 &#x3D; n! 。</p>
-<p>那如果是 n 个元素，任取 m 个排列，那同理能得出如下公式。</p>
-<p>$ P_n^m&#x3D;\frac{n!}{(n-m)!} $</p>
-<p>如果是组合，我们把 m 个元素的阶乘除掉即可。</p>
-<p>$ C_n^m&#x3D;\frac{n!}{(n-m)!m!} $</p>
-<p>同时，排列组合还有如下两个重要公式：</p>
-<p>$ P_{n+1}^m&#x3D;P_n^m+mP_n^{m-1} $</p>
-<p>$ C_{n+1}^m&#x3D;C_n^m+C_n^{m-1} $</p>
-<h1 id="排列"><a href="#排列" class="headerlink" title="排列"></a>排列</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"><span class="built_in">list</span> = <span class="built_in">range</span>(<span class="number">3</span>)</span><br><span class="line">p = itertools.permutations(<span class="built_in">list</span>, <span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> p:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">    </span><br><span class="line">(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">(<span class="number">0</span>, <span class="number">2</span>)</span><br><span class="line">(<span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">(<span class="number">2</span>, <span class="number">0</span>)</span><br><span class="line">(<span class="number">2</span>, <span class="number">1</span>)    </span><br></pre></td></tr></table></figure>
-
-<h1 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">c = itertools.combinations(<span class="built_in">list</span>, <span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> c:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">    </span><br><span class="line">(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">(<span class="number">0</span>, <span class="number">2</span>)</span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/05/Java%E5%A6%82%E4%BD%95%E5%9C%A8String-format%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%99%BE%E5%88%86%E5%8F%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/05/Java%E5%A6%82%E4%BD%95%E5%9C%A8String-format%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%99%BE%E5%88%86%E5%8F%B7/" class="post-title-link" itemprop="url">Java如何在String.format中显示百分号&#37;</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-05-03 15:38:55" itemprop="dateCreated datePublished" datetime="2020-05-03T15:38:55+08:00">2020-05-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>如果要显示 <code>%</code>，我们需要在前面再加一个 <code>%</code>，做为转义用。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String.format(<span class="string">&quot;%d%%&quot;</span>, <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
-
-<p>这时才会正确显示 <code>100%</code>。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -412,6 +259,13 @@
     </span>
 
   
+    <span id="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/" class="post-meta-item leancloud_visitors" data-flag-title="Python matplotlib绘图时x轴标签重叠覆盖" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
 </div>
 
         </div>
@@ -467,6 +321,224 @@
 
 
 
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/Python%E5%88%9B%E5%BB%BADataFrame/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/04/Python%E5%88%9B%E5%BB%BADataFrame/" class="post-title-link" itemprop="url">Python创建DataFrame</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-30 19:48:03" itemprop="dateCreated datePublished" datetime="2020-04-30T19:48:03+08:00">2020-04-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/Pandas/" itemprop="url" rel="index"><span itemprop="name">Pandas</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/04/Python%E5%88%9B%E5%BB%BADataFrame/" class="post-meta-item leancloud_visitors" data-flag-title="Python创建DataFrame" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>创建 DataFrame 的几种方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">pandas</span>.DataFrame(data=<span class="literal">None</span>, index: <span class="type">Optional</span>[Collection] = <span class="literal">None</span>, columns: <span class="type">Optional</span>[Collection] = <span class="literal">None</span>,</span><br><span class="line">    dtype: <span class="type">Union</span>[<span class="built_in">str</span>, numpy.dtype, ExtensionDtype, <span class="literal">None</span>] = <span class="literal">None</span>, copy: <span class="built_in">bool</span> = <span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p>data 参数可以是：ndarray (structured or homogeneous), Iterable, dict, or DataFrame.<br>Dict can contain Series, arrays, constants, or list-like objects.</p>
+<h1 id="由数组-list组成的字典创建-DataFrame"><a href="#由数组-list组成的字典创建-DataFrame" class="headerlink" title="由数组&#x2F;list组成的字典创建 DataFrame"></a>由数组&#x2F;list组成的字典创建 DataFrame</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">d = &#123;<span class="string">&#x27;col1&#x27;</span>: [<span class="number">1</span>, <span class="number">2</span>], <span class="string">&#x27;col2&#x27;</span>: [<span class="number">3</span>, <span class="number">4</span>]&#125;</span><br><span class="line">df = pd.DataFrame(d)</span><br><span class="line">df</span><br><span class="line"></span><br><span class="line">	col1	col2</span><br><span class="line"><span class="number">0</span>	<span class="number">1</span>	<span class="number">3</span></span><br><span class="line"><span class="number">1</span>	<span class="number">2</span>	<span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<p>看看创建的 DataFrame 元素的类型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df.dtypes</span><br><span class="line"></span><br><span class="line">col1    int64</span><br><span class="line">col2    int64</span><br><span class="line">dtype: <span class="built_in">object</span></span><br></pre></td></tr></table></figure>
+
+<p>如果要修改类型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">df2 = pd.DataFrame(d, dtype=np.int8)</span><br><span class="line">df2.dtypes</span><br><span class="line"></span><br><span class="line">col1    int8</span><br><span class="line">col2    int8</span><br><span class="line">dtype: <span class="built_in">object</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="由-Series-组成的字典创建-DataFrame"><a href="#由-Series-组成的字典创建-DataFrame" class="headerlink" title="由 Series 组成的字典创建 DataFrame"></a>由 Series 组成的字典创建 DataFrame</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df3 = pd.DataFrame(&#123;<span class="string">&#x27;col1&#x27;</span>: pd.Series([<span class="number">1</span>, <span class="number">2</span>]), <span class="string">&#x27;col2&#x27;</span>: pd.Series([<span class="number">3</span>, <span class="number">4</span>])&#125;)</span><br><span class="line">df3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    col1	col2</span><br><span class="line"><span class="number">0</span>	<span class="number">1</span>	<span class="number">3</span></span><br><span class="line"><span class="number">1</span>	<span class="number">2</span>	<span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="由字典组成的列表创建-DataFrame"><a href="#由字典组成的列表创建-DataFrame" class="headerlink" title="由字典组成的列表创建 DataFrame"></a>由字典组成的列表创建 DataFrame</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df4 = pd.DataFrame([&#123;<span class="string">&#x27;col1&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;col2&#x27;</span>: <span class="number">3</span>&#125;, &#123;<span class="string">&#x27;col1&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;col2&#x27;</span>: <span class="number">4</span>&#125;])</span><br><span class="line">df4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    col1	col2</span><br><span class="line"><span class="number">0</span>	<span class="number">1</span>	<span class="number">3</span></span><br><span class="line"><span class="number">1</span>	<span class="number">2</span>	<span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="由字典组成的字典创建-DataFrame"><a href="#由字典组成的字典创建-DataFrame" class="headerlink" title="由字典组成的字典创建 DataFrame"></a>由字典组成的字典创建 DataFrame</h1><p>column 为父字典的 key，index 为子字典的 key。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df4 = pd.DataFrame(&#123;<span class="string">&#x27;col1&#x27;</span>: &#123;<span class="string">&#x27;idx1&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;idx2&#x27;</span>: <span class="number">2</span>&#125;, <span class="string">&#x27;col2&#x27;</span>: &#123;<span class="string">&#x27;idx1&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;idx2&#x27;</span>: <span class="number">4</span>&#125;&#125;)</span><br><span class="line">df4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        col1	col2</span><br><span class="line">idx1	<span class="number">1</span>	<span class="number">3</span></span><br><span class="line">idx2	<span class="number">2</span>	<span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="由二维数组创建-DataFrame"><a href="#由二维数组创建-DataFrame" class="headerlink" title="由二维数组创建 DataFrame"></a>由二维数组创建 DataFrame</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df5 = pd.DataFrame([[<span class="number">1</span>, <span class="number">3</span>], [<span class="number">2</span>, <span class="number">4</span>]])</span><br><span class="line">df5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="number">0</span>	<span class="number">1</span></span><br><span class="line"><span class="number">0</span>	<span class="number">1</span>	<span class="number">3</span></span><br><span class="line"><span class="number">1</span>	<span class="number">2</span>	<span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<p>当然，也可以自定义 index 和 column</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">df6 = pd.DataFrame([[<span class="number">1</span>, <span class="number">3</span>], [<span class="number">2</span>, <span class="number">4</span>]], index=[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>], columns=[<span class="string">&#x27;c1&#x27;</span>, <span class="string">&#x27;c2&#x27;</span>])</span><br><span class="line">df6</span><br><span class="line"></span><br><span class="line">	c1	c2</span><br><span class="line">a	<span class="number">1</span>	<span class="number">3</span></span><br><span class="line">b	<span class="number">2</span>	<span class="number">4</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/Windows-10%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90Github-SSH%E5%85%AC%E9%92%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/04/Windows-10%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90Github-SSH%E5%85%AC%E9%92%A5/" class="post-title-link" itemprop="url">Windows 10环境生成Github SSH公钥</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-29 17:20:51" itemprop="dateCreated datePublished" datetime="2020-04-29T17:20:51+08:00">2020-04-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/04/Windows-10%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90Github-SSH%E5%85%AC%E9%92%A5/" class="post-meta-item leancloud_visitors" data-flag-title="Windows 10环境生成Github SSH公钥" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>不管是 Windows 还是 Linux，想要不输入用户名和密码操作 Git，只需要把 id_rsa.pub 公钥复制粘贴到 Github 里面就行了。</p>
+<h1 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h1><h1 id="打开-Git-Bash"><a href="#打开-Git-Bash" class="headerlink" title="打开 Git Bash"></a>打开 Git Bash</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-keygen -t rsa -C <span class="string">&quot;simon@finolo.gy&quot;</span></span></span><br><span class="line"></span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/c/Users/simon/.ssh/id_rsa):</span><br><span class="line">Enter passphrase (empty for no passphrase):</span><br><span class="line">Enter same passphrase again:</span><br><span class="line">Your identification has been saved in /c/Users/simon/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved in /c/Users/simon/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:epRQbzd91E6aLp3aM+ym2FEZMgLNCkA108nb5lsk7CM simon@finolo.gy</span><br><span class="line">The key&#x27;s randomart image is:</span><br><span class="line">+---[RSA 3072]----+</span><br><span class="line">|   .oo+oo+      o|</span><br><span class="line">|      .++oo  . .o|</span><br><span class="line">|      .. =+ = o=.|</span><br><span class="line">|       .oo=o.+o+.|</span><br><span class="line">|        S+ o oo. |</span><br><span class="line">|       oE + o.+  |</span><br><span class="line">|      . .. +.=   |</span><br><span class="line">|       .  .o..*  |</span><br><span class="line">|          . o+.o |</span><br><span class="line">+----[SHA256]-----+</span><br></pre></td></tr></table></figure>
+
+<p>这个邮箱可以随便输入的，并不需要是 Github.com 的登录帐户。</p>
+<h1 id="拷贝-id-rsa-pub-内容到-Github"><a href="#拷贝-id-rsa-pub-内容到-Github" class="headerlink" title="拷贝 id_rsa.pub 内容到 Github"></a>拷贝 id_rsa.pub 内容到 Github</h1><p>Settings -&gt; SSH and GPG keys -&gt; New SSH key</p>
+<p>把前面生成的 &#x2F;c&#x2F;Users&#x2F;simon&#x2F;.ssh&#x2F;id_rsa.pub 文件内容粘贴上去就可以了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/53/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/53/">53</a><span class="page-number current">54</span><a class="page-number" href="/page/55/">55</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/55/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -485,7 +557,25 @@
     </span>
     <span class="author" itemprop="copyrightHolder">Simon</span>
   </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by Finolo.gy
   </div>
 
     </div>

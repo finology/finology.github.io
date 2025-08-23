@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"finolo.gy","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"finolo.gy","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Finology 大数据金融">
@@ -49,16 +49,21 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
 <script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
   
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-
-
-
-
-  
-
-
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"SfaSE3g5tgBX5HeHdlgjym1o-gzGzoHsz","app_key":"iTsJGCNiGxrdBjV47UDN6X8p","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js" defer></script>
 
 
 
@@ -93,6 +98,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -101,11 +107,37 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </header>
         
@@ -137,7 +169,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">376</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -174,7 +206,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/01/%E5%AE%89%E8%A3%85Hadoop/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/11/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Sublime-Text3%E6%A0%BC%E5%BC%8F%E5%8C%96json/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -192,7 +224,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/01/%E5%AE%89%E8%A3%85Hadoop/" class="post-title-link" itemprop="url">安装Hadoop</a>
+          <a href="/2018/11/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Sublime-Text3%E6%A0%BC%E5%BC%8F%E5%8C%96json/" class="post-title-link" itemprop="url">如何使用Sublime Text3格式化json</a>
         </h2>
 
         <div class="post-meta-container">
@@ -203,7 +235,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2019-01-08 10:42:54" itemprop="dateCreated datePublished" datetime="2019-01-08T10:42:54+08:00">2019-01-08</time>
+      <time title="创建时间：2018-11-02 21:31:50" itemprop="dateCreated datePublished" datetime="2018-11-02T21:31:50+08:00">2018-11-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -218,15 +250,22 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+          <a href="/categories/Tools/Sublime/" itemprop="url" rel="index"><span itemprop="name">Sublime</span></a>
         </span>
     </span>
 
   
+    <span id="/2018/11/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Sublime-Text3%E6%A0%BC%E5%BC%8F%E5%8C%96json/" class="post-meta-item leancloud_visitors" data-flag-title="如何使用Sublime Text3格式化json" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
 </div>
 
         </div>
@@ -236,57 +275,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="下载Hadoop安装包"><a href="#下载Hadoop安装包" class="headerlink" title="下载Hadoop安装包"></a>下载Hadoop安装包</h1><p>我们选择安装hadoop cdh5版本，hadoop-2.6.0-cdh5.7.0</p>
-<p>下载并解压</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/hadoop</span><br><span class="line"></span><br><span class="line">wget http://archive.cloudera.com/cdh5/cdh/5/hadoop-2.6.0-cdh5.7.0.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxvf hadoop-2.6.0-cdh5.7.0.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h1 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bash_profile</span><br></pre></td></tr></table></figure>
-
-<p>添加如下内容</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export HADOOP_HOME=/usr/local/hadoop/hadoop-2.6.0-cdh5.7.0</span><br></pre></td></tr></table></figure>
-
-<p>执行<code>source</code>命令让其配置生效</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
-
-<h1 id="设置ssh免密登录"><a href="#设置ssh免密登录" class="headerlink" title="设置ssh免密登录"></a>设置ssh免密登录</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub simon@localhost</span><br></pre></td></tr></table></figure>
-
-<p>以上设置成功后，我们可以发现ssh登录时不需要密码了。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh simon@localhost</span><br><span class="line">Last login: Mon Jan 08 10:45:10 2019</span><br></pre></td></tr></table></figure>
-
-<h1 id="其他Linux配置"><a href="#其他Linux配置" class="headerlink" title="其他Linux配置"></a>其他Linux配置</h1><p>我目前所有的大数据组件都是用于开发验证，所以都是安装在本地的macOS环境下。如果在真实的Linux集群环境下安装，还需要配置hostname等信息</p>
-<p>Linux下修改hostname</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/network</span><br></pre></td></tr></table></figure>
-
-<p>添加如下内容</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NETWORKING=yes</span><br><span class="line">HOSTNAME=hadoop001</span><br></pre></td></tr></table></figure>
-
-<p>修改<code>/etc/hosts</code>文件，配置主机和ip的映射关系</p>
-<h1 id="Hadoop配置文件修改"><a href="#Hadoop配置文件修改" class="headerlink" title="Hadoop配置文件修改"></a>Hadoop配置文件修改</h1><h2 id="etc-hadoop-hadoop-env-sh"><a href="#etc-hadoop-hadoop-env-sh" class="headerlink" title="etc&#x2F;hadoop&#x2F;hadoop-env.sh"></a>etc&#x2F;hadoop&#x2F;hadoop-env.sh</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home</span><br></pre></td></tr></table></figure>
-
-<h2 id="etc-hadoop-core-site-xml"><a href="#etc-hadoop-core-site-xml" class="headerlink" title="etc&#x2F;hadoop&#x2F;core-site.xml"></a>etc&#x2F;hadoop&#x2F;core-site.xml</h2><p>伪分布式配置</p>
-<p>Hadoop 2.x版本默认端口为8020而非1.x版本的9000。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://localhost:8020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>设置tmp文件夹，默认地址为&#x2F;tmp&#x2F;hadoop-${user.name}</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/local/hadoop/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="etc-hadoop-hdfs-site-xml"><a href="#etc-hadoop-hdfs-site-xml" class="headerlink" title="etc&#x2F;hadoop&#x2F;hdfs-site.xml"></a>etc&#x2F;hadoop&#x2F;hdfs-site.xml</h2><p>设置文件系统复本系数。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="格式化HDFS"><a href="#格式化HDFS" class="headerlink" title="格式化HDFS"></a>格式化HDFS</h1><p>这一步操作只需要执行一次，格式化后，HDFS上的数据会被清空。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/hdfs namenode -format</span><br></pre></td></tr></table></figure>
-
-<p>注：<code>bin</code>目录存放客户端命令，<code>sbin</code>存放服务端命令。</p>
-<h1 id="启动HDFS"><a href="#启动HDFS" class="headerlink" title="启动HDFS"></a>启动HDFS</h1><h2 id="启动NameNode和DataNode"><a href="#启动NameNode和DataNode" class="headerlink" title="启动NameNode和DataNode"></a>启动NameNode和DataNode</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sbin/start-dfs.sh</span><br><span class="line"></span><br><span class="line">19/01/08 13:11:40 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Starting namenodes on [localhost]</span><br><span class="line">localhost: starting namenode, logging to /usr/local/hadoop/hadoop-2.6.0-cdh5.7.0/logs/hadoop-simon-namenode-localhost.out</span><br><span class="line">localhost: starting datanode, logging to /usr/local/hadoop/hadoop-2.6.0-cdh5.7.0/logs/hadoop-simon-datanode-localhost.out</span><br><span class="line">Starting secondary namenodes [0.0.0.0]</span><br><span class="line">0.0.0.0: starting secondarynamenode, logging to /usr/local/hadoop/hadoop-2.6.0-cdh5.7.0/logs/hadoop-simon-secondarynamenode-localhost.out</span><br><span class="line">19/01/08 13:11:55 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br></pre></td></tr></table></figure>
-
-<p>我们注意到这一句<code>localhost: starting datanode</code>，这句里面的localhost，是和<code>slaves</code>从节点中的名字相同的。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat etc/hadoop/slaves</span><br><span class="line">localhost</span><br></pre></td></tr></table></figure>
-
-<h2 id="验证是否启动成功"><a href="#验证是否启动成功" class="headerlink" title="验证是否启动成功"></a>验证是否启动成功</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jps</span><br><span class="line">18242 SecondaryNameNode</span><br><span class="line">18150 DataNode</span><br><span class="line">18079 NameNode</span><br></pre></td></tr></table></figure>
-
-<p>拥有这三个进程就说明已经启动成功。</p>
-<p>同时我们还可以通过Web UI查看</p>
-<p><a target="_blank" rel="noopener" href="http://localhost:50070/">http://localhost:50070/</a></p>
+          <p>有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。</p>
+<h1 id="下载Sublime-Text3"><a href="#下载Sublime-Text3" class="headerlink" title="下载Sublime Text3"></a>下载Sublime Text3</h1><p><a target="_blank" rel="noopener" href="http://www.sublimetext.com/3">http://www.sublimetext.com/3</a></p>
+<p>我们选择OS X系统</p>
+<h1 id="安装Package-Control"><a href="#安装Package-Control" class="headerlink" title="安装Package Control"></a>安装Package Control</h1><p>使用快捷键<code>ctrl+</code> 或 <code>View -&gt; Show Console</code> 打开输入框，复制以下内容到输入框。</p>
+<p>SUBLIME TEXT 3<br> <pre></pre> </p>
+<h1 id="安装pretty-json"><a href="#安装pretty-json" class="headerlink" title="安装pretty json"></a>安装pretty json</h1><p>快捷键<code>ctrl+shift+p</code>, 打开面板，选中<code>Package Control: Install Package</code>并回车，然后再输入pretty json，找到插件回车安装即可。</p>
+<h1 id="使用pretty-json"><a href="#使用pretty-json" class="headerlink" title="使用pretty json"></a>使用pretty json</h1><p>使用<code>ctrl+alt+j</code>快捷键来格式化当前页面的内容。</p>
 
       
     </div>
@@ -366,6 +361,13 @@
     </span>
 
   
+    <span id="/2018/11/%E4%B8%8B%E8%BD%BDSublime-Text3/" class="post-meta-item leancloud_visitors" data-flag-title="下载Sublime Text3" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
 </div>
 
         </div>
@@ -410,7 +412,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/11/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Sublime-Text3%E6%A0%BC%E5%BC%8F%E5%8C%96json/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/10/npm%E5%A4%AA%E6%85%A2%EF%BC%8C%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E6%B7%98%E5%AE%9D%E6%BA%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -428,7 +430,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/11/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Sublime-Text3%E6%A0%BC%E5%BC%8F%E5%8C%96json/" class="post-title-link" itemprop="url">如何使用Sublime Text3格式化json</a>
+          <a href="/2018/10/npm%E5%A4%AA%E6%85%A2%EF%BC%8C%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E6%B7%98%E5%AE%9D%E6%BA%90/" class="post-title-link" itemprop="url">npm太慢，配置国内淘宝源</a>
         </h2>
 
         <div class="post-meta-container">
@@ -439,7 +441,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2018-11-02 21:31:50" itemprop="dateCreated datePublished" datetime="2018-11-02T21:31:50+08:00">2018-11-02</time>
+      <time title="创建时间：2018-10-31 23:52:22" itemprop="dateCreated datePublished" datetime="2018-10-31T23:52:22+08:00">2018-10-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -448,21 +450,15 @@
       <span class="post-meta-item-text">更新于</span>
       <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/Sublime/" itemprop="url" rel="index"><span itemprop="name">Sublime</span></a>
-        </span>
-    </span>
 
   
+    <span id="/2018/10/npm%E5%A4%AA%E6%85%A2%EF%BC%8C%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E6%B7%98%E5%AE%9D%E6%BA%90/" class="post-meta-item leancloud_visitors" data-flag-title="npm太慢，配置国内淘宝源" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
 </div>
 
         </div>
@@ -472,13 +468,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>有一些网站提供了格式化json的功能，如果没有网络时，或者json字符串很长时，还是需要一个可以格式json的软件，这里我们使用Sublime Text3来格式化json。</p>
-<h1 id="下载Sublime-Text3"><a href="#下载Sublime-Text3" class="headerlink" title="下载Sublime Text3"></a>下载Sublime Text3</h1><p><a target="_blank" rel="noopener" href="http://www.sublimetext.com/3">http://www.sublimetext.com/3</a></p>
-<p>我们选择OS X系统</p>
-<h1 id="安装Package-Control"><a href="#安装Package-Control" class="headerlink" title="安装Package Control"></a>安装Package Control</h1><p>使用快捷键<code>ctrl+</code> 或 <code>View -&gt; Show Console</code> 打开输入框，复制以下内容到输入框。</p>
-<p>SUBLIME TEXT 3<br> <pre></pre> </p>
-<h1 id="安装pretty-json"><a href="#安装pretty-json" class="headerlink" title="安装pretty json"></a>安装pretty json</h1><p>快捷键<code>ctrl+shift+p</code>, 打开面板，选中<code>Package Control: Install Package</code>并回车，然后再输入pretty json，找到插件回车安装即可。</p>
-<h1 id="使用pretty-json"><a href="#使用pretty-json" class="headerlink" title="使用pretty json"></a>使用pretty json</h1><p>使用<code>ctrl+alt+j</code>快捷键来格式化当前页面的内容。</p>
+          <p>今天在npm install前端代码时，下载速度非常慢，要下载的东西下载不下来。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Downloading binary from https://github.com/sass/node-sass/releases/download/v4.7.2/darwin-x64-64_bin</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>还遇到如下错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR in ./~/css-loader?sourceMap!./~/resolve-url-loader?sourceMap!./~/sass-loader?sourceMap!./src/directives/plan-task/index.scss</span><br><span class="line">    Module build failed: Error: Cannot find module &#x27;node-sass&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>所以得考虑把npm的源换到国内，换成淘宝的镜像，命令如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<p>设置成功后，可以查看目前系统使用的源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br><span class="line">https://registry.npm.taobao.org/</span><br></pre></td></tr></table></figure>
+
+<p>像之前遇到的问题Cannot find module ‘node-sass’，我们可以再次执行<code>npm install node-sass</code>安装。</p>
+<p>如果不想使用淘宝源了，可以还原回去。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config delete registry</span><br><span class="line">npm config delete disturl</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>或者 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config edit </span><br></pre></td></tr></table></figure>
+<p>找到淘宝那两行，删除即可。</p>
 
       
     </div>
@@ -515,7 +522,25 @@
     </span>
     <span class="author" itemprop="copyrightHolder">Simon</span>
   </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by Finolo.gy
   </div>
 
     </div>

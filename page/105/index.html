@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"finolo.gy","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"finolo.gy","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Finology 大数据金融">
@@ -49,16 +49,21 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
 <script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
   
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-
-
-
-
-  
-
-
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"SfaSE3g5tgBX5HeHdlgjym1o-gzGzoHsz","app_key":"iTsJGCNiGxrdBjV47UDN6X8p","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js" defer></script>
 
 
 
@@ -93,6 +98,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -101,11 +107,37 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </header>
         
@@ -137,7 +169,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">376</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -165,140 +197,6 @@
     </div>
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/02/%E5%88%9B%E5%BB%BASpark-SQL-Hive%E7%A8%8B%E5%BA%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/02/%E5%88%9B%E5%BB%BASpark-SQL-Hive%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">创建Spark SQL Hive程序</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-02-11 22:49:47" itemprop="dateCreated datePublished" datetime="2019-02-11T22:49:47+08:00">2019-02-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/Spark-SQL/" itemprop="url" rel="index"><span itemprop="name">Spark SQL</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在这篇文章中，我们将使用SparkSession，打印出Hive中的emp表的内容。</p>
-<p>Spark SQL最基础程序，可以参考博文 <a href="/2019/02/%E5%88%9B%E5%BB%BASpark-SQL%E7%A8%8B%E5%BA%8F/" title="创建Spark SQL程序">创建Spark SQL程序</a></p>
-<h1 id="创建SparkSessionHiveApp程序"><a href="#创建SparkSessionHiveApp程序" class="headerlink" title="创建SparkSessionHiveApp程序"></a>创建<code>SparkSessionHiveApp</code>程序</h1><h2 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scala.version</span>&gt;</span>2.11.12<span class="tag">&lt;/<span class="name">scala.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scala.compat.version</span>&gt;</span>2.11<span class="tag">&lt;/<span class="name">scala.compat.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">spark.version</span>&gt;</span>2.2.3<span class="tag">&lt;/<span class="name">spark.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.scala-lang<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>scala-library<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;scala.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.spark<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spark-sql_$&#123;scala.compat.version&#125;<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spark.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- hive support --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.spark<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spark-hive_$&#123;scala.compat.version&#125;<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spark.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.46<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="SparkSessionHiveApp"><a href="#SparkSessionHiveApp" class="headerlink" title="SparkSessionHiveApp"></a>SparkSessionHiveApp</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> gy.finolo.spark</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.sql.<span class="type">SparkSession</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">SparkSessionHiveApp</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建Spark Session</span></span><br><span class="line">    <span class="keyword">val</span> sparkSession = <span class="type">SparkSession</span>.builder()</span><br><span class="line">      .master(<span class="string">&quot;local[2]&quot;</span>)</span><br><span class="line">      .appName(<span class="string">&quot;Spark Session Hive App&quot;</span>)</span><br><span class="line">      .getOrCreate()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 业务处理</span></span><br><span class="line">    sparkSession.table(<span class="string">&quot;emp&quot;</span>).show()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 关闭资源</span></span><br><span class="line">    sparkSession.stop()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="创建emp表"><a href="#创建emp表" class="headerlink" title="创建emp表"></a>创建emp表</h1><h2 id="创建emp原始文件"><a href="#创建emp原始文件" class="headerlink" title="创建emp原始文件"></a>创建emp原始文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/local/spark/data/emp.csv</span><br></pre></td></tr></table></figure>
-
-<p>写入如下内容到emp.csv文件中。注意，有些字段为空值。</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">7369,SMITH,CLERK,7902,1980/12/17,800,,20</span><br><span class="line">7499,ALLEN,SALESMAN,7698,1981/2/20,1600,300,30</span><br><span class="line">7521,WARD,SALESMAN,7698,1981/2/22,1250,500,30</span><br><span class="line">7566,JONES,MANAGER,7839,1981/4/2,2975,,20</span><br><span class="line">7654,MARTIN,SALESMAN,7698,1981/9/28,1250,1400,30</span><br><span class="line">7698,BLAKE,MANAGER,7839,1981/5/1,2850,,30</span><br><span class="line">7782,CLARK,MANAGER,7839,1981/6/9,2450,,10</span><br><span class="line">7788,SCOTT,ANALYST,7566,1987/4/19,3000,,20</span><br><span class="line">7839,KING,PRESIDENT,,1981/11/17,5000,,10</span><br><span class="line">7844,TURNER,SALESMAN,7698,1981/9/8,1500,0,30</span><br><span class="line">7876,ADAMS,CLERK,7788,1987/5/23,1100,,20</span><br><span class="line">7900,JAMES,CLERK,7698,1981/12/3,950,,30</span><br><span class="line">7902,FORD,ANALYST,7566,1981/12/3,3000,,20</span><br><span class="line">7934,MILLER,CLERK,7782,1982/1/23,1300,,10</span><br></pre></td></tr></table></figure>
-
-<h2 id="在Hive中创建emp表"><a href="#在Hive中创建emp表" class="headerlink" title="在Hive中创建emp表"></a>在Hive中创建emp表</h2><p>Hive的基本使用，可以参考博文 <a href="/2019/01/Hive%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="Hive环境搭建">Hive环境搭建</a></p>
-<p>语句后面必须要有分号。</p>
-<p>hive&gt;<br>CREATE TABLE emp(<br>empno   INT,<br>ename   STRING,<br>job     STRING,<br>mgr     INT,<br>hiredate DATE,<br>sal     DOUBLE,<br>comm    DOUBLE,<br>deptno  INT<br>) ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘,’;</p>
-<h2 id="导入数据到emp表中"><a href="#导入数据到emp表中" class="headerlink" title="导入数据到emp表中"></a>导入数据到emp表中</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive&gt; LOAD DATA LOCAL INPATH &#x27;/usr/local/spark/data/emp.csv&#x27; INTO TABLE emp;</span><br></pre></td></tr></table></figure>
-
-<p>hiredate这里有一些问题，以后再解决。</p>
-<h2 id="在IDEA中运行程序"><a href="#在IDEA中运行程序" class="headerlink" title="在IDEA中运行程序"></a>在IDEA中运行程序</h2><p>可以看到emp表中的结果被成功打印在了控制台上。</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">19/02/12 00:00:23 INFO DAGScheduler: Job 0 finished: show at SparkSessionHiveApp.scala:21, took 0.340480 s</span><br><span class="line">+-----+------+---------+----+--------+------+------+------+</span><br><span class="line">|empno| ename|      job| mgr|hiredate|   sal|  comm|deptno|</span><br><span class="line">+-----+------+---------+----+--------+------+------+------+</span><br><span class="line">| 7369| SMITH|    CLERK|7902|    null| 800.0|  null|    20|</span><br><span class="line">| 7499| ALLEN| SALESMAN|7698|    null|1600.0| 300.0|    30|</span><br><span class="line">| 7521|  WARD| SALESMAN|7698|    null|1250.0| 500.0|    30|</span><br><span class="line">| 7566| JONES|  MANAGER|7839|    null|2975.0|  null|    20|</span><br><span class="line">| 7654|MARTIN| SALESMAN|7698|    null|1250.0|1400.0|    30|</span><br><span class="line">| 7698| BLAKE|  MANAGER|7839|    null|2850.0|  null|    30|</span><br><span class="line">| 7782| CLARK|  MANAGER|7839|    null|2450.0|  null|    10|</span><br><span class="line">| 7788| SCOTT|  ANALYST|7566|    null|3000.0|  null|    20|</span><br><span class="line">| 7839|  KING|PRESIDENT|null|    null|5000.0|  null|    10|</span><br><span class="line">| 7844|TURNER| SALESMAN|7698|    null|1500.0|   0.0|    30|</span><br><span class="line">| 7876| ADAMS|    CLERK|7788|    null|1100.0|  null|    20|</span><br><span class="line">| 7900| JAMES|    CLERK|7698|    null| 950.0|  null|    30|</span><br><span class="line">| 7902|  FORD|  ANALYST|7566|    null|3000.0|  null|    20|</span><br><span class="line">| 7934|MILLER|    CLERK|7782|    null|1300.0|  null|    10|</span><br><span class="line">+-----+------+---------+----+--------+------+------+------+</span><br></pre></td></tr></table></figure>
-
-<h1 id="打包并提交作业"><a href="#打包并提交作业" class="headerlink" title="打包并提交作业"></a>打包并提交作业</h1><p>在测试环境上面已经可以成功运行，我们现在打好包，以spark-submit方式提交作业。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-submit \</span><br><span class="line">--master local[2] \</span><br><span class="line">--class gy.finolo.spark.SparkSessionHiveApp \</span><br><span class="line">--jars /Users/simon/.m2/repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar \</span><br><span class="line">/Users/simon/Development/workspace/scala/spark-sql-demo/target/spark-sql-demo-1.0-SNAPSHOT.jar</span><br></pre></td></tr></table></figure>
-
-<p>需要通过<code>jars</code>参数指定JDBC驱动的位置。</p>
-<p>如果需要加载的jar很多怎么办？我将在以后的博文中讲到这个问题。</p>
-<h1 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h1><h2 id="JDBC驱动未添加"><a href="#JDBC驱动未添加" class="headerlink" title="JDBC驱动未添加"></a>JDBC驱动未添加</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Caused by: org.datanucleus.store.rdbms.connectionpool.DatastoreDriverNotFoundException: </span><br><span class="line">The specified datastore driver (&quot;com.mysql.jdbc.Driver&quot;) was not found in the CLASSPATH. </span><br><span class="line">Please check your CLASSPATH specification, and the name of the driver.</span><br></pre></td></tr></table></figure>
-
-<p>解决方案：</p>
-<p>如果是在IDEA中开发运行的话，那需要添加驱动的jar包。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.46<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="DatastoreDriverNotFound"><a href="#DatastoreDriverNotFound" class="headerlink" title="DatastoreDriverNotFound"></a>DatastoreDriverNotFound</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">org.datanucleus.store.rdbms.connectionpool.DatastoreDriverNotFoundException: </span><br><span class="line">The specified datastore driver (&quot;com.mysql.jdbc.Driver&quot;) was not found in the CLASSPATH. </span><br><span class="line">Please check your CLASSPATH specification, and the name of the driver.</span><br></pre></td></tr></table></figure>
-
-<p>和上面那个错误是类似的，我们在提交作业时，必须要通过<code>--jars</code>指定<code>mysql-connector-java.jar</code>的位置。</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-submit \</span><br><span class="line">--master local[2] \</span><br><span class="line">--class gy.finolo.spark.SparkSessionHiveApp \</span><br><span class="line">--jars /Users/simon/.m2/repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar \</span><br><span class="line">/Users/simon/Development/workspace/scala/spark-sql-demo/target/spark-sql-demo-1.0-SNAPSHOT.jar</span><br></pre></td></tr></table></figure>
-
-<h2 id="Table-or-view-not-found"><a href="#Table-or-view-not-found" class="headerlink" title="Table or view not found"></a>Table or view not found</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread &quot;main&quot; org.apache.spark.sql.AnalysisException:</span><br><span class="line">Table or view not found: emp;</span><br></pre></td></tr></table></figure>
-
-<p>解决方案：</p>
-<p>把Hive conf下面的hive-site.xml拷贝到工程的resources目录下面。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/local/hive/hive-1.1.0-cdh5.7.0/conf/hive-site.xml spark-sql-demo/src/resources</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -361,6 +259,13 @@
     </span>
 
   
+    <span id="/2019/02/%E5%88%9B%E5%BB%BASpark-SQL%E7%A8%8B%E5%BA%8F/" class="post-meta-item leancloud_visitors" data-flag-title="创建Spark SQL程序" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
 </div>
 
         </div>
@@ -469,6 +374,13 @@
     </span>
 
   
+    <span id="/2019/02/Spark%E7%9A%84local%E5%92%8Cstandalone%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C/" class="post-meta-item leancloud_visitors" data-flag-title="Spark的local和standalone模式运行" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
 </div>
 
         </div>
@@ -538,6 +450,135 @@
 
 
 
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/02/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Spark/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/02/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Spark/" class="post-title-link" itemprop="url">编译安装Spark</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-02-10 12:16:21" itemprop="dateCreated datePublished" datetime="2019-02-10T12:16:21+08:00">2019-02-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/02/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Spark/" class="post-meta-item leancloud_visitors" data-flag-title="编译安装Spark" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Spark会依赖Hadoop版本，当我们使用cdh版本的hadoop时，在Spark官网上下载不了对应的版本，这时就需要编译Spark了。</p>
+<h1 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h1><p>到Spark官网 <a target="_blank" rel="noopener" href="http://spark.apache.org/downloads.html">http://spark.apache.org/downloads.html</a> 下载Spark的源码，并非已经Build好的安装包。</p>
+<p>Spark release我选择的是<code>2.2.3</code></p>
+<p>package type选择Source Code</p>
+<p>下载并解压</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/spark</span><br><span class="line">wget https://archive.apache.org/dist/spark/spark-2.2.3/spark-2.2.3.tgz</span><br><span class="line"></span><br><span class="line">tar -zxvf spark-2.2.3.tgz</span><br></pre></td></tr></table></figure>
+
+<h1 id="构建发布版本"><a href="#构建发布版本" class="headerlink" title="构建发布版本"></a>构建发布版本</h1><p>查看<code>dev/make-distribution.sh</code>源码，可以知道构建后的包的文件名为<code>spark-$VERSION-bin-$NAME.tgz</code>，所以<code>--name</code>参数设置为<code>2.6.0-cdh5.7.0</code>，-P是指定使用pom.xml中指定的profile，-D是指使用指定的Dependency。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd spark-2.2.3</span><br><span class="line">./dev/make-distribution.sh --name 2.6.0-cdh5.7.0 --tgz -Phadoop-2.6 -Phive -Phive-thriftserver -Pmesos -Pyarn -Dhadoop.version=2.6.0-cdh5.7.0</span><br></pre></td></tr></table></figure>
+
+<p>构建过程中，我们会发现出现了以下错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] BUILD FAILURE</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] Total time: 46.000 s (Wall Clock)</span><br><span class="line">[INFO] Finished at: 2019-02-10T11:28:39+08:00</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[ERROR] Failed to execute goal on project spark-launcher_2.11: Could not resolve dependencies for project org.apache.spark:spark-launcher_2.11:jar:2.2.3: Could not find artifact org.apache.hadoop:hadoop-client:jar:2.6.0-cdh5.7.0 in alimaven (http://maven.aliyun.com/nexus/content/groups/public/) -&gt; [Help 1]</span><br></pre></td></tr></table></figure>
+
+<p>表明在现有的maven仓库中，找不到cdh版本的jar包。所以，我们得在pom.xml中的repositories中添加cdh的仓库地址。</p>
+<p>编辑<code>pom.xml</code>文件，在<code>repositories</code>标签下的maven central仓库后面添加cloudera的仓库。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;repository&gt;</span><br><span class="line">    &lt;id&gt;cloudera&lt;/id&gt;</span><br><span class="line">    &lt;url&gt;https://repository.cloudera.com/artifactory/cloudera-repos/&lt;/url&gt;</span><br><span class="line">&lt;/repository&gt;</span><br></pre></td></tr></table></figure>
+
+<p>然后再执行刚才的命令，经过12分钟，<code>spark-2.2.3-bin-2.6.0-cdh5.7.0.tgz</code>安装包构建成功。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] BUILD SUCCESS</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] Total time: 12:08 min (Wall Clock)</span><br><span class="line">[INFO] Finished at: 2019-02-10T11:59:57+08:00</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+
+<p>解压spark-2.2.3-bin-2.6.0-cdh5.7.0.tgz包到上级spark目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br><span class="line">tar -zxvf spark-2.2.3/spark-2.2.3-bin-2.6.0-cdh5.7.0.tgz -C .</span><br></pre></td></tr></table></figure>
+
+<h1 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bash_profile</span><br></pre></td></tr></table></figure>
+
+<p>添加内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export SPARK_HOME=/usr/local/spark/spark-2.2.3-bin-2.6.0-cdh5.7.0</span><br></pre></td></tr></table></figure>
+
+<p>使设置生效</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
+
+<h1 id="启动Spark"><a href="#启动Spark" class="headerlink" title="启动Spark"></a>启动Spark</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME</span><br><span class="line">bin/spark-shell --master local[*]</span><br><span class="line"></span><br><span class="line">Using Spark&#x27;s default log4j profile: org/apache/spark/log4j-defaults.properties</span><br><span class="line">Setting default log level to &quot;WARN&quot;.</span><br><span class="line">To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).</span><br><span class="line">19/02/10 12:13:43 WARN Utils: Your hostname, localhost resolves to a loopback address: 127.0.0.1; using 192.168.1.6 instead (on interface en0)</span><br><span class="line">19/02/10 12:13:43 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address</span><br><span class="line">19/02/10 12:13:43 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Spark context Web UI available at http://192.168.1.6:4040</span><br><span class="line">Spark context available as &#x27;sc&#x27; (master = local[*], app id = local-1549772024897).</span><br><span class="line">Spark session available as &#x27;spark&#x27;.</span><br><span class="line">Welcome to</span><br><span class="line">      ____              __</span><br><span class="line">     / __/__  ___ _____/ /__</span><br><span class="line">    _\ \/ _ \/ _ `/ __/  &#x27;_/</span><br><span class="line">   /___/ .__/\_,_/_/ /_/\_\   version 2.2.3</span><br><span class="line">      /_/</span><br><span class="line"></span><br><span class="line">Using Scala version 2.11.8 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_181)</span><br><span class="line">Type in expressions to have them evaluated.</span><br><span class="line">Type :help for more information.</span><br><span class="line"></span><br><span class="line">scala&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Spark成功启动。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/104/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/104/">104</a><span class="page-number current">105</span><a class="page-number" href="/page/106/">106</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/106/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -556,7 +597,25 @@
     </span>
     <span class="author" itemprop="copyrightHolder">Simon</span>
   </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by Finolo.gy
   </div>
 
     </div>

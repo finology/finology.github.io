@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"finolo.gy","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"finolo.gy","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Finology 大数据金融">
@@ -49,16 +49,21 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
 <script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
   
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-
-
-
-
-  
-
-
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"SfaSE3g5tgBX5HeHdlgjym1o-gzGzoHsz","app_key":"iTsJGCNiGxrdBjV47UDN6X8p","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js" defer></script>
 
 
 
@@ -93,6 +98,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -101,11 +107,37 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </header>
         
@@ -137,7 +169,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">376</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -165,198 +197,6 @@
     </div>
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2024/10/Windows-10-VSCode%E9%85%8D%E7%BD%AEMiniforge-Python%E7%8E%AF%E5%A2%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/Windows-10-VSCode%E9%85%8D%E7%BD%AEMiniforge-Python%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">Windows 10 VSCode配置Miniforge Python环境</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-10-22 19:21:29" itemprop="dateCreated datePublished" datetime="2024-10-22T19:21:29+08:00">2024-10-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在Windows 10操作系统上面安装Miniforge，同时配置VSCode用来开发python。</p>
-<p>执行文件时，可能会遇到如下错误：</p>
-
-
-<p>然后执行命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Get-ExecutionPolicy</span><br><span class="line">Restricted</span><br></pre></td></tr></table></figure>
-
-<p>执行如下命令解决：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser</span><br></pre></td></tr></table></figure>
-
-<p>这时会变为<code>Unrestricted</code>。</p>
-<h1 id="配置VSCode的Python开发环境"><a href="#配置VSCode的Python开发环境" class="headerlink" title="配置VSCode的Python开发环境"></a>配置VSCode的Python开发环境</h1><p>打开 VSCode，按 Ctrl + Shift + P 打开命令面板。</p>
-<p>输入并选择 Python: Select Interpreter 命令。</p>
-<p>选择Python解释器</p>
-<h1 id="配置VSCode使用Miniforge终端"><a href="#配置VSCode使用Miniforge终端" class="headerlink" title="配置VSCode使用Miniforge终端"></a>配置VSCode使用Miniforge终端</h1><p>打开 VSCode，点击左下角齿轮图标，选择 设置。</p>
-<p>在搜索框中搜索 <code>terminal.integrated.profiles.windows</code></p>
-
-
-<h1 id="添加代码"><a href="#添加代码" class="headerlink" title="添加代码"></a>添加代码</h1><p>在settings.json中添加如下代码：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;terminal.integrated.defaultProfile.windows&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Miniforge Prompt&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;terminal.integrated.profiles.windows&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">&quot;PowerShell&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;source&quot;</span><span class="punctuation">:</span> <span class="string">&quot;PowerShell&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;icon&quot;</span><span class="punctuation">:</span> <span class="string">&quot;terminal-powershell&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Command Prompt&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">            <span class="string">&quot;$&#123;env:windir&#125;\\Sysnative\\cmd.exe&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;$&#123;env:windir&#125;\\System32\\cmd.exe&quot;</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;icon&quot;</span><span class="punctuation">:</span> <span class="string">&quot;terminal-cmd&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Git Bash&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;source&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Git Bash&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Miniforge Prompt&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;env:windir&#125;\\system32\\cmd.exe&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;/K&quot;</span><span class="punctuation">,</span> <span class="string">&quot;D:\\miniforge3\\Scripts\\activate.bat D:\\miniforge3&quot;</span><span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
-
-<p>添加 Miniforge Prompt，path和args就照抄安装Miniforge时Miniforge Prompt的属性里面的东西。</p>
-<p><code>terminal.integrated.defaultProfile.windows</code>改成新配置的Miniforge Prompt。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2024/10/Word%E5%88%B6%E4%BD%9C%E8%BA%AB%E4%BB%BD%E8%AF%81%E6%89%AB%E6%8F%8F%E4%BB%B6%E5%A4%8D%E5%8D%B0%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/Word%E5%88%B6%E4%BD%9C%E8%BA%AB%E4%BB%BD%E8%AF%81%E6%89%AB%E6%8F%8F%E4%BB%B6%E5%A4%8D%E5%8D%B0%E4%BB%B6/" class="post-title-link" itemprop="url">Word制作身份证扫描件复印件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-10-16 22:21:34" itemprop="dateCreated datePublished" datetime="2024-10-16T22:21:34+08:00">2024-10-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>身份证拍得不好，拍出来并非长方形，背影有其他内容，都没有关系。按如下步骤操作就行。</p>
-<p>一、打开MICROSOFT OFFICE WORD软件</p>
-<p>二、插入用手机拍摄的身份证图片</p>
-<p>三、点击【图片格式】-&gt; 【裁剪】，把边缘裁剪干净，裁剪到身份证一小部分边缘都没关系</p>
-<p>四、选中图片，点击【颜色】，选择【饱和度】为0%，身份证颜色立刻变成灰色。</p>
-<p>五、选中图片，选择【剪切】</p>
-<p>六、接着插入一个圆角矩形，并右键鼠标，【设置形状格式】，选择【图片或纹理填充】，图片源选择【剪贴板】，这样就把刚才进入到剪切板的身份证插入。同时，线条选择【无线条】。选中【将图片平铺为纹理】。</p>
-<p>七、拖动图片左上方的小黄点，调整圆角的大小</p>
-<p>八、调整图片大小至身份证真实大小，高为5.4cm，宽为8.56cm</p>
-<p>这样就搞好了，身份证反面也可以同理这样制作。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -406,6 +246,13 @@
     </span>
 
   
+    <span id="/2024/10/%E8%82%A1%E5%B8%82%E5%B8%B8%E7%94%A8%E6%8C%87%E6%A0%87%E9%87%8A%E4%B9%89/" class="post-meta-item leancloud_visitors" data-flag-title="股市常用指标释义" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
 </div>
 
         </div>
@@ -419,6 +266,210 @@
 <p>指数数据为当天未停牌的成份股净买入额总和。</p>
 <h1 id="净主动买入额"><a href="#净主动买入额" class="headerlink" title="净主动买入额"></a>净主动买入额</h1><p>主动指主动去成交已经存在的对手单；被动是指挂单等待成交。</p>
 <h1 id="主力净流入额"><a href="#主力净流入额" class="headerlink" title="主力净流入额"></a>主力净流入额</h1><p>主力买入金额 - 主力卖出金额，其中“主力”指超大单与大单的合计。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2024/01/Jupyter-Lab%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8CPython%E5%86%85%E6%A0%B8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/Jupyter-Lab%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8CPython%E5%86%85%E6%A0%B8/" class="post-title-link" itemprop="url">Jupyter Lab环境中切换不同Python内核</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-17 22:44:33" itemprop="dateCreated datePublished" datetime="2024-01-17T22:44:33+08:00">2024-01-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2024/01/Jupyter-Lab%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8CPython%E5%86%85%E6%A0%B8/" class="post-meta-item leancloud_visitors" data-flag-title="Jupyter Lab环境中切换不同Python内核" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我一般选择在 <code>base</code> 环境中安装 <code>jupyter lab</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) D:\development\python&gt;mamba install jupyterlab</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>base</code> 环境中，可以安装 <code>nb_conda_kernels</code>，这个是一个与 Conda 集成的 Jupyter 插件，它允许你在 Jupyter 中使用 Conda 环境中的不同内核。也可以不安装，而安装下面所说的ipykernel。</p>
+<p>创建一个新的环境，比如 <code>py310</code>，在这个环境里面安装 <code>ipykernel</code>，<code>mamba install ipykernel</code>。然后执行命令 <code>python -m ipykernel install --user --name py310</code>，其中<code>py310</code>是环境的名字。</p>
+<p>ipykernel 包是 Jupyter 的一个关键组件，它提供了 IPython 内核，允许 Jupyter 与 IPython 交互式计算环境进行通信。</p>
+<p>在jupyter lab页面中刷新，就可以自由选择 python 环境了，如下图所示：</p>
+
+
+<p>这时会在Start Preferred Kernel里面显示新的环境。</p>
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2024/01/conda%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/conda%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/" class="post-title-link" itemprop="url">conda安装国内源</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-16 23:32:54" itemprop="dateCreated datePublished" datetime="2024-01-16T23:32:54+08:00">2024-01-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2024/01/conda%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/" class="post-meta-item leancloud_visitors" data-flag-title="conda安装国内源" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Anaconda 是一个用于科学计算的 Python 发行版，支持 Linux, Mac, Windows, 包含了众多流行的科学计算、数据分析的 Python 包。</p>
+<p>Anaconda 安装包可以到 <code>https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</code> 下载。</p>
+<p>TUNA 还提供了 Anaconda 仓库与第三方源（conda-forge、msys2、pytorch等，查看完整列表，更多第三方源可以前往校园网联合镜像站查看）的镜像，各系统都可以通过修改用户目录下的 .condarc 文件来使用 TUNA 镜像源。Windows 用户无法直接创建名为 .condarc 的文件，可先执行 conda config –set show_channel_urls yes 生成该文件之后再修改。</p>
+<p>注：由于更新过快难以同步，他们不同步pytorch-nightly, pytorch-nightly-cpu, ignite-nightly这三个包。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - defaults</span><br><span class="line">show_channel_urls: true</span><br><span class="line">default_channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span><br><span class="line">custom_channels:</span><br><span class="line">  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  deepmodeling: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/</span><br></pre></td></tr></table></figure>
+
+<p>即可添加 Anaconda Python 免费仓库。</p>
+<p>运行 conda clean -i 清除索引缓存，保证用的是镜像站提供的索引。</p>
+<p>Miniconda 是一个 Anaconda 的轻量级替代，默认只包含了 python 和 conda，但是可以通过 pip 和 conda 来安装所需要的包。</p>
+<p>Miniconda 安装包可以到 <code>https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/</code> 下载。</p>
 
       
     </div>
@@ -455,7 +506,25 @@
     </span>
     <span class="author" itemprop="copyrightHolder">Simon</span>
   </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by Finolo.gy
   </div>
 
     </div>

@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"finolo.gy","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"finolo.gy","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Finology 大数据金融">
@@ -49,16 +49,21 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
 <script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
   
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-
-
-
-
-  
-
-
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"SfaSE3g5tgBX5HeHdlgjym1o-gzGzoHsz","app_key":"iTsJGCNiGxrdBjV47UDN6X8p","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js" defer></script>
 
 
 
@@ -93,6 +98,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -101,11 +107,37 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </header>
         
@@ -137,7 +169,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">376</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -165,208 +197,6 @@
     </div>
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/07/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/07/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91/" class="post-title-link" itemprop="url">微信公众号开发</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-07-12 10:12:50" itemprop="dateCreated datePublished" datetime="2020-07-12T10:12:50+08:00">2020-07-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>简单记录一下微信公众号开发流程，很多年前就开发过，然后过了一段时间，又完全忘了。还得一点一点看文档。所以这次先做一个记录。开发的功能就是，当用户发送消息以后，回复一条消息给用户。</p>
-<h1 id="申请微信开发测试号"><a href="#申请微信开发测试号" class="headerlink" title="申请微信开发测试号"></a>申请微信开发测试号</h1><p>先申请一个测试号，不需要注册什么，有微信，扫码一下就注册了。</p>
-<p><code>https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login</code></p>
-<p>进去后，我们可以获取到 appID, appsecret。Token是自己设置的，随便设置一个就行。aesKey在正式生产环境里面才需要。</p>
-<h1 id="内网穿透"><a href="#内网穿透" class="headerlink" title="内网穿透"></a>内网穿透</h1><p>微信开发后台需要连接到我们开发的电脑，一般情况下这台电脑是没有公网IP的，而且都是在局域网内，所以要把这台机器的端口映射出去。</p>
-<p>在 <code>ngrok.com</code> 去注册一个账号就可以了。</p>
-<p>然后按使用说明运行命令，把token存入本地。然后启动 ngrok，我是把本地 8080 映射要外网。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./ngrok authtoken [token]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./ngrok http 8080</span></span><br><span class="line">ngrok by @inconshreveable                                                                                                                                                (Ctrl+C to quit)</span><br><span class="line">                                                                                                                                                                                         </span><br><span class="line">Session Status                online                                                                                                                                                     </span><br><span class="line">Account                       S (Plan: Free)                                                                                                                                             </span><br><span class="line">Version                       2.3.35                                                                                                                                                     </span><br><span class="line">Region                        United States (us)                                                                                                                                         </span><br><span class="line">Web Interface                 http://127.0.0.1:4040                                                                                                                                      </span><br><span class="line">Forwarding                    http://020170f28e33.ngrok.io -&gt; http://localhost:8080                                                                                                      </span><br><span class="line">Forwarding                    https://020170f28e33.ngrok.io -&gt; http://localhost:8080                                                                                                     </span><br><span class="line">                                                                                                                                                                                         </span><br><span class="line">Connections                   ttl     opn     rt1     rt5     p50     p90                                                                                                                </span><br><span class="line">                              0       0       0.00    0.00    0.00    0.00  </span><br></pre></td></tr></table></figure>
-
-<h1 id="配置微信平台接口信息"><a href="#配置微信平台接口信息" class="headerlink" title="配置微信平台接口信息"></a>配置微信平台接口信息</h1><p>按 <code>weixin-java-mp-demo-springboot</code> 项目要求，配置微信公众号中的接口地址：http:&#x2F;&#x2F;公网可访问域名&#x2F;wx&#x2F;portal&#x2F;xxxxx （注意，xxxxx为对应公众号的appid值）</p>
-<p>几年前，一般还要点两下才会成功，现在一下就成功了。</p>
-<h1 id="自动回复消息"><a href="#自动回复消息" class="headerlink" title="自动回复消息"></a>自动回复消息</h1><p>我打算以回复一张图片。首先需要先上传一张图片，并得到其mediaId。</p>
-<p>我们先看看这个项目的开发文档。</p>
-<p><code>https://github.com/Wechat-Group/WxJava/wiki</code></p>
-<p>找到微信公众号开发文档，永久素材管理页面，<code>https://github.com/Wechat-Group/WxJava/wiki/MP_永久素材管理</code></p>
-<p>然后写一段上传永久素材图片的代码。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">WxMpMaterial</span> <span class="variable">wxMpMaterial</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">WxMpMaterial</span>();</span><br><span class="line">wxMpMaterial.setFile(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;/Users/simon/Desktop/logo.png&quot;</span>));</span><br><span class="line">wxMpMaterial.setName(<span class="string">&quot;logo&quot;</span>);</span><br><span class="line"><span class="type">WxMpMaterialUploadResult</span> <span class="variable">res</span> <span class="operator">=</span> wxMpService.getMaterialService().materialFileUpload(<span class="string">&quot;png&quot;</span>, wxMpMaterial);</span><br><span class="line">System.out.println(JsonUtils.toJson(res));</span><br></pre></td></tr></table></figure>
-
-<p>这时，我们就可以获得这个图片的 mediaId 了，然后修改 MsgHandler 的逻辑，返回一个 ImageBuilder 就可以了。</p>
-<h1 id="redirect-uri-参数错误"><a href="#redirect-uri-参数错误" class="headerlink" title="redirect_uri 参数错误"></a>redirect_uri 参数错误</h1><p>调试微信前公众号的时候，往往会遇到这个错误，这时，需要在 OAuth2.0 网页授权页面配置好授权回调页面域名。沙盒号回调地址支持域名和ip，正式公众号回调地址只支持域名。所以这里不能使用<br>localhost，但写成本地的ip地址是可以的。还需要特别注意的是，这里只能写ip和端口号，不能把协议<code>http</code>加入，不然还是会出现这个错误。</p>
-<h1 id="调试平台"><a href="#调试平台" class="headerlink" title="调试平台"></a>调试平台</h1><p>我们可以通过调试平台来创建菜单，获取token等。获取token时，可能会遇到<code>invalid ip, not in whitelist</code>错误。</p>
-<p>这时，需要把获取access_token的机器的ip添加到白名单中。位置在 <code>基础配置</code> -&gt; <code>IP白名单</code>。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/07/IntelliJ-IDEA%E6%8F%92%E4%BB%B6%E5%B8%82%E5%9C%BAMarketplace%E6%89%93%E4%B8%8D%E5%BC%80%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/07/IntelliJ-IDEA%E6%8F%92%E4%BB%B6%E5%B8%82%E5%9C%BAMarketplace%E6%89%93%E4%B8%8D%E5%BC%80%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">IntelliJ IDEA插件市场Marketplace打不开的解决方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-07-09 23:07:49" itemprop="dateCreated datePublished" datetime="2020-07-09T23:07:49+08:00">2020-07-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/IntelliJ-IDEA/" itemprop="url" rel="index"><span itemprop="name">IntelliJ IDEA</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在某些网络下，IDEA 的插件市场打不开，就安装不了所需要的插件。造成不能访问的原因可能 jetbrains 相关域名解析的 ip 无法访问。</p>
-<p>我们可以通过站长工具，查询一下 jetbrains.com 的 ip 地址，再看能否 ping 通这个地址。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ping 99.84.238.36</span></span><br><span class="line">PING 99.84.238.36 (99.84.238.36): 56 data bytes</span><br><span class="line">64 bytes from 99.84.238.36: icmp_seq=0 ttl=238 time=283.909 ms</span><br><span class="line">64 bytes from 99.84.238.36: icmp_seq=1 ttl=238 time=277.733 ms</span><br><span class="line">64 bytes from 99.84.238.36: icmp_seq=2 ttl=238 time=287.680 ms</span><br><span class="line">64 bytes from 99.84.238.36: icmp_seq=3 ttl=238 time=282.584 ms</span><br></pre></td></tr></table></figure>
-
-<p>然后修改电脑的 hosts 文件，加入如下两行：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">99.84.238.36    plugins.jetbrains.com</span><br><span class="line">99.84.238.36    jetbrains.com</span><br></pre></td></tr></table></figure>
-
-<p>这时，重启 IDEA，再次进入插件市场，就可以打开了。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -429,6 +259,13 @@
     </span>
 
   
+    <span id="/2020/07/Spring%E4%B8%AD%E5%A4%84%E7%90%86%E9%9B%86%E5%90%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-meta-item leancloud_visitors" data-flag-title="Spring中处理集合和字符串" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
 </div>
 
         </div>
@@ -442,6 +279,204 @@
 <p>org.springframework.util.StringUtils</p>
 <p>hasText() 方法可以判断是否有非空白字符的字符串</p>
 <p>org.springframework.util.CollectionUtils</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/07/Spring-Boot-JUnit%E6%B5%8B%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/07/Spring-Boot-JUnit%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">Spring Boot JUnit测试</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-06 16:00:09" itemprop="dateCreated datePublished" datetime="2020-07-06T16:00:09+08:00">2020-07-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/07/Spring-Boot-JUnit%E6%B5%8B%E8%AF%95/" class="post-meta-item leancloud_visitors" data-flag-title="Spring Boot JUnit测试" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Springboot-2-1"><a href="#Springboot-2-1" class="headerlink" title="Springboot 2.1"></a>Springboot 2.1</h1><p>在测试类上面写的注解如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="meta">@SpringBootTest(classes = &#123;Application.class&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AppTests</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，Application 是 Spring boot 的启动类，test() 方法必须是 public 类型。</p>
+<h1 id="Springboot-2-2"><a href="#Springboot-2-2" class="headerlink" title="Springboot 2.2"></a>Springboot 2.2</h1><p>注解如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AppTests</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不需要写 @RunWith 注解和指定 SpringBootTest 的 classes 属性。test() 方法不用写 public 类型。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/07/java%E4%B8%ADMap%E8%BD%ACList%E5%B9%B6%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/07/java%E4%B8%ADMap%E8%BD%ACList%E5%B9%B6%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">java中Map转List并排序</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-01 19:58:03" itemprop="dateCreated datePublished" datetime="2020-07-01T19:58:03+08:00">2020-07-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/07/java%E4%B8%ADMap%E8%BD%ACList%E5%B9%B6%E6%8E%92%E5%BA%8F/" class="post-meta-item leancloud_visitors" data-flag-title="java中Map转List并排序" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>把 Map 中的元素按 key 进行排序，然后把 value 取出来组成一个 List。可以按如下方法操作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MapSort2ListDemo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        Map&lt;String, String&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        map.put(<span class="string">&quot;1&quot;</span>, <span class="string">&quot;A&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;3&quot;</span>, <span class="string">&quot;C&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;2&quot;</span>, <span class="string">&quot;B&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;10&quot;</span>, <span class="string">&quot;G&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;11&quot;</span>, <span class="string">&quot;H&quot;</span>);</span><br><span class="line"></span><br><span class="line">        List&lt;String&gt; list = map.entrySet().stream()</span><br><span class="line">                .sorted(Comparator.comparing((Map.Entry&lt;String, String&gt; entry) -&gt; Integer.parseInt(entry.getKey())).reversed())</span><br><span class="line">                .map(x -&gt; x.getValue())</span><br><span class="line">                .collect(Collectors.toList());</span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：[H, G, C, B, A]</p>
 
       
     </div>
@@ -478,7 +513,25 @@
     </span>
     <span class="author" itemprop="copyrightHolder">Simon</span>
   </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by Finolo.gy
   </div>
 
     </div>
