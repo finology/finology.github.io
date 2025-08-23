@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"finolo.gy","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="下载MAC版本安装包进入页面https:&#x2F;&#x2F;www.elastic.co&#x2F;downloads&#x2F;apm ，选择mac平台的安装包 下载文件到&#x2F;usr&#x2F;local&#x2F;elasticsearch&#x2F;elasticsearch-6.4.2.tar.gz 解压文件1$ sudo tar -zxvf elasticsearch-6.4.2.tar.gz  运行1234567">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在macOS上面安装elasticsearch组件及问题解决">
+<meta property="og:url" content="https://finolo.gy/2018/10/%E5%9C%A8macOS%E4%B8%8A%E9%9D%A2%E5%AE%89%E8%A3%85elasticsearch%E7%BB%84%E4%BB%B6%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/index.html">
+<meta property="og:site_name" content="Finology 大数据金融">
+<meta property="og:description" content="下载MAC版本安装包进入页面https:&#x2F;&#x2F;www.elastic.co&#x2F;downloads&#x2F;apm ，选择mac平台的安装包 下载文件到&#x2F;usr&#x2F;local&#x2F;elasticsearch&#x2F;elasticsearch-6.4.2.tar.gz 解压文件1$ sudo tar -zxvf elasticsearch-6.4.2.tar.gz  运行1234567">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-10-09T10:52:48.000Z">
+<meta property="article:modified_time" content="2025-08-23T02:01:15.159Z">
+<meta property="article:author" content="Simon">
+<meta property="article:tag" content="python, finance, python, quant, 量化">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://finolo.gy/2018/10/%E5%9C%A8macOS%E4%B8%8A%E9%9D%A2%E5%AE%89%E8%A3%85elasticsearch%E7%BB%84%E4%BB%B6%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://finolo.gy/2018/10/%E5%9C%A8macOS%E4%B8%8A%E9%9D%A2%E5%AE%89%E8%A3%85elasticsearch%E7%BB%84%E4%BB%B6%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/","path":"2018/10/在macOS上面安装elasticsearch组件及问题解决/","title":"在macOS上面安装elasticsearch组件及问题解决"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>在macOS上面安装elasticsearch组件及问题解决 | Finology 大数据金融</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Finology 大数据金融</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">通过大数据以量化金融</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDMAC%E7%89%88%E6%9C%AC%E5%AE%89%E8%A3%85%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">下载MAC版本安装包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8B%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">解压文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C"><span class="nav-number">3.</span> <span class="nav-text">运行</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Simon</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">79</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">235</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/10/%E5%9C%A8macOS%E4%B8%8A%E9%9D%A2%E5%AE%89%E8%A3%85elasticsearch%E7%BB%84%E4%BB%B6%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="在macOS上面安装elasticsearch组件及问题解决 | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          在macOS上面安装elasticsearch组件及问题解决
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-09 18:52:48" itemprop="dateCreated datePublished" datetime="2018-10-09T18:52:48+08:00">2018-10-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="下载MAC版本安装包"><a href="#下载MAC版本安装包" class="headerlink" title="下载MAC版本安装包"></a>下载MAC版本安装包</h1><p>进入页面<a target="_blank" rel="noopener" href="https://www.elastic.co/downloads/apm">https://www.elastic.co/downloads/apm</a> ，选择mac平台的安装包 下载文件到&#x2F;usr&#x2F;local&#x2F;elasticsearch&#x2F;elasticsearch-6.4.2.tar.gz</p>
+<h1 id="解压文件"><a href="#解压文件" class="headerlink" title="解压文件"></a>解压文件</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> tar -zxvf elasticsearch-6.4.2.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ bin/elasticsearch</span><br><span class="line">Exception <span class="keyword">in</span> thread <span class="string">&quot;main&quot;</span> java.nio.file.AccessDeniedException: /usr/local/elasticsearch/elasticsearch-6.4.2/config/jvm.options</span><br><span class="line">	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:84)</span><br><span class="line">	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)</span><br><span class="line">	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)</span><br><span class="line">	at sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:214)</span><br><span class="line">	at java.nio.file.Files.newByteChannel(Files.java:361)</span><br><span class="line">	at java.nio.file.Files.newByteChannel(Files.java:407)</span><br><span class="line">	at java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:384)</span><br><span class="line">	at java.nio.file.Files.newInputStream(Files.java:152)</span><br><span class="line">	at org.elasticsearch.tools.launchers.JvmOptionsParser.main(JvmOptionsParser.java:60)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>权限不够，查看一下，登录用户是没有修改文件的权限的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ ls -l elasticsearch-6.4.2</span><br><span class="line"></span><br><span class="line">-rw-r--r--@  1 root  wheel   13675 Sep 26 21:30 LICENSE.txt</span><br><span class="line">-rw-r--r--@  1 root  wheel  401465 Sep 26 21:38 NOTICE.txt</span><br><span class="line">-rw-r--r--@  1 root  wheel    8511 Sep 26 21:30 README.textile</span><br><span class="line">drwxr-xr-x@ 43 root  wheel    1376 Sep 26 21:38 bin</span><br><span class="line">drwxr-xr-x@  9 root  wheel     288 Sep 26 21:38 config</span><br><span class="line">drwxr-xr-x@ 42 root  wheel    1344 Sep 26 21:38 lib</span><br><span class="line">drwxr-xr-x@  2 root  wheel      64 Sep 26 21:38 logs</span><br><span class="line">drwxr-xr-x@ 27 root  wheel     864 Sep 26 21:38 modules</span><br><span class="line">drwxr-xr-x@  2 root  wheel      64 Sep 26 21:38 plugins</span><br></pre></td></tr></table></figure>
+
+<p>修改权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> <span class="built_in">chown</span> -R simon elasticsearch-6.4.2</span><br></pre></td></tr></table></figure>
+
+<p>再次启动elasticsearch程序</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">$ bin/elasticsearch</span><br><span class="line">[2018-10-17T10:04:22,029][INFO ][o.e.n.Node               ] [] initializing ...</span><br><span class="line">[2018-10-17T10:04:22,100][INFO ][o.e.e.NodeEnvironment    ] [VhQno38] using [1] data paths, mounts [[/ (/dev/disk1s1)]], net usable_space [353.6gb], net total_space [465.6gb], types [apfs]</span><br><span class="line">[2018-10-17T10:04:22,101][INFO ][o.e.e.NodeEnvironment    ] [VhQno38] heap size [990.7mb], compressed ordinary object pointers [<span class="literal">true</span>]</span><br><span class="line">[2018-10-17T10:04:22,104][INFO ][o.e.n.Node               ] [VhQno38] node name derived from node ID [VhQno38hQfO03l3Sxt6Bnw]; <span class="built_in">set</span> [node.name] to override</span><br><span class="line">[2018-10-17T10:04:22,104][INFO ][o.e.n.Node               ] [VhQno38] version[6.4.2], pid[12313], build[default/tar/04711c2/2018-09-26T13:34:09.098244Z], OS[Mac OS X/10.13.6/x86_64], JVM[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/1.8.0_181/25.181-b13]</span><br><span class="line">[2018-10-17T10:04:22,104][INFO ][o.e.n.Node               ] [VhQno38] JVM arguments [-Xms1g, -Xmx1g, -XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=<span class="literal">true</span>, -Dfile.encoding=UTF-8, -Djna.nosys=<span class="literal">true</span>, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=<span class="literal">true</span>, -Dio.netty.noKeySetOptimization=<span class="literal">true</span>, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=<span class="literal">false</span>, -Dlog4j2.disable.jmx=<span class="literal">true</span>, -Djava.io.tmpdir=/var/folders/2h/4vmz9_k14pb4x5338vs98nmw0000gn/T/elasticsearch.98Xlp9JQ, -XX:+HeapDumpOnOutOfMemoryError, -XX:HeapDumpPath=data, -XX:ErrorFile=logs/hs_err_pid%p.log, -XX:+PrintGCDetails, -XX:+PrintGCDateStamps, -XX:+PrintTenuringDistribution, -XX:+PrintGCApplicationStoppedTime, -Xloggc:logs/gc.log, -XX:+UseGCLogFileRotation, -XX:NumberOfGCLogFiles=32, -XX:GCLogFileSize=64m, -Des.path.home=/usr/local/elasticsearch/elasticsearch-6.4.2, -Des.path.conf=/usr/local/elasticsearch/elasticsearch-6.4.2/config, -Des.distribution.flavor=default, -Des.distribution.type=tar]</span><br><span class="line">[2018-10-17T10:04:24,127][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [aggs-matrix-stats]</span><br><span class="line">[2018-10-17T10:04:24,127][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [analysis-common]</span><br><span class="line">[2018-10-17T10:04:24,127][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [ingest-common]</span><br><span class="line">[2018-10-17T10:04:24,127][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [lang-expression]</span><br><span class="line">[2018-10-17T10:04:24,127][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [lang-mustache]</span><br><span class="line">[2018-10-17T10:04:24,128][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [lang-painless]</span><br><span class="line">[2018-10-17T10:04:24,128][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [mapper-extras]</span><br><span class="line">[2018-10-17T10:04:24,128][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [parent-join]</span><br><span class="line">[2018-10-17T10:04:24,128][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [percolator]</span><br><span class="line">[2018-10-17T10:04:24,128][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [rank-eval]</span><br><span class="line">[2018-10-17T10:04:24,128][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [reindex]</span><br><span class="line">[2018-10-17T10:04:24,128][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [repository-url]</span><br><span class="line">[2018-10-17T10:04:24,129][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [transport-netty4]</span><br><span class="line">[2018-10-17T10:04:24,129][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [tribe]</span><br><span class="line">[2018-10-17T10:04:24,129][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-core]</span><br><span class="line">[2018-10-17T10:04:24,130][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-deprecation]</span><br><span class="line">[2018-10-17T10:04:24,130][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-graph]</span><br><span class="line">[2018-10-17T10:04:24,130][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-logstash]</span><br><span class="line">[2018-10-17T10:04:24,131][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-ml]</span><br><span class="line">[2018-10-17T10:04:24,131][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-monitoring]</span><br><span class="line">[2018-10-17T10:04:24,131][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-rollup]</span><br><span class="line">[2018-10-17T10:04:24,131][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-security]</span><br><span class="line">[2018-10-17T10:04:24,131][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-sql]</span><br><span class="line">[2018-10-17T10:04:24,131][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-upgrade]</span><br><span class="line">[2018-10-17T10:04:24,131][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-watcher]</span><br><span class="line">[2018-10-17T10:04:24,132][INFO ][o.e.p.PluginsService     ] [VhQno38] no plugins loaded</span><br><span class="line">[2018-10-17T10:04:27,786][INFO ][o.e.x.s.a.s.FileRolesStore] [VhQno38] parsed [0] roles from file [/usr/local/elasticsearch/elasticsearch-6.4.2/config/roles.yml]</span><br><span class="line">[2018-10-17T10:04:28,270][INFO ][o.e.x.m.j.p.l.CppLogMessageHandler] [controller/12332] [Main.cc@109] controller (64 bit): Version 6.4.2 (Build 660eefe6f2ea55) Copyright (c) 2018 Elasticsearch BV</span><br><span class="line">[2018-10-17T10:04:28,685][DEBUG][o.e.a.ActionModule       ] Using REST wrapper from plugin org.elasticsearch.xpack.security.Security</span><br><span class="line">[2018-10-17T10:04:28,911][INFO ][o.e.d.DiscoveryModule    ] [VhQno38] using discovery <span class="built_in">type</span> [zen]</span><br><span class="line">[2018-10-17T10:04:30,161][INFO ][o.e.n.Node               ] [VhQno38] initialized</span><br><span class="line">[2018-10-17T10:04:30,161][INFO ][o.e.n.Node               ] [VhQno38] starting ...</span><br><span class="line">[2018-10-17T10:04:30,380][INFO ][o.e.t.TransportService   ] [VhQno38] publish_address &#123;127.0.0.1:9300&#125;, bound_addresses &#123;[::1]:9300&#125;, &#123;127.0.0.1:9300&#125;</span><br><span class="line">[2018-10-17T10:04:33,445][INFO ][o.e.c.s.MasterService    ] [VhQno38] zen-disco-elected-as-master ([0] nodes joined)[, ], reason: new_master &#123;VhQno38&#125;&#123;VhQno38hQfO03l3Sxt6Bnw&#125;&#123;jy1_1dpHToOxN2CCtH5ztw&#125;&#123;127.0.0.1&#125;&#123;127.0.0.1:9300&#125;&#123;ml.machine_memory=8589934592, xpack.installed=<span class="literal">true</span>, ml.max_open_jobs=20, ml.enabled=<span class="literal">true</span>&#125;</span><br><span class="line">[2018-10-17T10:04:33,450][INFO ][o.e.c.s.ClusterApplierService] [VhQno38] new_master &#123;VhQno38&#125;&#123;VhQno38hQfO03l3Sxt6Bnw&#125;&#123;jy1_1dpHToOxN2CCtH5ztw&#125;&#123;127.0.0.1&#125;&#123;127.0.0.1:9300&#125;&#123;ml.machine_memory=8589934592, xpack.installed=<span class="literal">true</span>, ml.max_open_jobs=20, ml.enabled=<span class="literal">true</span>&#125;, reason: apply cluster state (from master [master &#123;VhQno38&#125;&#123;VhQno38hQfO03l3Sxt6Bnw&#125;&#123;jy1_1dpHToOxN2CCtH5ztw&#125;&#123;127.0.0.1&#125;&#123;127.0.0.1:9300&#125;&#123;ml.machine_memory=8589934592, xpack.installed=<span class="literal">true</span>, ml.max_open_jobs=20, ml.enabled=<span class="literal">true</span>&#125; committed version [1] <span class="built_in">source</span> [zen-disco-elected-as-master ([0] nodes joined)[, ]]])</span><br><span class="line">[2018-10-17T10:04:33,473][INFO ][o.e.x.s.t.n.SecurityNetty4HttpServerTransport] [VhQno38] publish_address &#123;127.0.0.1:9200&#125;, bound_addresses &#123;[::1]:9200&#125;, &#123;127.0.0.1:9200&#125;</span><br><span class="line">[2018-10-17T10:04:33,474][INFO ][o.e.n.Node               ] [VhQno38] started</span><br><span class="line">[2018-10-17T10:04:33,482][WARN ][o.e.x.s.a.s.m.NativeRoleMappingStore] [VhQno38] Failed to clear cache <span class="keyword">for</span> realms [[]]</span><br><span class="line">[2018-10-17T10:04:33,536][INFO ][o.e.g.GatewayService     ] [VhQno38] recovered [0] indices into cluster_state</span><br><span class="line">[2018-10-17T10:04:33,699][INFO ][o.e.c.m.MetaDataIndexTemplateService] [VhQno38] adding template [.triggered_watches] <span class="keyword">for</span> index patterns [.triggered_watches*]</span><br><span class="line">[2018-10-17T10:04:33,721][INFO ][o.e.c.m.MetaDataIndexTemplateService] [VhQno38] adding template [.watches] <span class="keyword">for</span> index patterns [.watches*]</span><br><span class="line">[2018-10-17T10:04:33,774][INFO ][o.e.c.m.MetaDataIndexTemplateService] [VhQno38] adding template [.watch-history-9] <span class="keyword">for</span> index patterns [.watcher-history-9*]</span><br><span class="line">[2018-10-17T10:04:33,807][INFO ][o.e.c.m.MetaDataIndexTemplateService] [VhQno38] adding template [.monitoring-logstash] <span class="keyword">for</span> index patterns [.monitoring-logstash-6-*]</span><br><span class="line">[2018-10-17T10:04:33,870][INFO ][o.e.c.m.MetaDataIndexTemplateService] [VhQno38] adding template [.monitoring-es] <span class="keyword">for</span> index patterns [.monitoring-es-6-*]</span><br><span class="line">[2018-10-17T10:04:33,893][INFO ][o.e.c.m.MetaDataIndexTemplateService] [VhQno38] adding template [.monitoring-beats] <span class="keyword">for</span> index patterns [.monitoring-beats-6-*]</span><br><span class="line">[2018-10-17T10:04:33,912][INFO ][o.e.c.m.MetaDataIndexTemplateService] [VhQno38] adding template [.monitoring-alerts] <span class="keyword">for</span> index patterns [.monitoring-alerts-6]</span><br><span class="line">[2018-10-17T10:04:33,932][INFO ][o.e.c.m.MetaDataIndexTemplateService] [VhQno38] adding template [.monitoring-kibana] <span class="keyword">for</span> index patterns [.monitoring-kibana-6-*]</span><br><span class="line">[2018-10-17T10:04:34,025][INFO ][o.e.l.LicenseService     ] [VhQno38] license [b8e36ec7-af24-44d2-8e35-2a8c543c8aaf] mode [basic] - valid</span><br></pre></td></tr></table></figure>
+
+<p>当看到组件 <code>started</code> 后，代表elasticsearch已经成功启动。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2018-10-17T10:04:33,474][INFO ][o.e.n.Node               ] [VhQno38] started</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/09/%E9%87%8D%E5%90%AFmysql%E6%8A%A5%E9%94%99-ERROR-2002-HY000/" rel="prev" title="重启mysql报错 ERROR 2002 (HY000)">
+                  <i class="fa fa-angle-left"></i> 重启mysql报错 ERROR 2002 (HY000)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/10/%E8%BF%9E%E6%8E%A5Mysql%E6%97%B6%E5%87%BA%E7%8E%B0too-many-connections%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" rel="next" title="连接Mysql时出现too many connections的一些解决办法">
+                  连接Mysql时出现too many connections的一些解决办法 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Simon</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

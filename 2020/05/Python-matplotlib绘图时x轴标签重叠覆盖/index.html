@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"finolo.gy","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="当标签文本很长时，或者是某维度的数据列表长度很长时，都会造成标签的重叠覆盖。   解决方法有以下几种。我们使用的数据如下： 123456789101112131415161718192021import pandas as pdimport matplotlib.pyplot as pltindustry &#x3D; [&#x27;交通运输&#x27;, &#x27;休闲服务&#x27;, &#x27;传">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python matplotlib绘图时x轴标签重叠覆盖">
+<meta property="og:url" content="https://finolo.gy/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/index.html">
+<meta property="og:site_name" content="Finology 大数据金融">
+<meta property="og:description" content="当标签文本很长时，或者是某维度的数据列表长度很长时，都会造成标签的重叠覆盖。   解决方法有以下几种。我们使用的数据如下： 123456789101112131415161718192021import pandas as pdimport matplotlib.pyplot as pltindustry &#x3D; [&#x27;交通运输&#x27;, &#x27;休闲服务&#x27;, &#x27;传">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-03T03:29:01.000Z">
+<meta property="article:modified_time" content="2025-08-23T02:01:15.357Z">
+<meta property="article:author" content="Simon">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="matplotlib">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://finolo.gy/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://finolo.gy/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/","path":"2020/05/Python-matplotlib绘图时x轴标签重叠覆盖/","title":"Python matplotlib绘图时x轴标签重叠覆盖"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Python matplotlib绘图时x轴标签重叠覆盖 | Finology 大数据金融</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Finology 大数据金融</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">通过大数据以量化金融</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8B%89%E9%95%BF%E7%94%BB%E5%B8%83"><span class="nav-number">1.</span> <span class="nav-text">拉长画布</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%83%E6%95%B4%E6%A0%87%E7%AD%BE%E5%AD%97%E4%BD%93%E5%AD%97%E5%8F%B7"><span class="nav-number">2.</span> <span class="nav-text">调整标签字体字号</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#x%E8%BD%B4%E5%92%8Cy%E8%BD%B4%E4%BA%92%E6%8D%A2"><span class="nav-number">3.</span> <span class="nav-text">x轴和y轴互换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E6%97%8B%E8%BD%AC"><span class="nav-number">4.</span> <span class="nav-text">标签旋转</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Simon</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">79</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">235</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Python matplotlib绘图时x轴标签重叠覆盖 | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python matplotlib绘图时x轴标签重叠覆盖
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-05-03 11:29:01" itemprop="dateCreated datePublished" datetime="2020-05-03T11:29:01+08:00">2020-05-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/Matplotlib/" itemprop="url" rel="index"><span itemprop="name">Matplotlib</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>当标签文本很长时，或者是某维度的数据列表长度很长时，都会造成标签的重叠覆盖。</p>
+
+
+<p>解决方法有以下几种。我们使用的数据如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">industry = [<span class="string">&#x27;交通运输&#x27;</span>, <span class="string">&#x27;休闲服务&#x27;</span>, <span class="string">&#x27;传媒&#x27;</span>, <span class="string">&#x27;公用事业&#x27;</span>, <span class="string">&#x27;农林牧渔&#x27;</span>, <span class="string">&#x27;化工&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;医药生物&#x27;</span>, <span class="string">&#x27;商业贸易&#x27;</span>, <span class="string">&#x27;国防军工&#x27;</span>, <span class="string">&#x27;家用电器&#x27;</span>, <span class="string">&#x27;建筑材料&#x27;</span>, <span class="string">&#x27;建筑装饰&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;房地产&#x27;</span>, <span class="string">&#x27;有色金属&#x27;</span>, <span class="string">&#x27;机械设备&#x27;</span>, <span class="string">&#x27;汽车&#x27;</span>, <span class="string">&#x27;电子&#x27;</span>, <span class="string">&#x27;电气设备&#x27;</span>, <span class="string">&#x27;纺织服装&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;综合&#x27;</span>, <span class="string">&#x27;计算机&#x27;</span>, <span class="string">&#x27;轻工制造&#x27;</span>, <span class="string">&#x27;采掘&#x27;</span>, <span class="string">&#x27;银行&#x27;</span>, <span class="string">&#x27;非银金融&#x27;</span>, <span class="string">&#x27;食品饮料&#x27;</span>]</span><br><span class="line">cap = [<span class="number">4572</span>, <span class="number">253</span>, <span class="number">84</span>, <span class="number">119</span>, <span class="number">23</span>, <span class="number">352</span>, <span class="number">1059</span>, <span class="number">631</span>, <span class="number">900</span>, <span class="number">95</span>, <span class="number">43</span>, <span class="number">430</span>, <span class="number">1524</span>, <span class="number">52</span>, <span class="number">1254</span>,</span><br><span class="line">       <span class="number">2581</span>, <span class="number">3012</span>, <span class="number">195</span>, <span class="number">70</span>, <span class="number">31</span>, <span class="number">1338</span>, <span class="number">61</span>, <span class="number">111</span>, <span class="number">4964</span>, <span class="number">2782</span>, <span class="number">291</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成Series</span></span><br><span class="line">s = pd.Series(cap, industry)</span><br><span class="line"><span class="comment"># 排序</span></span><br><span class="line">sort_s = series.sort_values(ascending=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成x轴 y轴序列</span></span><br><span class="line">x = sort_s.index</span><br><span class="line">y = sort_s.values</span><br><span class="line"></span><br><span class="line">fig, axs = plt.subplots()</span><br><span class="line">axs.bar(x, y)</span><br></pre></td></tr></table></figure>
+
+<h1 id="拉长画布"><a href="#拉长画布" class="headerlink" title="拉长画布"></a>拉长画布</h1><p>查看画布默认大小</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.rcParams[<span class="string">&#x27;figure.figsize&#x27;</span>]</span><br><span class="line">[<span class="number">6.0</span>, <span class="number">4.0</span>]</span><br></pre></td></tr></table></figure>
+
+<p>我们把画布拉长一倍，设置 figsize 参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fig, axs = plt.subplots(figsize=(<span class="number">12</span>, <span class="number">4</span>))</span><br><span class="line">axs.bar(x, y)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>拉长以后，bar 的宽度也变大了。</p>
+<p>由于 x 轴的数据太多了，还是有覆盖现象。</p>
+<h1 id="调整标签字体字号"><a href="#调整标签字体字号" class="headerlink" title="调整标签字体字号"></a>调整标签字体字号</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fig, axs = plt.subplots()</span><br><span class="line"><span class="comment"># 调整x轴标签的大小</span></span><br><span class="line">axs.tick_params(axis=<span class="string">&#x27;x&#x27;</span>, labelsize=<span class="number">6</span>)</span><br><span class="line">axs.bar(x, y)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="x轴和y轴互换"><a href="#x轴和y轴互换" class="headerlink" title="x轴和y轴互换"></a>x轴和y轴互换</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fig, axs = plt.subplots()</span><br><span class="line">axs.barh(x, y)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="标签旋转"><a href="#标签旋转" class="headerlink" title="标签旋转"></a>标签旋转</h1><p>目前比较好的解决方案可能是标签旋转，再适当的放大x轴。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fig, axs = plt.subplots(figsize=(<span class="number">12</span>, <span class="number">4</span>))</span><br><span class="line"><span class="comment"># x轴标签旋转</span></span><br><span class="line">axs.tick_params(axis=<span class="string">&#x27;x&#x27;</span>, labelrotation=-<span class="number">60</span>)</span><br><span class="line">axs.bar(x, y)</span><br></pre></td></tr></table></figure>
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/matplotlib/" rel="tag"># matplotlib</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/04/Python%E5%88%9B%E5%BB%BADataFrame/" rel="prev" title="Python创建DataFrame">
+                  <i class="fa fa-angle-left"></i> Python创建DataFrame
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/05/Java%E5%A6%82%E4%BD%95%E5%9C%A8String-format%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%99%BE%E5%88%86%E5%8F%B7/" rel="next" title="Java如何在String.format中显示百分号&#37;">
+                  Java如何在String.format中显示百分号&#37; <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Simon</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

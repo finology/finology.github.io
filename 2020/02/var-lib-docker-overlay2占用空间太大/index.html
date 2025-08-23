@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"finolo.gy","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="执行df -h命令发现&#x2F;var&#x2F;lib&#x2F;docker目录占用空间太大。 12345678910111213141516171819202122# df -h文件系统                 容量  已用  可用 已用% 挂载点devtmpfs                 898M     0  898M    0% &#x2F;devtmpfs                    910M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&#x2F;var&#x2F;lib&#x2F;docker&#x2F;overlay2占用空间太大">
+<meta property="og:url" content="https://finolo.gy/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/index.html">
+<meta property="og:site_name" content="Finology 大数据金融">
+<meta property="og:description" content="执行df -h命令发现&#x2F;var&#x2F;lib&#x2F;docker目录占用空间太大。 12345678910111213141516171819202122# df -h文件系统                 容量  已用  可用 已用% 挂载点devtmpfs                 898M     0  898M    0% &#x2F;devtmpfs                    910M">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-27T08:27:01.000Z">
+<meta property="article:modified_time" content="2025-08-23T02:01:15.261Z">
+<meta property="article:author" content="Simon">
+<meta property="article:tag" content="k8s">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="kubernetes">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://finolo.gy/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://finolo.gy/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/","path":"2020/02/var-lib-docker-overlay2占用空间太大/","title":"/var/lib/docker/overlay2占用空间太大"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>/var/lib/docker/overlay2占用空间太大 | Finology 大数据金融</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Finology 大数据金融</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">通过大数据以量化金融</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Simon</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">79</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">235</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="&#x2F;var&#x2F;lib&#x2F;docker&#x2F;overlay2占用空间太大 | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          /var/lib/docker/overlay2占用空间太大
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-02-27 16:27:01" itemprop="dateCreated datePublished" datetime="2020-02-27T16:27:01+08:00">2020-02-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>执行<code>df -h</code>命令发现<code>/var/lib/docker</code>目录占用空间太大。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">df</span> -h</span></span><br><span class="line">文件系统                 容量  已用  可用 已用% 挂载点</span><br><span class="line">devtmpfs                 898M     0  898M    0% /dev</span><br><span class="line">tmpfs                    910M     0  910M    0% /dev/shm</span><br><span class="line">tmpfs                    910M   60M  851M    7% /run</span><br><span class="line">tmpfs                    910M     0  910M    0% /sys/fs/cgroup</span><br><span class="line">/dev/mapper/centos-root   17G  5.9G   12G   35% /</span><br><span class="line">/dev/sda1               1014M  150M  865M   15% /boot</span><br><span class="line">tmpfs                    910M  4.0K  910M    1% /var/lib/kubelet/pods/0914bac1-2c2f-4294-a036-afe6fb5d2a16/volumes/kubernetes.io~secret/config</span><br><span class="line">tmpfs                    910M  4.0K  910M    1% /var/lib/kubelet/pods/7975066f-117d-4523-a55e-53262ed8f131/volumes/kubernetes.io~secret/config-volume</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/7454b8be-1bd2-4c17-9784-55bf49d0e6fd/volumes/kubernetes.io~secret/node-exporter-token-hwqlc</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/7975066f-117d-4523-a55e-53262ed8f131/volumes/kubernetes.io~secret/alertmanager-main-token-z4qrq</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/71e0ccae-267d-4025-b4ec-a5ccbd1f0adc/volumes/kubernetes.io~secret/kube-proxy-token-kq9lp</span><br><span class="line">tmpfs                    910M  4.0K  910M    1% /var/lib/kubelet/pods/e685593b-9684-48cc-a304-040b30707088/volumes/kubernetes.io~secret/config</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/53e83a95-4db5-48f7-b166-b37df18b38e0/volumes/kubernetes.io~secret/calico-node-token-f6g2m</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/0914bac1-2c2f-4294-a036-afe6fb5d2a16/volumes/kubernetes.io~secret/prometheus-k8s-token-sm6gd</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/e685593b-9684-48cc-a304-040b30707088/volumes/kubernetes.io~secret/prometheus-k8s-token-sm6gd</span><br><span class="line">overlay                   17G  5.9G   12G   35% /var/lib/docker/overlay2/70944089660c7647c7a83e1dcef9d6297e3e440d4d2d4742f5d68448bde9ad95/merged</span><br><span class="line">shm                       64M     0   64M    0% /var/lib/docker/containers/e59d5037dc150cf7c2ed10ea94d8549c3b98e0b847980a1a306eda8dcaf7e6de/mounts/shm</span><br><span class="line">overlay                   17G  5.9G   12G   35% /var/lib/docker/overlay2/bbdeb82071f8c4cbb2d59e26721735d5f3fd82f8139c0a448133156a0f12631f/merged</span><br><span class="line">overlay                   17G  5.9G   12G   35% /var/lib/docker/overlay2/383c5b7d30028f38eca1e4f2b3ac6144d52b5b1e8f296f2314de9ca0fd867f7d/merged</span><br><span class="line">shm                       64M     0   64M    0% /var/lib/docker/containers/df1ee27e97c823d18fe76ca3a7195cd081e466527b3cf9169a9a9f816b4c3391/mounts/shm</span><br></pre></td></tr></table></figure>
+
+<p>执行<code>docker ps -a</code>发现大量已经停止或退出的容器，需要清理空间。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">docker system prune</span></span><br><span class="line">WARNING! This will remove:</span><br><span class="line">        - all stopped containers</span><br><span class="line">        - all networks not used by at least one container</span><br><span class="line">        - all dangling images</span><br><span class="line">        - all build cache</span><br><span class="line">Are you sure you want to continue? [y/N] y</span><br><span class="line">Deleted Containers:</span><br><span class="line">64d81b1dc03026478f0114b657d4cd938967868967e5e5ee9b8ea3d72814a736</span><br><span class="line">c5f180a1c5c2804d45d13d11f338d241e482ada9673bff0ba8cc18759ae4fcae</span><br><span class="line">aa06316b5fd638c22fc41bd8f8ea4c511566c4c537c81bf5aad5f276ac6c2fae</span><br><span class="line">ce5048ebf25bd48bbe1372aaf38c68078a05c06157ffcb4a8e646470f647acb0</span><br><span class="line">0c4b37413e3483366fb640b94ad33596aef149a50bc610a2d720663159280871</span><br><span class="line">7575ec0a092bc9d3dd1a54ac2e3b92ce0dd8f3f570565ecc918684b0c51087ea</span><br><span class="line">1e335ee77f4167c19f6e54a1728d3d49775f651d871009752b1cfb7ec9fd7867</span><br><span class="line">393bd6280ecf423804c27f264cfc95e72df7580dc6881bb1a249152b4554b10e</span><br><span class="line">63ad5c44a30c80645e84b16cc8e1009e46235bd7001153f8d8d3c4887ed18786</span><br><span class="line">ee8c92a30092e7c30338d2a6721d13f250c2a426947a29c2e2c30f9936c0e07a</span><br><span class="line">cd49e432a75a5f9719e8436af70a40e9869e02db51c4f8c08f02ad26a6bdc3ba</span><br><span class="line">35435e8cd10d2dd9b26993da909aba31f4d52df3475b30ba7536d473004c7e91</span><br><span class="line">6028cf4eac7090a89c05edad7e45096130ee7e3336f28d2c0e2a890111d80043</span><br><span class="line">6e1d20022ecdd871a684b016c89d4d1122c9c5a00de998f921e2eacbd54da482</span><br><span class="line">6417077821f3fc76da1e436401b0ed58a842b8afec6134c3895d5f3c7ae8d069</span><br><span class="line">b49f44b5a26aad43d9d7b0f1ff57b659d4aab90d13477063160862018d3ba6f3</span><br><span class="line"></span><br><span class="line">Deleted Images:</span><br><span class="line">untagged: nginx@sha256:b2d89d0a210398b4d1120b3e3a7672c16a4ba09c2c4a0395f18b9f7999b768f2</span><br><span class="line">deleted: sha256:f7bb5701a33c0e572ed06ca554edca1bee96cbbc1f76f3b01c985de7e19d0657</span><br><span class="line">deleted: sha256:8f1984cf0de0461043fcabd6b2a2040325ac001d9897a242e0d80486fe71575e</span><br><span class="line">deleted: sha256:59d91a36ba4b720eadfbf346ddb825c2faa2d66cc7a915238eaf926c4b4b40ee</span><br><span class="line">deleted: sha256:556c5fb0d91b726083a8ce42e2faaed99f11bc68d3f70e2c7bbce87e7e0b3e10</span><br><span class="line">untagged: nginx@sha256:ee380d57f01eac528f59d031cbeff5eba98b077d25ebdc7d6aef6734f00a41b7</span><br><span class="line">deleted: sha256:231d40e811cd970168fb0c4770f2161aa30b9ba6fe8e68527504df69643aa145</span><br><span class="line">deleted: sha256:dc8adf8fa0fc82a56c32efac9d0da5f84153888317c88ab55123d9e71777bc62</span><br><span class="line">deleted: sha256:77fcff986d3b13762e4777046b9210a109fda20cb261bd3bbe5d7161d4e73c8e</span><br><span class="line"></span><br><span class="line">Total reclaimed space: 183.4MB</span><br></pre></td></tr></table></figure>
+
+<p>这样就删除了不用的容器和镜像了。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/k8s/" rel="tag"># k8s</a>
+              <a href="/tags/docker/" rel="tag"># docker</a>
+              <a href="/tags/kubernetes/" rel="tag"># kubernetes</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/02/Prometheus-monitoring-node-exporter%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" rel="prev" title="Prometheus monitoring&#x2F;node-exporter监控指标">
+                  <i class="fa fa-angle-left"></i> Prometheus monitoring/node-exporter监控指标
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/03/Prometheus-kubernetes-cadvisor%E6%9C%8D%E5%8A%A1%E8%87%AA%E5%8A%A8%E5%8F%91%E7%8E%B0/" rel="next" title="Prometheus kubernetes-cadvisor服务自动发现">
+                  Prometheus kubernetes-cadvisor服务自动发现 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Simon</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

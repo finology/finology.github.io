@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"finolo.gy","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="什么是PrometheusPrometheus是由SoundCloud开发的开源监控报警系统和时序列数据库(TSDB)。Prometheus使用Go语言开发。 2016年由Google发起Linux基金会旗下的原生云基金会(Cloud Native Computing Foundation), 将Prometheus纳入其下第二大开源项目。 Prometheus特点多维数据模型：由度量名称和键值对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Prometheus入门基础">
+<meta property="og:url" content="https://finolo.gy/2020/02/Prometheus%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="Finology 大数据金融">
+<meta property="og:description" content="什么是PrometheusPrometheus是由SoundCloud开发的开源监控报警系统和时序列数据库(TSDB)。Prometheus使用Go语言开发。 2016年由Google发起Linux基金会旗下的原生云基金会(Cloud Native Computing Foundation), 将Prometheus纳入其下第二大开源项目。 Prometheus特点多维数据模型：由度量名称和键值对">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-14T08:45:40.000Z">
+<meta property="article:modified_time" content="2025-08-23T02:01:15.245Z">
+<meta property="article:author" content="Simon">
+<meta property="article:tag" content="k8s">
+<meta property="article:tag" content="kubernetes">
+<meta property="article:tag" content="prometheus">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://finolo.gy/2020/02/Prometheus%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://finolo.gy/2020/02/Prometheus%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/","path":"2020/02/Prometheus入门基础/","title":"Prometheus入门基础"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Prometheus入门基础 | Finology 大数据金融</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Finology 大数据金融</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">通过大数据以量化金融</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFPrometheus"><span class="nav-number">1.</span> <span class="nav-text">什么是Prometheus</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Prometheus%E7%89%B9%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">Prometheus特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Prometheus%E6%9E%B6%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">Prometheus架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Prometheus-Server"><span class="nav-number">3.1.</span> <span class="nav-text">Prometheus Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Client-Library"><span class="nav-number">3.2.</span> <span class="nav-text">Client Library</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Push-Gateway"><span class="nav-number">3.3.</span> <span class="nav-text">Push Gateway</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#exporter"><span class="nav-number">3.4.</span> <span class="nav-text">exporter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#alertmanager"><span class="nav-number">3.5.</span> <span class="nav-text">alertmanager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web-UI"><span class="nav-number">3.6.</span> <span class="nav-text">Web UI</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">基本原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E8%BF%87%E7%A8%8B"><span class="nav-number">5.</span> <span class="nav-text">服务过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E5%A4%A7%E5%A5%97%E4%BB%B6"><span class="nav-number">6.</span> <span class="nav-text">三大套件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Prometheus-Server-1"><span class="nav-number">6.1.</span> <span class="nav-text">Prometheus Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Alertmanager"><span class="nav-number">6.2.</span> <span class="nav-text">Alertmanager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Push-Gateway-1"><span class="nav-number">6.3.</span> <span class="nav-text">Push Gateway</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-number">7.</span> <span class="nav-text">数据模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E6%A0%87%E7%B1%BB%E5%9E%8B"><span class="nav-number">8.</span> <span class="nav-text">指标类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Counter"><span class="nav-number">8.1.</span> <span class="nav-text">Counter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gauge"><span class="nav-number">8.2.</span> <span class="nav-text">Gauge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Histogram"><span class="nav-number">8.3.</span> <span class="nav-text">Histogram</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">8.4.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%93%E5%8F%96%E5%AE%9E%E4%BE%8B"><span class="nav-number">9.</span> <span class="nav-text">抓取实例</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Simon</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">79</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">235</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/Prometheus%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Prometheus入门基础 | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Prometheus入门基础
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-02-14 16:45:40" itemprop="dateCreated datePublished" datetime="2020-02-14T16:45:40+08:00">2020-02-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="什么是Prometheus"><a href="#什么是Prometheus" class="headerlink" title="什么是Prometheus"></a>什么是Prometheus</h1><p>Prometheus是由SoundCloud开发的开源监控报警系统和时序列数据库(TSDB)。Prometheus使用Go语言开发。</p>
+<p>2016年由Google发起Linux基金会旗下的原生云基金会(Cloud Native Computing Foundation), 将Prometheus纳入其下第二大开源项目。</p>
+<h1 id="Prometheus特点"><a href="#Prometheus特点" class="headerlink" title="Prometheus特点"></a>Prometheus特点</h1><p>多维数据模型：由度量名称和键值对标识的时间序列数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node_cpu_seconds_total&#123;cpu=&quot;0&quot;,endpoint=&quot;https&quot;,instance=&quot;k8s-master&quot;,job=&quot;node-exporter&quot;,mode=&quot;idle&quot;,namespace=&quot;monitoring&quot;,pod=&quot;node-exporter-t9ljw&quot;,service=&quot;node-exporter&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>PromSQL是一种灵活的查询语言，可以利用多维数据完成复杂的查询</p>
+<p>不依赖分布式存储，单个服务器节点可直接工作</p>
+<p>基于HTTP的pull方式采集时间序列数据</p>
+<p>推送时间序列数据通过PushGateway组件支持</p>
+<p>通过服务发现或静态配置发现目标</p>
+<p>多种图形模式及仪表盘支持</p>
+<h1 id="Prometheus架构"><a href="#Prometheus架构" class="headerlink" title="Prometheus架构"></a>Prometheus架构</h1>
+
+<p>Prometheus 由多个组件组成，但是其中许多组件是可选的：</p>
+<h2 id="Prometheus-Server"><a href="#Prometheus-Server" class="headerlink" title="Prometheus Server"></a>Prometheus Server</h2><p>用于收集指标和存储时间序列数据，并提供查询接口(http api)</p>
+<h2 id="Client-Library"><a href="#Client-Library" class="headerlink" title="Client Library"></a>Client Library</h2><p>客户端库（例如Go，Python，Java等），为需要监控的服务产生相应的&#x2F;metrics并暴露给Prometheus Server。目前已经有很多的软件原生就支持Prometheus，提供&#x2F;metrics，可以直接使用。对于像操作系统已经不提供&#x2F;metrics，可以使用exporter，或者自己开发exporter来提供&#x2F;metrics服务。</p>
+<h2 id="Push-Gateway"><a href="#Push-Gateway" class="headerlink" title="Push Gateway"></a>Push Gateway</h2><p>主要用于临时性的jobs。由于这类jobs存在时间较短，可能在Prometheus pull之前就消失了。对此Jobs定时将指标push到pushgateway，再由Prometheus<br>Server从Pushgateway上pull。这种方式主要用于服务层面的metrics</p>
+<h2 id="exporter"><a href="#exporter" class="headerlink" title="exporter"></a>exporter</h2><p>用于暴露已有的第三方服务的 metrics 给 Prometheus。</p>
+<h2 id="alertmanager"><a href="#alertmanager" class="headerlink" title="alertmanager"></a>alertmanager</h2><p>从 Prometheus server 端接收到 alerts 后，会进行去除重复数据，分组，并路由到对应的接收方式，发出报警。常见的接收方式有：电子邮件，pagerduty，OpsGenie, webhook 等。</p>
+<h2 id="Web-UI"><a href="#Web-UI" class="headerlink" title="Web UI"></a>Web UI</h2><p>Prometheus内置一个简单的Web控制台，可以查询指标，查看配置信息或者Service Discovery等，实际工作中，查看指标或者创建仪表盘通常使用Grafana，Prometheus作为Grafana的数据源。</p>
+<h1 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h1><p>Prometheus的基本原理是通过HTTP协议周期性抓取被监控组件的状态，任意组件只要提供对应的HTTP接口就可以接入监控。不需要任何SDK或者其他的集成过程。这样做非常适合做虚拟化环境监控系统，比如VM、Docker、Kubernetes等。输出被监控组件信息的HTTP接口被叫做exporter 。目前互联网公司常用的组件大部分都有exporter可以直接使用，比如Varnish、Haproxy、Nginx、MySQL、Linux系统信息(包括磁盘、内存、CPU、网络等等)。</p>
+<h1 id="服务过程"><a href="#服务过程" class="headerlink" title="服务过程"></a>服务过程</h1><p>Prometheus Daemon负责定时去目标上抓取metrics(指标)数据，每个抓取目标需要暴露一个http服务的接口给它定时抓取。Prometheus支持通过配置文件、文本文件、Zookeeper、Consul、DNS SRV Lookup等方式指定抓取目标。Prometheus采用PULL的方式进行监控，即服务器可以直接通过目标PULL数据或者间接地通过中间网关来Push数据。</p>
+<p>Prometheus在本地存储抓取的所有数据，并通过一定规则进行清理和整理数据，并把得到的结果存储到新的时间序列中。</p>
+<p>Prometheus通过PromQL和其他API可视化地展示收集的数据。Prometheus支持很多方式的图表可视化，例如Grafana、自带的Promdash以及自身提供的模版引擎等等。Prometheus还提供HTTP API的查询方式，自定义所需要的输出。</p>
+<p>PushGateway支持Client主动推送metrics到PushGateway，而Prometheus只是定时去Gateway上抓取数据。</p>
+<p>Alertmanager是独立于Prometheus的一个组件，可以支持Prometheus的查询语句，提供十分灵活的报警方式。</p>
+<h1 id="三大套件"><a href="#三大套件" class="headerlink" title="三大套件"></a>三大套件</h1><h2 id="Prometheus-Server-1"><a href="#Prometheus-Server-1" class="headerlink" title="Prometheus Server"></a>Prometheus Server</h2><p>主要负责数据采集和存储，提供PromQL查询语言的支持。</p>
+<h2 id="Alertmanager"><a href="#Alertmanager" class="headerlink" title="Alertmanager"></a>Alertmanager</h2><p>警告管理器，用来进行报警。</p>
+<h2 id="Push-Gateway-1"><a href="#Push-Gateway-1" class="headerlink" title="Push Gateway"></a>Push Gateway</h2><p>支持临时性Job主动推送指标的中间网关。</p>
+<h1 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h1><p>Prometheus将所有数据存储为时间序列；具有相同度量名称以及标签属于同一个指标。</p>
+<p>每个时间序列都由度量标准名称和一组键值对（也成为标签）唯一标识。</p>
+<p>时间序列格式：</p>
+<p><code>&lt;metric name&gt;&#123;&lt;label name&gt;=&lt;label value&gt;, ...&#125;</code></p>
+<h1 id="指标类型"><a href="#指标类型" class="headerlink" title="指标类型"></a>指标类型</h1><h2 id="Counter"><a href="#Counter" class="headerlink" title="Counter"></a>Counter</h2><p>递增的计数器，如CPU使用时间。</p>
+<h2 id="Gauge"><a href="#Gauge" class="headerlink" title="Gauge"></a>Gauge</h2><p>可以任意变化的数值：cup使用率</p>
+<h2 id="Histogram"><a href="#Histogram" class="headerlink" title="Histogram"></a>Histogram</h2><p>对一段时间范围内数据进行采样，并对所有数值求和与统计数量</p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>与Histogram类似，带有分位数。</p>
+<h1 id="抓取实例"><a href="#抓取实例" class="headerlink" title="抓取实例"></a>抓取实例</h1><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">scrape_configs:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">&#x27;prometheus&#x27;</span></span><br><span class="line">  <span class="attr">static_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;localhost:9090&#x27;</span>,<span class="string">&#x27;192.168.1.100:9090&#x27;</span>]</span><br><span class="line"><span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">&#x27;node&#x27;</span></span><br><span class="line">  <span class="attr">static_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;192.168.1.10:9090&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/k8s/" rel="tag"># k8s</a>
+              <a href="/tags/kubernetes/" rel="tag"># kubernetes</a>
+              <a href="/tags/prometheus/" rel="tag"># prometheus</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/02/k8s-master%E8%8A%82%E7%82%B9nodePort%E6%96%B9%E5%BC%8F%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1/" rel="prev" title="k8s master节点nodePort方式不能访问服务">
+                  <i class="fa fa-angle-left"></i> k8s master节点nodePort方式不能访问服务
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/02/Prometheus-Kubelet-ServiceMonitor/" rel="next" title="Prometheus Kubelet ServiceMonitor">
+                  Prometheus Kubelet ServiceMonitor <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Simon</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
