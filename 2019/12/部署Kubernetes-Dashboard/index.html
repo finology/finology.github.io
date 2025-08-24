@@ -26,12 +26,14 @@
 <meta property="og:site_name" content="Finology 大数据金融">
 <meta property="og:description" content="在K8S v1.15.6环境下部署Kubernetes Dashboard。 查看官网先查看Dashboard的版本，进入官网：https:&#x2F;&#x2F;github.com&#x2F;kubernetes&#x2F;dashboard。 123To deploy Dashboard, execute following command:$ kubectl apply -f https:&#x2F;&#x2F;raw.githubusercont">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://finolo.gy/2019/12/%E9%83%A8%E7%BD%B2Kubernetes-Dashboard/kubernetes-dashboard.png">
 <meta property="article:published_time" content="2019-12-08T07:47:52.000Z">
 <meta property="article:modified_time" content="2025-08-23T02:01:15.219Z">
 <meta property="article:author" content="Simon">
 <meta property="article:tag" content="kubernetes">
 <meta property="article:tag" content="k8s">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://finolo.gy/2019/12/%E9%83%A8%E7%BD%B2Kubernetes-Dashboard/kubernetes-dashboard.png">
 
 
 <link rel="canonical" href="https://finolo.gy/2019/12/%E9%83%A8%E7%BD%B2Kubernetes-Dashboard/">
@@ -351,7 +353,7 @@
 <h1 id="获取登录Token"><a href="#获取登录Token" class="headerlink" title="获取登录Token"></a>获取登录Token</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe secret -n kubernetes-dashboard $(kubectl get secrets -n kubernetes-dashboard | awk &#x27;/dashboard-admin/&#123;print $1&#125;&#x27; )</span><br><span class="line">Name:         dashboard-admin-token-trt79</span><br><span class="line">Namespace:    kubernetes-dashboard</span><br><span class="line">Labels:       &lt;none&gt;</span><br><span class="line">Annotations:  kubernetes.io/service-account.name: dashboard-admin</span><br><span class="line">              kubernetes.io/service-account.uid: 084970f9-48cd-44db-8106-887ee76db771</span><br><span class="line"></span><br><span class="line">Type:  kubernetes.io/service-account-token</span><br><span class="line"></span><br><span class="line">Data</span><br><span class="line">====</span><br><span class="line">ca.crt:     1025 bytes</span><br><span class="line">namespace:  20 bytes</span><br><span class="line">token:      eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZ</span><br><span class="line">XJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8</span><br><span class="line">vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJkYXNoYm9hcmQtYWRtaW4tdG9rZW4tdHJ0NzkiLCJrdWJlcm5ldGVzLmlvL</span><br><span class="line">3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGFzaGJvYXJkLWFkbWluIiwia3ViZXJuZXRlcy5pby9zZXJ</span><br><span class="line">2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiMDg0OTcwZjktNDhjZC00NGRiLTgxMDYtODg3ZWU3NmRiNzcxIiwic</span><br><span class="line">3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Omt1YmVybmV0ZXMtZGFzaGJvYXJkOmRhc2hib2FyZC1hZG1pbiJ9.m1twrtEAUC</span><br><span class="line">zup9vc0xVJwL3lOKwa4Pizyj4iMNoUctHKBfHD6vKO-NlxJo-jyCwvpDg-Pe8E82haUYQDu5L_HgA_Qa7xyTXSOXAwKVfcifdZ</span><br><span class="line">yhAjkXJSmZCpklqnAfp91rp7iaCPow8LKTNBkvreSVGEtQO6Fta-fWeQtqdn-4FGCoXX2ICbGTp-j3MTCeE2b2PfkhKcZcaEYu</span><br><span class="line">3fho2P6rFvjxH-Xp8pHl6fDDdw01IJHqSGcUmmvE-qkuEMSRkJ9x1P6mAR12w6LbEJH9C5qyq4d-P55zDHYTACsMls0elaHrHY</span><br><span class="line">wAURVT2OJjLmkcW38p73uADAIYBLtuTv67phPQ</span><br></pre></td></tr></table></figure>
 
 <p>把这个token复制后，拷贝到登录Dashboard的token输入框中，就能以<code>cluster-admin</code>的角色成功登录了。如图：</p>
-
+<img src="/2019/12/%E9%83%A8%E7%BD%B2Kubernetes-Dashboard/kubernetes-dashboard.png" class="">
 
     </div>
 

@@ -26,11 +26,13 @@
 <meta property="og:site_name" content="Finology 大数据金融">
 <meta property="og:description" content="之前一直是通过matplotlib来画图的，数据量大了以后，画图的速度较慢。 如果使用plotly，效率较高，主要是通过浏览器来渲染图片的，通过js效果，还可以随意放大缩小查看细节。 基本绘图折线图123import plotly.express as pxfig1 &#x3D; px.line(df[&quot;balance&quot;])fig1.show()  或者更简便一些 12import pl">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://finolo.gy/2025/01/%E9%80%9A%E8%BF%87python-plotly%E7%94%BB%E5%9B%BE/plot-demo.png">
 <meta property="article:published_time" content="2025-01-11T13:38:35.000Z">
 <meta property="article:modified_time" content="2025-08-23T02:01:15.511Z">
 <meta property="article:author" content="Simon">
 <meta property="article:tag" content="plotly">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://finolo.gy/2025/01/%E9%80%9A%E8%BF%87python-plotly%E7%94%BB%E5%9B%BE/plot-demo.png">
 
 
 <link rel="canonical" href="https://finolo.gy/2025/01/%E9%80%9A%E8%BF%87python-plotly%E7%94%BB%E5%9B%BE/">
@@ -304,7 +306,7 @@
 
 <h2 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">px.scatter(df[<span class="string">&quot;drawdown&quot;</span>])</span><br></pre></td></tr></table></figure>
 
-<h1 id="对象方式绘图"><a href="#对象方式绘图" class="headerlink" title="对象方式绘图"></a>对象方式绘图</h1>
+<h1 id="对象方式绘图"><a href="#对象方式绘图" class="headerlink" title="对象方式绘图"></a>对象方式绘图</h1><img src="/2025/01/%E9%80%9A%E8%BF%87python-plotly%E7%94%BB%E5%9B%BE/plot-demo.png" class="">
 
 <h2 id="创建绘图区域"><a href="#创建绘图区域" class="headerlink" title="创建绘图区域"></a>创建绘图区域</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> plotly.graph_objects <span class="keyword">as</span> go</span><br><span class="line"><span class="keyword">from</span> plotly.subplots <span class="keyword">import</span> make_subplots</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建绘图区域, 4行1列</span></span><br><span class="line">fig = make_subplots(</span><br><span class="line">    rows=<span class="number">4</span>,</span><br><span class="line">    cols=<span class="number">1</span>,</span><br><span class="line">    subplot_titles=[<span class="string">&quot;累计盈亏&quot;</span>, <span class="string">&quot;净值回撤&quot;</span>, <span class="string">&quot;交易盈亏&quot;</span>, <span class="string">&quot;盈亏分布&quot;</span>],</span><br><span class="line">    vertical_spacing=<span class="number">0.06</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 

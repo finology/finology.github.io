@@ -425,7 +425,7 @@
     <div class="post-body" itemprop="articleBody">
           <p>想让自己的博客被百度搜索引擎尽快收录，并在搜索时排在前面一些，那就需要及时提交博客的URL。</p>
 <p>主要有三种提交方法，大家最好三种都用，这也是官方推荐的，不会有任何冲突。</p>
-
+<img src="/2020/02/hexo%E5%8D%9A%E5%AE%A2%E5%9C%A8%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%B8%8A%E7%9A%84%E9%93%BE%E6%8E%A5%E6%8F%90%E4%BA%A4/url-submit-graph.png" class="">
 
 <h1 id="主动推送"><a href="#主动推送" class="headerlink" title="主动推送"></a>主动推送</h1><p>主动推送是实时的，能让百度在第一时间知道你的原创内容。</p>
 <p>首先要安装<code>hexo-baidu-url-submit</code>插件。</p>
@@ -438,7 +438,7 @@
 <p>token这也可以在百度网站上找到。</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Baibu url submit</span></span><br><span class="line"><span class="attr">baidu_url_submit:</span></span><br><span class="line">  <span class="attr">count:</span> <span class="number">500</span></span><br><span class="line">  <span class="attr">host:</span> <span class="string">https://finolo.gy</span></span><br><span class="line">  <span class="attr">token:</span> <span class="comment">## 填下图位置里面token参数的值</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">baidu_urls.txt</span></span><br></pre></td></tr></table></figure>
 
-
+<img src="/2020/02/hexo%E5%8D%9A%E5%AE%A2%E5%9C%A8%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%B8%8A%E7%9A%84%E9%93%BE%E6%8E%A5%E6%8F%90%E4%BA%A4/baidu-url-submit.png" class="">
 
 <p>最后在Deploy标签下加入buidu_url_submitter</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">baidu_url_submitter</span></span><br></pre></td></tr></table></figure>
@@ -579,7 +579,7 @@
 <li>然后查找svc的annotations标签<code>__meta_kubernetes_service_annotation_prometheus_io_scrape</code>的值为<code>true</code>的。</li>
 <li>最后看到ep里面有两个<code>Addresses</code>，所以显示两个Targets。</li>
 </ol>
-
+<img src="/2020/02/Prometheus%E7%9B%91%E6%8E%A7%E9%85%8D%E7%BD%AEkubernetes-sd-config/kubernetes-service-endpoints.png" class="">
 
 
 

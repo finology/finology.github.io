@@ -205,6 +205,122 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/08/Warning-Generating-equals-hashCode-implementation-but-without-a-call-to-superclass/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/Warning-Generating-equals-hashCode-implementation-but-without-a-call-to-superclass/" class="post-title-link" itemprop="url">Warning: Generating equals/hashCode implementation but without a call to superclass</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-06 11:38:21" itemprop="dateCreated datePublished" datetime="2021-08-06T11:38:21+08:00">2021-08-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/08/Warning-Generating-equals-hashCode-implementation-but-without-a-call-to-superclass/" class="post-meta-item leancloud_visitors" data-flag-title="Warning: Generating equals/hashCode implementation but without a call to superclass" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/08/Warning-Generating-equals-hashCode-implementation-but-without-a-call-to-superclass/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/08/Warning-Generating-equals-hashCode-implementation-but-without-a-call-to-superclass/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>编译项目时，遇到这样一个错误提示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Warning:(12, 1) Generating equals/hashCode implementation but without a call to superclass, even though</span><br><span class="line"> this class does not extend java.lang.Object. If this is intentional, add &#x27;(callSuper=false)&#x27; to your type.</span><br></pre></td></tr></table></figure>
+
+<p>这是由于我们使用lombok的<code>@Data</code>注解时造成的。使用@Data注解时，子类的equals和hashCode方法，默认是不比较父类的属性的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">PRIME</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> <span class="built_in">super</span>.hashCode(); <span class="comment">// 默认这句话是没有的</span></span><br><span class="line">    <span class="type">Object</span> <span class="variable">$ext</span> <span class="operator">=</span> <span class="built_in">this</span>.getExt();</span><br><span class="line">    result = result * <span class="number">59</span> + ($ext == <span class="literal">null</span> ? <span class="number">43</span> : $ext.hashCode());</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解决方案有两个。</p>
+<p>在类上再添加一个注解：<code>@EqualsAndHashCode(callSuper = true)</code></p>
+<p>这样有个问题就是，只要继承了其他类，都要加这个注解。</p>
+<p>还有一个通用的解决方法，在<code>src/main/java</code>文件夹下面，注意，不是<code>src/main/resources</code>下面，添加配置文件<code>lombok.config</code></p>
+<p>文件里面的内容为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lombok.equalsAndHashCode.callSuper=call</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/08/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96Kafka%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -418,134 +534,6 @@
 
 <p>此时再执行 jps 命令，就可以执行成功了。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">jps</span></span><br><span class="line">27455 Jps</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/08/CentOS-7%E5%AE%89%E8%A3%85Kafka/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/CentOS-7%E5%AE%89%E8%A3%85Kafka/" class="post-title-link" itemprop="url">CentOS 7安装Kafka</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-08-04 17:22:11" itemprop="dateCreated datePublished" datetime="2021-08-04T17:22:11+08:00">2021-08-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Middleware/" itemprop="url" rel="index"><span itemprop="name">Middleware</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Middleware/Kafka/" itemprop="url" rel="index"><span itemprop="name">Kafka</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2021/08/CentOS-7%E5%AE%89%E8%A3%85Kafka/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS 7安装Kafka" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2021/08/CentOS-7%E5%AE%89%E8%A3%85Kafka/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/08/CentOS-7%E5%AE%89%E8%A3%85Kafka/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>环境：CentOS 7<br>Kafka版本：kafka_2.12-2.6.2</p>
-<h1 id="下载Kafka安装文件"><a href="#下载Kafka安装文件" class="headerlink" title="下载Kafka安装文件"></a>下载Kafka安装文件</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> wget https://mirror.nodesdirect.com/apache/kafka/2.6.2/kafka_2.12-2.6.2.tgz</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="解压安装"><a href="#解压安装" class="headerlink" title="解压安装"></a>解压安装</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> tar -xzf kafka_2.12-2.6.2.tgz -C /usr/local/kafka</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="启动Zookeeper"><a href="#启动Zookeeper" class="headerlink" title="启动Zookeeper"></a>启动Zookeeper</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> bin/zookeeper-server-start.sh config/zookeeper.properties</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="启动Kafka"><a href="#启动Kafka" class="headerlink" title="启动Kafka"></a>启动Kafka</h1><p>修改server.properties配置文件。</p>
-<p>如果要使用外部程序去调用Kafka的话，需要设置advertised.listeners参数的IP地址。<br>advertised.listeners&#x3D;PLAINTEXT:&#x2F;&#x2F;192.168.0.2:9092</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> bin/kafka-server-start.sh config/server.properties</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>创建Topic</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">bin/kafka-topics.sh --describe --topic quickstart-events --bootstrap-server localhost:9092</span></span><br><span class="line">Topic:quickstart-events  PartitionCount:1    ReplicationFactor:1 Configs:</span><br><span class="line">    Topic: quickstart-events Partition: 0    Leader: 0   Replicas: 0 Isr: 0</span><br><span class="line">S</span><br></pre></td></tr></table></figure>
-
-<p>写消息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server localhost:9092</span></span><br><span class="line">This is my first event</span><br><span class="line">This is my second event</span><br></pre></td></tr></table></figure>
-
-<p>读消息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">bin/kafka-console-consumer.sh --topic quickstart-events --from-beginning --bootstrap-server localhost:9092</span></span><br><span class="line">This is my first event</span><br><span class="line">This is my second event</span><br></pre></td></tr></table></figure>
-
       
     </div>
 

@@ -26,11 +26,13 @@
 <meta property="og:site_name" content="Finology 大数据金融">
 <meta property="og:description" content="YARN架构1 RM(ResourceManager) + n NM(NodeManager) ResourceManager的职责一个集群active状态的RM只有一个，负责整个集群的资源管理和调度  处理客户端的请求（启动 &#x2F; kill）  启动 &#x2F; 监控ApplicationMaster（一个作业对应一个AM）  监控NM  系统的资源分配和调度   NodeManage">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://finolo.gy/2019/01/YARN%E4%BB%8B%E7%BB%8D%E5%8F%8A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/yarnWebUI.png">
 <meta property="article:published_time" content="2019-01-09T12:01:38.000Z">
 <meta property="article:modified_time" content="2025-08-23T02:01:15.165Z">
 <meta property="article:author" content="Simon">
 <meta property="article:tag" content="YARN">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://finolo.gy/2019/01/YARN%E4%BB%8B%E7%BB%8D%E5%8F%8A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/yarnWebUI.png">
 
 
 <link rel="canonical" href="https://finolo.gy/2019/01/YARN%E4%BB%8B%E7%BB%8D%E5%8F%8A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
@@ -358,7 +360,7 @@
 
 <p>说明YARN已经成功启动。</p>
 <p>通过浏览器访问地址 <code>http://localhost:8088</code>，可见页面如下</p>
-
+<img src="/2019/01/YARN%E4%BB%8B%E7%BB%8D%E5%8F%8A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/yarnWebUI.png" class="">
 
 <h1 id="提交作业"><a href="#提交作业" class="headerlink" title="提交作业"></a>提交作业</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.0-cdh5.7.0.jar wordcount</span><br><span class="line">Usage: wordcount &lt;in&gt; [&lt;in&gt;...] &lt;out&gt;</span><br></pre></td></tr></table></figure>
 

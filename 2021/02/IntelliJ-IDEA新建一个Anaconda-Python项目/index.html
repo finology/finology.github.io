@@ -26,12 +26,20 @@
 <meta property="og:site_name" content="Finology 大数据金融">
 <meta property="og:description" content="这篇文章讲讲在macOS系统中，如何一步一步创建一个基于Anaconda的项目。 首先我们得确定已经在macOS中安装好了Anaconda。 新建Python环境先查看一下当前环境，只有一个base。 1234$ conda env list# conda environments:#base                  *  &#x2F;opt&#x2F;anaconda3  以克隆方式创建一个和Anacon">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://finolo.gy/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/new.png">
+<meta property="og:image" content="https://finolo.gy/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/newproject.png">
+<meta property="og:image" content="https://finolo.gy/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/env.png">
+<meta property="og:image" content="https://finolo.gy/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/project.png">
+<meta property="og:image" content="https://finolo.gy/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/modules.png">
+<meta property="og:image" content="https://finolo.gy/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/sdks.png">
+<meta property="og:image" content="https://finolo.gy/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/globallib.png">
 <meta property="article:published_time" content="2021-02-20T16:13:03.000Z">
 <meta property="article:modified_time" content="2025-08-23T02:01:15.389Z">
 <meta property="article:author" content="Simon">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="anaconda">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://finolo.gy/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/new.png">
 
 
 <link rel="canonical" href="https://finolo.gy/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/">
@@ -302,13 +310,13 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda activate py37</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="新建Python项目"><a href="#新建Python项目" class="headerlink" title="新建Python项目"></a>新建Python项目</h1><p>File -&gt; New -&gt; Project…</p>
-
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/new.png" class="">
 
 <p>选择Python项目，<code>New</code>一个<code>Project SDK</code>。</p>
-
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/newproject.png" class="">
 
 <p>添加Python解析器</p>
-
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/env.png" class="">
 
 <p>选择 Conda Environment，使用Conda来管理包。</p>
 <p>我们前面使用命令行的方式创建一个env，所以选择Existing Environment。</p>
@@ -320,13 +328,13 @@
 
 <p>检查，pandas, print下面没有红线，按Command，同时鼠标点击pandas或print，均能查看得到源代码，运行时，也会正常运行，说明配置一切正常。</p>
 <p>我们再看看项目结构。</p>
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/project.png" class="">
 
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/modules.png" class="">
 
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/sdks.png" class="">
 
-
-
-
-
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/globallib.png" class="">
 
     </div>
 
@@ -349,8 +357,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/02/%E5%B8%B8%E7%94%A8%E9%A2%9C%E8%89%B2%E5%90%8D%E5%AD%97RGB%E5%92%8C%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/" rel="next" title="常用颜色名字RGB和十六进制">
-                  常用颜色名字RGB和十六进制 <i class="fa fa-angle-right"></i>
+                <a href="/2021/03/Python%E4%B8%AD%E4%BD%BF%E7%94%A8requests%E5%BA%93%E5%8F%91%E9%80%81Http%E8%AF%B7%E6%B1%82/" rel="next" title="Python中使用requests库发送Http请求">
+                  Python中使用requests库发送Http请求 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>

@@ -293,10 +293,10 @@
 <p>这里想讲一下如何已经提交到远程仓库了怎么办？</p>
 <p>首先，还是和前面的一样，让本地 master 版本先回退回来。</p>
 <p>如图所示：可以看到 master 版本已经落后远程仓库一个版本了。</p>
-
+<img src="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/git%E5%9B%9E%E9%80%80.png" class="">
 
 <p>然后，在命令行里面，执行 <code>git push -f</code> 这个命令，我在 SourceTree 里面还没有找到在哪里。force push 到原程仓库里面。就可以了。</p>
-<p>如图 </p>
+<p>如图 <img src="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/git%E5%9B%9E%E9%80%80%E6%88%90%E5%8A%9F.png" class=""></p>
 <p>版本就在同一条线上了。</p>
 
       
@@ -526,7 +526,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>今天来梳理一下Grafana图表及其后面的公式。</p>
-<h1 id="Kubernetes-Compute-Resources-Cluster"><a href="#Kubernetes-Compute-Resources-Cluster" class="headerlink" title="Kubernetes &#x2F; Compute Resources &#x2F; Cluster"></a>Kubernetes &#x2F; Compute Resources &#x2F; Cluster</h1><h2 id="CPU-Utilisation"><a href="#CPU-Utilisation" class="headerlink" title="CPU Utilisation"></a>CPU Utilisation</h2>
+<h1 id="Kubernetes-Compute-Resources-Cluster"><a href="#Kubernetes-Compute-Resources-Cluster" class="headerlink" title="Kubernetes &#x2F; Compute Resources &#x2F; Cluster"></a>Kubernetes &#x2F; Compute Resources &#x2F; Cluster</h1><h2 id="CPU-Utilisation"><a href="#CPU-Utilisation" class="headerlink" title="CPU Utilisation"></a>CPU Utilisation</h2><img src="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/cluster-cpu.png" class="">
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 - avg(rate(node_cpu_seconds_total&#123;mode=&quot;idle&quot;, cluster=&quot;&quot;&#125;[1m]))</span><br></pre></td></tr></table></figure>
 
@@ -536,7 +536,7 @@
 
 <p>所以CPU Utilisation算的是各节点CPU利用率的平均值。</p>
 <p>job&#x3D;”node-exporter”</p>
-<h2 id="CPU-Usage"><a href="#CPU-Usage" class="headerlink" title="CPU Usage"></a>CPU Usage</h2>
+<h2 id="CPU-Usage"><a href="#CPU-Usage" class="headerlink" title="CPU Usage"></a>CPU Usage</h2><img src="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/cpu-usage-by-namespace.png" class="">
 
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;cluster=&quot;&quot;&#125;) by (namespace)</span><br></pre></td></tr></table></figure>
 
@@ -551,11 +551,11 @@
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">container_memory_rss&#123;container=&quot;POD&quot;,container_name=&quot;POD&quot;,endpoint=&quot;https-metrics&quot;,id=&quot;/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod1a047e8b0c961b34e915140fc2a8711c.slice/docker-20e1377aeb77873fcf4ac5e4380d47f28c0f594773ba047442b00dfc6f116837.scope&quot;,image=&quot;k8s.gcr.io/pause:3.1&quot;,instance=&quot;172.16.64.233:10250&quot;,job=&quot;kubelet&quot;,name=&quot;k8s_POD_etcd-k8s-master_kube-system_1a047e8b0c961b34e915140fc2a8711c_14&quot;,namespace=&quot;kube-system&quot;,node=&quot;k8s-master&quot;,pod=&quot;etcd-k8s-master&quot;,pod_name=&quot;etcd-k8s-master&quot;,service=&quot;kubelet&quot;&#125;	45056</span><br><span class="line">container_memory_rss&#123;container=&quot;POD&quot;,container_name=&quot;POD&quot;,endpoint=&quot;https-metrics&quot;,id=&quot;/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod31622d49_04a8_4a95_8b80_736012e85215.slice/docker-c4e100bf3571c0fa25537cbd0ea7839bf2fd1486462a7b2626a552dfcf7503ec.scope&quot;,image=&quot;k8s.gcr.io/pause:3.1&quot;,instance=&quot;172.16.64.232:10250&quot;,job=&quot;kubelet&quot;,name=&quot;k8s_POD_nginx-deployment-6f89946645-pwpf7_default_31622d49-04a8-4a95-8b80-736012e85215_13&quot;,namespace=&quot;default&quot;,node=&quot;k8s-node1&quot;,pod=&quot;nginx-deployment-6f89946645-pwpf7&quot;,pod_name=&quot;nginx-deployment-6f89946645-pwpf7&quot;,service=&quot;kubelet&quot;&#125;	45056</span><br></pre></td></tr></table></figure>
 
 <p>job&#x3D;”kubelet”</p>
-<h1 id="Kubernetes-Compute-Resources-Namespace-Pods"><a href="#Kubernetes-Compute-Resources-Namespace-Pods" class="headerlink" title="Kubernetes &#x2F; Compute Resources &#x2F; Namespace (Pods)"></a>Kubernetes &#x2F; Compute Resources &#x2F; Namespace (Pods)</h1>
+<h1 id="Kubernetes-Compute-Resources-Namespace-Pods"><a href="#Kubernetes-Compute-Resources-Namespace-Pods" class="headerlink" title="Kubernetes &#x2F; Compute Resources &#x2F; Namespace (Pods)"></a>Kubernetes &#x2F; Compute Resources &#x2F; Namespace (Pods)</h1><img src="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/cpu-usage-by-pod.png" class="">
 
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;cluster=&quot;&quot;, namespace=&quot;monitoring&quot;&#125;) by (pod)</span><br></pre></td></tr></table></figure>
 
-<h1 id="Kubernetes-Compute-Resources-Pod"><a href="#Kubernetes-Compute-Resources-Pod" class="headerlink" title="Kubernetes &#x2F; Compute Resources &#x2F; Pod"></a>Kubernetes &#x2F; Compute Resources &#x2F; Pod</h1>
+<h1 id="Kubernetes-Compute-Resources-Pod"><a href="#Kubernetes-Compute-Resources-Pod" class="headerlink" title="Kubernetes &#x2F; Compute Resources &#x2F; Pod"></a>Kubernetes &#x2F; Compute Resources &#x2F; Pod</h1><img src="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/cpu-by-container.png" class="">
 
 <p>显示各个选中Pod中，各个Container的状态。</p>
 <p>sum(namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{namespace&#x3D;”default”, pod&#x3D;”nginx-deployment-6f89946645-pwpf7”, container!&#x3D;”POD”, cluster&#x3D;””}) by (container)</p>

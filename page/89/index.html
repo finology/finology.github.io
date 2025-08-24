@@ -544,7 +544,7 @@
           <h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>k8s version: v.1.16.3</p>
 <p>dashboard: dashboard:v2.0.0-beta6</p>
 <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>K8S Dashboard安装好以后，通过Firefox浏览器是可以打开的，但通过Google Chrome浏览器，无法成功浏览页面。如图：</p>
-
+<img src="/2019/12/%E8%A7%A3%E5%86%B3Google-Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80Kubernetes-K8S-Dashboard%E9%A1%B5%E9%9D%A2/k8sdashboard1.png" class="">
 
 <h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>kubeadm自动生成的证书，很多浏览器不支持。所以我们需要自己创建证书。</p>
 <h2 id="创建一个目录"><a href="#创建一个目录" class="headerlink" title="创建一个目录"></a>创建一个目录</h2><p>存放证书等文件</p>
@@ -566,7 +566,7 @@
 
 <p>删除后，新的pod会自动启动起来。</p>
 <p>这时，再次刷新Chrome浏览器的Dashboard页面，如图：</p>
-
+<img src="/2019/12/%E8%A7%A3%E5%86%B3Google-Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80Kubernetes-K8S-Dashboard%E9%A1%B5%E9%9D%A2/k8sdashboard2.png" class="">
 
 <p>点击<code>继续前往</code>，页面就可以正常显示了。</p>
 

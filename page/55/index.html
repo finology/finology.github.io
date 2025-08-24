@@ -285,7 +285,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>原始数据如图：</p>
-
+<img src="/2020/04/Python-Pandas%E5%AF%B9DataFrame-float%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/industry_df.png" class="">
 
 <p>我们要对float数据四舍五入，并把单位改为亿元。</p>
 <p>方法一</p>
@@ -296,7 +296,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cap_list = <span class="built_in">round</span>(industry_df[<span class="string">&#x27;MKT_CAP_ARD&#x27;</span>] / <span class="number">100000000</span>, <span class="number">0</span>).astype(<span class="built_in">int</span>)</span><br><span class="line">cap_list</span><br></pre></td></tr></table></figure>
 
 <p>最后需要使用 astype 函数把 float 转为 int。不然数据还是会带一位小数的，哪怕是0。</p>
-
+<img src="/2020/04/Python-Pandas%E5%AF%B9DataFrame-float%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/result_df.png" class="">
       
     </div>
 

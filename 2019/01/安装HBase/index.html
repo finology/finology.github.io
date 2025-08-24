@@ -26,11 +26,14 @@
 <meta property="og:site_name" content="Finology 大数据金融">
 <meta property="og:description" content="这篇文章将详细的讲述一下HBase的安装。 下载安装包进入CDH Archive页面 http:&#x2F;&#x2F;archive.cloudera.com&#x2F;cdh5&#x2F;cdh&#x2F;5&#x2F; 选择需要安装的HBase版本，这次安装选择的是hbase-1.2.0-cdh5.7.0 下载链接 http:&#x2F;&#x2F;archive.cloudera.com&#x2F;cdh5&#x2F;cdh&#x2F;5&#x2F;hbase-1.2.0-cdh5.7.0.tar.gz 1">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://finolo.gy/2019/01/%E5%AE%89%E8%A3%85HBase/HBase%E7%AE%A1%E7%90%86%E9%A1%B5%E9%9D%A2.png">
+<meta property="og:image" content="https://finolo.gy/2019/01/%E5%AE%89%E8%A3%85HBase/HBase%E9%87%8C%E9%9D%A2member%E8%A1%A8%E4%BF%A1%E6%81%AF.png">
 <meta property="article:published_time" content="2019-01-22T04:17:27.000Z">
 <meta property="article:modified_time" content="2025-08-23T02:01:15.168Z">
 <meta property="article:author" content="Simon">
 <meta property="article:tag" content="python, finance, python, quant, 量化">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://finolo.gy/2019/01/%E5%AE%89%E8%A3%85HBase/HBase%E7%AE%A1%E7%90%86%E9%A1%B5%E9%9D%A2.png">
 
 
 <link rel="canonical" href="https://finolo.gy/2019/01/%E5%AE%89%E8%A3%85HBase/">
@@ -341,7 +344,7 @@
 
 <p>可以看到前面设置的<code>hdfs://localhost:8020/hbase</code>已经被成功创建了。</p>
 <h1 id="通过Web-UI查看HBASE信息"><a href="#通过Web-UI查看HBASE信息" class="headerlink" title="通过Web UI查看HBASE信息"></a>通过Web UI查看HBASE信息</h1><p>在浏览器地址栏输入 <a target="_blank" rel="noopener" href="http://localhost:60010/">http://localhost:60010</a></p>
-
+<img src="/2019/01/%E5%AE%89%E8%A3%85HBase/HBase%E7%AE%A1%E7%90%86%E9%A1%B5%E9%9D%A2.png" class="">
 
 <h1 id="HBase-shell"><a href="#HBase-shell" class="headerlink" title="HBase shell"></a>HBase shell</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">bin/hbase shell</span><br><span class="line"></span><br><span class="line">2019-01-22 13:41:26,984 INFO  [main] Configuration.deprecation: hadoop.native.lib is deprecated. Instead, use io.native.lib.available</span><br><span class="line">2019-01-22 13:41:28,153 WARN  [main] util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">SLF4J: Class path contains multiple SLF4J bindings.</span><br><span class="line">SLF4J: Found binding in [jar:file:/usr/local/hbase/hbase-1.2.0-cdh5.7.0/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: Found binding in [jar:file:/usr/local/hadoop/hadoop-2.6.0-cdh5.7.0/share/hadoop/common/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.</span><br><span class="line">SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]</span><br><span class="line">HBase Shell; enter &#x27;help&lt;RETURN&gt;&#x27; for list of supported commands.</span><br><span class="line">Type &quot;exit&lt;RETURN&gt;&quot; to leave the HBase Shell</span><br><span class="line">Version 1.2.0-cdh5.7.0, rUnknown, Wed Mar 23 11:46:29 PDT 2016</span><br><span class="line"></span><br><span class="line">hbase(main):001:0&gt;</span><br></pre></td></tr></table></figure>
 
@@ -361,7 +364,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hbase(main):005:0&gt; describe &#x27;member&#x27;</span><br><span class="line">Table member is ENABLED</span><br><span class="line">member</span><br><span class="line">COLUMN FAMILIES DESCRIPTION</span><br><span class="line">&#123;NAME =&gt; &#x27;address&#x27;, BLOOMFILTER =&gt; &#x27;ROW&#x27;, VERSIONS =&gt; &#x27;1&#x27;, IN_MEMORY =&gt; &#x27;false&#x27;, KEEP_DELETED_CELLS =&gt; &#x27;FALSE&#x27;, DATA_BLOCK_ENCODING =</span><br><span class="line">&gt; &#x27;NONE&#x27;, TTL =&gt; &#x27;FOREVER&#x27;, COMPRESSION =&gt; &#x27;NONE&#x27;, MIN_VERSIONS =&gt; &#x27;0&#x27;, BLOCKCACHE =&gt; &#x27;true&#x27;, BLOCKSIZE =&gt; &#x27;65536&#x27;, REPLICATION_SCOPE</span><br><span class="line"> =&gt; &#x27;0&#x27;&#125;</span><br><span class="line">&#123;NAME =&gt; &#x27;info&#x27;, BLOOMFILTER =&gt; &#x27;ROW&#x27;, VERSIONS =&gt; &#x27;1&#x27;, IN_MEMORY =&gt; &#x27;false&#x27;, KEEP_DELETED_CELLS =&gt; &#x27;FALSE&#x27;, DATA_BLOCK_ENCODING =&gt; &#x27;</span><br><span class="line">NONE&#x27;, TTL =&gt; &#x27;FOREVER&#x27;, COMPRESSION =&gt; &#x27;NONE&#x27;, MIN_VERSIONS =&gt; &#x27;0&#x27;, BLOCKCACHE =&gt; &#x27;true&#x27;, BLOCKSIZE =&gt; &#x27;65536&#x27;, REPLICATION_SCOPE =&gt;</span><br><span class="line"> &#x27;0&#x27;&#125;</span><br><span class="line">2 row(s) in 0.1090 seconds</span><br></pre></td></tr></table></figure>
 
 <p>我们再次查看HBase Web UI</p>
-
+<img src="/2019/01/%E5%AE%89%E8%A3%85HBase/HBase%E9%87%8C%E9%9D%A2member%E8%A1%A8%E4%BF%A1%E6%81%AF.png" class="">
 
 <p>发现在<code>Tables</code>标题栏里面已经多了一条记录了。</p>
 <p>清空数据表</p>

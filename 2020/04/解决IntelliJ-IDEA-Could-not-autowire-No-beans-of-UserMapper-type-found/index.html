@@ -26,12 +26,15 @@
 <meta property="og:site_name" content="Finology 大数据金融">
 <meta property="og:description" content="使用 IntelliJ IDEA 开发 Spring Boot 项目。在自动注入时，会出现红色波浪线的错误提示。如图：   如果代码正确，能够正常运行。那我们可以通过如下两种方法解决。 添加@Repository注解查看一下是不是 Mapper 类忘了写 @Repository 注解。 设置IDEA进入 Editor -&gt; Inspections -&gt; Spring -&gt; Spr">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://finolo.gy/2020/04/%E8%A7%A3%E5%86%B3IntelliJ-IDEA-Could-not-autowire-No-beans-of-UserMapper-type-found/could-not-autowire.png">
+<meta property="og:image" content="https://finolo.gy/2020/04/%E8%A7%A3%E5%86%B3IntelliJ-IDEA-Could-not-autowire-No-beans-of-UserMapper-type-found/autowire-settings.png">
 <meta property="article:published_time" content="2020-04-08T14:31:33.000Z">
 <meta property="article:modified_time" content="2025-08-23T02:01:15.357Z">
 <meta property="article:author" content="Simon">
 <meta property="article:tag" content="intellij idea">
 <meta property="article:tag" content="autowire">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://finolo.gy/2020/04/%E8%A7%A3%E5%86%B3IntelliJ-IDEA-Could-not-autowire-No-beans-of-UserMapper-type-found/could-not-autowire.png">
 
 
 <link rel="canonical" href="https://finolo.gy/2020/04/%E8%A7%A3%E5%86%B3IntelliJ-IDEA-Could-not-autowire-No-beans-of-UserMapper-type-found/">
@@ -295,13 +298,13 @@
     
     
     <div class="post-body" itemprop="articleBody"><p>使用 IntelliJ IDEA 开发 Spring Boot 项目。在自动注入时，会出现红色波浪线的错误提示。如图：</p>
-
+<img src="/2020/04/%E8%A7%A3%E5%86%B3IntelliJ-IDEA-Could-not-autowire-No-beans-of-UserMapper-type-found/could-not-autowire.png" class="">
 
 <p>如果代码正确，能够正常运行。那我们可以通过如下两种方法解决。</p>
 <h1 id="添加-Repository注解"><a href="#添加-Repository注解" class="headerlink" title="添加@Repository注解"></a>添加@Repository注解</h1><p>查看一下是不是 <code>Mapper</code> 类忘了写 <code>@Repository</code> 注解。</p>
 <h1 id="设置IDEA"><a href="#设置IDEA" class="headerlink" title="设置IDEA"></a>设置IDEA</h1><p>进入 <code>Editor</code> -&gt; <code>Inspections</code> -&gt; <code>Spring</code> -&gt; <code>Spring Core</code> -&gt; <code>Autowiring for Bean Class</code></p>
 <p>把选中的勾去掉就可以了。</p>
-
+<img src="/2020/04/%E8%A7%A3%E5%86%B3IntelliJ-IDEA-Could-not-autowire-No-beans-of-UserMapper-type-found/autowire-settings.png" class="">
 
     </div>
 

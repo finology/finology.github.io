@@ -205,6 +205,108 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/03/json%E4%BC%98%E7%BE%8E%E6%89%93%E5%8D%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/json%E4%BC%98%E7%BE%8E%E6%89%93%E5%8D%B0/" class="post-title-link" itemprop="url">json优美打印</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-31 10:32:22" itemprop="dateCreated datePublished" datetime="2022-03-31T10:32:22+08:00">2022-03-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+
+  
+    <span id="/2022/03/json%E4%BC%98%E7%BE%8E%E6%89%93%E5%8D%B0/" class="post-meta-item leancloud_visitors" data-flag-title="json优美打印" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/03/json%E4%BC%98%E7%BE%8E%E6%89%93%E5%8D%B0/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/03/json%E4%BC%98%E7%BE%8E%E6%89%93%E5%8D%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>打印日志时，一个对象比较大的时候，json字符串比较长，阅读性不强。</p>
+<p>这时可以通过一些工具，把json格式化，美化一下，能更方便的阅读。</p>
+<h1 id="jackson方式"><a href="#jackson方式" class="headerlink" title="jackson方式"></a>jackson方式</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj);</span><br></pre></td></tr></table></figure>
+
+<h1 id="Gson方式"><a href="#Gson方式" class="headerlink" title="Gson方式"></a>Gson方式</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Gson</span> <span class="variable">gson</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">GsonBuilder</span>().setPrettyPrinting().create();</span><br><span class="line">gson.toJson(obj);</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/03/GlusterFS-Java-API%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -418,126 +520,6 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GroupingByDemo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Data</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">IdNamePair</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="type">int</span> id;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">IdNamePair</span> <span class="variable">pair</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IdNamePair</span>();</span><br><span class="line">        pair.id = <span class="number">1</span>;</span><br><span class="line">        pair.name = <span class="string">&quot;A&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">IdNamePair</span> <span class="variable">pair2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IdNamePair</span>();</span><br><span class="line">        pair2.id = <span class="number">1</span>;</span><br><span class="line">        pair2.name = <span class="string">&quot;B&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">IdNamePair</span> <span class="variable">pair3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IdNamePair</span>();</span><br><span class="line">        pair3.id = <span class="number">2</span>;</span><br><span class="line">        pair3.name = <span class="string">&quot;C&quot;</span>;</span><br><span class="line"></span><br><span class="line">        List&lt;IdNamePair&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        list.add(pair);</span><br><span class="line">        list.add(pair2);</span><br><span class="line">        list.add(pair3);</span><br><span class="line"></span><br><span class="line">        Map&lt;Integer, List&lt;String&gt;&gt; map = list.stream()</span><br><span class="line">                .collect(Collectors.groupingBy(IdNamePair::getId,</span><br><span class="line">                        Collectors.mapping(IdNamePair::getName, Collectors.toList())));</span><br><span class="line">        </span><br><span class="line">        System.out.println(map);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><code>Collectors.mapping(IdNamePair::getName, Collectors.toList())</code> 相当于再往里面拨一层，取对象里面的一个属性。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/03/MySQL%E8%A1%A8%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%9F%A5%E8%AF%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/MySQL%E8%A1%A8%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%9F%A5%E8%AF%A2/" class="post-title-link" itemprop="url">MySQL表名作为变量的查询</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-03-25 15:54:16" itemprop="dateCreated datePublished" datetime="2022-03-25T15:54:16+08:00">2022-03-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2022/03/MySQL%E8%A1%A8%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%9F%A5%E8%AF%A2/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL表名作为变量的查询" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2022/03/MySQL%E8%A1%A8%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%9F%A5%E8%AF%A2/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2022/03/MySQL%E8%A1%A8%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%9F%A5%E8%AF%A2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在应用中，很多会用到数据库的存储过程，一般都会在程序里面实现数据库的逻辑。</p>
-<p>但有时候要快速的获取某个值，逻辑比较复杂的时候，可能会用到存储过程。</p>
-<p>比如接下来的案例，会把数据库的表作为一个变量传入。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">DROP PROCEDURE IF EXISTS getInfo;</span><br><span class="line">DELIMITER $$</span><br><span class="line">CREATE PROCEDURE getInfo(IN tableName VARCHAR(100), IN id INT, OUT name VARCHAR(100))</span><br><span class="line">BEGIN</span><br><span class="line"></span><br><span class="line">	SET @stmt := CONCAT(&quot;SELECT name INTO @var FROM &quot;, tableName, &quot; WHERE id = &quot;, id);</span><br><span class="line">	PREPARE stmt FROM @stmt;</span><br><span class="line">	EXECUTE stmt;</span><br><span class="line">    DEALLOCATE PREPARE stmt;</span><br><span class="line"></span><br><span class="line">    SET name := @var;</span><br><span class="line">END$$</span><br><span class="line">DELIMITER ;</span><br></pre></td></tr></table></figure>
-
-<p>当创建好存储过程以后，可以通过以下方式调用。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SET @tableName := &quot;tb_user&quot;;</span><br><span class="line">CALL getInfo(@tableName, 4, @name);</span><br><span class="line">SELECT @name;</span><br></pre></td></tr></table></figure>
-
-<p>如果不写存储过程，还可以通过执行下面代码的方式获取结果。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SET @user := 123456;</span><br><span class="line">SELECT @group := `group` FROM user WHERE user = @user;</span><br><span class="line">SELECT * FROM user WHERE `group` = @group;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET @group = (SELECT `group` FROM user WHERE user = @user);</span><br></pre></td></tr></table></figure>
-
-<p>或者</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT `group` INTO @group FROM user WHERE user = @user;</span><br></pre></td></tr></table></figure>
 
       
     </div>

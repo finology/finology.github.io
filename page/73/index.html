@@ -433,14 +433,14 @@
     <div class="post-body" itemprop="articleBody">
           <p>我们在Grafana测试环境，搭建好了一个Dashboard，现在想把它放到生产环境中运行。这时，就需要用到Grafana的导出导入功能。</p>
 <h1 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h1><p>Dashboard右上角，点击<code>Share Dashboard</code>图标。</p>
-
+<img src="/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/grafana-export.png" class="">
 
 <p>同时，选中第三个标签<code>Export</code>，最后点击<code>Save to file</code>按钮。这时会把Dashboard保存到一个json文件中，并下载到本地。</p>
 <h1 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h1><p>点击<code>Import</code>菜单</p>
-
+<img src="/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/grafana-import1.png" class="">
 
 <p>点击<code>Upload .json File</code>按钮，上传刚才保存的json文件。或者在<code>Or paste JSON</code>文本框中，粘贴刚才下载的json的内容后，再点击<code>Load</code>按钮。</p>
-
+<img src="/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/grafana-import2.png" class="">
 
       
     </div>
@@ -606,7 +606,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl apply -f prometheus-clusterRole.yaml</span> </span><br><span class="line">clusterrole.rbac.authorization.k8s.io/prometheus-k8s configured</span><br></pre></td></tr></table></figure>
 
 <p>这时就可以看到Targets了。</p>
-
+<img src="/2020/03/Prometheus-kubernetes-cadvisor%E6%9C%8D%E5%8A%A1%E8%87%AA%E5%8A%A8%E5%8F%91%E7%8E%B0/prom-cadvisor-rolepod.png" class="">
 
 <p>我们分析一下第二个Endpoint为：<code>https://kubernetes.default.svc:443/api/v1/nodes/k8s-node1/proxy/metrics/cadvisor</code></p>
 <p>在node节点上是无法解析<code>kubernetes.default.svc</code>的，所以我们先获取这个域名的真实地址。</p>
@@ -619,7 +619,7 @@
 <p>所以其实是可以通过修改<code>kubelet/1</code>的配置来达到新增这个Target的目的。但<code>kubelet/1</code>的目的主要是监控kubelet的情况，其他的Pod它不监控，Target是没有被<code>keep</code>的。如下图：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">relabel_configs:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__meta_kubernetes_service_label_k8s_app</span>]</span><br><span class="line">  <span class="attr">separator:</span> <span class="string">;</span></span><br><span class="line">  <span class="attr">regex:</span> <span class="string">kubelet</span></span><br><span class="line">  <span class="attr">replacement:</span> <span class="string">$1</span></span><br><span class="line">  <span class="attr">action:</span> <span class="string">keep</span></span><br></pre></td></tr></table></figure>
 
-<p>我将指标存入<code>kubernetes-cadvisor-1.txt</code> ，供下载查看。</p>
+<p>我将指标存入<code>kubernetes-cadvisor-1.txt</code> <a href="/2020/03/Prometheus-kubernetes-cadvisor%E6%9C%8D%E5%8A%A1%E8%87%AA%E5%8A%A8%E5%8F%91%E7%8E%B0/kubernetes-cadvisor-1.txt" title="点击查看">点击查看</a>，供下载查看。</p>
 
       
     </div>

@@ -26,12 +26,14 @@
 <meta property="og:site_name" content="Finology 大数据金融">
 <meta property="og:description" content="配置文件，格式一般为application-&#123;profile&#125;.yaml。  application.yaml application-dev.yaml application-prod.yaml  未指定任何profile时，会默认加载application.yaml配置文件。 所以，与环境无关的属性配置，都应该放到application.yaml文件中，与环境有关的，则放到">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://finolo.gy/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/active-profile.png">
 <meta property="article:published_time" content="2020-03-13T15:07:32.000Z">
 <meta property="article:modified_time" content="2025-08-23T02:01:15.293Z">
 <meta property="article:author" content="Simon">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="spring boot">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://finolo.gy/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/active-profile.png">
 
 
 <link rel="canonical" href="https://finolo.gy/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/">
@@ -308,7 +310,7 @@
 <h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>在<code>Environment</code>下<code>VM options</code>这一栏里面填入：<code>-Dspring.profiles.active=dev</code>。</p>
 <h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p>在<code>Environment</code>下<code>Program arguments</code>这一栏里面填入： <code>--spring-profiles-active=dev</code>。</p>
 <h3 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h3><p>在<code>Spring boot</code>下<code>Active profiles</code>这一栏里面填入：<code>dev</code></p>
-
+<img src="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/active-profile.png" class="">
 
 <h2 id="运行jar时指定参数"><a href="#运行jar时指定参数" class="headerlink" title="运行jar时指定参数"></a>运行jar时指定参数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar demo.jar --spring.profiles.active=dev</span><br></pre></td></tr></table></figure>
 

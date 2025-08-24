@@ -26,14 +26,22 @@
 <meta property="og:site_name" content="Finology 大数据金融">
 <meta property="og:description" content="记录一下通过腾迅云云直播平台开发混流操作的环境搭建。主要是在腾迅平台做一些设置，和下载一个推流软件并做相关配置。 进入腾迅云去直播控制台。 添加自有域名添加推流域名关于推流域名：直播已提供系统推流域名，亦可添加自有已备案域名进行推流。   由于是测试使用，我们就先不绑定自有域名了。 添加播放域名播放域名必须要有自有域名，并且已经备案，这里假设我们的备案域名是：finolo.gy。   添加以后，会">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://finolo.gy/2020/03/%E8%85%BE%E8%BF%85%E4%BA%91%E4%BA%91%E7%9B%B4%E6%92%AD%E6%B7%B7%E6%B5%81%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/push-domain.png">
+<meta property="og:image" content="https://finolo.gy/2020/03/%E8%85%BE%E8%BF%85%E4%BA%91%E4%BA%91%E7%9B%B4%E6%92%AD%E6%B7%B7%E6%B5%81%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/play-domain.png">
+<meta property="og:image" content="https://finolo.gy/2020/03/%E8%85%BE%E8%BF%85%E4%BA%91%E4%BA%91%E7%9B%B4%E6%92%AD%E6%B7%B7%E6%B5%81%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/play-domain2.png">
+<meta property="og:image" content="https://finolo.gy/2020/03/%E8%85%BE%E8%BF%85%E4%BA%91%E4%BA%91%E7%9B%B4%E6%92%AD%E6%B7%B7%E6%B5%81%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/push-url.png">
+<meta property="og:image" content="https://finolo.gy/2020/03/%E8%85%BE%E8%BF%85%E4%BA%91%E4%BA%91%E7%9B%B4%E6%92%AD%E6%B7%B7%E6%B5%81%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/obs-push.png">
+<meta property="og:image" content="https://finolo.gy/2020/03/%E8%85%BE%E8%BF%85%E4%BA%91%E4%BA%91%E7%9B%B4%E6%92%AD%E6%B7%B7%E6%B5%81%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/obs-push-settings.png">
+<meta property="og:image" content="https://finolo.gy/2020/03/%E8%85%BE%E8%BF%85%E4%BA%91%E4%BA%91%E7%9B%B4%E6%92%AD%E6%B7%B7%E6%B5%81%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/stream.png">
 <meta property="article:published_time" content="2020-03-29T05:10:19.000Z">
 <meta property="article:modified_time" content="2025-08-23T02:01:15.293Z">
 <meta property="article:author" content="Simon">
 <meta property="article:tag" content="java">
-<meta property="article:tag" content="混流">
 <meta property="article:tag" content="云直播">
 <meta property="article:tag" content="腾迅云">
+<meta property="article:tag" content="混流">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://finolo.gy/2020/03/%E8%85%BE%E8%BF%85%E4%BA%91%E4%BA%91%E7%9B%B4%E6%92%AD%E6%B7%B7%E6%B5%81%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/push-domain.png">
 
 
 <link rel="canonical" href="https://finolo.gy/2020/03/%E8%85%BE%E8%BF%85%E4%BA%91%E4%BA%91%E7%9B%B4%E6%92%AD%E6%B7%B7%E6%B5%81%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
@@ -299,32 +307,32 @@
     <div class="post-body" itemprop="articleBody"><p>记录一下通过腾迅云云直播平台开发混流操作的环境搭建。主要是在腾迅平台做一些设置，和下载一个推流软件并做相关配置。</p>
 <p>进入腾迅云去直播控制台。</p>
 <h1 id="添加自有域名"><a href="#添加自有域名" class="headerlink" title="添加自有域名"></a>添加自有域名</h1><h2 id="添加推流域名"><a href="#添加推流域名" class="headerlink" title="添加推流域名"></a>添加推流域名</h2><p>关于推流域名：直播已提供系统推流域名，亦可添加自有已备案域名进行推流。</p>
-
+<img src="/2020/03/%E8%85%BE%E8%BF%85%E4%BA%91%E4%BA%91%E7%9B%B4%E6%92%AD%E6%B7%B7%E6%B5%81%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/push-domain.png" class="">
 
 <p>由于是测试使用，我们就先不绑定自有域名了。</p>
 <h2 id="添加播放域名"><a href="#添加播放域名" class="headerlink" title="添加播放域名"></a>添加播放域名</h2><p>播放域名必须要有自有域名，并且已经备案，这里假设我们的备案域名是：<code>finolo.gy</code>。</p>
-
+<img src="/2020/03/%E8%85%BE%E8%BF%85%E4%BA%91%E4%BA%91%E7%9B%B4%E6%92%AD%E6%B7%B7%E6%B5%81%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/play-domain.png" class="">
 
 <p>添加以后，会有红色警告提示。</p>
-
+<img src="/2020/03/%E8%85%BE%E8%BF%85%E4%BA%91%E4%BA%91%E7%9B%B4%E6%92%AD%E6%B7%B7%E6%B5%81%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/play-domain2.png" class="">
 
 <p>去域名解析那里添加一条 CNAME 记录，主机记录为 <code>play.live</code>，记录值为上图的 <code>play.live.finolo.gy.livecdn.liveplay.myqcloud.com</code>。</p>
 <p>绑定后很快就能生效，可以通过 <code>nslookup</code> 命令查看。然后刚才的红色图标报警也变成绿色了。</p>
 <h1 id="获取推流地址"><a href="#获取推流地址" class="headerlink" title="获取推流地址"></a>获取推流地址</h1><p>进入域名管理页面，点击推流域名或<code>管理</code>按钮，进入<code>推流配置</code>标签页，填写好 <code>StreamName</code>，就可以生成推流地址了。</p>
-
+<img src="/2020/03/%E8%85%BE%E8%BF%85%E4%BA%91%E4%BA%91%E7%9B%B4%E6%92%AD%E6%B7%B7%E6%B5%81%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/push-url.png" class="">
 
 <p>做为后端开发，一般不需要通过程序来获取推流地址，但APP端，需要推流，就需要通过程序来获取这个推流地址了。</p>
 <p>也可以在<code>辅助工具</code>下面的<code>地址生成器</code>下面生成推流地址，这些信息也是下面我们使用 OBS 设备需要填入的。</p>
-
+<img src="/2020/03/%E8%85%BE%E8%BF%85%E4%BA%91%E4%BA%91%E7%9B%B4%E6%92%AD%E6%B7%B7%E6%B5%81%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/obs-push.png" class="">
 
 <h1 id="直播推流"><a href="#直播推流" class="headerlink" title="直播推流"></a>直播推流</h1><p>我下载了一个 OBS 设备来推流，目前觉得还是挺好用的。</p>
 <p>可以去 OBS 官网 <code>https://obsproject.com/download</code> 下载。</p>
 <p>然后设置推流。如图：</p>
-
+<img src="/2020/03/%E8%85%BE%E8%BF%85%E4%BA%91%E4%BA%91%E7%9B%B4%E6%92%AD%E6%B7%B7%E6%B5%81%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/obs-push-settings.png" class="">
 
 <p>同时需要设置一个推流的来源，我选择的是窗口捕获，这样从某个窗体捕获的视频流就采集到，并推送到前面设置的那个推流地址了。</p>
 <h1 id="流直播"><a href="#流直播" class="headerlink" title="流直播"></a>流直播</h1><p>进入 <code>流管理</code> 页面，我们就可以看到有一流记录在上面了。点击<code>测试</code>按钮，就可以看到流的内容了。非常方便后端测试了。</p>
-
+<img src="/2020/03/%E8%85%BE%E8%BF%85%E4%BA%91%E4%BA%91%E7%9B%B4%E6%92%AD%E6%B7%B7%E6%B5%81%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/stream.png" class="">
 
     </div>
 
@@ -335,9 +343,9 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/java/" rel="tag"># java</a>
-              <a href="/tags/%E6%B7%B7%E6%B5%81/" rel="tag"># 混流</a>
               <a href="/tags/%E4%BA%91%E7%9B%B4%E6%92%AD/" rel="tag"># 云直播</a>
               <a href="/tags/%E8%85%BE%E8%BF%85%E4%BA%91/" rel="tag"># 腾迅云</a>
+              <a href="/tags/%E6%B7%B7%E6%B5%81/" rel="tag"># 混流</a>
           </div>
 
         

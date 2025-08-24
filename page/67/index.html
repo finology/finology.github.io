@@ -523,17 +523,17 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>通过 IntelliJ IDEA 新建一个 Maven Springboot 项目，建立好之后，发现生成代码的包无法引入，代码已经提示红色标记错误。</p>
-
+<img src="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/code-error.png" class="">
 
 <p>点击按钮 Reimport All Maven Projects 或执行 maven clean, package 这类命令，都会提示如下错误：</p>
 <p><code>Error running &#39;demo [validate]&#39;: Cannot find JRE &#39;1.8&#39;. You can specify JRE to run maven goals in Settings | Maven | Runner</code></p>
-
+<img src="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/maven-error.png" class="">
 
 <p>按上述提示，进入 Settings | Maven | Runner，把正常的 JRE 环境选中即可。</p>
-
+<img src="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/maven-runner.png" class="">
 
 <p>上面是设置当前项目的，如果要设置以后所有新建的项目，则需要关闭所有项目后，再进入 Preferences</p>
-
+<img src="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/maven-runner-global.png" class="">
 
 
 

@@ -412,7 +412,7 @@
 <li>创建Service对象，提供metrics数据接口，并将其和ServiceMonitor关联</li>
 <li>确保Service对象可以正确获取metrics数据</li>
 </ol>
-
+<img src="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/1576154786034.png" class="">
 
 <h1 id="配置etcd证书"><a href="#配置etcd证书" class="headerlink" title="配置etcd证书"></a>配置etcd证书</h1><p>查看etcd启动时的证书路径</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po -n kube-system</span><br><span class="line">...</span><br><span class="line">etcd-k8s-master                            1/1     Running   1          6h28m</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
@@ -450,7 +450,7 @@
 <p>创建Service, Endpoints资源：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f prometheus-etcdService.yaml </span><br><span class="line">service/etcd-k8s created</span><br><span class="line">endpoints/etcd-k8s created</span><br></pre></td></tr></table></figure>
 
-
+<img src="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/1576154696810.png" class="">
 
 <p>采集到数据以后，在Grafana中导入编号为3070的Dashboard。</p>
 
@@ -563,14 +563,14 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>VMware非正常关闭后启动，提示”该虚拟机似乎正在使用中“</p>
-
+<img src="/2019/12/VMware%E9%9D%9E%E6%AD%A3%E5%B8%B8%E5%85%B3%E9%97%AD%E5%90%8E%E5%90%AF%E5%8A%A8%EF%BC%8C%E6%8F%90%E7%A4%BA%E8%AF%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BC%BC%E4%B9%8E%E6%AD%A3%E5%9C%A8%E4%BD%BF%E7%94%A8%E4%B8%AD/1576115243615.png" class="">
 
 <p>点击”获取所有权“按钮</p>
-
+<img src="/2019/12/VMware%E9%9D%9E%E6%AD%A3%E5%B8%B8%E5%85%B3%E9%97%AD%E5%90%8E%E5%90%AF%E5%8A%A8%EF%BC%8C%E6%8F%90%E7%A4%BA%E8%AF%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BC%BC%E4%B9%8E%E6%AD%A3%E5%9C%A8%E4%BD%BF%E7%94%A8%E4%B8%AD/1576115407685.png" class="">
 
 <p>获取所有权失败，说明该虚拟机是非常正常关闭导致的，点击”取消”按钮。</p>
 <p>进入虚拟机存放目录，删除以.lck结尾的目录。</p>
-
+<img src="/2019/12/VMware%E9%9D%9E%E6%AD%A3%E5%B8%B8%E5%85%B3%E9%97%AD%E5%90%8E%E5%90%AF%E5%8A%A8%EF%BC%8C%E6%8F%90%E7%A4%BA%E8%AF%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BC%BC%E4%B9%8E%E6%AD%A3%E5%9C%A8%E4%BD%BF%E7%94%A8%E4%B8%AD/1576115663708.png" class="">
 
 <p>删除以后，则可以正常开机了。</p>
 

@@ -26,12 +26,14 @@
 <meta property="og:site_name" content="Finology 大数据金融">
 <meta property="og:description" content="pandas中drop和apply方法里的axis参数，一开始的时候会让人觉得有些迷惑。国内的很多文章说这两个方法axis参数弄反了。 我之前也是这样理解的，觉得这明显有冲突，后来才发现是我理解错了。老外的设计是没有问题的。   axis &#x3D; 0 表明 apply 一个方法到 列 column 或 行标签(index)axis &#x3D; 1 表明 apply 一个方法到 行 row 或 列标签(colu">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://finolo.gy/2022/03/Python-Pandas%E8%BF%B7%E6%83%91%E7%9A%84axis%E5%8F%82%E6%95%B0/pandas-axis.jpeg">
 <meta property="article:published_time" content="2022-03-06T11:03:10.000Z">
 <meta property="article:modified_time" content="2025-08-23T02:01:15.452Z">
 <meta property="article:author" content="Simon">
 <meta property="article:tag" content="pandas">
 <meta property="article:tag" content="axis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://finolo.gy/2022/03/Python-Pandas%E8%BF%B7%E6%83%91%E7%9A%84axis%E5%8F%82%E6%95%B0/pandas-axis.jpeg">
 
 
 <link rel="canonical" href="https://finolo.gy/2022/03/Python-Pandas%E8%BF%B7%E6%83%91%E7%9A%84axis%E5%8F%82%E6%95%B0/">
@@ -295,7 +297,7 @@
     
     <div class="post-body" itemprop="articleBody"><p>pandas中drop和apply方法里的axis参数，一开始的时候会让人觉得有些迷惑。国内的很多文章说这两个方法axis参数弄反了。</p>
 <p>我之前也是这样理解的，觉得这明显有冲突，后来才发现是我理解错了。老外的设计是没有问题的。</p>
-
+<img src="/2022/03/Python-Pandas%E8%BF%B7%E6%83%91%E7%9A%84axis%E5%8F%82%E6%95%B0/pandas-axis.jpeg" class="">
 
 <p><code>axis = 0</code> 表明 <code>apply</code> 一个方法到 <code>列</code> <code>column</code> 或 <code>行标签(index)</code><br><code>axis = 1</code> 表明 <code>apply</code> 一个方法到 <code>行</code> <code>row</code> 或 <code>列标签(column labels)</code></p>
 <p>通过这个定义，大家应该很清楚的知道<code>apply(axis= )</code> 和<code>drop(axis = )</code>的axis参数怎么填了。</p>

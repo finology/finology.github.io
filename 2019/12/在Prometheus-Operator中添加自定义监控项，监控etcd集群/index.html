@@ -26,6 +26,8 @@
 <meta property="og:site_name" content="Finology 大数据金融">
 <meta property="og:description" content="添加自定义监控项流程 创建ServiceMonitor对象 创建Service对象，提供metrics数据接口，并将其和ServiceMonitor关联 确保Service对象可以正确获取metrics数据    配置etcd证书查看etcd启动时的证书路径 1234kubectl get po -n kube-system...etcd-k8s-master">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://finolo.gy/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/1576154786034.png">
+<meta property="og:image" content="https://finolo.gy/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/1576154696810.png">
 <meta property="article:published_time" content="2019-12-12T14:38:38.000Z">
 <meta property="article:modified_time" content="2025-08-23T02:01:15.212Z">
 <meta property="article:author" content="Simon">
@@ -33,6 +35,7 @@
 <meta property="article:tag" content="k8s">
 <meta property="article:tag" content="prometheus">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://finolo.gy/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/1576154786034.png">
 
 
 <link rel="canonical" href="https://finolo.gy/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/">
@@ -300,7 +303,7 @@
 <li>创建Service对象，提供metrics数据接口，并将其和ServiceMonitor关联</li>
 <li>确保Service对象可以正确获取metrics数据</li>
 </ol>
-
+<img src="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/1576154786034.png" class="">
 
 <h1 id="配置etcd证书"><a href="#配置etcd证书" class="headerlink" title="配置etcd证书"></a>配置etcd证书</h1><p>查看etcd启动时的证书路径</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po -n kube-system</span><br><span class="line">...</span><br><span class="line">etcd-k8s-master                            1/1     Running   1          6h28m</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
@@ -338,7 +341,7 @@
 <p>创建Service, Endpoints资源：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f prometheus-etcdService.yaml </span><br><span class="line">service/etcd-k8s created</span><br><span class="line">endpoints/etcd-k8s created</span><br></pre></td></tr></table></figure>
 
-
+<img src="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/1576154696810.png" class="">
 
 <p>采集到数据以后，在Grafana中导入编号为3070的Dashboard。</p>
 

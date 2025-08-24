@@ -205,6 +205,125 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/06/Plotly-Tick%E7%9A%84%E6%A0%BC%E5%BC%8F%E8%AE%BE%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/Plotly-Tick%E7%9A%84%E6%A0%BC%E5%BC%8F%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">Plotly Tick的格式设置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-06-27 22:34:35" itemprop="dateCreated datePublished" datetime="2022-06-27T22:34:35+08:00">2022-06-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/Plotly/" itemprop="url" rel="index"><span itemprop="name">Plotly</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2022/06/Plotly-Tick%E7%9A%84%E6%A0%BC%E5%BC%8F%E8%AE%BE%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Plotly Tick的格式设置" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/06/Plotly-Tick%E7%9A%84%E6%A0%BC%E5%BC%8F%E8%AE%BE%E7%BD%AE/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/06/Plotly-Tick%E7%9A%84%E6%A0%BC%E5%BC%8F%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>通过Plotly画时间序列的图，细节非常多。</p>
+<p>这篇文章罗列一下关于x轴 Tick的内容设置。</p>
+<h1 id="Tickmode-Linear"><a href="#Tickmode-Linear" class="headerlink" title="Tickmode - Linear"></a>Tickmode - Linear</h1><p>如果<code>tickmode</code>设置的<code>linear</code>，那就需要设置<code>tick0</code>首项和<code>dtick</code>步长。 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fig.update_layout(</span><br><span class="line">    xaxis = <span class="built_in">dict</span>(</span><br><span class="line">        tickmode = <span class="string">&#x27;linear&#x27;</span>,</span><br><span class="line">        tick0 = <span class="number">0.5</span>,</span><br><span class="line">        dtick = <span class="number">0.75</span></span><br><span class="line">    )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>如果是时间序列，dtick为秒数，86400000为1天。</p>
+<h1 id="Tickmode-Array"><a href="#Tickmode-Array" class="headerlink" title="Tickmode - Array"></a>Tickmode - Array</h1><p>如果<code>tickmode</code>设置的<code>array</code>，那就需要设置数组，<code>tickvals</code>和<code>ticktext</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fig.update_layout(</span><br><span class="line">    xaxis = <span class="built_in">dict</span>(</span><br><span class="line">        tickmode = <span class="string">&#x27;array&#x27;</span>,</span><br><span class="line">        tickvals = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">11</span>],</span><br><span class="line">        ticktext = [<span class="string">&#x27;One&#x27;</span>, <span class="string">&#x27;Three&#x27;</span>, <span class="string">&#x27;Five&#x27;</span>, <span class="string">&#x27;Seven&#x27;</span>, <span class="string">&#x27;Nine&#x27;</span>, <span class="string">&#x27;Eleven&#x27;</span>]</span><br><span class="line">    )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>关于对日期的设置，update_xaxes(tickformat&#x3D;’%Y-%m-%d’)</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/06/Python-Pandas-Pivot-Table/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -287,7 +406,7 @@
           <p>发现这个pivot table和生成的MultiIndex有点类似。</p>
 <p>之前一直有考虑多维的数据如何保存和操作，通过MultiIndex就能解决。</p>
 <p>一堆数据通过pivot table也可以生成MultiIndex的DataFrame，这样分析起数据来就比较方便了。</p>
-
+<img src="/2022/06/Python-Pandas-Pivot-Table/pivot_table.png" class="">
 
       
     </div>
@@ -386,115 +505,9 @@
     <div class="post-body" itemprop="articleBody">
           <p>用某产品提供的数据，统计沪深港通的区间净买入股票数量或区间净买入金额，如果遇到公司送股了，统计的数据就会出现问题。</p>
 <p>如图所示：</p>
-
+<img src="/2022/06/%E6%B2%AA%E6%B7%B1%E6%B8%AF%E9%80%9A%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%E7%9A%84%E9%97%AE%E9%A2%98/hsgt.png" class="">
 
 <p>所以必须要统计出当日真实的买入股票数，再通过当日成交均价，才能算出当日净买入金额。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/06/%E6%B2%AA-%E6%B7%B1-%E6%B8%AF%E9%80%9A%E6%B8%AF%E8%B5%84%E6%8C%81%E8%82%A1%E6%95%B0%E6%8D%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/%E6%B2%AA-%E6%B7%B1-%E6%B8%AF%E9%80%9A%E6%B8%AF%E8%B5%84%E6%8C%81%E8%82%A1%E6%95%B0%E6%8D%AE/" class="post-title-link" itemprop="url">沪(深)港通港资持股数据</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-06-13 11:43:24" itemprop="dateCreated datePublished" datetime="2022-06-13T11:43:24+08:00">2022-06-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-
-  
-    <span id="/2022/06/%E6%B2%AA-%E6%B7%B1-%E6%B8%AF%E9%80%9A%E6%B8%AF%E8%B5%84%E6%8C%81%E8%82%A1%E6%95%B0%E6%8D%AE/" class="post-meta-item leancloud_visitors" data-flag-title="沪(深)港通港资持股数据" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2022/06/%E6%B2%AA-%E6%B7%B1-%E6%B8%AF%E9%80%9A%E6%B8%AF%E8%B5%84%E6%8C%81%E8%82%A1%E6%95%B0%E6%8D%AE/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2022/06/%E6%B2%AA-%E6%B7%B1-%E6%B8%AF%E9%80%9A%E6%B8%AF%E8%B5%84%E6%8C%81%E8%82%A1%E6%95%B0%E6%8D%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>关于统计沪(深)港通数据时，需要注意的几点。</p>
-<ol>
-<li>持股数据</li>
-</ol>
-<p>如果遇到公司转增股票时，这个持股数据是这样变化的。</p>
-<p>比如先导智能，2021-06-02收盘后，除权转增，10派3转增6。</p>
-<p>2021-06-01系统持股量: 186,258,810.00, 持股数量变动: -913,034.00<br>2021-06-02系统持股量: 298,758,880.00, 持股数量变动: 112,500,070.00</p>
-<p>6月2日的系统持股量数据298,758,880.00就是转增后的持股量，它包括两部分数据，其一是6月2日当天港资购买的数量 + 其二6.1日持股数量186,258,810.00转增后的。</p>
-<p>298,758,880.00 &#x3D; (186,258,810 + x) * 1.6<br>x &#x3D; 465490.0，即<code>mfp_sn_inflowamt2</code>在6.2当天的值。这个值是经过调整以后算出来的。</p>
-<p>如果用这个来统计区间求和，如果遇到转增，是会出错的。</p>
 
       
     </div>
