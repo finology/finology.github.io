@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">376</span>
+          <span class="site-state-item-count">377</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,120 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/06/IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/06/IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">IDEA自动生成对象赋值的所有set方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-06-09 15:54:46" itemprop="dateCreated datePublished" datetime="2021-06-09T15:54:46+08:00">2021-06-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/IntelliJ-IDEA/" itemprop="url" rel="index"><span itemprop="name">IntelliJ IDEA</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/06/IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="IDEA自动生成对象赋值的所有set方法" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/06/IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/06/IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>一个对象属性很多，要设置其属性的时候很麻烦，不小心还会漏掉。</p>
+<p>IDEA可以使用一款插件，GenerateAllSetter，可以一键生成所有属性的set方法。</p>
+<img src="/2021/06/IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95/generateAllSetter.jpg" class="">
+
+<p>安装好插件以后，在语句 <code>User user = new User()</code> 中的 <code>user</code> 上使用快捷键 Alt + Enter，就会出现自动生成set方法的选项了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -408,136 +522,6 @@
 
 <p>创建环境解决，然后还安装了 jupyter notebook。</p>
 <p><code>sudo conda install jupyter</code></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/03/locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/" class="post-title-link" itemprop="url">locust性能测试框架</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-03-05 18:56:12" itemprop="dateCreated datePublished" datetime="2021-03-05T18:56:12+08:00">2021-03-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2021/03/locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/" class="post-meta-item leancloud_visitors" data-flag-title="locust性能测试框架" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2021/03/locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/03/locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>locust是一款性能测试框架，比JMeter好的地方在于能产生更多的请求，因为locust是基于协程的，而JMeter是基于线程的。</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install locust</span><br></pre></td></tr></table></figure>
-
-<p>安装成功后查看版本信息：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">locust -V</span><br><span class="line">locust 1.4.3</span><br></pre></td></tr></table></figure>
-
-<h1 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> locust <span class="keyword">import</span> HttpUser, TaskSet, task, between, tag</span><br><span class="line"></span><br><span class="line"><span class="comment"># 模拟n个用户，其实就是创建了n个MyTask的实例</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyTask</span>(<span class="title class_ inherited__">TaskSet</span>):</span><br><span class="line">    </span><br><span class="line">    token = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">on_start</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.login_or_register()</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">login_or_register</span>(<span class="params">self</span>):</span><br><span class="line">        url = <span class="string">&#x27;http://api&#x27;</span></span><br><span class="line">        body = &#123;<span class="string">&#x27;id&#x27;</span>: <span class="number">1</span>&#125;</span><br><span class="line">        headers = &#123;<span class="string">&#x27;token&#x27;</span>: <span class="string">&#x27;xxxx&#x27;</span>&#125;</span><br><span class="line">        <span class="keyword">with</span> <span class="variable language_">self</span>.client.post(url, json=body, headers=headers, name=<span class="string">&#x27;login_or_register&#x27;</span>) <span class="keyword">as</span> response:</span><br><span class="line">            <span class="keyword">if</span> response.text != <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">                res_dict = json.loads(response.text)</span><br><span class="line">                <span class="keyword">if</span> res_dict[<span class="string">&#x27;code&#x27;</span>] == <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line"><span class="meta">    @task</span></span><br><span class="line"><span class="meta">    @tag(<span class="params"><span class="string">&#x27;view_page&#x27;</span></span>)                </span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">view_page</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">                            </span><br><span class="line">        </span><br><span class="line"><span class="comment"># 这个类是一个配置类, 只被初始化一次, 在这里写一些配置相关信息</span></span><br><span class="line"><span class="comment"># 要访问哪些id, 要生成哪些用户的token, 可以在这里生成</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyUser</span>(<span class="title class_ inherited__">HttpUser</span>):</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 测试的api的host信息</span></span><br><span class="line">    host = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="comment"># 每次访问之间间隔的时间</span></span><br><span class="line">    wait_time = between(<span class="number">1</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-
-<h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><p>执行命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locust -f file.py</span><br></pre></td></tr></table></figure>
-
-<p>如果只执行带有<code>tag</code>的业务代码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locust -f file.py --tags view_page</span><br></pre></td></tr></table></figure>
-
-<p>如果要进行分布式测试，首先启动master，master是管理节点，在这个节点上面查看统计数据。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locust -f file.py --tags view_page --master</span><br></pre></td></tr></table></figure>
-
-<p>再开两个worker节点, 如果主节点和从节点不在一台机器上，那需要指定<code>master-host</code>参数。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locust -f file.py --tags view_page --worker --master-host=192.168.1.2</span><br></pre></td></tr></table></figure>
-
-<p>当worker节点启动后，master的console里面会显示：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[2021-03-05 18:42:39,333] /INFO/locust.runners: Client &#x27;1140b3a3ec57404194845264ee8dae1f&#x27; reported as ready. Currently 1 clients ready to swarm.</span><br><span class="line">[2021-03-05 18:45:13,222] /INFO/locust.runners: Client &#x27;8f1e5206c38f4f99a55641f1cf0c44d1&#x27; reported as ready. Currently 2 clients ready to swarm.</span><br></pre></td></tr></table></figure>
-
-<p>打开压测页面，<code>http://localhost:8089/</code></p>
-<img src="/2021/03/locust%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/locust.png" class="">
 
       
     </div>

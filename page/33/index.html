@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">376</span>
+          <span class="site-state-item-count">377</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,118 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/08/mybatis-plus%E5%9C%A8Console%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8C%E9%9D%A2%E6%89%93%E5%8D%B0sql%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/mybatis-plus%E5%9C%A8Console%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8C%E9%9D%A2%E6%89%93%E5%8D%B0sql%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" class="post-title-link" itemprop="url">mybatis-plus在Console控制台里面打印sql查询语句</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-15 15:25:37" itemprop="dateCreated datePublished" datetime="2021-08-15T15:25:37+08:00">2021-08-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Database/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/08/mybatis-plus%E5%9C%A8Console%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8C%E9%9D%A2%E6%89%93%E5%8D%B0sql%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" class="post-meta-item leancloud_visitors" data-flag-title="mybatis-plus在Console控制台里面打印sql查询语句" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/08/mybatis-plus%E5%9C%A8Console%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8C%E9%9D%A2%E6%89%93%E5%8D%B0sql%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/08/mybatis-plus%E5%9C%A8Console%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8C%E9%9D%A2%E6%89%93%E5%8D%B0sql%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>使用Springboot集成了 mybatis-plus，在开发时，往往希望在控制台里面能看到 sql 语句，甚至查询结果，以便于高效开发。</p>
+<p>在 Springboot 的yml文件里面加入如下内容：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mybatis-plus:</span></span><br><span class="line">  <span class="attr">configuration:</span> </span><br><span class="line">    <span class="comment"># 是否将sql打印到控制面板(该配置会将sql语句和查询的结果都打印到控制台)</span></span><br><span class="line">    <span class="attr">log-impl:</span> <span class="string">org.apache.ibatis.logging.stdout.StdOutImpl</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -431,124 +543,6 @@
 
 <p>就能查看到Kafka的版本了，正常人在安装时，都不会修改这个路径的。</p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/08/%E8%A7%A3%E5%86%B3jps-command-not-found/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/%E8%A7%A3%E5%86%B3jps-command-not-found/" class="post-title-link" itemprop="url">解决jps command not found</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-08-05 15:26:24" itemprop="dateCreated datePublished" datetime="2021-08-05T15:26:24+08:00">2021-08-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2021/08/%E8%A7%A3%E5%86%B3jps-command-not-found/" class="post-meta-item leancloud_visitors" data-flag-title="解决jps command not found" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2021/08/%E8%A7%A3%E5%86%B3jps-command-not-found/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/08/%E8%A7%A3%E5%86%B3jps-command-not-found/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 CentOS 7 ssh 下执行 jps 命令，返回 command not found。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">which</span> java</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ll -l /usr/bin/java</span></span><br><span class="line">lrwxrwxrwx. 1 root root 22 Oct 12  2020 /usr/bin/java -&gt; /etc/alternatives/java</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ll -l /etc/alternatives/java</span></span><br><span class="line">lrwxrwxrwx. 1 root root 73 Oct 12  2020 /etc/alternatives/java -&gt; /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-0.el7_8.x86_64/jre/bin/java </span><br></pre></td></tr></table></figure>
-
-<p>这个版本的java-1.8.0-openjdk-1.8.0.262.b10-0.el7_8.x86_64，是通过yum安装的openjdk。需要换成我们自己下载的jdk。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> <span class="built_in">rm</span> -rf /usr/bin/java</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> <span class="built_in">ln</span> -s /usr/local/java/jdk1.8.0_231/bin/java /usr/bin/java</span></span><br></pre></td></tr></table></figure>
-
-<p>添加环境变量，修改<code>~/.bash_profile</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:/usr/local/java/jdk1.8.0_231/bin/</span><br></pre></td></tr></table></figure>
-
-<p>激活</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> ~/.bash_profile</span></span><br></pre></td></tr></table></figure>
-
-<p>此时再执行 jps 命令，就可以执行成功了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">jps</span></span><br><span class="line">27455 Jps</span><br></pre></td></tr></table></figure>
       
     </div>
 

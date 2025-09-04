@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">376</span>
+          <span class="site-state-item-count">377</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,120 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/06/jupyter-notebook%E7%9A%84%E7%8E%AF%E5%A2%83%E5%92%8Cconda%E7%8E%AF%E5%A2%83%E4%B8%8D%E4%B8%80%E8%87%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/jupyter-notebook%E7%9A%84%E7%8E%AF%E5%A2%83%E5%92%8Cconda%E7%8E%AF%E5%A2%83%E4%B8%8D%E4%B8%80%E8%87%B4/" class="post-title-link" itemprop="url">jupyter notebook的环境和conda环境不一致</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-06-30 11:38:09" itemprop="dateCreated datePublished" datetime="2022-06-30T11:38:09+08:00">2022-06-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2022/06/jupyter-notebook%E7%9A%84%E7%8E%AF%E5%A2%83%E5%92%8Cconda%E7%8E%AF%E5%A2%83%E4%B8%8D%E4%B8%80%E8%87%B4/" class="post-meta-item leancloud_visitors" data-flag-title="jupyter notebook的环境和conda环境不一致" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/06/jupyter-notebook%E7%9A%84%E7%8E%AF%E5%A2%83%E5%92%8Cconda%E7%8E%AF%E5%A2%83%E4%B8%8D%E4%B8%80%E8%87%B4/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/06/jupyter-notebook%E7%9A%84%E7%8E%AF%E5%A2%83%E5%92%8Cconda%E7%8E%AF%E5%A2%83%E4%B8%8D%E4%B8%80%E8%87%B4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在conda py310环境下启动 jupyter lab，发现notebook里面运行的python环境并不是conda的环境。</p>
+<p>解决方案：</p>
+<p>在my-conda-env环境下运行如下语句，安装<code>nb_conda_kernels</code>时，要换一个conda环境。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">conda activate base            # base环境</span><br><span class="line">conda install ipykernel</span><br><span class="line">conda deactivate</span><br><span class="line"></span><br><span class="line">conda activate my-conda-env            # this is the environment for your project and code</span><br><span class="line">conda install nb_conda_kernels</span><br><span class="line">jupyter lab</span><br></pre></td></tr></table></figure>
+
+<p>最后再切换回my-conda-env，启动jupyter lab即可。</p>
+<img src="/2022/06/jupyter-notebook%E7%9A%84%E7%8E%AF%E5%A2%83%E5%92%8Cconda%E7%8E%AF%E5%A2%83%E4%B8%8D%E4%B8%80%E8%87%B4/conda_jupyter_env.png" class="">
+
+<p>如图如示，在jupyter notebook上面可以选择环境了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -422,107 +536,6 @@
 <p>之前一直有考虑多维的数据如何保存和操作，通过MultiIndex就能解决。</p>
 <p>一堆数据通过pivot table也可以生成MultiIndex的DataFrame，这样分析起数据来就比较方便了。</p>
 <img src="/2022/06/Python-Pandas-Pivot-Table/pivot_table.png" class="">
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/06/%E6%B2%AA%E6%B7%B1%E6%B8%AF%E9%80%9A%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%E7%9A%84%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/%E6%B2%AA%E6%B7%B1%E6%B8%AF%E9%80%9A%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">沪深港通数据统计的问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-06-18 22:32:36" itemprop="dateCreated datePublished" datetime="2022-06-18T22:32:36+08:00">2022-06-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-
-  
-    <span id="/2022/06/%E6%B2%AA%E6%B7%B1%E6%B8%AF%E9%80%9A%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="沪深港通数据统计的问题" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2022/06/%E6%B2%AA%E6%B7%B1%E6%B8%AF%E9%80%9A%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%E7%9A%84%E9%97%AE%E9%A2%98/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2022/06/%E6%B2%AA%E6%B7%B1%E6%B8%AF%E9%80%9A%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>用某产品提供的数据，统计沪深港通的区间净买入股票数量或区间净买入金额，如果遇到公司送股了，统计的数据就会出现问题。</p>
-<p>如图所示：</p>
-<img src="/2022/06/%E6%B2%AA%E6%B7%B1%E6%B8%AF%E9%80%9A%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%E7%9A%84%E9%97%AE%E9%A2%98/hsgt.png" class="">
-
-<p>所以必须要统计出当日真实的买入股票数，再通过当日成交均价，才能算出当日净买入金额。</p>
 
       
     </div>

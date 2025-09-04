@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">376</span>
+          <span class="site-state-item-count">377</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,113 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2023/12/SpringBoot%E6%B5%8B%E8%AF%95%E7%B1%BB%E7%94%A8-Value%E8%8E%B7%E5%8F%96server-port%E7%9A%84%E5%80%BC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/SpringBoot%E6%B5%8B%E8%AF%95%E7%B1%BB%E7%94%A8-Value%E8%8E%B7%E5%8F%96server-port%E7%9A%84%E5%80%BC/" class="post-title-link" itemprop="url">SpringBoot测试类用@Value获取server.port的值</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-01 19:57:41" itemprop="dateCreated datePublished" datetime="2023-12-01T19:57:41+08:00">2023-12-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2023/12/SpringBoot%E6%B5%8B%E8%AF%95%E7%B1%BB%E7%94%A8-Value%E8%8E%B7%E5%8F%96server-port%E7%9A%84%E5%80%BC/" class="post-meta-item leancloud_visitors" data-flag-title="SpringBoot测试类用@Value获取server.port的值" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2023/12/SpringBoot%E6%B5%8B%E8%AF%95%E7%B1%BB%E7%94%A8-Value%E8%8E%B7%E5%8F%96server-port%E7%9A%84%E5%80%BC/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2023/12/SpringBoot%E6%B5%8B%E8%AF%95%E7%B1%BB%E7%94%A8-Value%E8%8E%B7%E5%8F%96server-port%E7%9A%84%E5%80%BC/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我使用的springboot版本：2.1.2.RELEASE，在测试类中，通过@Value获取server.port的值，得到值 -1。</p>
+<p>解决方法，可以在测试类上面加上如下注解：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="meta">@SpringBootTest(classes = MyApplication.class,</span></span><br><span class="line"><span class="meta">        webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -417,116 +524,6 @@
 <p>如果设置系统激活的问题，可以从链接 <code>https://dnmjun.lanzoui.com/b0e7m2fof</code> 下载 <code>HEU_KMS_Activator_v41.1.0.rar</code> 激活工具。</p>
 <p>在使用前需要把杀毒程序关闭，不然系统会把这个工具做为病毒而删除。</p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/12/Java-8-Stream-filter%E8%BF%87%E6%BB%A4Map-String-List-String/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/12/Java-8-Stream-filter%E8%BF%87%E6%BB%A4Map-String-List-String/" class="post-title-link" itemprop="url">Java 8 Stream filter过滤Map<String, List<String>></a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-12-12 11:07:27" itemprop="dateCreated datePublished" datetime="2022-12-12T11:07:27+08:00">2022-12-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2022/12/Java-8-Stream-filter%E8%BF%87%E6%BB%A4Map-String-List-String/" class="post-meta-item leancloud_visitors" data-flag-title="Java 8 Stream filter过滤Map<String, List<String>>" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2022/12/Java-8-Stream-filter%E8%BF%87%E6%BB%A4Map-String-List-String/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2022/12/Java-8-Stream-filter%E8%BF%87%E6%BB%A4Map-String-List-String/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>过滤复杂的Map，map的value是一个List，把这个List中不满足要求的元素过滤掉。</p>
-<p>使用java8 stream api应该这样写：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">    Map&lt;String, List&lt;String&gt;&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    List&lt;String&gt; g1 = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    g1.add(<span class="string">&quot;M&quot;</span>);</span><br><span class="line">    g1.add(<span class="string">&quot;F&quot;</span>);</span><br><span class="line">    g1.add(<span class="string">&quot;M&quot;</span>);</span><br><span class="line"></span><br><span class="line">    map.put(<span class="string">&quot;1&quot;</span>, g1);</span><br><span class="line">    map.put(<span class="string">&quot;2&quot;</span>, <span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">    List&lt;String&gt; g2 = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    g2.add(<span class="string">&quot;M&quot;</span>);</span><br><span class="line">    g2.add(<span class="string">&quot;M&quot;</span>);</span><br><span class="line">    g2.add(<span class="string">&quot;X&quot;</span>);</span><br><span class="line">    g2.add(<span class="string">&quot;F&quot;</span>);</span><br><span class="line">    g2.add(<span class="string">&quot;Y&quot;</span>);</span><br><span class="line"></span><br><span class="line">    map.put(<span class="string">&quot;3&quot;</span>, g2);</span><br><span class="line"></span><br><span class="line">    System.out.println(map);</span><br><span class="line"></span><br><span class="line">    Map&lt;String, List&lt;String&gt;&gt; newMap = map.entrySet().stream()</span><br><span class="line">            .filter(e -&gt; CollectionUtils.isNotEmpty(e.getValue()))</span><br><span class="line">            .collect(Collectors.toMap(</span><br><span class="line">                    Map.Entry::getKey,</span><br><span class="line">                    e -&gt; e.getValue().stream()</span><br><span class="line">                            .filter(i -&gt; <span class="string">&quot;M&quot;</span>.equals(i))</span><br><span class="line">                            .collect(Collectors.toList())</span><br><span class="line">            ));</span><br><span class="line"></span><br><span class="line">    System.out.println(newMap);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>结果：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;1=[M, F, M], 2=null, 3=[M, M, X, F, Y]&#125;</span><br><span class="line"></span><br><span class="line">&#123;1=[M, M], 3=[M, M]&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 

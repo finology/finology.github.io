@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">376</span>
+          <span class="site-state-item-count">377</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,141 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/11/%E5%9C%A8CentOS%E4%B8%8A%E4%BB%A5%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85Docker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/11/%E5%9C%A8CentOS%E4%B8%8A%E4%BB%A5%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85Docker/" class="post-title-link" itemprop="url">在CentOS上以二进制方式安装Docker</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-11-21 23:30:52" itemprop="dateCreated datePublished" datetime="2019-11-21T23:30:52+08:00">2019-11-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/11/%E5%9C%A8CentOS%E4%B8%8A%E4%BB%A5%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85Docker/" class="post-meta-item leancloud_visitors" data-flag-title="在CentOS上以二进制方式安装Docker" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/11/%E5%9C%A8CentOS%E4%B8%8A%E4%BB%A5%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85Docker/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/11/%E5%9C%A8CentOS%E4%B8%8A%E4%BB%A5%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85Docker/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>之前有介绍过，在MacOS下安装Docker <a href="/2019/07/Mac-Docker%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="Mac Docker安装配置">Mac Docker安装配置</a> 和在Ubuntu环境下安装Docker <a href="/2019/10/Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85Docker/" title="Ubuntu环境下安装Docker">Ubuntu环境下安装Docker</a> ，可以参考。</p>
+<p>不过在生产环境，大多数是没有外网环境的，所以还是需要以二进制方式来安装。</p>
+<p>这篇文章将介绍如何下载Docker二进制文件来安装配置Docker。</p>
+<h1 id="查看当前环境"><a href="#查看当前环境" class="headerlink" title="查看当前环境"></a>查看当前环境</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uname -r</span><br><span class="line">3.10.0-957.el7.x86_64</span><br></pre></td></tr></table></figure>
+
+<h1 id="下载Docker安装包"><a href="#下载Docker安装包" class="headerlink" title="下载Docker安装包"></a>下载Docker安装包</h1><p>Docker稳定版的程序可进入如下链接进行下载。</p>
+<p><code>https://download.docker.com/linux/static/stable/x86_64/</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://download.docker.com/linux/static/stable/x86_64/docker-18.06.3-ce.tgz</span><br></pre></td></tr></table></figure>
+
+<h1 id="解压和拷贝"><a href="#解压和拷贝" class="headerlink" title="解压和拷贝"></a>解压和拷贝</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf docker-18.06.3-ce.tgz</span><br><span class="line">cp docker/* /usr/local/bin</span><br></pre></td></tr></table></figure>
+
+<h1 id="制作Docker-service"><a href="#制作Docker-service" class="headerlink" title="制作Docker.service"></a>制作Docker.service</h1><p>创建文件<code>/usr/lib/systemd/system/docker.service</code>并添加如下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Docker Application Container Engine</span><br><span class="line">Documentation=http://docs.docker.io</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/usr/local/bin/dockerd</span><br><span class="line">ExecReload=/bin/kill -s HUP $MAINPID</span><br><span class="line">Restart=on-failure</span><br><span class="line">RestartSec=5</span><br><span class="line">LimitNOFILE=infinity</span><br><span class="line">LimitNPROC=infinity</span><br><span class="line">LimitCORE=infinity</span><br><span class="line">Delegate=yes</span><br><span class="line">KillMode=process</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>当然，里面还可能会有其他一些配置，大家可以根据自己需要来配置。</p>
+<h1 id="启动Docker"><a href="#启动Docker" class="headerlink" title="启动Docker"></a>启动Docker</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /usr/lib/systemd/system/docker.service</span><br><span class="line"></span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
+
+<h1 id="查看Docker版本信息"><a href="#查看Docker版本信息" class="headerlink" title="查看Docker版本信息"></a>查看Docker版本信息</h1><p>如果安装成功，则可以看到如下信息。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker -v</span><br><span class="line">Docker version 18.06.3-ce, build d7080c1</span><br></pre></td></tr></table></figure>
+
+<h1 id="docker-compose二进制安装"><a href="#docker-compose二进制安装" class="headerlink" title="docker-compose二进制安装"></a>docker-compose二进制安装</h1><h2 id="下载docker-compose文件"><a href="#下载docker-compose文件" class="headerlink" title="下载docker-compose文件"></a>下载docker-compose文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://github.com/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose</span><br><span class="line">chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
+<p><code>uname -s</code>执行结果是<code>Linux</code></p>
+<p><code>uname -m</code>执行结果是<code>x86_64</code></p>
+<h2 id="查看docker-compose的版本信息"><a href="#查看docker-compose的版本信息" class="headerlink" title="查看docker-compose的版本信息"></a>查看<code>docker-compose</code>的版本信息</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker-compose -v</span><br><span class="line">docker-compose version 1.25.0, build 0a186604</span><br></pre></td></tr></table></figure>
+
+<h1 id="设置Docker镜像代理等信息"><a href="#设置Docker镜像代理等信息" class="headerlink" title="设置Docker镜像代理等信息"></a>设置Docker镜像代理等信息</h1><p><code>vi /etc/docker/daemon.json</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;registry-mirrors&quot;: [&quot;http://hub-mirror.c.163.com&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过<code>docker info</code>来查看是否设置成功。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -494,133 +629,6 @@
 
 <p>查看<code>vsftpd</code>服务的状态</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">systemctl status vsftpd</span><br><span class="line">● vsftpd.service - Vsftpd ftp daemon</span><br><span class="line">   Loaded: loaded (/usr/lib/systemd/system/vsftpd.service; disabled; vendor preset: disabled)</span><br><span class="line">   Active: active (running) since Sat 2019-11-16 03:55:51 UTC; 2s ago</span><br><span class="line">  Process: 176 ExecStart=/usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf (code=exited, status=0/SUCCESS)</span><br><span class="line"> Main PID: 177 (vsftpd)</span><br><span class="line">   CGroup: /docker/d9c3cf1ad7a9084f7563169cbac71b7a5687ebc25703c43f31b6f33a59e686e6/system.slice/vsftpd.service</span><br><span class="line">           └─177 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf</span><br><span class="line">           ‣ 177 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf</span><br><span class="line"></span><br><span class="line">Nov 16 03:55:51 d9c3cf1ad7a9 systemd[1]: Starting Vsftpd ftp daemon...</span><br><span class="line">Nov 16 03:55:51 d9c3cf1ad7a9 systemd[1]: Started Vsftpd ftp daemon.</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/11/%E6%97%A0%E6%B3%95%E6%8C%82%E8%BD%BDNFS%E5%85%B1%E4%BA%AB%E7%9B%AE%E5%BD%95%E5%88%B0Docker%E5%AE%B9%E5%99%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/11/%E6%97%A0%E6%B3%95%E6%8C%82%E8%BD%BDNFS%E5%85%B1%E4%BA%AB%E7%9B%AE%E5%BD%95%E5%88%B0Docker%E5%AE%B9%E5%99%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">无法挂载NFS共享目录到Docker容器的解决方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-11-14 00:35:15" itemprop="dateCreated datePublished" datetime="2019-11-14T00:35:15+08:00">2019-11-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/FileSystem/" itemprop="url" rel="index"><span itemprop="name">FileSystem</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/FileSystem/NFS/" itemprop="url" rel="index"><span itemprop="name">NFS</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/11/%E6%97%A0%E6%B3%95%E6%8C%82%E8%BD%BDNFS%E5%85%B1%E4%BA%AB%E7%9B%AE%E5%BD%95%E5%88%B0Docker%E5%AE%B9%E5%99%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="无法挂载NFS共享目录到Docker容器的解决方法" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/11/%E6%97%A0%E6%B3%95%E6%8C%82%E8%BD%BDNFS%E5%85%B1%E4%BA%AB%E7%9B%AE%E5%BD%95%E5%88%B0Docker%E5%AE%B9%E5%99%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/11/%E6%97%A0%E6%B3%95%E6%8C%82%E8%BD%BDNFS%E5%85%B1%E4%BA%AB%E7%9B%AE%E5%BD%95%E5%88%B0Docker%E5%AE%B9%E5%99%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>为了测试把NFS文件系统的共享目录挂载到本地，特意启动了Docker容器来做实验。</p>
-<p>执行命令时，必须加入<code>--privileged</code>这个参数，不然在Mount时会报permission denied的错误。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --privileged &lt;image_id&gt;</span><br></pre></td></tr></table></figure>
-
-<p>查看NFS的共享目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">showmount -e 172.17.0.2</span><br><span class="line">Export list for 172.17.0.2:</span><br><span class="line">/nfs/share *</span><br></pre></td></tr></table></figure>
-
-<p>也可以到NFS服务器上查看<code>/etc/exports</code>文件的内容。</p>
-<p>执行挂载命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t nfs 172.17.0.2:/nfs/share /mnt/nfs/</span><br></pre></td></tr></table></figure>
-
-<p>会报如下错误：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mount: wrong fs type, bad option, bad superblock on 172.17.0.2:/nfs/share,</span><br><span class="line">       missing codepage or helper program, or other error</span><br><span class="line">       (for several filesystems (e.g. nfs, cifs) you might</span><br><span class="line">       need a /sbin/mount.&lt;type&gt; helper program)</span><br><span class="line"></span><br><span class="line">       In some cases useful info is found in syslog - try</span><br><span class="line">       dmesg | tail or so.</span><br></pre></td></tr></table></figure>
-
-<p>解决办法即是安装NFS的依赖包。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nfs-utils</span><br></pre></td></tr></table></figure>
-
-<p>安装成功后，再次mount就可以成功了。</p>
 
       
     </div>

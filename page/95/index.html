@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">376</span>
+          <span class="site-state-item-count">377</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,129 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/10/Ubuntu%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/10/Ubuntu%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/" class="post-title-link" itemprop="url">Ubuntu设置国内源</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-20 10:05:51" itemprop="dateCreated datePublished" datetime="2019-10-20T10:05:51+08:00">2019-10-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OS/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/10/Ubuntu%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu设置国内源" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/10/Ubuntu%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/10/Ubuntu%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>安装完操作系统后，首要的第一件事就是换成国内的源，这样下载软件速度才会有保障。</p>
+<h1 id="备份文件"><a href="#备份文件" class="headerlink" title="备份文件"></a>备份文件</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</span><br></pre></td></tr></table></figure>
+
+<h1 id="编译文件"><a href="#编译文件" class="headerlink" title="编译文件"></a>编译文件</h1><p>编译<code>sources.list</code>，把<code>http://cn.archive.ubuntu.com/ubuntu/</code>和<code>http://security.ubuntu.com/ubuntu</code>替换为国内的阿里的地址<code>http://mirrors.aliyun.com/ubuntu</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>vi</code>的替换命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:s%/cn.archive.ubuntu.com/mirrors.aliyun.com/g</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:s%/security.ubuntu.com/mirrors.aliyun.com/g</span><br></pre></td></tr></table></figure>
+
+<h1 id="更新软件列表"><a href="#更新软件列表" class="headerlink" title="更新软件列表"></a>更新软件列表</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+
+<h1 id="更新软件包"><a href="#更新软件包" class="headerlink" title="更新软件包"></a>更新软件包</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -460,175 +583,6 @@
 <h2 id="6-mark-reset"><a href="#6-mark-reset" class="headerlink" title="6. mark&#x2F;reset"></a>6. mark&#x2F;reset</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">buffer.get(bytes, <span class="number">0</span>, <span class="number">2</span>);</span><br><span class="line">System.out.println(<span class="keyword">new</span> <span class="title class_">String</span>(bytes, <span class="number">0</span>, <span class="number">2</span>));</span><br><span class="line">buffer.mark();</span><br><span class="line">buffer.get(bytes, <span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">buffer.reset();</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;--- reset() ---&quot;</span>);</span><br><span class="line">System.out.println(buffer.position());</span><br><span class="line">System.out.println(buffer.limit());</span><br><span class="line">System.out.println(buffer.capacity());</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 2</span></span><br><span class="line"><span class="comment"> * 5</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (buffer.hasRemaining()) &#123;</span><br><span class="line">    System.out.println(buffer.remaining());</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 3</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="7-清空缓冲区"><a href="#7-清空缓冲区" class="headerlink" title="7. 清空缓冲区"></a>7. 清空缓冲区</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">buffer.clear();</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;--- clear() ---&quot;</span>);</span><br><span class="line">System.out.println(buffer.position());</span><br><span class="line">System.out.println(buffer.limit());</span><br><span class="line">System.out.println(buffer.capacity());</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 0</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> * 1024</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/10/Docker-CentOS%E5%AE%B9%E5%99%A8%E9%87%8C%E9%9D%A2%E5%AE%89%E8%A3%85GlusterFS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/10/Docker-CentOS%E5%AE%B9%E5%99%A8%E9%87%8C%E9%9D%A2%E5%AE%89%E8%A3%85GlusterFS/" class="post-title-link" itemprop="url">Docker CentOS容器里面安装GlusterFS</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-10-04 21:34:57" itemprop="dateCreated datePublished" datetime="2019-10-04T21:34:57+08:00">2019-10-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/FileSystem/" itemprop="url" rel="index"><span itemprop="name">FileSystem</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/10/Docker-CentOS%E5%AE%B9%E5%99%A8%E9%87%8C%E9%9D%A2%E5%AE%89%E8%A3%85GlusterFS/" class="post-meta-item leancloud_visitors" data-flag-title="Docker CentOS容器里面安装GlusterFS" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/10/Docker-CentOS%E5%AE%B9%E5%99%A8%E9%87%8C%E9%9D%A2%E5%AE%89%E8%A3%85GlusterFS/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/10/Docker-CentOS%E5%AE%B9%E5%99%A8%E9%87%8C%E9%9D%A2%E5%AE%89%E8%A3%85GlusterFS/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="拉取CentOS镜像"><a href="#拉取CentOS镜像" class="headerlink" title="拉取CentOS镜像"></a>拉取CentOS镜像</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull centos</span><br></pre></td></tr></table></figure>
-
-<p>然后启动容器并进入容器。</p>
-<h1 id="安装GlusterFS软件"><a href="#安装GlusterFS软件" class="headerlink" title="安装GlusterFS软件"></a>安装GlusterFS软件</h1><h2 id="安装GlusterFS的源"><a href="#安装GlusterFS的源" class="headerlink" title="安装GlusterFS的源"></a>安装GlusterFS的源</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install centos-release-gluster</span><br></pre></td></tr></table></figure>
-
-<p>安装这个的目的是接下来在安装glusterfs-server等包时，能找到源。</p>
-<h2 id="安装GlusterFS相关软件"><a href="#安装GlusterFS相关软件" class="headerlink" title="安装GlusterFS相关软件"></a>安装GlusterFS相关软件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y glusterfs glusterfs-server glusterfs-fuse glusterfs-rdma</span><br></pre></td></tr></table></figure>
-
-<h2 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /gluster/data/</span><br></pre></td></tr></table></figure>
-
-<p>可以把<code>iproute</code>等基本工具安装上。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y iproute</span><br></pre></td></tr></table></figure>
-
-<p>生成一个新的镜像，<code>gluster-centos</code></p>
-<h1 id="运行gluster-centos镜像实例"><a href="#运行gluster-centos镜像实例" class="headerlink" title="运行gluster-centos镜像实例"></a>运行gluster-centos镜像实例</h1><p>测试最基础的glusterFS功能，启动两个容器就可以。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit --privileged simon/gluster-centos bash</span><br></pre></td></tr></table></figure>
-
-<p>这里需要注意的是需要使用<code>--privileged</code>这个参数，不然在创建volume时会有<code>Setting extended attributes failed, reason: Operation not permitted.</code>错误。</p>
-<table>
-<thead>
-<tr>
-<th>node</th>
-<th>hostname</th>
-<th>ip</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>node1</td>
-<td>172.17.0.2</td>
-<td>172.17.0.2</td>
-</tr>
-<tr>
-<td>node2</td>
-<td>172.17.0.3</td>
-<td>172.17.0.3</td>
-</tr>
-</tbody></table>
-<h1 id="创建GlusterFS卷"><a href="#创建GlusterFS卷" class="headerlink" title="创建GlusterFS卷"></a>创建GlusterFS卷</h1><h2 id="进入node1节点"><a href="#进入node1节点" class="headerlink" title="进入node1节点"></a>进入node1节点</h2><p>进入node1, 172.17.0.2节点，peer probe另一个节点，执行命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gluster peer probe 172.17.0.3</span><br><span class="line">peer probe: success.</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gluster peer status</span><br><span class="line">Number of Peers: 1</span><br><span class="line"></span><br><span class="line">Hostname: 172.17.0.3</span><br><span class="line">Uuid: 6b04331d-6fe9-4d78-937e-b10c69f476fa</span><br><span class="line">State: Peer in Cluster (Connected)</span><br></pre></td></tr></table></figure>
-
-<h2 id="创建复本卷"><a href="#创建复本卷" class="headerlink" title="创建复本卷"></a>创建复本卷</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gluster volume create gv0 replica 2 172.17.0.2:/gluster/data 172.17.0.3:/gluster/data</span><br><span class="line">Replica 2 volumes are prone to split-brain. Use Arbiter or Replica 3 to avoid this. See: http://docs.gluster.org/en/latest/Administrator%20Guide/Split%20brain%20and%20ways%20to%20deal%20with%20it/.</span><br><span class="line">Do you still want to continue?</span><br><span class="line"> (y/n) y</span><br><span class="line">volume create: gv0: failed: The brick 172.17.0.3:/gluster/data is being created in the root partition. It is recommended that you don&#x27;t use the system&#x27;s root partition for storage backend. Or use &#x27;force&#x27; at the end of the command if you want to override this behavior.</span><br></pre></td></tr></table></figure>
-
-<h2 id="按提示，增加force参数"><a href="#按提示，增加force参数" class="headerlink" title="按提示，增加force参数"></a>按提示，增加<code>force</code>参数</h2><p>如果在启动容器时，没有设置<code>--privileged</code>参数，则会报如下错误。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gluster volume create gv0 replica 2 172.17.0.2:/gluster/data 172.17.0.3:/gluster/data force</span><br><span class="line">volume create: gv0: failed: Glusterfs is not supported on brick: 172.17.0.2:/gluster/data.</span><br><span class="line">Setting extended attributes failed, reason: Operation not permitted.</span><br></pre></td></tr></table></figure>
-
-<p>所以只能删除容器，再次启动，并加入<code>--privileged</code>参数。</p>
-<p>再次执行<code>gluster volume create</code>命令，执行成功。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gluster volume create gv0 replica 2 172.17.0.2:/gluster/data 172.17.0.3:/gluster/data force</span><br><span class="line">volume create: gv0: success: please start the volume to access data</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="启动卷"><a href="#启动卷" class="headerlink" title="启动卷"></a>启动卷</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gluster volume start gv0</span><br><span class="line">volume start: gv0: success</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看卷信息"><a href="#查看卷信息" class="headerlink" title="查看卷信息"></a>查看卷信息</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">gluster volume info</span><br><span class="line"> </span><br><span class="line">Volume Name: gv0</span><br><span class="line">Type: Replicate</span><br><span class="line">Volume ID: 065914c6-38b0-4ef6-ad76-c190ea0cfb0c</span><br><span class="line">Status: Started</span><br><span class="line">Snapshot Count: 0</span><br><span class="line">Number of Bricks: 1 x 2 = 2</span><br><span class="line">Transport-type: tcp</span><br><span class="line">Bricks:</span><br><span class="line">Brick1: 172.17.0.2:/gluster/data</span><br><span class="line">Brick2: 172.17.0.3:/gluster/data</span><br><span class="line">Options Reconfigured:</span><br><span class="line">performance.client-io-threads: off</span><br><span class="line">nfs.disable: on</span><br><span class="line">transport.address-family: inet</span><br></pre></td></tr></table></figure>
-
-<h1 id="创建GlusterFS客户端"><a href="#创建GlusterFS客户端" class="headerlink" title="创建GlusterFS客户端"></a>创建GlusterFS客户端</h1><h2 id="安装GlusterFS客户端软件"><a href="#安装GlusterFS客户端软件" class="headerlink" title="安装GlusterFS客户端软件"></a>安装GlusterFS客户端软件</h2><p>主要就是安装<code>glusterfs-fuse</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y glusterfs glusterfs-fuse</span><br></pre></td></tr></table></figure>
-
-<p>启动一个<code>gluster-centos</code>容器也可以的。挂载点<code>/gluster/data</code>已经创建好了的。</p>
-<h2 id="以glusterfs方式挂载"><a href="#以glusterfs方式挂载" class="headerlink" title="以glusterfs方式挂载"></a>以glusterfs方式挂载</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t glusterfs 172.17.0.2:gv0 /gluster/data</span><br></pre></td></tr></table></figure>
-
-<p>此时，在客户端<code>/gluster/data</code>看到的文件，就是分布式系统的文件了。可以像操作本地文件一样操作文件了。</p>
 
       
     </div>

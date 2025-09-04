@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">376</span>
+          <span class="site-state-item-count">377</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,185 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Prometheus-kubernetes-cadvisor%E6%9C%8D%E5%8A%A1%E8%87%AA%E5%8A%A8%E5%8F%91%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/Prometheus-kubernetes-cadvisor%E6%9C%8D%E5%8A%A1%E8%87%AA%E5%8A%A8%E5%8F%91%E7%8E%B0/" class="post-title-link" itemprop="url">Prometheus kubernetes-cadvisor服务自动发现</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-01 20:03:04" itemprop="dateCreated datePublished" datetime="2020-03-01T20:03:04+08:00">2020-03-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/03/Prometheus-kubernetes-cadvisor%E6%9C%8D%E5%8A%A1%E8%87%AA%E5%8A%A8%E5%8F%91%E7%8E%B0/" class="post-meta-item leancloud_visitors" data-flag-title="Prometheus kubernetes-cadvisor服务自动发现" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/03/Prometheus-kubernetes-cadvisor%E6%9C%8D%E5%8A%A1%E8%87%AA%E5%8A%A8%E5%8F%91%E7%8E%B0/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Prometheus-kubernetes-cadvisor%E6%9C%8D%E5%8A%A1%E8%87%AA%E5%8A%A8%E5%8F%91%E7%8E%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>这一篇文章，通过<code>kubernetes_sd_configs</code>配置服务自动发现。</p>
+<p>还原来一样，是通过<code>kube-prometheus</code>安装的k8s监控系统。</p>
+<p>和之前由<code>kubernetes-operator</code>已经提供的yaml文件不同，这次我们需要新建一个yaml文件配置。</p>
+<p><code>prometheus-additional.yaml</code>内容如下，注意，这里自动发现的<code>role</code>设置为<code>pod</code>。通过它，将自动发现k8s集群里面所有的<code>pod</code>。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">&#x27;kubernetes-cadvisor&#x27;</span></span><br><span class="line">  <span class="attr">scheme:</span> <span class="string">https</span></span><br><span class="line">  <span class="attr">tls_config:</span></span><br><span class="line">    <span class="attr">ca_file:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/ca.crt</span></span><br><span class="line">  <span class="attr">bearer_token_file:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line">  <span class="attr">kubernetes_sd_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">pod</span></span><br><span class="line">  <span class="attr">relabel_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">target_label:</span> <span class="string">__address__</span></span><br><span class="line">    <span class="attr">replacement:</span> <span class="string">kubernetes.default.svc:443</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__meta_kubernetes_pod_node_name</span>]</span><br><span class="line">    <span class="attr">regex:</span> <span class="string">(.+)</span></span><br><span class="line">    <span class="attr">replacement:</span> <span class="string">/api/v1/nodes/$&#123;1&#125;/proxy/metrics/cadvisor</span></span><br><span class="line">    <span class="attr">target_label:</span> <span class="string">__metrics_path__</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">action:</span> <span class="string">labelmap</span></span><br><span class="line">    <span class="attr">regex:</span> <span class="string">__meta_kubernetes_pod_label_(.+)</span></span><br></pre></td></tr></table></figure>
+
+<p>然后还需要修改<code>prometheus-prometheus.yaml</code>的内容，在<code>spec</code>项下级，<code>serviceAccountName</code>标签前面添加<code>additionalScrapeConfigs</code>标签，如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">additionalScrapeConfigs:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">additional-configs</span></span><br><span class="line">    <span class="attr">key:</span> <span class="string">prometheus-additional.yaml</span></span><br><span class="line">  <span class="attr">serviceAccountName:</span> <span class="string">prometheus-k8s</span></span><br><span class="line">  <span class="string">...</span></span><br></pre></td></tr></table></figure>
+
+<p>删除之前的secret，如果有的话。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl delete secret additional-configs -n monitoring</span></span><br><span class="line">secret &quot;additional-configs&quot; deleted</span><br></pre></td></tr></table></figure>
+
+<p>第一次新建当然是没有的，所以直接创建secret：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl create secret generic additional-configs --from-file=prometheus-additional.yaml -n monitoring</span></span><br><span class="line">secret/additional-configs created</span><br></pre></td></tr></table></figure>
+
+<p>然后应用prometheus的配置，因为做过修改。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl apply -f prometheus/prometheus-prometheus.yaml</span> </span><br><span class="line">prometheus.monitoring.coreos.com/k8s configured</span><br></pre></td></tr></table></figure>
+
+<p>稍等片刻后，我们可以看到Prometheus Configuration设置已经变化。已经有job_name为<code>kubernetes-cadvisor</code>的记录了。<code>kubernetes-cadvisor</code>部分内容如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">kubernetes-cadvisor</span></span><br><span class="line">  <span class="attr">honor_timestamps:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">scrape_interval:</span> <span class="string">30s</span></span><br><span class="line">  <span class="attr">scrape_timeout:</span> <span class="string">10s</span></span><br><span class="line">  <span class="attr">metrics_path:</span> <span class="string">/metrics</span></span><br><span class="line">  <span class="attr">scheme:</span> <span class="string">https</span></span><br><span class="line">  <span class="attr">kubernetes_sd_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">pod</span></span><br><span class="line">  <span class="attr">bearer_token_file:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line">  <span class="attr">tls_config:</span></span><br><span class="line">    <span class="attr">ca_file:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/ca.crt</span></span><br><span class="line">    <span class="attr">insecure_skip_verify:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">relabel_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">separator:</span> <span class="string">;</span></span><br><span class="line">    <span class="attr">regex:</span> <span class="string">(.*)</span></span><br><span class="line">    <span class="attr">target_label:</span> <span class="string">__address__</span></span><br><span class="line">    <span class="attr">replacement:</span> <span class="string">kubernetes.default.svc:443</span></span><br><span class="line">    <span class="attr">action:</span> <span class="string">replace</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__meta_kubernetes_pod_node_name</span>]</span><br><span class="line">    <span class="attr">separator:</span> <span class="string">;</span></span><br><span class="line">    <span class="attr">regex:</span> <span class="string">(.+)</span></span><br><span class="line">    <span class="attr">target_label:</span> <span class="string">__metrics_path__</span></span><br><span class="line">    <span class="attr">replacement:</span> <span class="string">/api/v1/nodes/$&#123;1&#125;/proxy/metrics/cadvisor</span></span><br><span class="line">    <span class="attr">action:</span> <span class="string">replace</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">separator:</span> <span class="string">;</span></span><br><span class="line">    <span class="attr">regex:</span> <span class="string">__meta_kubernetes_pod_label_(.+)</span></span><br><span class="line">    <span class="attr">replacement:</span> <span class="string">$1</span></span><br><span class="line">    <span class="attr">action:</span> <span class="string">labelmap</span></span><br></pre></td></tr></table></figure>
+
+<p>但奇怪的是，我们在Targets页面并没有发现<code>kubernetes-cadvisor</code>这个Target。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl get po -n monitoring</span></span><br><span class="line">NAME                                   READY   STATUS    RESTARTS   AGE</span><br><span class="line">...</span><br><span class="line">prometheus-k8s-0                       3/3     Running   1          77d</span><br><span class="line">prometheus-k8s-1                       3/3     Running   1          77d</span><br></pre></td></tr></table></figure>
+
+<p>查看pod，未发现异常。</p>
+<p>查看一下Pod日志。kubectl logs -f prometheus-k8s-0 prometheus -n monitoring</p>
+<blockquote>
+<p>level&#x3D;error ts&#x3D;2020-03-05T02:56:36.493Z caller&#x3D;klog.go:94 component&#x3D;k8s_client_runtime func&#x3D;ErrorDepth<br>msg&#x3D;”&#x2F;app&#x2F;discovery&#x2F;kubernetes&#x2F;kubernetes.go:263: Failed to list *v1.Endpoints: endpoints is forbidden: User &quot;system:serviceaccount:monitoring:prometheus-k8s&quot; cannot list resource &quot;endpoints&quot; in API group &quot;&quot; at the cluster scope”<br>level&#x3D;error ts&#x3D;2020-03-05T02:56:37.491Z caller&#x3D;klog.go:94 component&#x3D;k8s_client_runtime func&#x3D;ErrorDepth msg&#x3D;”&#x2F;app&#x2F;discovery&#x2F;kubernetes&#x2F;kubernetes.go:264: Failed to list *v1.Service: services is forbidden: User &quot;system:serviceaccount:monitoring:prometheus-k8s&quot; cannot list resource &quot;services&quot; in API group &quot;&quot; at the cluster scope”<br>level&#x3D;error ts&#x3D;2020-03-05T02:56:37.494Z caller&#x3D;klog.go:94 component&#x3D;k8s_client_runtime func&#x3D;ErrorDepth msg&#x3D;”&#x2F;app&#x2F;discovery&#x2F;kubernetes&#x2F;kubernetes.go:265: Failed to list *v1.Pod: pods is forbidden: User &quot;system:serviceaccount:monitoring:prometheus-k8s&quot; cannot list resource &quot;pods&quot; in API group &quot;&quot; at the cluster scope”</p>
+</blockquote>
+<p>很多出错日志，主要是上面三条的循环出现。</p>
+<ol>
+<li><p>Failed to list *v1.Endpoints: endpoints is forbidden: User &quot;system:serviceaccount:monitoring:prometheus-k8s&quot; cannot list resource &quot;endpoints&quot; in API group &quot;&quot; at the cluster scope.</p>
+</li>
+<li><p>Failed to list *v1.Service: services is forbidden: User &quot;system:serviceaccount:monitoring:prometheus-k8s&quot; cannot list resource &quot;services&quot; in API group &quot;&quot; at the cluster scope.</p>
+</li>
+<li><p>Failed to list *v1.Pod: pods is forbidden: User &quot;system:serviceaccount:monitoring:prometheus-k8s&quot; cannot list resource &quot;pods&quot; in API group &quot;&quot; at the cluster scope.</p>
+</li>
+</ol>
+<p><code>endpoints/services/pods is forbidden</code>，说明是RBAC权限问题，namespace: monitoring下的serviceaccount: prometheus-k8s这个用户没有权限。</p>
+<p>查看<code>prometheus-prometheus.yaml</code>内容，可以看到Prometheus绑定了一个名为prometheus-k8s的serviceAccount对象。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">monitoring.coreos.com/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Prometheus</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">prometheus:</span> <span class="string">k8s</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">k8s</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">monitoring</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">serviceAccountName:</span> <span class="string">prometheus-k8s</span></span><br><span class="line">  <span class="string">...</span></span><br></pre></td></tr></table></figure>
+
+<p>通过查看<code>prometheus-clusterRole.yaml</code>得知，名为<code>prometheus-k8s</code>的serviceAccount对象绑定的是一个名为<code>prometheus-k8s</code>的ClusterRole。</p>
+<p>绑定关系在<code>prometheus-clusterRoleBinding.yaml</code>这个文件。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ClusterRoleBinding</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">prometheus-k8s</span></span><br><span class="line"><span class="attr">roleRef:</span></span><br><span class="line">  <span class="attr">apiGroup:</span> <span class="string">rbac.authorization.k8s.io</span></span><br><span class="line">  <span class="attr">kind:</span> <span class="string">ClusterRole</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">prometheus-k8s</span></span><br><span class="line"><span class="attr">subjects:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">kind:</span> <span class="string">ServiceAccount</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">prometheus-k8s</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">monitoring</span></span><br></pre></td></tr></table></figure>
+
+<p>查看这个Role：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ClusterRole</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">prometheus-k8s</span></span><br><span class="line"><span class="attr">rules:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">apiGroups:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="attr">resources:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">nodes/metrics</span></span><br><span class="line">  <span class="attr">verbs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">get</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">nonResourceURLs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">/metrics</span></span><br><span class="line">  <span class="attr">verbs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">get</span></span><br></pre></td></tr></table></figure>
+
+<p>在上面的权限规则中，并未发现对endpoints&#x2F;services&#x2F;pods的list权限。所以做如下修改：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ClusterRole</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">prometheus-k8s</span></span><br><span class="line"><span class="attr">rules:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">apiGroups:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="attr">resources:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">nodes/metrics</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">configmaps</span></span><br><span class="line">  <span class="attr">verbs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">get</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">nonResourceURLs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">/metrics</span></span><br><span class="line">  <span class="attr">verbs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">get</span></span><br><span class="line"><span class="comment"># new apiGroups</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">apiGroups:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="attr">resources:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">nodes</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">services</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">endpoints</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">pods</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">nodes/proxy</span></span><br><span class="line">  <span class="attr">verbs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">get</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">list</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">watch</span></span><br></pre></td></tr></table></figure>
+
+<p>应用一下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl apply -f prometheus-clusterRole.yaml</span> </span><br><span class="line">clusterrole.rbac.authorization.k8s.io/prometheus-k8s configured</span><br></pre></td></tr></table></figure>
+
+<p>这时就可以看到Targets了。</p>
+<img src="/2020/03/Prometheus-kubernetes-cadvisor%E6%9C%8D%E5%8A%A1%E8%87%AA%E5%8A%A8%E5%8F%91%E7%8E%B0/prom-cadvisor-rolepod.png" class="">
+
+<p>我们分析一下第二个Endpoint为：<code>https://kubernetes.default.svc:443/api/v1/nodes/k8s-node1/proxy/metrics/cadvisor</code></p>
+<p>在node节点上是无法解析<code>kubernetes.default.svc</code>的，所以我们先获取这个域名的真实地址。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl get svc</span><br><span class="line">NAME               TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE</span><br><span class="line">kubernetes         ClusterIP   10.96.0.1      &lt;none&gt;        443/TCP        62d</span><br></pre></td></tr></table></figure>
+
+<p>再通过secret获取到token，就可以访问url以获取指标了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">curl -k https://10.96.0.1:443/api/v1/nodes/k8s-node1/proxy/metrics/cadvisor -H <span class="string">&quot;Authorization: Bearer</span></span> </span><br><span class="line">eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJtb25pdG9yaW5nIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6InByb21ldGhldXMtazhzLXRva2VuLXNtNmdkIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6InByb21ldGhldXMtazhzIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiMTk2OTkyOTItNDY2Yi00NWQ4LWJmYmYtYzkyZjIwNjczOWY3Iiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Om1vbml0b3Jpbmc6cHJvbWV0aGV1cy1rOHMifQ.iggZ4ZxmD0y04OQfDlo4P6zRgzn0ryVhcdhlgncpnBY5BJ39Xz0a2AA51ePa78R2njFDjPcecgDJRcqPv76X3o-C-G7EZvN_Ru8zSdB51YxqlLNoIW5hy6Jr27aw74lMslg1MYX_31kkRTqD9DxVn6lq6Uqf4Djebj_E-2maiwl863GCeNRfS1X6KM8idsVknLlpdVINbM8U_l1Yuw-auNzelAk1NQlBdbJqsm1CZKIg_YBsT-KbiyTsbjX2v0uL1D6-Q5Xs9NZMLEAa7dfwz_EOYMDnIGbv-eyhD-924H4_pGOIoQ0dCBP01cxFm7pLJPGouwLaEwPs5BRS0B6u-w&quot;</span><br></pre></td></tr></table></figure>
+
+<p>指标以<code>container_</code>开始。和我们之前讨论的<code>kubelet/1</code>的指标完全一样。<a href="/2020/02/Prometheus-monitoring-kubelet%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" title="Prometheus monitoring&#x2F;kubelet监控指标">Prometheus monitoring&#x2F;kubelet监控指标</a></p>
+<p>所以其实是可以通过修改<code>kubelet/1</code>的配置来达到新增这个Target的目的。但<code>kubelet/1</code>的目的主要是监控kubelet的情况，其他的Pod它不监控，Target是没有被<code>keep</code>的。如下图：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">relabel_configs:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__meta_kubernetes_service_label_k8s_app</span>]</span><br><span class="line">  <span class="attr">separator:</span> <span class="string">;</span></span><br><span class="line">  <span class="attr">regex:</span> <span class="string">kubelet</span></span><br><span class="line">  <span class="attr">replacement:</span> <span class="string">$1</span></span><br><span class="line">  <span class="attr">action:</span> <span class="string">keep</span></span><br></pre></td></tr></table></figure>
+
+<p>我将指标存入<code>kubernetes-cadvisor-1.txt</code> <a href="/2020/03/Prometheus-kubernetes-cadvisor%E6%9C%8D%E5%8A%A1%E8%87%AA%E5%8A%A8%E5%8F%91%E7%8E%B0/kubernetes-cadvisor-1.txt" title="点击查看">点击查看</a>，供下载查看。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -432,131 +611,6 @@
 <p>通过template获取secret里面的值，要通过base64解密一下的。</p>
 <p>指标大部分以<code>node_</code>开始<br>少许几个以<code>promhttp_metric_</code>开始的指标。</p>
 <p>指标<code>node-exporter-node0.txt</code> <a href="/2020/02/Prometheus-monitoring-node-exporter%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/node-exporter-node0.txt" title="点击查看">点击查看</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/Prometheus-monitoring-kubelet%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/02/Prometheus-monitoring-kubelet%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" class="post-title-link" itemprop="url">Prometheus monitoring/kubelet监控指标</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-02-25 23:40:07" itemprop="dateCreated datePublished" datetime="2020-02-25T23:40:07+08:00">2020-02-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/02/Prometheus-monitoring-kubelet%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" class="post-meta-item leancloud_visitors" data-flag-title="Prometheus monitoring/kubelet监控指标" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/02/Prometheus-monitoring-kubelet%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/02/Prometheus-monitoring-kubelet%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>通过<code>kube-prometheus</code>安装的k8s监控系统。</p>
-<p>在targets页面，我们来分析一下<code>monitoring/kubelet/</code>的两个Targets。</p>
-<img src="/2020/02/Prometheus-monitoring-kubelet%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/prom-kubelet.png" class="">
-
-<p><code>prometheus-serviceMonitorKubelet.yaml</code>内容：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">monitoring.coreos.com/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ServiceMonitor</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">kubelet</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubelet</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">monitoring</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">endpoints:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">bearerTokenFile:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line">    <span class="attr">honorLabels:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">interval:</span> <span class="string">30s</span></span><br><span class="line">    <span class="attr">port:</span> <span class="string">https-metrics</span></span><br><span class="line">    <span class="attr">scheme:</span> <span class="string">https</span></span><br><span class="line">    <span class="attr">tlsConfig:</span></span><br><span class="line">      <span class="attr">insecureSkipVerify:</span> <span class="literal">true</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">bearerTokenFile:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line">    <span class="attr">honorLabels:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">interval:</span> <span class="string">30s</span></span><br><span class="line">    <span class="attr">metricRelabelings:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">action:</span> <span class="string">drop</span></span><br><span class="line">      <span class="attr">regex:</span> <span class="string">container_(network_tcp_usage_total|network_udp_usage_total|tasks_state|cpu_load_average_10s)</span></span><br><span class="line">      <span class="attr">sourceLabels:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">__name__</span></span><br><span class="line">    <span class="attr">path:</span> <span class="string">/metrics/cadvisor</span></span><br><span class="line">    <span class="attr">port:</span> <span class="string">https-metrics</span></span><br><span class="line">    <span class="attr">scheme:</span> <span class="string">https</span></span><br><span class="line">    <span class="attr">tlsConfig:</span></span><br><span class="line">      <span class="attr">insecureSkipVerify:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">jobLabel:</span> <span class="string">k8s-app</span></span><br><span class="line">  <span class="attr">namespaceSelector:</span></span><br><span class="line">    <span class="attr">matchNames:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">kube-system</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">k8s-app:</span> <span class="string">kubelet</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="monitoring-kubelet-0"><a href="#monitoring-kubelet-0" class="headerlink" title="monitoring&#x2F;kubelet&#x2F;0"></a>monitoring&#x2F;kubelet&#x2F;0</h2><p>Endpoint: <code>https://172.16.64.232:10250/metrics</code></p>
-<p>指标以<code>kubelet_</code>开始<br><code>apiserver_</code><br><code>http_request_</code><br><code>http_request_</code><br><code>rest_client_request_</code><br><code>storage_operation_</code><br><code>volume_manager_</code></p>
-<p>指标<code>kubelet-0-0.txt</code> <a href="/2020/02/Prometheus-monitoring-kubelet%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/kubelet-0-0.txt" title="点击查看">点击查看</a> </p>
-<h2 id="monitoring-kubelet-1"><a href="#monitoring-kubelet-1" class="headerlink" title="monitoring&#x2F;kubelet&#x2F;1"></a>monitoring&#x2F;kubelet&#x2F;1</h2><p>Endpoint: <code>https://172.16.64.232:10250/metrics/cadvisor</code></p>
-<p>使用的自动发现role为<code>endpoints</code></p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">monitoring/kubelet/1</span></span><br><span class="line">  <span class="attr">honor_labels:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">honor_timestamps:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">scrape_interval:</span> <span class="string">30s</span></span><br><span class="line">  <span class="attr">scrape_timeout:</span> <span class="string">10s</span></span><br><span class="line">  <span class="attr">metrics_path:</span> <span class="string">/metrics/cadvisor</span></span><br><span class="line">  <span class="attr">scheme:</span> <span class="string">https</span></span><br><span class="line">  <span class="attr">kubernetes_sd_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">endpoints</span></span><br></pre></td></tr></table></figure>
-
-<p>包含一个<code>cadvisor_version_info</code>指标可以查看<code>cadvisor</code>的版本信息。<br>其他指标以<code>container_</code>开始</p>
-<p>指标<code>kubelet-1-0.txt</code> <a href="/2020/02/Prometheus-monitoring-kubelet%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/kubelet-1-0.txt" title="点击查看">点击查看</a></p>
 
       
     </div>

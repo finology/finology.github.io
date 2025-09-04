@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">376</span>
+          <span class="site-state-item-count">377</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,196 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/02/Spark-DataFrame%E5%92%8CDataset-API%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/02/Spark-DataFrame%E5%92%8CDataset-API%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">Spark DataFrame和Dataset API基本操作</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-02-12 22:59:47" itemprop="dateCreated datePublished" datetime="2019-02-12T22:59:47+08:00">2019-02-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/Spark-SQL/" itemprop="url" rel="index"><span itemprop="name">Spark SQL</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/02/Spark-DataFrame%E5%92%8CDataset-API%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="post-meta-item leancloud_visitors" data-flag-title="Spark DataFrame和Dataset API基本操作" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/02/Spark-DataFrame%E5%92%8CDataset-API%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/02/Spark-DataFrame%E5%92%8CDataset-API%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="DataFrames-API基本操作"><a href="#DataFrames-API基本操作" class="headerlink" title="DataFrames API基本操作"></a>DataFrames API基本操作</h1><h2 id="启动Spark"><a href="#启动Spark" class="headerlink" title="启动Spark"></a>启动Spark</h2><p>需要加载MySQL JDBC驱动。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-shell --master local[2] \</span><br><span class="line">--jars ~/.m2/repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar</span><br></pre></td></tr></table></figure>
+
+<p>加载json文件</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scala&gt;</span><br><span class="line"><span class="keyword">val</span> jsonPath = <span class="string">&quot;/usr/local/spark/spark-2.2.3-bin-2.6.0-cdh5.7.0/examples/src/main/resources/people.json&quot;</span></span><br><span class="line"><span class="keyword">val</span> peopleDF = spark.read.format(<span class="string">&quot;json&quot;</span>).load(jsonPath)</span><br></pre></td></tr></table></figure>
+
+<h2 id="API操作"><a href="#API操作" class="headerlink" title="API操作"></a>API操作</h2><ul>
+<li>输出dataframe对应的schema信息</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; peopleDF.printSchema</span><br><span class="line">root</span><br><span class="line"> |-- age: long (nullable = <span class="literal">true</span>)</span><br><span class="line"> |-- name: string (nullable = <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出数据集前20条记录</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; peopleDF.show</span><br><span class="line">+----+-------+</span><br><span class="line">| age|   name|</span><br><span class="line">+----+-------+</span><br><span class="line">|<span class="literal">null</span>|<span class="type">Michael</span>|</span><br><span class="line">|  <span class="number">30</span>|   <span class="type">Andy</span>|</span><br><span class="line">|  <span class="number">19</span>| <span class="type">Justin</span>|</span><br><span class="line">+----+-------+</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查询某列所有的数据</li>
+</ul>
+<p>类似如下SQL语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name <span class="keyword">FROM</span> people;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; peopleDF.select(<span class="string">&quot;name&quot;</span>).show</span><br><span class="line">+-------+</span><br><span class="line">|   name|</span><br><span class="line">+-------+</span><br><span class="line">|<span class="type">Michael</span>|</span><br><span class="line">|   <span class="type">Andy</span>|</span><br><span class="line">| <span class="type">Justin</span>|</span><br><span class="line">+-------+</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>FILTER查询</li>
+</ul>
+<p>SQL的WHERE子句查询，类似如下SQL语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> people <span class="keyword">WHERE</span> age <span class="operator">&gt;</span> <span class="number">19</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">peopleDF.filter(<span class="string">&quot;age &gt; 19&quot;</span>).show</span><br><span class="line">+---+----+</span><br><span class="line">|age|name|</span><br><span class="line">+---+----+</span><br><span class="line">| <span class="number">30</span>|<span class="type">Andy</span>|</span><br><span class="line">+---+----+</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>复杂查询</li>
+</ul>
+<p>类似如下SQL语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name, age <span class="operator">+</span> <span class="number">10</span> <span class="keyword">as</span> new_age <span class="keyword">FROM</span> people;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; peopleDF.select(peopleDF(<span class="string">&quot;name&quot;</span>), (peopleDF(<span class="string">&quot;age&quot;</span>) + <span class="number">10</span>).as(<span class="string">&quot;new_age&quot;</span>)).show</span><br><span class="line">+-------+-------+</span><br><span class="line">|   name|new_age|</span><br><span class="line">+-------+-------+</span><br><span class="line">|<span class="type">Michael</span>|   <span class="literal">null</span>|</span><br><span class="line">|   <span class="type">Andy</span>|     <span class="number">40</span>|</span><br><span class="line">| <span class="type">Justin</span>|     <span class="number">29</span>|</span><br><span class="line">+-------+-------+</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>聚合</li>
+</ul>
+<p>统计不同年龄的人数。类似如下SQL语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> age, <span class="built_in">count</span>(<span class="number">1</span>) <span class="keyword">FROM</span> people <span class="keyword">GROUP</span> <span class="keyword">BY</span> age;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; peopleDF.groupBy(<span class="string">&quot;age&quot;</span>).count().show</span><br><span class="line">+----+-----+</span><br><span class="line">| age|count|</span><br><span class="line">+----+-----+</span><br><span class="line">|  <span class="number">19</span>|    <span class="number">1</span>|</span><br><span class="line">|<span class="literal">null</span>|    <span class="number">1</span>|</span><br><span class="line">|  <span class="number">30</span>|    <span class="number">1</span>|</span><br><span class="line">+----+-----+</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>应用MySQL的函数</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; peopleDF.filter(<span class="string">&quot;SUBSTRING(name, 0, 1) = &#x27;A&#x27;&quot;</span>).show</span><br><span class="line">+---+----+</span><br><span class="line">|age|name|</span><br><span class="line">+---+----+</span><br><span class="line">| <span class="number">30</span>|<span class="type">Andy</span>|</span><br><span class="line">+---+----+</span><br></pre></td></tr></table></figure>
+
+<p>我们可以查看MySQL自带了哪些函数</p>
+<p>show(rowNums, truncated)</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; spark.sql(<span class="string">&quot;show functions&quot;</span>).show(<span class="number">30</span>, <span class="literal">false</span>)</span><br><span class="line">+---------------------+</span><br><span class="line">|function             |</span><br><span class="line">+---------------------+</span><br><span class="line">|!                    |</span><br><span class="line">|%                    |</span><br><span class="line">|&amp;                    |</span><br><span class="line">|*                    |</span><br><span class="line">|+                    |</span><br><span class="line">|-                    |</span><br><span class="line">|/                    |</span><br><span class="line">|&lt;                    |</span><br><span class="line">|&lt;=                   |</span><br><span class="line">|&lt;=&gt;                  |</span><br><span class="line">|=                    |</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>排序</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; peopleDF.sort(peopleDF(<span class="string">&quot;name&quot;</span>).desc).show</span><br><span class="line">+----+-------+</span><br><span class="line">| age|   name|</span><br><span class="line">+----+-------+</span><br><span class="line">|<span class="literal">null</span>|<span class="type">Michael</span>|</span><br><span class="line">|  <span class="number">19</span>| <span class="type">Justin</span>|</span><br><span class="line">|  <span class="number">30</span>|   <span class="type">Andy</span>|</span><br><span class="line">+----+-------+</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>JOIN</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; </span><br><span class="line"><span class="keyword">val</span> df2 = spark.read.format(<span class="string">&quot;json&quot;</span>).load(jsonPath)</span><br><span class="line">peopleDF.join(df2, peopleDF(<span class="string">&quot;name&quot;</span>) === df2(<span class="string">&quot;name&quot;</span>)).show</span><br><span class="line">+----+-------+----+-------+</span><br><span class="line">| age|   name| age|   name|</span><br><span class="line">+----+-------+----+-------+</span><br><span class="line">|<span class="literal">null</span>|<span class="type">Michael</span>|<span class="literal">null</span>|<span class="type">Michael</span>|</span><br><span class="line">|  <span class="number">30</span>|   <span class="type">Andy</span>|  <span class="number">30</span>|   <span class="type">Andy</span>|</span><br><span class="line">|  <span class="number">19</span>| <span class="type">Justin</span>|  <span class="number">19</span>| <span class="type">Justin</span>|</span><br><span class="line">+----+-------+----+-------+</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>其他</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">take, head(<span class="number">3</span>), first</span><br></pre></td></tr></table></figure>
+
+<h1 id="RDD转Dataframes"><a href="#RDD转Dataframes" class="headerlink" title="RDD转Dataframes"></a>RDD转Dataframes</h1><h2 id="Inferring-the-Schema-Using-Reflection"><a href="#Inferring-the-Schema-Using-Reflection" class="headerlink" title="Inferring the Schema Using Reflection"></a>Inferring the Schema Using Reflection</h2><p>通过反射</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// For implicit conversions from RDDs to DataFrames</span></span><br><span class="line"><span class="keyword">import</span> spark.implicits._</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create an RDD of Person objects from a text file, convert it to a Dataframe</span></span><br><span class="line"><span class="keyword">val</span> peopleDF = spark.sparkContext</span><br><span class="line">  .textFile(<span class="string">&quot;examples/src/main/resources/people.txt&quot;</span>)</span><br><span class="line">  .map(_.split(<span class="string">&quot;,&quot;</span>))</span><br><span class="line">  .map(attributes =&gt; <span class="type">Person</span>(attributes(<span class="number">0</span>), attributes(<span class="number">1</span>).trim.toInt))</span><br><span class="line">  .toDF()</span><br><span class="line"><span class="comment">// Register the DataFrame as a temporary view</span></span><br><span class="line">peopleDF.createOrReplaceTempView(<span class="string">&quot;people&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// SQL statements can be run by using the sql methods provided by Spark</span></span><br><span class="line"><span class="keyword">val</span> teenagersDF = spark.sql(<span class="string">&quot;SELECT name, age FROM people WHERE age BETWEEN 13 AND 19&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Programmatically-Specifying-the-Schema"><a href="#Programmatically-Specifying-the-Schema" class="headerlink" title="Programmatically Specifying the Schema"></a>Programmatically Specifying the Schema</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create an RDD</span></span><br><span class="line"><span class="keyword">val</span> peopleRDD = spark.sparkContext.textFile(<span class="string">&quot;examples/src/main/resources/people.txt&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// The schema is encoded in a string</span></span><br><span class="line"><span class="keyword">val</span> schemaString = <span class="string">&quot;name age&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Generate the schema based on the string of schema</span></span><br><span class="line"><span class="keyword">val</span> fields = schemaString.split(<span class="string">&quot; &quot;</span>)</span><br><span class="line">  .map(fieldName =&gt; <span class="type">StructField</span>(fieldName, <span class="type">StringType</span>, nullable = <span class="literal">true</span>))</span><br><span class="line"><span class="keyword">val</span> schema = <span class="type">StructType</span>(fields)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Convert records of the RDD (people) to Rows</span></span><br><span class="line"><span class="keyword">val</span> rowRDD = peopleRDD</span><br><span class="line">  .map(_.split(<span class="string">&quot;,&quot;</span>))</span><br><span class="line">  .map(attributes =&gt; <span class="type">Row</span>(attributes(<span class="number">0</span>), attributes(<span class="number">1</span>).trim))</span><br><span class="line"></span><br><span class="line"><span class="comment">// Apply the schema to the RDD</span></span><br><span class="line"><span class="keyword">val</span> peopleDF = spark.createDataFrame(rowRDD, schema)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Dataframs转Dataset"><a href="#Dataframs转Dataset" class="headerlink" title="Dataframs转Dataset"></a>Dataframs转Dataset</h1><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span>(<span class="params">name: <span class="type">String</span>, age: <span class="type">Long</span></span>)</span></span><br><span class="line"><span class="comment">// DataFrames can be converted to a Dataset by providing a class. Mapping will be done by name</span></span><br><span class="line"><span class="keyword">val</span> path = <span class="string">&quot;examples/src/main/resources/people.json&quot;</span></span><br><span class="line"><span class="keyword">val</span> peopleDS = spark.read.json(path).as[<span class="type">Person</span>]</span><br><span class="line">peopleDS.show()</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -507,161 +697,6 @@
 
 <p>关于执行计划的详细分析，我们会在后面的博客中详细分享。</p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/02/%E5%88%9B%E5%BB%BASpark-SQL-Hive%E7%A8%8B%E5%BA%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/02/%E5%88%9B%E5%BB%BASpark-SQL-Hive%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">创建Spark SQL Hive程序</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-02-11 22:49:47" itemprop="dateCreated datePublished" datetime="2019-02-11T22:49:47+08:00">2019-02-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/Spark-SQL/" itemprop="url" rel="index"><span itemprop="name">Spark SQL</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/02/%E5%88%9B%E5%BB%BASpark-SQL-Hive%E7%A8%8B%E5%BA%8F/" class="post-meta-item leancloud_visitors" data-flag-title="创建Spark SQL Hive程序" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/02/%E5%88%9B%E5%BB%BASpark-SQL-Hive%E7%A8%8B%E5%BA%8F/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/02/%E5%88%9B%E5%BB%BASpark-SQL-Hive%E7%A8%8B%E5%BA%8F/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在这篇文章中，我们将使用SparkSession，打印出Hive中的emp表的内容。</p>
-<p>Spark SQL最基础程序，可以参考博文 <a href="/2019/02/%E5%88%9B%E5%BB%BASpark-SQL%E7%A8%8B%E5%BA%8F/" title="创建Spark SQL程序">创建Spark SQL程序</a></p>
-<h1 id="创建SparkSessionHiveApp程序"><a href="#创建SparkSessionHiveApp程序" class="headerlink" title="创建SparkSessionHiveApp程序"></a>创建<code>SparkSessionHiveApp</code>程序</h1><h2 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scala.version</span>&gt;</span>2.11.12<span class="tag">&lt;/<span class="name">scala.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scala.compat.version</span>&gt;</span>2.11<span class="tag">&lt;/<span class="name">scala.compat.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">spark.version</span>&gt;</span>2.2.3<span class="tag">&lt;/<span class="name">spark.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.scala-lang<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>scala-library<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;scala.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.spark<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spark-sql_$&#123;scala.compat.version&#125;<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spark.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- hive support --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.spark<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spark-hive_$&#123;scala.compat.version&#125;<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spark.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.46<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="SparkSessionHiveApp"><a href="#SparkSessionHiveApp" class="headerlink" title="SparkSessionHiveApp"></a>SparkSessionHiveApp</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> gy.finolo.spark</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.sql.<span class="type">SparkSession</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">SparkSessionHiveApp</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建Spark Session</span></span><br><span class="line">    <span class="keyword">val</span> sparkSession = <span class="type">SparkSession</span>.builder()</span><br><span class="line">      .master(<span class="string">&quot;local[2]&quot;</span>)</span><br><span class="line">      .appName(<span class="string">&quot;Spark Session Hive App&quot;</span>)</span><br><span class="line">      .getOrCreate()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 业务处理</span></span><br><span class="line">    sparkSession.table(<span class="string">&quot;emp&quot;</span>).show()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 关闭资源</span></span><br><span class="line">    sparkSession.stop()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="创建emp表"><a href="#创建emp表" class="headerlink" title="创建emp表"></a>创建emp表</h1><h2 id="创建emp原始文件"><a href="#创建emp原始文件" class="headerlink" title="创建emp原始文件"></a>创建emp原始文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/local/spark/data/emp.csv</span><br></pre></td></tr></table></figure>
-
-<p>写入如下内容到emp.csv文件中。注意，有些字段为空值。</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">7369,SMITH,CLERK,7902,1980/12/17,800,,20</span><br><span class="line">7499,ALLEN,SALESMAN,7698,1981/2/20,1600,300,30</span><br><span class="line">7521,WARD,SALESMAN,7698,1981/2/22,1250,500,30</span><br><span class="line">7566,JONES,MANAGER,7839,1981/4/2,2975,,20</span><br><span class="line">7654,MARTIN,SALESMAN,7698,1981/9/28,1250,1400,30</span><br><span class="line">7698,BLAKE,MANAGER,7839,1981/5/1,2850,,30</span><br><span class="line">7782,CLARK,MANAGER,7839,1981/6/9,2450,,10</span><br><span class="line">7788,SCOTT,ANALYST,7566,1987/4/19,3000,,20</span><br><span class="line">7839,KING,PRESIDENT,,1981/11/17,5000,,10</span><br><span class="line">7844,TURNER,SALESMAN,7698,1981/9/8,1500,0,30</span><br><span class="line">7876,ADAMS,CLERK,7788,1987/5/23,1100,,20</span><br><span class="line">7900,JAMES,CLERK,7698,1981/12/3,950,,30</span><br><span class="line">7902,FORD,ANALYST,7566,1981/12/3,3000,,20</span><br><span class="line">7934,MILLER,CLERK,7782,1982/1/23,1300,,10</span><br></pre></td></tr></table></figure>
-
-<h2 id="在Hive中创建emp表"><a href="#在Hive中创建emp表" class="headerlink" title="在Hive中创建emp表"></a>在Hive中创建emp表</h2><p>Hive的基本使用，可以参考博文 <a href="/2019/01/Hive%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="Hive环境搭建">Hive环境搭建</a></p>
-<p>语句后面必须要有分号。</p>
-<p>hive&gt;<br>CREATE TABLE emp(<br>empno   INT,<br>ename   STRING,<br>job     STRING,<br>mgr     INT,<br>hiredate DATE,<br>sal     DOUBLE,<br>comm    DOUBLE,<br>deptno  INT<br>) ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘,’;</p>
-<h2 id="导入数据到emp表中"><a href="#导入数据到emp表中" class="headerlink" title="导入数据到emp表中"></a>导入数据到emp表中</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive&gt; LOAD DATA LOCAL INPATH &#x27;/usr/local/spark/data/emp.csv&#x27; INTO TABLE emp;</span><br></pre></td></tr></table></figure>
-
-<p>hiredate这里有一些问题，以后再解决。</p>
-<h2 id="在IDEA中运行程序"><a href="#在IDEA中运行程序" class="headerlink" title="在IDEA中运行程序"></a>在IDEA中运行程序</h2><p>可以看到emp表中的结果被成功打印在了控制台上。</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">19/02/12 00:00:23 INFO DAGScheduler: Job 0 finished: show at SparkSessionHiveApp.scala:21, took 0.340480 s</span><br><span class="line">+-----+------+---------+----+--------+------+------+------+</span><br><span class="line">|empno| ename|      job| mgr|hiredate|   sal|  comm|deptno|</span><br><span class="line">+-----+------+---------+----+--------+------+------+------+</span><br><span class="line">| 7369| SMITH|    CLERK|7902|    null| 800.0|  null|    20|</span><br><span class="line">| 7499| ALLEN| SALESMAN|7698|    null|1600.0| 300.0|    30|</span><br><span class="line">| 7521|  WARD| SALESMAN|7698|    null|1250.0| 500.0|    30|</span><br><span class="line">| 7566| JONES|  MANAGER|7839|    null|2975.0|  null|    20|</span><br><span class="line">| 7654|MARTIN| SALESMAN|7698|    null|1250.0|1400.0|    30|</span><br><span class="line">| 7698| BLAKE|  MANAGER|7839|    null|2850.0|  null|    30|</span><br><span class="line">| 7782| CLARK|  MANAGER|7839|    null|2450.0|  null|    10|</span><br><span class="line">| 7788| SCOTT|  ANALYST|7566|    null|3000.0|  null|    20|</span><br><span class="line">| 7839|  KING|PRESIDENT|null|    null|5000.0|  null|    10|</span><br><span class="line">| 7844|TURNER| SALESMAN|7698|    null|1500.0|   0.0|    30|</span><br><span class="line">| 7876| ADAMS|    CLERK|7788|    null|1100.0|  null|    20|</span><br><span class="line">| 7900| JAMES|    CLERK|7698|    null| 950.0|  null|    30|</span><br><span class="line">| 7902|  FORD|  ANALYST|7566|    null|3000.0|  null|    20|</span><br><span class="line">| 7934|MILLER|    CLERK|7782|    null|1300.0|  null|    10|</span><br><span class="line">+-----+------+---------+----+--------+------+------+------+</span><br></pre></td></tr></table></figure>
-
-<h1 id="打包并提交作业"><a href="#打包并提交作业" class="headerlink" title="打包并提交作业"></a>打包并提交作业</h1><p>在测试环境上面已经可以成功运行，我们现在打好包，以spark-submit方式提交作业。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-submit \</span><br><span class="line">--master local[2] \</span><br><span class="line">--class gy.finolo.spark.SparkSessionHiveApp \</span><br><span class="line">--jars /Users/simon/.m2/repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar \</span><br><span class="line">/Users/simon/Development/workspace/scala/spark-sql-demo/target/spark-sql-demo-1.0-SNAPSHOT.jar</span><br></pre></td></tr></table></figure>
-
-<p>需要通过<code>jars</code>参数指定JDBC驱动的位置。</p>
-<p>如果需要加载的jar很多怎么办？我将在以后的博文中讲到这个问题。</p>
-<h1 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h1><h2 id="JDBC驱动未添加"><a href="#JDBC驱动未添加" class="headerlink" title="JDBC驱动未添加"></a>JDBC驱动未添加</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Caused by: org.datanucleus.store.rdbms.connectionpool.DatastoreDriverNotFoundException: </span><br><span class="line">The specified datastore driver (&quot;com.mysql.jdbc.Driver&quot;) was not found in the CLASSPATH. </span><br><span class="line">Please check your CLASSPATH specification, and the name of the driver.</span><br></pre></td></tr></table></figure>
-
-<p>解决方案：</p>
-<p>如果是在IDEA中开发运行的话，那需要添加驱动的jar包。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.46<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="DatastoreDriverNotFound"><a href="#DatastoreDriverNotFound" class="headerlink" title="DatastoreDriverNotFound"></a>DatastoreDriverNotFound</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">org.datanucleus.store.rdbms.connectionpool.DatastoreDriverNotFoundException: </span><br><span class="line">The specified datastore driver (&quot;com.mysql.jdbc.Driver&quot;) was not found in the CLASSPATH. </span><br><span class="line">Please check your CLASSPATH specification, and the name of the driver.</span><br></pre></td></tr></table></figure>
-
-<p>和上面那个错误是类似的，我们在提交作业时，必须要通过<code>--jars</code>指定<code>mysql-connector-java.jar</code>的位置。</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-submit \</span><br><span class="line">--master local[2] \</span><br><span class="line">--class gy.finolo.spark.SparkSessionHiveApp \</span><br><span class="line">--jars /Users/simon/.m2/repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar \</span><br><span class="line">/Users/simon/Development/workspace/scala/spark-sql-demo/target/spark-sql-demo-1.0-SNAPSHOT.jar</span><br></pre></td></tr></table></figure>
-
-<h2 id="Table-or-view-not-found"><a href="#Table-or-view-not-found" class="headerlink" title="Table or view not found"></a>Table or view not found</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread &quot;main&quot; org.apache.spark.sql.AnalysisException:</span><br><span class="line">Table or view not found: emp;</span><br></pre></td></tr></table></figure>
-
-<p>解决方案：</p>
-<p>把Hive conf下面的hive-site.xml拷贝到工程的resources目录下面。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/local/hive/hive-1.1.0-cdh5.7.0/conf/hive-site.xml spark-sql-demo/src/resources</span><br></pre></td></tr></table></figure>
       
     </div>
 

@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">376</span>
+          <span class="site-state-item-count">377</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,121 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/Windows-10%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90Github-SSH%E5%85%AC%E9%92%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/04/Windows-10%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90Github-SSH%E5%85%AC%E9%92%A5/" class="post-title-link" itemprop="url">Windows 10环境生成Github SSH公钥</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-29 17:20:51" itemprop="dateCreated datePublished" datetime="2020-04-29T17:20:51+08:00">2020-04-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/04/Windows-10%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90Github-SSH%E5%85%AC%E9%92%A5/" class="post-meta-item leancloud_visitors" data-flag-title="Windows 10环境生成Github SSH公钥" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/04/Windows-10%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90Github-SSH%E5%85%AC%E9%92%A5/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/04/Windows-10%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90Github-SSH%E5%85%AC%E9%92%A5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>不管是 Windows 还是 Linux，想要不输入用户名和密码操作 Git，只需要把 id_rsa.pub 公钥复制粘贴到 Github 里面就行了。</p>
+<h1 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h1><h1 id="打开-Git-Bash"><a href="#打开-Git-Bash" class="headerlink" title="打开 Git Bash"></a>打开 Git Bash</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-keygen -t rsa -C <span class="string">&quot;simon@finolo.gy&quot;</span></span></span><br><span class="line"></span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/c/Users/simon/.ssh/id_rsa):</span><br><span class="line">Enter passphrase (empty for no passphrase):</span><br><span class="line">Enter same passphrase again:</span><br><span class="line">Your identification has been saved in /c/Users/simon/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved in /c/Users/simon/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:epRQbzd91E6aLp3aM+ym2FEZMgLNCkA108nb5lsk7CM simon@finolo.gy</span><br><span class="line">The key&#x27;s randomart image is:</span><br><span class="line">+---[RSA 3072]----+</span><br><span class="line">|   .oo+oo+      o|</span><br><span class="line">|      .++oo  . .o|</span><br><span class="line">|      .. =+ = o=.|</span><br><span class="line">|       .oo=o.+o+.|</span><br><span class="line">|        S+ o oo. |</span><br><span class="line">|       oE + o.+  |</span><br><span class="line">|      . .. +.=   |</span><br><span class="line">|       .  .o..*  |</span><br><span class="line">|          . o+.o |</span><br><span class="line">+----[SHA256]-----+</span><br></pre></td></tr></table></figure>
+
+<p>这个邮箱可以随便输入的，并不需要是 Github.com 的登录帐户。</p>
+<h1 id="拷贝-id-rsa-pub-内容到-Github"><a href="#拷贝-id-rsa-pub-内容到-Github" class="headerlink" title="拷贝 id_rsa.pub 内容到 Github"></a>拷贝 id_rsa.pub 内容到 Github</h1><p>Settings -&gt; SSH and GPG keys -&gt; New SSH key</p>
+<p>把前面生成的 &#x2F;c&#x2F;Users&#x2F;simon&#x2F;.ssh&#x2F;id_rsa.pub 文件内容粘贴上去就可以了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -425,153 +540,6 @@
 <h1 id="mkt-cap-csrc-证监会市值"><a href="#mkt-cap-csrc-证监会市值" class="headerlink" title="mkt_cap_csrc 证监会市值"></a>mkt_cap_csrc 证监会市值</h1><p>所有A股+B股的市值，不包括H股。</p>
 <h1 id="rt-mkt-cap-总市值"><a href="#rt-mkt-cap-总市值" class="headerlink" title="rt_mkt_cap 总市值"></a>rt_mkt_cap 总市值</h1><p>这个应该是实行行情接口才能使用。</p>
 <h1 id="mkt-cap"><a href="#mkt-cap" class="headerlink" title="mkt_cap"></a>mkt_cap</h1><p>不可回测，目前还不知道有什么作用，先留在这里。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/%E4%B8%87%E7%9F%BFWindQuant-API%E5%87%BD%E6%95%B0%E7%AE%80%E4%BB%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/%E4%B8%87%E7%9F%BFWindQuant-API%E5%87%BD%E6%95%B0%E7%AE%80%E4%BB%8B/" class="post-title-link" itemprop="url">万矿WindQuant API函数简介</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-04-25 15:59:18" itemprop="dateCreated datePublished" datetime="2020-04-25T15:59:18+08:00">2020-04-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 17:51:13" itemprop="dateModified" datetime="2025-08-23T17:51:13+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Quant/" itemprop="url" rel="index"><span itemprop="name">Quant</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/04/%E4%B8%87%E7%9F%BFWindQuant-API%E5%87%BD%E6%95%B0%E7%AE%80%E4%BB%8B/" class="post-meta-item leancloud_visitors" data-flag-title="万矿WindQuant API函数简介" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/04/%E4%B8%87%E7%9F%BFWindQuant-API%E5%87%BD%E6%95%B0%E7%AE%80%E4%BB%8B/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/04/%E4%B8%87%E7%9F%BFWindQuant-API%E5%87%BD%E6%95%B0%E7%AE%80%E4%BB%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>万矿这个API，取的名字很不好记，完全猜不出是什么单词的简写。</p>
-<h1 id="wsd-日期序列"><a href="#wsd-日期序列" class="headerlink" title="wsd 日期序列"></a>wsd 日期序列</h1><p>用于提取多品种单指标或者单品种多指标的时间序列数据。就是说要么是一只股票和多个指标或者是多个股票的一个指标。</p>
-<p>一只股票和多个指标，index 为日期，指标名为 columns 的名字。</p>
-<p>多个股票和一个指标，index 为日期，股票名为 columns 的名字。</p>
-<ol>
-<li>每次限8000单元格；</li>
-<li>技术指标、技术形态、部分融资融券指标单次限取2000个单元格（大于2000个单元格，可分多次获取）</li>
-</ol>
-<h1 id="wss-多维数据"><a href="#wss-多维数据" class="headerlink" title="wss 多维数据"></a>wss 多维数据</h1><p>用于提取多品种多指标在某个时间点的截面数据。</p>
-<ol>
-<li>每次限8000单元格；</li>
-<li>技术指标、技术形态、部分融资融券指标单次限取2000个单元格（大于2000个单元格，可分多次获取）</li>
-</ol>
-<h1 id="wset-数据集"><a href="#wset-数据集" class="headerlink" title="wset 数据集"></a>wset 数据集</h1><p>用来获取数据集信息，主要用于获取板块成分、指数成分以及各证券品种的专题统计报表数据。</p>
-<ol>
-<li>停牌、复牌股票：一次最长获取一个月时间段内的数据；</li>
-<li>分红送转：一次最长获取10年时间段内的数据；</li>
-<li>期货合约持仓排名：一次最长获取一个月时间段内的数据</li>
-</ol>
-<h1 id="wses-板块时序"><a href="#wses-板块时序" class="headerlink" title="wses 板块时序"></a>wses 板块时序</h1><p>获取选定股票板块一段时间内的历史序列数据。</p>
-<ol>
-<li>支持多板块，但仅支持单指标；</li>
-<li>提取多板块、单指标时，时间跨度＜250个交易日、板块数＜20；</li>
-<li>提取单板块、单指标时，时间跨度约800个周期。</li>
-</ol>
-<h1 id="wsee-板块多维"><a href="#wsee-板块多维" class="headerlink" title="wsee 板块多维"></a>wsee 板块多维</h1><p>获取选定股票板块的历史截面数据。</p>
-<ol>
-<li>支持多板块、多指标且板块数*指标数≤1000</li>
-</ol>
-<h1 id="wsi-分钟数据"><a href="#wsi-分钟数据" class="headerlink" title="wsi 分钟数据"></a>wsi 分钟数据</h1><p>主要包括证券的基本行情和部分技术指标的分钟数据。</p>
-<ol>
-<li>目前只支持上交、深交、中金、上期、大商、郑商的行情；</li>
-<li>每次取一个code的时候，可以取最近3年数据(推荐使用此方法)；</li>
-<li>每次取多个code的时候，有如下限制：code数*天数&lt;&#x3D;100</li>
-</ol>
-<h1 id="wst-日内跳价"><a href="#wst-日内跳价" class="headerlink" title="wst 日内跳价"></a>wst 日内跳价</h1><p>主要包括证券的日内盘口买卖五档快照数据和分时成交(tick数据)。</p>
-<ol>
-<li>目前只支持上交、深交、中金、上期、大商、郑商的行情；</li>
-<li>可取最近7个交易日的数据；</li>
-<li>一次只能取1个Windcode。</li>
-</ol>
-<h1 id="wsq-实时行情"><a href="#wsq-实时行情" class="headerlink" title="wsq 实时行情"></a>wsq 实时行情</h1><p>主要包括各证券当天指标实时数据，可以一次性请求实时快照数据，也可以通过订阅的方式获取实时数据。</p>
 
       
     </div>

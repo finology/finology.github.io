@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">376</span>
+          <span class="site-state-item-count">377</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,119 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/06/Mac-Vmware-CentOS7-IP%E5%9C%B0%E5%9D%80%E4%B8%80%E7%9B%B4%E5%8F%98%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/Mac-Vmware-CentOS7-IP%E5%9C%B0%E5%9D%80%E4%B8%80%E7%9B%B4%E5%8F%98%E5%8C%96/" class="post-title-link" itemprop="url">Mac Vmware CentOS7 IP地址一直变化</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-06-05 23:55:45" itemprop="dateCreated datePublished" datetime="2022-06-05T23:55:45+08:00">2022-06-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OS/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2022/06/Mac-Vmware-CentOS7-IP%E5%9C%B0%E5%9D%80%E4%B8%80%E7%9B%B4%E5%8F%98%E5%8C%96/" class="post-meta-item leancloud_visitors" data-flag-title="Mac Vmware CentOS7 IP地址一直变化" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/06/Mac-Vmware-CentOS7-IP%E5%9C%B0%E5%9D%80%E4%B8%80%E7%9B%B4%E5%8F%98%E5%8C%96/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/06/Mac-Vmware-CentOS7-IP%E5%9C%B0%E5%9D%80%E4%B8%80%E7%9B%B4%E5%8F%98%E5%8C%96/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Mac上装的Vmware Fusion，虚拟机是CentOS 7的系统。</p>
+<p>会经常遇到一个问题，IP地址一直在变化，每次登录到系统里面都比较麻烦，因为要修改IP地址。</p>
+<p>解决办法，增加IP租赁时长。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /Library/Preferences/VMware\ Fusion/vmnet8/dhcpd.conf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">default-lease-time 1800000;                # default is 30 minutes</span><br><span class="line">max-lease-time 7200000;                    # default is 2 hours</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -419,128 +532,6 @@
 
 <h1 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uniq -c</span><br></pre></td></tr></table></figure>
 
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/05/mac%E5%BD%95%E5%B1%8F%E5%B8%A6%E5%86%85%E7%BD%AE%E5%A3%B0%E9%9F%B3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/mac%E5%BD%95%E5%B1%8F%E5%B8%A6%E5%86%85%E7%BD%AE%E5%A3%B0%E9%9F%B3/" class="post-title-link" itemprop="url">mac录屏带内置声音</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-05-22 00:19:44" itemprop="dateCreated datePublished" datetime="2022-05-22T00:19:44+08:00">2022-05-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2022/05/mac%E5%BD%95%E5%B1%8F%E5%B8%A6%E5%86%85%E7%BD%AE%E5%A3%B0%E9%9F%B3/" class="post-meta-item leancloud_visitors" data-flag-title="mac录屏带内置声音" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2022/05/mac%E5%BD%95%E5%B1%8F%E5%B8%A6%E5%86%85%E7%BD%AE%E5%A3%B0%E9%9F%B3/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2022/05/mac%E5%BD%95%E5%B1%8F%E5%B8%A6%E5%86%85%E7%BD%AE%E5%A3%B0%E9%9F%B3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>使用mac自带的quicktime player录屏，比如录视频，视频的声音是录不下来的。如果要录视频和内置声音，设置还有些麻烦。</p>
-<p>网上有些人推荐Sound Flower，我也尝试用了，的确能完成录屏，但有个很不好的体验就是，你在录屏的时候，你是没法听到声音的，也就是说没法监控，你得等录制结束后，才知道有没有录制成功。</p>
-<p>最佳方案是使用<code>Loopback</code>软件。网上很多人设置得很繁琐，虽然也能用，但不是最佳实践。</p>
-<p>下载地址：<code>https://www.macwk.com/soft/loopback</code>，目前为止是可以下载的，以后能不能下载就不知道了。</p>
-<p>安装以后，按如下图方法设置。</p>
-<p>如果在录屏的时候，用耳机在监听，那就在Monitors那里添加一个耳机输出设备。</p>
-<img src="/2022/05/mac%E5%BD%95%E5%B1%8F%E5%B8%A6%E5%86%85%E7%BD%AE%E5%A3%B0%E9%9F%B3/playing.png" class="">
-
-<p>设置好了，以后，播放音乐，可以看到声浪。</p>
-<p>进入音频设备设置。</p>
-<p>把Loopback Audio Playing设备设置为输出。</p>
-<img src="/2022/05/mac%E5%BD%95%E5%B1%8F%E5%B8%A6%E5%86%85%E7%BD%AE%E5%A3%B0%E9%9F%B3/output.png" class="">
-
-<p>打开Mac自带的quicktime player，在录屏设置的时候，需要选择Loopback Audio Playing。</p>
-<img src="/2022/05/mac%E5%BD%95%E5%B1%8F%E5%B8%A6%E5%86%85%E7%BD%AE%E5%A3%B0%E9%9F%B3/quicktime.png" class="">
-
-<p>这时就可以录屏时带内置声音了。</p>
 
       
     </div>

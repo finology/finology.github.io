@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">376</span>
+          <span class="site-state-item-count">377</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,169 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/01/CentOS7%E6%90%AD%E5%BB%BASVN%E6%9C%8D%E5%8A%A1%E5%8F%8A%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/01/CentOS7%E6%90%AD%E5%BB%BASVN%E6%9C%8D%E5%8A%A1%E5%8F%8A%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" class="post-title-link" itemprop="url">CentOS7搭建SVN服务及备份与恢复</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-01-09 22:19:27" itemprop="dateCreated datePublished" datetime="2020-01-09T22:19:27+08:00">2020-01-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/SVN/" itemprop="url" rel="index"><span itemprop="name">SVN</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/01/CentOS7%E6%90%AD%E5%BB%BASVN%E6%9C%8D%E5%8A%A1%E5%8F%8A%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS7搭建SVN服务及备份与恢复" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/01/CentOS7%E6%90%AD%E5%BB%BASVN%E6%9C%8D%E5%8A%A1%E5%8F%8A%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/01/CentOS7%E6%90%AD%E5%BB%BASVN%E6%9C%8D%E5%8A%A1%E5%8F%8A%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="安装SVN"><a href="#安装SVN" class="headerlink" title="安装SVN"></a>安装SVN</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install subversion</span><br></pre></td></tr></table></figure>
+
+<h1 id="创建SVN仓库"><a href="#创建SVN仓库" class="headerlink" title="创建SVN仓库"></a>创建SVN仓库</h1><p>先创建仓库目录，用来放仓库文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /usr/local/svn/repo</span><br></pre></td></tr></table></figure>
+
+<p>在上面目录下创建SVN仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnadmin create /usr/local/svn/repo</span><br></pre></td></tr></table></figure>
+
+<h1 id="配置SVN"><a href="#配置SVN" class="headerlink" title="配置SVN"></a>配置SVN</h1><p>进入SVN配置目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/svn/repo/conf</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置svnserve-conf"><a href="#配置svnserve-conf" class="headerlink" title="配置svnserve.conf"></a>配置svnserve.conf</h2><p>至少有三个地方需要取消注释。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">auth-access = write</span><br><span class="line">password-db = passwd</span><br><span class="line">authz-db = authz</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置passwd"><a href="#配置passwd" class="headerlink" title="配置passwd"></a>配置passwd</h2><p>比如增加一个admin用户</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[users]</span><br><span class="line"># harry = harryssecret</span><br><span class="line"># sally = sallyssecret</span><br><span class="line">admin = admin</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置authz"><a href="#配置authz" class="headerlink" title="配置authz"></a>配置authz</h2><p>给admin用户设置根目录的读写权限</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[/]</span><br><span class="line">admin = rw</span><br></pre></td></tr></table></figure>
+
+<h1 id="启动SVN服务"><a href="#启动SVN服务" class="headerlink" title="启动SVN服务"></a>启动SVN服务</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnserve -d -r /usr/local/svn/repo/</span><br></pre></td></tr></table></figure>
+
+<p><code>-d</code>参数是daemon</p>
+<p><code>-r</code>参数是root，也即是仓库的根目录</p>
+<p>服务启动后，SVN服务在3690端口进行监听</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ss -tunlp | grep 3690</span><br><span class="line">tcp    LISTEN     0      7         *:3690                  *:*</span><br></pre></td></tr></table></figure>
+
+<h1 id="SVN备份"><a href="#SVN备份" class="headerlink" title="SVN备份"></a>SVN备份</h1><h2 id="全量备份"><a href="#全量备份" class="headerlink" title="全量备份"></a>全量备份</h2><p>把<code>/usr/local/svn/repo</code>仓库的内容备份到<code>/usr/local/svn-bak/</code>目录下。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo svnadmin dump /usr/local/svn/repo/ &gt; /usr/local/svn-bak/repobak-all</span><br><span class="line">\* Dumped revision 0.</span><br><span class="line">\* Dumped revision 1.</span><br><span class="line">\* Dumped revision 2.</span><br></pre></td></tr></table></figure>
+
+<h2 id="增量备份"><a href="#增量备份" class="headerlink" title="增量备份"></a>增量备份</h2><h3 id="查看svn最新的版本号"><a href="#查看svn最新的版本号" class="headerlink" title="查看svn最新的版本号"></a>查看svn最新的版本号</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svnlook youngest /usr/local/svn/repo</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<p>可得知svn的版本号为1。</p>
+<h3 id="初始备份"><a href="#初始备份" class="headerlink" title="初始备份"></a>初始备份</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo svnadmin dump /usr/local/svn/repo/ -r 0:1 --incremental &gt; /usr/local/svn-bak/repobak0-1</span><br><span class="line">\* Dumped revision 0.</span><br><span class="line">\* Dumped revision 1.</span><br></pre></td></tr></table></figure>
+
+<p><code>-r</code>参数：&lt;start-revision-no.&gt;:&lt;end-revision-no.&gt;，上面例子是<code>0:1</code>，指定备份的开始与结束版本号。</p>
+<p><code>--incremental</code>参数：表示增量备份。</p>
+<h3 id="再次备份"><a href="#再次备份" class="headerlink" title="再次备份"></a>再次备份</h3><p>下次备份时，查看最新的svn版本号：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svnlook youngest /usr/local/svn/repo</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<p>说明这两次备份之间，只更新了一个版本。</p>
+<p>执行增量备份：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo svnadmin dump /usr/local/svn/repo/ -r 2:2 --incremental &gt; /usr/local/svn-bak/repobak2-2</span><br><span class="line">\* Dumped revision 2.</span><br></pre></td></tr></table></figure>
+
+<h1 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h1><p>灾难过后，新建svn仓库，如：<code>/usr/local/svn/recovery-repo/</code>。</p>
+<h2 id="全量恢复"><a href="#全量恢复" class="headerlink" title="全量恢复"></a>全量恢复</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo svnadmin load /usr/local/svn/recovery-repo/ &lt; /usr/local/svn-bak/repobak</span><br></pre></td></tr></table></figure>
+
+<h2 id="增量恢复"><a href="#增量恢复" class="headerlink" title="增量恢复"></a>增量恢复</h2><p>先恢复最早的版本。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo svnadmin load /usr/local/svn/recovery-repo/ &lt; /usr/local/svn-bak/repobak0-1 </span><br><span class="line">&lt;&lt;&lt; Started new transaction, based on original revision 1</span><br><span class="line">​     \* adding path : project1 ... done.</span><br><span class="line">​     \* adding path : project1/new ... done.</span><br><span class="line"></span><br><span class="line">------- Committed revision 1 &gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>再恢复最近的版本。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo svnadmin load /usr/local/svn/recovery-repo/ &lt; /usr/local/svn-bak/repobak2-2 </span><br><span class="line">&lt;&lt;&lt; Started new transaction, based on original revision 2</span><br><span class="line">​     \* editing path : project1/new ... done.</span><br><span class="line"></span><br><span class="line">------- Committed revision 2 &gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>恢复后，设置好密码、权限等配置，启动svnserve服务，就算是恢复完成了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -455,141 +618,6 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum repolist</span><br><span class="line">Loaded plugins: fastestmirror</span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line">repo id                                                        repo name                                                                  status</span><br><span class="line">base-local                                                     CentOS-7 - Base-Local                                                      10,097</span><br><span class="line">repolist: 10,097</span><br></pre></td></tr></table></figure>
 
 <p>到此，我们就可以通过<code>yum install</code>安装软件了。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/01/Windows%E4%B8%BB%E6%9C%BA%E7%8E%AF%E5%A2%83CentOS7%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85VMware-Tools/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/01/Windows%E4%B8%BB%E6%9C%BA%E7%8E%AF%E5%A2%83CentOS7%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85VMware-Tools/" class="post-title-link" itemprop="url">Windows主机环境CentOS7虚拟机安装VMware Tools</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-01-07 23:08:46" itemprop="dateCreated datePublished" datetime="2020-01-07T23:08:46+08:00">2020-01-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OS/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/01/Windows%E4%B8%BB%E6%9C%BA%E7%8E%AF%E5%A2%83CentOS7%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85VMware-Tools/" class="post-meta-item leancloud_visitors" data-flag-title="Windows主机环境CentOS7虚拟机安装VMware Tools" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/01/Windows%E4%B8%BB%E6%9C%BA%E7%8E%AF%E5%A2%83CentOS7%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85VMware-Tools/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/01/Windows%E4%B8%BB%E6%9C%BA%E7%8E%AF%E5%A2%83CentOS7%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85VMware-Tools/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在Windows主机环境下，给CentOS7虚拟机安装VMware Tools。如果是在MacOS主机环境下，给CentOS7虚拟安装VMware Tools，请参考 <a href="/2020/02/mac%E4%B8%BB%E6%9C%BA%E5%BE%85%E6%9C%BA%E5%90%8E%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E9%97%B4%E4%B8%8D%E7%BB%9F%E4%B8%80%E7%9A%84%E9%97%AE%E9%A2%98/" title="mac主机待机后和虚拟机时间不统一的问题">mac主机待机后和虚拟机时间不统一的问题</a></p>
-<h1 id="加载linux-iso镜像"><a href="#加载linux-iso镜像" class="headerlink" title="加载linux.iso镜像"></a>加载linux.iso镜像</h1><p>在VMware里，点击”安装VMware Tools“</p>
-
-
-<p>光盘挂载的iso文件会自动变为：<code>linux.iso</code></p>
-<h1 id="挂载光盘到本地目录"><a href="#挂载光盘到本地目录" class="headerlink" title="挂载光盘到本地目录"></a>挂载光盘到本地目录</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount /dev/cdrom /mnt/cdrom</span><br></pre></td></tr></table></figure>
-
-<p>从光盘拷贝文件到工作目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /mnt/cdrom/VMwareTools-10.3.10-12406962.tar.gz /usr/local/</span><br></pre></td></tr></table></figure>
-
-<p>解压：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/</span><br><span class="line">sudo tar -zxvf VMwareTools-10.3.10-12406962.tar.gz</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="安装VMware-Tools"><a href="#安装VMware-Tools" class="headerlink" title="安装VMware Tools"></a>安装VMware Tools</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd vmware-tools-distrib</span><br><span class="line">./vmware-install.pl </span><br><span class="line">-bash: ./vmware-install.pl: /usr/bin/perl: bad interpreter: No such file or directory</span><br></pre></td></tr></table></figure>
-
-<p>安装perl, gcc</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install perl gcc kernel-devel</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo ./vmware-install.pl </span><br><span class="line">open-vm-tools packages are available from the OS vendor and VMware recommends </span><br><span class="line">using open-vm-tools packages. See http://kb.vmware.com/kb/2073803 for more </span><br><span class="line">information.</span><br><span class="line">Do you still want to proceed with this installation? [no]</span><br></pre></td></tr></table></figure>
-
-<p>输入yes，然后一路回车，默认选项安装。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">To enable advanced X features (e.g., guest resolution fit, drag and drop, and </span><br><span class="line">file and text copy/paste), you will need to do one (or more) of the following:</span><br><span class="line">1. Manually start /usr/bin/vmware-user</span><br><span class="line">2. Log out and log back into your desktop session</span><br><span class="line">3. Restart your X session.</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vmware-user: could not open /proc/fs/vmblock/dev</span><br><span class="line"> 15484 pts/1    R      0:00 /usr/lib/vmware-tools/sbin64/vmtoolsd -n vmusr</span><br></pre></td></tr></table></figure>
-
-<p>此处理错误未找到解决方案，不过已经不影响鼠标的移动了。</p>
 
       
     </div>

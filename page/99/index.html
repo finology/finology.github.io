@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">376</span>
+          <span class="site-state-item-count">377</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,126 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/06/zsh-command-not-found%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/06/zsh-command-not-found%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">zsh: command not found解决方案</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-06-27 14:57:19" itemprop="dateCreated datePublished" datetime="2019-06-27T14:57:19+08:00">2019-06-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/SSH/" itemprop="url" rel="index"><span itemprop="name">SSH</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/06/zsh-command-not-found%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-meta-item leancloud_visitors" data-flag-title="zsh: command not found解决方案" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/06/zsh-command-not-found%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/06/zsh-command-not-found%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="zsh使用时问题"><a href="#zsh使用时问题" class="headerlink" title="zsh使用时问题"></a>zsh使用时问题</h1><p>当我们安装使用了zsh以后，刚开始使用的时候，有可能会遇到command not found的错误信息提示。</p>
+<p>如果安装zsh请参考文章<a href="/2019/04/Mac%E4%B8%8B%E5%AE%89%E8%A3%85zsh/" title="Mac下安装zsh">Mac下安装zsh</a></p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>把bash shell中的<code>.bash_profile</code>里的全部环境变量加入<code>zsh shell</code>里就好了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>编译.zshrc文件，在<code>#User configuration</code>下面添加一行</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># User configuration</span><br><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
+
+<p>保存退出。</p>
+<p>再执行<code>source</code>命令使其生效。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -457,126 +577,6 @@
 <p>运行结果</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1. MyBean Constructor</span><br><span class="line">2. BeanNameAware.setBeanName</span><br><span class="line">3. BeanFactoryAware.setBeanFactory</span><br><span class="line">4. ApplicationContextAware.setApplicationContext</span><br><span class="line">5. BeanPostProcessor.postProcessBeforeInitialization</span><br><span class="line">6. javax&#x27;s PostConstruct</span><br><span class="line">7. InitializingBean.afterPropertiesSet</span><br><span class="line">8. BeanPostProcessor.postProcessAfterInitialization</span><br><span class="line">Started SpringBeanLifecycleApplication in 0.632 seconds (JVM running for 1.022)</span><br><span class="line">9. javax&#x27;s PreDestroy</span><br><span class="line">10. DisposableBean.destroy</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/05/Codility-Lesson-1-BinaryGap/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/05/Codility-Lesson-1-BinaryGap/" class="post-title-link" itemprop="url">Codility Lesson 1 - BinaryGap</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-05-18 20:02:02" itemprop="dateCreated datePublished" datetime="2019-05-18T20:02:02+08:00">2019-05-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/05/Codility-Lesson-1-BinaryGap/" class="post-meta-item leancloud_visitors" data-flag-title="Codility Lesson 1 - BinaryGap" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/05/Codility-Lesson-1-BinaryGap/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/05/Codility-Lesson-1-BinaryGap/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="BinaryGap"><a href="#BinaryGap" class="headerlink" title="BinaryGap"></a>BinaryGap</h1><p>Find longest sequence of zeros in binary representation of an integer.</p>
-<p>A binary gap within a positive integer N is any maximal sequence of consecutive zeros that is surrounded by ones at both ends in the binary representation of N.</p>
-<p>For example, number 9 has binary representation 1001 and contains a binary gap of length 2. The number 529 has binary representation 1000010001 and contains two binary gaps: one of length 4 and one of length 3. The number 20 has binary representation 10100 and contains one binary gap of length 1. The number 15 has binary representation 1111 and has no binary gaps. The number 32 has binary representation 100000 and has no binary gaps.</p>
-<p>Write a function:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123; <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">solution</span><span class="params">(<span class="type">int</span> N)</span>; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>that, given a positive integer N, returns the length of its longest binary gap. The function should return 0 if N doesn’t contain a binary gap.</p>
-<p>For example, given N &#x3D; 1041 the function should return 5, because N has binary representation 10000010001 and so its longest binary gap is of length 5. Given N &#x3D; 32 the function should return 0, because N has binary representation ‘100000’ and thus no binary gaps.</p>
-<p>Write an efficient algorithm for the following assumptions:</p>
-<p>N is an integer within the range [1..2,147,483,647].</p>
-<p>Copyright 2009–2019 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>数字循环除以2，直到0。每次取余，以统计1之间的0的个数。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">solution</span><span class="params">(<span class="type">int</span> N)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">maxGap</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">first</span> <span class="operator">=</span> <span class="literal">true</span>;   <span class="comment">// 未找到第一个1时</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (N != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (first) &#123;</span><br><span class="line">                <span class="keyword">if</span> (N % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">                    first = <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (N % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                    count ++;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// 再次遇到1时，计算之间的gap</span></span><br><span class="line">                    <span class="keyword">if</span> (count &gt; maxGap) &#123;</span><br><span class="line">                        maxGap = count;</span><br><span class="line">                    &#125;</span><br><span class="line">                    count = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 除以2</span></span><br><span class="line">            N &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> maxGap;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">            <span class="type">Solution</span> <span class="variable">solution</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Solution</span>();</span><br><span class="line">            System.out.println(<span class="string">&quot;Number 9 (&quot;</span> + Integer.toBinaryString(<span class="number">9</span>) + <span class="string">&quot;) gap: &quot;</span> + solution.solution(<span class="number">9</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;Number 529 (&quot;</span> + Integer.toBinaryString(<span class="number">529</span>) + <span class="string">&quot;) gap: &quot;</span> + solution.solution(<span class="number">529</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;Number 20 (&quot;</span> + Integer.toBinaryString(<span class="number">20</span>) + <span class="string">&quot;) gap: &quot;</span> + solution.solution(<span class="number">20</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;Number 15 (&quot;</span> + Integer.toBinaryString(<span class="number">15</span>) + <span class="string">&quot;) gap: &quot;</span> + solution.solution(<span class="number">15</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;Number 32 (&quot;</span> + Integer.toBinaryString(<span class="number">32</span>) + <span class="string">&quot;) gap: &quot;</span> + solution.solution(<span class="number">32</span>));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>结果如下：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Number 9 (1001) gap: 2</span><br><span class="line">Number 529 (1000010001) gap: 4</span><br><span class="line">Number 20 (10100) gap: 1</span><br><span class="line">Number 15 (1111) gap: 0</span><br><span class="line">Number 32 (100000) gap: 0</span><br></pre></td></tr></table></figure>
       
     </div>
 

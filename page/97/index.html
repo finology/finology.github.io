@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">376</span>
+          <span class="site-state-item-count">377</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,122 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/09/macOS%E5%AE%89%E8%A3%85Postgresql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/09/macOS%E5%AE%89%E8%A3%85Postgresql/" class="post-title-link" itemprop="url">macOS安装Postgresql</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-09-19 22:39:39" itemprop="dateCreated datePublished" datetime="2019-09-19T22:39:39+08:00">2019-09-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Database/Postgresql/" itemprop="url" rel="index"><span itemprop="name">Postgresql</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/09/macOS%E5%AE%89%E8%A3%85Postgresql/" class="post-meta-item leancloud_visitors" data-flag-title="macOS安装Postgresql" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/09/macOS%E5%AE%89%E8%A3%85Postgresql/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/09/macOS%E5%AE%89%E8%A3%85Postgresql/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>pip安装依赖的时候报错，<code>pg_config executable not found</code>, 所以需要在mac上安装postgresql。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install postgresql</span><br></pre></td></tr></table></figure>
+
+<p>如果出现<code>Updating Homebrew</code>并且卡住了，请参考 <a href="/2019/06/mac%E6%89%A7%E8%A1%8Cbrew-install%E6%97%B6%E5%8D%A1%E5%9C%A8Updating-Homebrew%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="mac执行brew install时卡在Updating Homebrew的解决方案">mac执行brew install时卡在Updating Homebrew的解决方案</a></p>
+<p>安装过程中，有可能会遇到操作文件权限不够的情况，添加一下权限就可以了。</p>
+<p>安装成功，将有如下提示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">To migrate existing data from a previous major version of PostgreSQL run:</span><br><span class="line">  brew postgresql-upgrade-database</span><br><span class="line"></span><br><span class="line">To have launchd start postgresql now and restart at login:</span><br><span class="line">  brew services start postgresql</span><br><span class="line">Or, if you don&#x27;t want/need a background service you can just run:</span><br><span class="line">  pg_ctl -D /usr/local/var/postgres start</span><br><span class="line">==&gt; Summary</span><br><span class="line">🍺  /usr/local/Cellar/postgresql/11.5_1: 3,189 files, 35.6MB</span><br><span class="line">==&gt; `brew cleanup` has not been run in 30 days, running now...</span><br><span class="line">Pruned 4 symbolic links and 58 directories from /usr/local</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -434,158 +550,6 @@
 
 <p>如果有些包下载不了，还可以设置<code>GOPROXY</code>环境变量。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export GOPROXY=https://goproxy.io       // mac, linux</span><br><span class="line">set $GOPROXY=on                         // windows</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/07/Mac-Docker%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/07/Mac-Docker%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Mac Docker安装配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-07-20 18:09:44" itemprop="dateCreated datePublished" datetime="2019-07-20T18:09:44+08:00">2019-07-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/07/Mac-Docker%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Mac Docker安装配置" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/07/Mac-Docker%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/07/Mac-Docker%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Docker在生产环境中的运用越来越多，已经非常成熟。这篇文章将从入门级操作视角，来讲解如何入门学习Docker。</p>
-<h1 id="下载Docker安装软件"><a href="#下载Docker安装软件" class="headerlink" title="下载Docker安装软件"></a>下载Docker安装软件</h1><p>从<a target="_blank" rel="noopener" href="http://www.docker.com/">Docker官网</a>下载mac版本Docker软件。</p>
-<p>目前的链接是：<a target="_blank" rel="noopener" href="https://download.docker.com/mac/stable/Docker.dmg">https://download.docker.com/mac/stable/Docker.dmg</a></p>
-<p>双击Docker图标，运行程序。</p>
-<p>运行<code>docker version</code>命令，出现如下Client和Server信息，表明安装成功了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br><span class="line">Client: Docker Engine - Community</span><br><span class="line"> Version:           18.09.2</span><br><span class="line"> API version:       1.39</span><br><span class="line"> Go version:        go1.10.8</span><br><span class="line"> Git commit:        6247962</span><br><span class="line"> Built:             Sun Feb 10 04:12:39 2019</span><br><span class="line"> OS/Arch:           darwin/amd64</span><br><span class="line"> Experimental:      false</span><br><span class="line"></span><br><span class="line">Server: Docker Engine - Community</span><br><span class="line"> Engine:</span><br><span class="line">  Version:          18.09.2</span><br><span class="line">  API version:      1.39 (minimum version 1.12)</span><br><span class="line">  Go version:       go1.10.6</span><br><span class="line">  Git commit:       6247962</span><br><span class="line">  Built:            Sun Feb 10 04:13:06 2019</span><br><span class="line">  OS/Arch:          linux/amd64</span><br><span class="line">  Experimental:     false</span><br></pre></td></tr></table></figure>
-
-<h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><p>执行命令<code>docker pull hello-world</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker pull hello-world</span><br><span class="line">Using default tag: latest</span><br><span class="line">Error response from daemon: Get https://registry-1.docker.io/v2/: net/http: request</span><br><span class="line"> canceled while waiting forconnection (Client.Timeout exceeded while awaiting headers)</span><br></pre></td></tr></table></figure>
-
-<p>出现上述网络不通的问题，所以要换成国内的镜像源。</p>
-<p>我目前使用的阿里云的容器镜像服务。镜像加速器地址为：<code>https://w3344f23.mirror.aliyuncs.com</code>。每个登录用户都不相同。</p>
-<p>在mac系统上任何栏点击Docker小图标，Preference -&gt; Daemon -&gt; Registry mirrors添加上述镜像url。重启Docker。</p>
-<p>更换国内镜像后再次执行命令，就成功了</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker pull hello-world</span><br><span class="line">Using default tag: latest</span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line">1b930d010525: Pull complete</span><br><span class="line">Digest: sha256:6540fc08ee6e6b7b63468dc3317e3303aae178cb8a45ed3123180328bcc1d20f</span><br><span class="line">Status: Downloaded newer image for hello-world:latest</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">hello-world         latest              fce289e99eb9        6 months ago        1.84kB</span><br></pre></td></tr></table></figure>
-
-<h2 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br><span class="line"></span><br><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</span><br><span class="line">    (amd64)</span><br><span class="line"> 3. The Docker daemon created a new container from that image which runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"><span class="meta prompt_"> $ </span><span class="language-bash">docker run -it ubuntu bash</span></span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker ID:</span><br><span class="line"> https://hub.docker.com/</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/get-started/</span><br></pre></td></tr></table></figure>
-
-<h1 id="运行Nginx镜像"><a href="#运行Nginx镜像" class="headerlink" title="运行Nginx镜像"></a>运行Nginx镜像</h1><h2 id="拉取镜像-1"><a href="#拉取镜像-1" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker pull hub.c.163.com/library/nginx</span><br><span class="line">Using default tag: latest</span><br><span class="line">latest: Pulling from library/nginx</span><br><span class="line">5de4b4d551f8: Pull complete</span><br><span class="line">d4b36a5e9443: Pull complete</span><br><span class="line">0af1f0713557: Pull complete</span><br><span class="line">Digest: sha256:f84932f738583e0169f94af9b2d5201be2dbacc1578de73b09a6dfaaa07801d6</span><br><span class="line">Status: Downloaded newer image for hub.c.163.com/library/nginx:latest</span><br></pre></td></tr></table></figure>
-
-<h2 id="运行镜像-1"><a href="#运行镜像-1" class="headerlink" title="运行镜像"></a>运行镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -d hub.c.163.com/library/nginx</span><br><span class="line">89979036016d6d09b5cf072e4ad72069e83c0c19929d439233393d0610eefb89</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看运行的容器"><a href="#查看运行的容器" class="headerlink" title="查看运行的容器"></a>查看运行的容器</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br><span class="line">CONTAINER ID        IMAGE                         COMMAND                  CREATED             STATUS              PORTS               NAMES</span><br><span class="line">89979036016d        hub.c.163.com/library/nginx   &quot;nginx -g &#x27;daemon of…&quot;   2 minutes ago       Up 2 minutes        80/tcp              epic_thompson</span><br></pre></td></tr></table></figure>
-
-<h2 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h2><p>容器就相当于一个虚拟机，我们进入到容器中看看。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it 89979036016d bash</span><br><span class="line">root@89979036016d:/#</span><br></pre></td></tr></table></figure>
-
-<p>执行<code>ps</code>命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@89979036016d:/# ps</span><br><span class="line">bash: ps: command not found</span><br></pre></td></tr></table></figure>
-
-<p>命令找不到。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@89979036016d:/# apt-get update &amp;&amp; apt-get install procps</span><br></pre></td></tr></table></figure>
-
-<p>再次执行<code>ps</code>查看<code>nginx</code>进程是否启动成功。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@89979036016d:/# ps -ef</span><br><span class="line">UID        PID  PPID  C STIME TTY          TIME CMD</span><br><span class="line">root         1     0  0 08:13 ?        00:00:00 nginx: master process nginx -g daemon off;</span><br><span class="line">nginx        7     1  0 08:13 ?        00:00:00 nginx: worker process</span><br><span class="line">root         8     0  0 08:16 pts/0    00:00:00 bash</span><br><span class="line">root       350     8  0 09:07 pts/0    00:00:00 ps -ef</span><br></pre></td></tr></table></figure>
-
-<h2 id="设定端口转发"><a href="#设定端口转发" class="headerlink" title="设定端口转发"></a>设定端口转发</h2><p>停止容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop 89979036016d</span><br></pre></td></tr></table></figure>
-
-<p>重新运行镜像</p>
-<p>我们把主机<code>8080</code>端口的请求转发到容器内部的<code>80</code>端口，使用<code>-p fromport:toport</code>参数</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8080:80 hub.c.163.com/library/nginx</span><br><span class="line">38068e229ea71e29de8cf1992dded3520d2334122bfbdc145958788b48de563a</span><br></pre></td></tr></table></figure>
-
-<h2 id="访问页面"><a href="#访问页面" class="headerlink" title="访问页面"></a>访问页面</h2><p><code>http://localhost:8080</code></p>
-<p>就能成功看到nginx的欢迎页面了。</p>
 
       
     </div>

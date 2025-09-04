@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">376</span>
+          <span class="site-state-item-count">377</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,120 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Java-URL%E5%8F%82%E6%95%B0%E6%9B%BF%E6%8D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/Java-URL%E5%8F%82%E6%95%B0%E6%9B%BF%E6%8D%A2/" class="post-title-link" itemprop="url">Java URL参数替换</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-28 20:53:54" itemprop="dateCreated datePublished" datetime="2020-03-28T20:53:54+08:00">2020-03-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/03/Java-URL%E5%8F%82%E6%95%B0%E6%9B%BF%E6%8D%A2/" class="post-meta-item leancloud_visitors" data-flag-title="Java URL参数替换" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/03/Java-URL%E5%8F%82%E6%95%B0%E6%9B%BF%E6%8D%A2/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Java-URL%E5%8F%82%E6%95%B0%E6%9B%BF%E6%8D%A2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 Java 程序中，向第三方发起一个 http 请求时，这时往往需要拼接第三方接口的 URL。</p>
+<p>通过字符串<code>+</code>或者 StringBuilder 的 append 方法，都不算是一个最佳实践。因为上述这两种方法都没办法把整个 URL 格式从代码中分离出来。</p>
+<p>我觉得最佳实践是通过 String.format() 为 URL 做字符替换。</p>
+<p>比如接口的 URL <code>http://www.example.com/service?appid=%d&amp;sign=%s</code></p>
+<p><code>%d</code> 为数字，<code>%s</code> 为字符串。</p>
+<p>我们可以调用 String.format() 方法做参数替换。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> String.format(url, <span class="number">1000</span>, <span class="string">&quot;mySign&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>结果为：<code>http://www.example.com/service?appid=1000&amp;sign=mySign</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -428,129 +542,6 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">DigestUtils</span></span><br><span class="line"><span class="keyword">extends</span> <span class="title class_">Object</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="md5DigestAsHex"><a href="#md5DigestAsHex" class="headerlink" title="md5DigestAsHex"></a>md5DigestAsHex</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">md5DigestAsHex</span><span class="params">(InputStream inputStream)</span></span><br><span class="line">                             <span class="keyword">throws</span> IOException</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/" class="post-title-link" itemprop="url">IntelliJ IDEA新建Maven Springboot项目Cannot find JRE '1.8'</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-28 13:01:01" itemprop="dateCreated datePublished" datetime="2020-03-28T13:01:01+08:00">2020-03-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/IntelliJ-IDEA/" itemprop="url" rel="index"><span itemprop="name">IntelliJ IDEA</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/" class="post-meta-item leancloud_visitors" data-flag-title="IntelliJ IDEA新建Maven Springboot项目Cannot find JRE '1.8'" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>通过 IntelliJ IDEA 新建一个 Maven Springboot 项目，建立好之后，发现生成代码的包无法引入，代码已经提示红色标记错误。</p>
-<img src="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/code-error.png" class="">
-
-<p>点击按钮 Reimport All Maven Projects 或执行 maven clean, package 这类命令，都会提示如下错误：</p>
-<p><code>Error running &#39;demo [validate]&#39;: Cannot find JRE &#39;1.8&#39;. You can specify JRE to run maven goals in Settings | Maven | Runner</code></p>
-<img src="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/maven-error.png" class="">
-
-<p>按上述提示，进入 Settings | Maven | Runner，把正常的 JRE 环境选中即可。</p>
-<img src="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/maven-runner.png" class="">
-
-<p>上面是设置当前项目的，如果要设置以后所有新建的项目，则需要关闭所有项目后，再进入 Preferences</p>
-<img src="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/maven-runner-global.png" class="">
-
-
 
       
     </div>

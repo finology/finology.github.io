@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">376</span>
+          <span class="site-state-item-count">377</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,115 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/05/Java%E5%A6%82%E4%BD%95%E5%9C%A8String-format%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%99%BE%E5%88%86%E5%8F%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/05/Java%E5%A6%82%E4%BD%95%E5%9C%A8String-format%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%99%BE%E5%88%86%E5%8F%B7/" class="post-title-link" itemprop="url">Java如何在String.format中显示百分号&#37;</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-05-03 15:38:55" itemprop="dateCreated datePublished" datetime="2020-05-03T15:38:55+08:00">2020-05-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/05/Java%E5%A6%82%E4%BD%95%E5%9C%A8String-format%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%99%BE%E5%88%86%E5%8F%B7/" class="post-meta-item leancloud_visitors" data-flag-title="Java如何在String.format中显示百分号&#37;" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/05/Java%E5%A6%82%E4%BD%95%E5%9C%A8String-format%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%99%BE%E5%88%86%E5%8F%B7/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/05/Java%E5%A6%82%E4%BD%95%E5%9C%A8String-format%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%99%BE%E5%88%86%E5%8F%B7/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>如果要显示 <code>%</code>，我们需要在前面再加一个 <code>%</code>，做为转义用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String.format(<span class="string">&quot;%d%%&quot;</span>, <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这时才会正确显示 <code>100%</code>。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -463,121 +572,6 @@
 
 <p>当然，也可以自定义 index 和 column</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">df6 = pd.DataFrame([[<span class="number">1</span>, <span class="number">3</span>], [<span class="number">2</span>, <span class="number">4</span>]], index=[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>], columns=[<span class="string">&#x27;c1&#x27;</span>, <span class="string">&#x27;c2&#x27;</span>])</span><br><span class="line">df6</span><br><span class="line"></span><br><span class="line">	c1	c2</span><br><span class="line">a	<span class="number">1</span>	<span class="number">3</span></span><br><span class="line">b	<span class="number">2</span>	<span class="number">4</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/Windows-10%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90Github-SSH%E5%85%AC%E9%92%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/Windows-10%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90Github-SSH%E5%85%AC%E9%92%A5/" class="post-title-link" itemprop="url">Windows 10环境生成Github SSH公钥</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-04-29 17:20:51" itemprop="dateCreated datePublished" datetime="2020-04-29T17:20:51+08:00">2020-04-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/04/Windows-10%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90Github-SSH%E5%85%AC%E9%92%A5/" class="post-meta-item leancloud_visitors" data-flag-title="Windows 10环境生成Github SSH公钥" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/04/Windows-10%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90Github-SSH%E5%85%AC%E9%92%A5/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/04/Windows-10%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90Github-SSH%E5%85%AC%E9%92%A5/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>不管是 Windows 还是 Linux，想要不输入用户名和密码操作 Git，只需要把 id_rsa.pub 公钥复制粘贴到 Github 里面就行了。</p>
-<h1 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h1><h1 id="打开-Git-Bash"><a href="#打开-Git-Bash" class="headerlink" title="打开 Git Bash"></a>打开 Git Bash</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-keygen -t rsa -C <span class="string">&quot;simon@finolo.gy&quot;</span></span></span><br><span class="line"></span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/c/Users/simon/.ssh/id_rsa):</span><br><span class="line">Enter passphrase (empty for no passphrase):</span><br><span class="line">Enter same passphrase again:</span><br><span class="line">Your identification has been saved in /c/Users/simon/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved in /c/Users/simon/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:epRQbzd91E6aLp3aM+ym2FEZMgLNCkA108nb5lsk7CM simon@finolo.gy</span><br><span class="line">The key&#x27;s randomart image is:</span><br><span class="line">+---[RSA 3072]----+</span><br><span class="line">|   .oo+oo+      o|</span><br><span class="line">|      .++oo  . .o|</span><br><span class="line">|      .. =+ = o=.|</span><br><span class="line">|       .oo=o.+o+.|</span><br><span class="line">|        S+ o oo. |</span><br><span class="line">|       oE + o.+  |</span><br><span class="line">|      . .. +.=   |</span><br><span class="line">|       .  .o..*  |</span><br><span class="line">|          . o+.o |</span><br><span class="line">+----[SHA256]-----+</span><br></pre></td></tr></table></figure>
-
-<p>这个邮箱可以随便输入的，并不需要是 Github.com 的登录帐户。</p>
-<h1 id="拷贝-id-rsa-pub-内容到-Github"><a href="#拷贝-id-rsa-pub-内容到-Github" class="headerlink" title="拷贝 id_rsa.pub 内容到 Github"></a>拷贝 id_rsa.pub 内容到 Github</h1><p>Settings -&gt; SSH and GPG keys -&gt; New SSH key</p>
-<p>把前面生成的 &#x2F;c&#x2F;Users&#x2F;simon&#x2F;.ssh&#x2F;id_rsa.pub 文件内容粘贴上去就可以了。</p>
-
       
     </div>
 

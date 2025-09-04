@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">376</span>
+          <span class="site-state-item-count">377</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,124 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/08/%E8%A7%A3%E5%86%B3jps-command-not-found/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/%E8%A7%A3%E5%86%B3jps-command-not-found/" class="post-title-link" itemprop="url">解决jps command not found</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-05 15:26:24" itemprop="dateCreated datePublished" datetime="2021-08-05T15:26:24+08:00">2021-08-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/08/%E8%A7%A3%E5%86%B3jps-command-not-found/" class="post-meta-item leancloud_visitors" data-flag-title="解决jps command not found" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/08/%E8%A7%A3%E5%86%B3jps-command-not-found/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/08/%E8%A7%A3%E5%86%B3jps-command-not-found/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 CentOS 7 ssh 下执行 jps 命令，返回 command not found。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">which</span> java</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ll -l /usr/bin/java</span></span><br><span class="line">lrwxrwxrwx. 1 root root 22 Oct 12  2020 /usr/bin/java -&gt; /etc/alternatives/java</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ll -l /etc/alternatives/java</span></span><br><span class="line">lrwxrwxrwx. 1 root root 73 Oct 12  2020 /etc/alternatives/java -&gt; /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-0.el7_8.x86_64/jre/bin/java </span><br></pre></td></tr></table></figure>
+
+<p>这个版本的java-1.8.0-openjdk-1.8.0.262.b10-0.el7_8.x86_64，是通过yum安装的openjdk。需要换成我们自己下载的jdk。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> <span class="built_in">rm</span> -rf /usr/bin/java</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> <span class="built_in">ln</span> -s /usr/local/java/jdk1.8.0_231/bin/java /usr/bin/java</span></span><br></pre></td></tr></table></figure>
+
+<p>添加环境变量，修改<code>~/.bash_profile</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:/usr/local/java/jdk1.8.0_231/bin/</span><br></pre></td></tr></table></figure>
+
+<p>激活</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> ~/.bash_profile</span></span><br></pre></td></tr></table></figure>
+
+<p>此时再执行 jps 命令，就可以执行成功了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">jps</span></span><br><span class="line">27455 Jps</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -427,126 +545,6 @@
 <p>所以在统计基金时，为了不统计重复数值，需要把C类基金去掉，也就是<code>UNIT_FUNDSHARE_TOTAL</code>为NaN的行，同时，用合计值来进行计算。</p>
 <h1 id="分行业市值"><a href="#分行业市值" class="headerlink" title="分行业市值"></a>分行业市值</h1><p>分行业市值，用申万，中信行业分类是不行的，只能用证监会行业。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[&#x27;农、林、牧、渔业&#x27;, &#x27;采矿业&#x27;, &#x27;制造业&#x27;, &#x27;电力、热力、燃气及水生产和供应业&#x27;, &#x27;建筑业&#x27;, &#x27;批发和零售业&#x27;,</span><br><span class="line">                 &#x27;交通运输、仓储和邮政业&#x27;, &#x27;住宿和餐饮业&#x27;, &#x27;信息传输、软件和信息技术服务业&#x27;, &#x27;金融业&#x27;, &#x27;房地产业&#x27;,</span><br><span class="line">                 &#x27;租赁和商务服务业&#x27;, &#x27;科学研究和技术服务业&#x27;, &#x27;水利、环境和公共设施管理业&#x27;, &#x27;居民服务、修理和其他服务业&#x27;,</span><br><span class="line">                 &#x27;教育&#x27;, &#x27;卫生和社会工作&#x27;, &#x27;文化、体育和娱乐业&#x27;, &#x27;综合&#x27;]</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/07/%E4%B8%8A%E6%9C%9F%E6%89%80%E4%BA%A4%E6%98%93%E4%BB%BF%E7%9C%9F%E5%B9%B3%E5%8F%B0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/%E4%B8%8A%E6%9C%9F%E6%89%80%E4%BA%A4%E6%98%93%E4%BB%BF%E7%9C%9F%E5%B9%B3%E5%8F%B0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">上期所交易仿真平台环境配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-07-26 14:31:01" itemprop="dateCreated datePublished" datetime="2021-07-26T14:31:01+08:00">2021-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-
-  
-    <span id="/2021/07/%E4%B8%8A%E6%9C%9F%E6%89%80%E4%BA%A4%E6%98%93%E4%BB%BF%E7%9C%9F%E5%B9%B3%E5%8F%B0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="上期所交易仿真平台环境配置" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2021/07/%E4%B8%8A%E6%9C%9F%E6%89%80%E4%BA%A4%E6%98%93%E4%BB%BF%E7%9C%9F%E5%B9%B3%E5%8F%B0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/07/%E4%B8%8A%E6%9C%9F%E6%89%80%E4%BA%A4%E6%98%93%E4%BB%BF%E7%9C%9F%E5%B9%B3%E5%8F%B0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>环境介绍</p>
-<p>用户名：1***81</p>
-<p>BrokerID统一为：9999</p>
-<p>产品名称：即APPID，默认的APPID为simnow_client_test</p>
-<p>授权编码：认证码为0000000000000000（16个0）</p>
-<h1 id="第一套（支持上期所期权）："><a href="#第一套（支持上期所期权）：" class="headerlink" title="第一套（支持上期所期权）："></a>第一套（支持上期所期权）：</h1><p>第一组：Trade Front：180.168.146.187:10201，Market Front：180.168.146.187:10211；【电信】（看穿式前置，使用监控中心生产秘钥）</p>
-<p>第二组：Trade Front：180.168.146.187:10202，Market Front：180.168.146.187:10212；【电信】（看穿式前置，使用监控中心生产秘钥）</p>
-<p>第三组：Trade Front：218.202.237.33:10203，Market Front：218.202.237.33:10213；【移动】（看穿式前置，使用监控中心生产秘钥）</p>
-<p>交易品种：五所所有期货品种以及上期所所有期权品种。</p>
-<p>账户资金：初始资金两千万，支持入金，每日最多三次。</p>
-<p>交易阶段(服务时间)：与实际生产环境保持一致。</p>
-<p>客户端软件下载：点击下载客户端。</p>
-<h1 id="第二套："><a href="#第二套：" class="headerlink" title="第二套："></a>第二套：</h1><p>交易前置：180.168.146.187:10130，行情前置：180.168.146.187:10131；【7x24】（看穿式前置，使用监控中心生产秘钥）</p>
-<p>第二套环境仅服务于CTP API开发爱好者，仅为用户提供CTP API测试需求，不提供结算等其它服务。</p>
-<p>新注册用户，需要等到第三个交易日才能使用第二套环境。</p>
-<p>账户、钱、仓跟第一套环境上一个交易日保持一致。</p>
-<p>交易阶段(服务时间)：交易日，16：00～次日09：00；非交易日，16：00～次日15：00。</p>
-<p>用户通过SimNow的账户（上一个交易日之前注册的账户都有效）接入环境，建议通过商业终端进行模拟交易的用户使用第一套环境。</p>
-<p>成交规则</p>
-<p>1、期货交易按照交易所公布的买一卖一价对价成交；</p>
-<p>2、买入时：如果委托价大于等于卖一价，则成交，成交价为委托价、卖一价、最新价三价取中，如果委托价小于卖一价，不能成交，等待更优的行情才能成交；</p>
-<p>3、卖出时：如果委托价小于等于买一价，则成交，成交价为委托价、买一价、最新价三价取中，如果委托价大于买一价，不能成交，等待更优的行情才能成交。</p>
-<h1 id="非交易时间"><a href="#非交易时间" class="headerlink" title="非交易时间"></a>非交易时间</h1><p>第一套，第一组：Trade Front：180.168.146.187:10201，Market Front：180.168.146.187:10211；【电信】，亲测可用。</p>
-<p>第二套，交易前置：180.168.146.187:10130，行情前置：180.168.146.187:10131，亲测可用。</p>
 
       
     </div>
