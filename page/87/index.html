@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">380</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/12/Grafana%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95Kubernetes%E8%AE%BE%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/12/%E9%AA%8C%E8%AF%81prometheus%E7%9B%91%E6%8E%A7targets%E7%9A%84metrics/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +238,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/12/Grafana%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95Kubernetes%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">Grafana匿名登录Kubernetes设置</a>
+          <a href="/2019/12/%E9%AA%8C%E8%AF%81prometheus%E7%9B%91%E6%8E%A7targets%E7%9A%84metrics/" class="post-title-link" itemprop="url">验证prometheus监控targets的metrics</a>
         </h2>
 
         <div class="post-meta-container">
@@ -249,240 +249,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2019-12-20 22:50:04" itemprop="dateCreated datePublished" datetime="2019-12-20T22:50:04+08:00">2019-12-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/Grafana/" itemprop="url" rel="index"><span itemprop="name">Grafana</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/12/Grafana%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95Kubernetes%E8%AE%BE%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Grafana匿名登录Kubernetes设置" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/12/Grafana%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95Kubernetes%E8%AE%BE%E7%BD%AE/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/12/Grafana%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95Kubernetes%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在Kubernetes中，通过yaml文件安装Grafana。要实现匿名登录查看Dashboard，则需要在&#96;spec.template.spec.containers[]下面添加如下内容：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">env:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_AUTH_ANONYMOUS_ENABLED</span></span><br><span class="line">  <span class="attr">value:</span> <span class="string">&quot;true&quot;</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_AUTH_ANONYMOUS_ORG_ROLE</span></span><br><span class="line">  <span class="attr">value:</span> <span class="string">Viewer</span></span><br></pre></td></tr></table></figure>
-
-<p>部分内容如下：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">grafana</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span> <span class="string">grafana</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">image:</span> <span class="string">grafana/grafana:6.3.3</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">grafana</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">3000</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">http</span></span><br><span class="line">        <span class="attr">readinessProbe:</span></span><br><span class="line">          <span class="attr">httpGet:</span></span><br><span class="line">            <span class="attr">path:</span> <span class="string">/api/health</span></span><br><span class="line">            <span class="attr">port:</span> <span class="string">http</span></span><br><span class="line">        <span class="attr">resources:</span></span><br><span class="line">          <span class="attr">limits:</span></span><br><span class="line">            <span class="attr">cpu:</span> <span class="string">200m</span></span><br><span class="line">            <span class="attr">memory:</span> <span class="string">200Mi</span></span><br><span class="line">          <span class="attr">requests:</span></span><br><span class="line">            <span class="attr">cpu:</span> <span class="string">100m</span></span><br><span class="line">            <span class="attr">memory:</span> <span class="string">100Mi</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_AUTH_ANONYMOUS_ENABLED</span></span><br><span class="line">          <span class="attr">value:</span> <span class="string">&quot;true&quot;</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_AUTH_ANONYMOUS_ORG_ROLE</span></span><br><span class="line">          <span class="attr">value:</span> <span class="string">Viewer</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/12/kubernetes%E9%9B%86%E7%BE%A4%E5%8D%B8%E8%BD%BDflannel%E7%BD%91%E7%BB%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/12/kubernetes%E9%9B%86%E7%BE%A4%E5%8D%B8%E8%BD%BDflannel%E7%BD%91%E7%BB%9C/" class="post-title-link" itemprop="url">kubernetes集群卸载flannel网络</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-12-16 22:43:08" itemprop="dateCreated datePublished" datetime="2019-12-16T22:43:08+08:00">2019-12-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/Network/" itemprop="url" rel="index"><span itemprop="name">Network</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/12/kubernetes%E9%9B%86%E7%BE%A4%E5%8D%B8%E8%BD%BDflannel%E7%BD%91%E7%BB%9C/" class="post-meta-item leancloud_visitors" data-flag-title="kubernetes集群卸载flannel网络" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/12/kubernetes%E9%9B%86%E7%BE%A4%E5%8D%B8%E8%BD%BDflannel%E7%BD%91%E7%BB%9C/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/12/kubernetes%E9%9B%86%E7%BE%A4%E5%8D%B8%E8%BD%BDflannel%E7%BD%91%E7%BB%9C/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在生产环境中，最好还是要提前规划好网络。</p>
-<p>测试环境中，我们可以尝试以这种方式来卸载flannel网络。</p>
-<p>找到最初安装flannel时的yaml文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete -f kube-flannel.yml</span><br></pre></td></tr></table></figure>
-
-<p>在所有master、worker节点上执行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ip link delete cni0</span><br><span class="line">ip link delete flannel.1</span><br><span class="line">rm -rf /var/lib/cni/</span><br><span class="line">rm -f /etc/cni/net.d/*</span><br></pre></td></tr></table></figure>
-
-<p>重启<code>kubelet</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart kubelet</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/" class="post-title-link" itemprop="url">在Prometheus Operator中添加自定义监控项，监控etcd集群</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-12-12 22:38:38" itemprop="dateCreated datePublished" datetime="2019-12-12T22:38:38+08:00">2019-12-12</time>
+      <time title="创建时间：2019-12-29 22:57:17" itemprop="dateCreated datePublished" datetime="2019-12-29T22:57:17+08:00">2019-12-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -506,7 +273,7 @@
     </span>
 
   
-    <span id="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/" class="post-meta-item leancloud_visitors" data-flag-title="在Prometheus Operator中添加自定义监控项，监控etcd集群" title="阅读次数">
+    <span id="/2019/12/%E9%AA%8C%E8%AF%81prometheus%E7%9B%91%E6%8E%A7targets%E7%9A%84metrics/" class="post-meta-item leancloud_visitors" data-flag-title="验证prometheus监控targets的metrics" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -521,8 +288,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/" itemprop="commentCount"></span>
+    <a title="waline" href="/2019/12/%E9%AA%8C%E8%AF%81prometheus%E7%9B%91%E6%8E%A7targets%E7%9A%84metrics/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/12/%E9%AA%8C%E8%AF%81prometheus%E7%9B%91%E6%8E%A7targets%E7%9A%84metrics/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -536,52 +303,289 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="添加自定义监控项流程"><a href="#添加自定义监控项流程" class="headerlink" title="添加自定义监控项流程"></a>添加自定义监控项流程</h1><ol>
-<li>创建ServiceMonitor对象</li>
-<li>创建Service对象，提供metrics数据接口，并将其和ServiceMonitor关联</li>
-<li>确保Service对象可以正确获取metrics数据</li>
-</ol>
-<img src="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/1576154786034.png" class="">
+          <p>在Prometheus监控Targets页面，显示的都是监控标的列表。我们如何验证访问此&#x2F;metrics的结果呢？</p>
+<h1 id="monitoring-kube-apiserver"><a href="#monitoring-kube-apiserver" class="headerlink" title="monitoring&#x2F;kube-apiserver"></a>monitoring&#x2F;kube-apiserver</h1>
 
-<h1 id="配置etcd证书"><a href="#配置etcd证书" class="headerlink" title="配置etcd证书"></a>配置etcd证书</h1><p>查看etcd启动时的证书路径</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po -n kube-system</span><br><span class="line">...</span><br><span class="line">etcd-k8s-master                            1/1     Running   1          6h28m</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>这种<code>https://172.16.64.233:6443/metrics</code> URL，是需要带证书才能访问的：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">curl -k --key /etc/kubernetes/pki/apiserver-kubelet-client.key \</span><br><span class="line">--cert /etc/kubernetes/pki/apiserver-kubelet-client.crt \</span><br><span class="line">https://172.16.64.233:6443/metrics</span><br><span class="line">...</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">HELP go_gc_duration_seconds A summary of the GC invocation durations.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TYPE go_gc_duration_seconds summary</span></span><br><span class="line">go_gc_duration_seconds&#123;quantile=&quot;0&quot;&#125; 1.2317e-05</span><br><span class="line">go_gc_duration_seconds&#123;quantile=&quot;0.25&quot;&#125; 3.1153e-05</span><br><span class="line">go_gc_duration_seconds&#123;quantile=&quot;0.5&quot;&#125; 4.6201e-05</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po etcd-k8s-master -n kube-system -o yaml</span><br><span class="line">...</span><br><span class="line">spec:</span><br><span class="line">  containers:</span><br><span class="line">  - command:</span><br><span class="line">    - etcd</span><br><span class="line">    - --advertise-client-urls=https://192.168.229.134:2379</span><br><span class="line">    - --cert-file=/etc/kubernetes/pki/etcd/server.crt</span><br><span class="line">    - --client-cert-auth=true</span><br><span class="line">    - --data-dir=/var/lib/etcd</span><br><span class="line">    - --initial-advertise-peer-urls=https://192.168.229.134:2380</span><br><span class="line">    - --initial-cluster=k8s-master=https://192.168.229.134:2380</span><br><span class="line">    - --key-file=/etc/kubernetes/pki/etcd/server.key</span><br><span class="line">    - --listen-client-urls=https://127.0.0.1:2379,https://192.168.229.134:2379</span><br><span class="line">    - --listen-peer-urls=https://192.168.229.134:2380</span><br><span class="line">    - --name=k8s-master</span><br><span class="line">    - --peer-cert-file=/etc/kubernetes/pki/etcd/peer.crt</span><br><span class="line">    - --peer-client-cert-auth=true</span><br><span class="line">    - --peer-key-file=/etc/kubernetes/pki/etcd/peer.key</span><br><span class="line">    - --peer-trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt</span><br><span class="line">    - --snapshot-count=10000</span><br><span class="line">    - --trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt</span><br><span class="line">    image: k8s.gcr.io/etcd:3.3.10</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h1 id="monitoring-kube-state-metrics"><a href="#monitoring-kube-state-metrics" class="headerlink" title="monitoring&#x2F;kube-state-metrics"></a>monitoring&#x2F;kube-state-metrics</h1><p>在页面上显示的Endpoint是<a target="_blank" rel="noopener" href="https://10.244.169.167:9443/metrics">https://10.244.169.167:9443/metrics</a></p>
+<p>然后查看<code>kube-state-metrics-serviceMonitor.yaml</code></p>
+<p>发现有个配置<code>bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token</code></p>
+<p>进入到pod <code>prometheus-k8s-0</code>, 通过<code>/var/run/secrets/kubernetes.io/serviceaccount/token</code>文件拿到token。</p>
+<p>然后执行下面的命令就可以拿到指标数据了。</p>
+<p>更多详情请看此文 <a href="/2020/02/Prometheus-monitoring-kube-state-metrics%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" title="Prometheus monitoring&#x2F;kube-state-metrics监控指标">Prometheus monitoring&#x2F;kube-state-metrics监控指标</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -k https://10.244.169.167:9443/metrics -H &quot;Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJtb25pdG9yaW5nIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6InByb21ldGhldXMtazhzLXRva2VuLXNtNmdkIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6InByb21ldGhldXMtazhzIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiMTk2OTkyOTItNDY2Yi00NWQ4LWJmYmYtYzkyZjIwNjczOWY3Iiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Om1vbml0b3Jpbmc6cHJvbWV0aGV1cy1rOHMifQ.iggZ4ZxmD0y04OQfDlo4P6zRgzn0ryVhcdhlgncpnBY5BJ39Xz0a2AA51ePa78R2njFDjPcecgDJRcqPv76X3o-C-G7EZvN_Ru8zSdB51YxqlLNoIW5hy6Jr27aw74lMslg1MYX_31kkRTqD9DxVn6lq6Uqf4Djebj_E-2maiwl863GCeNRfS1X6KM8idsVknLlpdVINbM8U_l1Yuw-auNzelAk1NQlBdbJqsm1CZKIg_YBsT-KbiyTsbjX2v0uL1D6-Q5Xs9NZMLEAa7dfwz_EOYMDnIGbv-eyhD-924H4_pGOIoQ0dCBP01cxFm7pLJPGouwLaEwPs5BRS0B6u-w&quot;</span><br></pre></td></tr></table></figure>
 
-<p>可以看出etcd使用的证书都在对应节点的<code>/etc/kubernetes/pki/etcd/</code>目录下面。所以先将需要使用的证书通过secret对象保存到集群中：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl -n monitoring create secret generic etcd-certs \</span><br><span class="line">--from-file=/etc/kubernetes/pki/etcd/healthcheck-client.crt \</span><br><span class="line">--from-file=/etc/kubernetes/pki/etcd/healthcheck-client.key \</span><br><span class="line">--from-file=/etc/kubernetes/pki/etcd/ca.crt </span><br><span class="line">secret/etcd-certs created</span><br></pre></td></tr></table></figure>
+<h1 id="monitoring-kubelet"><a href="#monitoring-kubelet" class="headerlink" title="monitoring&#x2F;kubelet"></a>monitoring&#x2F;kubelet</h1><p><a target="_blank" rel="noopener" href="https://172.16.64.233:10250/metrics">https://172.16.64.233:10250/metrics</a></p>
+<h1 id="monitoring-node-exporter"><a href="#monitoring-node-exporter" class="headerlink" title="monitoring&#x2F;node-exporter"></a>monitoring&#x2F;node-exporter</h1><p><a target="_blank" rel="noopener" href="https://172.16.64.233:9100/metrics">https://172.16.64.233:9100/metrics</a></p>
 
-<p>将创建etcd-certs对象配置到prometheus资源对象中，直接更新：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl edit prometheus k8s -n monitoring</span><br></pre></td></tr></table></figure>
+      
+    </div>
 
-<p>添加secrets的如下属性：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nodeSelector:</span><br><span class="line">  kubernetes.io/os: linux</span><br><span class="line">podMonitorSelector: &#123;&#125;</span><br><span class="line">replicas: 2</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加如下两行</span></span><br><span class="line">secrets:</span><br><span class="line">- etcd-certs</span><br></pre></td></tr></table></figure>
+    
+    
+    
 
-<p>更新完成后，就可以在Prometheus的Pod中获取之前创建的etcd证书文件了。先查看一下pod名字。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po -n monitoring </span><br><span class="line">NAME                                  READY   STATUS    RESTARTS   AGE</span><br><span class="line">...</span><br><span class="line">prometheus-k8s-0                      3/3     Running   1          2m20s</span><br><span class="line">prometheus-k8s-1                      3/3     Running   1          3m19s</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p>进入两个容器，查看一下证书的具体路径：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl exec -it prometheus-k8s-0 /bin/sh -n monitoring</span><br><span class="line">Defaulting container name to prometheus.</span><br><span class="line">Use &#x27;kubectl describe pod/prometheus-k8s-0 -n monitoring&#x27; to see all of the containers in this pod.</span><br><span class="line">/prometheus $ ls /etc/prometheus/secrets/etcd-certs/</span><br><span class="line">ca.crt                  healthcheck-client.crt  healthcheck-client.key</span><br></pre></td></tr></table></figure>
-
-<h1 id="创建ServiceMonitor"><a href="#创建ServiceMonitor" class="headerlink" title="创建ServiceMonitor"></a>创建ServiceMonitor</h1><p>创建<code>prometheus-serviceMonitorEtcd.yaml</code>文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: monitoring.coreos.com/v1</span><br><span class="line">kind: ServiceMonitor</span><br><span class="line">metadata:</span><br><span class="line">  labels:</span><br><span class="line">    k8s-app: etcd-k8s</span><br><span class="line">  name: etcd-k8s</span><br><span class="line">  namespace: monitoring</span><br><span class="line">spec:</span><br><span class="line">  endpoints:</span><br><span class="line">  - port: port</span><br><span class="line">    interval: 30s</span><br><span class="line">    scheme: https</span><br><span class="line">    tlsConfig:</span><br><span class="line">      caFile: /etc/prometheus/secrets/etcd-certs/ca.crt</span><br><span class="line">      certFile: /etc/prometheus/secrets/etcd-certs/healthcheck-client.crt</span><br><span class="line">      keyFile: /etc/prometheus/secrets/etcd-certs/healthcheck-client.key</span><br><span class="line">      insecureSkipVerify: true</span><br><span class="line">  jobLabel: k8s-app</span><br><span class="line">  namespaceSelector:</span><br><span class="line">    matchNames:</span><br><span class="line">    - kube-system</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      k8s-app: etcd</span><br></pre></td></tr></table></figure>
-
-<p>创建这个serviceMonitor对象：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f prometheus-serviceMonitorEtcd.yaml </span><br><span class="line">servicemonitor.monitoring.coreos.com/etcd-k8s created</span><br></pre></td></tr></table></figure>
-
-<h1 id="创建Service"><a href="#创建Service" class="headerlink" title="创建Service"></a>创建Service</h1><p>ServiceMonitor已经创建完成了，需要创建一个对应的Service对象。<code>prometheus-etcdService.yaml</code>内容如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  labels:</span><br><span class="line">    k8s-app: etcd</span><br><span class="line">  name: etcd-k8s</span><br><span class="line">  namespace: kube-system</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">  - name: port</span><br><span class="line">    port: 2379</span><br><span class="line">    protocol: TCP</span><br><span class="line">  type: ClusterIP</span><br><span class="line">  clusterIP: None</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: Endpoints</span><br><span class="line">metadata:</span><br><span class="line">  name: etcd-k8s</span><br><span class="line">  namespace: kube-system</span><br><span class="line">  labels:</span><br><span class="line">    k8s-app: etcd</span><br><span class="line">subsets:</span><br><span class="line">- addresses:</span><br><span class="line">  - ip: 192.168.229.134</span><br><span class="line">    nodeName: etcd-master</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> - ip: 192.168.229.135</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">   nodeName: etcd02</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> - ip: 192.168.229.136</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">   nodeName: etcd03</span></span><br><span class="line">  ports:</span><br><span class="line">  - name: port</span><br><span class="line">    port: 2379</span><br><span class="line">    protocol: TCP</span><br></pre></td></tr></table></figure>
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
 
 
 
-<p>etcd集群独立于集群之外，所以需要定义一个Endpoints。Endpoints的metadata区域的内容要和Service保持一致，并且将Service的clusterIP设置为None。</p>
-<p>在Endpoints的subsets中填写etcd的地址，如果是集群，则在addresses属性下面添加多个地址。</p>
-<p>创建Service, Endpoints资源：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f prometheus-etcdService.yaml </span><br><span class="line">service/etcd-k8s created</span><br><span class="line">endpoints/etcd-k8s created</span><br></pre></td></tr></table></figure>
 
-<img src="/2019/12/%E5%9C%A8Prometheus-Operator%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E9%A1%B9%EF%BC%8C%E7%9B%91%E6%8E%A7etcd%E9%9B%86%E7%BE%A4/1576154696810.png" class="">
+    
 
-<p>采集到数据以后，在Grafana中导入编号为3070的Dashboard。</p>
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/12/%E8%A7%A3%E5%86%B3Failed-to-load-module-canberra-gtk-module%E9%94%99%E8%AF%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/12/%E8%A7%A3%E5%86%B3Failed-to-load-module-canberra-gtk-module%E9%94%99%E8%AF%AF/" class="post-title-link" itemprop="url">解决Failed to load module canberra-gtk-module错误</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-20 23:11:09" itemprop="dateCreated datePublished" datetime="2019-12-20T23:11:09+08:00">2019-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OS/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/12/%E8%A7%A3%E5%86%B3Failed-to-load-module-canberra-gtk-module%E9%94%99%E8%AF%AF/" class="post-meta-item leancloud_visitors" data-flag-title="解决Failed to load module canberra-gtk-module错误" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/12/%E8%A7%A3%E5%86%B3Failed-to-load-module-canberra-gtk-module%E9%94%99%E8%AF%AF/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/12/%E8%A7%A3%E5%86%B3Failed-to-load-module-canberra-gtk-module%E9%94%99%E8%AF%AF/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在Ubuntu环境里，运行程序时，报错：</p>
+<img src="/2019/12/%E8%A7%A3%E5%86%B3Failed-to-load-module-canberra-gtk-module%E9%94%99%E8%AF%AF/1576805206947.png" class="">
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Gtk-Message: 09:10:26.571: Failed to load module &quot;canberra-gtk-module&quot;</span><br></pre></td></tr></table></figure>
+
+<p>查看一下模块位置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">locate libcanberra-gtk-module</span><br><span class="line">/usr/lib/x86_64-linux-gnu/gtk-3.0/modules/libcanberra-gtk-module.so</span><br></pre></td></tr></table></figure>
+
+<p>发现已经安装了，却加载不了。</p>
+<p>重新安装一下吧。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libcanberra-gtk-module</span><br><span class="line">[sudo] password for simon: </span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">The following additional packages will be installed:</span><br><span class="line">  libcanberra-gtk0</span><br><span class="line">The following NEW packages will be installed:</span><br><span class="line">  libcanberra-gtk-module libcanberra-gtk0</span><br><span class="line">0 upgraded, 2 newly installed, 0 to remove and 175 not upgraded.</span><br><span class="line">Need to get 17.8 kB of archives.</span><br><span class="line">After this operation, 92.2 kB of additional disk space will be used.</span><br><span class="line">Do you want to continue? [Y/n] y</span><br></pre></td></tr></table></figure>
+
+<p>安装成功，再次启动程序，就不会报错了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">Ubuntu环境搭建Go语言开发环境</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-20 23:06:52" itemprop="dateCreated datePublished" datetime="2019-12-20T23:06:52+08:00">2019-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Golang/" itemprop="url" rel="index"><span itemprop="name">Golang</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu环境搭建Go语言开发环境" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="下载Golang安装文件"><a href="#下载Golang安装文件" class="headerlink" title="下载Golang安装文件"></a>下载Golang安装文件</h1><p>官方下载页面：<a target="_blank" rel="noopener" href="https://golang.org/dl/">https://golang.org/dl/</a></p>
+<p>也可以到国内下载地址下载：<a target="_blank" rel="noopener" href="https://studygolang.com/dl">https://studygolang.com/dl</a></p>
+<p>我下载的版本是go1.12.14，下载到<code>/usr/local/go1.12.14.linux-amd64.tar.gz</code></p>
+<h1 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -zxvf go1.12.14.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h1 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/bash.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>在文件末尾添加如下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">go</span></span><br><span class="line">export GOROOT=/usr/local/go/ # golang installation path</span><br><span class="line">export GOPATH=/usr/local/development/gopath # go working path</span><br><span class="line">export GOBIN=$GOPATH/bin/</span><br><span class="line">export PATH=$GOBIN:$GOROOT/bin:$PATH</span><br></pre></td></tr></table></figure>
+
+<p>使配置生效</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/bash.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>安装成功，查看go版本信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go version</span><br><span class="line">go version go1.12.14 linux/amd64</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装intellij-Go插件"><a href="#安装intellij-Go插件" class="headerlink" title="安装intellij Go插件"></a>安装intellij Go插件</h1><p>如果在线下载不了，可以进入<code>https://plugins.jetbrains.com/plugin/9568-go</code>下载，注意选择对应的版本。</p>
+<p>进入Configure -&gt; Settings -&gt; Plugings -&gt; Install Plugin from Disk…，选择刚才下载好的插件安装。</p>
+<p>安装成功后，如下图所示，重启IDEA。</p>
+<img src="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/1576726075818.png" class="">
+
+<h1 id="设置go语言sdk"><a href="#设置go语言sdk" class="headerlink" title="设置go语言sdk"></a>设置go语言sdk</h1><p>Configure -&gt; Settings -&gt; Language &amp; Frameworks -&gt; Go</p>
+<img src="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/1576726632660.png" class="">
+
+<h1 id="设置GOPATH"><a href="#设置GOPATH" class="headerlink" title="设置GOPATH"></a>设置GOPATH</h1><img src="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/1576726942195.png" class="">
+
+<p>从本地，或者git上面导入工程代码。</p>
+<h1 id="配置GO依赖代理"><a href="#配置GO依赖代理" class="headerlink" title="配置GO依赖代理"></a>配置GO依赖代理</h1><p>如果在网络受限的情况下，可能是需要设置GO依赖代理的。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">go proxy</span></span><br><span class="line">export GO111MODULE=on</span><br><span class="line">export GOPROXY=https://goproxy.io</span><br></pre></td></tr></table></figure>
+
+<p>如果公司有启用go代理的话，则把GOPROXY设置成相应的地址就行了。</p>
+<p>当执行go build或go run时，依赖包会自动下载到<code>$GOPATH/pkg/mod</code>下面。</p>
+<h1 id="设置git代理"><a href="#设置git代理" class="headerlink" title="设置git代理"></a>设置git代理</h1><p>如果网络受限不能访问github.com，那还需要设置git代理。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global url.&quot;http://&lt;server-address&gt;/&quot;.insteadOf &quot;git@github.com:&quot;</span><br></pre></td></tr></table></figure>
+
+<p>设置好以后，查看结果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.gitconfig</span><br><span class="line">[url &quot;http://&lt;server-address&gt;/&quot;]</span><br><span class="line">	insteadOf = git@github.com:</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global -l</span><br><span class="line">url.http://&lt;server-address&gt;/.insteadof=git@github.com:</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -601,7 +605,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/86/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/86/">86</a><span class="page-number current">87</span><a class="page-number" href="/page/88/">88</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/88/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/86/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/86/">86</a><span class="page-number current">87</span><a class="page-number" href="/page/88/">88</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/88/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">380</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +238,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/" class="post-title-link" itemprop="url">Grafana安装及持久化</a>
+          <a href="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">Grafana各类指标理解</a>
         </h2>
 
         <div class="post-meta-container">
@@ -249,7 +249,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-03-08 22:30:41" itemprop="dateCreated datePublished" datetime="2020-03-08T22:30:41+08:00">2020-03-08</time>
+      <time title="创建时间：2020-03-13 23:14:36" itemprop="dateCreated datePublished" datetime="2020-03-13T23:14:36+08:00">2020-03-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -273,7 +273,7 @@
     </span>
 
   
-    <span id="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/" class="post-meta-item leancloud_visitors" data-flag-title="Grafana安装及持久化" title="阅读次数">
+    <span id="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/" class="post-meta-item leancloud_visitors" data-flag-title="Grafana各类指标理解" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -288,8 +288,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -303,57 +303,42 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>这篇文章主要讲解在kubernetes集群中如何安装Grafana和持久化Grafana数据。</p>
-<p>使用的镜像是<code>image: grafana/grafana:6.3.3</code></p>
-<p>安装Grafana使用的yaml文件是安装<code>kube-prometheus</code>里面的。安装 <code>kube-prometheus</code>，请参考 <a href="/2019/12/Kubernetes%E7%9B%91%E6%8E%A7%E6%96%B9%E6%A1%88kube-prometheus-prometheus-node-exporter-grafana/" title="Kubernetes监控方案kube-prometheus(prometheus, node-exporter, grafana)">Kubernetes监控方案kube-prometheus(prometheus, node-exporter, grafana)</a></p>
-<p>不过需要对<code>grafana/grafana-deployment.yaml</code>做一些自定义化的修改。</p>
-<h1 id="设置管理员"><a href="#设置管理员" class="headerlink" title="设置管理员"></a>设置管理员</h1><p>在<code>containers</code>下级添加<code>GF_SECURITY_ADMIN_USER</code>和<code>GF_SECURITY_ADMIN_PASSWORD</code>，用来配置 grafana 的管理员用户和密码</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">image:</span> <span class="string">grafana/grafana:6.3.3</span></span><br><span class="line">    <span class="string">...</span></span><br><span class="line">    <span class="attr">env:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_SECURITY_ADMIN_USER</span></span><br><span class="line">      <span class="attr">value:</span> <span class="string">admin</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_SECURITY_ADMIN_PASSWORD</span></span><br><span class="line">      <span class="attr">value:</span> <span class="string">&quot;123456&quot;</span></span><br></pre></td></tr></table></figure>
+          <p>今天来梳理一下Grafana图表及其后面的公式。</p>
+<h1 id="Kubernetes-Compute-Resources-Cluster"><a href="#Kubernetes-Compute-Resources-Cluster" class="headerlink" title="Kubernetes &#x2F; Compute Resources &#x2F; Cluster"></a>Kubernetes &#x2F; Compute Resources &#x2F; Cluster</h1><h2 id="CPU-Utilisation"><a href="#CPU-Utilisation" class="headerlink" title="CPU Utilisation"></a>CPU Utilisation</h2><img src="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/cluster-cpu.png" class="">
 
-<p>如果要设置Grafana的匿名登录，请参考<a href="/2019/12/Grafana%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95Kubernetes%E8%AE%BE%E7%BD%AE/" title="Grafana匿名登录Kubernetes设置">Grafana匿名登录Kubernetes设置</a></p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_AUTH_ANONYMOUS_ENABLED</span></span><br><span class="line">  <span class="attr">value:</span> <span class="string">&quot;true&quot;</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_AUTH_ANONYMOUS_ORG_ROLE</span></span><br><span class="line">  <span class="attr">value:</span> <span class="string">Viewer</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 - avg(rate(node_cpu_seconds_total&#123;mode=&quot;idle&quot;, cluster=&quot;&quot;&#125;[1m]))</span><br></pre></td></tr></table></figure>
 
-<h1 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h1><p>原始的数据是以<code>emptyDir</code>形式存放在pod里面，生命周期与pod相同，出现问题时，容器重启，在Grafana里面设置的数据就全部消失了。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  <span class="attr">volumeMounts:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">mountPath:</span> <span class="string">/var/lib/grafana</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">grafana-storage</span></span><br><span class="line">    <span class="attr">readOnly:</span> <span class="literal">false</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">emptyDir:</span> &#123;&#125;</span><br><span class="line">  <span class="attr">name:</span> <span class="string">grafana-storage</span></span><br></pre></td></tr></table></figure>
+<p>在prometheus上面查询指标</p>
+<p><code>node_cpu_seconds_total&#123;mode=&quot;idle&quot;&#125;</code></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">node_cpu_seconds_total&#123;cpu=&quot;0&quot;,endpoint=&quot;https&quot;,instance=&quot;k8s-master&quot;,job=&quot;node-exporter&quot;,mode=&quot;idle&quot;,namespace=&quot;monitoring&quot;,pod=&quot;node-exporter-t9ljw&quot;,service=&quot;node-exporter&quot;&#125;	3102.08</span><br><span class="line">node_cpu_seconds_total&#123;cpu=&quot;0&quot;,endpoint=&quot;https&quot;,instance=&quot;k8s-node1&quot;,job=&quot;node-exporter&quot;,mode=&quot;idle&quot;,namespace=&quot;monitoring&quot;,pod=&quot;node-exporter-7vq8n&quot;,service=&quot;node-exporter&quot;&#125;	3046.73</span><br><span class="line">node_cpu_seconds_total&#123;cpu=&quot;0&quot;,endpoint=&quot;https&quot;,instance=&quot;k8s-node2&quot;,job=&quot;node-exporter&quot;,mode=&quot;idle&quot;,namespace=&quot;monitoring&quot;,pod=&quot;node-exporter-vg596&quot;,service=&quot;node-exporter&quot;&#125;	3069.61</span><br><span class="line">node_cpu_seconds_total&#123;cpu=&quot;1&quot;,endpoint=&quot;https&quot;,instance=&quot;k8s-master&quot;,job=&quot;node-exporter&quot;,mode=&quot;idle&quot;,namespace=&quot;monitoring&quot;,pod=&quot;node-exporter-t9ljw&quot;,service=&quot;node-exporter&quot;&#125;	3096.23</span><br></pre></td></tr></table></figure>
 
-<p>可以看出Grafana将dashboard、插件这些数据保存在&#x2F;var&#x2F;lib&#x2F;grafana这个目录下面。做持久化的话，就需要对这个目录进行volume挂载声明。</p>
-<p>把emptyDir修改为pvc方式。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">grafana-storage</span></span><br><span class="line">  <span class="attr">persistentVolumeClaim:</span></span><br><span class="line">    <span class="attr">claimName:</span> <span class="string">grafana</span></span><br></pre></td></tr></table></figure>
+<p>所以CPU Utilisation算的是各节点CPU利用率的平均值。</p>
+<p>job&#x3D;”node-exporter”</p>
+<h2 id="CPU-Usage"><a href="#CPU-Usage" class="headerlink" title="CPU Usage"></a>CPU Usage</h2><img src="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/cpu-usage-by-namespace.png" class="">
 
-<p>如果要使用一个 pvc 对象来持久化数据，我们就需要添加一个可用的 pv 供 pvc 绑定使用，<code>grafana-volume.yaml</code>内容如下：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolume</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">grafana</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">capacity:</span></span><br><span class="line">    <span class="attr">storage:</span> <span class="string">1Gi</span></span><br><span class="line">  <span class="attr">accessModes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ReadWriteOnce</span></span><br><span class="line">  <span class="attr">persistentVolumeReclaimPolicy:</span> <span class="string">Recycle</span></span><br><span class="line">  <span class="attr">nfs:</span></span><br><span class="line">    <span class="attr">server:</span> <span class="number">172.16</span><span class="number">.64</span><span class="number">.233</span></span><br><span class="line">    <span class="attr">path:</span> <span class="string">/data/nfs</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolumeClaim</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">grafana</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">monitoring</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">accessModes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ReadWriteOnce</span></span><br><span class="line">  <span class="attr">resources:</span></span><br><span class="line">    <span class="attr">requests:</span></span><br><span class="line">      <span class="attr">storage:</span> <span class="string">1Gi</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;cluster=&quot;&quot;&#125;) by (namespace)</span><br></pre></td></tr></table></figure>
 
-<p>暴露Service的方法，在安装 kube-prometheus 的时候已经讲过了。<a href="/2019/12/Kubernetes%E7%9B%91%E6%8E%A7%E6%96%B9%E6%A1%88kube-prometheus-prometheus-node-exporter-grafana/" title="Kubernetes监控方案kube-prometheus(prometheus, node-exporter, grafana)">Kubernetes监控方案kube-prometheus(prometheus, node-exporter, grafana)</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl apply -f grafana-volume.yaml</span></span><br><span class="line">persistentvolume/grafana created</span><br><span class="line">persistentvolumeclaim/grafana created</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl apply -f grafana-deployment.yaml</span></span><br><span class="line">deployment.apps/grafana configured</span><br></pre></td></tr></table></figure>
+<p>在prometheus上面查询指标</p>
+<p><code>namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;cluster=&quot;&quot;&#125;</code></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;addon-resizer&quot;,namespace=&quot;monitoring&quot;,pod=&quot;kube-state-metrics-65d5b4b99d-llrjd&quot;&#125;	0.00022111388787432652</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;alertmanager&quot;,namespace=&quot;monitoring&quot;,pod=&quot;alertmanager-main-0&quot;&#125;	0.00275714828677409</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;alertmanager&quot;,namespace=&quot;monitoring&quot;,pod=&quot;alertmanager-main-1&quot;&#125;	0.0029093557196228424</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;alertmanager&quot;,namespace=&quot;monitoring&quot;,pod=&quot;alertmanager-main-2&quot;&#125;	0.0027905491021107728</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;calico-kube-controllers&quot;,namespace=&quot;kube-system&quot;,pod=&quot;calico-kube-controllers-5598cf8794-8mgdz&quot;&#125;	0.0009434578301088127</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;calico-node&quot;,namespace=&quot;kube-system&quot;,pod=&quot;calico-node-jtvh8&quot;&#125;	0.017518785546616542</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;calico-node&quot;,namespace=&quot;kube-system&quot;,pod=&quot;calico-node-k6m8t&quot;&#125;	0.022689515968190806</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;calico-node&quot;,namespace=&quot;kube-system&quot;,pod=&quot;calico-node-rb9qx&quot;&#125;	0.01819155156978804</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;config-reloader&quot;,namespace=&quot;monitoring&quot;,pod=&quot;alertmanager-main-0&quot;&#125;	0.0000029602042055748096</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;config-reloader&quot;,namespace=&quot;monitoring&quot;,pod=&quot;alertmanager-main-1&quot;&#125;	0.0000024442638833786885</span><br></pre></td></tr></table></figure>
 
-<p>查看 pod 状态：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl get po -n monitoring</span></span><br><span class="line">NAME                                  READY   STATUS              RESTARTS   AGE</span><br><span class="line">...</span><br><span class="line">grafana-6668cd66cb-ff8kg              0/1     ContainerCreating   0          2m32s</span><br></pre></td></tr></table></figure>
+<h2 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(container_memory_rss&#123;cluster=&quot;&quot;, container!=&quot;&quot;&#125;) by (namespace)</span><br></pre></td></tr></table></figure>
 
-<p>进一步查看描述信息：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl describe po grafana-6668cd66cb-ff8kg -n monitoring</span></span><br><span class="line">Events:</span><br><span class="line">  Type     Reason       Age    From                Message</span><br><span class="line">  ----     ------       ----   ----                -------</span><br><span class="line">  Normal   Scheduled    3m57s  default-scheduler   Successfully assigned monitoring/grafana-6668cd66cb-ff8kg to k8s-node2</span><br><span class="line">  Warning  FailedMount  3m54s  kubelet, k8s-node2  MountVolume.SetUp failed for volume &quot;grafana&quot; : mount failed: exit status 32</span><br><span class="line">Mounting command: systemd-run</span><br><span class="line">Mounting arguments: --description=Kubernetes transient mount for /var/lib/kubelet/pods/fc4d98ef-0b80-4570-a487-4ded9133eb58/volumes/kubernetes.io~nfs/grafana --scope -- mount -t nfs 172.16.64.233:/data/nfs /var/lib/kubelet/pods/fc4d98ef-0b80-4570-a487-4ded9133eb58/volumes/kubernetes.io~nfs/grafana</span><br><span class="line">Output: Running scope as unit run-54024.scope.</span><br><span class="line">mount: wrong fs type, bad option, bad superblock on 172.16.64.233:/data/nfs,</span><br><span class="line">       missing codepage or helper program, or other error</span><br><span class="line">       (for several filesystems (e.g. nfs, cifs) you might</span><br><span class="line">       need a /sbin/mount.&lt;type&gt; helper program)</span><br><span class="line"></span><br><span class="line">       In some cases useful info is found in syslog - try</span><br><span class="line">       dmesg | tail or so.</span><br><span class="line">  Warning  FailedMount  3m53s  kubelet, k8s-node2  MountVolume.SetUp failed for volume &quot;grafana&quot; : mount failed: exit status 32</span><br></pre></td></tr></table></figure>
+<p>在prometheus上面查询指标</p>
+<p><code>container_memory_rss</code></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">container_memory_rss&#123;container=&quot;POD&quot;,container_name=&quot;POD&quot;,endpoint=&quot;https-metrics&quot;,id=&quot;/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod1a047e8b0c961b34e915140fc2a8711c.slice/docker-20e1377aeb77873fcf4ac5e4380d47f28c0f594773ba047442b00dfc6f116837.scope&quot;,image=&quot;k8s.gcr.io/pause:3.1&quot;,instance=&quot;172.16.64.233:10250&quot;,job=&quot;kubelet&quot;,name=&quot;k8s_POD_etcd-k8s-master_kube-system_1a047e8b0c961b34e915140fc2a8711c_14&quot;,namespace=&quot;kube-system&quot;,node=&quot;k8s-master&quot;,pod=&quot;etcd-k8s-master&quot;,pod_name=&quot;etcd-k8s-master&quot;,service=&quot;kubelet&quot;&#125;	45056</span><br><span class="line">container_memory_rss&#123;container=&quot;POD&quot;,container_name=&quot;POD&quot;,endpoint=&quot;https-metrics&quot;,id=&quot;/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod31622d49_04a8_4a95_8b80_736012e85215.slice/docker-c4e100bf3571c0fa25537cbd0ea7839bf2fd1486462a7b2626a552dfcf7503ec.scope&quot;,image=&quot;k8s.gcr.io/pause:3.1&quot;,instance=&quot;172.16.64.232:10250&quot;,job=&quot;kubelet&quot;,name=&quot;k8s_POD_nginx-deployment-6f89946645-pwpf7_default_31622d49-04a8-4a95-8b80-736012e85215_13&quot;,namespace=&quot;default&quot;,node=&quot;k8s-node1&quot;,pod=&quot;nginx-deployment-6f89946645-pwpf7&quot;,pod_name=&quot;nginx-deployment-6f89946645-pwpf7&quot;,service=&quot;kubelet&quot;&#125;	45056</span><br></pre></td></tr></table></figure>
 
-<p>说明是 mount 失败了。原因是我们需要在每个节点，都要安装 NFS 客户端。在生产环境下，如何批量操作 terminal 终端？请参考：<a href="/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/" title="批量操作Shell终端">批量操作Shell终端</a></p>
-<p>在每个node下面都安装好NFS客户端以后，删除掉出错的 pod。</p>
-<p>查看 pod:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po -n monitoring</span><br><span class="line">NAME                                  READY   STATUS             RESTARTS   AGE</span><br><span class="line">grafana-6668cd66cb-jrnjv              0/1     CrashLoopBackOff   4          2m53s</span><br></pre></td></tr></table></figure>
+<p>job&#x3D;”kubelet”</p>
+<h1 id="Kubernetes-Compute-Resources-Namespace-Pods"><a href="#Kubernetes-Compute-Resources-Namespace-Pods" class="headerlink" title="Kubernetes &#x2F; Compute Resources &#x2F; Namespace (Pods)"></a>Kubernetes &#x2F; Compute Resources &#x2F; Namespace (Pods)</h1><img src="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/cpu-usage-by-pod.png" class="">
 
-<p>没有正常启动，我们再看一下这个 Pod 的日志：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl logs grafana-6668cd66cb-jrnjv -n monitoring</span></span><br><span class="line">GF_PATHS_DATA=&#x27;/var/lib/grafana&#x27; is not writable.</span><br><span class="line">You may have issues with file permissions, more information here: http://docs.grafana.org/installation/docker/#migration-from-a-previous-version-of-the-docker-container-to-5-1-or-later</span><br><span class="line">mkdir: cannot create directory &#x27;/var/lib/grafana/plugins&#x27;: Permission denied</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;cluster=&quot;&quot;, namespace=&quot;monitoring&quot;&#125;) by (pod)</span><br></pre></td></tr></table></figure>
 
-<p>这个错误是 Grafana 5.1版本以后才会出现的。错误的原因很明显，就是 <code>/var/lib/grafana</code> 目录的权限不够。</p>
-<p>在 &#96;&#96; 中有这样一个属性：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">securityContext:</span></span><br><span class="line">  <span class="attr">runAsNonRoot:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">runAsUser:</span> <span class="number">65534</span></span><br></pre></td></tr></table></figure>
+<h1 id="Kubernetes-Compute-Resources-Pod"><a href="#Kubernetes-Compute-Resources-Pod" class="headerlink" title="Kubernetes &#x2F; Compute Resources &#x2F; Pod"></a>Kubernetes &#x2F; Compute Resources &#x2F; Pod</h1><img src="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/cpu-by-container.png" class="">
 
-<p>我们查看一下<code>65534</code>是哪个用户：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cat</span> /etc/passwd | grep 65534</span></span><br><span class="line">nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin</span><br></pre></td></tr></table></figure>
-
-<p>所以，你只需要把 <code>/data/nfs</code> 目录的用户改为 <code>nfsnobody</code> 就可以了。当然把属性改为 <code>777</code> 也没问题。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown nfsnobody /data/nfs</span><br></pre></td></tr></table></figure>
-
-<p>把刚才出错的那个 Pod 删除，新的  Grafana Pod 就成功启动了。</p>
-<img src="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/grafana-home.png" class="">
-
-<p>然后可以添加 Dashboard 了，哪怕 Pod 重建也不会丢失数据了。</p>
+<p>显示各个选中Pod中，各个Container的状态。</p>
+<p>sum(namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{namespace&#x3D;”default”, pod&#x3D;”nginx-deployment-6f89946645-pwpf7”, container!&#x3D;”POD”, cluster&#x3D;””}) by (container)</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><p>现在的逻辑就是要把container的指标打上pod的标签</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">&#x27;kubernetes-cadvisor&#x27;</span></span><br><span class="line">  <span class="attr">scheme:</span> <span class="string">https</span></span><br><span class="line">  <span class="attr">tls_config:</span></span><br><span class="line">    <span class="attr">ca_file:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/ca.crt</span></span><br><span class="line">  <span class="attr">bearer_token_file:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line">  <span class="attr">kubernetes_sd_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">node</span></span><br><span class="line">  <span class="attr">relabel_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">target_label:</span> <span class="string">__address__</span></span><br><span class="line">    <span class="attr">replacement:</span> <span class="string">kubernetes.default.svc:443</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__meta_kubernetes_node_name</span>]</span><br><span class="line">    <span class="attr">regex:</span> <span class="string">(.+)</span></span><br><span class="line">    <span class="attr">replacement:</span> <span class="string">/api/v1/nodes/$&#123;1&#125;/proxy/metrics/cadvisor</span></span><br><span class="line">    <span class="attr">target_label:</span> <span class="string">__metrics_path__</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">action:</span> <span class="string">labelmap</span></span><br><span class="line">    <span class="attr">regex:</span> <span class="string">__meta_kubernetes_node_label_(.+)</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -380,7 +365,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -398,7 +383,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/" class="post-title-link" itemprop="url">批量操作Shell终端</a>
+          <a href="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">Springboot使用profiles区分环境</a>
         </h2>
 
         <div class="post-meta-container">
@@ -409,7 +394,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-03-08 20:05:15" itemprop="dateCreated datePublished" datetime="2020-03-08T20:05:15+08:00">2020-03-08</time>
+      <time title="创建时间：2020-03-13 23:07:32" itemprop="dateCreated datePublished" datetime="2020-03-13T23:07:32+08:00">2020-03-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -424,16 +409,16 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/SSH/" itemprop="url" rel="index"><span itemprop="name">SSH</span></a>
+          <a href="/categories/Java/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/" class="post-meta-item leancloud_visitors" data-flag-title="批量操作Shell终端" title="阅读次数">
+    <span id="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="Springboot使用profiles区分环境" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -448,8 +433,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -463,12 +448,26 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在生产环境，往往有几十上百台服务器要同时操作，如何同时控制这么多服务器呢？</p>
-<h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><p>在Windows环境下，可以使用XShell。</p>
-<p>点击<code>工具(T)</code>-&gt;<code>发送键到所有会话(K)</code></p>
-<img src="/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/xshell-command-all.png" class="">
+          <p>配置文件，格式一般为<code>application-&#123;profile&#125;.yaml</code>。</p>
+<ul>
+<li>application.yaml</li>
+<li>application-dev.yaml</li>
+<li>application-prod.yaml</li>
+</ul>
+<p>未指定任何profile时，会默认加载<code>application.yaml</code>配置文件。</p>
+<p>所以，与环境无关的属性配置，都应该放到<code>application.yaml</code>文件中，与环境有关的，则放到相应的其他配置文件中。</p>
+<h1 id="激活profile"><a href="#激活profile" class="headerlink" title="激活profile"></a>激活profile</h1><h2 id="在application-yaml文件里面指定。"><a href="#在application-yaml文件里面指定。" class="headerlink" title="在application.yaml文件里面指定。"></a>在<code>application.yaml</code>文件里面指定。</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h1><p>可以使用 iTerm2 终端工具，快捷键是<code>Command + Shift + I</code>。然后 iTerm2 窗口会出现背景斜条纹。</p>
+<h2 id="在IDEA里面修改"><a href="#在IDEA里面修改" class="headerlink" title="在IDEA里面修改"></a>在IDEA里面修改</h2><p>编辑配置</p>
+<h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>在<code>Environment</code>下<code>VM options</code>这一栏里面填入：<code>-Dspring.profiles.active=dev</code>。</p>
+<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p>在<code>Environment</code>下<code>Program arguments</code>这一栏里面填入： <code>--spring-profiles-active=dev</code>。</p>
+<h3 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h3><p>在<code>Spring boot</code>下<code>Active profiles</code>这一栏里面填入：<code>dev</code></p>
+<img src="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/active-profile.png" class="">
+
+<h2 id="运行jar时指定参数"><a href="#运行jar时指定参数" class="headerlink" title="运行jar时指定参数"></a>运行jar时指定参数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar demo.jar --spring.profiles.active=dev</span><br></pre></td></tr></table></figure>
+
+<p>运行后，console里面会提示本次运行，是用到了哪个配置文件覆盖或追加了最基本的<code>application.yaml</code>文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[18:25:42.127] INFO  org.springframework.boot.SpringApplication 679 logStartupProfileInfo - The following profiles </span><br><span class="line">are active: dev</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -495,7 +494,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -513,7 +512,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/" class="post-title-link" itemprop="url">Kubernetes持久化存储PV,PVC</a>
+          <a href="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">会计基础</a>
         </h2>
 
         <div class="post-meta-container">
@@ -524,7 +523,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-03-08 19:35:45" itemprop="dateCreated datePublished" datetime="2020-03-08T19:35:45+08:00">2020-03-08</time>
+      <time title="创建时间：2020-03-10 23:29:23" itemprop="dateCreated datePublished" datetime="2020-03-10T23:29:23+08:00">2020-03-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -539,16 +538,12 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/PV/" itemprop="url" rel="index"><span itemprop="name">PV</span></a>
+          <a href="/categories/%E8%B4%A2%E5%8A%A1/" itemprop="url" rel="index"><span itemprop="name">财务</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/" class="post-meta-item leancloud_visitors" data-flag-title="Kubernetes持久化存储PV,PVC" title="阅读次数">
+    <span id="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/" class="post-meta-item leancloud_visitors" data-flag-title="会计基础" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -563,8 +558,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -578,53 +573,54 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>我们可以通过hostPath或者emptyDir的方式来持久化数据。但这两种存储方式都是很大局限性的。我们希望容器在重建以后，依然能正确使用之前保存的数据。Kubernetes引入了PV和PVC两个重要的资源来实现对存储的管理。</p>
-<h1 id="PV"><a href="#PV" class="headerlink" title="PV"></a>PV</h1><p>PersistentVolume，持久化卷，是对底层共享存储的一种抽象。底层共享的实现，可以是Ceph, GlusterFS, NFS等。</p>
-<p>我们在<a href="/2020/03/CentOS%E4%B8%8A%E6%90%AD%E5%BB%BANFS%E6%9C%8D%E5%8A%A1/" title="CentOS上搭建NFS服务">CentOS上搭建NFS服务</a>讲了如何搭建NFS服务。PV作为存储资源，主要包括存储能力、访问模式、存储类型、回收策略等关键信息。</p>
-<p>现在新建一个PV资源对象，使用NFS类型的存储，1G空间，访问模式为ReadWriteOnce，回收策略为Recycle，yaml文件<code>pv1-demo.yaml</code>内容如下：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolume</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span>  <span class="string">pv1</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">capacity:</span> </span><br><span class="line">    <span class="attr">storage:</span> <span class="string">1Gi</span></span><br><span class="line">  <span class="attr">accessModes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ReadWriteOnce</span></span><br><span class="line">  <span class="attr">persistentVolumeReclaimPolicy:</span> <span class="string">Recycle</span></span><br><span class="line">  <span class="attr">nfs:</span></span><br><span class="line">    <span class="attr">path:</span> <span class="string">/data/nfs</span></span><br><span class="line">    <span class="attr">server:</span> <span class="number">172.16</span><span class="number">.64</span><span class="number">.233</span></span><br></pre></td></tr></table></figure>
+          <img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image001.png" class="">
 
-<p>应用一下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl apply -f pv1-demo.yaml</span></span><br><span class="line">persistentvolume/pv1 created</span><br></pre></td></tr></table></figure>
+<p>会计是干嘛的——目标：提供信息（核算监督是过程）</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image002.png" class="">
 
-<p>查看刚才创建的结果</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl get pv</span></span><br><span class="line">NAME   CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE</span><br><span class="line">pv1    1Gi        RWO            Recycle          Available                                   82s</span><br></pre></td></tr></table></figure>
+<p>财务状况——“富”（有钱）</p>
+<p>经营成果——“高”（利润高不高，能赚钱）</p>
+<p>现金流量——“帅”（舍不舍得花钱）</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image003.png" class="">
 
-<p>Status状态为Available，表示pv1已经就绪，可以被PVC申请了。</p>
-<p>这里讲一下PV的几个属性</p>
-<h2 id="STATUS"><a href="#STATUS" class="headerlink" title="STATUS"></a>STATUS</h2><p>一个 PV 的生命周期中，可能会处于4中不同的阶段：</p>
-<ul>
-<li>Available（可用）：表示可用状态，还未被任何 PVC 绑定</li>
-<li>Bound（已绑定）：表示 PVC 已经被 PVC 绑定</li>
-<li>Released（已释放）：PVC 被删除，但是资源还未被集群重新声明</li>
-<li>Failed（失败）： 表示该 PV 的自动回收失败</li>
-</ul>
-<h2 id="CAPACITY"><a href="#CAPACITY" class="headerlink" title="CAPACITY"></a>CAPACITY</h2><p>目前只有空间大小，pv1的空间为1G，以后可能会加入IOPS，吞吐量等指标。</p>
-<h2 id="ACCESS-MODES"><a href="#ACCESS-MODES" class="headerlink" title="ACCESS MODES"></a>ACCESS MODES</h2><p>AccessModes是用来对PV进行访问模式的设置。</p>
-<ul>
-<li>ReadWriteOnce（RWO）：读写权限，但是只能被单个节点挂载</li>
-<li>ReadOnlyMany（ROX）：只读权限，可以被多个节点挂载</li>
-<li>ReadWriteMany（RWX）：读写权限，可以被多个节点挂载</li>
-</ul>
-<h2 id="RECLAIM-POLICY"><a href="#RECLAIM-POLICY" class="headerlink" title="RECLAIM POLICY"></a>RECLAIM POLICY</h2><p>回收策略</p>
-<ul>
-<li>Retain（保留）- 保留数据，需要管理员手工清理数据</li>
-<li>Recycle（回收）- 清除PV中的数据，效果相当于执行 rm -rf &#x2F;thevoluem&#x2F;*</li>
-<li>Delete（删除）- 与PV相连的后端存储完成volume的删除操作</li>
-</ul>
-<p>生产上一般使用Retain策略。</p>
-<h1 id="PVC"><a href="#PVC" class="headerlink" title="PVC"></a>PVC</h1><p>PersistentVolumeClaim，持久化卷声明。如果说Pod消耗的是Node资源的话，PVC则是消耗的PV资源，Pod可以请求CPU和内存，而PVC可以请求特定的存储空间和访问模式。</p>
-<p>我们新建一个PVC，请求1G的空间，<code>pvc-nfs.yaml</code>内容如下：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolumeClaim</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">pvc-nfs</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">accessModes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ReadWriteOnce</span></span><br><span class="line">  <span class="attr">resources:</span></span><br><span class="line">    <span class="attr">requests:</span></span><br><span class="line">      <span class="attr">storage:</span> <span class="string">1Gi</span></span><br></pre></td></tr></table></figure>
+<p>财务状况——资产负债表</p>
+<p>经营成果——利润表</p>
+<p>现金流量——现金流量表</p>
+<p>1.资产负债表——基于 资产&#x3D;负债+所有者权益 编制</p>
+<p>反映静态（时点）要素</p>
+<p>如果一个人有2000万的别墅，买别墅的钱，其中70%是借来的，另外30%是爹妈给的。2000万中的1400万是借来的，要还的，是负债，另外600万是爹妈给的，是权益，不用还。</p>
+<p>等式左边资产是资金占用，右边是资金的来源。资产负债表也是这样。</p>
+<p>资产负债表需要区分资产和负债，除了这些就是权益。</p>
+<p>名称中有“应收”“投资”“资产”大多数是资产，资产是一种资源。资产是将资源进行分类。</p>
+<p>名称中有“应付”“应交”“负债”基本是负债。</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image004.png" class="">
 
-<p>这里需要注册的是，PV是没有namespace的，而PVC是有namespace的。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl apply -f pvc-nfs.yaml</span></span><br><span class="line">persistentvolumeclaim/pvc-nfs created</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl get pvc</span></span><br><span class="line">NAME      STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE</span><br><span class="line">pvc-nfs   Bound    pv1      1Gi        RWO                           3m22s</span><br></pre></td></tr></table></figure>
+<p>资产&#x3D;负债+所有者权益+（收入-费用），收入和费用影响权益，从而影响资产</p>
+<p>2.利润表——收入-费用&#x3D;利润（动态、过程）</p>
+<p>利润表中有三种利润：营业利润、利润总额、净利润</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image005.png" class="">
 
-<p>PVC已经是<code>Bound</code>状态了。我们再查看一个PV的状态，发现也是<code>Bound</code>状态了。对应的声明是<code>default/pvc-nfs</code>，就是<code>default</code>命名空间下面的<code>pvc-nfs</code>。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl get pv</span></span><br><span class="line">NAME   CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM             STORAGECLASS   REASON   AGE</span><br><span class="line">pv1    1Gi        RWO            Recycle          Bound    default/pvc-nfs                           48m</span><br></pre></td></tr></table></figure>
+<p>营业外收入（例捐赠、捡钱、中彩票）、营业外支出（例自然灾害）不影响营业利润。</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image006.png" class="">
 
-<p>这里可能觉得奇怪，我们并没有在 yaml 文件里面指定 PVC 和 PV 的关系，他们怎么可能绑定到一起呢？其实这是系统自动帮我们去匹配的，他会根据我们的声明要求去查找处于 Available 状态的 PV，如果没有找到的话那么我们的 PVC 就会一直处于 Pending 状态，找到了的话当然就会把当前的 PVC 和目标 PV 进行绑定，这个时候状态就会变成 Bound 状态了。</p>
-<p>如果使用PVC，可以参考<a href="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/" title="Grafana安装及持久化">Grafana安装及持久化</a></p>
+<p>影响营业利润的项目：1（营业收入）、2（营业成本、税金及附加）、4（4个费用）、2（2个减值损失）、4（4个收益），共13个。（去掉“净敞口套期收益”，考试不考）</p>
+<p>营业收入&#x3D;主营业务收入（主营）+其他业务收入（辅营）——都是日常活动</p>
+<p>销售费用：广告营销费</p>
+<p>管理费用：如办公费</p>
+<p>研发费用：如研发人员工资</p>
+<p>财务费用：利息费用</p>
+<p>投资收益：股票分红、债券利息收益</p>
+<p>公允价值变动收益：</p>
+<p>资产处置收益：</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image007.png" class="">
+
+<p>不影响营业利润，说明是营业外，就是自然灾害。</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image008.png" class="">
+<p>上图6个红色章节是重难点。</p>
+<p>18、19、20现在复习可以先跳过，2020年可能会发生变化。</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image009.png" class="">
+
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image010.png" class="">
 
       
     </div>
@@ -644,7 +640,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/71/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/71/">71</a><span class="page-number current">72</span><a class="page-number" href="/page/73/">73</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/73/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/71/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/71/">71</a><span class="page-number current">72</span><a class="page-number" href="/page/73/">73</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/73/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

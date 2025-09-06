@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">380</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/04/Mac%E4%B8%8B%E5%A4%84%E7%90%86MAT-Memory-Analyzer-Tool-%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/05/Codility-Lesson-1-BinaryGap/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +238,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/04/Mac%E4%B8%8B%E5%A4%84%E7%90%86MAT-Memory-Analyzer-Tool-%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Mac下处理MAT(Memory Analyzer Tool)报错的问题</a>
+          <a href="/2019/05/Codility-Lesson-1-BinaryGap/" class="post-title-link" itemprop="url">Codility Lesson 1 - BinaryGap</a>
         </h2>
 
         <div class="post-meta-container">
@@ -249,7 +249,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2019-04-19 10:02:27" itemprop="dateCreated datePublished" datetime="2019-04-19T10:02:27+08:00">2019-04-19</time>
+      <time title="创建时间：2019-05-18 20:02:02" itemprop="dateCreated datePublished" datetime="2019-05-18T20:02:02+08:00">2019-05-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -258,9 +258,18 @@
       <span class="post-meta-item-text">更新于</span>
       <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
     </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+    </span>
 
   
-    <span id="/2019/04/Mac%E4%B8%8B%E5%A4%84%E7%90%86MAT-Memory-Analyzer-Tool-%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="Mac下处理MAT(Memory Analyzer Tool)报错的问题" title="阅读次数">
+    <span id="/2019/05/Codility-Lesson-1-BinaryGap/" class="post-meta-item leancloud_visitors" data-flag-title="Codility Lesson 1 - BinaryGap" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -275,8 +284,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2019/04/Mac%E4%B8%8B%E5%A4%84%E7%90%86MAT-Memory-Analyzer-Tool-%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/04/Mac%E4%B8%8B%E5%A4%84%E7%90%86MAT-Memory-Analyzer-Tool-%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    <a title="waline" href="/2019/05/Codility-Lesson-1-BinaryGap/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/05/Codility-Lesson-1-BinaryGap/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -290,26 +299,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>当程序出现内存泄露(Out of memory)时，我们需要通过Eclipse的Memory Analyzer Tool去定位错误的代码。</p>
-<p>从Eclipse官网下载MAT，<a target="_blank" rel="noopener" href="https://www.eclipse.org/mat/downloads.php">https://www.eclipse.org/mat/downloads.php</a></p>
-<p>选择不同操作的版本。</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Memory Analyzer 1.8.1 Release</span><br><span class="line">Version: 1.8.1.20180910 | Date: 19 September 2018 | Type: Released</span><br><span class="line">Update Site: http://download.eclipse.org/mat/1.8.1/update-site/</span><br><span class="line">Archived Update Site: MemoryAnalyzer-1.8.1.201809100846.zip</span><br><span class="line">Stand-alone Eclipse RCP Applications</span><br><span class="line">   Windows (x86)</span><br><span class="line">   Windows (x86_64)</span><br><span class="line">   Mac OSX (Mac/Cocoa/x86_64)</span><br><span class="line">   Linux (x86/GTK+)</span><br><span class="line">   Linux (x86_64/GTK+)</span><br><span class="line">   Linux (PPC64/GTK+)</span><br><span class="line">   Linux (PPC64le/GTK+)</span><br></pre></td></tr></table></figure>
+          <h1 id="BinaryGap"><a href="#BinaryGap" class="headerlink" title="BinaryGap"></a>BinaryGap</h1><p>Find longest sequence of zeros in binary representation of an integer.</p>
+<p>A binary gap within a positive integer N is any maximal sequence of consecutive zeros that is surrounded by ones at both ends in the binary representation of N.</p>
+<p>For example, number 9 has binary representation 1001 and contains a binary gap of length 2. The number 529 has binary representation 1000010001 and contains two binary gaps: one of length 4 and one of length 3. The number 20 has binary representation 10100 and contains one binary gap of length 1. The number 15 has binary representation 1111 and has no binary gaps. The number 32 has binary representation 100000 and has no binary gaps.</p>
+<p>Write a function:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123; <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">solution</span><span class="params">(<span class="type">int</span> N)</span>; &#125;</span><br></pre></td></tr></table></figure>
 
-<p>当我在Mac系统双击mat.app打开MAT时，系统报错，查看日志内容如下：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">!SESSION 2019-04-18 21:48:21.506 -----------------------------------------------</span><br><span class="line">eclipse.buildId=unknown</span><br><span class="line">java.version=1.8.0_92</span><br><span class="line">java.vendor=Oracle Corporation</span><br><span class="line">BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=zh_CN</span><br><span class="line">Framework arguments:  -keyring /Users/simon/.eclipse_keyring</span><br><span class="line">Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/simon/.eclipse_keyring</span><br><span class="line"></span><br><span class="line">!ENTRY org.eclipse.osgi 4 0 2019-04-18 21:48:24.893</span><br><span class="line">!MESSAGE Application error</span><br><span class="line">!STACK 1</span><br><span class="line">java.lang.IllegalStateException: The platform metadata area could not be written: /private/var/folders/cl/kn5ppbpd28j0s6y5kcxm9rdm0000gn/T/AppTranslocation/8157A927-01B7-4CF8-8F8B-AA4530391F8A/d/mat.app/Contents/MacOS/workspace/.metadata.  By default the platform writes its content</span><br><span class="line">under the current working directory when the platform is launched.  Use the -data parameter to</span><br><span class="line">specify a different content area for the platform.</span><br><span class="line">	at org.eclipse.core.internal.runtime.DataArea.assertLocationInitialized(DataArea.java:70)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>that, given a positive integer N, returns the length of its longest binary gap. The function should return 0 if N doesn’t contain a binary gap.</p>
+<p>For example, given N &#x3D; 1041 the function should return 5, because N has binary representation 10000010001 and so its longest binary gap is of length 5. Given N &#x3D; 32 the function should return 0, because N has binary representation ‘100000’ and thus no binary gaps.</p>
+<p>Write an efficient algorithm for the following assumptions:</p>
+<p>N is an integer within the range [1..2,147,483,647].</p>
+<p>Copyright 2009–2019 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>数字循环除以2，直到0。每次取余，以统计1之间的0的个数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">solution</span><span class="params">(<span class="type">int</span> N)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">maxGap</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">first</span> <span class="operator">=</span> <span class="literal">true</span>;   <span class="comment">// 未找到第一个1时</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (N != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (first) &#123;</span><br><span class="line">                <span class="keyword">if</span> (N % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">                    first = <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (N % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                    count ++;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// 再次遇到1时，计算之间的gap</span></span><br><span class="line">                    <span class="keyword">if</span> (count &gt; maxGap) &#123;</span><br><span class="line">                        maxGap = count;</span><br><span class="line">                    &#125;</span><br><span class="line">                    count = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 除以2</span></span><br><span class="line">            N &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> maxGap;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">            <span class="type">Solution</span> <span class="variable">solution</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Solution</span>();</span><br><span class="line">            System.out.println(<span class="string">&quot;Number 9 (&quot;</span> + Integer.toBinaryString(<span class="number">9</span>) + <span class="string">&quot;) gap: &quot;</span> + solution.solution(<span class="number">9</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;Number 529 (&quot;</span> + Integer.toBinaryString(<span class="number">529</span>) + <span class="string">&quot;) gap: &quot;</span> + solution.solution(<span class="number">529</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;Number 20 (&quot;</span> + Integer.toBinaryString(<span class="number">20</span>) + <span class="string">&quot;) gap: &quot;</span> + solution.solution(<span class="number">20</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;Number 15 (&quot;</span> + Integer.toBinaryString(<span class="number">15</span>) + <span class="string">&quot;) gap: &quot;</span> + solution.solution(<span class="number">15</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;Number 32 (&quot;</span> + Integer.toBinaryString(<span class="number">32</span>) + <span class="string">&quot;) gap: &quot;</span> + solution.solution(<span class="number">32</span>));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>查看日志，分析原因，我们得知其中一个文件无写入权限。IllegalStateException: The platform metadata area could not be written.</p>
-<p>我们可以指定一个具有写入权限的文件夹，设置如下：</p>
-<p>编辑文件 <code>/Applications/mat.app/Contents/Eclipse/MemoryAnalyzer.ini</code></p>
-<p>添加<code>-data</code>参数：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-data</span><br><span class="line">/Users/simon/workspace</span><br></pre></td></tr></table></figure>
-
-<p>data参数和路径必须在两个不同的行，data参数必须放在Laucher之前。</p>
-<p>最终文件内容如下所示：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-startup</span><br><span class="line">../Eclipse/plugins/org.eclipse.equinox.launcher_1.5.0.v20180512-1130.jar</span><br><span class="line">-data</span><br><span class="line">/Users/simon/workspace</span><br><span class="line">--launcher.library</span><br><span class="line">../Eclipse/plugins/org.eclipse.equinox.launcher.cocoa.macosx.x86_64_1.1.700.v20180518-1200</span><br><span class="line">-vmargs</span><br><span class="line">-Xmx1024m</span><br><span class="line">-Dorg.eclipse.swt.internal.carbon.smallFonts</span><br><span class="line">-XstartOnFirstThread</span><br></pre></td></tr></table></figure>
-
-<p>保存文件后，再次双击启动MAT，软件可以成功打开了。</p>
-
+<p>结果如下：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Number 9 (1001) gap: 2</span><br><span class="line">Number 529 (1000010001) gap: 4</span><br><span class="line">Number 20 (10100) gap: 1</span><br><span class="line">Number 15 (1111) gap: 0</span><br><span class="line">Number 32 (100000) gap: 0</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -335,7 +340,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/04/Mac%E4%B8%8B%E5%AE%89%E8%A3%85zsh/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/04/%E8%A7%A3%E5%86%B3java-lang-ClassNotFoundException-org-springframework-cloud-client-loadbalancer-LoadBalancedRetryFactory/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -353,7 +358,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/04/Mac%E4%B8%8B%E5%AE%89%E8%A3%85zsh/" class="post-title-link" itemprop="url">Mac下安装zsh</a>
+          <a href="/2019/04/%E8%A7%A3%E5%86%B3java-lang-ClassNotFoundException-org-springframework-cloud-client-loadbalancer-LoadBalancedRetryFactory/" class="post-title-link" itemprop="url">解决java.lang.ClassNotFoundException: org.springframework.cloud.client.loadbalancer.LoadBalancedRetryFactory</a>
         </h2>
 
         <div class="post-meta-container">
@@ -364,7 +369,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2019-04-19 00:00:31" itemprop="dateCreated datePublished" datetime="2019-04-19T00:00:31+08:00">2019-04-19</time>
+      <time title="创建时间：2019-04-24 11:34:49" itemprop="dateCreated datePublished" datetime="2019-04-24T11:34:49+08:00">2019-04-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -373,22 +378,9 @@
       <span class="post-meta-item-text">更新于</span>
       <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/SSH/" itemprop="url" rel="index"><span itemprop="name">SSH</span></a>
-        </span>
-    </span>
 
   
-    <span id="/2019/04/Mac%E4%B8%8B%E5%AE%89%E8%A3%85zsh/" class="post-meta-item leancloud_visitors" data-flag-title="Mac下安装zsh" title="阅读次数">
+    <span id="/2019/04/%E8%A7%A3%E5%86%B3java-lang-ClassNotFoundException-org-springframework-cloud-client-loadbalancer-LoadBalancedRetryFactory/" class="post-meta-item leancloud_visitors" data-flag-title="解决java.lang.ClassNotFoundException: org.springframework.cloud.client.loadbalancer.LoadBalancedRetryFactory" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -403,8 +395,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2019/04/Mac%E4%B8%8B%E5%AE%89%E8%A3%85zsh/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/04/Mac%E4%B8%8B%E5%AE%89%E8%A3%85zsh/" itemprop="commentCount"></span>
+    <a title="waline" href="/2019/04/%E8%A7%A3%E5%86%B3java-lang-ClassNotFoundException-org-springframework-cloud-client-loadbalancer-LoadBalancedRetryFactory/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/04/%E8%A7%A3%E5%86%B3java-lang-ClassNotFoundException-org-springframework-cloud-client-loadbalancer-LoadBalancedRetryFactory/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -418,18 +410,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a>iTerm2</h1><p>首先推荐安装iTerm2终端，可在官网 <a target="_blank" rel="noopener" href="http://iterm2.com/">http://iterm2.com/</a> 免费下载安装。</p>
-<h1 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h1><h2 id="查看系统的shell"><a href="#查看系统的shell" class="headerlink" title="查看系统的shell"></a>查看系统的shell</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shells</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">List of acceptable shells <span class="keyword">for</span> chpass(1).</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ftpd will not allow <span class="built_in">users</span> to connect <span class="built_in">who</span> are not using</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">one of these shells.</span></span><br><span class="line"></span><br><span class="line">/bin/bash</span><br><span class="line">/bin/csh</span><br><span class="line">/bin/ksh</span><br><span class="line">/bin/sh</span><br><span class="line">/bin/tcsh</span><br><span class="line">/bin/zsh</span><br></pre></td></tr></table></figure>
+          <p>使用Spring Cloud Feign时遇到如下Class Not Found Error</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.NoClassDefFoundError: org/springframework/cloud/client/loadbalancer/LoadBalancedRetryFactory</span><br><span class="line">	at java.lang.Class.getDeclaredMethods0(Native Method) ~[na:1.8.0_92]</span><br><span class="line">	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701) ~[na:1.8.0_92]</span><br><span class="line">	at java.lang.Class.getDeclaredMethods(Class.java:1975) ~[na:1.8.0_92]</span><br><span class="line">	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:641) ~[spring-core-5.0.0.RC3.jar:5.0.0.RC3]</span><br><span class="line">	... 20 common frames omitted</span><br><span class="line">Caused by: java.lang.ClassNotFoundException: org.springframework.cloud.client.loadbalancer.LoadBalancedRetryFactory</span><br><span class="line">	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_92]</span><br><span class="line">	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_92]</span><br><span class="line">	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_92]</span><br><span class="line">	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_92]</span><br><span class="line">	... 24 common frames omitted</span><br></pre></td></tr></table></figure>
 
-<p>bash是mac中terminal自带的shell，把它换成zsh，这个的功能要多得多。拥有语法高亮，命令行tab补全，自动提示符，显示Git仓库状态等功能。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
+<p>我使用的软件版本信息如下：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">springCloudVersion = &#x27;Finchley.M2&#x27;</span><br><span class="line">springBootVersion = &#x27;2.0.0.M3&#x27;</span><br></pre></td></tr></table></figure>
 
-<h2 id="安装oh-my-zsh-1"><a href="#安装oh-my-zsh-1" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h2><p>使用<code>curl</code>安装oh-my-zsh</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br><span class="line"></span><br><span class="line">Cloning Oh My Zsh...</span><br><span class="line">Cloning into &#x27;/Users/simon/.oh-my-zsh&#x27;...</span><br><span class="line">remote: Enumerating objects: 1023, done.</span><br><span class="line">remote: Counting objects: 100% (1023/1023), done.</span><br><span class="line">remote: Compressing objects: 100% (940/940), done.</span><br><span class="line">remote: Total 1023 (delta 23), reused 848 (delta 20), pack-reused 0</span><br><span class="line">Receiving objects: 100% (1023/1023), 681.01 KiB | 5.00 KiB/s, done.</span><br><span class="line">Resolving deltas: 100% (23/23), done.</span><br><span class="line">Looking for an existing zsh config...</span><br><span class="line">Using the Oh My Zsh template file and adding it to ~/.zshrc</span><br><span class="line">         __                                     __</span><br><span class="line">  ____  / /_     ____ ___  __  __   ____  _____/ /_</span><br><span class="line"> / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \</span><br><span class="line">/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / /</span><br><span class="line">\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/</span><br><span class="line">                        /____/                       ....is now installed!</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please look over the ~/.zshrc file to select plugins, themes, and options.</span><br><span class="line"></span><br><span class="line">p.s. Follow us at https://twitter.com/ohmyzsh.</span><br><span class="line"></span><br><span class="line">p.p.s. Get stickers, shirts, and coffee mugs at https://shop.planetargon.com/collections/oh-my-zsh.</span><br></pre></td></tr></table></figure>
-
-<p>安装成功。</p>
-<p>如何切换主题就不在这里详述了。</p>
-
+<p>解决办法</p>
+<p>把openfeign的版本从原来默认的springCloudVersion改为springBootVersion，也就是2.0.0.M3</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Feign</span><br><span class="line">compile(&quot;org.springframework.cloud:spring-cloud-starter-openfeign:$&#123;springBootVersion&#125;&quot;)</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -455,7 +444,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/04/Jupyter-Notebook%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -473,7 +462,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/04/Jupyter-Notebook%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">Jupyter Notebook快捷键</a>
+          <a href="/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/" class="post-title-link" itemprop="url">Java VisualVM添加Visual GC标签</a>
         </h2>
 
         <div class="post-meta-container">
@@ -484,7 +473,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2019-04-09 00:01:02" itemprop="dateCreated datePublished" datetime="2019-04-09T00:01:02+08:00">2019-04-09</time>
+      <time title="创建时间：2019-04-19 18:21:08" itemprop="dateCreated datePublished" datetime="2019-04-19T18:21:08+08:00">2019-04-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -493,18 +482,9 @@
       <span class="post-meta-item-text">更新于</span>
       <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
 
   
-    <span id="/2019/04/Jupyter-Notebook%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Jupyter Notebook快捷键" title="阅读次数">
+    <span id="/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/" class="post-meta-item leancloud_visitors" data-flag-title="Java VisualVM添加Visual GC标签" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -519,8 +499,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2019/04/Jupyter-Notebook%E5%BF%AB%E6%8D%B7%E9%94%AE/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/04/Jupyter-Notebook%E5%BF%AB%E6%8D%B7%E9%94%AE/" itemprop="commentCount"></span>
+    <a title="waline" href="/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -534,11 +514,20 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Jupyter有两种模式</p>
-<h1 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h1><p>按Esc切换到命令模式，单元格的边框是蓝色的。这个模式下的常用快捷键（Shift-Enter可能是我们最常用的命令）：</p>
-<p>Enter : 转入编辑模式<br>Shift-Enter : 运行本单元，选中下个单元<br>Ctrl-Enter : 运行本单元<br>Alt-Enter : 运行本单元，在其下插入新单元<br>Y : 单元转入代码状态<br>M :单元转入markdown状态<br>R : 单元转入raw状态<br>1 : 设定 1 级标题<br>2 : 设定 2 级标题<br>3 : 设定 3 级标题<br>4 : 设定 4 级标题<br>5 : 设定 5 级标题<br>6 : 设定 6 级标题<br>Up : 选中上方单元<br>K : 选中上方单元<br>Down : 选中下方单元<br>J : 选中下方单元<br>Shift-K : 扩大选中上方单元<br>Shift-J : 扩大选中下方单元<br>A : 在上方插入新单元<br>B : 在下方插入新单元<br>X : 剪切选中的单元<br>C : 复制选中的单元<br>Shift-V : 粘贴到上方单元<br>V : 粘贴到下方单元<br>Z : 恢复删除的最后一个单元<br>D,D : 删除选中的单元<br>Shift-M : 合并选中的单元<br>Ctrl-S : 文件存盘<br>S : 文件存盘<br>L : 转换行号<br>O : 转换输出<br>Shift-O : 转换输出滚动<br>Esc : 关闭页面<br>Q : 关闭页面<br>H : 显示快捷键帮助<br>I,I : 中断Notebook内核<br>0,0 : 重启Notebook内核<br>Shift : 忽略<br>Shift-Space : 向上滚动<br>Space : 向下滚动</p>
-<h1 id="编辑模式"><a href="#编辑模式" class="headerlink" title="编辑模式"></a>编辑模式</h1><p>编辑模式按 Enter 键切换，这模式下单元格颜色是绿的： </p>
-<p>Tab : 代码补全或缩进<br>Shift-Tab : 提示<br>Ctrl-] : 缩进<br>Ctrl-[ : 解除缩进<br>Ctrl-A : 全选<br>Ctrl-Z : 复原<br>Ctrl-Shift-Z : 再做<br>Ctrl-Y : 再做<br>Ctrl-Home : 跳到单元开头<br>Ctrl-Up : 跳到单元开头<br>Ctrl-End : 跳到单元末尾<br>Ctrl-Down : 跳到单元末尾<br>Ctrl-Left : 跳到左边一个字首<br>Ctrl-Right : 跳到右边一个字首<br>Ctrl-Backspace : 删除前面一个字<br>Ctrl-Delete : 删除后面一个字<br>Esc : 进入命令模式<br>Ctrl-M : 进入命令模式<br>Shift-Enter : 运行本单元，选中下一单元<br>Ctrl-Enter : 运行本单元<br>Alt-Enter : 运行本单元，在下面插入一单元<br>Ctrl-Shift– : 分割单元<br>Ctrl-Shift-Subtract : 分割单元<br>Ctrl-S : 文件存盘<br>Shift : 忽略<br>Up : 光标上移或转入上一单元<br>Down :光标下移或转入下一单元</p>
+          <h1 id="运行Java-VisualVM"><a href="#运行Java-VisualVM" class="headerlink" title="运行Java VisualVM"></a>运行Java VisualVM</h1><p>执行命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jvisualvm</span><br></pre></td></tr></table></figure>
+
+<p>JVisualVM启动成功后，如图所示：</p>
+<img src="/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/javaVisualVM.jpg" class="" title="Java VisualVM主界面">
+
+<h1 id="安装Visual-GC插件"><a href="#安装Visual-GC插件" class="headerlink" title="安装Visual GC插件"></a>安装Visual GC插件</h1><p>点击 <code>工具</code> -&gt; <code>插件</code></p>
+<p>选择<code>设置</code>标签，更新中心配置，也就是设置从哪里下载插件。</p>
+<p>可以在 <a target="_blank" rel="noopener" href="https://visualvm.github.io/pluginscenters.html">https://visualvm.github.io/pluginscenters.html</a> 页面找到不同版本的插件源地址。</p>
+<p>设置好以后，在<code>可用插件</code>标签下面，我们选择安装<code>Visual GC</code>插件。</p>
+<p>安装好以后，重启Java VisualVM</p>
+<p>就可以看到<code>Visual GC</code>的标签了。如下图所示：</p>
+<img src="/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/visualgc.jpg" class="" title="VisualGC标签">
+
 
       
     </div>
@@ -558,7 +547,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/100/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/100/">100</a><span class="page-number current">101</span><a class="page-number" href="/page/102/">102</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/102/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/100/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/100/">100</a><span class="page-number current">101</span><a class="page-number" href="/page/102/">102</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/102/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

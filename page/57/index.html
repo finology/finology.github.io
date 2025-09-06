@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">380</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/%E8%A7%A3%E5%86%B3RabbitMQ-SimpleMessageConverter-only-supports-String-byte-and-Serializable-payload/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/%E4%B8%87%E7%9F%BFWindQuant-API%E5%87%BD%E6%95%B0%E7%AE%80%E4%BB%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +238,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/%E8%A7%A3%E5%86%B3RabbitMQ-SimpleMessageConverter-only-supports-String-byte-and-Serializable-payload/" class="post-title-link" itemprop="url">解决RabbitMQ SimpleMessageConverter only supports String, byte[] and Serializable payloads</a>
+          <a href="/2020/04/%E4%B8%87%E7%9F%BFWindQuant-API%E5%87%BD%E6%95%B0%E7%AE%80%E4%BB%8B/" class="post-title-link" itemprop="url">万矿WindQuant API函数简介</a>
         </h2>
 
         <div class="post-meta-container">
@@ -249,14 +249,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-04-18 23:28:39" itemprop="dateCreated datePublished" datetime="2020-04-18T23:28:39+08:00">2020-04-18</time>
+      <time title="创建时间：2020-04-25 15:59:18" itemprop="dateCreated datePublished" datetime="2020-04-25T15:59:18+08:00">2020-04-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+      <time title="修改时间：2025-08-23 17:51:13" itemprop="dateModified" datetime="2025-08-23T17:51:13+08:00">2025-08-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -264,16 +264,12 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Middleware/" itemprop="url" rel="index"><span itemprop="name">Middleware</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Middleware/RabbitMQ/" itemprop="url" rel="index"><span itemprop="name">RabbitMQ</span></a>
+          <a href="/categories/Quant/" itemprop="url" rel="index"><span itemprop="name">Quant</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/04/%E8%A7%A3%E5%86%B3RabbitMQ-SimpleMessageConverter-only-supports-String-byte-and-Serializable-payload/" class="post-meta-item leancloud_visitors" data-flag-title="解决RabbitMQ SimpleMessageConverter only supports String, byte[] and Serializable payloads" title="阅读次数">
+    <span id="/2020/04/%E4%B8%87%E7%9F%BFWindQuant-API%E5%87%BD%E6%95%B0%E7%AE%80%E4%BB%8B/" class="post-meta-item leancloud_visitors" data-flag-title="万矿WindQuant API函数简介" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -288,8 +284,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/04/%E8%A7%A3%E5%86%B3RabbitMQ-SimpleMessageConverter-only-supports-String-byte-and-Serializable-payload/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/04/%E8%A7%A3%E5%86%B3RabbitMQ-SimpleMessageConverter-only-supports-String-byte-and-Serializable-payload/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/04/%E4%B8%87%E7%9F%BFWindQuant-API%E5%87%BD%E6%95%B0%E7%AE%80%E4%BB%8B/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/04/%E4%B8%87%E7%9F%BFWindQuant-API%E5%87%BD%E6%95%B0%E7%AE%80%E4%BB%8B/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -303,10 +299,48 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>RabbitMQ 和 Spring Boot 整合，使用 rabbitTemplate.convertAndSend 方法发送消息到队列时，报如下错误：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">java.lang.IllegalArgumentException: SimpleMessageConverter only supports String, byte[] and Serializable payloads, received: gy.finolo.springbootmybatisplus.entity.Order</span><br><span class="line"></span><br><span class="line">	at org.springframework.amqp.support.converter.SimpleMessageConverter.createMessage(SimpleMessageConverter.java:161)</span><br><span class="line">	at org.springframework.amqp.support.converter.AbstractMessageConverter.createMessage(AbstractMessageConverter.java:88)</span><br><span class="line">	at org.springframework.amqp.support.converter.AbstractMessageConverter.toMessage(AbstractMessageConverter.java:70)</span><br><span class="line">	at org.springframework.amqp.support.converter.AbstractMessageConverter.toMessage(AbstractMessageConverter.java:58)</span><br><span class="line">	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertMessageIfNecessary(RabbitTemplate.java:1758)</span><br><span class="line">	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertAndSend(RabbitTemplate.java:1075)</span><br><span class="line">	at gy.finolo.springbootmybatisplus.producer.OrderSender.send(OrderSender.java:19)</span><br><span class="line">	at gy.finolo.springbootmybatisplus.rabbitmq.RabbitMQTest.testSend(RabbitMQTest.java:27)</span><br><span class="line">	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</span><br><span class="line">	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)</span><br><span class="line">	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</span><br><span class="line">	at java.lang.reflect.Method.invoke(Method.java:498)</span><br><span class="line">	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:675)</span><br><span class="line">	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p>是因为 Order 这个类没有实现 implements <code>Serializable</code> 接口。</p>
+          <p>万矿这个API，取的名字很不好记，完全猜不出是什么单词的简写。</p>
+<h1 id="wsd-日期序列"><a href="#wsd-日期序列" class="headerlink" title="wsd 日期序列"></a>wsd 日期序列</h1><p>用于提取多品种单指标或者单品种多指标的时间序列数据。就是说要么是一只股票和多个指标或者是多个股票的一个指标。</p>
+<p>一只股票和多个指标，index 为日期，指标名为 columns 的名字。</p>
+<p>多个股票和一个指标，index 为日期，股票名为 columns 的名字。</p>
+<ol>
+<li>每次限8000单元格；</li>
+<li>技术指标、技术形态、部分融资融券指标单次限取2000个单元格（大于2000个单元格，可分多次获取）</li>
+</ol>
+<h1 id="wss-多维数据"><a href="#wss-多维数据" class="headerlink" title="wss 多维数据"></a>wss 多维数据</h1><p>用于提取多品种多指标在某个时间点的截面数据。</p>
+<ol>
+<li>每次限8000单元格；</li>
+<li>技术指标、技术形态、部分融资融券指标单次限取2000个单元格（大于2000个单元格，可分多次获取）</li>
+</ol>
+<h1 id="wset-数据集"><a href="#wset-数据集" class="headerlink" title="wset 数据集"></a>wset 数据集</h1><p>用来获取数据集信息，主要用于获取板块成分、指数成分以及各证券品种的专题统计报表数据。</p>
+<ol>
+<li>停牌、复牌股票：一次最长获取一个月时间段内的数据；</li>
+<li>分红送转：一次最长获取10年时间段内的数据；</li>
+<li>期货合约持仓排名：一次最长获取一个月时间段内的数据</li>
+</ol>
+<h1 id="wses-板块时序"><a href="#wses-板块时序" class="headerlink" title="wses 板块时序"></a>wses 板块时序</h1><p>获取选定股票板块一段时间内的历史序列数据。</p>
+<ol>
+<li>支持多板块，但仅支持单指标；</li>
+<li>提取多板块、单指标时，时间跨度＜250个交易日、板块数＜20；</li>
+<li>提取单板块、单指标时，时间跨度约800个周期。</li>
+</ol>
+<h1 id="wsee-板块多维"><a href="#wsee-板块多维" class="headerlink" title="wsee 板块多维"></a>wsee 板块多维</h1><p>获取选定股票板块的历史截面数据。</p>
+<ol>
+<li>支持多板块、多指标且板块数*指标数≤1000</li>
+</ol>
+<h1 id="wsi-分钟数据"><a href="#wsi-分钟数据" class="headerlink" title="wsi 分钟数据"></a>wsi 分钟数据</h1><p>主要包括证券的基本行情和部分技术指标的分钟数据。</p>
+<ol>
+<li>目前只支持上交、深交、中金、上期、大商、郑商的行情；</li>
+<li>每次取一个code的时候，可以取最近3年数据(推荐使用此方法)；</li>
+<li>每次取多个code的时候，有如下限制：code数*天数&lt;&#x3D;100</li>
+</ol>
+<h1 id="wst-日内跳价"><a href="#wst-日内跳价" class="headerlink" title="wst 日内跳价"></a>wst 日内跳价</h1><p>主要包括证券的日内盘口买卖五档快照数据和分时成交(tick数据)。</p>
+<ol>
+<li>目前只支持上交、深交、中金、上期、大商、郑商的行情；</li>
+<li>可取最近7个交易日的数据；</li>
+<li>一次只能取1个Windcode。</li>
+</ol>
+<h1 id="wsq-实时行情"><a href="#wsq-实时行情" class="headerlink" title="wsq 实时行情"></a>wsq 实时行情</h1><p>主要包括各证券当天指标实时数据，可以一次性请求实时快照数据，也可以通过订阅的方式获取实时数据。</p>
 
       
     </div>
@@ -333,7 +367,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/Linux-CentOS-%E5%AE%89%E8%A3%85RabbitMQ/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/Python-Pandas-groupby-with-count-sum-and-avg-etc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -351,7 +385,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/Linux-CentOS-%E5%AE%89%E8%A3%85RabbitMQ/" class="post-title-link" itemprop="url">Linux(CentOS)安装RabbitMQ</a>
+          <a href="/2020/04/Python-Pandas-groupby-with-count-sum-and-avg-etc/" class="post-title-link" itemprop="url">Python Pandas groupby with count, sum, and avg etc</a>
         </h2>
 
         <div class="post-meta-container">
@@ -362,7 +396,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-04-18 19:35:56" itemprop="dateCreated datePublished" datetime="2020-04-18T19:35:56+08:00">2020-04-18</time>
+      <time title="创建时间：2020-04-21 23:55:17" itemprop="dateCreated datePublished" datetime="2020-04-21T23:55:17+08:00">2020-04-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -377,16 +411,16 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Middleware/" itemprop="url" rel="index"><span itemprop="name">Middleware</span></a>
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Middleware/RabbitMQ/" itemprop="url" rel="index"><span itemprop="name">RabbitMQ</span></a>
+          <a href="/categories/Python/Pandas/" itemprop="url" rel="index"><span itemprop="name">Pandas</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/04/Linux-CentOS-%E5%AE%89%E8%A3%85RabbitMQ/" class="post-meta-item leancloud_visitors" data-flag-title="Linux(CentOS)安装RabbitMQ" title="阅读次数">
+    <span id="/2020/04/Python-Pandas-groupby-with-count-sum-and-avg-etc/" class="post-meta-item leancloud_visitors" data-flag-title="Python Pandas groupby with count, sum, and avg etc" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -401,8 +435,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/04/Linux-CentOS-%E5%AE%89%E8%A3%85RabbitMQ/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/04/Linux-CentOS-%E5%AE%89%E8%A3%85RabbitMQ/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/04/Python-Pandas-groupby-with-count-sum-and-avg-etc/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/04/Python-Pandas-groupby-with-count-sum-and-avg-etc/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -416,45 +450,99 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>通过 yum 在 CentOS 7 环境下安装 RabbitMQ Server 3.8。</p>
-<h1 id="配置yum源"><a href="#配置yum源" class="headerlink" title="配置yum源"></a>配置yum源</h1><p>这次安装使用官方推荐的，基于 PackageCloud 的 Yum 仓库安装。</p>
-<p>进入官网 <code>https://packagecloud.io/rabbitmq/rabbitmq-server/install#bash-rpm</code> 。</p>
-<p>我们可以看到 quick install 的快速安装命令。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | <span class="built_in">sudo</span> bash</span></span><br><span class="line">...</span><br><span class="line">Complete!</span><br><span class="line">Generating yum cache for rabbitmq_rabbitmq-server...</span><br><span class="line">Importing GPG key 0x4D206F89:</span><br><span class="line"> Userid     : &quot;https://packagecloud.io/rabbitmq/rabbitmq-server (https://packagecloud.io/docs#gpg_signing) &lt;support@packagecloud.io&gt;&quot;</span><br><span class="line"> Fingerprint: 8c69 5b02 19af deb0 4a05 8ed8 f4e7 8920 4d20 6f89</span><br><span class="line"> From       : https://packagecloud.io/rabbitmq/rabbitmq-server/gpgkey</span><br><span class="line">Generating yum cache for rabbitmq_rabbitmq-server-source...</span><br><span class="line"></span><br><span class="line">The repository is setup! You can now install packages.</span><br></pre></td></tr></table></figure>
+          <p>我们要对一个 DataFrame 做分组统计时，其实跟 SQL 语句的逻辑是差不多的。</p>
+<p>groupby.sum(), groupby.count() 等等。</p>
+<p>如果要把一个 DataFrame 里的不同列各做 sum(), count() 该如何操作呢？在这里给大家做一个演示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 原始数据</span></span><br><span class="line">keyword_list = [<span class="string">&#x27;dog&#x27;</span>, <span class="string">&#x27;cat&#x27;</span>, <span class="string">&#x27;horse&#x27;</span>, <span class="string">&#x27;dog&#x27;</span>, <span class="string">&#x27;dog&#x27;</span>, <span class="string">&#x27;horse&#x27;</span>]</span><br><span class="line">weight_list = [<span class="number">0.12</span>, <span class="number">0.5</span>, <span class="number">0.07</span>, <span class="number">0.1</span>, <span class="number">0.2</span>, <span class="number">0.3</span>]</span><br><span class="line">other_keywords_list = [[<span class="string">&#x27;cat&#x27;</span>, <span class="string">&#x27;horse&#x27;</span>, <span class="string">&#x27;pig&#x27;</span>], [<span class="string">&#x27;dog&#x27;</span>, <span class="string">&#x27;pig&#x27;</span>, <span class="string">&#x27;camel&#x27;</span>], [<span class="string">&#x27;dog&#x27;</span>, <span class="string">&#x27;camel&#x27;</span>, <span class="string">&#x27;cat&#x27;</span>], [<span class="string">&#x27;cat&#x27;</span>, <span class="string">&#x27;horse&#x27;</span>], [<span class="string">&#x27;cat&#x27;</span>, <span class="string">&#x27;horse&#x27;</span>, <span class="string">&#x27;pig&#x27;</span>], [<span class="string">&#x27;camel&#x27;</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成DataFrame</span></span><br><span class="line"><span class="built_in">dict</span> = &#123;<span class="string">&#x27;keyword&#x27;</span>: keyword_list, <span class="string">&#x27;weight&#x27;</span>: weight_list, <span class="string">&#x27;other keywords&#x27;</span>: other_keywords_list&#125;</span><br><span class="line">animaldf = pd.DataFrame(data=<span class="built_in">dict</span>)</span><br><span class="line">animaldf</span><br></pre></td></tr></table></figure>
 
-<p>脚本执行后，会安装一些最基本的底层依赖，比如 <code>yum-utils.noarch</code>。同时还会生成 <code>/etc/yum.repos.d/rabbitmq_rabbitmq-server.repo</code> 文件。</p>
-<p>安装 Erlang 依赖。进入页面<code>https://packagecloud.io/rabbitmq/erlang/install#bash-rpm</code>。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | <span class="built_in">sudo</span> bash</span></span><br><span class="line">...</span><br><span class="line">Generating yum cache for rabbitmq_erlang-source...</span><br><span class="line"></span><br><span class="line">The repository is setup! You can now install packages.</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>&nbsp;</th>
+<th>keyword</th>
+<th>weight</th>
+<th>other keywords</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>dog</td>
+<td>0.12</td>
+<td>[cat, horse, pig]</td>
+</tr>
+<tr>
+<td>1</td>
+<td>cat</td>
+<td>0.50</td>
+<td>[dog, pig, camel]</td>
+</tr>
+<tr>
+<td>2</td>
+<td>horse</td>
+<td>0.07</td>
+<td>[dog, camel, cat]</td>
+</tr>
+<tr>
+<td>3</td>
+<td>dog</td>
+<td>0.10</td>
+<td>[cat, horse]</td>
+</tr>
+<tr>
+<td>4</td>
+<td>dog</td>
+<td>0.20</td>
+<td>[cat, horse, pig]</td>
+</tr>
+<tr>
+<td>5</td>
+<td>horse</td>
+<td>0.30</td>
+<td>[camel]</td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = animaldf.groupby(<span class="string">&#x27;keyword&#x27;</span>).agg(&#123;<span class="string">&#x27;keyword&#x27;</span>: <span class="string">&#x27;count&#x27;</span>, <span class="string">&#x27;weight&#x27;</span>: <span class="string">&#x27;sum&#x27;</span>, <span class="string">&#x27;other keywords&#x27;</span>: <span class="string">&#x27;sum&#x27;</span>&#125;)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
 
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="安装Erlang"><a href="#安装Erlang" class="headerlink" title="安装Erlang"></a>安装Erlang</h2><p>首先安装Erlang语言依赖。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> yum install erlang</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>&nbsp;</th>
+<th>keyword</th>
+<th>weight</th>
+<th>other keywords</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>keyword</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>cat</td>
+<td>1</td>
+<td>0.50</td>
+<td>[dog, pig, camel]</td>
+</tr>
+<tr>
+<td>dog</td>
+<td>3</td>
+<td>0.42</td>
+<td>[cat, horse, pig, cat, horse, cat, horse, pig]</td>
+</tr>
+<tr>
+<td>horse</td>
+<td>2</td>
+<td>0.37</td>
+<td>[dog, camel, cat, camel]</td>
+</tr>
+</tbody></table>
+<p>这样就已经达到效果了。</p>
+<p>如果接下来要继续对数据进行处理，可以先把 index 的名字 keyword 去掉，不去掉的话，转成列时就和现有列 keyword 名字冲突了。</p>
+<p>然后把索引转换成列。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.index.name = <span class="literal">None</span></span><br><span class="line">df.reset_index()</span><br></pre></td></tr></table></figure>
 
-<h2 id="安装RabbitMQ"><a href="#安装RabbitMQ" class="headerlink" title="安装RabbitMQ"></a>安装RabbitMQ</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> yum install rabbitmq-server</span></span><br></pre></td></tr></table></figure>
-
-<p>设置开机自动启动</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig rabbitmq-server on</span><br></pre></td></tr></table></figure>
-
-<p>启动&#x2F;关闭 RabbitMQ 服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl start rabbitmq-server</span><br><span class="line"></span><br><span class="line">systemctl stop rabbitmq-server</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>查看插件列表</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> rabbitmq-plugins list</span></span><br><span class="line">Listing plugins with pattern &quot;.*&quot; ...</span><br><span class="line"> Configured: E = explicitly enabled; e = implicitly enabled</span><br><span class="line"> | Status: * = running on rabbit@localhost</span><br><span class="line"> |/</span><br><span class="line">[  ] rabbitmq_amqp1_0                  3.8.3</span><br><span class="line">[  ] rabbitmq_auth_backend_cache       3.8.3</span><br><span class="line">[  ] rabbitmq_auth_backend_http        3.8.3</span><br><span class="line">[  ] rabbitmq_auth_backend_ldap        3.8.3</span><br><span class="line">[  ] rabbitmq_auth_backend_oauth2      3.8.3</span><br><span class="line">[  ] rabbitmq_auth_mechanism_ssl       3.8.3</span><br><span class="line">[  ] rabbitmq_consistent_hash_exchange 3.8.3</span><br><span class="line">[  ] rabbitmq_event_exchange           3.8.3</span><br><span class="line">[  ] rabbitmq_federation               3.8.3</span><br><span class="line">[  ] rabbitmq_federation_management    3.8.3</span><br><span class="line">[  ] rabbitmq_jms_topic_exchange       3.8.3</span><br><span class="line">[  ] rabbitmq_management               3.8.3</span><br><span class="line">[  ] rabbitmq_management_agent         3.8.3</span><br><span class="line">[  ] rabbitmq_mqtt                     3.8.3</span><br><span class="line">[  ] rabbitmq_peer_discovery_aws       3.8.3</span><br><span class="line">[  ] rabbitmq_peer_discovery_common    3.8.3</span><br><span class="line">[  ] rabbitmq_peer_discovery_consul    3.8.3</span><br><span class="line">[  ] rabbitmq_peer_discovery_etcd      3.8.3</span><br><span class="line">[  ] rabbitmq_peer_discovery_k8s       3.8.3</span><br><span class="line">[  ] rabbitmq_prometheus               3.8.3</span><br><span class="line">[  ] rabbitmq_random_exchange          3.8.3</span><br><span class="line">[  ] rabbitmq_recent_history_exchange  3.8.3</span><br><span class="line">[  ] rabbitmq_sharding                 3.8.3</span><br><span class="line">[  ] rabbitmq_shovel                   3.8.3</span><br><span class="line">[  ] rabbitmq_shovel_management        3.8.3</span><br><span class="line">[  ] rabbitmq_stomp                    3.8.3</span><br><span class="line">[  ] rabbitmq_top                      3.8.3</span><br><span class="line">[  ] rabbitmq_tracing                  3.8.3</span><br><span class="line">[  ] rabbitmq_trust_store              3.8.3</span><br><span class="line">[  ] rabbitmq_web_dispatch             3.8.3</span><br><span class="line">[  ] rabbitmq_web_mqtt                 3.8.3</span><br><span class="line">[  ] rabbitmq_web_mqtt_examples        3.8.3</span><br><span class="line">[  ] rabbitmq_web_stomp                3.8.3</span><br><span class="line">[  ] rabbitmq_web_stomp_examples       3.8.3</span><br></pre></td></tr></table></figure>
-
-<p>启动管理平台插件。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> rabbitmq-plugins <span class="built_in">enable</span> rabbitmq_management</span></span><br><span class="line">Enabling plugins on node rabbit@localhost:</span><br><span class="line">rabbitmq_management</span><br><span class="line">The following plugins have been configured:</span><br><span class="line">  rabbitmq_management</span><br><span class="line">  rabbitmq_management_agent</span><br><span class="line">  rabbitmq_web_dispatch</span><br><span class="line">Applying plugin configuration to rabbit@localhost...</span><br><span class="line">The following plugins have been enabled:</span><br><span class="line">  rabbitmq_management</span><br><span class="line">  rabbitmq_management_agent</span><br><span class="line">  rabbitmq_web_dispatch</span><br><span class="line"></span><br><span class="line">started 3 plugins.</span><br></pre></td></tr></table></figure>
-
-<p>查看端口占用情况。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ss -tunlp | grep 5672</span></span><br><span class="line">tcp    LISTEN     0      128       *:15672                 *:*                  </span><br><span class="line">tcp    LISTEN     0      128       *:25672                 *:*                  </span><br><span class="line">tcp    LISTEN     0      128    [::]:5672               [::]:*</span><br></pre></td></tr></table></figure>
-
-<p>5672 是 RabbitMQ Server 端口，25672 是集群端口，15672 是web管理平台端口。</p>
-<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>设置登录用户，编译文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> vi /usr/lib/rabbitmq/lib/rabbitmq_server-3.8.3/ebin/rabbit.app</span></span><br></pre></td></tr></table></figure>
-
-<p>把如下内容：</p>
-<p><code>&#123;loopback_users, [&lt;&lt;&quot;guest&quot;&gt;&gt;]&#125;</code> 改为 <code>&#123;loopback_users, [&quot;guest&quot;]&#125;</code>。</p>
-<p>重启。</p>
-<p>访问页面：<code>http://&lt;server-ip&gt;:15672/</code> ，通过用户名 <code>guest</code> 和密码 <code>guest</code> 就可以成功登录了。</p>
-<img src="/2020/04/Linux-CentOS-%E5%AE%89%E8%A3%85RabbitMQ/rabbitmq-management.png" class="">
+<p>最后你想把列改成什么名字就随你了。</p>
 
       
     </div>
@@ -481,7 +569,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E8%A7%86%E9%A2%91/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/JPA-JMS-JTA%E4%B8%8EXA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -499,7 +587,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E8%A7%86%E9%A2%91/" class="post-title-link" itemprop="url">如何下载网页视频</a>
+          <a href="/2020/04/JPA-JMS-JTA%E4%B8%8EXA/" class="post-title-link" itemprop="url">JPA, JMS, JTA与XA</a>
         </h2>
 
         <div class="post-meta-container">
@@ -510,7 +598,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-04-18 01:34:00" itemprop="dateCreated datePublished" datetime="2020-04-18T01:34:00+08:00">2020-04-18</time>
+      <time title="创建时间：2020-04-19 13:04:25" itemprop="dateCreated datePublished" datetime="2020-04-19T13:04:25+08:00">2020-04-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -525,12 +613,16 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/04/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E8%A7%86%E9%A2%91/" class="post-meta-item leancloud_visitors" data-flag-title="如何下载网页视频" title="阅读次数">
+    <span id="/2020/04/JPA-JMS-JTA%E4%B8%8EXA/" class="post-meta-item leancloud_visitors" data-flag-title="JPA, JMS, JTA与XA" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -545,8 +637,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/04/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E8%A7%86%E9%A2%91/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/04/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E8%A7%86%E9%A2%91/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/04/JPA-JMS-JTA%E4%B8%8EXA/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/04/JPA-JMS-JTA%E4%B8%8EXA/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -560,16 +652,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>有时候看到喜欢的视频，想把它下载下来，如何下载呢？</p>
-<p>有些网页上的视频，是分成多个 ts 文件片段的，我们可以通过 Chrome 的开发者工具发现。</p>
-<p>通过 <code>m3u8</code> 过滤，我们可以发现一个独立的 <code>m3u8</code> 文件，这个文件就是播放列表，如图：</p>
-<img src="/2020/04/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E8%A7%86%E9%A2%91/m3u8.png" class="">
-
-<p>我们可以到这个网站 <code>www.ffmpeg.org</code> 去下载这个 <code>ffmpeg</code> 工具。然后执行命令，把视频片段拼接起来。</p>
-<p>命令如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./ffmpeg  -i &lt;m3u8 url&gt; -c copy output.mp4</span><br></pre></td></tr></table></figure>
-
-<p>然后就开始下载了，非常好用。</p>
+          <p>JPA, JMS, JTA 都是 Java 企业级规范。</p>
+<h1 id="JPA（java-persistence-API）"><a href="#JPA（java-persistence-API）" class="headerlink" title="JPA（java persistence API）"></a>JPA（java persistence API）</h1><p>JPA 通过JDK5.0的注解或XML来描述 对象-关系表的映射关系，并将运行期的实体对象持久化存储到数据库中。 </p>
+<h1 id="JMS（java-message-service）"><a href="#JMS（java-message-service）" class="headerlink" title="JMS（java message service）"></a>JMS（java message service）</h1><p>JMS是java平台上面向中间件的技术规范，便于消息系统中java应用程序进行信心交换，并且通过提供标准的产生、发送、接收消息的接口简化企业应用的开发，翻译为Java消息服务。</p>
+<h1 id="XA"><a href="#XA" class="headerlink" title="XA"></a>XA</h1><p>一个事务规范，JTA 就是 XA 规范的 Java 实现。</p>
+<h1 id="JTA（java-transaction-API）"><a href="#JTA（java-transaction-API）" class="headerlink" title="JTA（java transaction API）"></a>JTA（java transaction API）</h1><p>JTA允许应用程序执行分布式事务管理，在两个或多个网络计算机资源上访问并且更新数据。JDBC驱动程序的JTA支持极大地增强了数据访问能力。</p>
+<h2 id="JTA-接口"><a href="#JTA-接口" class="headerlink" title="JTA 接口"></a>JTA 接口</h2><p>JTA 定义了三个接口，分别是：</p>
+<p>TransactionManager</p>
+<p>XAResource</p>
+<p>XID</p>
+<p>JT</p>
+<h2 id="JTA-弊端"><a href="#JTA-弊端" class="headerlink" title="JTA 弊端"></a>JTA 弊端</h2><p>两阶段提交</p>
+<p>事务时间太长，锁数据的时间太长</p>
+<p>性能低，吞吐量低</p>
 
       
     </div>
@@ -589,7 +684,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/56/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><span class="page-number current">57</span><a class="page-number" href="/page/58/">58</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/58/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/56/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><span class="page-number current">57</span><a class="page-number" href="/page/58/">58</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/58/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

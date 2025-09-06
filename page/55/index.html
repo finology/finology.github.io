@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">380</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/Windows-10%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90Github-SSH%E5%85%AC%E9%92%A5/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/05/Java%E5%A6%82%E4%BD%95%E5%9C%A8String-format%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%99%BE%E5%88%86%E5%8F%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +238,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/Windows-10%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90Github-SSH%E5%85%AC%E9%92%A5/" class="post-title-link" itemprop="url">Windows 10环境生成Github SSH公钥</a>
+          <a href="/2020/05/Java%E5%A6%82%E4%BD%95%E5%9C%A8String-format%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%99%BE%E5%88%86%E5%8F%B7/" class="post-title-link" itemprop="url">Java如何在String.format中显示百分号&#37;</a>
         </h2>
 
         <div class="post-meta-container">
@@ -249,7 +249,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-04-29 17:20:51" itemprop="dateCreated datePublished" datetime="2020-04-29T17:20:51+08:00">2020-04-29</time>
+      <time title="创建时间：2020-05-03 15:38:55" itemprop="dateCreated datePublished" datetime="2020-05-03T15:38:55+08:00">2020-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -264,16 +264,12 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/04/Windows-10%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90Github-SSH%E5%85%AC%E9%92%A5/" class="post-meta-item leancloud_visitors" data-flag-title="Windows 10环境生成Github SSH公钥" title="阅读次数">
+    <span id="/2020/05/Java%E5%A6%82%E4%BD%95%E5%9C%A8String-format%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%99%BE%E5%88%86%E5%8F%B7/" class="post-meta-item leancloud_visitors" data-flag-title="Java如何在String.format中显示百分号&#37;" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -288,8 +284,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/04/Windows-10%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90Github-SSH%E5%85%AC%E9%92%A5/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/04/Windows-10%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90Github-SSH%E5%85%AC%E9%92%A5/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/05/Java%E5%A6%82%E4%BD%95%E5%9C%A8String-format%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%99%BE%E5%88%86%E5%8F%B7/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/05/Java%E5%A6%82%E4%BD%95%E5%9C%A8String-format%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%99%BE%E5%88%86%E5%8F%B7/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -303,12 +299,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>不管是 Windows 还是 Linux，想要不输入用户名和密码操作 Git，只需要把 id_rsa.pub 公钥复制粘贴到 Github 里面就行了。</p>
-<h1 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h1><h1 id="打开-Git-Bash"><a href="#打开-Git-Bash" class="headerlink" title="打开 Git Bash"></a>打开 Git Bash</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-keygen -t rsa -C <span class="string">&quot;simon@finolo.gy&quot;</span></span></span><br><span class="line"></span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/c/Users/simon/.ssh/id_rsa):</span><br><span class="line">Enter passphrase (empty for no passphrase):</span><br><span class="line">Enter same passphrase again:</span><br><span class="line">Your identification has been saved in /c/Users/simon/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved in /c/Users/simon/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:epRQbzd91E6aLp3aM+ym2FEZMgLNCkA108nb5lsk7CM simon@finolo.gy</span><br><span class="line">The key&#x27;s randomart image is:</span><br><span class="line">+---[RSA 3072]----+</span><br><span class="line">|   .oo+oo+      o|</span><br><span class="line">|      .++oo  . .o|</span><br><span class="line">|      .. =+ = o=.|</span><br><span class="line">|       .oo=o.+o+.|</span><br><span class="line">|        S+ o oo. |</span><br><span class="line">|       oE + o.+  |</span><br><span class="line">|      . .. +.=   |</span><br><span class="line">|       .  .o..*  |</span><br><span class="line">|          . o+.o |</span><br><span class="line">+----[SHA256]-----+</span><br></pre></td></tr></table></figure>
+          <p>如果要显示 <code>%</code>，我们需要在前面再加一个 <code>%</code>，做为转义用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String.format(<span class="string">&quot;%d%%&quot;</span>, <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
 
-<p>这个邮箱可以随便输入的，并不需要是 Github.com 的登录帐户。</p>
-<h1 id="拷贝-id-rsa-pub-内容到-Github"><a href="#拷贝-id-rsa-pub-内容到-Github" class="headerlink" title="拷贝 id_rsa.pub 内容到 Github"></a>拷贝 id_rsa.pub 内容到 Github</h1><p>Settings -&gt; SSH and GPG keys -&gt; New SSH key</p>
-<p>把前面生成的 &#x2F;c&#x2F;Users&#x2F;simon&#x2F;.ssh&#x2F;id_rsa.pub 文件内容粘贴上去就可以了。</p>
+<p>这时才会正确显示 <code>100%</code>。</p>
 
       
     </div>
@@ -335,7 +329,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/Python-Pandas%E5%AF%B9DataFrame-float%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -353,7 +347,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/Python-Pandas%E5%AF%B9DataFrame-float%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/" class="post-title-link" itemprop="url">Python Pandas对DataFrame float数据进行四舍五入</a>
+          <a href="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/" class="post-title-link" itemprop="url">Python matplotlib绘图时x轴标签重叠覆盖</a>
         </h2>
 
         <div class="post-meta-container">
@@ -364,7 +358,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-04-28 20:01:17" itemprop="dateCreated datePublished" datetime="2020-04-28T20:01:17+08:00">2020-04-28</time>
+      <time title="创建时间：2020-05-03 11:29:01" itemprop="dateCreated datePublished" datetime="2020-05-03T11:29:01+08:00">2020-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -381,10 +375,14 @@
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
         </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/Matplotlib/" itemprop="url" rel="index"><span itemprop="name">Matplotlib</span></a>
+        </span>
     </span>
 
   
-    <span id="/2020/04/Python-Pandas%E5%AF%B9DataFrame-float%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/" class="post-meta-item leancloud_visitors" data-flag-title="Python Pandas对DataFrame float数据进行四舍五入" title="阅读次数">
+    <span id="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/" class="post-meta-item leancloud_visitors" data-flag-title="Python matplotlib绘图时x轴标签重叠覆盖" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -399,8 +397,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/04/Python-Pandas%E5%AF%B9DataFrame-float%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/04/Python-Pandas%E5%AF%B9DataFrame-float%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -414,19 +412,35 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>原始数据如图：</p>
-<img src="/2020/04/Python-Pandas%E5%AF%B9DataFrame-float%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/industry_df.png" class="">
+          <p>当标签文本很长时，或者是某维度的数据列表长度很长时，都会造成标签的重叠覆盖。</p>
+<img src="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/bar1.png" class="">
 
-<p>我们要对float数据四舍五入，并把单位改为亿元。</p>
-<p>方法一</p>
-<p>使用 lambda 表达式。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cap_list = industry_df[<span class="string">&#x27;MKT_CAP_ARD&#x27;</span>].apply(<span class="keyword">lambda</span> x: <span class="built_in">round</span>(x / <span class="number">100000000</span>, <span class="number">0</span>)).astype(<span class="built_in">int</span>)</span><br><span class="line">cap_list</span><br></pre></td></tr></table></figure>
+<p>解决方法有以下几种。我们使用的数据如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">industry = [<span class="string">&#x27;交通运输&#x27;</span>, <span class="string">&#x27;休闲服务&#x27;</span>, <span class="string">&#x27;传媒&#x27;</span>, <span class="string">&#x27;公用事业&#x27;</span>, <span class="string">&#x27;农林牧渔&#x27;</span>, <span class="string">&#x27;化工&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;医药生物&#x27;</span>, <span class="string">&#x27;商业贸易&#x27;</span>, <span class="string">&#x27;国防军工&#x27;</span>, <span class="string">&#x27;家用电器&#x27;</span>, <span class="string">&#x27;建筑材料&#x27;</span>, <span class="string">&#x27;建筑装饰&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;房地产&#x27;</span>, <span class="string">&#x27;有色金属&#x27;</span>, <span class="string">&#x27;机械设备&#x27;</span>, <span class="string">&#x27;汽车&#x27;</span>, <span class="string">&#x27;电子&#x27;</span>, <span class="string">&#x27;电气设备&#x27;</span>, <span class="string">&#x27;纺织服装&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;综合&#x27;</span>, <span class="string">&#x27;计算机&#x27;</span>, <span class="string">&#x27;轻工制造&#x27;</span>, <span class="string">&#x27;采掘&#x27;</span>, <span class="string">&#x27;银行&#x27;</span>, <span class="string">&#x27;非银金融&#x27;</span>, <span class="string">&#x27;食品饮料&#x27;</span>]</span><br><span class="line">cap = [<span class="number">4572</span>, <span class="number">253</span>, <span class="number">84</span>, <span class="number">119</span>, <span class="number">23</span>, <span class="number">352</span>, <span class="number">1059</span>, <span class="number">631</span>, <span class="number">900</span>, <span class="number">95</span>, <span class="number">43</span>, <span class="number">430</span>, <span class="number">1524</span>, <span class="number">52</span>, <span class="number">1254</span>,</span><br><span class="line">       <span class="number">2581</span>, <span class="number">3012</span>, <span class="number">195</span>, <span class="number">70</span>, <span class="number">31</span>, <span class="number">1338</span>, <span class="number">61</span>, <span class="number">111</span>, <span class="number">4964</span>, <span class="number">2782</span>, <span class="number">291</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成Series</span></span><br><span class="line">s = pd.Series(cap, industry)</span><br><span class="line"><span class="comment"># 排序</span></span><br><span class="line">sort_s = series.sort_values(ascending=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成x轴 y轴序列</span></span><br><span class="line">x = sort_s.index</span><br><span class="line">y = sort_s.values</span><br><span class="line"></span><br><span class="line">fig, axs = plt.subplots()</span><br><span class="line">axs.bar(x, y)</span><br></pre></td></tr></table></figure>
 
-<p>方法二</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cap_list = <span class="built_in">round</span>(industry_df[<span class="string">&#x27;MKT_CAP_ARD&#x27;</span>] / <span class="number">100000000</span>, <span class="number">0</span>).astype(<span class="built_in">int</span>)</span><br><span class="line">cap_list</span><br></pre></td></tr></table></figure>
+<h1 id="拉长画布"><a href="#拉长画布" class="headerlink" title="拉长画布"></a>拉长画布</h1><p>查看画布默认大小</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.rcParams[<span class="string">&#x27;figure.figsize&#x27;</span>]</span><br><span class="line">[<span class="number">6.0</span>, <span class="number">4.0</span>]</span><br></pre></td></tr></table></figure>
 
-<p>最后需要使用 astype 函数把 float 转为 int。不然数据还是会带一位小数的，哪怕是0。</p>
-<img src="/2020/04/Python-Pandas%E5%AF%B9DataFrame-float%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/result_df.png" class="">
+<p>我们把画布拉长一倍，设置 figsize 参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fig, axs = plt.subplots(figsize=(<span class="number">12</span>, <span class="number">4</span>))</span><br><span class="line">axs.bar(x, y)</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/bar2.png" class="">
+
+<p>拉长以后，bar 的宽度也变大了。</p>
+<p>由于 x 轴的数据太多了，还是有覆盖现象。</p>
+<h1 id="调整标签字体字号"><a href="#调整标签字体字号" class="headerlink" title="调整标签字体字号"></a>调整标签字体字号</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fig, axs = plt.subplots()</span><br><span class="line"><span class="comment"># 调整x轴标签的大小</span></span><br><span class="line">axs.tick_params(axis=<span class="string">&#x27;x&#x27;</span>, labelsize=<span class="number">6</span>)</span><br><span class="line">axs.bar(x, y)</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/bar3.png" class="">
+
+<h1 id="x轴和y轴互换"><a href="#x轴和y轴互换" class="headerlink" title="x轴和y轴互换"></a>x轴和y轴互换</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fig, axs = plt.subplots()</span><br><span class="line">axs.barh(x, y)</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/bar4.png" class="">
+
+<h1 id="标签旋转"><a href="#标签旋转" class="headerlink" title="标签旋转"></a>标签旋转</h1><p>目前比较好的解决方案可能是标签旋转，再适当的放大x轴。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fig, axs = plt.subplots(figsize=(<span class="number">12</span>, <span class="number">4</span>))</span><br><span class="line"><span class="comment"># x轴标签旋转</span></span><br><span class="line">axs.tick_params(axis=<span class="string">&#x27;x&#x27;</span>, labelrotation=-<span class="number">60</span>)</span><br><span class="line">axs.bar(x, y)</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/05/Python-matplotlib%E7%BB%98%E5%9B%BE%E6%97%B6x%E8%BD%B4%E6%A0%87%E7%AD%BE%E9%87%8D%E5%8F%A0%E8%A6%86%E7%9B%96/bar5.png" class="">
+
       
     </div>
 
@@ -452,7 +466,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/%E5%85%B3%E4%BA%8E%E8%82%A1%E7%A5%A8%E5%B8%82%E5%80%BC%E7%9A%84%E5%87%A0%E4%B8%AA%E6%8C%87%E6%A0%87%E5%B7%AE%E5%BC%82/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/Python%E5%88%9B%E5%BB%BADataFrame/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -470,7 +484,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/%E5%85%B3%E4%BA%8E%E8%82%A1%E7%A5%A8%E5%B8%82%E5%80%BC%E7%9A%84%E5%87%A0%E4%B8%AA%E6%8C%87%E6%A0%87%E5%B7%AE%E5%BC%82/" class="post-title-link" itemprop="url">关于股票市值的几个指标差异</a>
+          <a href="/2020/04/Python%E5%88%9B%E5%BB%BADataFrame/" class="post-title-link" itemprop="url">Python创建DataFrame</a>
         </h2>
 
         <div class="post-meta-container">
@@ -481,7 +495,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-04-25 22:57:25" itemprop="dateCreated datePublished" datetime="2020-04-25T22:57:25+08:00">2020-04-25</time>
+      <time title="创建时间：2020-04-30 19:48:03" itemprop="dateCreated datePublished" datetime="2020-04-30T19:48:03+08:00">2020-04-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -496,12 +510,16 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Quant/" itemprop="url" rel="index"><span itemprop="name">Quant</span></a>
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/Pandas/" itemprop="url" rel="index"><span itemprop="name">Pandas</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/04/%E5%85%B3%E4%BA%8E%E8%82%A1%E7%A5%A8%E5%B8%82%E5%80%BC%E7%9A%84%E5%87%A0%E4%B8%AA%E6%8C%87%E6%A0%87%E5%B7%AE%E5%BC%82/" class="post-meta-item leancloud_visitors" data-flag-title="关于股票市值的几个指标差异" title="阅读次数">
+    <span id="/2020/04/Python%E5%88%9B%E5%BB%BADataFrame/" class="post-meta-item leancloud_visitors" data-flag-title="Python创建DataFrame" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -516,8 +534,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/04/%E5%85%B3%E4%BA%8E%E8%82%A1%E7%A5%A8%E5%B8%82%E5%80%BC%E7%9A%84%E5%87%A0%E4%B8%AA%E6%8C%87%E6%A0%87%E5%B7%AE%E5%BC%82/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/04/%E5%85%B3%E4%BA%8E%E8%82%A1%E7%A5%A8%E5%B8%82%E5%80%BC%E7%9A%84%E5%87%A0%E4%B8%AA%E6%8C%87%E6%A0%87%E5%B7%AE%E5%BC%82/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/04/Python%E5%88%9B%E5%BB%BADataFrame/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/04/Python%E5%88%9B%E5%BB%BADataFrame/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -531,16 +549,29 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>使用万得数据时，获取市值信息时，有如下几个关于市值的指标。</p>
-<h1 id="ev-总市值1"><a href="#ev-总市值1" class="headerlink" title="ev 总市值1"></a>ev 总市值1</h1><p>上市公司的股权公平市场价值。对于一家多地上市公司，区分不同类型的股份价格和股份数量分别计算类别市值，然后加总。 注：优先股不适用此类估值方法，指定证券的类型为优先股时，该指标返回为空。</p>
-<p>这个指标，一般在行情软件里面是看不到的。各地股数 * 各地价格，最后再相加。</p>
-<h1 id="mkt-cap-ard-总市值2"><a href="#mkt-cap-ard-总市值2" class="headerlink" title="mkt_cap_ard 总市值2"></a>mkt_cap_ard 总市值2</h1><p>按指定证券价格乘指定日总股本计算上市公司在该市场的估值。该总市值为计算PE、PB等估值指标的基础指标。暂停上市期间或退市后该指标不计算。 注：优先股不适用此类估值方法：指定证券的类型为优先股时，该指标返回为空。</p>
-<p>总股本 * 股价</p>
-<p>我们在行情软件里面一般就是看到的这个值。</p>
-<h1 id="mkt-cap-csrc-证监会市值"><a href="#mkt-cap-csrc-证监会市值" class="headerlink" title="mkt_cap_csrc 证监会市值"></a>mkt_cap_csrc 证监会市值</h1><p>所有A股+B股的市值，不包括H股。</p>
-<h1 id="rt-mkt-cap-总市值"><a href="#rt-mkt-cap-总市值" class="headerlink" title="rt_mkt_cap 总市值"></a>rt_mkt_cap 总市值</h1><p>这个应该是实行行情接口才能使用。</p>
-<h1 id="mkt-cap"><a href="#mkt-cap" class="headerlink" title="mkt_cap"></a>mkt_cap</h1><p>不可回测，目前还不知道有什么作用，先留在这里。</p>
+          <p>创建 DataFrame 的几种方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">pandas</span>.DataFrame(data=<span class="literal">None</span>, index: <span class="type">Optional</span>[Collection] = <span class="literal">None</span>, columns: <span class="type">Optional</span>[Collection] = <span class="literal">None</span>,</span><br><span class="line">    dtype: <span class="type">Union</span>[<span class="built_in">str</span>, numpy.dtype, ExtensionDtype, <span class="literal">None</span>] = <span class="literal">None</span>, copy: <span class="built_in">bool</span> = <span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
 
+<p>data 参数可以是：ndarray (structured or homogeneous), Iterable, dict, or DataFrame.<br>Dict can contain Series, arrays, constants, or list-like objects.</p>
+<h1 id="由数组-list组成的字典创建-DataFrame"><a href="#由数组-list组成的字典创建-DataFrame" class="headerlink" title="由数组&#x2F;list组成的字典创建 DataFrame"></a>由数组&#x2F;list组成的字典创建 DataFrame</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">d = &#123;<span class="string">&#x27;col1&#x27;</span>: [<span class="number">1</span>, <span class="number">2</span>], <span class="string">&#x27;col2&#x27;</span>: [<span class="number">3</span>, <span class="number">4</span>]&#125;</span><br><span class="line">df = pd.DataFrame(d)</span><br><span class="line">df</span><br><span class="line"></span><br><span class="line">	col1	col2</span><br><span class="line"><span class="number">0</span>	<span class="number">1</span>	<span class="number">3</span></span><br><span class="line"><span class="number">1</span>	<span class="number">2</span>	<span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<p>看看创建的 DataFrame 元素的类型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df.dtypes</span><br><span class="line"></span><br><span class="line">col1    int64</span><br><span class="line">col2    int64</span><br><span class="line">dtype: <span class="built_in">object</span></span><br></pre></td></tr></table></figure>
+
+<p>如果要修改类型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">df2 = pd.DataFrame(d, dtype=np.int8)</span><br><span class="line">df2.dtypes</span><br><span class="line"></span><br><span class="line">col1    int8</span><br><span class="line">col2    int8</span><br><span class="line">dtype: <span class="built_in">object</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="由-Series-组成的字典创建-DataFrame"><a href="#由-Series-组成的字典创建-DataFrame" class="headerlink" title="由 Series 组成的字典创建 DataFrame"></a>由 Series 组成的字典创建 DataFrame</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df3 = pd.DataFrame(&#123;<span class="string">&#x27;col1&#x27;</span>: pd.Series([<span class="number">1</span>, <span class="number">2</span>]), <span class="string">&#x27;col2&#x27;</span>: pd.Series([<span class="number">3</span>, <span class="number">4</span>])&#125;)</span><br><span class="line">df3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    col1	col2</span><br><span class="line"><span class="number">0</span>	<span class="number">1</span>	<span class="number">3</span></span><br><span class="line"><span class="number">1</span>	<span class="number">2</span>	<span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="由字典组成的列表创建-DataFrame"><a href="#由字典组成的列表创建-DataFrame" class="headerlink" title="由字典组成的列表创建 DataFrame"></a>由字典组成的列表创建 DataFrame</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df4 = pd.DataFrame([&#123;<span class="string">&#x27;col1&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;col2&#x27;</span>: <span class="number">3</span>&#125;, &#123;<span class="string">&#x27;col1&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;col2&#x27;</span>: <span class="number">4</span>&#125;])</span><br><span class="line">df4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    col1	col2</span><br><span class="line"><span class="number">0</span>	<span class="number">1</span>	<span class="number">3</span></span><br><span class="line"><span class="number">1</span>	<span class="number">2</span>	<span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="由字典组成的字典创建-DataFrame"><a href="#由字典组成的字典创建-DataFrame" class="headerlink" title="由字典组成的字典创建 DataFrame"></a>由字典组成的字典创建 DataFrame</h1><p>column 为父字典的 key，index 为子字典的 key。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df4 = pd.DataFrame(&#123;<span class="string">&#x27;col1&#x27;</span>: &#123;<span class="string">&#x27;idx1&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;idx2&#x27;</span>: <span class="number">2</span>&#125;, <span class="string">&#x27;col2&#x27;</span>: &#123;<span class="string">&#x27;idx1&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;idx2&#x27;</span>: <span class="number">4</span>&#125;&#125;)</span><br><span class="line">df4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        col1	col2</span><br><span class="line">idx1	<span class="number">1</span>	<span class="number">3</span></span><br><span class="line">idx2	<span class="number">2</span>	<span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="由二维数组创建-DataFrame"><a href="#由二维数组创建-DataFrame" class="headerlink" title="由二维数组创建 DataFrame"></a>由二维数组创建 DataFrame</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df5 = pd.DataFrame([[<span class="number">1</span>, <span class="number">3</span>], [<span class="number">2</span>, <span class="number">4</span>]])</span><br><span class="line">df5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="number">0</span>	<span class="number">1</span></span><br><span class="line"><span class="number">0</span>	<span class="number">1</span>	<span class="number">3</span></span><br><span class="line"><span class="number">1</span>	<span class="number">2</span>	<span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<p>当然，也可以自定义 index 和 column</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">df6 = pd.DataFrame([[<span class="number">1</span>, <span class="number">3</span>], [<span class="number">2</span>, <span class="number">4</span>]], index=[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>], columns=[<span class="string">&#x27;c1&#x27;</span>, <span class="string">&#x27;c2&#x27;</span>])</span><br><span class="line">df6</span><br><span class="line"></span><br><span class="line">	c1	c2</span><br><span class="line">a	<span class="number">1</span>	<span class="number">3</span></span><br><span class="line">b	<span class="number">2</span>	<span class="number">4</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -559,7 +590,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/54/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/">54</a><span class="page-number current">55</span><a class="page-number" href="/page/56/">56</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/56/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/54/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/">54</a><span class="page-number current">55</span><a class="page-number" href="/page/56/">56</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/56/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

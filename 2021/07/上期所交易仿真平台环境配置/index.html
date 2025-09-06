@@ -21,15 +21,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"finolo.gy","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="环境介绍 用户名：1***81 BrokerID统一为：9999 产品名称：即APPID，默认的APPID为simnow_client_test 授权编码：认证码为0000000000000000（16个0） 第一套（支持上期所期权）：第一组：Trade Front：180.168.146.187:10201，Market Front：180.168.146.187:10211；【电信】（看穿式前">
+    <meta name="description" content="环境介绍 用户名：1***81 BrokerID统一为：9999 产品名称：即APPID，默认的 APPID 为 simnow_client_test 授权编码：认证码为 0000000000000000（16个0） 7x24环境交易前置：182.254.243.31:40001行情前置：182.254.243.31:40011 特点：全天候运行，推荐用于开发测试，当然，也有一些时间无服务。 交易">
 <meta property="og:type" content="article">
 <meta property="og:title" content="上期所交易仿真平台环境配置">
 <meta property="og:url" content="https://finolo.gy/2021/07/%E4%B8%8A%E6%9C%9F%E6%89%80%E4%BA%A4%E6%98%93%E4%BB%BF%E7%9C%9F%E5%B9%B3%E5%8F%B0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Finology 大数据金融">
-<meta property="og:description" content="环境介绍 用户名：1***81 BrokerID统一为：9999 产品名称：即APPID，默认的APPID为simnow_client_test 授权编码：认证码为0000000000000000（16个0） 第一套（支持上期所期权）：第一组：Trade Front：180.168.146.187:10201，Market Front：180.168.146.187:10211；【电信】（看穿式前">
+<meta property="og:description" content="环境介绍 用户名：1***81 BrokerID统一为：9999 产品名称：即APPID，默认的 APPID 为 simnow_client_test 授权编码：认证码为 0000000000000000（16个0） 7x24环境交易前置：182.254.243.31:40001行情前置：182.254.243.31:40011 特点：全天候运行，推荐用于开发测试，当然，也有一些时间无服务。 交易">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-26T06:31:01.000Z">
-<meta property="article:modified_time" content="2025-08-23T02:01:15.405Z">
+<meta property="article:modified_time" content="2025-09-06T11:56:11.993Z">
 <meta property="article:author" content="Simon">
 <meta property="article:tag" content="python, finance, python, quant, 量化">
 <meta name="twitter:card" content="summary">
@@ -162,7 +162,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E5%A5%97%EF%BC%88%E6%94%AF%E6%8C%81%E4%B8%8A%E6%9C%9F%E6%89%80%E6%9C%9F%E6%9D%83%EF%BC%89%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">第一套（支持上期所期权）：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E5%A5%97%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">第二套：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%9E%E4%BA%A4%E6%98%93%E6%97%B6%E9%97%B4"><span class="nav-number">3.</span> <span class="nav-text">非交易时间</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#7x24%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">7x24环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%A4%E6%98%93%E6%97%B6%E6%AE%B5%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">交易时段环境</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -188,7 +188,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">380</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -262,7 +262,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+      <time title="修改时间：2025-09-06 19:56:11" itemprop="dateModified" datetime="2025-09-06T19:56:11+08:00">2025-09-06</time>
     </span>
 
   
@@ -298,27 +298,15 @@
     <div class="post-body" itemprop="articleBody"><p>环境介绍</p>
 <p>用户名：1***81</p>
 <p>BrokerID统一为：9999</p>
-<p>产品名称：即APPID，默认的APPID为simnow_client_test</p>
-<p>授权编码：认证码为0000000000000000（16个0）</p>
-<h1 id="第一套（支持上期所期权）："><a href="#第一套（支持上期所期权）：" class="headerlink" title="第一套（支持上期所期权）："></a>第一套（支持上期所期权）：</h1><p>第一组：Trade Front：180.168.146.187:10201，Market Front：180.168.146.187:10211；【电信】（看穿式前置，使用监控中心生产秘钥）</p>
-<p>第二组：Trade Front：180.168.146.187:10202，Market Front：180.168.146.187:10212；【电信】（看穿式前置，使用监控中心生产秘钥）</p>
-<p>第三组：Trade Front：218.202.237.33:10203，Market Front：218.202.237.33:10213；【移动】（看穿式前置，使用监控中心生产秘钥）</p>
-<p>交易品种：五所所有期货品种以及上期所所有期权品种。</p>
-<p>账户资金：初始资金两千万，支持入金，每日最多三次。</p>
-<p>交易阶段(服务时间)：与实际生产环境保持一致。</p>
-<p>客户端软件下载：点击下载客户端。</p>
-<h1 id="第二套："><a href="#第二套：" class="headerlink" title="第二套："></a>第二套：</h1><p>交易前置：180.168.146.187:10130，行情前置：180.168.146.187:10131；【7x24】（看穿式前置，使用监控中心生产秘钥）</p>
-<p>第二套环境仅服务于CTP API开发爱好者，仅为用户提供CTP API测试需求，不提供结算等其它服务。</p>
-<p>新注册用户，需要等到第三个交易日才能使用第二套环境。</p>
-<p>账户、钱、仓跟第一套环境上一个交易日保持一致。</p>
-<p>交易阶段(服务时间)：交易日，16：00～次日09：00；非交易日，16：00～次日15：00。</p>
-<p>用户通过SimNow的账户（上一个交易日之前注册的账户都有效）接入环境，建议通过商业终端进行模拟交易的用户使用第一套环境。</p>
-<p>成交规则</p>
-<p>1、期货交易按照交易所公布的买一卖一价对价成交；</p>
-<p>2、买入时：如果委托价大于等于卖一价，则成交，成交价为委托价、卖一价、最新价三价取中，如果委托价小于卖一价，不能成交，等待更优的行情才能成交；</p>
-<p>3、卖出时：如果委托价小于等于买一价，则成交，成交价为委托价、买一价、最新价三价取中，如果委托价大于买一价，不能成交，等待更优的行情才能成交。</p>
-<h1 id="非交易时间"><a href="#非交易时间" class="headerlink" title="非交易时间"></a>非交易时间</h1><p>第一套，第一组：Trade Front：180.168.146.187:10201，Market Front：180.168.146.187:10211；【电信】，亲测可用。</p>
-<p>第二套，交易前置：180.168.146.187:10130，行情前置：180.168.146.187:10131，亲测可用。</p>
+<p>产品名称：即APPID，默认的 APPID 为 simnow_client_test</p>
+<p>授权编码：认证码为 0000000000000000（16个0）</p>
+<h1 id="7x24环境"><a href="#7x24环境" class="headerlink" title="7x24环境"></a>7x24环境</h1><p>交易前置：182.254.243.31:40001<br>行情前置：182.254.243.31:40011</p>
+<p>特点：全天候运行，推荐用于开发测试，当然，也有一些时间无服务。</p>
+<h1 id="交易时段环境"><a href="#交易时段环境" class="headerlink" title="交易时段环境"></a>交易时段环境</h1><p>提供了三组可供使用。</p>
+<p>交易前置：182.254.243.31:30001<br>行情前置：182.254.243.31:30011</p>
+<p>交易前置：182.254.243.31:30002<br>行情前置：182.254.243.31:30012</p>
+<p>交易前置：182.254.243.31:30003<br>行情前置：182.254.243.31:30013</p>
+<p>特点：只在交易时段开放，更接近实盘</p>
 
     </div>
 

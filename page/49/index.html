@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">380</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/05/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E5%88%86%E8%BE%A8%E7%8E%87%E4%B8%8Erpx/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/06/IntelliJ-IDEA%E4%B8%AD%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E6%96%B9%E6%B3%95%E7%9A%84%E6%AF%8F%E4%B8%AA%E5%87%BA%E5%8F%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +238,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/05/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E5%88%86%E8%BE%A8%E7%8E%87%E4%B8%8Erpx/" class="post-title-link" itemprop="url">微信小程序移动设备分辨率与rpx</a>
+          <a href="/2020/06/IntelliJ-IDEA%E4%B8%AD%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E6%96%B9%E6%B3%95%E7%9A%84%E6%AF%8F%E4%B8%AA%E5%87%BA%E5%8F%A3/" class="post-title-link" itemprop="url">IntelliJ IDEA中如何查看方法的每个出口</a>
         </h2>
 
         <div class="post-meta-container">
@@ -249,7 +249,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-05-30 18:10:51" itemprop="dateCreated datePublished" datetime="2020-05-30T18:10:51+08:00">2020-05-30</time>
+      <time title="创建时间：2020-06-04 10:26:56" itemprop="dateCreated datePublished" datetime="2020-06-04T10:26:56+08:00">2020-06-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -264,126 +264,16 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" itemprop="url" rel="index"><span itemprop="name">小程序</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/05/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E5%88%86%E8%BE%A8%E7%8E%87%E4%B8%8Erpx/" class="post-meta-item leancloud_visitors" data-flag-title="微信小程序移动设备分辨率与rpx" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/05/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E5%88%86%E8%BE%A8%E7%8E%87%E4%B8%8Erpx/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/05/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E5%88%86%E8%BE%A8%E7%8E%87%E4%B8%8Erpx/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>开发小程序时，需要对不同设备做分辨率的自适应。</p>
-<p>设计稿以 iphone 6 的物理像素 750 * 1334 来设计。</p>
-<p>使用 rpx 为单位，小程序会在不同分辨率的设备里面进行换算。</p>
-<p>iphone 6 下面，1px &#x3D; 1rpx &#x3D; 0.5pt</p>
-<p>pt 是逻辑像素单位，跟设备的物理长宽（3.5英寸）有关系。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/05/%E8%85%BE%E8%BF%85%E4%BA%91%E7%9B%B4%E6%92%ADAPI%E8%B0%83%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/05/%E8%85%BE%E8%BF%85%E4%BA%91%E7%9B%B4%E6%92%ADAPI%E8%B0%83%E7%94%A8/" class="post-title-link" itemprop="url">腾迅云直播API调用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-05-26 19:22:01" itemprop="dateCreated datePublished" datetime="2020-05-26T19:22:01+08:00">2020-05-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
+          <a href="/categories/Tools/IntelliJ-IDEA/" itemprop="url" rel="index"><span itemprop="name">IntelliJ IDEA</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/05/%E8%85%BE%E8%BF%85%E4%BA%91%E7%9B%B4%E6%92%ADAPI%E8%B0%83%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="腾迅云直播API调用" title="阅读次数">
+    <span id="/2020/06/IntelliJ-IDEA%E4%B8%AD%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E6%96%B9%E6%B3%95%E7%9A%84%E6%AF%8F%E4%B8%AA%E5%87%BA%E5%8F%A3/" class="post-meta-item leancloud_visitors" data-flag-title="IntelliJ IDEA中如何查看方法的每个出口" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -398,8 +288,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/05/%E8%85%BE%E8%BF%85%E4%BA%91%E7%9B%B4%E6%92%ADAPI%E8%B0%83%E7%94%A8/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/05/%E8%85%BE%E8%BF%85%E4%BA%91%E7%9B%B4%E6%92%ADAPI%E8%B0%83%E7%94%A8/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/06/IntelliJ-IDEA%E4%B8%AD%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E6%96%B9%E6%B3%95%E7%9A%84%E6%AF%8F%E4%B8%AA%E5%87%BA%E5%8F%A3/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/06/IntelliJ-IDEA%E4%B8%AD%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E6%96%B9%E6%B3%95%E7%9A%84%E6%AF%8F%E4%B8%AA%E5%87%BA%E5%8F%A3/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -413,17 +303,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>使用腾迅云产品时，一般情况下，腾迅都会提供一个 SDK 供我们调用。</p>
-<p>拿云直播里面的混流做为案例，讲解一下 SDK 的使用方法。通过官方的代码生成器，可以生成一个 Demo 做初步验证。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.tencentcloudapi.common.Credential;</span><br><span class="line"><span class="keyword">import</span> com.tencentcloudapi.common.profile.ClientProfile;</span><br><span class="line"><span class="keyword">import</span> com.tencentcloudapi.common.profile.HttpProfile;</span><br><span class="line"><span class="keyword">import</span> com.tencentcloudapi.common.exception.TencentCloudSDKException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.tencentcloudapi.live.v20180801.LiveClient;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.tencentcloudapi.live.v20180801.models.CreateCommonMixStreamRequest;</span><br><span class="line"><span class="keyword">import</span> com.tencentcloudapi.live.v20180801.models.CreateCommonMixStreamResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CreateCommonMixStream</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String [] args)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">Credential</span> <span class="variable">cred</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Credential</span>(<span class="string">&quot;SecretId&quot;</span>, <span class="string">&quot;SecretKey&quot;</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="type">HttpProfile</span> <span class="variable">httpProfile</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HttpProfile</span>();</span><br><span class="line">            httpProfile.setEndpoint(<span class="string">&quot;live.tencentcloudapi.com&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="type">ClientProfile</span> <span class="variable">clientProfile</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ClientProfile</span>();</span><br><span class="line">            clientProfile.setHttpProfile(httpProfile);</span><br><span class="line">            </span><br><span class="line">            <span class="type">LiveClient</span> <span class="variable">client</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">LiveClient</span>(cred, <span class="string">&quot;ap-shanghai&quot;</span>, clientProfile);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 混流参数</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">params</span> <span class="operator">=</span> <span class="string">&quot;&#123;&#125;&quot;</span>;</span><br><span class="line">            <span class="type">CreateCommonMixStreamRequest</span> <span class="variable">req</span> <span class="operator">=</span> CreateCommonMixStreamRequest.fromJsonString(params, CreateCommonMixStreamRequest.class);</span><br><span class="line">            </span><br><span class="line">            <span class="type">CreateCommonMixStreamResponse</span> <span class="variable">resp</span> <span class="operator">=</span> client.CreateCommonMixStream(req);</span><br><span class="line">            </span><br><span class="line">            System.out.println(CreateCommonMixStreamRequest.toJsonString(resp));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (TencentCloudSDKException e) &#123;</span><br><span class="line">            System.out.println(e.toString());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>在 IntelliJ IDEA 中，如果方法体很长，这时想查看方法有哪些出口，可以这样操作：</p>
+<p>Windows:</p>
+<p>把光标放在 return 上面，再按 ctrl + shift + F7</p>
 
-<p>我们可以把一些配置信息提取到 yml 配置文件中，同时让 Spring IOC 容器来管理 LiveClient。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tencent-cloud:</span></span><br><span class="line">  <span class="attr">secretId:</span></span><br><span class="line">  <span class="attr">secretKey:</span></span><br><span class="line">  <span class="attr">endpoint:</span> <span class="string">live.tencentcloudapi.com</span></span><br><span class="line">  <span class="attr">clientRegion:</span> <span class="string">ap-shanghai</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.tencentcloudapi.common.Credential;</span><br><span class="line"><span class="keyword">import</span> com.tencentcloudapi.common.profile.ClientProfile;</span><br><span class="line"><span class="keyword">import</span> com.tencentcloudapi.common.profile.HttpProfile;</span><br><span class="line"><span class="keyword">import</span> com.tencentcloudapi.live.v20180801.LiveClient;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ConfigurationProperties(&quot;tencent-cloud&quot;)</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TencentCloudConfig</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String secretId;</span><br><span class="line">    <span class="keyword">private</span> String secretKey;</span><br><span class="line">    <span class="comment">// 混流腾迅服务地址: live.tencentcloudapi.com</span></span><br><span class="line">    <span class="keyword">private</span> String endpoint;</span><br><span class="line">    <span class="keyword">private</span> String clientRegion;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> LiveClient <span class="title function_">getLiveClient</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">Credential</span> <span class="variable">cred</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Credential</span>(secretId, secretKey);</span><br><span class="line"></span><br><span class="line">        <span class="type">HttpProfile</span> <span class="variable">httpProfile</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HttpProfile</span>();</span><br><span class="line">        httpProfile.setEndpoint(endpoint);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 还可以设置代理</span></span><br><span class="line">        <span class="comment">// httpProfile.setProxyHost(host);</span></span><br><span class="line">        <span class="comment">// httpProfile.setProxyPort(port);</span></span><br><span class="line"></span><br><span class="line">        <span class="type">ClientProfile</span> <span class="variable">clientProfile</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ClientProfile</span>();</span><br><span class="line">        clientProfile.setHttpProfile(httpProfile);</span><br><span class="line"></span><br><span class="line">        <span class="type">LiveClient</span> <span class="variable">client</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">LiveClient</span>(cred, clientRegion, clientProfile);</span><br><span class="line">        <span class="keyword">return</span> client;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在 Service 的实现中，我们就可以直接注入 LiveClient 了。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MixStreamServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">MixStreamService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> LiveClient liveClient;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> CreateCommonMixStreamResponse <span class="title function_">mixStream</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">CreateCommonMixStreamRequest</span> <span class="variable">mixStreamRequest</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CreateCommonMixStreamRequest</span>();</span><br><span class="line">        <span class="comment">// 设置混流参数</span></span><br><span class="line">        <span class="comment">// mixStreamRequest.setXXX</span></span><br><span class="line">        CreateCommonMixStreamResponse response;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            response = liveClient.CreateCommonMixStream(mixStreamRequest);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (TencentCloudSDKException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> response;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -449,7 +332,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/05/Java%E6%A8%A1%E6%8B%9F%E5%B9%B6%E5%8F%91%E5%9C%BA%E6%99%AF/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/05/%E5%8D%83%E5%8D%83%E9%98%99%E6%AD%8C%E5%90%89%E4%BB%96%E8%B0%B1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -467,7 +350,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/05/Java%E6%A8%A1%E6%8B%9F%E5%B9%B6%E5%8F%91%E5%9C%BA%E6%99%AF/" class="post-title-link" itemprop="url">Java模拟并发场景</a>
+          <a href="/2020/05/%E5%8D%83%E5%8D%83%E9%98%99%E6%AD%8C%E5%90%89%E4%BB%96%E8%B0%B1/" class="post-title-link" itemprop="url">千千阙歌吉他谱</a>
         </h2>
 
         <div class="post-meta-container">
@@ -478,7 +361,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-05-25 12:02:46" itemprop="dateCreated datePublished" datetime="2020-05-25T12:02:46+08:00">2020-05-25</time>
+      <time title="创建时间：2020-05-31 22:00:27" itemprop="dateCreated datePublished" datetime="2020-05-31T22:00:27+08:00">2020-05-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -493,12 +376,12 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+          <a href="/categories/%E5%90%89%E4%BB%96%E8%B0%B1/" itemprop="url" rel="index"><span itemprop="name">吉他谱</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/05/Java%E6%A8%A1%E6%8B%9F%E5%B9%B6%E5%8F%91%E5%9C%BA%E6%99%AF/" class="post-meta-item leancloud_visitors" data-flag-title="Java模拟并发场景" title="阅读次数">
+    <span id="/2020/05/%E5%8D%83%E5%8D%83%E9%98%99%E6%AD%8C%E5%90%89%E4%BB%96%E8%B0%B1/" class="post-meta-item leancloud_visitors" data-flag-title="千千阙歌吉他谱" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -513,8 +396,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/05/Java%E6%A8%A1%E6%8B%9F%E5%B9%B6%E5%8F%91%E5%9C%BA%E6%99%AF/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/05/Java%E6%A8%A1%E6%8B%9F%E5%B9%B6%E5%8F%91%E5%9C%BA%E6%99%AF/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/05/%E5%8D%83%E5%8D%83%E9%98%99%E6%AD%8C%E5%90%89%E4%BB%96%E8%B0%B1/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/05/%E5%8D%83%E5%8D%83%E9%98%99%E6%AD%8C%E5%90%89%E4%BB%96%E8%B0%B1/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -528,9 +411,112 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>多线程环境下，我们要如何测试自己写的业务代码是否是线程安全的？</p>
-<p>可以用到 <code>CountDownLatch</code> 这个类，让所有线程都 await, 然后 countDown 以后，所有线程共同执行。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> gy.finolo.concurrent;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.CountDownLatch;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutorService;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Executors;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConcurrentDemo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 线程数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">WORKER_COUNT</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 竞争资源</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">TOTAL</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">executorService</span> <span class="operator">=</span> Executors.newCachedThreadPool();</span><br><span class="line">        <span class="type">CountDownLatch</span> <span class="variable">cdl</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CountDownLatch</span>(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; WORKER_COUNT; i++) &#123;</span><br><span class="line">            <span class="type">Worker</span> <span class="variable">worker</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Worker</span>(cdl);</span><br><span class="line">            executorService.execute(worker);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            TimeUnit.SECONDS.sleep(<span class="number">2</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        cdl.countDown();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            TimeUnit.SECONDS.sleep(<span class="number">2</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        executorService.shutdown();</span><br><span class="line">        System.out.println(<span class="string">&quot;TOTAL should be ZERO, but it&#x27;s : &quot;</span> + TOTAL);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Worker</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> CountDownLatch countDownLatch;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="title function_">Worker</span><span class="params">(CountDownLatch countDownLatch)</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.countDownLatch = countDownLatch;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                countDownLatch.await();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="built_in">this</span>.executeTask();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 需要并发处理的逻辑</span></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">executeTask</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> TOTAL - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                TimeUnit.MILLISECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            TOTAL = a;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <img src="/2020/05/%E5%8D%83%E5%8D%83%E9%98%99%E6%AD%8C%E5%90%89%E4%BB%96%E8%B0%B1/%E5%8D%83%E5%8D%83%E9%98%99%E6%AD%8C1.jpeg" class="">
+<img src="/2020/05/%E5%8D%83%E5%8D%83%E9%98%99%E6%AD%8C%E5%90%89%E4%BB%96%E8%B0%B1/%E5%8D%83%E5%8D%83%E9%98%99%E6%AD%8C2.jpeg" class="">
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/05/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%BD%91%E9%A1%B5%E7%89%88%E5%80%8D%E9%80%9F%E6%92%AD%E6%94%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/05/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%BD%91%E9%A1%B5%E7%89%88%E5%80%8D%E9%80%9F%E6%92%AD%E6%94%BE/" class="post-title-link" itemprop="url">百度网盘网页版倍速播放</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-05-30 22:37:14" itemprop="dateCreated datePublished" datetime="2020-05-30T22:37:14+08:00">2020-05-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+
+  
+    <span id="/2020/05/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%BD%91%E9%A1%B5%E7%89%88%E5%80%8D%E9%80%9F%E6%92%AD%E6%94%BE/" class="post-meta-item leancloud_visitors" data-flag-title="百度网盘网页版倍速播放" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/05/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%BD%91%E9%A1%B5%E7%89%88%E5%80%8D%E9%80%9F%E6%92%AD%E6%94%BE/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/05/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%BD%91%E9%A1%B5%E7%89%88%E5%80%8D%E9%80%9F%E6%92%AD%E6%94%BE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>百度网盘的宣传是可以倍速播放的，除了在手机上可以用外，我用 mac chrome 浏览器，是找不到倍速播放的功能的。</p>
+<p>今天突然发现通过这句脚本，竟然能神奇的控制播放速度，极大的提高了工作效率。</p>
+<p>进入百度网盘播放页面的控制台，执行如下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">videojs.<span class="title function_">getPlayers</span>(<span class="string">&quot;video-player&quot;</span>).<span class="property">html5player</span>.<span class="property">tech_</span>.<span class="title function_">setPlaybackRate</span>(<span class="number">1.5</span>)</span><br></pre></td></tr></table></figure>
+
+<p>即可以把播放速度变为正常速度的 1.5 倍。</p>
+<p>但是如何调整网页版的画质清晰度，目前还没有找到方法。</p>
+
       
     </div>
 
@@ -549,7 +535,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/48/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><span class="page-number current">49</span><a class="page-number" href="/page/50/">50</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/50/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/48/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><span class="page-number current">49</span><a class="page-number" href="/page/50/">50</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/50/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

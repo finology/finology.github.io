@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">380</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2025/09/Springboot%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E5%A4%9AKafka%E9%9B%86%E7%BE%A4/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2025/09/Windows%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85vnpy4-1-0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +238,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/09/Springboot%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E5%A4%9AKafka%E9%9B%86%E7%BE%A4/" class="post-title-link" itemprop="url">Springboot项目配置多Kafka集群</a>
+          <a href="/2025/09/Windows%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85vnpy4-1-0/" class="post-title-link" itemprop="url">Windows环境安装vnpy4.1.0</a>
         </h2>
 
         <div class="post-meta-container">
@@ -249,18 +249,11 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2025-09-01 15:34:02" itemprop="dateCreated datePublished" datetime="2025-09-01T15:34:02+08:00">2025-09-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-09-02 21:50:37" itemprop="dateModified" datetime="2025-09-02T21:50:37+08:00">2025-09-02</time>
+      <time title="创建时间：2025-09-06 19:57:43" itemprop="dateCreated datePublished" datetime="2025-09-06T19:57:43+08:00">2025-09-06</time>
     </span>
 
   
-    <span id="/2025/09/Springboot%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E5%A4%9AKafka%E9%9B%86%E7%BE%A4/" class="post-meta-item leancloud_visitors" data-flag-title="Springboot项目配置多Kafka集群" title="阅读次数">
+    <span id="/2025/09/Windows%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85vnpy4-1-0/" class="post-meta-item leancloud_visitors" data-flag-title="Windows环境安装vnpy4.1.0" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -275,8 +268,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2025/09/Springboot%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E5%A4%9AKafka%E9%9B%86%E7%BE%A4/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2025/09/Springboot%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E5%A4%9AKafka%E9%9B%86%E7%BE%A4/" itemprop="commentCount"></span>
+    <a title="waline" href="/2025/09/Windows%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85vnpy4-1-0/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/09/Windows%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85vnpy4-1-0/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -290,125 +283,27 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>当一个项目中出现多于一个 Kafka 集群时，这时需要让 Springboot 自动装配失效。</p>
-<p>在项目启动类上加上如下注解：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication(exclude = &#123;</span></span><br><span class="line"><span class="meta">		KafkaAutoConfiguration.class</span></span><br><span class="line"><span class="meta">&#125;)</span></span><br></pre></td></tr></table></figure>
+          <h1 id="一、创建-python-虚拟环境"><a href="#一、创建-python-虚拟环境" class="headerlink" title="一、创建 python 虚拟环境"></a>一、创建 python 虚拟环境</h1><p>创建名为 vnpy 的虚拟环境，python 使用3.10版本，（使用3.12版本安装 vnpy_ctp 会出现各类问题），创建好以后，激活该环境。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">mamba create -n vnpy310 python=3.10</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">mamba activate vnpy310</span></span><br></pre></td></tr></table></figure>
 
-<p>在 yaml 文件中配置如下：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="comment"># kafka配置</span></span><br><span class="line">  <span class="attr">kafka:</span></span><br><span class="line">    <span class="comment"># kafka集群1</span></span><br><span class="line">    <span class="attr">cluster1:</span></span><br><span class="line">      <span class="attr">bootstrap-servers:</span> <span class="string">server1:9092,server2:9092,server3:9092</span></span><br><span class="line">      <span class="attr">producer:</span></span><br><span class="line">        <span class="attr">key-deserializer:</span> <span class="string">org.apache.kafka.common.serialization.StringDeserializer</span></span><br><span class="line">        <span class="attr">value-deserializer:</span> <span class="string">org.apache.kafka.common.serialization.StringDeserializer</span></span><br><span class="line">        <span class="attr">retries:</span> <span class="number">3</span></span><br><span class="line">        <span class="attr">acks:</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># kafka集群2</span></span><br><span class="line">    <span class="attr">cluster2:</span></span><br><span class="line">      <span class="attr">bootstrap-servers:</span> <span class="string">server4:9092,server5:9092,server6:9092</span></span><br><span class="line">      <span class="attr">producer:</span></span><br><span class="line">        <span class="attr">key-deserializer:</span> <span class="string">org.apache.kafka.common.serialization.StringDeserializer</span></span><br><span class="line">        <span class="attr">value-deserializer:</span> <span class="string">org.apache.kafka.common.serialization.StringDeserializer</span></span><br><span class="line">        <span class="attr">retries:</span> <span class="number">3</span></span><br><span class="line">        <span class="attr">acks:</span> <span class="number">1</span></span><br><span class="line">      <span class="attr">consumer:</span></span><br><span class="line">        <span class="attr">group-id:</span> <span class="string">consumer_group</span></span><br><span class="line">        <span class="attr">key-deserializer:</span> <span class="string">org.apache.kafka.common.serialization.StringDeserializer</span></span><br><span class="line">        <span class="attr">value-deserializer:</span> <span class="string">org.apache.kafka.common.serialization.StringDeserializer</span></span><br><span class="line">        <span class="attr">auto-offset-reset:</span> <span class="string">earliest</span></span><br></pre></td></tr></table></figure>
+<h1 id="二、安装vnpy"><a href="#二、安装vnpy" class="headerlink" title="二、安装vnpy"></a>二、安装vnpy</h1><p>从远程仓库 clone vnpy 源码到本地。</p>
+<p>同时切换到 release 版本上，这次就是 release 4.1.0。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">git checkout 4.1.0</span></span><br></pre></td></tr></table></figure>
 
-<p>创建 Kafka 配置类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> gy.finolo.config.kafka;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.producer.ProducerConfig;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.kafka.KafkaProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.kafka.core.DefaultKafkaProducerFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.kafka.core.KafkaTemplate;</span><br><span class="line"><span class="keyword">import</span> org.springframework.kafka.core.ProducerFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">KafkaConfig</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Bean</span></span><br><span class="line">        <span class="meta">@ConfigurationProperties(prefix = &quot;spring.kafka.cluster1&quot;)</span></span><br><span class="line">        <span class="keyword">public</span> KafkaProperties <span class="title function_">cluster1KafkaProperties</span><span class="params">()</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">KafkaProperties</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Bean</span></span><br><span class="line">        <span class="meta">@ConfigurationProperties(prefix = &quot;spring.kafka.cluster2&quot;)</span></span><br><span class="line">        <span class="keyword">public</span> KafkaProperties <span class="title function_">cluster2KafkaProperties</span><span class="params">()</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">KafkaProperties</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Bean(&quot;cluster1KafkaTemplate&quot;)</span></span><br><span class="line">        <span class="keyword">public</span> KafkaTemplate&lt;String, String&gt; <span class="title function_">cluster1KafkaTemplate</span><span class="params">()</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">KafkaTemplate</span>&lt;&gt;(cluster1ProducerFactory());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Bean(&quot;cluster2KafkaTemplate&quot;)</span></span><br><span class="line">        <span class="keyword">public</span> KafkaTemplate&lt;String, String&gt; <span class="title function_">cluster2KafkaTemplate</span><span class="params">()</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">KafkaTemplate</span>&lt;&gt;(cluster2ProducerFactory());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Bean(&quot;cluster1ProducerFactory&quot;)</span></span><br><span class="line">        <span class="keyword">public</span> ProducerFactory&lt;String, String&gt; <span class="title function_">cluster1ProducerFactory</span><span class="params">()</span> &#123;</span><br><span class="line">                <span class="comment">// 直接使用KafkaProperties，更简洁</span></span><br><span class="line">                Map&lt;String, Object&gt; configProps = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 使用KafkaProperties的getter方法</span></span><br><span class="line">                configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,</span><br><span class="line">                                cluster1KafkaProperties().getBootstrapServers());</span><br><span class="line">                configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,</span><br><span class="line">                                cluster1KafkaProperties().getProducer().getKeySerializer());</span><br><span class="line">                configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,</span><br><span class="line">                                cluster1KafkaProperties().getProducer().getValueSerializer());</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 添加其他必要的配置</span></span><br><span class="line">                configProps.put(ProducerConfig.ACKS_CONFIG,</span><br><span class="line">                                cluster1KafkaProperties().getProducer().getAcks());</span><br><span class="line">                configProps.put(ProducerConfig.RETRIES_CONFIG,</span><br><span class="line">                                cluster1KafkaProperties().getProducer().getRetries());</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">DefaultKafkaProducerFactory</span>&lt;&gt;(configProps);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Bean(&quot;cluster2ProducerFactory&quot;)</span></span><br><span class="line">        <span class="keyword">public</span> ProducerFactory&lt;String, String&gt; <span class="title function_">cluster2ProducerFactory</span><span class="params">()</span> &#123;</span><br><span class="line">                Map&lt;String, Object&gt; configProps = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 使用KafkaProperties的getter方法</span></span><br><span class="line">                configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,</span><br><span class="line">                                cluster2KafkaProperties().getBootstrapServers());</span><br><span class="line">                configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,</span><br><span class="line">                                cluster2KafkaProperties().getProducer().getKeySerializer());</span><br><span class="line">                configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,</span><br><span class="line">                                cluster2KafkaProperties().getProducer().getValueSerializer());</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 添加其他必要的配置</span></span><br><span class="line">                configProps.put(ProducerConfig.ACKS_CONFIG,</span><br><span class="line">                                cluster2KafkaProperties().getProducer().getAcks());</span><br><span class="line">                configProps.put(ProducerConfig.RETRIES_CONFIG,</span><br><span class="line">                                cluster2KafkaProperties().getProducer().getRetries());</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">DefaultKafkaProducerFactory</span>&lt;&gt;(configProps);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>进行 vnpy 源码目录，在 Windows 环境下，则是运行 install.bat 文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">install.bat</span></span><br></pre></td></tr></table></figure>
 
-<p>在服务类里面，注入 KafkaTemplate，然后调用 send 方法就是了</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">KafkaMessageService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="meta">@Qualifier(&quot;cluster1KafkaTemplate&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> KafkaTemplate&lt;String, String&gt; kafkaTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> CompletableFuture&lt;SendResult&lt;String, String&gt;&gt; <span class="title function_">sendMessage</span><span class="params">(String message)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">topic</span> <span class="operator">=</span> <span class="string">&quot;kafka_topic&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> kafkaTemplate.send(topic, message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
+<p>最后控制台显示</p>
+<p>Successfully installed vnpy-4.1.0</p>
+<p>表明安装成功。</p>
+<h1 id="三、安装模块"><a href="#三、安装模块" class="headerlink" title="三、安装模块"></a>三、安装模块</h1><p>把 vnpy_ctp, vnpy_sqlite, vnpy_ctastrategy, vnpy_datamanager, vnpy_scripttrader 等基础模块 clone 到本地</p>
+<h2 id="安装-vnpy-ctp"><a href="#安装-vnpy-ctp" class="headerlink" title="安装 vnpy_ctp"></a>安装 vnpy_ctp</h2><p>进入 vnpy_ctp 目录，同时通过 pip 以源码编译方式安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash"><span class="built_in">cd</span> vnpy_ctp</span></span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">pip install .</span></span><br></pre></td></tr></table></figure>
 
-    
-    
-    
+<p>这时，可能会遇到以下错误</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">      building &#x27;vnpy_ctp.api.vnctptd&#x27; extension</span><br><span class="line">      error: Microsoft Visual C++ 14.0 or greater is required. Get it with &quot;Microsoft C++ Build Tools&quot;: https://visualstudio.microsoft.com/visual-cpp-build-tools/</span><br><span class="line">      [end of output]</span><br><span class="line"></span><br><span class="line">  note: This error originates from a subprocess, and is likely not a problem with pip.</span><br><span class="line">  ERROR: Failed building wheel for vnpy_ctp</span><br><span class="line">  Running setup.py clean for vnpy_ctp</span><br><span class="line">Failed to build vnpy_ctp</span><br><span class="line">error: failed-wheel-build-for-install</span><br><span class="line"></span><br><span class="line">× Failed to build installable wheels for some pyproject.toml based projects</span><br><span class="line">╰─&gt; vnpy_ctp</span><br></pre></td></tr></table></figure>
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2025/08/Hexo-Next-Theme%E6%B7%BB%E5%8A%A0Waline%E8%AF%84%E8%AE%BA%E6%A1%86%E5%92%8C%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/Hexo-Next-Theme%E6%B7%BB%E5%8A%A0Waline%E8%AF%84%E8%AE%BA%E6%A1%86%E5%92%8C%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92/" class="post-title-link" itemprop="url">Hexo Next Theme添加Waline评论框和邮件提醒</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-08-24 12:57:59 / 修改时间：12:59:04" itemprop="dateCreated datePublished" datetime="2025-08-24T12:57:59+08:00">2025-08-24</time>
-    </span>
-
-  
-    <span id="/2025/08/Hexo-Next-Theme%E6%B7%BB%E5%8A%A0Waline%E8%AF%84%E8%AE%BA%E6%A1%86%E5%92%8C%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo Next Theme添加Waline评论框和邮件提醒" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2025/08/Hexo-Next-Theme%E6%B7%BB%E5%8A%A0Waline%E8%AF%84%E8%AE%BA%E6%A1%86%E5%92%8C%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2025/08/Hexo-Next-Theme%E6%B7%BB%E5%8A%A0Waline%E8%AF%84%E8%AE%BA%E6%A1%86%E5%92%8C%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>之前文章下面一直使用的是Valine评论框，Valine已经不开源了，所以也遭到了开源社区的抛弃。</p>
-<p>使用新版本的 Hexo NexT，哪怕是安装了主题作者提供的 Valine 插件，也不能正常使用。</p>
-<p>不过有非常完美的替代方案，使用 Waline，数据结构都是相同的，迁移起来非常方便。</p>
-<p>在 Hexo NexT 主题下配置 Waline 评论系统和邮件提醒的方法：</p>
-<p>一、安装插件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install @waline/hexo-next</span><br></pre></td></tr></table></figure>
-
-<p>并在 <code>_config.next.yml</code> 配置文件里面配置参数</p>
-<p>这下面有些参数可能是没有用的，这个自行研究一下。</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">waline:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># When enable is set to be true, leancloud_visitors is recommended to be closed for the re-initialization problem within different leancloud adk version.</span></span><br><span class="line">  <span class="attr">appid:</span> <span class="comment"># your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span> <span class="comment"># your leancloud application appkey</span></span><br><span class="line">  <span class="attr">serverURL:</span> <span class="comment"># https://my-waline-beryl.vercel.app/ Vercel 地址</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment"># gravatar style</span></span><br><span class="line">  <span class="attr">meta:</span> [<span class="string">nick</span>, <span class="string">mail</span>, <span class="string">link</span>] <span class="comment"># Custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># pagination size</span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">true</span> <span class="comment"># leancloud-counter-security is not supported for now. When visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors&#x27; for counter compatibility. Article reading statistic https://valine.js.org/visitor.html</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> <span class="comment"># If false, comment count will only be displayed in post page, not in home page</span></span><br><span class="line">  <span class="attr">recordIP:</span> <span class="literal">false</span> <span class="comment"># Whether to record the commenter IP</span></span><br><span class="line">  <span class="attr">enableQQ:</span> <span class="literal">false</span> <span class="comment"># Whether to enable the Nickname box to automatically get QQ Nickname and QQ Avatar</span></span><br><span class="line">  <span class="attr">requiredFields:</span> [] <span class="comment"># Set required fields: [nick] | [nick, mail]</span></span><br><span class="line">  <span class="attr">libUrl:</span> <span class="comment"># Waline.min.js file URL in CDN (or local path)</span></span><br></pre></td></tr></table></figure>
-
-<p>二、注册leanCloud</p>
-<p>推荐注册海外版，使用国内版的话，在域名上会有限制，需要备案之类的。</p>
-<p>三、Vercel部署</p>
-<p>根据官网的安装方法，一步步操作就行</p>
-<p><code>https://waline.js.org/guide/get-started/</code></p>
-<p>在部署的时候，如果需要配置邮件提醒，还需要添加如下环境变量。</p>
-<p><img src="/2025/08/Hexo-Next-Theme%E6%B7%BB%E5%8A%A0Waline%E8%AF%84%E8%AE%BA%E6%A1%86%E5%92%8C%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92/waline%E8%AF%84%E8%AE%BA%E8%AE%BE%E7%BD%AE.png"></p>
+<p>这时需要安装 C++ 编译工具，选中“使用 C++ 的桌面开发”选项</p>
 
       
     </div>
@@ -435,7 +330,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2025/08/%E8%A7%A3%E5%86%B3github-22%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E6%88%96%E5%B0%81%E9%97%AD%E7%9A%84%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2025/09/Windows11%E4%B8%AD%E5%90%AF%E5%8A%A8Telnet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -453,7 +348,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/%E8%A7%A3%E5%86%B3github-22%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E6%88%96%E5%B0%81%E9%97%AD%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决github 22端口被占用或封闭的问题</a>
+          <a href="/2025/09/Windows11%E4%B8%AD%E5%90%AF%E5%8A%A8Telnet/" class="post-title-link" itemprop="url">Windows11中启动Telnet</a>
         </h2>
 
         <div class="post-meta-container">
@@ -464,18 +359,11 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2025-08-20 17:22:51" itemprop="dateCreated datePublished" datetime="2025-08-20T17:22:51+08:00">2025-08-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 21:02:56" itemprop="dateModified" datetime="2025-08-23T21:02:56+08:00">2025-08-23</time>
+      <time title="创建时间：2025-09-06 19:57:20" itemprop="dateCreated datePublished" datetime="2025-09-06T19:57:20+08:00">2025-09-06</time>
     </span>
 
   
-    <span id="/2025/08/%E8%A7%A3%E5%86%B3github-22%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E6%88%96%E5%B0%81%E9%97%AD%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="解决github 22端口被占用或封闭的问题" title="阅读次数">
+    <span id="/2025/09/Windows11%E4%B8%AD%E5%90%AF%E5%8A%A8Telnet/" class="post-meta-item leancloud_visitors" data-flag-title="Windows11中启动Telnet" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -490,8 +378,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2025/08/%E8%A7%A3%E5%86%B3github-22%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E6%88%96%E5%B0%81%E9%97%AD%E7%9A%84%E9%97%AE%E9%A2%98/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2025/08/%E8%A7%A3%E5%86%B3github-22%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E6%88%96%E5%B0%81%E9%97%AD%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    <a title="waline" href="/2025/09/Windows11%E4%B8%AD%E5%90%AF%E5%8A%A8Telnet/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/09/Windows11%E4%B8%AD%E5%90%AF%E5%8A%A8Telnet/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -505,56 +393,106 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在使用 git push 或 Github Desktop 等其他 Git 操作时，可能遇到以下错误：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh: connect to host github.com port 22: Connection timed out</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights and the repository exists.</span><br></pre></td></tr></table></figure>
+          <p>打开控制面板<br>按 Win + R，输入 appwiz.cpl 回车</p>
+<p>启用Windows功能<br>点击左侧的”启用或关闭Windows功能”</p>
+<p>找到”Telnet客户端”并勾选<br>点击”确定”</p>
 
-<p>这是由于默认的 SSH 22 端口被防火墙或网络策略限制，导致无法连接到 GitHub 的服务器。</p>
-<p>为了避免这一问题，可以将连接改为 SSH 的 443 端口。以下是详细的解决方法，包括 Windows 和 Linux&#x2F;Mac 的操作步骤。</p>
-<p>Linux&#x2F;Mac 下操作步骤</p>
-<ol>
-<li>修改 SSH 配置文件<br>SSH 的配置文件通常位于 ~&#x2F;.ssh&#x2F;config，如果文件不存在，可以手动创建一个：</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch ~/.ssh/config</span><br></pre></td></tr></table></figure>
-<p>打开文件并添加以下内容：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">HostName ssh.github.com  # **这是最重要的部分**</span><br><span class="line">User git</span><br><span class="line">Port 443</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+      
+    </div>
 
-<ol start="2">
-<li>验证 SSH 配置<br>配置完成后，通过以下命令测试连接是否正常：</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+    
+    
+    
 
-<p>如果配置成功，应该看到类似以下输出：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi &lt;your-username&gt;! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
 
-<ol start="3">
-<li>配置 Git 使用新端口<br>为确保 Git 使用新的 443 端口，可以运行以下命令：</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global url.&quot;ssh://git@ssh.github.com:443&quot;.insteadOf &quot;ssh://git@github.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p>Windows 下操作步骤</p>
-<ol>
-<li>找到 SSH 配置文件<br>在 Windows 下，SSH 配置文件通常位于用户目录的 .ssh 文件夹中（例如：C:\Users&lt;你的用户名&gt;.ssh\config）。如果文件不存在，可以手动创建一个：</li>
-</ol>
-<p>打开资源管理器并导航到 C:\Users&lt;你的用户名&gt;.ssh。<br>在 .ssh 文件夹下，新建一个文件，命名为 config（没有扩展名）。<br>2. 编辑 SSH 配置文件<br>   用记事本或其他文本编辑器打开 config 文件，添加以下内容：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">HostName ssh.github.com  # **这是最重要的部分**</span><br><span class="line">User git</span><br><span class="line">Port 443</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile C:\Users\&lt;你的用户名&gt;\.ssh\id_rsa</span><br></pre></td></tr></table></figure>
 
-<p>注意:<br>IdentityFile 的路径需要根据你实际存储 SSH 密钥的位置调整，通常是 id_rsa 或 id_ed25519。</p>
-<ol start="3">
-<li>验证 SSH 配置<br>打开命令提示符或 PowerShell，运行以下命令测试连接：</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 
-<p>如果配置正确，你应该看到以下输出：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi &lt;your-username&gt;! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+    
 
-<ol start="4">
-<li>配置 Git 使用新端口<br>在命令提示符或 PowerShell 中运行以下命令：</li>
-</ol>
-<p>最近这一步不配置，也可以正常使用 Github Desktop 了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global url.&quot;ssh://git@ssh.github.com:443&quot;.insteadOf &quot;ssh://git@github.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p>总结<br>当 22 端口被占用或限制 时，通过将 SSH 连接切换到 443 端口，即可解决无法访问 GitHub 的问题。这种方法适用于任何操作系统，尤其是在防火墙限制较严的网络环境中。</p>
+<div class="post-block">
+  
+  
 
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2025/09/Cursor%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AEpython%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/09/Cursor%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AEpython%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">Cursor终端配置python虚拟环境</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-09-06 19:57:03" itemprop="dateCreated datePublished" datetime="2025-09-06T19:57:03+08:00">2025-09-06</time>
+    </span>
+
+  
+    <span id="/2025/09/Cursor%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AEpython%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="Cursor终端配置python虚拟环境" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2025/09/Cursor%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AEpython%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/09/Cursor%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AEpython%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>终端 profile 设置</p>
+<img src="/2025/09/Cursor%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AEpython%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/cursor_terminal1.png" class="">
+
+<img src="/2025/09/Cursor%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AEpython%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/cursor_terminal2.png" class="">
+
+<p>在配置文件中，确保要有如下配置：</p>
+<p>即可以启动 vnpy python虚拟环境</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;terminal.integrated.profiles.windows&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;Command Prompt&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;C:\\Windows\\System32\\cmd.exe&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;/K&quot;</span><span class="punctuation">,</span> <span class="string">&quot;D:\\miniforge3\\Scripts\\activate.bat&quot;</span><span class="punctuation">,</span> <span class="string">&quot;vnpy&quot;</span><span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.integrated.defaultProfile.windows&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Command Prompt&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -573,7 +511,7 @@
 
 
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

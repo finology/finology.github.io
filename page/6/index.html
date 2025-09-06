@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">380</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2024/01/Jupyter-Lab%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8CPython%E5%86%85%E6%A0%B8/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2024/10/Windows-10-VSCode%E9%85%8D%E7%BD%AEMiniforge-Python%E7%8E%AF%E5%A2%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +238,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/Jupyter-Lab%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8CPython%E5%86%85%E6%A0%B8/" class="post-title-link" itemprop="url">Jupyter Lab环境中切换不同Python内核</a>
+          <a href="/2024/10/Windows-10-VSCode%E9%85%8D%E7%BD%AEMiniforge-Python%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">Windows 10 VSCode配置Miniforge Python环境</a>
         </h2>
 
         <div class="post-meta-container">
@@ -249,14 +249,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-01-17 22:44:33" itemprop="dateCreated datePublished" datetime="2024-01-17T22:44:33+08:00">2024-01-17</time>
+      <time title="创建时间：2024-10-22 19:21:29" itemprop="dateCreated datePublished" datetime="2024-10-22T19:21:29+08:00">2024-10-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-24 11:53:33" itemprop="dateModified" datetime="2025-08-24T11:53:33+08:00">2025-08-24</time>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -269,7 +269,7 @@
     </span>
 
   
-    <span id="/2024/01/Jupyter-Lab%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8CPython%E5%86%85%E6%A0%B8/" class="post-meta-item leancloud_visitors" data-flag-title="Jupyter Lab环境中切换不同Python内核" title="阅读次数">
+    <span id="/2024/10/Windows-10-VSCode%E9%85%8D%E7%BD%AEMiniforge-Python%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="Windows 10 VSCode配置Miniforge Python环境" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -284,8 +284,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2024/01/Jupyter-Lab%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8CPython%E5%86%85%E6%A0%B8/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2024/01/Jupyter-Lab%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8CPython%E5%86%85%E6%A0%B8/" itemprop="commentCount"></span>
+    <a title="waline" href="/2024/10/Windows-10-VSCode%E9%85%8D%E7%BD%AEMiniforge-Python%E7%8E%AF%E5%A2%83/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/10/Windows-10-VSCode%E9%85%8D%E7%BD%AEMiniforge-Python%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -299,23 +299,29 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>我一般选择在 <code>base</code> 环境中安装 <code>jupyter lab</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) D:\development\python&gt;mamba install jupyterlab</span><br></pre></td></tr></table></figure>
+          <p>在Windows 10操作系统上面安装Miniforge，同时配置VSCode用来开发python。</p>
+<p>执行文件时，可能会遇到如下错误：</p>
+<img src="/2024/10/Windows-10-VSCode%E9%85%8D%E7%BD%AEMiniforge-Python%E7%8E%AF%E5%A2%83/vscode_error.jpg" class="">
 
-<p>方案一</p>
-<p>在 <code>base</code> 环境中，可以安装 <code>nb_conda_kernels</code>，这个是一个与 Conda 集成的 Jupyter 插件，它允许你在 Jupyter 中使用 Conda 环境中的不同内核。</p>
-<p>方案二（推荐）</p>
-<p>安装ipykernel。</p>
-<p>创建一个新的环境，比如 <code>py310</code>，在这个环境里面安装 <code>ipykernel</code>，<code>mamba install ipykernel</code>。然后执行命令 <code>python -m ipykernel install --user --name py310</code>，其中<code>py310</code>是环境的名字。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mamba activate py310</span><br><span class="line">mamba install ipykernel</span><br><span class="line">python -m ipykernel install --user --name py310</span><br></pre></td></tr></table></figure>
+<p>然后执行命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Get-ExecutionPolicy</span><br><span class="line">Restricted</span><br></pre></td></tr></table></figure>
 
-<p>ipykernel 包是 Jupyter 的一个关键组件，它提供了 IPython 内核，允许 Jupyter 与 IPython 交互式计算环境进行通信。</p>
-<p>在jupyter lab页面中刷新，就可以自由选择 python 环境了，如下图所示：</p>
-<img src="/2024/01/Jupyter-Lab%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8CPython%E5%86%85%E6%A0%B8/nb_conda_kernels.png" class="">
+<p>执行如下命令解决：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser</span><br></pre></td></tr></table></figure>
 
-<p>这时会在Start Preferred Kernel里面显示新的环境。</p>
-<img src="/2024/01/Jupyter-Lab%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8CPython%E5%86%85%E6%A0%B8/ipykernel.png" class="">
+<p>这时会变为<code>Unrestricted</code>。</p>
+<h1 id="配置VSCode的Python开发环境"><a href="#配置VSCode的Python开发环境" class="headerlink" title="配置VSCode的Python开发环境"></a>配置VSCode的Python开发环境</h1><p>打开 VSCode，按 Ctrl + Shift + P 打开命令面板。</p>
+<p>输入并选择 Python: Select Interpreter 命令。</p>
+<p>选择Python解释器</p>
+<h1 id="配置VSCode使用Miniforge终端"><a href="#配置VSCode使用Miniforge终端" class="headerlink" title="配置VSCode使用Miniforge终端"></a>配置VSCode使用Miniforge终端</h1><p>打开 VSCode，点击左下角齿轮图标，选择 设置。</p>
+<p>在搜索框中搜索 <code>terminal.integrated.profiles.windows</code></p>
+<img src="/2024/10/Windows-10-VSCode%E9%85%8D%E7%BD%AEMiniforge-Python%E7%8E%AF%E5%A2%83/vscode_settings.jpg" class="">
 
+<h1 id="添加代码"><a href="#添加代码" class="headerlink" title="添加代码"></a>添加代码</h1><p>在settings.json中添加如下代码：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;terminal.integrated.defaultProfile.windows&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Miniforge Prompt&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;terminal.integrated.profiles.windows&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">&quot;PowerShell&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;source&quot;</span><span class="punctuation">:</span> <span class="string">&quot;PowerShell&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;icon&quot;</span><span class="punctuation">:</span> <span class="string">&quot;terminal-powershell&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Command Prompt&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">            <span class="string">&quot;$&#123;env:windir&#125;\\Sysnative\\cmd.exe&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;$&#123;env:windir&#125;\\System32\\cmd.exe&quot;</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;icon&quot;</span><span class="punctuation">:</span> <span class="string">&quot;terminal-cmd&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Git Bash&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;source&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Git Bash&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Miniforge Prompt&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;env:windir&#125;\\system32\\cmd.exe&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;/K&quot;</span><span class="punctuation">,</span> <span class="string">&quot;D:\\miniforge3\\Scripts\\activate.bat D:\\miniforge3&quot;</span><span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+
+<p>添加 Miniforge Prompt，path和args就照抄安装Miniforge时Miniforge Prompt的属性里面的东西。</p>
+<p><code>terminal.integrated.defaultProfile.windows</code>改成新配置的Miniforge Prompt。</p>
 
       
     </div>
@@ -342,7 +348,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2024/01/conda%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2024/10/Word%E5%88%B6%E4%BD%9C%E8%BA%AB%E4%BB%BD%E8%AF%81%E6%89%AB%E6%8F%8F%E4%BB%B6%E5%A4%8D%E5%8D%B0%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -360,7 +366,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/conda%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/" class="post-title-link" itemprop="url">conda安装国内源</a>
+          <a href="/2024/10/Word%E5%88%B6%E4%BD%9C%E8%BA%AB%E4%BB%BD%E8%AF%81%E6%89%AB%E6%8F%8F%E4%BB%B6%E5%A4%8D%E5%8D%B0%E4%BB%B6/" class="post-title-link" itemprop="url">Word制作身份证扫描件复印件</a>
         </h2>
 
         <div class="post-meta-container">
@@ -371,7 +377,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-01-16 23:32:54" itemprop="dateCreated datePublished" datetime="2024-01-16T23:32:54+08:00">2024-01-16</time>
+      <time title="创建时间：2024-10-16 22:21:34" itemprop="dateCreated datePublished" datetime="2024-10-16T22:21:34+08:00">2024-10-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -380,18 +386,9 @@
       <span class="post-meta-item-text">更新于</span>
       <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
 
   
-    <span id="/2024/01/conda%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/" class="post-meta-item leancloud_visitors" data-flag-title="conda安装国内源" title="阅读次数">
+    <span id="/2024/10/Word%E5%88%B6%E4%BD%9C%E8%BA%AB%E4%BB%BD%E8%AF%81%E6%89%AB%E6%8F%8F%E4%BB%B6%E5%A4%8D%E5%8D%B0%E4%BB%B6/" class="post-meta-item leancloud_visitors" data-flag-title="Word制作身份证扫描件复印件" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -406,8 +403,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2024/01/conda%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2024/01/conda%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E6%BA%90/" itemprop="commentCount"></span>
+    <a title="waline" href="/2024/10/Word%E5%88%B6%E4%BD%9C%E8%BA%AB%E4%BB%BD%E8%AF%81%E6%89%AB%E6%8F%8F%E4%BB%B6%E5%A4%8D%E5%8D%B0%E4%BB%B6/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/10/Word%E5%88%B6%E4%BD%9C%E8%BA%AB%E4%BB%BD%E8%AF%81%E6%89%AB%E6%8F%8F%E4%BB%B6%E5%A4%8D%E5%8D%B0%E4%BB%B6/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -421,16 +418,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Anaconda 是一个用于科学计算的 Python 发行版，支持 Linux, Mac, Windows, 包含了众多流行的科学计算、数据分析的 Python 包。</p>
-<p>Anaconda 安装包可以到 <code>https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</code> 下载。</p>
-<p>TUNA 还提供了 Anaconda 仓库与第三方源（conda-forge、msys2、pytorch等，查看完整列表，更多第三方源可以前往校园网联合镜像站查看）的镜像，各系统都可以通过修改用户目录下的 .condarc 文件来使用 TUNA 镜像源。Windows 用户无法直接创建名为 .condarc 的文件，可先执行 conda config –set show_channel_urls yes 生成该文件之后再修改。</p>
-<p>注：由于更新过快难以同步，他们不同步pytorch-nightly, pytorch-nightly-cpu, ignite-nightly这三个包。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - defaults</span><br><span class="line">show_channel_urls: true</span><br><span class="line">default_channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span><br><span class="line">custom_channels:</span><br><span class="line">  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  deepmodeling: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/</span><br></pre></td></tr></table></figure>
-
-<p>即可添加 Anaconda Python 免费仓库。</p>
-<p>运行 conda clean -i 清除索引缓存，保证用的是镜像站提供的索引。</p>
-<p>Miniconda 是一个 Anaconda 的轻量级替代，默认只包含了 python 和 conda，但是可以通过 pip 和 conda 来安装所需要的包。</p>
-<p>Miniconda 安装包可以到 <code>https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/</code> 下载。</p>
+          <p>身份证拍得不好，拍出来并非长方形，背影有其他内容，都没有关系。按如下步骤操作就行。</p>
+<p>一、打开MICROSOFT OFFICE WORD软件</p>
+<p>二、插入用手机拍摄的身份证图片</p>
+<p>三、点击【图片格式】-&gt; 【裁剪】，把边缘裁剪干净，裁剪到身份证一小部分边缘都没关系</p>
+<p>四、选中图片，点击【颜色】，选择【饱和度】为0%，身份证颜色立刻变成灰色。</p>
+<p>五、选中图片，选择【剪切】</p>
+<p>六、接着插入一个圆角矩形，并右键鼠标，【设置形状格式】，选择【图片或纹理填充】，图片源选择【剪贴板】，这样就把刚才进入到剪切板的身份证插入。同时，线条选择【无线条】。选中【将图片平铺为纹理】。</p>
+<p>七、拖动图片左上方的小黄点，调整圆角的大小</p>
+<p>八、调整图片大小至身份证真实大小，高为5.4cm，宽为8.56cm</p>
+<p>这样就搞好了，身份证反面也可以同理这样制作。</p>
 
       
     </div>
@@ -457,7 +454,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2024/10/%E8%82%A1%E5%B8%82%E5%B8%B8%E7%94%A8%E6%8C%87%E6%A0%87%E9%87%8A%E4%B9%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -475,7 +472,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/" class="post-title-link" itemprop="url">macOS安装Qlib爬坑心路历程</a>
+          <a href="/2024/10/%E8%82%A1%E5%B8%82%E5%B8%B8%E7%94%A8%E6%8C%87%E6%A0%87%E9%87%8A%E4%B9%89/" class="post-title-link" itemprop="url">股市常用指标释义</a>
         </h2>
 
         <div class="post-meta-container">
@@ -486,7 +483,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-01-07 23:28:03" itemprop="dateCreated datePublished" datetime="2024-01-07T23:28:03+08:00">2024-01-07</time>
+      <time title="创建时间：2024-10-10 00:51:41" itemprop="dateCreated datePublished" datetime="2024-10-10T00:51:41+08:00">2024-10-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -495,18 +492,9 @@
       <span class="post-meta-item-text">更新于</span>
       <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Quant/" itemprop="url" rel="index"><span itemprop="name">Quant</span></a>
-        </span>
-    </span>
 
   
-    <span id="/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="macOS安装Qlib爬坑心路历程" title="阅读次数">
+    <span id="/2024/10/%E8%82%A1%E5%B8%82%E5%B8%B8%E7%94%A8%E6%8C%87%E6%A0%87%E9%87%8A%E4%B9%89/" class="post-meta-item leancloud_visitors" data-flag-title="股市常用指标释义" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -521,8 +509,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/" itemprop="commentCount"></span>
+    <a title="waline" href="/2024/10/%E8%82%A1%E5%B8%82%E5%B8%B8%E7%94%A8%E6%8C%87%E6%A0%87%E9%87%8A%E4%B9%89/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/10/%E8%82%A1%E5%B8%82%E5%B8%B8%E7%94%A8%E6%8C%87%E6%A0%87%E9%87%8A%E4%B9%89/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -536,33 +524,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>我的操作系统是macOS Catalina 10.15.7<br>Python 3.8</p>
-<p>通过源码安装Qlib，记录一下掉过的坑。</p>
-<p>总的来说，按照官方说明文档，执行安装命令，一般不会有问题。</p>
-<p>cython一定要更新，upgrade</p>
-<p>pip要和python环境里面的版本一致，不确定是否一致，可以python -m pip install xxx的方式。</p>
-<p>也可以通过pip show pip查看位置。</p>
-<p>通过源码安装，<code>pip install .</code>，尽量不通过 <code>pip install pyqlib</code>来安装，更不能通过 <code>python setup.py install</code>来安装。</p>
-<p>qlib安装在python&#x3D;3.8下面，3.9目前支持不好。</p>
-<p>创建python&#x3D;3.8的虚拟环境后，想要在 jupyter lab 里面的 kernel select 中显示出来，需要在3.8的虚拟环境中执行命令：<br><code>pip install ipykernel</code></p>
-<p>如果错误的添加了kernel，需要这样删除：<code>jupyter kernelspec remove kernel_name</code></p>
-<p>在python3.8的环境里面，要安装<code>pip install ipywidgets</code>，还有<code>pip install tqdm</code>。</p>
-<p>安装好了以后，运行qlib&#x2F;examples&#x2F;workflow_by_code.ipynb，在train model这里，有报错：</p>
-<img src="/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/libomp_err.png" class="">
-
-<p>意思就是libomp这个库文件没有被加载到。</p>
-<p>后来尝试了很多方法，按网上说的，都是<code>brew install libomp</code>。</p>
-<p>我的macOS版本太旧，brew都已经不支持了。要升级到macOS 12，但我的笔记本又不支持。</p>
-<p>然后又找了各种办法通过源码来安装libomp。</p>
-<p>又去搞了半天编译工具。</p>
-<p>最后通过简单的两步搞定了问题。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ pip uninstall lightgbm</span><br><span class="line"></span><br><span class="line">Found existing installation: lightgbm 4.2.0</span><br><span class="line">Uninstalling lightgbm-4.2.0:</span><br><span class="line">  Would remove:</span><br><span class="line">    /opt/anaconda3/envs/py38/lib/python3.8/site-packages/lightgbm-4.2.0.dist-info/*</span><br><span class="line">    /opt/anaconda3/envs/py38/lib/python3.8/site-packages/lightgbm/*</span><br><span class="line">Proceed (Y/n)? y</span><br><span class="line">  Successfully uninstalled lightgbm-4.2.0</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">$ conda install lightgbm</span><br><span class="line">Collecting package metadata (current_repodata.json): done</span><br><span class="line">Solving environment: done</span><br><span class="line"></span><br><span class="line">## Package Plan ##</span><br><span class="line"></span><br><span class="line">  environment location: /opt/anaconda3/envs/py38</span><br><span class="line"></span><br><span class="line">  added / updated specs:</span><br><span class="line">    - lightgbm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">The following packages will be downloaded:</span><br><span class="line"></span><br><span class="line">    package                    |            build</span><br><span class="line">    ---------------------------|-----------------</span><br><span class="line">    blas-1.0                   |         openblas          45 KB</span><br><span class="line">    libgfortran-5.0.0          |11_3_0_hecd8cb5_28         142 KB</span><br><span class="line">    libgfortran5-11.3.0        |      h9dfd629_28         1.4 MB</span><br><span class="line">    libopenblas-0.3.21         |       h54e7dc3_0         4.9 MB</span><br><span class="line">    lightgbm-4.1.0             |   py38hcec6c5f_0         1.4 MB</span><br><span class="line">    llvm-openmp-14.0.6         |       h0dcd299_0         288 KB</span><br><span class="line">    numpy-1.24.3               |   py38h57a7bef_0          12 KB</span><br><span class="line">    numpy-base-1.24.3          |   py38hc93c6d9_0         6.5 MB</span><br><span class="line">    pooch-1.7.0                |   py38hecd8cb5_0          85 KB</span><br><span class="line">    scipy-1.10.1               |   py38h9034365_1        20.9 MB</span><br><span class="line">    ------------------------------------------------------------</span><br><span class="line">                                           Total:        35.8 MB</span><br><span class="line"></span><br><span class="line">The following NEW packages will be INSTALLED:</span><br><span class="line"></span><br><span class="line">  blas               pkgs/main/osx-64::blas-1.0-openblas</span><br><span class="line">  libgfortran        pkgs/main/osx-64::libgfortran-5.0.0-11_3_0_hecd8cb5_28</span><br><span class="line">  libgfortran5       pkgs/main/osx-64::libgfortran5-11.3.0-h9dfd629_28</span><br><span class="line">  libopenblas        pkgs/main/osx-64::libopenblas-0.3.21-h54e7dc3_0</span><br><span class="line">  lightgbm           pkgs/main/osx-64::lightgbm-4.1.0-py38hcec6c5f_0</span><br><span class="line">  llvm-openmp        pkgs/main/osx-64::llvm-openmp-14.0.6-h0dcd299_0</span><br><span class="line">  numpy              pkgs/main/osx-64::numpy-1.24.3-py38h57a7bef_0</span><br><span class="line">  numpy-base         pkgs/main/osx-64::numpy-base-1.24.3-py38hc93c6d9_0</span><br><span class="line">  pooch              pkgs/main/osx-64::pooch-1.7.0-py38hecd8cb5_0</span><br><span class="line">  scipy              pkgs/main/osx-64::scipy-1.10.1-py38h9034365_1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Proceed ([y]/n)? y</span><br></pre></td></tr></table></figure>
-
-<p>核心错误就出在我们之前都是通过<code>pip</code>来安装的，像这种有大量依赖的库，最好还是要通过<code>conda install</code>来安装。</p>
-<p>最后qlib的work_flow在macOS下成功运行。</p>
-<img src="/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/qlib_workflow.png" class="">
+          <h1 id="净买入额"><a href="#净买入额" class="headerlink" title="净买入额"></a>净买入额</h1><p>指定日内(超大单、大单、中单或小单)的买入金额-(超大单、大单、中单或小单)的卖出金额<br>注：算法中根据挂单金额来划分超大单、大单、中单或小单。具体标准如下：<br>1）挂单额小于4万元，小单；（散户）<br>2）挂单额4万元到20万元之间，中单；（中户）<br>3）挂单额20万元至100万元之间，大单；（大户）<br>4）挂单额大于100万元，超大单。（机构）</p>
+<p>指数数据为当天未停牌的成份股净买入额总和。</p>
+<h1 id="净主动买入额"><a href="#净主动买入额" class="headerlink" title="净主动买入额"></a>净主动买入额</h1><p>主动指主动去成交已经存在的对手单；被动是指挂单等待成交。</p>
+<h1 id="主力净流入额"><a href="#主力净流入额" class="headerlink" title="主力净流入额"></a>主力净流入额</h1><p>主力买入金额 - 主力卖出金额，其中“主力”指超大单与大单的合计。</p>
 
       
     </div>
@@ -582,7 +547,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

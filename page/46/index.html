@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">380</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/07/java%E4%B8%ADMap%E8%BD%ACList%E5%B9%B6%E6%8E%92%E5%BA%8F/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/07/IntelliJ-IDEA%E6%8F%92%E4%BB%B6%E5%B8%82%E5%9C%BAMarketplace%E6%89%93%E4%B8%8D%E5%BC%80%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +238,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/07/java%E4%B8%ADMap%E8%BD%ACList%E5%B9%B6%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">java中Map转List并排序</a>
+          <a href="/2020/07/IntelliJ-IDEA%E6%8F%92%E4%BB%B6%E5%B8%82%E5%9C%BAMarketplace%E6%89%93%E4%B8%8D%E5%BC%80%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">IntelliJ IDEA插件市场Marketplace打不开的解决方法</a>
         </h2>
 
         <div class="post-meta-container">
@@ -249,7 +249,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-07-01 19:58:03" itemprop="dateCreated datePublished" datetime="2020-07-01T19:58:03+08:00">2020-07-01</time>
+      <time title="创建时间：2020-07-09 23:07:49" itemprop="dateCreated datePublished" datetime="2020-07-09T23:07:49+08:00">2020-07-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -264,12 +264,16 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/IntelliJ-IDEA/" itemprop="url" rel="index"><span itemprop="name">IntelliJ IDEA</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/07/java%E4%B8%ADMap%E8%BD%ACList%E5%B9%B6%E6%8E%92%E5%BA%8F/" class="post-meta-item leancloud_visitors" data-flag-title="java中Map转List并排序" title="阅读次数">
+    <span id="/2020/07/IntelliJ-IDEA%E6%8F%92%E4%BB%B6%E5%B8%82%E5%9C%BAMarketplace%E6%89%93%E4%B8%8D%E5%BC%80%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="IntelliJ IDEA插件市场Marketplace打不开的解决方法" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -284,8 +288,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/07/java%E4%B8%ADMap%E8%BD%ACList%E5%B9%B6%E6%8E%92%E5%BA%8F/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/07/java%E4%B8%ADMap%E8%BD%ACList%E5%B9%B6%E6%8E%92%E5%BA%8F/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/07/IntelliJ-IDEA%E6%8F%92%E4%BB%B6%E5%B8%82%E5%9C%BAMarketplace%E6%89%93%E4%B8%8D%E5%BC%80%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/07/IntelliJ-IDEA%E6%8F%92%E4%BB%B6%E5%B8%82%E5%9C%BAMarketplace%E6%89%93%E4%B8%8D%E5%BC%80%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -299,10 +303,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>把 Map 中的元素按 key 进行排序，然后把 value 取出来组成一个 List。可以按如下方法操作。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MapSort2ListDemo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        Map&lt;String, String&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        map.put(<span class="string">&quot;1&quot;</span>, <span class="string">&quot;A&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;3&quot;</span>, <span class="string">&quot;C&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;2&quot;</span>, <span class="string">&quot;B&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;10&quot;</span>, <span class="string">&quot;G&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;11&quot;</span>, <span class="string">&quot;H&quot;</span>);</span><br><span class="line"></span><br><span class="line">        List&lt;String&gt; list = map.entrySet().stream()</span><br><span class="line">                .sorted(Comparator.comparing((Map.Entry&lt;String, String&gt; entry) -&gt; Integer.parseInt(entry.getKey())).reversed())</span><br><span class="line">                .map(x -&gt; x.getValue())</span><br><span class="line">                .collect(Collectors.toList());</span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>在某些网络下，IDEA 的插件市场打不开，就安装不了所需要的插件。造成不能访问的原因可能 jetbrains 相关域名解析的 ip 无法访问。</p>
+<p>我们可以通过站长工具，查询一下 jetbrains.com 的 ip 地址，再看能否 ping 通这个地址。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ping 99.84.238.36</span></span><br><span class="line">PING 99.84.238.36 (99.84.238.36): 56 data bytes</span><br><span class="line">64 bytes from 99.84.238.36: icmp_seq=0 ttl=238 time=283.909 ms</span><br><span class="line">64 bytes from 99.84.238.36: icmp_seq=1 ttl=238 time=277.733 ms</span><br><span class="line">64 bytes from 99.84.238.36: icmp_seq=2 ttl=238 time=287.680 ms</span><br><span class="line">64 bytes from 99.84.238.36: icmp_seq=3 ttl=238 time=282.584 ms</span><br></pre></td></tr></table></figure>
 
-<p>结果：[H, G, C, B, A]</p>
+<p>然后修改电脑的 hosts 文件，加入如下两行：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">99.84.238.36    plugins.jetbrains.com</span><br><span class="line">99.84.238.36    jetbrains.com</span><br></pre></td></tr></table></figure>
+
+<p>这时，重启 IDEA，再次进入插件市场，就可以打开了。</p>
 
       
     </div>
@@ -329,7 +337,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/07/java%E4%B8%AD%E5%A6%82%E4%BD%95%E5%AF%B9Map%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/07/Spring%E4%B8%AD%E5%A4%84%E7%90%86%E9%9B%86%E5%90%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -347,7 +355,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/07/java%E4%B8%AD%E5%A6%82%E4%BD%95%E5%AF%B9Map%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">java中如何对Map中的元素进行排序</a>
+          <a href="/2020/07/Spring%E4%B8%AD%E5%A4%84%E7%90%86%E9%9B%86%E5%90%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">Spring中处理集合和字符串</a>
         </h2>
 
         <div class="post-meta-container">
@@ -358,7 +366,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-07-01 19:57:56" itemprop="dateCreated datePublished" datetime="2020-07-01T19:57:56+08:00">2020-07-01</time>
+      <time title="创建时间：2020-07-07 16:29:48" itemprop="dateCreated datePublished" datetime="2020-07-07T16:29:48+08:00">2020-07-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -375,10 +383,14 @@
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
         </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+        </span>
     </span>
 
   
-    <span id="/2020/07/java%E4%B8%AD%E5%A6%82%E4%BD%95%E5%AF%B9Map%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/" class="post-meta-item leancloud_visitors" data-flag-title="java中如何对Map中的元素进行排序" title="阅读次数">
+    <span id="/2020/07/Spring%E4%B8%AD%E5%A4%84%E7%90%86%E9%9B%86%E5%90%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-meta-item leancloud_visitors" data-flag-title="Spring中处理集合和字符串" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -393,8 +405,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/07/java%E4%B8%AD%E5%A6%82%E4%BD%95%E5%AF%B9Map%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/07/java%E4%B8%AD%E5%A6%82%E4%BD%95%E5%AF%B9Map%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/07/Spring%E4%B8%AD%E5%A4%84%E7%90%86%E9%9B%86%E5%90%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/07/Spring%E4%B8%AD%E5%A4%84%E7%90%86%E9%9B%86%E5%90%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -408,11 +420,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>我们经常使用 HashMap, 但有时候需要根据 key 进行排序。</p>
-<h1 id="通过-Collections-sort"><a href="#通过-Collections-sort" class="headerlink" title="通过 Collections.sort()"></a>通过 Collections.sort()</h1><p>Map 的 key 是字符串类型的，需要先把字符串转成数字型。使用 reversed() 方法可以让序列倒序。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MapSortDemo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        Map&lt;String, String&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        map.put(<span class="string">&quot;1&quot;</span>, <span class="string">&quot;A&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;3&quot;</span>, <span class="string">&quot;C&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;2&quot;</span>, <span class="string">&quot;B&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;10&quot;</span>, <span class="string">&quot;G&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;11&quot;</span>, <span class="string">&quot;H&quot;</span>);</span><br><span class="line"></span><br><span class="line">        List&lt;Map.Entry&lt;String, String&gt;&gt; entries = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(map.entrySet());</span><br><span class="line">        System.out.println(entries);</span><br><span class="line"></span><br><span class="line">        Collections.sort(entries, Comparator.comparing((Map.Entry&lt;String, String&gt; entry) -&gt; Integer.parseInt(entry.getKey())));</span><br><span class="line">        System.out.println(entries);</span><br><span class="line"></span><br><span class="line">        Collections.sort(entries, Comparator.comparing((Map.Entry&lt;String, String&gt; entry) -&gt; Integer.parseInt(entry.getKey())).reversed());</span><br><span class="line">        System.out.println(entries);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="通过-TreeSet-方式"><a href="#通过-TreeSet-方式" class="headerlink" title="通过 TreeSet 方式"></a>通过 TreeSet 方式</h1><p>遍历 HashMap 中所有元素，放入 TreeSet 中，就可以排好序了。例子下回再讲。</p>
+          <p>大多数 java 项目都会使用 Spring 框架，所以推荐在处理判断集合和字符串时使用 Spring 自带的工具类。</p>
+<p>org.springframework.util.StringUtils</p>
+<p>hasText() 方法可以判断是否有非空白字符的字符串</p>
+<p>org.springframework.util.CollectionUtils</p>
 
       
     </div>
@@ -439,7 +450,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/06/Spring-Boot-Actuator/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/07/Spring-Boot-JUnit%E6%B5%8B%E8%AF%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -457,7 +468,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/06/Spring-Boot-Actuator/" class="post-title-link" itemprop="url">Spring Boot Actuator</a>
+          <a href="/2020/07/Spring-Boot-JUnit%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">Spring Boot JUnit测试</a>
         </h2>
 
         <div class="post-meta-container">
@@ -468,7 +479,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-06-28 22:17:21" itemprop="dateCreated datePublished" datetime="2020-06-28T22:17:21+08:00">2020-06-28</time>
+      <time title="创建时间：2020-07-06 16:00:09" itemprop="dateCreated datePublished" datetime="2020-07-06T16:00:09+08:00">2020-07-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -492,7 +503,7 @@
     </span>
 
   
-    <span id="/2020/06/Spring-Boot-Actuator/" class="post-meta-item leancloud_visitors" data-flag-title="Spring Boot Actuator" title="阅读次数">
+    <span id="/2020/07/Spring-Boot-JUnit%E6%B5%8B%E8%AF%95/" class="post-meta-item leancloud_visitors" data-flag-title="Spring Boot JUnit测试" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -507,8 +518,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/06/Spring-Boot-Actuator/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/06/Spring-Boot-Actuator/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/07/Spring-Boot-JUnit%E6%B5%8B%E8%AF%95/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/07/Spring-Boot-JUnit%E6%B5%8B%E8%AF%95/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -522,39 +533,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Spring Boot Actuator 是 Spring Boot 的一套监控系统。</p>
-<p>依赖</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+          <h1 id="Springboot-2-1"><a href="#Springboot-2-1" class="headerlink" title="Springboot 2.1"></a>Springboot 2.1</h1><p>在测试类上面写的注解如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="meta">@SpringBootTest(classes = &#123;Application.class&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AppTests</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>顺便提一句，spring boot 的官方依赖，一般是 spring-boot-starter-xxxx 这种格式的。非官方依赖则是 xxxx-spring-boot-starter 这种格式的。</p>
-<p>启动项目。</p>
-<p>访问 <code>http://localhost:8080/actuator</code></p>
-<p>可以看到有两个endpoints，一个是 health, 一个是 info。</p>
-<p>访问 health：</p>
-<p><code>http://localhost:8080/actuator/health</code></p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  status<span class="punctuation">:</span> <span class="string">&quot;UP&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>需要注意的是，Application 是 Spring boot 的启动类，test() 方法必须是 public 类型。</p>
+<h1 id="Springboot-2-2"><a href="#Springboot-2-2" class="headerlink" title="Springboot 2.2"></a>Springboot 2.2</h1><p>注解如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AppTests</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>访问 info:</p>
-<p><code>http://localhost:8080/actuator/info</code></p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span> <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>是一个空对象。</p>
-<p>我们可以在 application.yml 配置文件中做如下配置：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">management:</span></span><br><span class="line">  <span class="attr">endpoint:</span></span><br><span class="line">    <span class="attr">health:</span></span><br><span class="line">      <span class="attr">show-details:</span> <span class="string">always</span></span><br><span class="line">  <span class="attr">endpoints:</span></span><br><span class="line">    <span class="attr">web:</span></span><br><span class="line">      <span class="attr">exposure:</span></span><br><span class="line">        <span class="attr">include:</span> <span class="string">metrics,</span> <span class="string">health,</span> <span class="string">info</span></span><br></pre></td></tr></table></figure>
-
-<p><code>management.endpoint.health.show-details=always</code> 表示在访问 health 时，除了显示 UP 这个状态以外，还要显示更多的信息。</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  status<span class="punctuation">:</span> <span class="string">&quot;UP&quot;</span><span class="punctuation">,</span></span><br><span class="line">  components<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    db<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      status<span class="punctuation">:</span> <span class="string">&quot;UP&quot;</span><span class="punctuation">,</span></span><br><span class="line">      details<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        database<span class="punctuation">:</span> <span class="string">&quot;MySQL&quot;</span><span class="punctuation">,</span></span><br><span class="line">        result<span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">        validationQuery<span class="punctuation">:</span> <span class="string">&quot;/* ping */ SELECT 1&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    diskSpace<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      status<span class="punctuation">:</span> <span class="string">&quot;UP&quot;</span><span class="punctuation">,</span></span><br><span class="line">      details<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        total<span class="punctuation">:</span> <span class="number">250790436864</span><span class="punctuation">,</span></span><br><span class="line">        free<span class="punctuation">:</span> <span class="number">18968088576</span><span class="punctuation">,</span></span><br><span class="line">        threshold<span class="punctuation">:</span> <span class="number">10485760</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    ping<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      status<span class="punctuation">:</span> <span class="string">&quot;UP&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p><code>endpoints.web.exposure.include=metrics, health, info</code> 这个表示可以显示的endpoint。</p>
-<p>这个值可以填写 <code>*</code>，但是，如果是yaml文件，必须是<code>&#39;*&#39;&#39;</code>，而 application.properties 可以直接写 <code>*</code>。这是 yaml 文件和 properties 文件的区别。</p>
-<p>我们可以设置 info:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">info:</span></span><br><span class="line">  <span class="attr">app-name:</span> <span class="string">springboot-mybatis-plus</span></span><br><span class="line">  <span class="attr">author:</span> <span class="string">simon</span></span><br></pre></td></tr></table></figure>
-
-<p>这样，在访问 info endpoint 时，就可以显示上面配置的信息了。</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  app-name<span class="punctuation">:</span> <span class="string">&quot;springboot-mybatis-plus&quot;</span><span class="punctuation">,</span></span><br><span class="line">  author<span class="punctuation">:</span> <span class="string">&quot;simon&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>如果 yaml 里面带了环境变量，在开发时，可以在 IDEA 里面设置。在控制台运行时，命令如下：</p>
-<p><code>java -jar xxx.jar --SOME_ENV=certain_env</code></p>
+<p>不需要写 @RunWith 注解和指定 SpringBootTest 的 classes 属性。test() 方法不用写 public 类型。</p>
 
       
     </div>
@@ -574,7 +560,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/45/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><span class="page-number current">46</span><a class="page-number" href="/page/47/">47</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/47/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/45/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><span class="page-number current">46</span><a class="page-number" href="/page/47/">47</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/47/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

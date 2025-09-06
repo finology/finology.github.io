@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">380</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Java-URL%E5%8F%82%E6%95%B0%E6%9B%BF%E6%8D%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +238,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/" class="post-title-link" itemprop="url">IntelliJ IDEA新建Maven Springboot项目Cannot find JRE '1.8'</a>
+          <a href="/2020/03/Java-URL%E5%8F%82%E6%95%B0%E6%9B%BF%E6%8D%A2/" class="post-title-link" itemprop="url">Java URL参数替换</a>
         </h2>
 
         <div class="post-meta-container">
@@ -249,7 +249,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-03-28 13:01:01" itemprop="dateCreated datePublished" datetime="2020-03-28T13:01:01+08:00">2020-03-28</time>
+      <time title="创建时间：2020-03-28 20:53:54" itemprop="dateCreated datePublished" datetime="2020-03-28T20:53:54+08:00">2020-03-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -264,16 +264,12 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/IntelliJ-IDEA/" itemprop="url" rel="index"><span itemprop="name">IntelliJ IDEA</span></a>
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/" class="post-meta-item leancloud_visitors" data-flag-title="IntelliJ IDEA新建Maven Springboot项目Cannot find JRE '1.8'" title="阅读次数">
+    <span id="/2020/03/Java-URL%E5%8F%82%E6%95%B0%E6%9B%BF%E6%8D%A2/" class="post-meta-item leancloud_visitors" data-flag-title="Java URL参数替换" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -288,8 +284,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/03/Java-URL%E5%8F%82%E6%95%B0%E6%9B%BF%E6%8D%A2/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Java-URL%E5%8F%82%E6%95%B0%E6%9B%BF%E6%8D%A2/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -303,20 +299,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>通过 IntelliJ IDEA 新建一个 Maven Springboot 项目，建立好之后，发现生成代码的包无法引入，代码已经提示红色标记错误。</p>
-<img src="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/code-error.png" class="">
+          <p>在 Java 程序中，向第三方发起一个 http 请求时，这时往往需要拼接第三方接口的 URL。</p>
+<p>通过字符串<code>+</code>或者 StringBuilder 的 append 方法，都不算是一个最佳实践。因为上述这两种方法都没办法把整个 URL 格式从代码中分离出来。</p>
+<p>我觉得最佳实践是通过 String.format() 为 URL 做字符替换。</p>
+<p>比如接口的 URL <code>http://www.example.com/service?appid=%d&amp;sign=%s</code></p>
+<p><code>%d</code> 为数字，<code>%s</code> 为字符串。</p>
+<p>我们可以调用 String.format() 方法做参数替换。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> String.format(url, <span class="number">1000</span>, <span class="string">&quot;mySign&quot;</span>);</span><br></pre></td></tr></table></figure>
 
-<p>点击按钮 Reimport All Maven Projects 或执行 maven clean, package 这类命令，都会提示如下错误：</p>
-<p><code>Error running &#39;demo [validate]&#39;: Cannot find JRE &#39;1.8&#39;. You can specify JRE to run maven goals in Settings | Maven | Runner</code></p>
-<img src="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/maven-error.png" class="">
-
-<p>按上述提示，进入 Settings | Maven | Runner，把正常的 JRE 环境选中即可。</p>
-<img src="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/maven-runner.png" class="">
-
-<p>上面是设置当前项目的，如果要设置以后所有新建的项目，则需要关闭所有项目后，再进入 Preferences</p>
-<img src="/2020/03/IntelliJ-IDEA%E6%96%B0%E5%BB%BAMaven-Springboot%E9%A1%B9%E7%9B%AECannot-find-JRE-1-8/maven-runner-global.png" class="">
-
-
+<p>结果为：<code>http://www.example.com/service?appid=1000&amp;sign=mySign</code></p>
 
       
     </div>
@@ -343,7 +334,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/pandas-apply-%E7%9A%84axis%E5%8F%82%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Spring-Boot%E4%BD%BF%E7%94%A8-JsonProperty-JsonIgnore-JsonFormat%E6%B3%A8%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -361,7 +352,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/pandas-apply-%E7%9A%84axis%E5%8F%82%E6%95%B0/" class="post-title-link" itemprop="url">pandas.apply()的axis参数</a>
+          <a href="/2020/03/Spring-Boot%E4%BD%BF%E7%94%A8-JsonProperty-JsonIgnore-JsonFormat%E6%B3%A8%E8%A7%A3/" class="post-title-link" itemprop="url">Spring Boot使用@JsonProperty,@JsonIgnore,@JsonFormat注解</a>
         </h2>
 
         <div class="post-meta-container">
@@ -372,7 +363,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-03-22 18:58:31" itemprop="dateCreated datePublished" datetime="2020-03-22T18:58:31+08:00">2020-03-22</time>
+      <time title="创建时间：2020-03-28 20:26:57" itemprop="dateCreated datePublished" datetime="2020-03-28T20:26:57+08:00">2020-03-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -387,16 +378,16 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/Pandas/" itemprop="url" rel="index"><span itemprop="name">Pandas</span></a>
+          <a href="/categories/Java/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/03/pandas-apply-%E7%9A%84axis%E5%8F%82%E6%95%B0/" class="post-meta-item leancloud_visitors" data-flag-title="pandas.apply()的axis参数" title="阅读次数">
+    <span id="/2020/03/Spring-Boot%E4%BD%BF%E7%94%A8-JsonProperty-JsonIgnore-JsonFormat%E6%B3%A8%E8%A7%A3/" class="post-meta-item leancloud_visitors" data-flag-title="Spring Boot使用@JsonProperty,@JsonIgnore,@JsonFormat注解" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -411,8 +402,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/03/pandas-apply-%E7%9A%84axis%E5%8F%82%E6%95%B0/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/pandas-apply-%E7%9A%84axis%E5%8F%82%E6%95%B0/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/03/Spring-Boot%E4%BD%BF%E7%94%A8-JsonProperty-JsonIgnore-JsonFormat%E6%B3%A8%E8%A7%A3/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Spring-Boot%E4%BD%BF%E7%94%A8-JsonProperty-JsonIgnore-JsonFormat%E6%B3%A8%E8%A7%A3/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -426,16 +417,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DataFrame.apply(func, axis=<span class="number">0</span>, broadcast=<span class="literal">None</span>, raw=<span class="literal">False</span>, reduce=<span class="literal">None</span>, result_type=<span class="literal">None</span>, args=(), **kwds)</span><br></pre></td></tr></table></figure>
+          <p>@JsonProperty, @JsonIgnore 和 @JsonFormat 注解都是 fasterxml jackson 里面的注解，现在也被 Spring Boot 集成了。</p>
+<p>我们在使用上面的注解时，不需要在 pom.xml 显示的引入 fasterxml jackson 的依赖包。只需要加入如下依赖即可。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>func : Function to be applied to each column or row. This function accepts a series and returns a series.</p>
-<p>我们往往对 axis 搞不太清楚。</p>
-<p>axis : Axis along which the function is applied in dataframe. Default value 0.</p>
-<ul>
-<li>If value is 0 then it applies function to each column.</li>
-<li>If value is 1 then it applies function to each row.</li>
-</ul>
-<p>args : tuple &#x2F; list of arguments to passed to function.</p>
+<h1 id="JsonProperty"><a href="#JsonProperty" class="headerlink" title="@JsonProperty"></a>@JsonProperty</h1><p>用于属性、setter &#x2F; getter 方法上，属性序列化后可重命名。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JsonProperty(&quot;image_width&quot;)</span></span><br><span class="line"><span class="keyword">private</span> Double imageWidth;</span><br><span class="line"></span><br><span class="line"><span class="meta">@JsonProperty(&quot;image_height&quot;)</span></span><br><span class="line"><span class="keyword">private</span> Double imageHeight;</span><br></pre></td></tr></table></figure>
+
+<p>生成的 json 字符串就是<code>image_width</code>和<code>image_height</code>。</p>
+<h1 id="JsonIgnore"><a href="#JsonIgnore" class="headerlink" title="@JsonIgnore"></a>@JsonIgnore</h1><p>属性使用此注解后，将不被序列化。</p>
+<h1 id="JsonFormat"><a href="#JsonFormat" class="headerlink" title="@JsonFormat"></a>@JsonFormat</h1><p>用于格式化日期</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JsonFormat(pattern = &quot;yyyy-MM-dd&quot;)</span></span><br><span class="line"><span class="keyword">private</span> Date birthday;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -462,7 +454,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E7%9A%84%E8%BF%87%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Spring-Boot%E9%80%9A%E8%BF%87DigestUtils%E8%AE%A1%E7%AE%97MD5%E7%9A%84%E5%80%BC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -480,7 +472,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E7%9A%84%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">TCP三次握手四次挥手的过程</a>
+          <a href="/2020/03/Spring-Boot%E9%80%9A%E8%BF%87DigestUtils%E8%AE%A1%E7%AE%97MD5%E7%9A%84%E5%80%BC/" class="post-title-link" itemprop="url">Spring Boot通过DigestUtils计算MD5的值</a>
         </h2>
 
         <div class="post-meta-container">
@@ -491,7 +483,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-03-21 20:22:58" itemprop="dateCreated datePublished" datetime="2020-03-21T20:22:58+08:00">2020-03-21</time>
+      <time title="创建时间：2020-03-28 20:10:54" itemprop="dateCreated datePublished" datetime="2020-03-28T20:10:54+08:00">2020-03-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -506,12 +498,16 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Network/" itemprop="url" rel="index"><span itemprop="name">Network</span></a>
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/03/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E7%9A%84%E8%BF%87%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="TCP三次握手四次挥手的过程" title="阅读次数">
+    <span id="/2020/03/Spring-Boot%E9%80%9A%E8%BF%87DigestUtils%E8%AE%A1%E7%AE%97MD5%E7%9A%84%E5%80%BC/" class="post-meta-item leancloud_visitors" data-flag-title="Spring Boot通过DigestUtils计算MD5的值" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -526,8 +522,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/03/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E7%9A%84%E8%BF%87%E7%A8%8B/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E7%9A%84%E8%BF%87%E7%A8%8B/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/03/Spring-Boot%E9%80%9A%E8%BF%87DigestUtils%E8%AE%A1%E7%AE%97MD5%E7%9A%84%E5%80%BC/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Spring-Boot%E9%80%9A%E8%BF%87DigestUtils%E8%AE%A1%E7%AE%97MD5%E7%9A%84%E5%80%BC/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -541,53 +537,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Http请求百度</p>
-<p>TCP连接</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">exec</span> 5&lt;&gt; /dev/tcp/www.baidu.com/80</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">echo</span> -e <span class="string">&#x27;GET / HTTP/1.0\n&#x27;</span> &gt;&amp; 5</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cat</span> &lt;&amp; 5</span></span><br><span class="line"></span><br><span class="line">HTTP/1.0 200 OK</span><br><span class="line">Accept-Ranges: bytes</span><br><span class="line">Cache-Control: no-cache</span><br><span class="line">Content-Length: 14615</span><br><span class="line">Content-Type: text/html</span><br><span class="line">Date: Sat, 21 Mar 2020 08:14:27 GMT</span><br><span class="line">P3p: CP=&quot; OTI DSP COR IVA OUR IND COM &quot;</span><br><span class="line">P3p: CP=&quot; OTI DSP COR IVA OUR IND COM &quot;</span><br><span class="line">Pragma: no-cache</span><br><span class="line">Server: BWS/1.1</span><br><span class="line">Set-Cookie: BAIDUID=42C9E3F8B0C101BDEA241D5174987905:FG=1; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com</span><br><span class="line">Set-Cookie: BIDUPSID=42C9E3F8B0C101BDEA241D5174987905; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com</span><br><span class="line">Set-Cookie: PSTM=1584778467; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com</span><br><span class="line">Set-Cookie: BAIDUID=42C9E3F8B0C101BDD0E9FB6623D5C445:FG=1; max-age=31536000; expires=Sun, 21-Mar-21 08:14:27 GMT; domain=.baidu.com; path=/; version=1; comment=bd</span><br><span class="line">Traceid: 1584778467046850433011449469410765311951</span><br><span class="line">Vary: Accept-Encoding</span><br><span class="line">X-Ua-Compatible: IE=Edge,chrome=1</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;&lt;!--STATUS OK--&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+          <p>我们大部分的项目都是 Spring Boot 的项目，它集成了很多工具，所以我不需要再加入其他的类。</p>
+<p>比如求 MD5 的值，我就可以用 <code>org.springframework.util.DigestUtils</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">DigestUtils</span></span><br><span class="line"><span class="keyword">extends</span> <span class="title class_">Object</span></span><br></pre></td></tr></table></figure>
 
-<p><code>5</code> 叫文件描述符</p>
-<p>Socket 连接</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ss -antp</span></span><br><span class="line">State       Recv-Q Send-Q                                                   Local Address:Port                                                                  Peer Address:Port</span><br><span class="line">LISTEN      0      128                                                                  *:22                                                                               *:*                   users:((&quot;sshd&quot;,pid=1007,fd=3))</span><br><span class="line">LISTEN      0      100                                                          127.0.0.1:25                                                                               *:*                   users:((&quot;master&quot;,pid=1166,fd=13))</span><br><span class="line">ESTAB       0      0                                                        172.16.64.220:22                                                                     172.16.64.1:62779               users:((&quot;sshd&quot;,pid=6702,fd=3))</span><br><span class="line">ESTAB       0      0                                                        172.16.64.220:22                                                                     172.16.64.1:62925               users:((&quot;sshd&quot;,pid=6820,fd=3))</span><br><span class="line">CLOSE-WAIT  0      0                                                        172.16.64.220:57720                                                                 36.152.44.95:80                  users:((&quot;ss&quot;,pid=6930,fd=5),(&quot;bash&quot;,pid=6706,fd=5))</span><br><span class="line">LISTEN      0      128                                                                 :::22                                                                              :::*                   users:((&quot;sshd&quot;,pid=1007,fd=4))</span><br><span class="line">LISTEN      0      100                                                                ::1:25                                                                              :::*                   users:((&quot;master&quot;,pid=1166,fd=14))</span><br></pre></td></tr></table></figure>
-
-<p>或者</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">netstat -antp</span></span><br><span class="line">Active Internet connections (servers and established)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name</span><br><span class="line">tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1007/sshd</span><br><span class="line">tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      1166/master</span><br><span class="line">tcp        0      0 172.16.64.220:22        172.16.64.1:62779       ESTABLISHED 6702/sshd: root@pts</span><br><span class="line">tcp        0      0 172.16.64.220:22        172.16.64.1:62925       ESTABLISHED 6820/sshd: root@pts</span><br><span class="line">tcp        0      0 172.16.64.220:57720     36.152.44.95:80         CLOSE_WAIT  6706/-bash</span><br><span class="line">tcp6       0      0 :::22                   :::*                    LISTEN      1007/sshd</span><br><span class="line">tcp6       0      0 ::1:25                  :::*                    LISTEN      1166/master</span><br></pre></td></tr></table></figure>
-
-
-<p>查看内核一些参数</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">ulimit</span> -a</span></span><br><span class="line">core file size          (blocks, -c) 0</span><br><span class="line">data seg size           (kbytes, -d) unlimited</span><br><span class="line">scheduling priority             (-e) 0</span><br><span class="line">file size               (blocks, -f) unlimited</span><br><span class="line">pending signals                 (-i) 3802</span><br><span class="line">max locked memory       (kbytes, -l) 64</span><br><span class="line">max memory size         (kbytes, -m) unlimited</span><br><span class="line">open files                      (-n) 1024</span><br><span class="line">pipe size            (512 bytes, -p) 8</span><br><span class="line">POSIX message queues     (bytes, -q) 819200</span><br><span class="line">real-time priority              (-r) 0</span><br><span class="line">stack size              (kbytes, -s) 8192</span><br><span class="line">cpu time               (seconds, -t) unlimited</span><br><span class="line">max user processes              (-u) 3802</span><br><span class="line">virtual memory          (kbytes, -v) unlimited</span><br><span class="line">file locks                      (-x) unlimited</span><br></pre></td></tr></table></figure>
-
-<p>open files 1024 个</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cd</span> /proc/$$/fd</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">pwd</span></span></span><br><span class="line">/proc/6706/fd</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ll</span></span><br><span class="line">总用量 0</span><br><span class="line">lrwx------. 1 root root 64 11月 22 18:54 0 -&gt; /dev/pts/0</span><br><span class="line">lrwx------. 1 root root 64 11月 22 18:54 1 -&gt; /dev/pts/0</span><br><span class="line">lrwx------. 1 root root 64 11月 22 18:54 2 -&gt; /dev/pts/0</span><br><span class="line">lrwx------. 1 root root 64 11月 22 19:01 255 -&gt; /dev/pts/0</span><br><span class="line">lrwx------. 1 root root 64 11月 22 18:54 5 -&gt; socket:[49378]</span><br></pre></td></tr></table></figure>
-
-<p>修改</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">ulimit</span> -SHn 65535</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">ulimit</span> -n</span></span><br><span class="line">65535</span><br></pre></td></tr></table></figure>
-
-<p>查看路由表</p>
-<p>网络层 IP协议。携带的是目标地址的IP地址。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">route -n</span></span><br><span class="line">Kernel IP routing table</span><br><span class="line">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</span><br><span class="line">0.0.0.0         172.16.64.2     0.0.0.0         UG    100    0        0 ens33</span><br><span class="line">172.16.64.0     0.0.0.0         255.255.255.0   U     100    0        0 ens33</span><br></pre></td></tr></table></figure>
-
-<p>查看链路</p>
-<p>如何找到下一跳地址，是通过 mac 地址来确定的。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">arp -n</span></span><br><span class="line">Address                  HWtype  HWaddress           Flags Mask            Iface</span><br><span class="line">172.16.64.254            ether   00:50:56:e7:e8:58   C                     ens33</span><br><span class="line">172.16.64.2              ether   00:50:56:eb:6f:44   C                     ens33</span><br><span class="line">172.16.64.1              ether   00:50:56:c0:00:08   C                     ens33</span><br></pre></td></tr></table></figure>
-
-<p>请求百度抓包</p>
-<p>再打开另一个终端</p>
-<p>使用 tcpdump 命令监控</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">tcpdump -nnn -i ens33 port 80 or arp</span></span><br><span class="line">tcpdump: verbose output suppressed, use -v or -vv for full protocol decode</span><br><span class="line">listening on ens33, link-type EN10MB (Ethernet), capture size 262144 bytes</span><br></pre></td></tr></table></figure>
-
-<p>如果没有找到命令就安装一下。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">yum install tcpdump</span></span><br></pre></td></tr></table></figure>
-
-<p>在之前的终端访问百度，在访问之前，我们先删除链路层的记录，让数据包被发送时找不到网关下一跳的 mac 地址。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">arp -d 172.16.64.2</span></span><br></pre></td></tr></table></figure>
-
-<p>删除以后，如果有访问网络，这个 arp 的记录很快又会生成。所以我们在监控时，要在删除记录后的瞬间请求百度。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">arp -d 172.16.64.2 &amp;&amp; curl www.baidu.com</span></span><br></pre></td></tr></table></figure>
-
-<p>通过 tcpdump 我们可以看到抓包后的内容。172.16.64.220 是本机。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">tcpdump -nnn -i ens33 port 80 or arp</span></span><br><span class="line">tcpdump: verbose output suppressed, use -v or -vv for full protocol decode</span><br><span class="line">listening on ens33, link-type EN10MB (Ethernet), capture size 262144 bytes</span><br><span class="line">21:54:21.286505 ARP, Request who-has 172.16.64.2 tell 172.16.64.220, length 28</span><br><span class="line">21:54:21.286832 ARP, Reply 172.16.64.2 is-at 00:50:56:eb:6f:44, length 46</span><br><span class="line">21:54:21.316879 IP 172.16.64.220.57734 &gt; 36.152.44.95.80: Flags [S], seq 2491677366, win 29200, options [mss 1460,sackOK,TS val 81477028 ecr 0,nop,wscale 7], length 0</span><br><span class="line">21:54:21.330823 IP 36.152.44.95.80 &gt; 172.16.64.220.57734: Flags [S.], seq 1247240682, ack 2491677367, win 64240, options [mss 1460], length 0</span><br><span class="line">21:54:21.330911 IP 172.16.64.220.57734 &gt; 36.152.44.95.80: Flags [.], ack 1, win 29200, length 0</span><br><span class="line">21:54:21.331466 IP 172.16.64.220.57734 &gt; 36.152.44.95.80: Flags [P.], seq 1:78, ack 1, win 29200, length 77: HTTP: GET / HTTP/1.1</span><br><span class="line">21:54:21.331749 IP 36.152.44.95.80 &gt; 172.16.64.220.57734: Flags [.], ack 78, win 64240, length 0</span><br><span class="line">21:54:21.347623 IP 36.152.44.95.80 &gt; 172.16.64.220.57734: Flags [P.], seq 1:2782, ack 78, win 64240, length 2781: HTTP: HTTP/1.1 200 OK</span><br><span class="line">21:54:21.347688 IP 172.16.64.220.57734 &gt; 36.152.44.95.80: Flags [.], ack 2782, win 33580, length 0</span><br><span class="line">21:54:21.348071 IP 172.16.64.220.57734 &gt; 36.152.44.95.80: Flags [F.], seq 78, ack 2782, win 33580, length 0</span><br><span class="line">21:54:21.348981 IP 36.152.44.95.80 &gt; 172.16.64.220.57734: Flags [.], ack 79, win 64239, length 0</span><br><span class="line">21:54:21.362444 IP 36.152.44.95.80 &gt; 172.16.64.220.57734: Flags [FP.], seq 2782, ack 79, win 64239, length 0</span><br><span class="line">21:54:21.362479 IP 172.16.64.220.57734 &gt; 36.152.44.95.80: Flags [.], ack 2783, win 33580, length 0</span><br><span class="line">^C</span><br><span class="line">13 packets captured</span><br><span class="line">13 packets received by filter</span><br><span class="line">0 packets dropped by kernel</span><br></pre></td></tr></table></figure>
-
-<p>mss 1460</p>
+<h1 id="md5DigestAsHex"><a href="#md5DigestAsHex" class="headerlink" title="md5DigestAsHex"></a>md5DigestAsHex</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">md5DigestAsHex</span><span class="params">(InputStream inputStream)</span></span><br><span class="line">                             <span class="keyword">throws</span> IOException</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -607,7 +561,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/67/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/67/">67</a><span class="page-number current">68</span><a class="page-number" href="/page/69/">69</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/69/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/67/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/67/">67</a><span class="page-number current">68</span><a class="page-number" href="/page/69/">69</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/69/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

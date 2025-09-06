@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">380</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Linux-CentOS-%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85Redis-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +238,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/" class="post-title-link" itemprop="url">Intellij IDEA从SVN导入工程</a>
+          <a href="/2020/03/Linux-CentOS-%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85Redis-5/" class="post-title-link" itemprop="url">Linux(CentOS)环境下安装Redis 5</a>
         </h2>
 
         <div class="post-meta-container">
@@ -249,7 +249,285 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-03-16 22:30:52" itemprop="dateCreated datePublished" datetime="2020-03-16T22:30:52+08:00">2020-03-16</time>
+      <time title="创建时间：2020-03-20 22:57:40" itemprop="dateCreated datePublished" datetime="2020-03-20T22:57:40+08:00">2020-03-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Middleware/" itemprop="url" rel="index"><span itemprop="name">Middleware</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Middleware/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/03/Linux-CentOS-%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85Redis-5/" class="post-meta-item leancloud_visitors" data-flag-title="Linux(CentOS)环境下安装Redis 5" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/03/Linux-CentOS-%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85Redis-5/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Linux-CentOS-%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85Redis-5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="安装Redis"><a href="#安装Redis" class="headerlink" title="安装Redis"></a>安装Redis</h1><p>从Redis官网下载最新版本的redis。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> wget http://download.redis.io/releases/redis-5.0.8.tar.gz</span></span><br></pre></td></tr></table></figure>
+
+<p>如需安装 Redis 4 版本，可参考 <a href="/2018/08/Linux-CentOS-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Redis-4/" title="Linux(CentOS)环境安装Redis 4">Linux(CentOS)环境安装Redis 4</a></p>
+<p>新建redis安装目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /usr/local/redis</span></span><br></pre></td></tr></table></figure>
+
+<p>解压Redis</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> tar -zxvf redis-5.0.8.tar.gz -C /usr/local/redis</span></span><br></pre></td></tr></table></figure>
+
+<p>编译Redis</p>
+<p>先安装gcc</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install gcc-c++</span><br></pre></td></tr></table></figure>
+
+<p>编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/redis/redis-5.0.8/</span><br><span class="line">sudo make</span><br></pre></td></tr></table></figure>
+
+<p>安装</p>
+<p>把redis安装在目录<code>/usr/local/redis/redis-5.0.8/</code>中，如果不写 PREFIX 参数，即默认安装在<code>/usr/local/bin</code>下面</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> src/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> make install PREFIX=/usr/local/redis/redis-5.0.8/</span></span><br><span class="line"></span><br><span class="line">Hint: It&#x27;s a good idea to run &#x27;make test&#x27; ;)</span><br><span class="line"></span><br><span class="line">    INSTALL install</span><br><span class="line">    INSTALL install</span><br><span class="line">    INSTALL install</span><br><span class="line">    INSTALL install</span><br><span class="line">    INSTALL install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">make <span class="built_in">test</span></span></span><br><span class="line">You need tcl 8.5 or newer in order to run the Redis test</span><br><span class="line">make: *** [test] Error 1</span><br></pre></td></tr></table></figure>
+
+<p>安装tcl</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> yum install tcl</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo make test</span><br><span class="line">\o/ All tests passed without errors!</span><br><span class="line"></span><br><span class="line">Cleanup: may take some time... OK</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后，在目录 <code>/usr/local/redis/redis-5.0.8</code> 下面会出现一个 bin 目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ll bin/</span></span><br><span class="line">total 32772</span><br><span class="line">-rwxr-xr-x. 1 root root 4366824 Mar 20 13:14 redis-benchmark</span><br><span class="line">-rwxr-xr-x. 1 root root 8125024 Mar 20 13:14 redis-check-aof</span><br><span class="line">-rwxr-xr-x. 1 root root 8125024 Mar 20 13:14 redis-check-rdb</span><br><span class="line">-rwxr-xr-x. 1 root root 4807816 Mar 20 13:14 redis-cli</span><br><span class="line">lrwxrwxrwx. 1 root root      12 Mar 20 13:14 redis-sentinel -&gt; redis-server</span><br><span class="line">-rwxr-xr-x. 1 root root 8125024 Mar 20 13:14 redis-server</span><br></pre></td></tr></table></figure>
+
+<p>启动Redis服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">bin/redis-server</span> </span><br><span class="line">36959:C 20 Mar 2020 13:28:02.467 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span><br><span class="line">36959:C 20 Mar 2020 13:28:02.467 # Redis version=5.0.8, bits=64, commit=00000000, modified=0, pid=36959, just started</span><br><span class="line">36959:C 20 Mar 2020 13:28:02.467 # Warning: no config file specified, using the default config. In order to specify a config file use bin/redis-server /path/to/redis.conf</span><br><span class="line">36959:M 20 Mar 2020 13:28:02.467 # You requested maxclients of 10000 requiring at least 10032 max file descriptors.</span><br><span class="line">36959:M 20 Mar 2020 13:28:02.467 # Server can&#x27;t set maximum open files to 10032 because of OS error: Operation not permitted.</span><br><span class="line">36959:M 20 Mar 2020 13:28:02.467 # Current maximum open files is 4096. maxclients has been reduced to 4064 to compensate for low ulimit. If you need higher maxclients increase &#x27;ulimit -n&#x27;.</span><br><span class="line">                _._                                                  </span><br><span class="line">           _.-``__ &#x27;&#x27;-._                                             </span><br><span class="line">      _.-``    `.  `_.  &#x27;&#x27;-._           Redis 5.0.8 (00000000/0) 64 bit</span><br><span class="line">  .-`` .-```.  ```\/    _.,_ &#x27;&#x27;-._                                   </span><br><span class="line"> (    &#x27;      ,       .-`  | `,    )     Running in standalone mode</span><br><span class="line"> |`-._`-...-` __...-.``-._|&#x27;` _.-&#x27;|     Port: 6379</span><br><span class="line"> |    `-._   `._    /     _.-&#x27;    |     PID: 36959</span><br><span class="line">  `-._    `-._  `-./  _.-&#x27;    _.-&#x27;                                   </span><br><span class="line"> |`-._`-._    `-.__.-&#x27;    _.-&#x27;_.-&#x27;|                                  </span><br><span class="line"> |    `-._`-._        _.-&#x27;_.-&#x27;    |           http://redis.io        </span><br><span class="line">  `-._    `-._`-.__.-&#x27;_.-&#x27;    _.-&#x27;                                   </span><br><span class="line"> |`-._`-._    `-.__.-&#x27;    _.-&#x27;_.-&#x27;|                                  </span><br><span class="line"> |    `-._`-._        _.-&#x27;_.-&#x27;    |                                  </span><br><span class="line">  `-._    `-._`-.__.-&#x27;_.-&#x27;    _.-&#x27;                                   </span><br><span class="line">      `-._    `-.__.-&#x27;    _.-&#x27;                                       </span><br><span class="line">          `-._        _.-&#x27;                                           </span><br><span class="line">              `-.__.-&#x27;                                               </span><br><span class="line"></span><br><span class="line">36959:M 20 Mar 2020 13:28:02.468 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.</span><br><span class="line">36959:M 20 Mar 2020 13:28:02.468 # Server initialized</span><br><span class="line">36959:M 20 Mar 2020 13:28:02.468 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add &#x27;vm.overcommit_memory = 1&#x27; to /etc/sysctl.conf and then reboot or run the command &#x27;sysctl vm.overcommit_memory=1&#x27; for this to take effect.</span><br><span class="line">36959:M 20 Mar 2020 13:28:02.468 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command &#x27;echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled&#x27; as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.</span><br><span class="line">36959:M 20 Mar 2020 13:28:02.468 * Ready to accept connections</span><br></pre></td></tr></table></figure>
+
+<p>通过客户端连接redis服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">bin/redis-cli</span> </span><br><span class="line">127.0.0.1:6379&gt; set name key</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get name</span><br><span class="line">&quot;key&quot;</span><br><span class="line">127.0.0.1:6379&gt; </span><br></pre></td></tr></table></figure>
+
+<p>如果通过非127.0.0.1连接，会报如下错误：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">bin/redis-cli -h 192.168.229.130</span></span><br><span class="line">192.168.229.130:6379&gt; get name</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(error) DENIED Redis is running in protected mode because protected mode is enabled, no bind address was specified, no authentication password is requested to clients. In this mode connections are only accepted from the loopback interface. If you want to connect from external computers to Redis you may adopt one of the following solutions: 1) Just disable protected mode sending the command &#x27;CONFIG SET protected-mode no&#x27; from the loopback interface by connecting to Redis from the same host the server is running, however MAKE SURE Redis is not publicly accessible from internet if you do so. Use CONFIG REWRITE to make this change permanent. 2) Alternatively you can just disable the protected mode by editing the Redis configuration file, and setting the protected mode option to &#x27;no&#x27;, and then restarting the server. 3) If you started the server manually just for testing, restart it with the &#x27;--protected-mode no&#x27; option. 4) Setup a bind address or an authentication password. NOTE: You only need to do one of the above things in order for the server to start accepting connections from the outside.</span><br></pre></td></tr></table></figure>
+
+<p>修改配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> vi redis.conf</span></span><br></pre></td></tr></table></figure>
+
+<p>修改 bind 参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bind 0.0.0.0</span><br></pre></td></tr></table></figure>
+
+<p>重启 redis 服务</p>
+<p>通过 <code>-h</code> 指定redis服务的地址</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bin/redis-cli -h 192.168.229.130</span><br><span class="line">192.168.229.130:6379&gt; </span><br></pre></td></tr></table></figure>
+
+<p>运行完成以后，如果需要关闭redis服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; SHUTDOWN SAVE</span><br><span class="line">not connected&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8A%A5%E9%94%99%E5%96%94%E5%94%B7-%E5%B4%A9%E6%BA%83%E5%95%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8A%A5%E9%94%99%E5%96%94%E5%94%B7-%E5%B4%A9%E6%BA%83%E5%95%A6/" class="post-title-link" itemprop="url">Chrome浏览器报错喔唷,崩溃啦</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-20 22:50:34" itemprop="dateCreated datePublished" datetime="2020-03-20T22:50:34+08:00">2020-03-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/Chrome/" itemprop="url" rel="index"><span itemprop="name">Chrome</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/03/Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8A%A5%E9%94%99%E5%96%94%E5%94%B7-%E5%B4%A9%E6%BA%83%E5%95%A6/" class="post-meta-item leancloud_visitors" data-flag-title="Chrome浏览器报错喔唷,崩溃啦" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/03/Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8A%A5%E9%94%99%E5%96%94%E5%94%B7-%E5%B4%A9%E6%BA%83%E5%95%A6/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8A%A5%E9%94%99%E5%96%94%E5%94%B7-%E5%B4%A9%E6%BA%83%E5%95%A6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在Win10环境，Chrome版本为80时，会报错：喔唷，崩溃啦。</p>
+<p>在 mac 环境没有遇到这种情况。</p>
+<p>解决方法：</p>
+<p>找到 Chrome 的快捷键，在执行命令的后面，加入如下参数：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--disable-features=RendererCodeIntegrity</span><br></pre></td></tr></table></figure>
+
+<p>再次打开，就可以了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Intellij-IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%B1%BB%E6%B3%A8%E9%87%8A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/Intellij-IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%B1%BB%E6%B3%A8%E9%87%8A/" class="post-title-link" itemprop="url">Intellij IDEA自动生成类注释</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-19 22:47:31" itemprop="dateCreated datePublished" datetime="2020-03-19T22:47:31+08:00">2020-03-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -273,7 +551,7 @@
     </span>
 
   
-    <span id="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="Intellij IDEA从SVN导入工程" title="阅读次数">
+    <span id="/2020/03/Intellij-IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%B1%BB%E6%B3%A8%E9%87%8A/" class="post-meta-item leancloud_visitors" data-flag-title="Intellij IDEA自动生成类注释" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -288,8 +566,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/03/Intellij-IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%B1%BB%E6%B3%A8%E9%87%8A/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Intellij-IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%B1%BB%E6%B3%A8%E9%87%8A/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -303,269 +581,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>我们一般都把代码托管到github，公司也会托管自己搭建的gitlab上面，但遇到有些技术稍微陈旧的东西，还在使用SVN。</p>
-<p>如何把SVN中的 Maven 项目导入到 IDEA 中呢？</p>
-<p>有两个入口，但都需要选择 Check out from Version Control</p>
-<img src="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/1584347981720.png" class="">
+          <p>使用 IDEA 时，我们需要自动生成类的注释。</p>
+<ul>
+<li>Windows</li>
+</ul>
+<p>Files -&gt; Settings -&gt; Editor -&gt; File and Code Templates</p>
+<ul>
+<li>Mac</li>
+</ul>
+<p>Preferences -&gt; Editor -&gt; File and Code Templates</p>
+<p>选中 Files 下的 Class，如图所示：</p>
+<img src="/2020/03/Intellij-IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%B1%BB%E6%B3%A8%E9%87%8A/class-anno.png" class="">
 
-<img src="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/1584348582322.png" class="">
+<p>然后在类名上方写入注释的内容：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * @description: $&#123;description&#125;</span><br><span class="line">  * @author: Simon</span><br><span class="line">  * @date: $&#123;YEAR&#125;-$&#123;MONTH&#125;-$&#123;DAY&#125; $&#123;HOUR&#125;:$&#123;MINUTE&#125;</span><br><span class="line">  */</span><br></pre></td></tr></table></figure>
 
-<p>上面两个入口，都会创建项目结构。</p>
-<p>下面这个不行，因为不会创建项目结构。</p>
-<img src="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/1584348404189.png" class="">
-
-<p>用上述方式，会有创建项目的流程。</p>
-<img src="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/1584348788047.png" class="">
-
-<p>如果SVN已经提前checkout出来了。</p>
-<p>如果是项目</p>
-<img src="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/1584348330671.png" class="">
-
-<p>如果是子模块，或者是项目的不同版本。</p>
-<img src="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/1584348040349.png" class="">
-
-<p>导入Maven项目</p>
-<img src="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/1584348664505.png" class="">
-
-<p>要选中这个</p>
-<img src="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/1584348688921.png" class="">
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" class="post-title-link" itemprop="url">Git远程仓库版本回退</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-15 13:38:50" itemprop="dateCreated datePublished" datetime="2020-03-15T13:38:50+08:00">2020-03-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" class="post-meta-item leancloud_visitors" data-flag-title="Git远程仓库版本回退" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 <a href="/2018/03/Git%E7%89%88%E6%9C%AC%E5%A6%82%E4%BD%95%E5%9B%9E%E9%80%80/" title="Git版本如何回退">Git版本如何回退</a> 我们知道了，如果 commit 以后，想要回到原来的版本使用 git reset 命令就可以。</p>
-<p>在 SourceTree 工具里面，选中想要回退的版本，右键点击 Reset master to this commit 也可以解决。</p>
-<p>这里想讲一下如何已经提交到远程仓库了怎么办？</p>
-<p>首先，还是和前面的一样，让本地 master 版本先回退回来。</p>
-<p>如图所示：可以看到 master 版本已经落后远程仓库一个版本了。</p>
-<img src="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/git%E5%9B%9E%E9%80%80.png" class="">
-
-<p>然后，在命令行里面，执行 <code>git push -f</code> 这个命令，我在 SourceTree 里面还没有找到在哪里。force push 到原程仓库里面。就可以了。</p>
-<p>如图 <img src="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/git%E5%9B%9E%E9%80%80%E6%88%90%E5%8A%9F.png" class=""></p>
-<p>版本就在同一条线上了。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/" class="post-title-link" itemprop="url">Prometheus中指标,Servicemonitor,Targets的关系</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-13 23:14:53" itemprop="dateCreated datePublished" datetime="2020-03-13T23:14:53+08:00">2020-03-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/" class="post-meta-item leancloud_visitors" data-flag-title="Prometheus中指标,Servicemonitor,Targets的关系" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Prometheus下拉列表里面的指标是怎么来的？</p>
-<p>如果安装了<code>alert-manager</code>, <code>kube-state-metrics</code>这样组件，这些组件会提供<code>/metrics</code>接口，然后Prometheus就可以拉取这些接口，从而获取指标数据，便展示于Prometheus<br>Dashboard的下拉列表里面了。当然，在指标里面有可能还会加入一些标签，如<code>job</code>, <code>instance</code>之类的。</p>
-<p>网上有人说Servicemonitor是exporter的抽象，我觉得是不对的。最多抽象了一部分而已。</p>
-<p>一个Servicemonitor对应n个Targetes里面的记录。</p>
-<p>当你删除Servicemonitor对象，在Targets页面，这个特定的Target肯定是不显示了，但并不代表Prometheus下拉列表中的指标会消失，指标还是存在的。只是有可能有些标签变化了，这个标签变化的还没有经过验证。</p>
-<p>当你删除Pod时，比如把alert-manager的deployment删除，对应的Pod自动删除，这时，下拉列表对应的指标还存在，但却没有值了。</p>
-<p>这个时候，如果把Prometheus重启一下，这个指标才会消失。</p>
-<p>把<code>kube-state-metrics</code>的pods删除后，<code>kube-</code>开始的指标，如：<code>kube_pod_info</code>，就没有值了。</p>
-<p>把<code>node-exporter</code>的<code>daemonset</code>删除后，<code>node_cpu_seconds_total</code>节点的指标就没值了。</p>
+<p>同时在 Interface, Enum 里面也添加上述内容。</p>
+<p>下次当你创建类 Class, Interface, Enum 时，就会提示让你输入 description，然后会自动生成注释。</p>
+<img src="/2020/03/Intellij-IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%B1%BB%E6%B3%A8%E9%87%8A/anno-input.png" class="">
 
       
     </div>
@@ -585,7 +618,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/69/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/69/">69</a><span class="page-number current">70</span><a class="page-number" href="/page/71/">71</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/71/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/69/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/69/">69</a><span class="page-number current">70</span><a class="page-number" href="/page/71/">71</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/71/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

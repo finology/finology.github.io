@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">380</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/09/java%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%A4%84%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/10/pandas%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +238,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/java%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">java图片压缩处理</a>
+          <a href="/2021/10/pandas%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">pandas常用函数操作</a>
         </h2>
 
         <div class="post-meta-container">
@@ -249,7 +249,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-09-23 15:22:06" itemprop="dateCreated datePublished" datetime="2021-09-23T15:22:06+08:00">2021-09-23</time>
+      <time title="创建时间：2021-10-07 19:03:17" itemprop="dateCreated datePublished" datetime="2021-10-07T19:03:17+08:00">2021-10-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -264,12 +264,12 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
         </span>
     </span>
 
   
-    <span id="/2021/09/java%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%A4%84%E7%90%86/" class="post-meta-item leancloud_visitors" data-flag-title="java图片压缩处理" title="阅读次数">
+    <span id="/2021/10/pandas%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%93%8D%E4%BD%9C/" class="post-meta-item leancloud_visitors" data-flag-title="pandas常用函数操作" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -284,8 +284,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2021/09/java%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%A4%84%E7%90%86/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/09/java%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%A4%84%E7%90%86/" itemprop="commentCount"></span>
+    <a title="waline" href="/2021/10/pandas%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%93%8D%E4%BD%9C/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/10/pandas%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -299,19 +299,37 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="获取图片的像素"><a href="#获取图片的像素" class="headerlink" title="获取图片的像素"></a>获取图片的像素</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">BufferedImage</span> <span class="variable">bufferedImage</span> <span class="operator">=</span> ImageIO.read(file);</span><br><span class="line"><span class="type">int</span> <span class="variable">width</span> <span class="operator">=</span> bufferedImage.getWidth();</span><br><span class="line"><span class="type">int</span> <span class="variable">height</span> <span class="operator">=</span> bufferedImage.getHeight();</span><br></pre></td></tr></table></figure>
+          <h1 id="删除列"><a href="#删除列" class="headerlink" title="删除列"></a>删除列</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.drop([col1, col2], axis=<span class="number">1</span>)</span><br><span class="line">df.drop(columns=[col1, col2])</span><br></pre></td></tr></table></figure>
 
-<h1 id="压缩图片"><a href="#压缩图片" class="headerlink" title="压缩图片"></a>压缩图片</h1><p>使用一个开源的图片处理库 Thumbnailator，有一直在维护的。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.coobird<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>thumbnailator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.4.14<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="删除行"><a href="#删除行" class="headerlink" title="删除行"></a>删除行</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.drop([index1, index2], axis=<span class="number">0</span>)</span><br><span class="line">df.drop(index=[index1, index2])</span><br></pre></td></tr></table></figure>
 
-<p>压缩时，按比例缩放，必须同时满足最大不超过size方法里面的width和height参数值。</p>
-<p>直接转为文件输出：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">inputImage</span> <span class="operator">=</span> <span class="string">&quot;input.jpeg&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">outputImage</span> <span class="operator">=</span> <span class="string">&quot;out.jpeg&quot;</span>;</span><br><span class="line"></span><br><span class="line">Thumbnails.of(inputImage)</span><br><span class="line">        .size(<span class="number">100</span>, <span class="number">60</span>)</span><br><span class="line">        .toFile(outputImage);</span><br></pre></td></tr></table></figure>
+<h1 id="查找唯一"><a href="#查找唯一" class="headerlink" title="查找唯一"></a>查找唯一</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[col].unique()</span><br></pre></td></tr></table></figure>
 
-<p>也可以转为输出流，再转为输入流供其他使用：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">inputImage</span> <span class="operator">=</span> <span class="string">&quot;input.jpeg&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">outputImage</span> <span class="operator">=</span> <span class="string">&quot;out.jpeg&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">ByteArrayOutputStream</span> <span class="variable">baos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ByteArrayOutputStream</span>();</span><br><span class="line"></span><br><span class="line">Thumbnails.of(inputImage)</span><br><span class="line">        .size(<span class="number">100</span>, <span class="number">60</span>)</span><br><span class="line">        .toOutputStream(baos);</span><br><span class="line"></span><br><span class="line"><span class="type">ByteArrayInputStream</span> <span class="variable">bais</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ByteArrayInputStream</span>(baos.toByteArray());</span><br></pre></td></tr></table></figure>
+<h1 id="按值筛选"><a href="#按值筛选" class="headerlink" title="按值筛选"></a>按值筛选</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[df[col].isin([<span class="string">&#x27;银行&#x27;</span>, <span class="string">&#x27;保险&#x27;</span>])]</span><br></pre></td></tr></table></figure>
 
-<p>注意关闭文件。</p>
+<h1 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bins = [<span class="number">0</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>]</span><br><span class="line">pd.cut(df[col], bins, labels=[l1, l2, ...])</span><br></pre></td></tr></table></figure>
+
+<p>分为5个桶 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.qcut(df[col], <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="长宽转换"><a href="#长宽转换" class="headerlink" title="长宽转换"></a>长宽转换</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.stack()</span><br></pre></td></tr></table></figure>
+
+<p>原来的Index变成MultiIndex: (index1, col1), (index1, col2), (index1, col1), (index2, col2)</p>
+<p>宽表转长表</p>
+<p>平安银行 yoy_2019 yoy_2020 yoy_2021</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.melt(id_vars=[col1], var_name=[<span class="string">&#x27;year&#x27;</span>], value_name=<span class="string">&#x27;yoy&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>长表转宽表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.pivot_table(index=[col1], columns=[<span class="string">&#x27;year&#x27;</span>], values=[<span class="string">&#x27;yoy&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<h1 id="apply-和applymap"><a href="#apply-和applymap" class="headerlink" title="apply()和applymap()"></a>apply()和applymap()</h1><p>apply按列、行应用函数</p>
+<h1 id="分位数"><a href="#分位数" class="headerlink" title="分位数"></a>分位数</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.quantile([<span class="number">0.1</span>, <span class="number">0.2</span>])</span><br></pre></td></tr></table></figure>
+
+<h1 id="相关性"><a href="#相关性" class="headerlink" title="相关性"></a>相关性</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[col1].corr(df[col2])</span><br></pre></td></tr></table></figure>
+
+<h1 id="date-range"><a href="#date-range" class="headerlink" title="date_range"></a>date_range</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.date_range(<span class="string">&#x27;2020-01-31&#x27;</span>, <span class="string">&#x27;2021-12-31&#x27;</span>, freq=<span class="string">&#x27;M&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>就会生成每个月最后一天的日期序列。</p>
 
       
     </div>
@@ -338,7 +356,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/09/mybatis-xml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E5%86%99%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/10/Python-range%E5%92%8Carange%E7%9A%84%E5%8C%BA%E5%88%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -356,7 +374,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/mybatis-xml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E5%86%99%E6%B3%95/" class="post-title-link" itemprop="url">mybatis xml配置文件的写法</a>
+          <a href="/2021/10/Python-range%E5%92%8Carange%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">Python range和arange的区别</a>
         </h2>
 
         <div class="post-meta-container">
@@ -367,7 +385,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-09-13 16:35:34" itemprop="dateCreated datePublished" datetime="2021-09-13T16:35:34+08:00">2021-09-13</time>
+      <time title="创建时间：2021-10-05 11:06:51" itemprop="dateCreated datePublished" datetime="2021-10-05T11:06:51+08:00">2021-10-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -382,16 +400,12 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/Mybatis/" itemprop="url" rel="index"><span itemprop="name">Mybatis</span></a>
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
         </span>
     </span>
 
   
-    <span id="/2021/09/mybatis-xml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E5%86%99%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="mybatis xml配置文件的写法" title="阅读次数">
+    <span id="/2021/10/Python-range%E5%92%8Carange%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-meta-item leancloud_visitors" data-flag-title="Python range和arange的区别" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -406,8 +420,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2021/09/mybatis-xml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E5%86%99%E6%B3%95/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/09/mybatis-xml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E5%86%99%E6%B3%95/" itemprop="commentCount"></span>
+    <a title="waline" href="/2021/10/Python-range%E5%92%8Carange%E7%9A%84%E5%8C%BA%E5%88%AB/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/10/Python-range%E5%92%8Carange%E7%9A%84%E5%8C%BA%E5%88%AB/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -421,22 +435,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在去 xml 的时代，使用 mybatis 的时候写 xml 我觉得并不是一个好的实践。不过在维护一些老的项目中，还是在使用xml配置文件，所以基本的配置还是得会。</p>
-<h1 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h1><p>设置 <code>useGeneratedKeys</code> 为 true 时，当插入记录后，自增的 id 的值会赋值到 UserPo 的 id 属性里面。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">&quot;create&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">useGeneratedKeys</span>=<span class="string">&quot;true&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">keyProperty</span>=<span class="string">&quot;id&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">parameterType</span>=<span class="string">&quot;UserPo&quot;</span>&gt;</span></span><br><span class="line">    INSERT INTO user</span><br><span class="line">    <span class="tag">&lt;<span class="name">trim</span> <span class="attr">prefix</span>=<span class="string">&quot;(&quot;</span> <span class="attr">suffix</span>=<span class="string">&quot;)&quot;</span> <span class="attr">suffixOverrides</span>=<span class="string">&quot;,&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;username != null&quot;</span>&gt;</span></span><br><span class="line">            username,</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;age != null&quot;</span>&gt;</span></span><br><span class="line">            age,</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">trim</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">trim</span> <span class="attr">prefix</span>=<span class="string">&quot;VALUES (&quot;</span> <span class="attr">suffix</span>=<span class="string">&quot;)&quot;</span> <span class="attr">suffixOverrides</span>=<span class="string">&quot;,&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;username != null&quot;</span>&gt;</span></span><br><span class="line">            #&#123;username&#125;,</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;age != null&quot;</span>&gt;</span></span><br><span class="line">            #&#123;age&#125;,</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">trim</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+          <p><code>range</code> 函数用于生成一个整数（integer）序列。</p>
+<p>range(start, end, step)，返回类型为range，左闭右开区间。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>):</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">    </span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">9</span></span><br></pre></td></tr></table></figure>
 
+<p><code>arange</code> 是 numpy 包下面的函数，生成一个 float64 的 Array。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> np.arange(<span class="number">1</span>, <span class="number">2</span>, <span class="number">0.1</span>):</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">    </span><br><span class="line"><span class="number">1.0</span></span><br><span class="line"><span class="number">1.1</span></span><br><span class="line"><span class="number">1.2000000000000002</span></span><br><span class="line"><span class="number">1.3000000000000003</span></span><br><span class="line"><span class="number">1.4000000000000004</span></span><br><span class="line"><span class="number">1.5000000000000004</span></span><br><span class="line"><span class="number">1.6000000000000005</span></span><br><span class="line"><span class="number">1.7000000000000006</span></span><br><span class="line"><span class="number">1.8000000000000007</span></span><br><span class="line"><span class="number">1.9000000000000008</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><p>如果 id 没有值，就不用更新。</p>
-<p>如果 username 和 age 都为空时，SQL语句会报错。如果你要更新，至少有一个字段一定是有值的。</p>
-<p>注意，<code>SET key1 = val1, key2 = val2</code>，字段之间是由逗号分隔的，而不是<code>AND</code>，在生产上执行这条语句时得非常小心。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">&quot;update&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;UserPo&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;id != null&quot;</span>&gt;</span></span><br><span class="line">        UPDATE user</span><br><span class="line">        <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;username != null&quot;</span>&gt;</span></span><br><span class="line">                username = #&#123;username&#125;,</span><br><span class="line">            <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;age != null&quot;</span>&gt;</span></span><br><span class="line">                age = #&#123;age&#125;,</span><br><span class="line">            <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">        WHERE id = #&#123;id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h1><p>WHERE 字句。</p>
-<p>每句话前面加关键字 <code>AND</code>。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;username != null&quot;</span>&gt;</span></span><br><span class="line">        AND username = #&#123;username&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    AND age = 18</span><br><span class="line"><span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h1><p>假如我要在xml配置里面进行运算，比如把 age 加 1 ，写法如下：</p>
-<p><code>$&#123;age + 1&#125;</code></p>
+<p>这里涉及到一个问题就是 float 比较大小的问题，可以使用 <code>math.isclose()</code> 函数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> math.isclose(<span class="number">1.2000000000000002</span>, <span class="number">1.2</span>, rel_tol=<span class="number">1e-5</span>)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -463,7 +470,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/08/SpringBoot%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/09/IDEA%E5%A2%9E%E5%8A%A0%E5%8C%B9%E9%85%8D%E6%9F%A5%E6%89%BE%E8%AE%B0%E5%BD%95%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -481,7 +488,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/SpringBoot%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/" class="post-title-link" itemprop="url">SpringBoot中的同步和异步调用</a>
+          <a href="/2021/09/IDEA%E5%A2%9E%E5%8A%A0%E5%8C%B9%E9%85%8D%E6%9F%A5%E6%89%BE%E8%AE%B0%E5%BD%95%E6%95%B0/" class="post-title-link" itemprop="url">IDEA增加匹配查找记录数</a>
         </h2>
 
         <div class="post-meta-container">
@@ -492,7 +499,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-08-15 15:38:39" itemprop="dateCreated datePublished" datetime="2021-08-15T15:38:39+08:00">2021-08-15</time>
+      <time title="创建时间：2021-09-26 15:02:19" itemprop="dateCreated datePublished" datetime="2021-09-26T15:02:19+08:00">2021-09-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -507,16 +514,16 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
+          <a href="/categories/Tools/IntelliJ-IDEA/" itemprop="url" rel="index"><span itemprop="name">IntelliJ IDEA</span></a>
         </span>
     </span>
 
   
-    <span id="/2021/08/SpringBoot%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="SpringBoot中的同步和异步调用" title="阅读次数">
+    <span id="/2021/09/IDEA%E5%A2%9E%E5%8A%A0%E5%8C%B9%E9%85%8D%E6%9F%A5%E6%89%BE%E8%AE%B0%E5%BD%95%E6%95%B0/" class="post-meta-item leancloud_visitors" data-flag-title="IDEA增加匹配查找记录数" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -531,8 +538,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2021/08/SpringBoot%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/08/SpringBoot%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/" itemprop="commentCount"></span>
+    <a title="waline" href="/2021/09/IDEA%E5%A2%9E%E5%8A%A0%E5%8C%B9%E9%85%8D%E6%9F%A5%E6%89%BE%E8%AE%B0%E5%BD%95%E6%95%B0/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/09/IDEA%E5%A2%9E%E5%8A%A0%E5%8C%B9%E9%85%8D%E6%9F%A5%E6%89%BE%E8%AE%B0%E5%BD%95%E6%95%B0/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -546,11 +553,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>先放两张图像体会一下。</p>
-<img src="/2021/08/SpringBoot%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/springboot-sync.png" class="" title="同步调用">
+          <p>我们使用 IDEA 在项目中查找某个字符串时，搜索结果的数量如果超过某个阈值，那就会显示不出来。</p>
+<p>如图所示，<code>100+ matches in 100+ files</code>。</p>
+<img src="/2021/09/IDEA%E5%A2%9E%E5%8A%A0%E5%8C%B9%E9%85%8D%E6%9F%A5%E6%89%BE%E8%AE%B0%E5%BD%95%E6%95%B0/find.png" class="">
 
-<img src="/2021/08/SpringBoot%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8/springboot-async.png" class="" title="异步调用">
+<p>可以对 IDEA 进行设置，以显示更多数量的结果集。</p>
+<p><code>Help</code> -&gt; <code>Find Action</code></p>
+<p>输入<code>Registry</code></p>
+<img src="/2021/09/IDEA%E5%A2%9E%E5%8A%A0%E5%8C%B9%E9%85%8D%E6%9F%A5%E6%89%BE%E8%AE%B0%E5%BD%95%E6%95%B0/idea-registry.png" class="">
 
+<p>找到参数 <code>ide.usages.page.size</code>，把结果设置为你想要的值。</p>
+<img src="/2021/09/IDEA%E5%A2%9E%E5%8A%A0%E5%8C%B9%E9%85%8D%E6%9F%A5%E6%89%BE%E8%AE%B0%E5%BD%95%E6%95%B0/ide-find-page-size.png" class="">
       
     </div>
 
@@ -569,7 +582,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/31/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><span class="page-number current">32</span><a class="page-number" href="/page/33/">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/33/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/31/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><span class="page-number current">32</span><a class="page-number" href="/page/33/">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/33/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">380</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/k8s-master%E8%8A%82%E7%82%B9nodePort%E6%96%B9%E5%BC%8F%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/Prometheus%E7%9B%91%E6%8E%A7%E9%85%8D%E7%BD%AEkubernetes-sd-config/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +238,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/02/k8s-master%E8%8A%82%E7%82%B9nodePort%E6%96%B9%E5%BC%8F%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">k8s master节点nodePort方式不能访问服务</a>
+          <a href="/2020/02/Prometheus%E7%9B%91%E6%8E%A7%E9%85%8D%E7%BD%AEkubernetes-sd-config/" class="post-title-link" itemprop="url">Prometheus监控配置kubernetes_sd_config</a>
         </h2>
 
         <div class="post-meta-container">
@@ -249,7 +249,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-02-12 22:24:08" itemprop="dateCreated datePublished" datetime="2020-02-12T22:24:08+08:00">2020-02-12</time>
+      <time title="创建时间：2020-02-20 23:15:42" itemprop="dateCreated datePublished" datetime="2020-02-20T23:15:42+08:00">2020-02-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -268,12 +268,12 @@
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/Network/" itemprop="url" rel="index"><span itemprop="name">Network</span></a>
+          <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/02/k8s-master%E8%8A%82%E7%82%B9nodePort%E6%96%B9%E5%BC%8F%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1/" class="post-meta-item leancloud_visitors" data-flag-title="k8s master节点nodePort方式不能访问服务" title="阅读次数">
+    <span id="/2020/02/Prometheus%E7%9B%91%E6%8E%A7%E9%85%8D%E7%BD%AEkubernetes-sd-config/" class="post-meta-item leancloud_visitors" data-flag-title="Prometheus监控配置kubernetes_sd_config" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -288,8 +288,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/02/k8s-master%E8%8A%82%E7%82%B9nodePort%E6%96%B9%E5%BC%8F%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/02/k8s-master%E8%8A%82%E7%82%B9nodePort%E6%96%B9%E5%BC%8F%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/02/Prometheus%E7%9B%91%E6%8E%A7%E9%85%8D%E7%BD%AEkubernetes-sd-config/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/02/Prometheus%E7%9B%91%E6%8E%A7%E9%85%8D%E7%BD%AEkubernetes-sd-config/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -303,37 +303,26 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>k8s集群三个节点，一个master node, 两个worker node。</p>
-<p>我们可以看到prometheus以NodePort方式把服务暴露出来。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl get svc -n monitoring</span><br><span class="line">NAME                    TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE</span><br><span class="line">prometheus-k8s          NodePort    10.105.212.163   &lt;none&gt;        9090:30090/TCP               45d</span><br></pre></td></tr></table></figure>
+          <p>官网对<code>kubernetes_sd_config</code>的详细说明文档</p>
+<p><code>https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config</code></p>
+<p><code>kubernetes_sd_config</code>用于配置自动发现的。关于服务自动发现，还可以参考这篇实战：<a href="/2020/03/Prometheus-kubernetes-cadvisor%E6%9C%8D%E5%8A%A1%E8%87%AA%E5%8A%A8%E5%8F%91%E7%8E%B0/" title="Prometheus kubernetes-cadvisor服务自动发现">Prometheus kubernetes-cadvisor服务自动发现</a></p>
+<p>Kubernetes SD configurations allow retrieving scrape targets from Kubernetes’ REST API and always staying synchronized with the cluster state.</p>
+<p>role的类型有以下几种：<code>node</code>, <code>service</code>, <code>pod</code>, <code>endpoints</code>和<code>ingress</code>。</p>
+<p>当role的值为<code>endpoints</code>时，官网说明：</p>
+<p>The endpoints role discovers targets from listed endpoints of a service. For each endpoint address one target is discovered per port. If the endpoint is backed by a pod, all additional container ports of the pod, not bound to an endpoint port, are discovered as targets as well.</p>
+<p>然后<code>prometheus-additional.yaml</code>的容是：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">&#x27;kubernetes-service-endpoints&#x27;</span></span><br><span class="line">  <span class="attr">kubernetes_sd_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">endpoints</span></span><br><span class="line">  <span class="attr">relabel_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__meta_kubernetes_service_annotation_prometheus_io_scrape</span>]</span><br><span class="line">    <span class="attr">action:</span> <span class="string">keep</span></span><br><span class="line">    <span class="attr">regex:</span> <span class="literal">true</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__meta_kubernetes_service_annotation_prometheus_io_scheme</span>]</span><br><span class="line">    <span class="attr">action:</span> <span class="string">replace</span></span><br><span class="line">    <span class="attr">target_label:</span> <span class="string">__scheme__</span></span><br><span class="line">    <span class="attr">regex:</span> <span class="string">(https?)</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__meta_kubernetes_service_annotation_prometheus_io_path</span>]</span><br><span class="line">    <span class="attr">action:</span> <span class="string">replace</span></span><br><span class="line">    <span class="attr">target_label:</span> <span class="string">__metrics_path__</span></span><br><span class="line">    <span class="attr">regex:</span> <span class="string">(.+)</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__address__</span>, <span class="string">__meta_kubernetes_service_annotation_prometheus_io_port</span>]</span><br><span class="line">    <span class="attr">action:</span> <span class="string">replace</span></span><br><span class="line">    <span class="attr">target_label:</span> <span class="string">__address__</span></span><br><span class="line">    <span class="attr">regex:</span> <span class="string">([^:]+)(?::\d+)?;(\d+)</span></span><br><span class="line">    <span class="attr">replacement:</span> <span class="string">$1:$2</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">action:</span> <span class="string">labelmap</span></span><br><span class="line">    <span class="attr">regex:</span> <span class="string">__meta_kubernetes_service_label_(.+)</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__meta_kubernetes_namespace</span>]</span><br><span class="line">    <span class="attr">action:</span> <span class="string">replace</span></span><br><span class="line">    <span class="attr">target_label:</span> <span class="string">kubernetes_namespace</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__meta_kubernetes_service_name</span>]</span><br><span class="line">    <span class="attr">action:</span> <span class="string">replace</span></span><br><span class="line">    <span class="attr">target_label:</span> <span class="string">kubernetes_name</span></span><br></pre></td></tr></table></figure>
 
-<p>我们通过<code>&lt;worker-node-ip&gt;:30090</code>的方式，可以正确访问到页面，但通过<code>&lt;master-node-ip&gt;:30090</code>，却不能正常访问页面。</p>
-<p>随即，我查看了calico网络插件的运行情况。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po  -n kube-system</span><br><span class="line">NAME                                       READY   STATUS    RESTARTS   AGE</span><br><span class="line">calico-node-jt4fz                          0/1     Running   4          45d</span><br><span class="line">calico-node-mv4ht                          1/1     Running   5          45d</span><br><span class="line">calico-node-nqbkl                          1/1     Running   5          45d</span><br></pre></td></tr></table></figure>
+<p>我理解的逻辑是：</p>
+<ol>
+<li>首先查找ep,svc两个同时存在的</li>
+<li>然后查找svc的annotations标签<code>__meta_kubernetes_service_annotation_prometheus_io_scrape</code>的值为<code>true</code>的。</li>
+<li>最后看到ep里面有两个<code>Addresses</code>，所以显示两个Targets。</li>
+</ol>
+<img src="/2020/02/Prometheus%E7%9B%91%E6%8E%A7%E9%85%8D%E7%BD%AEkubernetes-sd-config/kubernetes-service-endpoints.png" class="">
 
-<p>其中一个pod，并未通过健康检查。</p>
-<p>查看一下这个pod的详情信息。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe po calico-node-jt4fz -n kube-system</span><br><span class="line">Name:                 calico-node-jt4fz</span><br><span class="line">Namespace:            kube-system</span><br><span class="line">...</span><br><span class="line">Events:</span><br><span class="line">  Type     Reason     Age                    From                 Message</span><br><span class="line">  ----     ------     ----                   ----                 -------</span><br><span class="line">  Warning  Unhealthy  6m22s (x499 over 89m)  kubelet, k8s-master  (combined from similar events): Readiness probe failed: calico/node is not ready: BIRD is not ready: BGP not established with 172.16.64.232,172.16.64.2352020-02-12 12:36:36.591 [INFO][12943] health.go 156: Number of node(s) with BGP peering established = 0</span><br></pre></td></tr></table></figure>
 
-<p>错误的原因是：</p>
-<p>Readiness probe failed: calico&#x2F;node is not ready: BIRD is not ready: BGP not established with 172.16.64.232,172.16.64.2352020-02-12 12:36:36.591 [INFO][12943] health.go 156: Number of node(s) with BGP peering established &#x3D; 0</p>
-<p>解决方案：</p>
-<p>调整calico网络插件的网卡发现机制，修改IP_AUTODETECTION_METHOD对应的value值。</p>
-<p>官方提供的yaml文件中，ip识别策略（IPDETECTMETHOD）没有配置，即默认为first-found，这会导致一个网络异常的ip作为nodeIP被注册，从而影响node-to-node mesh。</p>
-<p>我们可以修改成can-reach或者interface的策略，尝试连接某一个Ready的node的IP，以此选择出正确的IP。</p>
-<p>在<code>calico.yaml</code>文件中添加如下两行内容</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">IP_AUTODETECTION_METHOD</span></span><br><span class="line">  <span class="attr">value:</span> <span class="string">&quot;interface=ens.*&quot;</span>  <span class="comment"># ens 根据实际网卡开头配置</span></span><br></pre></td></tr></table></figure>
 
-<p>配置如下：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Cluster type to identify the deployment type</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">CLUSTER_TYPE</span></span><br><span class="line">  <span class="attr">value:</span> <span class="string">&quot;k8s,bgp&quot;</span></span><br><span class="line"><span class="comment"># Specify interface</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">IP_AUTODETECTION_METHOD</span></span><br><span class="line">  <span class="attr">value:</span> <span class="string">&quot;interface=ens.*&quot;</span></span><br><span class="line"><span class="comment"># Auto-detect the BGP IP address.</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">IP</span></span><br><span class="line">  <span class="attr">value:</span> <span class="string">&quot;autodetect&quot;</span></span><br><span class="line"><span class="comment"># Enable IPIP</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">CALICO_IPV4POOL_IPIP</span></span><br><span class="line">  <span class="attr">value:</span> <span class="string">&quot;Always&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>修改后重新应用一下calico.yaml文件。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f calico.yaml</span><br></pre></td></tr></table></figure>
-
-<p>我们发现calico所有pod都已经成功启动了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po -n kube-system</span><br><span class="line">NAME                                       READY   STATUS    RESTARTS   AGE</span><br><span class="line">calico-node-jtvh8                          1/1     Running   0          15s</span><br><span class="line">calico-node-k6m8t                          1/1     Running   0          45s</span><br><span class="line">calico-node-rb9qx                          1/1     Running   0          29s</span><br></pre></td></tr></table></figure>
-
-<p>此时，通过<code>&lt;master-node-ip&gt;:30090</code>，即可以成功访问到页面了。</p>
 
       
     </div>
@@ -360,7 +349,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/Docker%E7%BD%91%E7%BB%9CNetwork/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/Prometheus-Kubelet-ServiceMonitor/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -378,7 +367,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/02/Docker%E7%BD%91%E7%BB%9CNetwork/" class="post-title-link" itemprop="url">Docker网络Network</a>
+          <a href="/2020/02/Prometheus-Kubelet-ServiceMonitor/" class="post-title-link" itemprop="url">Prometheus Kubelet ServiceMonitor</a>
         </h2>
 
         <div class="post-meta-container">
@@ -389,7 +378,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-02-08 22:47:52" itemprop="dateCreated datePublished" datetime="2020-02-08T22:47:52+08:00">2020-02-08</time>
+      <time title="创建时间：2020-02-17 17:30:49" itemprop="dateCreated datePublished" datetime="2020-02-17T17:30:49+08:00">2020-02-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -404,16 +393,16 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Docker/Network/" itemprop="url" rel="index"><span itemprop="name">Network</span></a>
+          <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/02/Docker%E7%BD%91%E7%BB%9CNetwork/" class="post-meta-item leancloud_visitors" data-flag-title="Docker网络Network" title="阅读次数">
+    <span id="/2020/02/Prometheus-Kubelet-ServiceMonitor/" class="post-meta-item leancloud_visitors" data-flag-title="Prometheus Kubelet ServiceMonitor" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -428,8 +417,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/02/Docker%E7%BD%91%E7%BB%9CNetwork/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/02/Docker%E7%BD%91%E7%BB%9CNetwork/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/02/Prometheus-Kubelet-ServiceMonitor/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/02/Prometheus-Kubelet-ServiceMonitor/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -443,43 +432,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>这个实验一定要在Linux环境下做，docker for mac, docker for win是不行的。</p>
-<h1 id="docker网络类型"><a href="#docker网络类型" class="headerlink" title="docker网络类型"></a>docker网络类型</h1><p>docker会给我们创建三种网络类型：bridge, host, none</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker network ls</span><br><span class="line">NETWORK ID          NAME                DRIVER              SCOPE</span><br><span class="line">a1681b4a3bc9        bridge              bridge              local</span><br><span class="line">d724eb42948a        host                host                local</span><br><span class="line">c9381cce7bbb        none                null                local</span><br></pre></td></tr></table></figure>
+          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get serviceMonitor -n monitoring kubelet -o yaml</span><br></pre></td></tr></table></figure>
 
-<p>在没有指定相关网络的情况下，默认情况，会使用bridge网络模式。</p>
-<h1 id="网络验证"><a href="#网络验证" class="headerlink" title="网络验证"></a>网络验证</h1><p>启动两个busybox容器。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit --name busybox1 busybox</span><br><span class="line">4f3c61775b5e8bcd38a0c97ff97bcd16ed717ab31bea417b198192f83b493846</span><br><span class="line"></span><br><span class="line">docker run -dit --name busybox2 busybox</span><br><span class="line">c523392d8949b53abfbe736c43d2d47ea60a3420e8931bebc69d05baff93889b</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">monitoring.coreos.com/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ServiceMonitor</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">annotations:</span></span><br><span class="line">    <span class="attr">kubectl.kubernetes.io/last-applied-configuration:</span> <span class="string">|</span></span><br><span class="line"><span class="string">      &#123;&quot;apiVersion&quot;:&quot;monitoring.coreos.com/v1&quot;,&quot;kind&quot;:&quot;ServiceMonitor&quot;,&quot;metadata&quot;:&#123;&quot;annotations&quot;:&#123;&#125;,&quot;labels&quot;:&#123;&quot;k8s-app&quot;:&quot;kubelet&quot;&#125;,&quot;name&quot;:&quot;kubelet&quot;,&quot;namespace&quot;:&quot;monitoring&quot;&#125;,&quot;spec&quot;:&#123;&quot;endpoints&quot;:[&#123;&quot;bearerTokenFile&quot;:&quot;/var/run/secrets/kubernetes.io/serviceaccount/token&quot;,&quot;honorLabels&quot;:true,&quot;interval&quot;:&quot;30s&quot;,&quot;port&quot;:&quot;https-metrics&quot;,&quot;scheme&quot;:&quot;https&quot;,&quot;tlsConfig&quot;:&#123;&quot;insecureSkipVerify&quot;:true&#125;&#125;,&#123;&quot;bearerTokenFile&quot;:&quot;/var/run/secrets/kubernetes.io/serviceaccount/token&quot;,&quot;honorLabels&quot;:true,&quot;interval&quot;:&quot;30s&quot;,&quot;metricRelabelings&quot;:[&#123;&quot;action&quot;:&quot;drop&quot;,&quot;regex&quot;:&quot;container_(network_tcp_usage_total|network_udp_usage_total|tasks_state|cpu_load_average_10s)&quot;,&quot;sourceLabels&quot;:[&quot;__name__&quot;]&#125;],&quot;path&quot;:&quot;/metrics/cadvisor&quot;,&quot;port&quot;:&quot;https-metrics&quot;,&quot;scheme&quot;:&quot;https&quot;,&quot;tlsConfig&quot;:&#123;&quot;insecureSkipVerify&quot;:true&#125;&#125;],&quot;jobLabel&quot;:&quot;k8s-app&quot;,&quot;namespaceSelector&quot;:&#123;&quot;matchNames&quot;:[&quot;kube-system&quot;]&#125;,&quot;selector&quot;:&#123;&quot;matchLabels&quot;:&#123;&quot;k8s-app&quot;:&quot;kubelet&quot;&#125;&#125;&#125;&#125;</span></span><br><span class="line"><span class="string"></span>  <span class="attr">creationTimestamp:</span> <span class="string">&quot;2019-12-29T06:40:27Z&quot;</span></span><br><span class="line">  <span class="attr">generation:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">kubelet</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubelet</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">monitoring</span></span><br><span class="line">  <span class="attr">resourceVersion:</span> <span class="string">&quot;2602&quot;</span></span><br><span class="line">  <span class="attr">selfLink:</span> <span class="string">/apis/monitoring.coreos.com/v1/namespaces/monitoring/servicemonitors/kubelet</span></span><br><span class="line">  <span class="attr">uid:</span> <span class="string">327bae9c-d09c-4d00-b293-354870b19f91</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">endpoints:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">bearerTokenFile:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line">    <span class="attr">honorLabels:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">interval:</span> <span class="string">30s</span></span><br><span class="line">    <span class="attr">port:</span> <span class="string">https-metrics</span></span><br><span class="line">    <span class="attr">scheme:</span> <span class="string">https</span></span><br><span class="line">    <span class="attr">tlsConfig:</span></span><br><span class="line">      <span class="attr">insecureSkipVerify:</span> <span class="literal">true</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">bearerTokenFile:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line">    <span class="attr">honorLabels:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">interval:</span> <span class="string">30s</span></span><br><span class="line">    <span class="attr">metricRelabelings:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">action:</span> <span class="string">drop</span></span><br><span class="line">      <span class="attr">regex:</span> <span class="string">container_(network_tcp_usage_total|network_udp_usage_total|tasks_state|cpu_load_average_10s)</span></span><br><span class="line">      <span class="attr">sourceLabels:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">__name__</span></span><br><span class="line">    <span class="attr">path:</span> <span class="string">/metrics/cadvisor</span></span><br><span class="line">    <span class="attr">port:</span> <span class="string">https-metrics</span></span><br><span class="line">    <span class="attr">scheme:</span> <span class="string">https</span></span><br><span class="line">    <span class="attr">tlsConfig:</span></span><br><span class="line">      <span class="attr">insecureSkipVerify:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">jobLabel:</span> <span class="string">k8s-app</span></span><br><span class="line">  <span class="attr">namespaceSelector:</span></span><br><span class="line">    <span class="attr">matchNames:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">kube-system</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">k8s-app:</span> <span class="string">kubelet</span></span><br></pre></td></tr></table></figure>
 
-<p>查看一下bridge网络</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">docker network inspect bridge</span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;Name&quot;: &quot;bridge&quot;,</span><br><span class="line">        &quot;Id&quot;: &quot;a1681b4a3bc9bf973e2ff712677e373b663cc65b3a9dd6e868f5635fff295a6a&quot;,</span><br><span class="line">        &quot;Created&quot;: &quot;2020-02-05T16:24:09.290786154+08:00&quot;,</span><br><span class="line">        &quot;Scope&quot;: &quot;local&quot;,</span><br><span class="line">        &quot;Driver&quot;: &quot;bridge&quot;,</span><br><span class="line">        &quot;EnableIPv6&quot;: false,</span><br><span class="line">        &quot;IPAM&quot;: &#123;</span><br><span class="line">            &quot;Driver&quot;: &quot;default&quot;,</span><br><span class="line">            &quot;Options&quot;: null,</span><br><span class="line">            &quot;Config&quot;: [</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;Subnet&quot;: &quot;172.17.0.0/16&quot;,</span><br><span class="line">                    &quot;Gateway&quot;: &quot;172.17.0.1&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;Internal&quot;: false,</span><br><span class="line">        &quot;Attachable&quot;: false,</span><br><span class="line">        &quot;Ingress&quot;: false,</span><br><span class="line">        &quot;ConfigFrom&quot;: &#123;</span><br><span class="line">            &quot;Network&quot;: &quot;&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;ConfigOnly&quot;: false,</span><br><span class="line">        &quot;Containers&quot;: &#123;</span><br><span class="line">            &quot;4f3c61775b5e8bcd38a0c97ff97bcd16ed717ab31bea417b198192f83b493846&quot;: &#123;</span><br><span class="line">                &quot;Name&quot;: &quot;busybox1&quot;,</span><br><span class="line">                &quot;EndpointID&quot;: &quot;bb138601e4d4018e8f36b4679cc22823fca3020d53fb7c372e47d1c73345b374&quot;,</span><br><span class="line">                &quot;MacAddress&quot;: &quot;02:42:ac:11:00:02&quot;,</span><br><span class="line">                &quot;IPv4Address&quot;: &quot;172.17.0.2/16&quot;,</span><br><span class="line">                &quot;IPv6Address&quot;: &quot;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;c523392d8949b53abfbe736c43d2d47ea60a3420e8931bebc69d05baff93889b&quot;: &#123;</span><br><span class="line">                &quot;Name&quot;: &quot;busybox2&quot;,</span><br><span class="line">                &quot;EndpointID&quot;: &quot;8f3d2661b8bd9fdf4f9bf2d763e36ab87a7e1fa8dca6e1e97b727c7a8ab2d0fe&quot;,</span><br><span class="line">                &quot;MacAddress&quot;: &quot;02:42:ac:11:00:03&quot;,</span><br><span class="line">                &quot;IPv4Address&quot;: &quot;172.17.0.3/16&quot;,</span><br><span class="line">                &quot;IPv6Address&quot;: &quot;&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;Options&quot;: &#123;</span><br><span class="line">            &quot;com.docker.network.bridge.default_bridge&quot;: &quot;true&quot;,</span><br><span class="line">            &quot;com.docker.network.bridge.enable_icc&quot;: &quot;true&quot;,</span><br><span class="line">            &quot;com.docker.network.bridge.enable_ip_masquerade&quot;: &quot;true&quot;,</span><br><span class="line">            &quot;com.docker.network.bridge.host_binding_ipv4&quot;: &quot;0.0.0.0&quot;,</span><br><span class="line">            &quot;com.docker.network.bridge.name&quot;: &quot;docker0&quot;,</span><br><span class="line">            &quot;com.docker.network.driver.mtu&quot;: &quot;1500&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;Labels&quot;: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>根据上面的namespaceSelector和selector</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get ep -n kube-system -l k8s-app=kubelet -o yaml</span><br></pre></td></tr></table></figure>
 
-<p>可以看到busybox1和busybox2两个容器都连接到了bridge网络。两个容器的ip地址也能看到。</p>
-<p>进入busybox1容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it busybox1 sh</span><br></pre></td></tr></table></figure>
-
-<p>通过ip地址和容器名ping容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/ # ping 172.17.0.3</span><br><span class="line">PING 172.17.0.3 (172.17.0.3): 56 data bytes</span><br><span class="line">64 bytes from 172.17.0.3: seq=0 ttl=64 time=0.285 ms</span><br><span class="line">64 bytes from 172.17.0.3: seq=1 ttl=64 time=0.130 ms</span><br><span class="line"></span><br><span class="line">/ # ping busybox2</span><br><span class="line">^C</span><br></pre></td></tr></table></figure>
-
-<p>可以得出，通过ip地址是可以ping通的，但通过容器名是不行的。</p>
-<p>查看<code>hosts</code>信息，也找不到任何busybox2的信息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/hosts</span><br><span class="line">127.0.0.1	localhost</span><br><span class="line">::1	localhost ip6-localhost ip6-loopback</span><br><span class="line">fe00::0	ip6-localnet</span><br><span class="line">ff00::0	ip6-mcastprefix</span><br><span class="line">ff02::1	ip6-allnodes</span><br><span class="line">ff02::2	ip6-allrouters</span><br><span class="line">172.17.0.2	4f3c61775b5e</span><br></pre></td></tr></table></figure>
-
-<h1 id="新建bridge网络"><a href="#新建bridge网络" class="headerlink" title="新建bridge网络"></a>新建bridge网络</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker network create --driver bridge busybox_bridge</span><br><span class="line">bebfcba064b2afdfb265d4df19eaccd950a1d957dcb3e2256d05dc544b64369e</span><br></pre></td></tr></table></figure>
-
-<p>查看网络</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker network ls</span><br><span class="line">NETWORK ID          NAME                DRIVER              SCOPE</span><br><span class="line">a1681b4a3bc9        bridge              bridge              local</span><br><span class="line">bebfcba064b2        busybox_bridge      bridge              local</span><br><span class="line">d724eb42948a        host                host                local</span><br><span class="line">c9381cce7bbb        none                null                local</span><br></pre></td></tr></table></figure>
-
-<p>分别创建busybox3和busybox4容器，并加入到busybox_bridge网络中</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit --network busybox_bridge --name busybox3 busybox</span><br><span class="line">8e39a57b7543288fb716f66eaa4a54609a571c7d30194ca456d4a1dc443f19e6</span><br><span class="line"></span><br><span class="line">docker run -dit --network busybox_bridge --name busybox4 busybox</span><br><span class="line">ed1715cfaf168f64351d46aaa7f393cae00962c7ef850d8824abe06a4906843c</span><br></pre></td></tr></table></figure>
-
-<p>进入busybox3</p>
-<p>本以为可以PING得通busybox4，但貌似不行，此实验失败。后面再研究。</p>
-<h1 id="host模式"><a href="#host模式" class="headerlink" title="host模式"></a>host模式</h1><p>以host模式启动一个nginx容器。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -d --net host nginx</span><br><span class="line">956b96f5d0c25835a1d4470c12ed5e4abda341e44f9344e72cf42864976d96fa</span><br></pre></td></tr></table></figure>
-
-<p>因为是host模式，容器和主机共享一样的网络。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">curl localhost</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;Welcome to nginx!&lt;/title&gt;</span><br><span class="line">...</span><br><span class="line">&lt;p&gt;&lt;em&gt;Thank you for using nginx.&lt;/em&gt;&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">items:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line">  <span class="attr">kind:</span> <span class="string">Endpoints</span></span><br><span class="line">  <span class="attr">metadata:</span></span><br><span class="line">    <span class="attr">creationTimestamp:</span> <span class="string">&quot;2019-12-29T06:40:06Z&quot;</span></span><br><span class="line">    <span class="attr">labels:</span></span><br><span class="line">      <span class="attr">k8s-app:</span> <span class="string">kubelet</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">kubelet</span></span><br><span class="line">    <span class="attr">namespace:</span> <span class="string">kube-system</span></span><br><span class="line">    <span class="attr">resourceVersion:</span> <span class="string">&quot;2371&quot;</span></span><br><span class="line">    <span class="attr">selfLink:</span> <span class="string">/api/v1/namespaces/kube-system/endpoints/kubelet</span></span><br><span class="line">    <span class="attr">uid:</span> <span class="string">326583cc-3379-4883-8426-5a856c29c77e</span></span><br><span class="line">  <span class="attr">subsets:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">addresses:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">ip:</span> <span class="number">172.16</span><span class="number">.64</span><span class="number">.232</span></span><br><span class="line">      <span class="attr">targetRef:</span></span><br><span class="line">        <span class="attr">kind:</span> <span class="string">Node</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">k8s-node1</span></span><br><span class="line">        <span class="attr">uid:</span> <span class="string">09ffae8e-e3f1-456b-a398-7891487712da</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">ip:</span> <span class="number">172.16</span><span class="number">.64</span><span class="number">.233</span></span><br><span class="line">      <span class="attr">targetRef:</span></span><br><span class="line">        <span class="attr">kind:</span> <span class="string">Node</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">k8s-master</span></span><br><span class="line">        <span class="attr">uid:</span> <span class="string">774ddb3e-2c3c-4af8-8e1c-15b0c2c3b8c1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">ip:</span> <span class="number">172.16</span><span class="number">.64</span><span class="number">.235</span></span><br><span class="line">      <span class="attr">targetRef:</span></span><br><span class="line">        <span class="attr">kind:</span> <span class="string">Node</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">k8s-node2</span></span><br><span class="line">        <span class="attr">uid:</span> <span class="string">7c1cc5f0-2b71-462a-907e-191b0d3ee819</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">http-metrics</span></span><br><span class="line">      <span class="attr">port:</span> <span class="number">10255</span></span><br><span class="line">      <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">cadvisor</span></span><br><span class="line">      <span class="attr">port:</span> <span class="number">4194</span></span><br><span class="line">      <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">https-metrics</span></span><br><span class="line">      <span class="attr">port:</span> <span class="number">10250</span></span><br><span class="line">      <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">List</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">resourceVersion:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="attr">selfLink:</span> <span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -506,7 +466,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/docker%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93harbor%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/Prometheus%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -524,7 +484,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/02/docker%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93harbor%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">docker镜像仓库harbor的使用</a>
+          <a href="/2020/02/Prometheus%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">Prometheus入门基础</a>
         </h2>
 
         <div class="post-meta-container">
@@ -535,7 +495,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-02-05 22:37:25" itemprop="dateCreated datePublished" datetime="2020-02-05T22:37:25+08:00">2020-02-05</time>
+      <time title="创建时间：2020-02-14 16:45:40" itemprop="dateCreated datePublished" datetime="2020-02-14T16:45:40+08:00">2020-02-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -550,16 +510,16 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Docker/Harbor/" itemprop="url" rel="index"><span itemprop="name">Harbor</span></a>
+          <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/02/docker%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93harbor%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="docker镜像仓库harbor的使用" title="阅读次数">
+    <span id="/2020/02/Prometheus%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/" class="post-meta-item leancloud_visitors" data-flag-title="Prometheus入门基础" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -574,8 +534,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/02/docker%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93harbor%E7%9A%84%E4%BD%BF%E7%94%A8/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/02/docker%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93harbor%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/02/Prometheus%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/02/Prometheus%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -589,65 +549,44 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在<a href="/2020/02/docker%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93harbor%E6%90%AD%E5%BB%BA/" title="docker镜像仓库harbor搭建">docker镜像仓库harbor搭建</a>中讲解了如何安装harbor，这一篇文章主要讲如何使用harbor。</p>
-<h1 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h1><img src="/2020/02/docker%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93harbor%E7%9A%84%E4%BD%BF%E7%94%A8/harbor-create-user.png" class="">
+          <h1 id="什么是Prometheus"><a href="#什么是Prometheus" class="headerlink" title="什么是Prometheus"></a>什么是Prometheus</h1><p>Prometheus是由SoundCloud开发的开源监控报警系统和时序列数据库(TSDB)。Prometheus使用Go语言开发。</p>
+<p>2016年由Google发起Linux基金会旗下的原生云基金会(Cloud Native Computing Foundation), 将Prometheus纳入其下第二大开源项目。</p>
+<h1 id="Prometheus特点"><a href="#Prometheus特点" class="headerlink" title="Prometheus特点"></a>Prometheus特点</h1><p>多维数据模型：由度量名称和键值对标识的时间序列数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node_cpu_seconds_total&#123;cpu=&quot;0&quot;,endpoint=&quot;https&quot;,instance=&quot;k8s-master&quot;,job=&quot;node-exporter&quot;,mode=&quot;idle&quot;,namespace=&quot;monitoring&quot;,pod=&quot;node-exporter-t9ljw&quot;,service=&quot;node-exporter&quot;&#125;</span><br></pre></td></tr></table></figure>
 
-<p>输入用户信息，创建用于push image的用户。</p>
-<img src="/2020/02/docker%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93harbor%E7%9A%84%E4%BD%BF%E7%94%A8/harbor-user.png" class="">
+<p>PromSQL是一种灵活的查询语言，可以利用多维数据完成复杂的查询</p>
+<p>不依赖分布式存储，单个服务器节点可直接工作</p>
+<p>基于HTTP的pull方式采集时间序列数据</p>
+<p>推送时间序列数据通过PushGateway组件支持</p>
+<p>通过服务发现或静态配置发现目标</p>
+<p>多种图形模式及仪表盘支持</p>
+<h1 id="Prometheus架构"><a href="#Prometheus架构" class="headerlink" title="Prometheus架构"></a>Prometheus架构</h1><img src="/2020/02/Prometheus%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/prometheus-architecture.png" class="">
 
-<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><img src="/2020/02/docker%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93harbor%E7%9A%84%E4%BD%BF%E7%94%A8/harbor-create-project.png" class="">
-
-<p>输入项目信息。</p>
-<img src="/2020/02/docker%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93harbor%E7%9A%84%E4%BD%BF%E7%94%A8/harbor-project.png" class="">
-
-<p>进入项目，在<code>成员</code>标签下，把刚才创建的<code>user</code>用户以开发人员的角色，添加到此项目下。</p>
-<h1 id="推入镜像"><a href="#推入镜像" class="headerlink" title="推入镜像"></a>推入镜像</h1><p>我们先下载一个nginx的镜像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull nginx:1.16.1</span><br></pre></td></tr></table></figure>
-
-<p>查看镜像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line">REPOSITORY                                    TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">nginx                                         1.16.1              55c440ba1ecb        3 days ago          127MB</span><br></pre></td></tr></table></figure>
-
-<p>修改tag</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag 55c440ba1ecb 172.16.64.233/my-project/nginx:1.16.1</span><br></pre></td></tr></table></figure>
-
-<h2 id="推镜像"><a href="#推镜像" class="headerlink" title="推镜像"></a>推镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker push 172.16.64.233/my-project/nginx:1.16.1</span><br><span class="line">The push refers to repository [172.16.64.233/my-project/nginx]</span><br><span class="line">Get https://172.16.64.233/v2/: dial tcp 172.16.64.233:443: connect: connection refused</span><br></pre></td></tr></table></figure>
-
-<p>所以需要加入<code>insecure-registries</code>配置</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
-
-<p>添加如下内容：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        &quot;insecure-registries&quot;: [&quot;172.16.64.233&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>重启docker</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
-
-<p>再次推送</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker push 172.16.64.233/my-project/nginx:1.16.1</span><br><span class="line">The push refers to repository [172.16.64.233/my-project/nginx]</span><br><span class="line">37ec257a56ed: Preparing</span><br><span class="line">567538016328: Preparing</span><br><span class="line">488dfecc21b1: Preparing</span><br><span class="line">denied: requested access to the resource is denied</span><br></pre></td></tr></table></figure>
-
-<p>出现权限不够的错误。</p>
-<p>所以需要登录。之前我们注册了一个<code>user</code>用户。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker login 172.16.64.233</span><br><span class="line">Username: user</span><br><span class="line">Password:</span><br><span class="line">WARNING! Your password will be stored unencrypted in /root/.docker/config.json.</span><br><span class="line">Configure a credential helper to remove this warning. See</span><br><span class="line">https://docs.docker.com/engine/reference/commandline/login/#credentials-store</span><br><span class="line"></span><br><span class="line">Login Succeeded</span><br></pre></td></tr></table></figure>
-
-<p>再次push</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker push 172.16.64.233/my-project/nginx:1.16.1</span><br><span class="line">The push refers to repository [172.16.64.233/my-project/nginx]</span><br><span class="line">37ec257a56ed: Pushed</span><br><span class="line">567538016328: Pushed</span><br><span class="line">488dfecc21b1: Pushed</span><br><span class="line">1.16.1: digest: sha256:5f281748501a5ad9f5d657fc6067ac6187d62be2a811c460deee1504cabddc51 size: 948</span><br></pre></td></tr></table></figure>
-
-<p>成功。</p>
-<p>在harbor页面里，也可以看到此镜像了。</p>
-<h1 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h1><p>我们可以换一台机器，拉取镜像。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull 172.16.64.233/my-project/nginx:1.16.1</span><br><span class="line">Error response from daemon: Get https://172.16.64.233/v2/: dial tcp 172.16.64.233:443: connect: connection refused</span><br></pre></td></tr></table></figure>
-
-<p>和前面处理这个问题的方式一样，在<code>/etc/docker/daemon.json</code>加入如下内容。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        &quot;insecure-registries&quot;: [&quot;172.16.64.233&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>并重启docker</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
-
-<p>再次拉取镜像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker pull 172.16.64.233/my-project/nginx:1.16.1</span><br><span class="line">1.16.1: Pulling from my-project/nginx</span><br><span class="line">bc51dd8edc1b: Pull complete</span><br><span class="line">60041be5685b: Pull complete</span><br><span class="line">5ad6baa9b36b: Pull complete</span><br><span class="line">Digest: sha256:5f281748501a5ad9f5d657fc6067ac6187d62be2a811c460deee1504cabddc51</span><br><span class="line">Status: Downloaded newer image for 172.16.64.233/my-project/nginx:1.16.1</span><br></pre></td></tr></table></figure>
-
-<p>成功拉取。</p>
-<h1 id="高可用设置"><a href="#高可用设置" class="headerlink" title="高可用设置"></a>高可用设置</h1><p>如果需要搭几个harbor节点，则可以到<code>仓库管理</code>和<code>同步管理</code>标签中设置同步规则。</p>
-<p>然后再在harbor的前端，通过nginx做一个负载均衡即可。</p>
+<p>Prometheus 由多个组件组成，但是其中许多组件是可选的：</p>
+<h2 id="Prometheus-Server"><a href="#Prometheus-Server" class="headerlink" title="Prometheus Server"></a>Prometheus Server</h2><p>用于收集指标和存储时间序列数据，并提供查询接口(http api)</p>
+<h2 id="Client-Library"><a href="#Client-Library" class="headerlink" title="Client Library"></a>Client Library</h2><p>客户端库（例如Go，Python，Java等），为需要监控的服务产生相应的&#x2F;metrics并暴露给Prometheus Server。目前已经有很多的软件原生就支持Prometheus，提供&#x2F;metrics，可以直接使用。对于像操作系统已经不提供&#x2F;metrics，可以使用exporter，或者自己开发exporter来提供&#x2F;metrics服务。</p>
+<h2 id="Push-Gateway"><a href="#Push-Gateway" class="headerlink" title="Push Gateway"></a>Push Gateway</h2><p>主要用于临时性的jobs。由于这类jobs存在时间较短，可能在Prometheus pull之前就消失了。对此Jobs定时将指标push到pushgateway，再由Prometheus<br>Server从Pushgateway上pull。这种方式主要用于服务层面的metrics</p>
+<h2 id="exporter"><a href="#exporter" class="headerlink" title="exporter"></a>exporter</h2><p>用于暴露已有的第三方服务的 metrics 给 Prometheus。</p>
+<h2 id="alertmanager"><a href="#alertmanager" class="headerlink" title="alertmanager"></a>alertmanager</h2><p>从 Prometheus server 端接收到 alerts 后，会进行去除重复数据，分组，并路由到对应的接收方式，发出报警。常见的接收方式有：电子邮件，pagerduty，OpsGenie, webhook 等。</p>
+<h2 id="Web-UI"><a href="#Web-UI" class="headerlink" title="Web UI"></a>Web UI</h2><p>Prometheus内置一个简单的Web控制台，可以查询指标，查看配置信息或者Service Discovery等，实际工作中，查看指标或者创建仪表盘通常使用Grafana，Prometheus作为Grafana的数据源。</p>
+<h1 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h1><p>Prometheus的基本原理是通过HTTP协议周期性抓取被监控组件的状态，任意组件只要提供对应的HTTP接口就可以接入监控。不需要任何SDK或者其他的集成过程。这样做非常适合做虚拟化环境监控系统，比如VM、Docker、Kubernetes等。输出被监控组件信息的HTTP接口被叫做exporter 。目前互联网公司常用的组件大部分都有exporter可以直接使用，比如Varnish、Haproxy、Nginx、MySQL、Linux系统信息(包括磁盘、内存、CPU、网络等等)。</p>
+<h1 id="服务过程"><a href="#服务过程" class="headerlink" title="服务过程"></a>服务过程</h1><p>Prometheus Daemon负责定时去目标上抓取metrics(指标)数据，每个抓取目标需要暴露一个http服务的接口给它定时抓取。Prometheus支持通过配置文件、文本文件、Zookeeper、Consul、DNS SRV Lookup等方式指定抓取目标。Prometheus采用PULL的方式进行监控，即服务器可以直接通过目标PULL数据或者间接地通过中间网关来Push数据。</p>
+<p>Prometheus在本地存储抓取的所有数据，并通过一定规则进行清理和整理数据，并把得到的结果存储到新的时间序列中。</p>
+<p>Prometheus通过PromQL和其他API可视化地展示收集的数据。Prometheus支持很多方式的图表可视化，例如Grafana、自带的Promdash以及自身提供的模版引擎等等。Prometheus还提供HTTP API的查询方式，自定义所需要的输出。</p>
+<p>PushGateway支持Client主动推送metrics到PushGateway，而Prometheus只是定时去Gateway上抓取数据。</p>
+<p>Alertmanager是独立于Prometheus的一个组件，可以支持Prometheus的查询语句，提供十分灵活的报警方式。</p>
+<h1 id="三大套件"><a href="#三大套件" class="headerlink" title="三大套件"></a>三大套件</h1><h2 id="Prometheus-Server-1"><a href="#Prometheus-Server-1" class="headerlink" title="Prometheus Server"></a>Prometheus Server</h2><p>主要负责数据采集和存储，提供PromQL查询语言的支持。</p>
+<h2 id="Alertmanager"><a href="#Alertmanager" class="headerlink" title="Alertmanager"></a>Alertmanager</h2><p>警告管理器，用来进行报警。</p>
+<h2 id="Push-Gateway-1"><a href="#Push-Gateway-1" class="headerlink" title="Push Gateway"></a>Push Gateway</h2><p>支持临时性Job主动推送指标的中间网关。</p>
+<h1 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h1><p>Prometheus将所有数据存储为时间序列；具有相同度量名称以及标签属于同一个指标。</p>
+<p>每个时间序列都由度量标准名称和一组键值对（也成为标签）唯一标识。</p>
+<p>时间序列格式：</p>
+<p><code>&lt;metric name&gt;&#123;&lt;label name&gt;=&lt;label value&gt;, ...&#125;</code></p>
+<h1 id="指标类型"><a href="#指标类型" class="headerlink" title="指标类型"></a>指标类型</h1><h2 id="Counter"><a href="#Counter" class="headerlink" title="Counter"></a>Counter</h2><p>递增的计数器，如CPU使用时间。</p>
+<h2 id="Gauge"><a href="#Gauge" class="headerlink" title="Gauge"></a>Gauge</h2><p>可以任意变化的数值：cup使用率</p>
+<h2 id="Histogram"><a href="#Histogram" class="headerlink" title="Histogram"></a>Histogram</h2><p>对一段时间范围内数据进行采样，并对所有数值求和与统计数量</p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>与Histogram类似，带有分位数。</p>
+<h1 id="抓取实例"><a href="#抓取实例" class="headerlink" title="抓取实例"></a>抓取实例</h1><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">scrape_configs:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">&#x27;prometheus&#x27;</span></span><br><span class="line">  <span class="attr">static_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;localhost:9090&#x27;</span>,<span class="string">&#x27;192.168.1.100:9090&#x27;</span>]</span><br><span class="line"><span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">&#x27;node&#x27;</span></span><br><span class="line">  <span class="attr">static_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;192.168.1.10:9090&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -667,7 +606,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/77/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/77/">77</a><span class="page-number current">78</span><a class="page-number" href="/page/79/">79</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/79/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/77/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/77/">77</a><span class="page-number current">78</span><a class="page-number" href="/page/79/">79</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/79/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

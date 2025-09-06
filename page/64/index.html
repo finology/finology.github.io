@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">380</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/%E8%A7%A3%E5%86%B3mac-matplotlib%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +238,257 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/" class="post-title-link" itemprop="url">使用Python matplotlib画图</a>
+          <a href="/2020/04/%E8%A7%A3%E5%86%B3mac-matplotlib%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决mac matplotlib中文乱码问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-04 17:15:05" itemprop="dateCreated datePublished" datetime="2020-04-04T17:15:05+08:00">2020-04-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/04/%E8%A7%A3%E5%86%B3mac-matplotlib%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="解决mac matplotlib中文乱码问题" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/04/%E8%A7%A3%E5%86%B3mac-matplotlib%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/04/%E8%A7%A3%E5%86%B3mac-matplotlib%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我们通过 matplotlib 画图时，比如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">400</span>)</span><br><span class="line">y = np.sin(x**<span class="number">2</span>)</span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax.plot(x, y)</span><br><span class="line">ax.set_title(<span class="string">&#x27;中文标题&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>中文会出现乱码。如图：</p>
+<img src="/2020/04/%E8%A7%A3%E5%86%B3mac-matplotlib%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/matplotlib-error.png" class="">
+
+<p>同时，伴随着如下错误信息：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/opt/anaconda3/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py:211: RuntimeWarning: Glyph 39064 missing from current font.</span><br><span class="line">  font.set_text(s, 0.0, flags=flags)</span><br><span class="line">/opt/anaconda3/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py:180: RuntimeWarning: Glyph 20013 missing from current font.</span><br><span class="line">  font.set_text(s, 0, flags=flags)</span><br></pre></td></tr></table></figure>
+
+<p>临时解决办法，可以执行如下两条语句：</p>
+<p>第一句是设置字体，设置了字体后，负号会变成乱码。<br>第二句是让负号的乱码正常显示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>]</span><br><span class="line">plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<p>查看配置文件位置 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line">matplotlib.matplotlib_fname()</span><br><span class="line"><span class="string">&#x27;/opt/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/matplotlibrc&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>编辑修改文件 <code>/opt/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/matplotlibrc</code> 内容。</p>
+<p>删除注释 #<br><code>font.family         : sans-serif</code></p>
+<p>删除注释 #，并加入 <code>SimHei</code></p>
+<p><code>font.sans-serif     : SimHei, DejaVu Sans, Bitstream Vera Sans, Computer Modern Sans Serif, Lucida Grande, Verdana,  Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif</code></p>
+<p>删除注释 #，True 改为 False</p>
+<p><code>axes.unicode_minus  : False</code></p>
+<p>清除缓存</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">rm</span> -rf ~/.matplotlib</span></span><br></pre></td></tr></table></figure>
+
+<p>刷新 Jupyter Notebook 的页面，发现设置已经生效了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/Mac%E7%8E%AF%E5%A2%83%E4%BF%AE%E6%94%B9Jupyter-Notebook%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/04/Mac%E7%8E%AF%E5%A2%83%E4%BF%AE%E6%94%B9Jupyter-Notebook%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Mac环境修改Jupyter Notebook启动文件夹位置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-04 11:20:57" itemprop="dateCreated datePublished" datetime="2020-04-04T11:20:57+08:00">2020-04-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/Jupyter-Notebook/" itemprop="url" rel="index"><span itemprop="name">Jupyter Notebook</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/04/Mac%E7%8E%AF%E5%A2%83%E4%BF%AE%E6%94%B9Jupyter-Notebook%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Mac环境修改Jupyter Notebook启动文件夹位置" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/04/Mac%E7%8E%AF%E5%A2%83%E4%BF%AE%E6%94%B9Jupyter-Notebook%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/04/Mac%E7%8E%AF%E5%A2%83%E4%BF%AE%E6%94%B9Jupyter-Notebook%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Windows 10 环境上修改 Jupyter Notebook 启动文件夹地址，请参考 <a href="/2020/04/Win10%E7%8E%AF%E5%A2%83%E4%BF%AE%E6%94%B9Jupyter-Notebook%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE/" title="Win10环境修改Jupyter Notebook默认文件夹位置">Win10环境修改Jupyter Notebook默认文件夹位置</a>。</p>
+<p>如何修改 mac 系统 Jupyter Notebook 启动文件夹的位置呢？</p>
+<h1 id="生成配置文件"><a href="#生成配置文件" class="headerlink" title="生成配置文件"></a>生成配置文件</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">jupyter notebook --generate-config</span></span><br><span class="line">Writing default config to: /Users/simon/.jupyter/jupyter_notebook_config.py</span><br><span class="line">(base) </span><br></pre></td></tr></table></figure>
+
+<h1 id="编译文件"><a href="#编译文件" class="headerlink" title="编译文件"></a>编译文件</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vi /Users/simon/.jupyter/jupyter_notebook_config.py</span></span><br></pre></td></tr></table></figure>
+
+<p>修改 <code>c.NotebookApp.notebook_dir</code> 参数，取值设为你打算启动的位置。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## The directory to use for notebooks and kernels.</span><br><span class="line">#c.NotebookApp.notebook_dir = &#x27;&#x27;</span><br><span class="line">c.NotebookApp.notebook_dir = &#x27;/Users/simon/Development/workspace/python&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>保存退出，重启 Jupyter Notebook，就能指定显示该位置的内容了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/%E5%BF%AB%E9%80%9F%E4%BB%8EGithub-Clone%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/04/%E5%BF%AB%E9%80%9F%E4%BB%8EGithub-Clone%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">快速从Github Clone下载项目</a>
         </h2>
 
         <div class="post-meta-container">
@@ -264,1102 +514,16 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/" class="post-meta-item leancloud_visitors" data-flag-title="使用Python matplotlib画图" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
-
-<h1 id="一、matplotlib-中一幅图的构成"><a href="#一、matplotlib-中一幅图的构成" class="headerlink" title="一、matplotlib 中一幅图的构成"></a>一、matplotlib 中一幅图的构成</h1><blockquote>
-<p><strong>层级结构</strong>：figure 图 ～ axes 坐标系（绘图区域） ～ axis 坐标轴（y轴 Yaxis 和 x轴 Xaxis） ～ ticks 刻度（主刻度 MajorTicks 和次刻度 MinorTicks） </p>
-</blockquote>
-<blockquote>
-<p><strong>其他元素</strong>：标题（suptitle 图的中心标题 和 title 坐标系的子标题）、轴标签（xlabel 和 ylabel）、刻度标签（xticklabels 和 yticklabels）、轴脊线（spines）、图例（legend）、网格（grid）、各类图形（lines 线图、bar 柱状图、scatter散点图、hist 直方图、pie 饼图 ……）</p>
-</blockquote>
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/figure-anatomy.png" class="">
-
-<h1 id="二、如何用-matplotlib-画图"><a href="#二、如何用-matplotlib-画图" class="headerlink" title="二、如何用 matplotlib 画图 ?"></a>二、如何用 matplotlib 画图 ?</h1><p>matplotlib 共有如下 2 种绘图方式： </p>
-<h2 id="2-1-方式-1：基于-pyplot-接口的绘图方式"><a href="#2-1-方式-1：基于-pyplot-接口的绘图方式" class="headerlink" title="2.1 方式 1：基于 pyplot 接口的绘图方式"></a>2.1 方式 1：基于 pyplot 接口的绘图方式</h2><p>pyplot 接口是使 matplotlib 像 MATLAB 一样工作的**<code>命令样式函数的集合</code>**，每个 pyplot 函数都会对图形进行一些更改：例如，创建图形，在图形中创建绘图区域，在绘图区域中绘制曲线，用标签装饰绘图等。</p>
-<ul>
-<li>matplotlib.pyplot 官方文档：<a target="_blank" rel="noopener" href="https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py">https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py</a></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt   <span class="comment"># 首先导入 pyplot 模块</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">np.linspace(<span class="number">0</span>, <span class="number">2</span>, <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>array([0.        , 0.02020202, 0.04040404, 0.06060606, 0.08080808,
-       0.1010101 , 0.12121212, 0.14141414, 0.16161616, 0.18181818,
-       0.2020202 , 0.22222222, 0.24242424, 0.26262626, 0.28282828,
-       0.3030303 , 0.32323232, 0.34343434, 0.36363636, 0.38383838,
-       0.4040404 , 0.42424242, 0.44444444, 0.46464646, 0.48484848,
-       0.50505051, 0.52525253, 0.54545455, 0.56565657, 0.58585859,
-       0.60606061, 0.62626263, 0.64646465, 0.66666667, 0.68686869,
-       0.70707071, 0.72727273, 0.74747475, 0.76767677, 0.78787879,
-       0.80808081, 0.82828283, 0.84848485, 0.86868687, 0.88888889,
-       0.90909091, 0.92929293, 0.94949495, 0.96969697, 0.98989899,
-       1.01010101, 1.03030303, 1.05050505, 1.07070707, 1.09090909,
-       1.11111111, 1.13131313, 1.15151515, 1.17171717, 1.19191919,
-       1.21212121, 1.23232323, 1.25252525, 1.27272727, 1.29292929,
-       1.31313131, 1.33333333, 1.35353535, 1.37373737, 1.39393939,
-       1.41414141, 1.43434343, 1.45454545, 1.47474747, 1.49494949,
-       1.51515152, 1.53535354, 1.55555556, 1.57575758, 1.5959596 ,
-       1.61616162, 1.63636364, 1.65656566, 1.67676768, 1.6969697 ,
-       1.71717172, 1.73737374, 1.75757576, 1.77777778, 1.7979798 ,
-       1.81818182, 1.83838384, 1.85858586, 1.87878788, 1.8989899 ,
-       1.91919192, 1.93939394, 1.95959596, 1.97979798, 2.        ])
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基于 pyplot 接口 绘图的 简单例子</span></span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>, <span class="number">100</span>)  </span><br><span class="line">plt.plot(x, x, label=<span class="string">&#x27;linear&#x27;</span>)  <span class="comment"># 调用 plot() 时，底层会默默的创建好图、坐标系、坐标轴，直接画就行</span></span><br><span class="line">plt.plot(x, x**<span class="number">2</span>, label=<span class="string">&#x27;quadratic&#x27;</span>)  </span><br><span class="line">plt.plot(x, x**<span class="number">3</span>, label=<span class="string">&#x27;cubic&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;x label&#x27;</span>)  <span class="comment"># 添加坐标轴的标签</span></span><br><span class="line">plt.ylabel(<span class="string">&#x27;y label&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Simple Plot&quot;</span>)  <span class="comment"># 添加图标题</span></span><br><span class="line">plt.legend() <span class="comment"># 添加图例</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&lt;matplotlib.legend.Legend at 0x123cff950&gt;
-</code></pre>
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_6_1.png" class="">
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">names = [<span class="string">&#x27;group_a&#x27;</span>, <span class="string">&#x27;group_b&#x27;</span>, <span class="string">&#x27;group_c&#x27;</span>]</span><br><span class="line">values = [<span class="number">1</span>, <span class="number">10</span>, <span class="number">100</span>]</span><br><span class="line">plt.subplot(<span class="number">131</span>)  <span class="comment"># 往图中添加子图，返回的是子图的坐标系 axes</span></span><br><span class="line">plt.bar(names, values)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&lt;BarContainer object of 3 artists&gt;
-</code></pre>
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_7_1.png" class="">
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">names = [<span class="string">&#x27;group_a&#x27;</span>, <span class="string">&#x27;group_b&#x27;</span>, <span class="string">&#x27;group_c&#x27;</span>]</span><br><span class="line">values = [<span class="number">1</span>, <span class="number">10</span>, <span class="number">100</span>]</span><br><span class="line">plt.subplot(<span class="number">131</span>)  <span class="comment"># 往图中添加子图，返回的是子图的坐标系 axes</span></span><br><span class="line">plt.bar(names, values)</span><br><span class="line">plt.subplot(<span class="number">132</span>)</span><br><span class="line">plt.scatter(names, values)</span><br><span class="line">plt.subplot(<span class="number">133</span>)</span><br><span class="line">plt.plot(names, values)</span><br><span class="line">plt.suptitle(<span class="string">&#x27;Categorical Plotting&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_8_0.png" class="">
-
-
-<ul>
-<li><code>pyplot-style</code>的绘图方式：易学易上手（直接调用函数，无需了解底层结构，黑箱）、更适合在 jupyter notebook 中进行<code>交互式</code>画图（边画边出结果）；</li>
-</ul>
-<h2 id="2-2-方式-2：面向对象的绘图方式（object-oriented-OO-style）"><a href="#2-2-方式-2：面向对象的绘图方式（object-oriented-OO-style）" class="headerlink" title="2.2 方式 2：面向对象的绘图方式（object-oriented (OO) style）"></a>2.2 方式 2：面向对象的绘图方式（object-oriented (OO) style）</h2><p>面向对象的绘图方式<strong>首先要创建好<code>图 figure</code> 和<code>坐标系 axes</code></strong>，然后以坐标系为基础，<strong>直接调用坐标系上的各种绘图方法绘制图形</strong>。</p>
-<p>虽然 OO-style 的绘图方式有别与 pyplot-style 绘图方式，但图 figure 和坐标系 axes 还是需要通过调用 pyplot 接口来创建。</p>
-<ul>
-<li><p>matplotlib.figure.Figure 官方文档： <a target="_blank" rel="noopener" href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure">https://matplotlib.org/api/_as_gen&#x2F;matplotlib.figure.Figure.html#matplotlib.figure.Figure</a> </p>
-</li>
-<li><p>matplotlib.axes.Axes 官方文档： <a target="_blank" rel="noopener" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes">https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes</a></p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt   <span class="comment"># 首先导入 pyplot 模块</span></span><br><span class="line">fig, ax = plt.subplots()  <span class="comment"># 创建图和坐标系，然后在坐标系中添加图形和相关元素</span></span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_11_0.png" class="">
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fig, ax = plt.subplots(figsize=(<span class="number">10</span>, <span class="number">8</span>))  <span class="comment"># 同时创建了 图 figure 和 坐标系 axes</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>, <span class="number">100</span>)</span><br><span class="line">ax.plot(x, x, label=<span class="string">&#x27;linear&#x27;</span>)   </span><br><span class="line">ax.plot(x, x**<span class="number">2</span>, label=<span class="string">&#x27;quadratic&#x27;</span>)   </span><br><span class="line">ax.plot(x, x**<span class="number">3</span>, label=<span class="string">&#x27;cubic&#x27;</span>)   </span><br><span class="line">ax.set_xlabel(<span class="string">&#x27;x label&#x27;</span>)  </span><br><span class="line">ax.set_ylabel(<span class="string">&#x27;y label&#x27;</span>)  </span><br><span class="line">ax.set_title(<span class="string">&quot;Simple Plot&quot;</span>)  </span><br><span class="line">ax.legend()  </span><br><span class="line"></span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如何放大图形 figsize=(10,8)</span></span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_12_0.png" class="">
-
-
-<ul>
-<li><code>OO-style </code>的绘图方式：需要了解绘图的底层结构和绘图逻辑、比 pyplot-style 更为灵活和复杂、更适用于<code>非交互式</code>绘图（如在较大项目中作为一部分重复使用的函数或在脚本中编写绘图函数）。</li>
-</ul>
-<h1 id="三、一些常用图元素的实现"><a href="#三、一些常用图元素的实现" class="headerlink" title="三、一些常用图元素的实现"></a>三、一些常用图元素的实现</h1><h2 id="3-1-如何创建图和坐标系-？"><a href="#3-1-如何创建图和坐标系-？" class="headerlink" title="3.1 如何创建图和坐标系 ？"></a>3.1 如何创建图和坐标系 ？</h2><p>主要包括：</p>
-<ul>
-<li><p>3.1.1 创建 figure；</p>
-</li>
-<li><p>3.1.2 创建坐标系；</p>
-</li>
-<li><p>3.1.3 创建子图；</p>
-</li>
-<li><p>3.1.4 创建分布不规则的子图；</p>
-</li>
-<li><p>3.1.5 总结 。</p>
-</li>
-</ul>
-<h3 id="3-1-1-创建-figure"><a href="#3-1-1-创建-figure" class="headerlink" title="3.1.1 创建 figure"></a>3.1.1 创建 figure</h3><p><strong>方式1（pyplot-style）：<code>plt.figure()</code></strong></p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">matplotlib.pyplot.figure(num=<span class="literal">None</span>, figsize=<span class="literal">None</span>, dpi=<span class="literal">None</span>, facecolor=<span class="literal">None</span>, edgecolor=<span class="literal">None</span>, frameon=<span class="literal">True</span>, FigureClass=&lt;<span class="keyword">class</span> <span class="string">&#x27;matplotlib.figure.Figure&#x27;</span>&gt;, clear=<span class="literal">False</span>, **kwargs)</span><br><span class="line">返回的是：Figure 对象</span><br></pre></td></tr></table></figure></blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方式1：plt.figure()</span></span><br><span class="line">fig = plt.figure(num=<span class="number">2</span>,figsize=(<span class="number">10</span>,<span class="number">8</span>), facecolor=<span class="string">&#x27;#f5f5f5&#x27;</span>)  <span class="comment"># 创建了一个图，没有坐标系的图</span></span><br></pre></td></tr></table></figure>
-
-
-<pre><code>&lt;Figure size 720x576 with 0 Axes&gt;
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(fig)</span><br></pre></td></tr></table></figure>
-
-<pre><code>Figure(720x576)
-</code></pre>
-<p><strong>方式2：<code>plt.subplots()</code>，同时创建 figure 和 多幅子图 subplot</strong> </p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">matplotlib.pyplot.subplots(nrows=<span class="number">1</span>, ncols=<span class="number">1</span>, sharex=<span class="literal">False</span>, sharey=<span class="literal">False</span>, squeeze=<span class="literal">True</span>, subplot_kw=<span class="literal">None</span>, gridspec_kw=<span class="literal">None</span>, **fig_kw)</span><br><span class="line">返回的是：Figure 对象和 axes.Axes 对象</span><br></pre></td></tr></table></figure></blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方式2：plt.subplots()</span></span><br><span class="line">fig,ax = plt.subplots(facecolor=<span class="string">&#x27;#f5f5f5&#x27;</span>)  <span class="comment"># 同时生成了坐标系，所以能在眼前展示出来</span></span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_20_0.png" class="">
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(fig)</span><br></pre></td></tr></table></figure>
-
-<pre><code>Figure(432x288)
-</code></pre>
-<h3 id="3-1-2-创建坐标系"><a href="#3-1-2-创建坐标系" class="headerlink" title="3.1.2 创建坐标系"></a>3.1.2 创建坐标系</h3><p><strong>方式1（pyplot-style）：<code>plt.axes()</code> 在创建完 figure 后接着创建 坐标系</strong></p>
-<blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plt.axes()</span><br><span class="line">plt.axes(rect=[left, bottom, width, height], projection=<span class="literal">None</span>, polar=<span class="literal">False</span>, **kwargs)  </span><br><span class="line">plt.axes(ax)</span><br><span class="line">其中：left 代表坐标系左边到 Figure 左边的水平距离；bottom 代表坐标系底边到 Figure 底边的垂直距离；width 代表坐标系的宽度；height 代表坐标系的高度</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方式1</span></span><br><span class="line">plt.figure( facecolor=<span class="string">&#x27;#f5f5f5&#x27;</span>)</span><br><span class="line">plt.axes([<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.5</span>,<span class="number">0.5</span>])</span><br><span class="line">plt.axes([<span class="number">0.2</span>,<span class="number">0.2</span>,<span class="number">0.5</span>,<span class="number">0.5</span>])</span><br><span class="line">plt.axes([<span class="number">0.5</span>,<span class="number">0.5</span>,<span class="number">0.5</span>,<span class="number">0.5</span>])</span><br></pre></td></tr></table></figure>
-
-
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_23_1.png" class="">
-
-
-
-<p><strong>方式2（OO-style）：<code>Figure.add_axes()</code> 基于 figure 对象，在 figure 上添加坐标系</strong></p>
-<blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ax = fig.add_axes(rect=[left, bottom, width, height], projection=<span class="literal">None</span>, polar=<span class="literal">False</span>, **kwargs)  <span class="comment"># 添加坐标系</span></span><br><span class="line">ax = fig.add_axes(ax) </span><br><span class="line">ax = fig.delaxes(ax)  <span class="comment"># 删除坐标系</span></span><br><span class="line">返回：axes.Axes 对象</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 简单的例子</span></span><br><span class="line">fig = plt.figure()</span><br><span class="line">fig.add_axes([<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.5</span>,<span class="number">0.5</span>])</span><br><span class="line">fig.add_axes([<span class="number">0.2</span>,<span class="number">0.2</span>,<span class="number">0.5</span>,<span class="number">0.5</span>])</span><br><span class="line">fig.add_axes([<span class="number">0.5</span>,<span class="number">0.5</span>,<span class="number">0.5</span>,<span class="number">0.5</span>], frame_on=<span class="literal">False</span>)  <span class="comment"># 不显示坐标系的矩形补丁</span></span><br><span class="line">ax = fig.add_axes([<span class="number">0.8</span>,<span class="number">0.8</span>,<span class="number">0.5</span>,<span class="number">0.5</span>], polar=<span class="literal">True</span>)</span><br><span class="line"><span class="comment">#ax = fig.add_axes([0.8,0.8,0.5,0.5], projection=&#x27;polar&#x27;)</span></span><br><span class="line">fig.delaxes(ax)</span><br><span class="line">fig.add_axes(ax)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&lt;matplotlib.projections.polar.PolarAxes at 0x1240876d0&gt;
-</code></pre>
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_25_1.png" class="">
-
-
-<h3 id="3-1-3-创建子图"><a href="#3-1-3-创建子图" class="headerlink" title="3.1.3 创建子图"></a>3.1.3 创建子图</h3><p><strong>方式 1（pyplot-style）：<code>plt.subplots()</code>，同时创建 figure 和 <code>多幅</code>子图（子图对应的还是坐标系 axes 这个对象）</strong> </p>
-<p>常用形式：</p>
-<blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fig, ax = plt.subplots()  <span class="comment">#默认下只创建一幅子图</span></span><br><span class="line">fig, axs = plt.subplots(<span class="number">2</span>, <span class="number">2</span>)  <span class="comment">#创建了4幅子图，2*2 的子图矩阵</span></span><br><span class="line">fig, (ax1, ax2) = plt.subplots(<span class="number">1</span>, <span class="number">2</span>)  <span class="comment">#可通过元组拆分的形式获取相应的子图</span></span><br><span class="line">fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(<span class="number">2</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">400</span>)</span><br><span class="line">y = np.sin(x**<span class="number">2</span>)</span><br><span class="line">fig, (ax1, ax2) = plt.subplots(<span class="number">1</span>, <span class="number">2</span>, sharey=<span class="literal">True</span>)</span><br><span class="line">ax1.plot(x, y)</span><br><span class="line">ax1.set_title(<span class="string">&#x27;Sharing Y axis&#x27;</span>)</span><br><span class="line">ax2.scatter(x, y)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&lt;matplotlib.collections.PathCollection at 0x1242f4a50&gt;
-</code></pre>
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_27_1.png" class="">
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fig, axs = plt.subplots(<span class="number">1</span>, <span class="number">2</span>, sharey=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(axs)  <span class="comment"># 多个子图返回的是制图 的list，可通过索引方式获取相应的子图</span></span><br><span class="line">axs[<span class="number">0</span>].plot(x,y)</span><br></pre></td></tr></table></figure>
-
-<pre><code>[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x124347990&gt;
- &lt;matplotlib.axes._subplots.AxesSubplot object at 0x124322610&gt;]
-
-
-
-
-
-[&lt;matplotlib.lines.Line2D at 0x124407250&gt;]
-</code></pre>
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_28_2.png" class="">
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>方式 2（pyplot-style）： <code>plt.subplot()</code> 往创建的 figure 中<code>添加一副子图</code></strong></p>
-<blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.subplot(nrows, ncols, index, **kwargs)  <span class="comment"># n*n 子图矩阵中的第 index 幅子图</span></span><br><span class="line">plt.subplot(pos, **kwargs)</span><br><span class="line">plt.subplot(ax)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">plt.subplot(<span class="number">221</span>)</span><br><span class="line">ax1=plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>)  <span class="comment"># 与上面是等价的</span></span><br><span class="line"></span><br><span class="line">ax2=plt.subplot(<span class="number">222</span>, frame_on=<span class="literal">False</span>)  <span class="comment"># 没有框架</span></span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">223</span>, projection=<span class="string">&#x27;polar&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">224</span>, sharex=ax2, facecolor=<span class="string">&#x27;red&#x27;</span>)  <span class="comment"># 与第一幅图的坐标共享X轴</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># plt.delaxes(ax2)</span></span><br><span class="line"><span class="comment"># plt.subplot(ax2)</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_31_1.png" class="">
-
-
-<p><strong>方式 3（OO-style）： <code>Figure.add_subplot()</code> 往 figure 中<code>添加子图的坐标系</code></strong></p>
-<blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fig.add_subplot(nrows, ncols, index, **kwargs)</span><br><span class="line">fig.add_subplot(pos, **kwargs)</span><br><span class="line">fig.add_subplot(ax)</span><br><span class="line">fig.add_subplot()</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure()</span><br><span class="line">fig.add_subplot(<span class="number">221</span>)</span><br><span class="line"></span><br><span class="line">ax1 = fig.add_subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">ax2 = fig.add_subplot(<span class="number">222</span>, frameon=<span class="literal">False</span>)</span><br><span class="line">fig.add_subplot(<span class="number">223</span>, projection=<span class="string">&#x27;polar&#x27;</span>)</span><br><span class="line">fig.add_subplot(<span class="number">224</span>, sharex=ax1, facecolor=<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line"><span class="comment">#fig.delaxes(ax2)</span></span><br><span class="line"><span class="comment">#fig.add_subplot(ax2)</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_33_1.png" class="">
-
-
-<h3 id="3-1-4-创建分布不规则的子图"><a href="#3-1-4-创建分布不规则的子图" class="headerlink" title="3.1.4 创建分布不规则的子图"></a>3.1.4 创建分布不规则的子图</h3><p><strong>方式 1：使用 <code>gridspec.GridSpec()</code>函数</strong> </p>
-<p>首先：需要借助 gridspec 模块中的 GridSpec 函数将 figure 分割成几个基本单元（一个矩阵）</p>
-<blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.gridspec <span class="keyword">as</span> gridspec</span><br><span class="line">matplotlib.gridspec.GridSpec(nrows, ncols, figure=<span class="literal">None</span>, left=<span class="literal">None</span>, bottom=<span class="literal">None</span>, right=<span class="literal">None</span>, top=<span class="literal">None</span>, wspace=<span class="literal">None</span>, hspace=<span class="literal">None</span>, width_ratios=<span class="literal">None</span>, height_ratios=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
-
-<p>然后，结合<code> plt.subplot()</code> 函数或<code>fig.add_subplot() </code>函数，通过组合不同位置上的基本单元来分布子图的大小和位置。</p>
-<ul>
-<li>绘制不规则子图各类方法的官方文档： <a target="_blank" rel="noopener" href="https://matplotlib.org/tutorials/intermediate/gridspec.html#sphx-glr-tutorials-intermediate-gridspec-py">Customizing Figure Layouts Using GridSpec and Other Functions</a></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 结合 plt.subplot()的方式</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.gridspec <span class="keyword">as</span> gridspec</span><br><span class="line"></span><br><span class="line">gs =gridspec.GridSpec(<span class="number">3</span>,<span class="number">3</span>)</span><br><span class="line">ax1 = plt.subplot(gs[<span class="number">0</span>, :]) <span class="comment"># identical to ax1 = plt.subplot(gs.new_subplotspec((0, 0), colspan=3))</span></span><br><span class="line">ax1.text(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="string">&#x27;ax1&#x27;</span>, va=<span class="string">&quot;center&quot;</span>, ha=<span class="string">&quot;center&quot;</span>)</span><br><span class="line">ax2 = plt.subplot(gs[<span class="number">1</span>, :-<span class="number">1</span>])</span><br><span class="line">ax2.text(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="string">&#x27;ax2&#x27;</span>, va=<span class="string">&quot;center&quot;</span>, ha=<span class="string">&quot;center&quot;</span>)</span><br><span class="line">ax3 = plt.subplot(gs[<span class="number">1</span>:, -<span class="number">1</span>])</span><br><span class="line">ax3.text(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="string">&#x27;ax3&#x27;</span>, va=<span class="string">&quot;center&quot;</span>, ha=<span class="string">&quot;center&quot;</span>)</span><br><span class="line">ax4 = plt.subplot(gs[-<span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">ax4.text(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="string">&#x27;ax4&#x27;</span>, va=<span class="string">&quot;center&quot;</span>, ha=<span class="string">&quot;center&quot;</span>)</span><br><span class="line">ax5 =plt.subplot(gs[-<span class="number">1</span>, -<span class="number">2</span>])</span><br><span class="line">ax5.text(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="string">&#x27;ax5&#x27;</span>, va=<span class="string">&quot;center&quot;</span>, ha=<span class="string">&quot;center&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_35_0.png" class="">
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 结合 fig.add_subplot() 的方式</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.gridspec <span class="keyword">as</span> gridspec</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">format_axes</span>(<span class="params">fig</span>):</span><br><span class="line">    <span class="keyword">for</span> i, ax <span class="keyword">in</span> <span class="built_in">enumerate</span>(fig.axes):</span><br><span class="line">        ax.text(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="string">&quot;ax%d&quot;</span> % (i+<span class="number">1</span>), va=<span class="string">&quot;center&quot;</span>, ha=<span class="string">&quot;center&quot;</span>)</span><br><span class="line">        ax.tick_params(labelbottom=<span class="literal">False</span>, labelleft=<span class="literal">False</span>)  <span class="comment"># 隐藏坐标刻度标签</span></span><br><span class="line"></span><br><span class="line">fig = plt.figure(constrained_layout=<span class="literal">True</span>)</span><br><span class="line">gs =gridspec. GridSpec(<span class="number">3</span>, <span class="number">3</span>, figure=fig)</span><br><span class="line">ax1 = fig.add_subplot(gs[<span class="number">0</span>, :]) <span class="comment"># identical to ax1 = plt.subplot(gs.new_subplotspec((0, 0), colspan=3))</span></span><br><span class="line">ax2 = fig.add_subplot(gs[<span class="number">1</span>, :-<span class="number">1</span>])</span><br><span class="line">ax3 = fig.add_subplot(gs[<span class="number">1</span>:, -<span class="number">1</span>])</span><br><span class="line">ax4 = fig.add_subplot(gs[-<span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">ax5 = fig.add_subplot(gs[-<span class="number">1</span>, -<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">format_axes(fig)</span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_36_0.png" class="">
-
-
-<p><strong>方式 2：在 figure 上直接调用<code>fig.add_gridspec()</code>函数进行图形分割，然后使用<code>fig.add_subplot()</code>获取绘图的组合区域</strong> </p>
-<blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fig.add_gridspec(<span class="variable language_">self</span>, nrows, ncols, **kwargs)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure()</span><br><span class="line">gs = fig.add_gridspec(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">ax1 = fig.add_subplot(gs[<span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line">ax2 = fig.add_subplot(gs[<span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">ax3 = fig.add_subplot(gs[:, <span class="number">1</span>])  <span class="comment"># 合并两行</span></span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_38_0.png" class="">
-
-
-<h3 id="3-1-5-总结"><a href="#3-1-5-总结" class="headerlink" title="3.1.5 总结"></a>3.1.5 总结</h3><ul>
-<li><p>**无论是 pyplot-style 绘图方式还是 OO-style 绘图方式，<code>都需要调用 pyplot 接口</code>。**前者直接调用  pyplot 接口中的函数进行画图，后者需要借助  pyplot 接口来显示的构建最顶层的绘图元素 Figure （Figure is the top level container for all the plot elements.）或是显示的构建 坐标系 Axes （The Axes contains most of the figure elements: Axis, Tick, Line2D, Text, Polygon, etc., and sets the coordinate system.），若不显示的构建 Figure 对象或 Axes 对象，就无法调用这两个对象的各类绘图方法进行  OO-style 绘图。</p>
-</li>
-<li><p><strong>推荐使用一次性生成图和子图坐标系的方式 <code>fig, ax = plt.subplots()</code> 来画图，操作方便且高效。</strong></p>
-</li>
-</ul>
-<h2 id="3-2-如何设置坐标轴和刻度？（基于-OO-style）"><a href="#3-2-如何设置坐标轴和刻度？（基于-OO-style）" class="headerlink" title="3.2 如何设置坐标轴和刻度？（基于 OO-style）"></a>3.2 如何设置坐标轴和刻度？（基于 OO-style）</h2><ul>
-<li><p><strong>先弄清楚 5 个概念：</strong></p>
-<p> major ticks :  主刻度</p>
-<p> minor ticks ：次刻度</p>
-<p> tick locator : 刻度定位器，用于设置刻度的位置</p>
-<p> tick formatting：刻度格式，用于设置刻度标签的格式</p>
-<p> axis label : 轴标签，用于设置 轴 的名字</p>
-</li>
-<li><p><strong>matplotlib.axis 模块中包含 2 个对象：</strong></p>
-<p>对象1：轴（matplotlib.axis.Axis），包括 x 轴（matplotlib.axis.XAxis）和 y 轴（matplotlib.axis.YAxis），对应一系列方法（get_xxx()、set_xxx()）；</p>
-<p>对象2：刻度（matplotlib.axis.Tick），包括  x 轴 上的刻度（matplotlib.axis.XTick） 和 y 轴上的刻度（matplotlib.axis.YTick），同样对应一系列方法（get_xxx()、set_xxx()）。</p>
-</li>
-<li><p>matplotlib.axis 官方文档： <a target="_blank" rel="noopener" href="https://matplotlib.org/api/axis_api.html">https://matplotlib.org/api/axis_api.html</a></p>
-</li>
-<li><p>matplotlib.ticker 官方文档： <a target="_blank" rel="noopener" href="https://matplotlib.org/api/ticker_api.html">https://matplotlib.org/api/ticker_api.html</a></p>
-</li>
-</ul>
-<h3 id="3-2-1-设置轴刻度位置（主刻度位置和次刻度位置）"><a href="#3-2-1-设置轴刻度位置（主刻度位置和次刻度位置）" class="headerlink" title="3.2.1 设置轴刻度位置（主刻度位置和次刻度位置）"></a>3.2.1 设置轴刻度位置（主刻度位置和次刻度位置）</h3><blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ax.xaxis.set_major_locator(xmajor_locator)  <span class="comment"># 设置 x 轴的主次刻度位置</span></span><br><span class="line">ax.xaxis.set_minor_locator(xminor_locator) </span><br><span class="line">ax.yaxis.set_major_locator(ymajor_locator)  <span class="comment"># 设置 y 轴的主次刻度位置</span></span><br><span class="line">ax.yaxis.set_minor_locator(yminor_locator)</span><br></pre></td></tr></table></figure>
-
-<p>当然也有对应的 get_major_locator() 和 get_minor_locator() 。</p>
-<ul>
-<li><strong><code> matplotlib.ticker</code></strong> 模块中可调用的定位器</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>定位器</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>AutoLocator</code></td>
-<td>自动定位器，大多数绘图的默认刻度线定位器。</td>
-</tr>
-<tr>
-<td><code>MaxNLocator</code></td>
-<td>在最合适的位置找到带有刻度的最大间隔数。</td>
-</tr>
-<tr>
-<td><code>LinearLocator</code></td>
-<td>线性定位器，基于刻度线的个数，从最小到最大均匀分布刻度间隔。</td>
-</tr>
-<tr>
-<td><code>LogLocator</code></td>
-<td>对数定位器，刻度间隔从最小到最大取对数。</td>
-</tr>
-<tr>
-<td><code>MultipleLocator</code></td>
-<td>多重定位器，根据刻度间隔进行定位，刻度和范围是间隔的倍数，既适用于整数，也适用于浮点数。</td>
-</tr>
-<tr>
-<td><code>FixedLocator</code></td>
-<td>固定定位器，刻度线位置是固定的。</td>
-</tr>
-<tr>
-<td><code>IndexLocator</code></td>
-<td>索引定位器，适用于带有索引数据的刻度进行定位，例如 where x &#x3D; range(len(y))</td>
-</tr>
-<tr>
-<td>NullLocator</td>
-<td>空定位器，不对刻度进行定位，不会显示刻度。</td>
-</tr>
-<tr>
-<td>SymmetricalLogLocator</td>
-<td>与符号规范一起使用的定位器。</td>
-</tr>
-<tr>
-<td><code>LogitLocator</code></td>
-<td>用于 logit 缩放的定位器。</td>
-</tr>
-<tr>
-<td>OldAutoLocator</td>
-<td>旧的自动定位器，选择一个MultipleLocator并动态重新分配它，以便在导航期间智能显示刻度。</td>
-</tr>
-<tr>
-<td>AutoMinorLocator</td>
-<td>轴为线性且主刻度线等距分布时，副刻度线的定位器，将主刻度间隔细分为指定数量的次间隔，根据主间隔默认为4或5。</td>
-</tr>
-</tbody></table>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.ticker <span class="keyword">as</span> ticker   <span class="comment"># matplotlib.ticker 模块中</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">setup</span>(<span class="params">ax, title</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Set up common parameters for the Axes in the example.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># only show the bottom spine</span></span><br><span class="line">    ax.yaxis.set_major_locator(ticker.NullLocator())</span><br><span class="line">    ax.spines[<span class="string">&#x27;right&#x27;</span>].set_color(<span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">    ax.spines[<span class="string">&#x27;left&#x27;</span>].set_color(<span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">    ax.spines[<span class="string">&#x27;top&#x27;</span>].set_color(<span class="string">&#x27;none&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    ax.xaxis.set_ticks_position(<span class="string">&#x27;bottom&#x27;</span>)</span><br><span class="line">    ax.tick_params(which=<span class="string">&#x27;major&#x27;</span>, width=<span class="number">1.00</span>, length=<span class="number">5</span>)</span><br><span class="line">    ax.tick_params(which=<span class="string">&#x27;minor&#x27;</span>, width=<span class="number">0.75</span>, length=<span class="number">2.5</span>) </span><br><span class="line">    ax.set_xlim(<span class="number">0</span>, <span class="number">5</span>)  <span class="comment"># 默认整个X轴的取值为 0-5</span></span><br><span class="line">    ax.set_ylim(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">    ax.text(<span class="number">0.0</span>, <span class="number">0.2</span>, title, transform=ax.transAxes,</span><br><span class="line">            fontsize=<span class="number">14</span>, fontname=<span class="string">&#x27;Monospace&#x27;</span>, color=<span class="string">&#x27;tab:blue&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fig, axs = plt.subplots(<span class="number">8</span>, <span class="number">1</span>, figsize=(<span class="number">8</span>, <span class="number">6</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Null Locator</span></span><br><span class="line">setup(axs[<span class="number">0</span>], title=<span class="string">&quot;NullLocator()&quot;</span>)</span><br><span class="line">axs[<span class="number">0</span>].xaxis.set_major_locator(ticker.NullLocator())</span><br><span class="line">axs[<span class="number">0</span>].xaxis.set_minor_locator(ticker.NullLocator())</span><br><span class="line"></span><br><span class="line"><span class="comment"># Multiple Locator</span></span><br><span class="line">setup(axs[<span class="number">1</span>], title=<span class="string">&quot;MultipleLocator(0.5)&quot;</span>)</span><br><span class="line">axs[<span class="number">1</span>].xaxis.set_major_locator(ticker.MultipleLocator(<span class="number">0.5</span>))  <span class="comment"># 基于间隔进行定位</span></span><br><span class="line">axs[<span class="number">1</span>].xaxis.set_minor_locator(ticker.MultipleLocator(<span class="number">0.1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Fixed Locator</span></span><br><span class="line">setup(axs[<span class="number">2</span>], title=<span class="string">&quot;FixedLocator([0, 1, 5])&quot;</span>)</span><br><span class="line">axs[<span class="number">2</span>].xaxis.set_major_locator(ticker.FixedLocator([<span class="number">0</span>, <span class="number">1</span>, <span class="number">5</span>]))  <span class="comment"># 基于输入的刻度位置固定刻度</span></span><br><span class="line">axs[<span class="number">2</span>].xaxis.set_minor_locator(ticker.FixedLocator(np.linspace(<span class="number">0.2</span>, <span class="number">0.8</span>, <span class="number">4</span>)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Linear Locator</span></span><br><span class="line">setup(axs[<span class="number">3</span>], title=<span class="string">&quot;LinearLocator(numticks=3)&quot;</span>)  <span class="comment"># 基于刻度个数分配刻度位置</span></span><br><span class="line">axs[<span class="number">3</span>].xaxis.set_major_locator(ticker.LinearLocator(<span class="number">3</span>))</span><br><span class="line">axs[<span class="number">3</span>].xaxis.set_minor_locator(ticker.LinearLocator(<span class="number">31</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Index Locator</span></span><br><span class="line">setup(axs[<span class="number">4</span>], title=<span class="string">&quot;IndexLocator(base=0.5, offset=0.25)&quot;</span>)</span><br><span class="line">axs[<span class="number">4</span>].plot(<span class="built_in">range</span>(<span class="number">0</span>, <span class="number">5</span>), [<span class="number">0</span>]*<span class="number">5</span>, color=<span class="string">&#x27;white&#x27;</span>)</span><br><span class="line">axs[<span class="number">4</span>].xaxis.set_major_locator(ticker.IndexLocator(base=<span class="number">0.5</span>, offset=<span class="number">0.25</span>))    <span class="comment"># 从 0.25 开始定位，刻度间隔为 0.5 </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Auto Locator</span></span><br><span class="line">setup(axs[<span class="number">5</span>], title=<span class="string">&quot;AutoLocator()&quot;</span>)</span><br><span class="line">axs[<span class="number">5</span>].xaxis.set_major_locator(ticker.AutoLocator())</span><br><span class="line">axs[<span class="number">5</span>].xaxis.set_minor_locator(ticker.AutoMinorLocator())</span><br><span class="line"></span><br><span class="line"><span class="comment"># MaxN Locator</span></span><br><span class="line">setup(axs[<span class="number">6</span>], title=<span class="string">&quot;MaxNLocator(n=4)&quot;</span>)</span><br><span class="line">axs[<span class="number">6</span>].xaxis.set_major_locator(ticker.MaxNLocator(<span class="number">4</span>))</span><br><span class="line">axs[<span class="number">6</span>].xaxis.set_minor_locator(ticker.MaxNLocator(<span class="number">40</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Log Locator</span></span><br><span class="line">setup(axs[<span class="number">7</span>], title=<span class="string">&quot;LogLocator(base=10, numticks=15)&quot;</span>)</span><br><span class="line">axs[<span class="number">7</span>].set_xlim(<span class="number">10</span>**<span class="number">3</span>, <span class="number">10</span>**<span class="number">10</span>)</span><br><span class="line">axs[<span class="number">7</span>].set_xscale(<span class="string">&#x27;log&#x27;</span>)</span><br><span class="line">axs[<span class="number">7</span>].xaxis.set_major_locator(ticker.LogLocator(base=<span class="number">10</span>, numticks=<span class="number">15</span>))</span><br><span class="line"></span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_42_0.png" class="">
-
-
-<h3 id="3-2-2-设置轴刻度样式（主刻度样式和次刻度样式）"><a href="#3-2-2-设置轴刻度样式（主刻度样式和次刻度样式）" class="headerlink" title="3.2.2 设置轴刻度样式（主刻度样式和次刻度样式）"></a>3.2.2 设置轴刻度样式（主刻度样式和次刻度样式）</h3><blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ax.xaxis.set_major_formatter(xmajor_formatter)  <span class="comment"># 设置 x 轴的主次刻度样式</span></span><br><span class="line">ax.xaxis.set_minor_formatter(xminor_formatter)  </span><br><span class="line">ax.yaxis.set_major_formatter(ymajor_formatter)  <span class="comment"># 设置 y 轴的主次刻度样式</span></span><br><span class="line">ax.yaxis.set_minor_formatter(yminor_formatter)  </span><br></pre></td></tr></table></figure>
-
-<p>当然也有对应的 get_major_formatter() 和 get_minor_formatter() 。</p>
-<ul>
-<li><strong><code> matplotlib.ticker</code></strong> 模块中可调用的格式化函数</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>刻度格式</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>NullFormatter</td>
-<td>刻度线上没有标签。</td>
-</tr>
-<tr>
-<td><code>IndexFormatter</code></td>
-<td>从标签列表中设置字符串。</td>
-</tr>
-<tr>
-<td><code>FixedFormatter</code></td>
-<td>固定格式器，手动设置标签的字符串。</td>
-</tr>
-<tr>
-<td><code>FuncFormatter</code></td>
-<td>用户定义的功能设置标签。</td>
-</tr>
-<tr>
-<td>StrMethodFormatter</td>
-<td>使用字符串格式方法设置刻度样式。</td>
-</tr>
-<tr>
-<td><code>FormatStrFormatter</code></td>
-<td>使用旧式的 sprintf 格式字符串。</td>
-</tr>
-<tr>
-<td>ScalarFormatter</td>
-<td>标量的默认格式化程序：自动选择格式字符串。</td>
-</tr>
-<tr>
-<td><code>LogFormatter</code></td>
-<td>日志轴的格式化程序。</td>
-</tr>
-<tr>
-<td>LogFormatterExponent</td>
-<td>使用指数&#x3D; log_base（值）格式化对数轴的值。</td>
-</tr>
-<tr>
-<td>LogFormatterMathtext</td>
-<td>使用Math文本使用exponent &#x3D; log_base（value）格式化对数轴的值。</td>
-</tr>
-<tr>
-<td>LogFormatterSciNotation</td>
-<td>使用科学计数法设置对数轴的值格式。</td>
-</tr>
-<tr>
-<td>LogitFormatter</td>
-<td>概率格式器。</td>
-</tr>
-<tr>
-<td>EngFormatter</td>
-<td>以工程符号格式格式化标签。</td>
-</tr>
-<tr>
-<td><code>PercentFormatter</code></td>
-<td>将标签格式化为百分比。</td>
-</tr>
-</tbody></table>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.ticker <span class="keyword">as</span> ticker</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">setup</span>(<span class="params">ax, title</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Set up common parameters for the Axes in the example.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># only show the bottom spine</span></span><br><span class="line">    ax.yaxis.set_major_locator(ticker.NullLocator())</span><br><span class="line">    ax.spines[<span class="string">&#x27;right&#x27;</span>].set_color(<span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">    ax.spines[<span class="string">&#x27;left&#x27;</span>].set_color(<span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">    ax.spines[<span class="string">&#x27;top&#x27;</span>].set_color(<span class="string">&#x27;none&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># define tick positions</span></span><br><span class="line">    ax.xaxis.set_major_locator(ticker.MultipleLocator(<span class="number">1.00</span>))</span><br><span class="line">    ax.xaxis.set_minor_locator(ticker.MultipleLocator(<span class="number">0.25</span>))</span><br><span class="line"></span><br><span class="line">    ax.xaxis.set_ticks_position(<span class="string">&#x27;bottom&#x27;</span>)</span><br><span class="line">    ax.tick_params(which=<span class="string">&#x27;major&#x27;</span>, width=<span class="number">1.00</span>, length=<span class="number">5</span>)</span><br><span class="line">    ax.tick_params(which=<span class="string">&#x27;minor&#x27;</span>, width=<span class="number">0.75</span>, length=<span class="number">2.5</span>, labelsize=<span class="number">10</span>)</span><br><span class="line">    ax.set_xlim(<span class="number">0</span>, <span class="number">5</span>)</span><br><span class="line">    ax.set_ylim(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">    ax.text(<span class="number">0.0</span>, <span class="number">0.2</span>, title, transform=ax.transAxes,</span><br><span class="line">            fontsize=<span class="number">14</span>, fontname=<span class="string">&#x27;Monospace&#x27;</span>, color=<span class="string">&#x27;tab:blue&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fig, axs = plt.subplots(<span class="number">7</span>, <span class="number">1</span>, figsize=(<span class="number">8</span>, <span class="number">6</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Null formatter</span></span><br><span class="line">setup(axs[<span class="number">0</span>], title=<span class="string">&quot;NullFormatter()&quot;</span>)</span><br><span class="line">axs[<span class="number">0</span>].xaxis.set_major_formatter(ticker.NullFormatter())</span><br><span class="line"></span><br><span class="line"><span class="comment"># Fixed formatter</span></span><br><span class="line">setup(axs[<span class="number">1</span>], title=<span class="string">&quot;FixedFormatter([&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, ...])&quot;</span>)</span><br><span class="line"><span class="comment"># FixedFormatter should only be used together with FixedLocator.</span></span><br><span class="line"><span class="comment"># Otherwise, one cannot be sure where the labels will end up.</span></span><br><span class="line">positions = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">labels = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;D&#x27;</span>, <span class="string">&#x27;E&#x27;</span>, <span class="string">&#x27;F&#x27;</span>]</span><br><span class="line">axs[<span class="number">1</span>].xaxis.set_major_locator(ticker.FixedLocator(positions))</span><br><span class="line">axs[<span class="number">1</span>].xaxis.set_major_formatter(ticker.FixedFormatter(labels))  <span class="comment"># 对固定的刻度一对一设置刻度标签样式</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># FuncFormatter can be used as a decorator</span></span><br><span class="line"><span class="meta">@ticker.FuncFormatter</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">major_formatter</span>(<span class="params">x, pos</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;[%.2f]&quot;</span> % x</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">setup(axs[<span class="number">2</span>], title=<span class="string">&#x27;FuncFormatter(lambda x, pos: &quot;[%.2f]&quot; % x)&#x27;</span>)</span><br><span class="line">axs[<span class="number">2</span>].xaxis.set_major_formatter(major_formatter)</span><br><span class="line"></span><br><span class="line"><span class="comment"># FormatStr formatter</span></span><br><span class="line">setup(axs[<span class="number">3</span>], title=<span class="string">&quot;FormatStrFormatter(&#x27;#%d&#x27;)&quot;</span>)</span><br><span class="line">axs[<span class="number">3</span>].xaxis.set_major_formatter(ticker.FormatStrFormatter(<span class="string">&quot;#%d&quot;</span>))  <span class="comment"># 基于字符串格式化函数来设置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Scalar formatter</span></span><br><span class="line">setup(axs[<span class="number">4</span>], title=<span class="string">&quot;ScalarFormatter()&quot;</span>)</span><br><span class="line">axs[<span class="number">4</span>].xaxis.set_major_formatter(ticker.ScalarFormatter(useMathText=<span class="literal">True</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># StrMethod formatter</span></span><br><span class="line">setup(axs[<span class="number">5</span>], title=<span class="string">&quot;StrMethodFormatter(&#x27;&#123;x:.3f&#125;&#x27;)&quot;</span>)</span><br><span class="line">axs[<span class="number">5</span>].xaxis.set_major_formatter(ticker.StrMethodFormatter(<span class="string">&quot;&#123;x:.3f&#125;&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Percent formatter</span></span><br><span class="line">setup(axs[<span class="number">6</span>], title=<span class="string">&quot;PercentFormatter(xmax=5)&quot;</span>)</span><br><span class="line">axs[<span class="number">6</span>].xaxis.set_major_formatter(ticker.PercentFormatter(xmax=<span class="number">5</span>))</span><br><span class="line"></span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_44_0.png" class="">
-
-
-<h3 id="3-2-3-关于轴脊线（spine）的设置"><a href="#3-2-3-关于轴脊线（spine）的设置" class="headerlink" title="3.2.3 关于轴脊线（spine）的设置"></a>3.2.3 关于轴脊线（spine）的设置</h3><ul>
-<li><p>什么是轴脊线：轴脊线-记录数据区域边界的线（An axis spine – the line noting the data area boundaries）</p>
-</li>
-<li><p>常用形式：</p>
-</li>
-</ul>
-<blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ax.spines[direction].set_visible(<span class="built_in">bool</span>)  <span class="comment"># 是否可见</span></span><br><span class="line">ax.spines[direction].set_bounds(low=<span class="literal">None</span>, high=<span class="literal">None</span>)  <span class="comment"># 设置边界</span></span><br><span class="line">ax.spines[direction].set_color(c)  <span class="comment"># 设置颜色</span></span><br><span class="line">ax.spines[direction].set_position(position=(position <span class="built_in">type</span>, amount))  <span class="comment"># 设置位置</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span> * np.pi, <span class="number">100</span>)</span><br><span class="line">y = <span class="number">2</span> * np.sin(x)</span><br><span class="line"></span><br><span class="line">fig, (ax0, ax1, ax2) = plt.subplots(nrows=<span class="number">3</span>, constrained_layout=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">ax0.plot(x, y)</span><br><span class="line">ax0.set_title(<span class="string">&#x27;normal spines&#x27;</span>)</span><br><span class="line"></span><br><span class="line">ax1.plot(x, y)</span><br><span class="line">ax1.set_title(<span class="string">&#x27;bottom-left spines&#x27;</span>)</span><br><span class="line">ax1.spines[<span class="string">&#x27;right&#x27;</span>].set_visible(<span class="literal">False</span>) <span class="comment"># 是否可见</span></span><br><span class="line">ax1.spines[<span class="string">&#x27;top&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax1.yaxis.set_ticks_position(<span class="string">&#x27;left&#x27;</span>)  <span class="comment"># 只显示y轴左侧的刻度</span></span><br><span class="line">ax1.xaxis.set_ticks_position(<span class="string">&#x27;bottom&#x27;</span>)  <span class="comment"># 只显示x轴底部的刻度</span></span><br><span class="line"></span><br><span class="line">ax2.plot(x, y)</span><br><span class="line">ax2.spines[<span class="string">&#x27;left&#x27;</span>].set_bounds(-<span class="number">1</span>, <span class="number">1</span>)  <span class="comment"># 设置 轴脊线 的范围</span></span><br><span class="line">ax2.spines[<span class="string">&#x27;right&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax2.spines[<span class="string">&#x27;top&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax2.yaxis.set_ticks_position(<span class="string">&#x27;left&#x27;</span>)</span><br><span class="line">ax2.xaxis.set_ticks_position(<span class="string">&#x27;bottom&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_46_0.png" class="">
-
-
-<h3 id="3-2-4-关于轴或刻度的其他常用设置"><a href="#3-2-4-关于轴或刻度的其他常用设置" class="headerlink" title="3.2.4 关于轴或刻度的其他常用设置"></a>3.2.4 关于轴或刻度的其他常用设置</h3><blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Axes.tick_params(<span class="variable language_">self</span>, axis=<span class="string">&#x27;both&#x27;</span>, **kwargs)  <span class="comment"># 更改刻度线，刻度线标签和网格线的样式</span></span><br><span class="line">Axes.set_xticks(<span class="variable language_">self</span>, ticks, *, minor=<span class="literal">False</span>)  <span class="comment"># 设置 x 刻度的位置</span></span><br><span class="line">Axes.set_yticks(<span class="variable language_">self</span>, ticks, *, minor=<span class="literal">False</span>)  <span class="comment"># 设置 y 刻度的位置</span></span><br><span class="line">Axes.set_xticklabels(<span class="variable language_">self</span>, labels, fontdict=<span class="literal">None</span>, minor=<span class="literal">False</span>, **kwargs)  <span class="comment"># 设置 x 刻度标签</span></span><br><span class="line">Axes.set_yticklabels(<span class="variable language_">self</span>, labels, fontdict=<span class="literal">None</span>, minor=<span class="literal">False</span>, **kwargs)  <span class="comment"># 设置 y 刻度标签</span></span><br><span class="line">Axes.set_xlim((left, right))  <span class="comment"># 设置 x 轴的可视化边界 </span></span><br><span class="line">Axes.set_ylim((left, right))  <span class="comment"># 设置 y 轴的可视化边界 </span></span><br><span class="line">Axes.set_xlabel(<span class="variable language_">self</span>, xlabel, fontdict=<span class="literal">None</span>, labelpad=<span class="literal">None</span>, **kwargs)  <span class="comment"># 设置 x 轴的标签</span></span><br><span class="line">Axes.set_ylabel(<span class="variable language_">self</span>, yabel, fontdict=<span class="literal">None</span>, labelpad=<span class="literal">None</span>, **kwargs)  <span class="comment"># 设置 y轴的标签</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">fig, (ax0, ax1, ax2,ax3) = plt.subplots(nrows=<span class="number">4</span>, constrained_layout=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">ax0.tick_params(axis=<span class="string">&#x27;y&#x27;</span>, direction=<span class="string">&#x27;out&#x27;</span>,  length=<span class="number">6</span>, width=<span class="number">6</span>, colors=<span class="string">&#x27;r&#x27;</span>, grid_color=<span class="string">&#x27;r&#x27;</span>, grid_alpha=<span class="number">0.5</span>)</span><br><span class="line">ax0.tick_params(axis=<span class="string">&#x27;x&#x27;</span>, direction=<span class="string">&#x27;out&#x27;</span>,  labelsize=<span class="string">&#x27;x-large&#x27;</span>, labelcolor=<span class="string">&#x27;g&#x27;</span>, labelrotation=<span class="number">70</span>)</span><br><span class="line"></span><br><span class="line">ax1.set_xticks(<span class="built_in">range</span>(<span class="number">10</span>))</span><br><span class="line">ax1.set_xticklabels(<span class="built_in">list</span>(<span class="string">&#x27;ABCDEFGHIJ&#x27;</span>))</span><br><span class="line"></span><br><span class="line">ax2.plot(<span class="built_in">range</span>(<span class="number">8</span>))  </span><br><span class="line">ax2.set_xticks(<span class="built_in">range</span>(<span class="number">10</span>))</span><br><span class="line">ax2.set_xlim((<span class="number">3</span>,<span class="number">5</span>))  <span class="comment"># 只绘制了 3-5 这个范围的内容</span></span><br><span class="line"></span><br><span class="line">ax3.set_xlabel(<span class="string">&#x27; x 轴&#x27;</span>)</span><br><span class="line">ax3.set_ylabel(<span class="string">&#x27; y 轴&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_48_0.png" class="">
-
-
-<h2 id="3-3-如何绘制各类图形（基于-OO-style）"><a href="#3-3-如何绘制各类图形（基于-OO-style）" class="headerlink" title="3.3 如何绘制各类图形（基于 OO-style）"></a>3.3 如何绘制各类图形（基于 OO-style）</h2><p>建议大家采用面向对象的编程方式，以坐标系为基础绘制图形（前提：先显示的创建好 Figure 和 Axes）：ax.plot()、ax.bar()、ax.scatter()、ax.pie() ……</p>
-<ul>
-<li>matplotlib.axes.Axes 官方文档： <a target="_blank" rel="noopener" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes">https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes</a></li>
-</ul>
-<h3 id="3-3-1-常用的绘图函数"><a href="#3-3-1-常用的绘图函数" class="headerlink" title="3.3.1 常用的绘图函数"></a>3.3.1 常用的绘图函数</h3><p>对于绘图函数中各参数的含义直接参考官方文档：</p>
-<blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Axes.plot(<span class="variable language_">self</span>, *args, scalex=<span class="literal">True</span>, scaley=<span class="literal">True</span>, data=<span class="literal">None</span>, **kwargs)  <span class="comment"># 绘制曲线</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Axes.scatter(<span class="variable language_">self</span>, x, y, s=<span class="literal">None</span>, c=<span class="literal">None</span>, marker=<span class="literal">None</span>, cmap=<span class="literal">None</span>, norm=<span class="literal">None</span>, vmin=<span class="literal">None</span>, vmax=<span class="literal">None</span>, alpha=<span class="literal">None</span>, linewidths=<span class="literal">None</span>, verts=&lt;deprecated parameter&gt;, edgecolors=<span class="literal">None</span>, *, plotnonfinite=<span class="literal">False</span>, data=<span class="literal">None</span>, **kwargs)  <span class="comment"># 绘制散点图</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Axes.bar(<span class="variable language_">self</span>, x, height, width=<span class="number">0.8</span>, bottom=<span class="literal">None</span>, *, align=<span class="string">&#x27;center&#x27;</span>, data=<span class="literal">None</span>, **kwargs)  <span class="comment"># 绘制柱状图（垂直）</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Axes.barh(<span class="variable language_">self</span>, y, width, height=<span class="number">0.8</span>, left=<span class="literal">None</span>, *, align=<span class="string">&#x27;center&#x27;</span>, **kwargs)  <span class="comment"># 绘制柱状图（水平）</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Axes.pie(<span class="variable language_">self</span>, x, explode=<span class="literal">None</span>, labels=<span class="literal">None</span>, colors=<span class="literal">None</span>, autopct=<span class="literal">None</span>, pctdistance=<span class="number">0.6</span>, shadow=<span class="literal">False</span>, labeldistance=<span class="number">1.1</span>, startangle=<span class="literal">None</span>, radius=<span class="literal">None</span>, counterclock=<span class="literal">True</span>, wedgeprops=<span class="literal">None</span>, textprops=<span class="literal">None</span>, center=(<span class="number">0</span>, <span class="number">0</span>), frame=<span class="literal">False</span>, rotatelabels=<span class="literal">False</span>, *, data=<span class="literal">None</span>)  <span class="comment"># 绘制饼图</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Axes.step(<span class="variable language_">self</span>, x, y, *args, where=<span class="string">&#x27;pre&#x27;</span>, data=<span class="literal">None</span>, **kwargs)   <span class="comment"># 绘制阶梯图</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Axes.stem(<span class="variable language_">self</span>, *args, linefmt=<span class="literal">None</span>, markerfmt=<span class="literal">None</span>, basefmt=<span class="literal">None</span>, bottom=<span class="number">0</span>, label=<span class="literal">None</span>, use_line_collection=<span class="literal">False</span>, data=<span class="literal">None</span>)  <span class="comment"># 绘制茎图（棒棒糖）</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Axes.stackplot(axes, x, *args, labels=(), colors=<span class="literal">None</span>, baseline=<span class="string">&#x27;zero&#x27;</span>, data=<span class="literal">None</span>, **kwargs)  <span class="comment"># 绘制堆积图</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Axes.hist(<span class="variable language_">self</span>, x, bins=<span class="literal">None</span>, <span class="built_in">range</span>=<span class="literal">None</span>, density=<span class="literal">False</span>, weights=<span class="literal">None</span>, cumulative=<span class="literal">False</span>, bottom=<span class="literal">None</span>, histtype=<span class="string">&#x27;bar&#x27;</span>, align=<span class="string">&#x27;mid&#x27;</span>, orientation=<span class="string">&#x27;vertical&#x27;</span>, rwidth=<span class="literal">None</span>, log=<span class="literal">False</span>, color=<span class="literal">None</span>, label=<span class="literal">None</span>, stacked=<span class="literal">False</span>, *, data=<span class="literal">None</span>, **kwargs)  <span class="comment"># 绘制直方图</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Axes.boxplot(<span class="variable language_">self</span>, x, notch=<span class="literal">None</span>, sym=<span class="literal">None</span>, vert=<span class="literal">None</span>, whis=<span class="literal">None</span>, positions=<span class="literal">None</span>, widths=<span class="literal">None</span>, patch_artist=<span class="literal">None</span>, bootstrap=<span class="literal">None</span>, usermedians=<span class="literal">None</span>, conf_intervals=<span class="literal">None</span>, meanline=<span class="literal">None</span>, showmeans=<span class="literal">None</span>, showcaps=<span class="literal">None</span>, showbox=<span class="literal">None</span>, showfliers=<span class="literal">None</span>, boxprops=<span class="literal">None</span>, labels=<span class="literal">None</span>, flierprops=<span class="literal">None</span>, medianprops=<span class="literal">None</span>, meanprops=<span class="literal">None</span>, capprops=<span class="literal">None</span>, whiskerprops=<span class="literal">None</span>, manage_ticks=<span class="literal">True</span>, autorange=<span class="literal">False</span>, zorder=<span class="literal">None</span>, *, data=<span class="literal">None</span>)  <span class="comment"># 绘制箱线图</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Axes.violinplot(<span class="variable language_">self</span>, dataset, positions=<span class="literal">None</span>, vert=<span class="literal">True</span>, widths=<span class="number">0.5</span>, showmeans=<span class="literal">False</span>, showextrema=<span class="literal">True</span>, showmedians=<span class="literal">False</span>, quantiles=<span class="literal">None</span>, points=<span class="number">100</span>, bw_method=<span class="literal">None</span>, *, data=<span class="literal">None</span>)  <span class="comment"># 绘制小提琴图</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Axes.table(ax, cellText=<span class="literal">None</span>, cellColours=<span class="literal">None</span>, cellLoc=<span class="string">&#x27;right&#x27;</span>, colWidths=<span class="literal">None</span>, rowLabels=<span class="literal">None</span>, rowColours=<span class="literal">None</span>, rowLoc=<span class="string">&#x27;left&#x27;</span>, colLabels=<span class="literal">None</span>, colColours=<span class="literal">None</span>, colLoc=<span class="string">&#x27;center&#x27;</span>, loc=<span class="string">&#x27;bottom&#x27;</span>, bbox=<span class="literal">None</span>, edges=<span class="string">&#x27;closed&#x27;</span>, **kwargs)  <span class="comment"># 绘制表格</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Axes.annotate(<span class="variable language_">self</span>, s, xy, *args, **kwargs)  <span class="comment"># 绘制标签</span></span><br><span class="line">Axes.text(<span class="variable language_">self</span>, x, y, s, fontdict=<span class="literal">None</span>, withdash=&lt;deprecated parameter&gt;, **kwargs)</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-3-2-如何叠加绘图？"><a href="#3-3-2-如何叠加绘图？" class="headerlink" title="3.3.2 如何叠加绘图？"></a>3.3.2 如何叠加绘图？</h3><p>绘制图中常常遇到在一个坐标系中<code>绘制多条曲线</code>或<code>多种图形</code>的情况，只需：<strong><code>画完一条接着画另一条。</code></strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 同一类型，多条</span></span><br><span class="line"></span><br><span class="line">fig, ax = plt.subplots()  <span class="comment"># 同时创建了 图 figure 和 坐标系 axes</span></span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>, <span class="number">100</span>)</span><br><span class="line">ax.plot(x, x, label=<span class="string">&#x27;linear&#x27;</span>)   </span><br><span class="line">ax.plot(x, x**<span class="number">2</span>, label=<span class="string">&#x27;quadratic&#x27;</span>)   </span><br><span class="line">ax.plot(x, x**<span class="number">3</span>, label=<span class="string">&#x27;cubic&#x27;</span>)   </span><br><span class="line">ax.set_xlabel(<span class="string">&#x27;x label&#x27;</span>)  </span><br><span class="line">ax.set_ylabel(<span class="string">&#x27;y label&#x27;</span>)  </span><br><span class="line">ax.set_title(<span class="string">&quot;Simple Plot&quot;</span>)  </span><br><span class="line">ax.legend()  </span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_52_0.png" class="">
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不同类型</span></span><br><span class="line"></span><br><span class="line">fig, ax = plt.subplots()  <span class="comment"># 同时创建了 图 figure 和 坐标系 axes</span></span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">0</span>,<span class="number">20</span>)</span><br><span class="line">ax.plot(x, x, label=<span class="string">&#x27;line&#x27;</span>)   </span><br><span class="line">ax.scatter(x, x/<span class="number">2</span>, label=<span class="string">&#x27;scatter&#x27;</span>)</span><br><span class="line">ax.bar(x, x/<span class="number">3</span>, label=<span class="string">&#x27;bar&#x27;</span>)  </span><br><span class="line"></span><br><span class="line">ax.set_xlabel(<span class="string">&#x27;x label&#x27;</span>)  </span><br><span class="line">ax.set_ylabel(<span class="string">&#x27;y label&#x27;</span>)  </span><br><span class="line">ax.set_title(<span class="string">&quot;Simple Plot&quot;</span>)  </span><br><span class="line">ax.legend()  </span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_53_0.png" class="">
-
-
-<h3 id="3-3-3-如何绘制双坐标图？"><a href="#3-3-3-如何绘制双坐标图？" class="headerlink" title="3.3.3 如何绘制双坐标图？"></a>3.3.3 如何绘制双坐标图？</h3><p>利用**<code>Axes.twinx()</code>** 或 <strong><code>Axes.twiny()</code></strong>  创建 双轴图，一般<strong>适用于分别绘制<code>不同数量级</code>的数据</strong>。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">t = np.arange(<span class="number">0.01</span>, <span class="number">10.0</span>, <span class="number">0.01</span>)</span><br><span class="line">data1 = np.exp(t)</span><br><span class="line">data2 = np.sin(<span class="number">2</span> * np.pi * t)</span><br><span class="line"></span><br><span class="line">fig, ax1 = plt.subplots()</span><br><span class="line"></span><br><span class="line">color = <span class="string">&#x27;tab:red&#x27;</span></span><br><span class="line">ax1.set_xlabel(<span class="string">&#x27;time (s)&#x27;</span>)</span><br><span class="line">ax1.set_ylabel(<span class="string">&#x27;exp&#x27;</span>, color=color)</span><br><span class="line">ax1.plot(t, data1, color=color)</span><br><span class="line">ax1.tick_params(axis=<span class="string">&#x27;y&#x27;</span>, labelcolor=color)</span><br><span class="line"></span><br><span class="line">ax2 = ax1.twinx()  <span class="comment"># 创建 x 轴的兄弟轴  </span></span><br><span class="line"></span><br><span class="line">color = <span class="string">&#x27;tab:blue&#x27;</span></span><br><span class="line">ax2.set_ylabel(<span class="string">&#x27;sin&#x27;</span>, color=color)  </span><br><span class="line">ax2.plot(t, data2, color=color)</span><br><span class="line">ax2.tick_params(axis=<span class="string">&#x27;y&#x27;</span>, labelcolor=color)</span><br><span class="line"></span><br><span class="line">fig.tight_layout()  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_55_0.png" class="">
-
-
-<h2 id="3-4-如何设置图中的图例和标题（基于OO-style）"><a href="#3-4-如何设置图中的图例和标题（基于OO-style）" class="headerlink" title="3.4 如何设置图中的图例和标题（基于OO-style）"></a>3.4 如何设置图中的图例和标题（基于OO-style）</h2><h3 id="3-4-1-设置图例"><a href="#3-4-1-设置图例" class="headerlink" title="3.4.1 设置图例"></a>3.4.1 设置图例</h3><ul>
-<li><p><strong>图例有关概念：</strong></p>
-<p>图例条目（legend entry）：图例由一个或多个图例条目组成，一项条目仅由一个键和一个标签组成；</p>
-<p>图例键（legend key）：每个图例标签左侧的图案标记；</p>
-<p>图例标签（legend label）：描述图例键的标签；</p>
-<p>图例手柄（legend handle）：用于在图例中生成相应条目的原始对象。</p>
-</li>
-<li><p><strong>方式1</strong>：通过设置绘图函数中的 <code>label</code> 参数， 调用 <strong><code>ax.legend()</code></strong> 自动检测要在图例中显示的元素；</p>
-</li>
-<li><p><strong>方式2</strong>：在**<code>ax.legend(label)</code>** 中设置图标签，在图形较多时，容易混淆，不建议采用这种方式；</p>
-</li>
-<li><p><strong>方式3</strong>：通过定义图例中的元素来设置图例：<strong><code>ax.legend(handles, labels)</code></strong>，可通过 ax.get_legend_handles_labels() 获取图例的 handle 和 label：</p>
-<blockquote>
-</blockquote>
-</li>
-</ul>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">handles, labels = ax.get_legend_handles_labels()</span><br><span class="line">ax.legend(handles, labels)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>图例设置教程官方文档：<a target="_blank" rel="noopener" href="https://matplotlib.org/tutorials/intermediate/legend_guide.html#sphx-glr-tutorials-intermediate-legend-guide-py">https://matplotlib.org/tutorials/intermediate/legend_guide.html#sphx-glr-tutorials-intermediate-legend-guide-py</a></p>
-</li>
-<li><p>legend() 函数官方文档：<a target="_blank" rel="noopener" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend">https://matplotlib.org/api/_as_gen&#x2F;matplotlib.pyplot.legend.html#matplotlib.pyplot.legend</a></p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;k--&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&#39;k--&#39;
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方式1：自动检测并显示</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Make some fake data.</span></span><br><span class="line">a = b = np.arange(<span class="number">0</span>, <span class="number">3</span>, <span class="number">.02</span>)</span><br><span class="line">c = np.exp(a)</span><br><span class="line">d = c[::-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create plots with pre-defined labels.</span></span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax.plot(a, c, <span class="string">&#x27;k--&#x27;</span>, label=<span class="string">&#x27;Model length&#x27;</span>)</span><br><span class="line">ax.plot(a, d, <span class="string">&#x27;k:&#x27;</span>, label=<span class="string">&#x27;Data length&#x27;</span>)</span><br><span class="line">ax.plot(a, c + d, <span class="string">&#x27;k&#x27;</span>, label=<span class="string">&#x27;Total message length&#x27;</span>)</span><br><span class="line"></span><br><span class="line">legend = ax.legend(loc=<span class="string">&#x27;upper center&#x27;</span>, shadow=<span class="literal">True</span>, fontsize=<span class="string">&#x27;x-large&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Put a nicer background color on the legend.</span></span><br><span class="line">legend.get_frame().set_facecolor(<span class="string">&#x27;C0&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_59_0.png" class="">
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方式2：单独设置图例标签</span></span><br><span class="line"><span class="comment"># Make some fake data.</span></span><br><span class="line">a = b = np.arange(<span class="number">0</span>, <span class="number">3</span>, <span class="number">.02</span>)</span><br><span class="line">c = np.exp(a)</span><br><span class="line">d = c[::-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create plots with pre-defined labels.</span></span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax.plot(a, c, <span class="string">&#x27;k--&#x27;</span> )</span><br><span class="line">ax.plot(a, d, <span class="string">&#x27;k:&#x27;</span> )</span><br><span class="line">ax.plot(a, c + d, <span class="string">&#x27;k&#x27;</span>)</span><br><span class="line"></span><br><span class="line">legend = ax.legend([<span class="string">&#x27;Model length&#x27;</span>,<span class="string">&#x27;Data length&#x27;</span>,<span class="string">&#x27;Total message length&#x27;</span> ],loc=<span class="string">&#x27;upper center&#x27;</span>, shadow=<span class="literal">True</span>, fontsize=<span class="string">&#x27;x-large&#x27;</span>)</span><br><span class="line">legend.get_frame().set_facecolor(<span class="string">&#x27;C0&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_60_0.png" class="">
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方式3：通过 handle 和 label 设置图例</span></span><br><span class="line">t = np.arange(<span class="number">0.01</span>, <span class="number">10.0</span>, <span class="number">0.01</span>)</span><br><span class="line">data1 = np.exp(t)</span><br><span class="line">data2 = np.sin(<span class="number">2</span> * np.pi * t)</span><br><span class="line"></span><br><span class="line">fig, ax1 = plt.subplots()</span><br><span class="line"></span><br><span class="line">color = <span class="string">&#x27;tab:red&#x27;</span></span><br><span class="line">ax1.set_xlabel(<span class="string">&#x27;time (s)&#x27;</span>)</span><br><span class="line">ax1.set_ylabel(<span class="string">&#x27;exp&#x27;</span>, color=color)</span><br><span class="line">ax1.plot(t, data1, color=color,label=<span class="string">&#x27;exp&#x27;</span>)</span><br><span class="line"></span><br><span class="line">ax2 = ax1.twinx()  <span class="comment"># 创建 x 轴的兄弟轴  </span></span><br><span class="line"></span><br><span class="line">color = <span class="string">&#x27;tab:blue&#x27;</span></span><br><span class="line">ax2.set_ylabel(<span class="string">&#x27;sin&#x27;</span>, color=color)  </span><br><span class="line">ax2.plot(t, data2, color=color,label=<span class="string">&#x27;sin&#x27;</span>)</span><br><span class="line"></span><br><span class="line">h1,b1 = ax1.get_legend_handles_labels()</span><br><span class="line">h2,b2 = ax2.get_legend_handles_labels()</span><br><span class="line">plt.legend(h1+h2,b1+b2)</span><br><span class="line"><span class="comment">#fig.legend(h1+h2,b1+b2)</span></span><br><span class="line"></span><br><span class="line">fig.tight_layout()  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_61_0.png" class="">
-
-
-<h3 id="3-4-2-设置图标题"><a href="#3-4-2-设置图标题" class="headerlink" title="3.4.2 设置图标题"></a>3.4.2 设置图标题</h3><ul>
-<li><strong>情况1：给坐标系添加标题（也适用于子图）</strong></li>
-</ul>
-<blockquote>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Axes.set_title(<span class="variable language_">self</span>, label, fontdict=<span class="literal">None</span>, loc=<span class="literal">None</span>, pad=<span class="literal">None</span>, **kwargs)</span><br></pre></td></tr></table></figure></blockquote>
-<ul>
-<li><strong>情况2：给整幅图添加总标题（适用于图）</strong></li>
-</ul>
-<blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Figure.suptitle(<span class="variable language_">self</span>, t, **kwargs)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">400</span>)</span><br><span class="line">y = np.sin(x**<span class="number">2</span>)</span><br><span class="line">fig, (ax1, ax2) = plt.subplots(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">ax1.plot(x, y)</span><br><span class="line">ax1.set_title(<span class="string">&#x27;子图1标题&#x27;</span>)</span><br><span class="line"><span class="comment"># ax2.scatter(x, y)</span></span><br><span class="line"><span class="comment"># ax2.set_title(&#x27;子图2标题&#x27;)</span></span><br><span class="line"><span class="comment"># fig.suptitle(&#x27;总标题&#x27;,fontsize=20,c=&#x27;r&#x27;)</span></span><br><span class="line"><span class="comment"># fig.tight_layout()</span></span><br><span class="line"><span class="comment"># plt.show()</span></span><br></pre></td></tr></table></figure>
-
-
-<pre><code>---------------------------------------------------------------------------
-
-NameError                                 Traceback (most recent call last)
-
-&lt;ipython-input-1-04cf4757ef1e&gt; in &lt;module&gt;
-----&gt; 1 x = np.linspace(0, 2*np.pi, 400)
-      2 y = np.sin(x**2)
-      3 fig, (ax1, ax2) = plt.subplots(1, 2)
-      4 ax1.plot(x, y)
-      5 ax1.set_title(&#39;子图1标题&#39;)
-
-
-NameError: name &#39;np&#39; is not defined
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">400</span>)</span><br><span class="line">y = np.sin(x**<span class="number">2</span>)</span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax.plot(x, y)</span><br><span class="line">ax.set_title(<span class="string">&#x27;中文标题&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>Text(0.5, 1.0, &#39;中文标题&#39;)
-</code></pre>
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_64_1.png" class="">
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line">matplotlib.matplotlib_fname()</span><br></pre></td></tr></table></figure>
-
-<p>‘&#x2F;opt&#x2F;anaconda3&#x2F;lib&#x2F;python3.7&#x2F;site-packages&#x2F;matplotlib&#x2F;mpl-data&#x2F;matplotlibrc’</p>
-<h1 id="四、其他需注意画图事项"><a href="#四、其他需注意画图事项" class="headerlink" title="四、其他需注意画图事项"></a>四、其他需注意画图事项</h1><h2 id="4-1-画图风格"><a href="#4-1-画图风格" class="headerlink" title="4.1 画图风格"></a>4.1 画图风格</h2><ul>
-<li><p>画图风格展示官方文档：<a target="_blank" rel="noopener" href="https://matplotlib.org/gallery/style_sheets/style_sheets_reference.html#sphx-glr-gallery-style-sheets-style-sheets-reference-py">https://matplotlib.org/gallery/style_sheets&#x2F;style_sheets_reference.html#sphx-glr-gallery-style-sheets-style-sheets-reference-py</a></p>
-</li>
-<li><p>答印所有的风格：<strong><code>print(plt.style.available) </code></strong></p>
-</li>
-<li><p>通过 <strong><code>plt.style.context(style)</code></strong> ，在with 代码块中进行<code>局部</code>设置（只对 with 代码块中绘制的图形有效）</p>
-</li>
-<li><p>通过 <strong><code>plt.style.use(style)</code></strong>  来进行<code>全局</code>设置.</p>
-</li>
-<li><p>通过保留默认风格来恢复之前的风格：<strong><code>plt.style.use(&#39;default&#39;)</code></strong></p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(plt.style.available)  <span class="comment"># 打印风格</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>[&#39;Solarize_Light2&#39;, &#39;_classic_test&#39;, &#39;bmh&#39;, &#39;classic&#39;, &#39;dark_background&#39;, &#39;fast&#39;, &#39;fivethirtyeight&#39;, &#39;ggplot&#39;, &#39;grayscale&#39;, &#39;seaborn-bright&#39;, &#39;seaborn-colorblind&#39;, &#39;seaborn-dark-palette&#39;, &#39;seaborn-dark&#39;, &#39;seaborn-darkgrid&#39;, &#39;seaborn-deep&#39;, &#39;seaborn-muted&#39;, &#39;seaborn-notebook&#39;, &#39;seaborn-paper&#39;, &#39;seaborn-pastel&#39;, &#39;seaborn-poster&#39;, &#39;seaborn-talk&#39;, &#39;seaborn-ticks&#39;, &#39;seaborn-white&#39;, &#39;seaborn-whitegrid&#39;, &#39;seaborn&#39;, &#39;tableau-colorblind10&#39;]
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">400</span>)</span><br><span class="line">y = np.sin(x**<span class="number">2</span>)</span><br><span class="line"><span class="keyword">with</span> plt.style.context(<span class="string">&#x27;ggplot&#x27;</span>):   <span class="comment">#将use换成context</span></span><br><span class="line">    plt.plot(x,y,label=<span class="string">&#x27;sin&#x27;</span>)</span><br><span class="line">    plt.legend()</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_70_0.png" class="">
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">400</span>)</span><br><span class="line">y = np.sin(x**<span class="number">2</span>)</span><br><span class="line">plt.plot(x,y,label=<span class="string">&#x27;sin&#x27;</span>)  <span class="comment"># with 之外的风格仍保持不变</span></span><br><span class="line">plt.legend()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_71_1.png" class="">
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">plt.style.use(<span class="string">&#x27;ggplot&#x27;</span>)   <span class="comment"># 采用 ggplot 的绘图风格</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>, <span class="number">100</span>)  </span><br><span class="line">plt.plot(x, x, label=<span class="string">&#x27;linear&#x27;</span>)   </span><br><span class="line">plt.plot(x, x**<span class="number">2</span>, label=<span class="string">&#x27;quadratic&#x27;</span>)  </span><br><span class="line">plt.plot(x, x**<span class="number">3</span>, label=<span class="string">&#x27;cubic&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;x label&#x27;</span>) </span><br><span class="line">plt.ylabel(<span class="string">&#x27;y label&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Simple Plot&quot;</span>)   </span><br><span class="line">plt.legend() </span><br></pre></td></tr></table></figure>
-
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_72_1.png" class="">
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.style.use(<span class="string">&#x27;default&#x27;</span>)  <span class="comment"># 保留默认风格</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="4-2-关于配置文件-rcParams"><a href="#4-2-关于配置文件-rcParams" class="headerlink" title="4.2  关于配置文件 rcParams"></a>4.2  关于配置文件 rcParams</h2><ul>
-<li><p>rcParams 配置文件可用来自定义图形的各种默认属性，称之为 rc 配置或 rc 参数。通过 rc 参数可以修改默认的属性，包括窗体大小、每英寸的点数、线条宽度、颜色、样式、坐标轴、坐标和网络属性、文本、字体等；</p>
-</li>
-<li><p>rcParams 和 style 配置官方文档：<a target="_blank" rel="noopener" href="https://matplotlib.org/tutorials/introductory/customizing.html#customizing-with-matplotlibrc-files">https://matplotlib.org/tutorials/introductory/customizing.html#customizing-with-matplotlibrc-files</a></p>
-</li>
-<li><p>如何查看默认的配置文件？</p>
-<blockquote>
-</blockquote>
-</li>
-</ul>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(matplotlib.rc_params()) </span><br><span class="line"><span class="built_in">print</span>(matplotlib.rcParamsDefault)   <span class="comment"># plt.rcParamsDefault</span></span><br><span class="line"><span class="built_in">print</span>(matplotlib.rcParams)    <span class="comment"># plt.rcParams</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>修改配置文件<blockquote>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.rcParams[<span class="string">&#x27;lines.linewidth&#x27;</span>] = <span class="number">2</span>, plt.rcParams[<span class="string">&#x27;lines.color&#x27;</span>] = <span class="string">&#x27;r&#x27;</span>   <span class="comment"># 方式1</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.rc(<span class="string">&#x27;lines&#x27;</span>, linewidth=<span class="number">4</span>, color=<span class="string">&#x27;g&#x27;</span>)   <span class="comment"># 方式2</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>恢复默认参数：<strong><code>plt.rcdefaults()</code></strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(plt.rcParams)  <span class="comment"># 打印默认的配置</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>_internal.classic_mode: False
-agg.path.chunksize: 0
-animation.avconv_args: []
-animation.avconv_path: avconv
-animation.bitrate: -1
-animation.codec: h264
-animation.convert_args: []
-animation.convert_path: convert
-animation.embed_limit: 20.0
-animation.ffmpeg_args: []
-animation.ffmpeg_path: ffmpeg
-animation.frame_format: png
-animation.html: none
-animation.html_args: []
-animation.writer: ffmpeg
-axes.autolimit_mode: data
-axes.axisbelow: True
-axes.edgecolor: white
-axes.facecolor: #E5E5E5
-axes.formatter.limits: [-7, 7]
-axes.formatter.min_exponent: 0
-axes.formatter.offset_threshold: 4
-axes.formatter.use_locale: False
-axes.formatter.use_mathtext: False
-axes.formatter.useoffset: True
-axes.grid: True
-axes.grid.axis: both
-axes.grid.which: major
-axes.labelcolor: #555555
-axes.labelpad: 4.0
-axes.labelsize: large
-axes.labelweight: normal
-axes.linewidth: 1.0
-axes.prop_cycle: cycler(&#39;color&#39;, [&#39;#E24A33&#39;, &#39;#348ABD&#39;, &#39;#988ED5&#39;, &#39;#777777&#39;, &#39;#FBC15E&#39;, &#39;#8EBA42&#39;, &#39;#FFB5B8&#39;])
-axes.spines.bottom: True
-axes.spines.left: True
-axes.spines.right: True
-axes.spines.top: True
-axes.titlepad: 6.0
-axes.titlesize: x-large
-axes.titleweight: normal
-axes.unicode_minus: True
-axes.xmargin: 0.05
-axes.ymargin: 0.05
-axes3d.grid: True
-backend: module://ipykernel.pylab.backend_inline
-backend_fallback: True
-boxplot.bootstrap: None
-boxplot.boxprops.color: black
-boxplot.boxprops.linestyle: -
-boxplot.boxprops.linewidth: 1.0
-boxplot.capprops.color: black
-boxplot.capprops.linestyle: -
-boxplot.capprops.linewidth: 1.0
-boxplot.flierprops.color: black
-boxplot.flierprops.linestyle: none
-boxplot.flierprops.linewidth: 1.0
-boxplot.flierprops.marker: o
-boxplot.flierprops.markeredgecolor: black
-boxplot.flierprops.markeredgewidth: 1.0
-boxplot.flierprops.markerfacecolor: none
-boxplot.flierprops.markersize: 6.0
-boxplot.meanline: False
-boxplot.meanprops.color: C2
-boxplot.meanprops.linestyle: --
-boxplot.meanprops.linewidth: 1.0
-boxplot.meanprops.marker: ^
-boxplot.meanprops.markeredgecolor: C2
-boxplot.meanprops.markerfacecolor: C2
-boxplot.meanprops.markersize: 6.0
-boxplot.medianprops.color: C1
-boxplot.medianprops.linestyle: -
-boxplot.medianprops.linewidth: 1.0
-boxplot.notch: False
-boxplot.patchartist: False
-boxplot.showbox: True
-boxplot.showcaps: True
-boxplot.showfliers: True
-boxplot.showmeans: False
-boxplot.vertical: True
-boxplot.whiskerprops.color: black
-boxplot.whiskerprops.linestyle: -
-boxplot.whiskerprops.linewidth: 1.0
-boxplot.whiskers: 1.5
-contour.corner_mask: True
-contour.negative_linestyle: dashed
-datapath: /opt/conda/lib/python3.6/site-packages/matplotlib/mpl-data
-date.autoformatter.day: %Y-%m-%d
-date.autoformatter.hour: %m-%d %H
-date.autoformatter.microsecond: %M:%S.%f
-date.autoformatter.minute: %d %H:%M
-date.autoformatter.month: %Y-%m
-date.autoformatter.second: %H:%M:%S
-date.autoformatter.year: %Y
-docstring.hardcopy: False
-errorbar.capsize: 0.0
-examples.directory: 
-figure.autolayout: False
-figure.constrained_layout.h_pad: 0.04167
-figure.constrained_layout.hspace: 0.02
-figure.constrained_layout.use: False
-figure.constrained_layout.w_pad: 0.04167
-figure.constrained_layout.wspace: 0.02
-figure.dpi: 72.0
-figure.edgecolor: 0.50
-figure.facecolor: white
-figure.figsize: [6.0, 4.0]
-figure.frameon: True
-figure.max_open_warning: 20
-figure.subplot.bottom: 0.125
-figure.subplot.hspace: 0.2
-figure.subplot.left: 0.125
-figure.subplot.right: 0.9
-figure.subplot.top: 0.88
-figure.subplot.wspace: 0.2
-figure.titlesize: large
-figure.titleweight: normal
-font.cursive: [&#39;Apple Chancery&#39;, &#39;Textile&#39;, &#39;Zapf Chancery&#39;, &#39;Sand&#39;, &#39;Script MT&#39;, &#39;Felipa&#39;, &#39;cursive&#39;]
-font.family: [&#39;sans-serif&#39;]
-font.fantasy: [&#39;Comic Sans MS&#39;, &#39;Chicago&#39;, &#39;Charcoal&#39;, &#39;Impact&#39;, &#39;Western&#39;, &#39;Humor Sans&#39;, &#39;xkcd&#39;, &#39;fantasy&#39;]
-font.monospace: [&#39;DejaVu Sans Mono&#39;, &#39;Bitstream Vera Sans Mono&#39;, &#39;Computer Modern Typewriter&#39;, &#39;Andale Mono&#39;, &#39;Nimbus Mono L&#39;, &#39;Courier New&#39;, &#39;Courier&#39;, &#39;Fixed&#39;, &#39;Terminal&#39;, &#39;monospace&#39;]
-font.sans-serif: [&#39;SimHei&#39;, &#39;DejaVu Sans&#39;, &#39;Bitstream Vera Sans&#39;, &#39;Computer Modern Sans Serif&#39;, &#39;Lucida Grande&#39;, &#39;Verdana&#39;, &#39;Geneva&#39;, &#39;Lucid&#39;, &#39;Arial&#39;, &#39;Helvetica&#39;, &#39;Avant Garde&#39;, &#39;sans-serif&#39;]
-font.serif: [&#39;DejaVu Serif&#39;, &#39;Bitstream Vera Serif&#39;, &#39;Computer Modern Roman&#39;, &#39;New Century Schoolbook&#39;, &#39;Century Schoolbook L&#39;, &#39;Utopia&#39;, &#39;ITC Bookman&#39;, &#39;Bookman&#39;, &#39;Nimbus Roman No9 L&#39;, &#39;Times New Roman&#39;, &#39;Times&#39;, &#39;Palatino&#39;, &#39;Charter&#39;, &#39;serif&#39;]
-font.size: 10.0
-font.stretch: normal
-font.style: normal
-font.variant: normal
-font.weight: normal
-grid.alpha: 1.0
-grid.color: white
-grid.linestyle: -
-grid.linewidth: 0.8
-hatch.color: black
-hatch.linewidth: 1.0
-hist.bins: 10
-image.aspect: equal
-image.cmap: viridis
-image.composite_image: True
-image.interpolation: nearest
-image.lut: 256
-image.origin: upper
-image.resample: True
-interactive: True
-keymap.all_axes: [&#39;a&#39;]
-keymap.back: [&#39;left&#39;, &#39;c&#39;, &#39;backspace&#39;, &#39;MouseButton.BACK&#39;]
-keymap.copy: [&#39;ctrl+c&#39;, &#39;cmd+c&#39;]
-keymap.forward: [&#39;right&#39;, &#39;v&#39;, &#39;MouseButton.FORWARD&#39;]
-keymap.fullscreen: [&#39;f&#39;, &#39;ctrl+f&#39;]
-keymap.grid: [&#39;g&#39;]
-keymap.grid_minor: [&#39;G&#39;]
-keymap.help: [&#39;f1&#39;]
-keymap.home: [&#39;h&#39;, &#39;r&#39;, &#39;home&#39;]
-keymap.pan: [&#39;p&#39;]
-keymap.quit: [&#39;ctrl+w&#39;, &#39;cmd+w&#39;, &#39;q&#39;]
-keymap.quit_all: [&#39;W&#39;, &#39;cmd+W&#39;, &#39;Q&#39;]
-keymap.save: [&#39;s&#39;, &#39;ctrl+s&#39;]
-keymap.xscale: [&#39;k&#39;, &#39;L&#39;]
-keymap.yscale: [&#39;l&#39;]
-keymap.zoom: [&#39;o&#39;]
-legend.borderaxespad: 0.5
-legend.borderpad: 0.4
-legend.columnspacing: 2.0
-legend.edgecolor: 0.8
-legend.facecolor: inherit
-legend.fancybox: True
-legend.fontsize: medium
-legend.framealpha: 0.8
-legend.frameon: True
-legend.handleheight: 0.7
-legend.handlelength: 2.0
-legend.handletextpad: 0.8
-legend.labelspacing: 0.5
-legend.loc: best
-legend.markerscale: 1.0
-legend.numpoints: 1
-legend.scatterpoints: 1
-legend.shadow: False
-legend.title_fontsize: None
-lines.antialiased: True
-lines.color: C0
-lines.dash_capstyle: butt
-lines.dash_joinstyle: round
-lines.dashdot_pattern: [6.4, 1.6, 1.0, 1.6]
-lines.dashed_pattern: [3.7, 1.6]
-lines.dotted_pattern: [1.0, 1.65]
-lines.linestyle: -
-lines.linewidth: 1.5
-lines.marker: None
-lines.markeredgecolor: auto
-lines.markeredgewidth: 1.0
-lines.markerfacecolor: auto
-lines.markersize: 6.0
-lines.scale_dashes: True
-lines.solid_capstyle: projecting
-lines.solid_joinstyle: round
-markers.fillstyle: full
-mathtext.bf: sans:bold
-mathtext.cal: cursive
-mathtext.default: it
-mathtext.fallback_to_cm: True
-mathtext.fontset: dejavusans
-mathtext.it: sans:italic
-mathtext.rm: sans
-mathtext.sf: sans
-mathtext.tt: monospace
-patch.antialiased: True
-patch.edgecolor: #EEEEEE
-patch.facecolor: #348ABD
-patch.force_edgecolor: False
-patch.linewidth: 0.5
-path.effects: []
-path.simplify: True
-path.simplify_threshold: 0.1111111111111111
-path.sketch: None
-path.snap: True
-pdf.compression: 6
-pdf.fonttype: 3
-pdf.inheritcolor: False
-pdf.use14corefonts: False
-pgf.preamble: 
-pgf.rcfonts: True
-pgf.texsystem: xelatex
-polaraxes.grid: True
-ps.distiller.res: 6000
-ps.fonttype: 3
-ps.papersize: letter
-ps.useafm: False
-ps.usedistiller: False
-savefig.bbox: None
-savefig.directory: ~
-savefig.dpi: figure
-savefig.edgecolor: white
-savefig.facecolor: white
-savefig.format: png
-savefig.frameon: True
-savefig.jpeg_quality: 95
-savefig.orientation: portrait
-savefig.pad_inches: 0.1
-savefig.transparent: False
-scatter.edgecolors: face
-scatter.marker: o
-svg.fonttype: path
-svg.hashsalt: None
-svg.image_inline: True
-text.antialiased: True
-text.color: black
-text.hinting: auto
-text.hinting_factor: 8
-text.latex.preamble: 
-text.latex.preview: False
-text.latex.unicode: True
-text.usetex: False
-timezone: UTC
-tk.window_focus: False
-toolbar: toolbar2
-verbose.fileo: sys.stdout
-verbose.level: silent
-webagg.address: 127.0.0.1
-webagg.open_in_browser: True
-webagg.port: 8988
-webagg.port_retries: 50
-xtick.alignment: center
-xtick.bottom: True
-xtick.color: #555555
-xtick.direction: out
-xtick.labelbottom: True
-xtick.labelsize: medium
-xtick.labeltop: False
-xtick.major.bottom: True
-xtick.major.pad: 3.5
-xtick.major.size: 3.5
-xtick.major.top: True
-xtick.major.width: 0.8
-xtick.minor.bottom: True
-xtick.minor.pad: 3.4
-xtick.minor.size: 2.0
-xtick.minor.top: True
-xtick.minor.visible: False
-xtick.minor.width: 0.6
-xtick.top: False
-ytick.alignment: center_baseline
-ytick.color: #555555
-ytick.direction: out
-ytick.labelleft: True
-ytick.labelright: False
-ytick.labelsize: medium
-ytick.left: True
-ytick.major.left: True
-ytick.major.pad: 3.5
-ytick.major.right: True
-ytick.major.size: 3.5
-ytick.major.width: 0.8
-ytick.minor.left: True
-ytick.minor.pad: 3.4
-ytick.minor.right: True
-ytick.minor.size: 2.0
-ytick.minor.visible: False
-ytick.minor.width: 0.6
-ytick.right: False
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>]  <span class="comment"># 设置字体</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>]=<span class="literal">False</span>    <span class="comment"># 显示中文和特殊符号</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="4-4-绘图宝典"><a href="#4-4-绘图宝典" class="headerlink" title="4.4 绘图宝典"></a>4.4 绘图宝典</h2><ul>
-<li>github 上有用的绘图工具：<a target="_blank" rel="noopener" href="https://github.com/rougier/matplotlib-cheatsheet">https://github.com/rougier/matplotlib-cheatsheet</a></li>
-</ul>
-<p><img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/matplotlib-cheatsheet.jpg"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib.ticker <span class="keyword">import</span> AutoMinorLocator, MultipleLocator, FuncFormatter</span><br><span class="line"></span><br><span class="line">np.random.seed(<span class="number">19680801</span>)</span><br><span class="line"></span><br><span class="line">X = np.linspace(<span class="number">0.5</span>, <span class="number">3.5</span>, <span class="number">100</span>)</span><br><span class="line">Y1 = <span class="number">3</span>+np.cos(X)</span><br><span class="line">Y2 = <span class="number">1</span>+np.cos(<span class="number">1</span>+X/<span class="number">0.75</span>)/<span class="number">2</span></span><br><span class="line">Y3 = np.random.uniform(Y1, Y2, <span class="built_in">len</span>(X))</span><br><span class="line"></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">8</span>, <span class="number">8</span>), dpi=<span class="number">120</span>,facecolor=<span class="string">&#x27;#f7f7f7&#x27;</span>)</span><br><span class="line">ax = fig.add_subplot(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, aspect=<span class="number">1</span>, facecolor=<span class="string">&#x27;#e7dff3&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">minor_tick</span>(<span class="params">x, pos</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> x % <span class="number">1.0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;%.2f&quot;</span> % x</span><br><span class="line"></span><br><span class="line">ax.xaxis.set_major_locator(MultipleLocator(<span class="number">1.000</span>))</span><br><span class="line">ax.xaxis.set_minor_locator(AutoMinorLocator(<span class="number">4</span>))</span><br><span class="line">ax.yaxis.set_major_locator(MultipleLocator(<span class="number">1.000</span>))</span><br><span class="line">ax.yaxis.set_minor_locator(AutoMinorLocator(<span class="number">4</span>))</span><br><span class="line">ax.xaxis.set_minor_formatter(FuncFormatter(minor_tick))</span><br><span class="line"></span><br><span class="line">ax.set_xlim(<span class="number">0</span>, <span class="number">4</span>)</span><br><span class="line">ax.set_ylim(<span class="number">0</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">ax.tick_params(which=<span class="string">&#x27;major&#x27;</span>, width=<span class="number">1.0</span>)</span><br><span class="line">ax.tick_params(which=<span class="string">&#x27;major&#x27;</span>, length=<span class="number">10</span>)</span><br><span class="line">ax.tick_params(which=<span class="string">&#x27;minor&#x27;</span>, width=<span class="number">1.0</span>, labelsize=<span class="number">10</span>)</span><br><span class="line">ax.tick_params(which=<span class="string">&#x27;minor&#x27;</span>, length=<span class="number">5</span>, labelsize=<span class="number">10</span>, labelcolor=<span class="string">&#x27;0.25&#x27;</span>)</span><br><span class="line"></span><br><span class="line">ax.grid(linestyle=<span class="string">&quot;--&quot;</span>, linewidth=<span class="number">0.5</span>, color=<span class="string">&#x27;.25&#x27;</span>, zorder=-<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">ax.plot(X, Y1, c=(<span class="number">0.25</span>, <span class="number">0.25</span>, <span class="number">1.00</span>), lw=<span class="number">2</span>, label=<span class="string">&quot;Blue signal&quot;</span>, zorder=<span class="number">10</span>)</span><br><span class="line">ax.plot(X, Y2, c=(<span class="number">1.00</span>, <span class="number">0.25</span>, <span class="number">0.25</span>), lw=<span class="number">2</span>, label=<span class="string">&quot;Red signal&quot;</span>)</span><br><span class="line">ax.plot(X, Y3, linewidth=<span class="number">0</span>,</span><br><span class="line">        marker=<span class="string">&#x27;o&#x27;</span>, markerfacecolor=<span class="string">&#x27;w&#x27;</span>, markeredgecolor=<span class="string">&#x27;k&#x27;</span>)</span><br><span class="line"></span><br><span class="line">ax.set_title(<span class="string">&quot;Anatomy of a figure&quot;</span>, fontsize=<span class="number">20</span>, verticalalignment=<span class="string">&#x27;bottom&#x27;</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">&quot;X axis label&quot;</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">&quot;Y axis label&quot;</span>)</span><br><span class="line"></span><br><span class="line">ax.legend()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">circle</span>(<span class="params">x, y, radius=<span class="number">0.15</span></span>):</span><br><span class="line">    <span class="keyword">from</span> matplotlib.patches <span class="keyword">import</span> Circle</span><br><span class="line">    <span class="keyword">from</span> matplotlib.patheffects <span class="keyword">import</span> withStroke</span><br><span class="line">    circle = Circle((x, y), radius, clip_on=<span class="literal">False</span>, zorder=<span class="number">10</span>, linewidth=<span class="number">1</span>,</span><br><span class="line">                    edgecolor=<span class="string">&#x27;black&#x27;</span>, facecolor=(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.0125</span>),</span><br><span class="line">                    path_effects=[withStroke(linewidth=<span class="number">5</span>, foreground=<span class="string">&#x27;w&#x27;</span>)])</span><br><span class="line">    ax.add_artist(circle)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">text</span>(<span class="params">x, y, text</span>):</span><br><span class="line">    ax.text(x, y, text, backgroundcolor=<span class="string">&quot;white&quot;</span>,</span><br><span class="line">            ha=<span class="string">&#x27;center&#x27;</span>, va=<span class="string">&#x27;top&#x27;</span>, weight=<span class="string">&#x27;bold&#x27;</span>, color=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Minor tick</span></span><br><span class="line">circle(<span class="number">0.50</span>, -<span class="number">0.10</span>)</span><br><span class="line">text(<span class="number">0.50</span>, -<span class="number">0.32</span>, <span class="string">&quot;Minor tick label 次刻度标签&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Major tick</span></span><br><span class="line">circle(-<span class="number">0.03</span>, <span class="number">4.00</span>)</span><br><span class="line">text(<span class="number">0.03</span>, <span class="number">3.80</span>, <span class="string">&quot;Major tick 主刻度&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Minor tick</span></span><br><span class="line">circle(<span class="number">0.00</span>, <span class="number">3.50</span>)</span><br><span class="line">text(<span class="number">0.00</span>, <span class="number">3.30</span>, <span class="string">&quot;Minor tick 次刻度&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Major tick label</span></span><br><span class="line">circle(-<span class="number">0.15</span>, <span class="number">3.00</span>)</span><br><span class="line">text(-<span class="number">0.15</span>, <span class="number">2.80</span>, <span class="string">&quot;Major tick label 主刻度标签&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># X Label</span></span><br><span class="line">circle(<span class="number">1.80</span>, -<span class="number">0.27</span>)</span><br><span class="line">text(<span class="number">1.80</span>, -<span class="number">0.45</span>, <span class="string">&quot;X axis label X轴标签&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Y Label</span></span><br><span class="line">circle(-<span class="number">0.27</span>, <span class="number">1.80</span>)</span><br><span class="line">text(-<span class="number">0.27</span>, <span class="number">1.6</span>, <span class="string">&quot;Y axis label Y轴标签&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Title</span></span><br><span class="line">circle(<span class="number">1.60</span>, <span class="number">4.13</span>)</span><br><span class="line">text(<span class="number">1.60</span>, <span class="number">3.93</span>, <span class="string">&quot;Title 图标题&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Blue plot</span></span><br><span class="line">circle(<span class="number">1.75</span>, <span class="number">2.80</span>)</span><br><span class="line">text(<span class="number">1.75</span>, <span class="number">2.60</span>, <span class="string">&quot;Line\n(line plot) 线图&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Red plot</span></span><br><span class="line">circle(<span class="number">1.20</span>, <span class="number">0.60</span>)</span><br><span class="line">text(<span class="number">1.20</span>, <span class="number">0.40</span>, <span class="string">&quot;Line\n(line plot) 线图&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Scatter plot</span></span><br><span class="line">circle(<span class="number">3.20</span>, <span class="number">1.75</span>)</span><br><span class="line">text(<span class="number">3.20</span>, <span class="number">1.55</span>, <span class="string">&quot;Markers\n(scatter plot) 散点图&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Grid</span></span><br><span class="line">circle(<span class="number">3.00</span>, <span class="number">3.00</span>)</span><br><span class="line">text(<span class="number">3.00</span>, <span class="number">2.80</span>, <span class="string">&quot;Grid 网格&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Legend</span></span><br><span class="line">circle(<span class="number">3.70</span>, <span class="number">3.80</span>)</span><br><span class="line">text(<span class="number">3.70</span>, <span class="number">3.60</span>, <span class="string">&quot;Legend 图例&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Axes</span></span><br><span class="line">circle(<span class="number">0.5</span>, <span class="number">0.5</span>)</span><br><span class="line">text(<span class="number">0.5</span>, <span class="number">0.3</span>, <span class="string">&quot;Axes 坐标系&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Figure</span></span><br><span class="line">circle(-<span class="number">0.3</span>, <span class="number">0.65</span>)</span><br><span class="line">text(-<span class="number">0.3</span>, <span class="number">0.45</span>, <span class="string">&quot;Figure 图&quot;</span>)</span><br><span class="line"></span><br><span class="line">color = <span class="string">&#x27;blue&#x27;</span></span><br><span class="line">ax.annotate(<span class="string">&#x27;Spines 轴脊线&#x27;</span>, xy=(<span class="number">4.0</span>, <span class="number">0.35</span>), xytext=(<span class="number">3.3</span>, <span class="number">0.5</span>),</span><br><span class="line">            weight=<span class="string">&#x27;bold&#x27;</span>, color=color,</span><br><span class="line">            arrowprops=<span class="built_in">dict</span>(arrowstyle=<span class="string">&#x27;-&gt;&#x27;</span>,</span><br><span class="line">                            connectionstyle=<span class="string">&quot;arc3&quot;</span>,</span><br><span class="line">                            color=color))</span><br><span class="line"></span><br><span class="line">ax.annotate(<span class="string">&#x27;&#x27;</span>, xy=(<span class="number">3.15</span>, <span class="number">0.0</span>), xytext=(<span class="number">3.45</span>, <span class="number">0.45</span>),</span><br><span class="line">            weight=<span class="string">&#x27;bold&#x27;</span>, color=color,</span><br><span class="line">            arrowprops=<span class="built_in">dict</span>(arrowstyle=<span class="string">&#x27;-&gt;&#x27;</span>,</span><br><span class="line">                            connectionstyle=<span class="string">&quot;arc3&quot;</span>,</span><br><span class="line">                            color=color))</span><br><span class="line"></span><br><span class="line">ax.text(<span class="number">4.0</span>, -<span class="number">0.4</span>, <span class="string">&quot;Made with http://matplotlib.org&quot;</span>,</span><br><span class="line">        fontsize=<span class="number">10</span>, ha=<span class="string">&quot;right&quot;</span>, color=<span class="string">&#x27;.5&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<img src="/2020/04/%E4%BD%BF%E7%94%A8Python-matplotlib%E7%94%BB%E5%9B%BE/output_78_0.png" class="">
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/Win10%E7%8E%AF%E5%A2%83%E4%BF%AE%E6%94%B9Jupyter-Notebook%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/Win10%E7%8E%AF%E5%A2%83%E4%BF%AE%E6%94%B9Jupyter-Notebook%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Win10环境修改Jupyter Notebook默认文件夹位置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-04-02 21:49:58" itemprop="dateCreated datePublished" datetime="2020-04-02T21:49:58+08:00">2020-04-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/Jupyter-Notebook/" itemprop="url" rel="index"><span itemprop="name">Jupyter Notebook</span></a>
+          <a href="/categories/Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/04/Win10%E7%8E%AF%E5%A2%83%E4%BF%AE%E6%94%B9Jupyter-Notebook%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Win10环境修改Jupyter Notebook默认文件夹位置" title="阅读次数">
+    <span id="/2020/04/%E5%BF%AB%E9%80%9F%E4%BB%8EGithub-Clone%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE/" class="post-meta-item leancloud_visitors" data-flag-title="快速从Github Clone下载项目" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -1374,8 +538,8 @@ ytick.right: False
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/04/Win10%E7%8E%AF%E5%A2%83%E4%BF%AE%E6%94%B9Jupyter-Notebook%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/04/Win10%E7%8E%AF%E5%A2%83%E4%BF%AE%E6%94%B9Jupyter-Notebook%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/04/%E5%BF%AB%E9%80%9F%E4%BB%8EGithub-Clone%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/04/%E5%BF%AB%E9%80%9F%E4%BB%8EGithub-Clone%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1389,138 +553,23 @@ ytick.right: False
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Mac 环境上修改 Jupyter Notebook 启动文件夹地址，请参考 <a href="/2020/04/Mac%E7%8E%AF%E5%A2%83%E4%BF%AE%E6%94%B9Jupyter-Notebook%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE/" title="Mac环境修改Jupyter Notebook启动文件夹位置">Mac环境修改Jupyter Notebook启动文件夹位置</a>。</p>
-<p>在 Windows10 环境下安装了 Anaconda 或者 Miniconda3。</p>
-<h1 id="命令行方式"><a href="#命令行方式" class="headerlink" title="命令行方式"></a>命令行方式</h1><p>在 Anaconda 或者 Miniconda3 的 Prompt 命令行窗口，输入命令时传入地址参数，如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook D:\development\python</span><br></pre></td></tr></table></figure>
+          <p>在大陆从 <code>github</code> 克隆项目，速度非常慢。</p>
+<img src="/2020/04/%E5%BF%AB%E9%80%9F%E4%BB%8EGithub-Clone%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE/git-slow.png" class="">
 
-<h1 id="桌面快捷方式"><a href="#桌面快捷方式" class="headerlink" title="桌面快捷方式"></a>桌面快捷方式</h1><p>打开 Jupyter Notebook 时，文件夹的默认位置不是想要的位置，这时应该按如下方法进行修改。</p>
-<p>找到 Jupyter Notebook 的快捷方式，查看属性，修改<code>目标</code>栏目的内容。</p>
-<img src="/2020/04/Win10%E7%8E%AF%E5%A2%83%E4%BF%AE%E6%94%B9Jupyter-Notebook%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE/jupyter-target.png" class="">
+<p>以这种速度，稍微大一点的项目，git clone 一个晚上也下载不完，而且还会经常因为网络问题而失败。按网上说的设置代理，或者配置 hosts 记录，也行不通。</p>
+<p>后来发现了<code>码云(https://gitee.com/)</code>这个网站，我们可以通过它来下载，相当做一个中转站。</p>
+<p>注册、登录，然后选择点击下拉菜单 <code>从 GitHub / GitLab 导入仓库</code>。</p>
+<img src="/2020/04/%E5%BF%AB%E9%80%9F%E4%BB%8EGithub-Clone%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE/gitee-import.png" class="">
 
-<p>把<code>%USERPROFILE%/</code>改为你想要保存文件的路径，如图所示：</p>
-<img src="/2020/04/Win10%E7%8E%AF%E5%A2%83%E4%BF%AE%E6%94%B9Jupyter-Notebook%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE/anaconda-directory.png" class="">
+<p>然后开始导入仓库，从 URL 导入。</p>
+<img src="/2020/04/%E5%BF%AB%E9%80%9F%E4%BB%8EGithub-Clone%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE/repo-url.png" class="">
 
-<p>然后重新启动 Jupyter Notebook，页面就会自动加载你设置文件夹里面的内容了。</p>
+<p>输入 github 项目的 URL，很快就可以导入成功了。</p>
+<p>项目导入成功后，在<code>安全设置</code>里面添加SSH公钥，接着，就可以非常快的执行 git clone 命令了。</p>
+<p>最后，我们只需要把远程仓库的地址(remote repository)改回 github 上面的地址就可以了。</p>
+<img src="/2020/04/%E5%BF%AB%E9%80%9F%E4%BB%8EGithub-Clone%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE/github-url.png" class="">
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/Spring-Boot-yaml%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/Spring-Boot-yaml%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">Spring Boot yaml文件配置多维数组</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-04-01 22:48:01" itemprop="dateCreated datePublished" datetime="2020-04-01T22:48:01+08:00">2020-04-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/04/Spring-Boot-yaml%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84/" class="post-meta-item leancloud_visitors" data-flag-title="Spring Boot yaml文件配置多维数组" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/04/Spring-Boot-yaml%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/04/Spring-Boot-yaml%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>有时候我们需要在配置文件里面配置一些数组。以下示例是配置的二维数组，如果把 kv 键值分开来看，可以算作三维数组。</p>
-<p><code>application.yaml</code></p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">config:</span></span><br><span class="line">  <span class="attr">arrs:</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">k:</span> <span class="string">a1k</span></span><br><span class="line">        <span class="attr">v:</span> <span class="string">a1v</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">k:</span> <span class="string">a2k</span></span><br><span class="line">        <span class="attr">v:</span> <span class="string">a2v</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">k:</span> <span class="string">b1k</span></span><br><span class="line">        <span class="attr">v:</span> <span class="string">b1v</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">k:</span> <span class="string">b2k</span></span><br><span class="line">        <span class="attr">v:</span> <span class="string">b2v</span></span><br></pre></td></tr></table></figure>
-
-<p><code>ArrsConfig.java</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> gy.finolo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ConfigurationProperties(&quot;config&quot;)</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ArrsConfig</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;Kv&gt;[] arrs;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Data</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Kv</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> String k;</span><br><span class="line">        <span class="keyword">private</span> String v;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>需要特别注意，这里定义了一个 Kv 静态内部类，必须为 <code>public static</code>，属性如果使用 private，那就必须得到 getter&#x2F;setter 方法，这里我使用了 <code>@Data</code> 注解，自动生成了<br>getter&#x2F;setter 方法</p>
-<p>需要使用配置变量的文件。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">private ArrsConfig config;</span><br><span class="line"></span><br><span class="line">config.getArrs()[0].get(0).k</span><br><span class="line">config.getArrs()[1].get(1).getV()</span><br></pre></td></tr></table></figure>
+<p>这时，就跟你从 github 仓库上 git clone 下来的一样了。非常方便。</p>
 
       
     </div>
@@ -1540,7 +589,7 @@ ytick.right: False
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/63/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/63/">63</a><span class="page-number current">64</span><a class="page-number" href="/page/65/">65</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/65/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/63/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/63/">63</a><span class="page-number current">64</span><a class="page-number" href="/page/65/">65</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/65/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

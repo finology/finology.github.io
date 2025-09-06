@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">380</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/08/%E8%A7%A3%E5%86%B3jps-command-not-found/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/08/mybatis-plus%E5%9C%A8Console%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8C%E9%9D%A2%E6%89%93%E5%8D%B0sql%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +238,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/%E8%A7%A3%E5%86%B3jps-command-not-found/" class="post-title-link" itemprop="url">解决jps command not found</a>
+          <a href="/2021/08/mybatis-plus%E5%9C%A8Console%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8C%E9%9D%A2%E6%89%93%E5%8D%B0sql%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" class="post-title-link" itemprop="url">mybatis-plus在Console控制台里面打印sql查询语句</a>
         </h2>
 
         <div class="post-meta-container">
@@ -249,7 +249,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-08-05 15:26:24" itemprop="dateCreated datePublished" datetime="2021-08-05T15:26:24+08:00">2021-08-05</time>
+      <time title="创建时间：2021-08-15 15:25:37" itemprop="dateCreated datePublished" datetime="2021-08-15T15:25:37+08:00">2021-08-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -264,12 +264,16 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+          <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Database/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
         </span>
     </span>
 
   
-    <span id="/2021/08/%E8%A7%A3%E5%86%B3jps-command-not-found/" class="post-meta-item leancloud_visitors" data-flag-title="解决jps command not found" title="阅读次数">
+    <span id="/2021/08/mybatis-plus%E5%9C%A8Console%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8C%E9%9D%A2%E6%89%93%E5%8D%B0sql%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" class="post-meta-item leancloud_visitors" data-flag-title="mybatis-plus在Console控制台里面打印sql查询语句" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -284,8 +288,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2021/08/%E8%A7%A3%E5%86%B3jps-command-not-found/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/08/%E8%A7%A3%E5%86%B3jps-command-not-found/" itemprop="commentCount"></span>
+    <a title="waline" href="/2021/08/mybatis-plus%E5%9C%A8Console%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8C%E9%9D%A2%E6%89%93%E5%8D%B0sql%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/08/mybatis-plus%E5%9C%A8Console%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8C%E9%9D%A2%E6%89%93%E5%8D%B0sql%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -299,20 +303,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在 CentOS 7 ssh 下执行 jps 命令，返回 command not found。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">which</span> java</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ll -l /usr/bin/java</span></span><br><span class="line">lrwxrwxrwx. 1 root root 22 Oct 12  2020 /usr/bin/java -&gt; /etc/alternatives/java</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ll -l /etc/alternatives/java</span></span><br><span class="line">lrwxrwxrwx. 1 root root 73 Oct 12  2020 /etc/alternatives/java -&gt; /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-0.el7_8.x86_64/jre/bin/java </span><br></pre></td></tr></table></figure>
+          <p>使用Springboot集成了 mybatis-plus，在开发时，往往希望在控制台里面能看到 sql 语句，甚至查询结果，以便于高效开发。</p>
+<p>在 Springboot 的yml文件里面加入如下内容：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mybatis-plus:</span></span><br><span class="line">  <span class="attr">configuration:</span> </span><br><span class="line">    <span class="comment"># 是否将sql打印到控制面板(该配置会将sql语句和查询的结果都打印到控制台)</span></span><br><span class="line">    <span class="attr">log-impl:</span> <span class="string">org.apache.ibatis.logging.stdout.StdOutImpl</span></span><br></pre></td></tr></table></figure>
 
-<p>这个版本的java-1.8.0-openjdk-1.8.0.262.b10-0.el7_8.x86_64，是通过yum安装的openjdk。需要换成我们自己下载的jdk。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> <span class="built_in">rm</span> -rf /usr/bin/java</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> <span class="built_in">ln</span> -s /usr/local/java/jdk1.8.0_231/bin/java /usr/bin/java</span></span><br></pre></td></tr></table></figure>
-
-<p>添加环境变量，修改<code>~/.bash_profile</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:/usr/local/java/jdk1.8.0_231/bin/</span><br></pre></td></tr></table></figure>
-
-<p>激活</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> ~/.bash_profile</span></span><br></pre></td></tr></table></figure>
-
-<p>此时再执行 jps 命令，就可以执行成功了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">jps</span></span><br><span class="line">27455 Jps</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -338,7 +332,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/08/CentOS-7%E5%AE%89%E8%A3%85Kafka/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/08/Warning-Generating-equals-hashCode-implementation-but-without-a-call-to-superclass/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -356,7 +350,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/CentOS-7%E5%AE%89%E8%A3%85Kafka/" class="post-title-link" itemprop="url">CentOS 7安装Kafka</a>
+          <a href="/2021/08/Warning-Generating-equals-hashCode-implementation-but-without-a-call-to-superclass/" class="post-title-link" itemprop="url">Warning: Generating equals/hashCode implementation but without a call to superclass</a>
         </h2>
 
         <div class="post-meta-container">
@@ -367,7 +361,123 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-08-04 17:22:11" itemprop="dateCreated datePublished" datetime="2021-08-04T17:22:11+08:00">2021-08-04</time>
+      <time title="创建时间：2021-08-06 11:38:21" itemprop="dateCreated datePublished" datetime="2021-08-06T11:38:21+08:00">2021-08-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/08/Warning-Generating-equals-hashCode-implementation-but-without-a-call-to-superclass/" class="post-meta-item leancloud_visitors" data-flag-title="Warning: Generating equals/hashCode implementation but without a call to superclass" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/08/Warning-Generating-equals-hashCode-implementation-but-without-a-call-to-superclass/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/08/Warning-Generating-equals-hashCode-implementation-but-without-a-call-to-superclass/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>编译项目时，遇到这样一个错误提示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Warning:(12, 1) Generating equals/hashCode implementation but without a call to superclass, even though</span><br><span class="line"> this class does not extend java.lang.Object. If this is intentional, add &#x27;(callSuper=false)&#x27; to your type.</span><br></pre></td></tr></table></figure>
+
+<p>这是由于我们使用lombok的<code>@Data</code>注解时造成的。使用@Data注解时，子类的equals和hashCode方法，默认是不比较父类的属性的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">PRIME</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> <span class="built_in">super</span>.hashCode(); <span class="comment">// 默认这句话是没有的</span></span><br><span class="line">    <span class="type">Object</span> <span class="variable">$ext</span> <span class="operator">=</span> <span class="built_in">this</span>.getExt();</span><br><span class="line">    result = result * <span class="number">59</span> + ($ext == <span class="literal">null</span> ? <span class="number">43</span> : $ext.hashCode());</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解决方案有两个。</p>
+<p>在类上再添加一个注解：<code>@EqualsAndHashCode(callSuper = true)</code></p>
+<p>这样有个问题就是，只要继承了其他类，都要加这个注解。</p>
+<p>还有一个通用的解决方法，在<code>src/main/java</code>文件夹下面，注意，不是<code>src/main/resources</code>下面，添加配置文件<code>lombok.config</code></p>
+<p>文件里面的内容为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lombok.equalsAndHashCode.callSuper=call</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/08/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96Kafka%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96Kafka%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%B7/" class="post-title-link" itemprop="url">如何获取Kafka的版本号</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-05 15:44:18" itemprop="dateCreated datePublished" datetime="2021-08-05T15:44:18+08:00">2021-08-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -391,7 +501,7 @@
     </span>
 
   
-    <span id="/2021/08/CentOS-7%E5%AE%89%E8%A3%85Kafka/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS 7安装Kafka" title="阅读次数">
+    <span id="/2021/08/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96Kafka%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%B7/" class="post-meta-item leancloud_visitors" data-flag-title="如何获取Kafka的版本号" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -406,8 +516,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2021/08/CentOS-7%E5%AE%89%E8%A3%85Kafka/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/08/CentOS-7%E5%AE%89%E8%A3%85Kafka/" itemprop="commentCount"></span>
+    <a title="waline" href="/2021/08/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96Kafka%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%B7/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/08/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96Kafka%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%B7/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -421,130 +531,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>环境：CentOS 7<br>Kafka版本：kafka_2.12-2.6.2</p>
-<h1 id="下载Kafka安装文件"><a href="#下载Kafka安装文件" class="headerlink" title="下载Kafka安装文件"></a>下载Kafka安装文件</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> wget https://mirror.nodesdirect.com/apache/kafka/2.6.2/kafka_2.12-2.6.2.tgz</span></span><br></pre></td></tr></table></figure>
+          <p>一般执行命令时带个-version参数，就能看到程序的版本号，但Kafka不行。</p>
+<p>如何查看呢，先看到kafka的进程id。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ps -ef | grep kafka</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="解压安装"><a href="#解压安装" class="headerlink" title="解压安装"></a>解压安装</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> tar -xzf kafka_2.12-2.6.2.tgz -C /usr/local/kafka</span></span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">jps</span></span><br><span class="line">29190 Kafka</span><br><span class="line">29675 Jps</span><br><span class="line">28734 QuorumPeerMain</span><br></pre></td></tr></table></figure>
 
-<h1 id="启动Zookeeper"><a href="#启动Zookeeper" class="headerlink" title="启动Zookeeper"></a>启动Zookeeper</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> bin/zookeeper-server-start.sh config/zookeeper.properties</span></span><br></pre></td></tr></table></figure>
+<p>然后看查此进程的启动位置。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pwdx 29190</span></span><br><span class="line">29190: /usr/local/kafka/kafka_2.12-2.6.2</span><br></pre></td></tr></table></figure>
 
-<h1 id="启动Kafka"><a href="#启动Kafka" class="headerlink" title="启动Kafka"></a>启动Kafka</h1><p>修改server.properties配置文件。</p>
-<p>如果要使用外部程序去调用Kafka的话，需要设置advertised.listeners参数的IP地址。<br>advertised.listeners&#x3D;PLAINTEXT:&#x2F;&#x2F;192.168.0.2:9092</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> bin/kafka-server-start.sh config/server.properties</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>创建Topic</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">bin/kafka-topics.sh --describe --topic quickstart-events --bootstrap-server localhost:9092</span></span><br><span class="line">Topic:quickstart-events  PartitionCount:1    ReplicationFactor:1 Configs:</span><br><span class="line">    Topic: quickstart-events Partition: 0    Leader: 0   Replicas: 0 Isr: 0</span><br><span class="line">S</span><br></pre></td></tr></table></figure>
-
-<p>写消息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server localhost:9092</span></span><br><span class="line">This is my first event</span><br><span class="line">This is my second event</span><br></pre></td></tr></table></figure>
-
-<p>读消息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">bin/kafka-console-consumer.sh --topic quickstart-events --from-beginning --bootstrap-server localhost:9092</span></span><br><span class="line">This is my first event</span><br><span class="line">This is my second event</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/08/%E5%85%B3%E4%BA%8E%E5%9F%BA%E9%87%91%E7%9A%84%E5%87%A0%E4%B8%AA%E6%8C%87%E6%A0%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/%E5%85%B3%E4%BA%8E%E5%9F%BA%E9%87%91%E7%9A%84%E5%87%A0%E4%B8%AA%E6%8C%87%E6%A0%87/" class="post-title-link" itemprop="url">关于基金的几个指标</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-08-01 19:19:46" itemprop="dateCreated datePublished" datetime="2021-08-01T19:19:46+08:00">2021-08-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-
-  
-    <span id="/2021/08/%E5%85%B3%E4%BA%8E%E5%9F%BA%E9%87%91%E7%9A%84%E5%87%A0%E4%B8%AA%E6%8C%87%E6%A0%87/" class="post-meta-item leancloud_visitors" data-flag-title="关于基金的几个指标" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2021/08/%E5%85%B3%E4%BA%8E%E5%9F%BA%E9%87%91%E7%9A%84%E5%87%A0%E4%B8%AA%E6%8C%87%E6%A0%87/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/08/%E5%85%B3%E4%BA%8E%E5%9F%BA%E9%87%91%E7%9A%84%E5%87%A0%E4%B8%AA%E6%8C%87%E6%A0%87/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="基金规模、净值"><a href="#基金规模、净值" class="headerlink" title="基金规模、净值"></a>基金规模、净值</h1><p>基金有A类和C类，分析数据时有时候会迷惑。</p>
-<p>以下是通过API获取到的数据</p>
-<p>  | SEC_NAME | UNIT_TOTAL | UNIT_FUNDSHARE_TOTAL | FUND_FUNDSCALE | PRT_NETASSET | PRT_FUNDNETASSET_TOTAL | PRT_STOCKVALUE<br>– | —– | —– | —– | —– | —- | —- | —<br>920002.OF | 中金精选A | 2.118298e+08 | 22232.232524 | 4.696938e+08 | 4.696938e+08 | 4.928548e+08 | 4.407136e+08<br>920922.OF | 中金精选C | 1.049249e+07	| NaN | 2.316105e+07 | 2.316105e+07 | 4.928548e+08 | 4.407136e+08</p>
-<p>通过这个数据，我们就能很清晰的知道那些变量代表什么意思了。</p>
-<p><code>UNIT_TOTAL</code> 基金份额，单位为份<br><code>UNIT_FUNDSHARE_TOTAL</code> 基金份额（合计），比如A类和C类的份额数之和，一般合计到A类上面，C类上为0，单位为份<br><code>FUND_FUNDSCALE</code> 基金规模<br><code>PRT_NETASSET</code> 基金资产净值，这个值和基金规模是一个意思。<br><code>PRT_FUNDNETASSET_TOTAL</code> 基金资产净值（合计）<br><code>PRT_STOCKVALUE</code> 股票市值，这个值A类和C类相同</p>
-<p>资产配置里面的股票占比公式：<code>PRT_STOCKVALUE</code> &#x2F; <code>PRT_FUNDNETASSET_TOTAL</code></p>
-<p>所以在统计基金时，为了不统计重复数值，需要把C类基金去掉，也就是<code>UNIT_FUNDSHARE_TOTAL</code>为NaN的行，同时，用合计值来进行计算。</p>
-<h1 id="分行业市值"><a href="#分行业市值" class="headerlink" title="分行业市值"></a>分行业市值</h1><p>分行业市值，用申万，中信行业分类是不行的，只能用证监会行业。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[&#x27;农、林、牧、渔业&#x27;, &#x27;采矿业&#x27;, &#x27;制造业&#x27;, &#x27;电力、热力、燃气及水生产和供应业&#x27;, &#x27;建筑业&#x27;, &#x27;批发和零售业&#x27;,</span><br><span class="line">                 &#x27;交通运输、仓储和邮政业&#x27;, &#x27;住宿和餐饮业&#x27;, &#x27;信息传输、软件和信息技术服务业&#x27;, &#x27;金融业&#x27;, &#x27;房地产业&#x27;,</span><br><span class="line">                 &#x27;租赁和商务服务业&#x27;, &#x27;科学研究和技术服务业&#x27;, &#x27;水利、环境和公共设施管理业&#x27;, &#x27;居民服务、修理和其他服务业&#x27;,</span><br><span class="line">                 &#x27;教育&#x27;, &#x27;卫生和社会工作&#x27;, &#x27;文化、体育和娱乐业&#x27;, &#x27;综合&#x27;]</span><br></pre></td></tr></table></figure>
+<p>就能查看到Kafka的版本了，正常人在安装时，都不会修改这个路径的。</p>
 
       
     </div>
@@ -564,7 +561,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/33/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><span class="page-number current">34</span><a class="page-number" href="/page/35/">35</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/35/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/33/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><span class="page-number current">34</span><a class="page-number" href="/page/35/">35</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/35/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

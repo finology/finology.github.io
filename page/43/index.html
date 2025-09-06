@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">380</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/09/java%E4%B8%AD%E7%9A%84%E6%9E%9A%E4%B8%BE%E7%B1%BB/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/10/python%E6%A8%A1%E5%9D%97%E7%9A%84%E5%BC%95%E5%85%A5%E5%92%8C%E8%B0%83%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +238,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/09/java%E4%B8%AD%E7%9A%84%E6%9E%9A%E4%B8%BE%E7%B1%BB/" class="post-title-link" itemprop="url">java中的枚举类</a>
+          <a href="/2020/10/python%E6%A8%A1%E5%9D%97%E7%9A%84%E5%BC%95%E5%85%A5%E5%92%8C%E8%B0%83%E7%94%A8/" class="post-title-link" itemprop="url">python模块的引入和调用</a>
         </h2>
 
         <div class="post-meta-container">
@@ -249,7 +249,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-09-09 15:34:11" itemprop="dateCreated datePublished" datetime="2020-09-09T15:34:11+08:00">2020-09-09</time>
+      <time title="创建时间：2020-10-08 12:30:33" itemprop="dateCreated datePublished" datetime="2020-10-08T12:30:33+08:00">2020-10-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -264,12 +264,12 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/09/java%E4%B8%AD%E7%9A%84%E6%9E%9A%E4%B8%BE%E7%B1%BB/" class="post-meta-item leancloud_visitors" data-flag-title="java中的枚举类" title="阅读次数">
+    <span id="/2020/10/python%E6%A8%A1%E5%9D%97%E7%9A%84%E5%BC%95%E5%85%A5%E5%92%8C%E8%B0%83%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="python模块的引入和调用" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -284,8 +284,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/09/java%E4%B8%AD%E7%9A%84%E6%9E%9A%E4%B8%BE%E7%B1%BB/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/09/java%E4%B8%AD%E7%9A%84%E6%9E%9A%E4%B8%BE%E7%B1%BB/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/10/python%E6%A8%A1%E5%9D%97%E7%9A%84%E5%BC%95%E5%85%A5%E5%92%8C%E8%B0%83%E7%94%A8/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/10/python%E6%A8%A1%E5%9D%97%E7%9A%84%E5%BC%95%E5%85%A5%E5%92%8C%E8%B0%83%E7%94%A8/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -299,129 +299,20 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在 java 中经常会使用到枚举类。类名可以使用 Enum 结尾。 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">UserTypeEnum</span> &#123;</span><br><span class="line"></span><br><span class="line">    USER_TYPE_TEACHER   (<span class="number">1</span>, <span class="string">&quot;教师&quot;</span>),</span><br><span class="line">    USER_TYPE_STUDENT   (<span class="number">2</span>, <span class="string">&quot;学生&quot;</span>)</span><br><span class="line">    ;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Setter</span></span><br><span class="line">    <span class="meta">@Getter</span></span><br><span class="line">    <span class="keyword">private</span> Integer type;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Setter</span></span><br><span class="line">    <span class="meta">@Getter</span></span><br><span class="line">    <span class="keyword">private</span> String description;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>模块，以<code>.py</code>结尾，可以定义<code>变量</code>，<code>函数</code>或者<code>类</code>。</p>
+<h1 id="引入模块"><a href="#引入模块" class="headerlink" title="引入模块"></a>引入模块</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> module1 [, module2 [, ...moduleN]]</span><br></pre></td></tr></table></figure>
 
-<p>循环遍历枚举类的每一个值</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (UserTypeEnum userType : UserTypeEnum.values()) &#123;</span><br><span class="line">    <span class="comment">// userType.getType();</span></span><br><span class="line">    <span class="comment">// userType.getDescription();</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  module1[,module2[,....moduleN]] <span class="keyword">as</span> ...  <span class="comment"># 对模块重新命名，一般用于简化模块名</span></span><br></pre></td></tr></table></figure>
 
-    
-    
-    
+<h1 id="调用模块"><a href="#调用模块" class="headerlink" title="调用模块"></a>调用模块</h1><h2 id="通过import语句引入后调用"><a href="#通过import语句引入后调用" class="headerlink" title="通过import语句引入后调用"></a>通过import语句引入后调用</h2><p>调用函数，必须通过<code>模块名.函数名</code>的形式来调用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">time.tzname</span><br><span class="line"></span><br><span class="line">(<span class="string">&#x27;CST&#x27;</span>, <span class="string">&#x27;CST&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
+<h2 id="通过from…import语句只导入一个指定的部分"><a href="#通过from…import语句只导入一个指定的部分" class="headerlink" title="通过from…import语句只导入一个指定的部分"></a>通过from…import语句只导入一个指定的部分</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> module1 <span class="keyword">import</span> [,funName1 [, ...funNameN]]</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> tzname</span><br><span class="line"></span><br><span class="line">tzname</span><br><span class="line"></span><br><span class="line">(<span class="string">&#x27;CST&#x27;</span>, <span class="string">&#x27;CST&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/09/nginx%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99-emerg-getpwnam-nginx-failed-in/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/09/nginx%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99-emerg-getpwnam-nginx-failed-in/" class="post-title-link" itemprop="url">nginx启动报错[emerg] getpwnam(nginx) failed in</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-05 22:45:51" itemprop="dateCreated datePublished" datetime="2020-09-05T22:45:51+08:00">2020-09-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/Nginx/" itemprop="url" rel="index"><span itemprop="name">Nginx</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/nginx%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99-emerg-getpwnam-nginx-failed-in/" class="post-meta-item leancloud_visitors" data-flag-title="nginx启动报错[emerg] getpwnam(nginx) failed in" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/09/nginx%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99-emerg-getpwnam-nginx-failed-in/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/09/nginx%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99-emerg-getpwnam-nginx-failed-in/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>今天做了一个 nginx 项目的迁移，把老的整个 nginx 文件夹拷贝到新的机器上，启动 nginx, 结果报错，信息如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sbin/nginx</span></span><br><span class="line">nginx: [emerg] getpwnam(&quot;nginx&quot;) failed in /nginx/nginx-1.12.2/conf/nginx.conf:3</span><br></pre></td></tr></table></figure>
-
-<p>说明在 nginx.conf 配置文件的第三行有错。查看文件内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user nginx nginx;</span><br></pre></td></tr></table></figure>
-
-<p>新的机器没有 <code>nginx</code> 这个用户，添加一个便是。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">useradd nginx</span></span><br></pre></td></tr></table></figure>
-
-<p>重启再次启动 nginx，成功。</p>
+<h2 id="通过from…import-语句导入所有内容"><a href="#通过from…import-语句导入所有内容" class="headerlink" title="通过from…import *语句导入所有内容"></a>通过from…import *语句导入所有内容</h2><p>这时调用函数不需要使用<code>模块名.函数名</code>的方式来调用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">tzname</span><br><span class="line"></span><br><span class="line">(<span class="string">&#x27;CST&#x27;</span>, <span class="string">&#x27;CST&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -448,7 +339,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/08/Mybatis%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/09/Mybatis%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%85%B3%E7%B3%BBcollection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -466,7 +357,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/Mybatis%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">Mybatis开发中的一些最佳实践</a>
+          <a href="/2020/09/Mybatis%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%85%B3%E7%B3%BBcollection/" class="post-title-link" itemprop="url">Mybatis一对多关系collection</a>
         </h2>
 
         <div class="post-meta-container">
@@ -477,7 +368,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-08-05 17:32:09" itemprop="dateCreated datePublished" datetime="2020-08-05T17:32:09+08:00">2020-08-05</time>
+      <time title="创建时间：2020-09-25 10:57:51" itemprop="dateCreated datePublished" datetime="2020-09-25T10:57:51+08:00">2020-09-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -497,7 +388,7 @@
     </span>
 
   
-    <span id="/2020/08/Mybatis%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-meta-item leancloud_visitors" data-flag-title="Mybatis开发中的一些最佳实践" title="阅读次数">
+    <span id="/2020/09/Mybatis%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%85%B3%E7%B3%BBcollection/" class="post-meta-item leancloud_visitors" data-flag-title="Mybatis一对多关系collection" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -512,8 +403,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/08/Mybatis%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/08/Mybatis%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/09/Mybatis%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%85%B3%E7%B3%BBcollection/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/09/Mybatis%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%85%B3%E7%B3%BBcollection/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -527,13 +418,159 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h1><p>在 IntelliJ IDEA 中使用 Mybatis 可以安装 Free Mybatis Plugin 插件。</p>
-<p>这个时候可以很方便在 Mapper DAO 文件和 xml 文件中切换。 </p>
-<h1 id="在-DAO-中写-Param-注解"><a href="#在-DAO-中写-Param-注解" class="headerlink" title="在 DAO 中写 @Param 注解"></a>在 DAO 中写 @Param 注解</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserMapper</span> &#123;</span><br><span class="line">    </span><br><span class="line">    User <span class="title function_">getById</span><span class="params">(<span class="meta">@Param(&quot;id&quot;)</span> Integer id)</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>Mybatis中的一对多关系，用collection。</p>
+<p>一个学生表，Student，一个老师表，Teacher。一个老师下面有多个学生。学生表有一个字段 teacher_id。</p>
+<p>学生表对应的类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer teacherId;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
 
-<p>这样在 xml 文件中，这个<code>id</code>才会有智能提示。会提示<code>id = #&#123;id&#125;</code> 而非 <code>id = #&#123;param&#125;</code>。</p>
-<h1 id="插入记录后获取主键id"><a href="#插入记录后获取主键id" class="headerlink" title="插入记录后获取主键id"></a>插入记录后获取主键id</h1><p>在使用 mysql 的自增主键时，要插入成功后，才能知道主键的值。如果要在插入后，获取id的值，需要在 insert 标签里面添加两个属性。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">&quot;insertSelective&quot;</span> <span class="attr">useGeneratedKeys</span>=<span class="string">&quot;true&quot;</span> <span class="attr">keyProperty</span>=<span class="string">&quot;id&quot;</span>&gt;</span></span><br><span class="line">    INSERT INTO table...</span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>教师类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Teacher</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>我们要查出教师及其学生的列表。</p>
+<p>教师及学生列表类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TeacherInfo</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Student&gt; students;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>获取所以教师及学生列表信息的 DAO 层接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">TeacherDao</span> &#123;</span><br><span class="line">    </span><br><span class="line">    List&lt;TeacherInfo&gt; <span class="title function_">findTeachers</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述接口对应的 xml 文件的核心内容如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">mapper</span> <span class="keyword">PUBLIC</span> <span class="string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span> <span class="string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;gy.finolo.dao.TeacherDao&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;teacherInfoMap&quot;</span> <span class="attr">type</span>=<span class="string">&quot;gy.finolo.model.TeacherInfo&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">&quot;id&quot;</span> <span class="attr">jdbcType</span>=<span class="string">&quot;INTEGER&quot;</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;age&quot;</span> <span class="attr">jdbcType</span>=<span class="string">&quot;INTEGER&quot;</span> <span class="attr">property</span>=<span class="string">&quot;age&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">collection</span> <span class="attr">property</span>=<span class="string">&quot;students&quot;</span> <span class="attr">ofType</span>=<span class="string">&quot;gy.finolo.model.Student&quot;</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- &lt;id column=&quot;student_id&quot; property=&quot;id&quot; /&gt; --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;name&quot;</span> <span class="attr">property</span>=<span class="string">&quot;name&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">collection</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;findTeachers&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;teacherInfoMap&quot;</span>&gt;</span></span><br><span class="line">        SELECT t.id, t.age, s.name FROM t_teacher t INNER JOIN t_student s ON (t.id = s.teacher_id);</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>需要说明的有以下几点：</p>
+<ol>
+<li><p>主表和副表的 id 标签都可以不要，这时只是属性里面没有 id 的值而已。我之前以为是以 id 来判断两条记录是否相同的，现在看来并不是。</p>
+</li>
+<li><p>如果需要获取学生id值，为了避免column字段重复，所以在SQL语句写别名，同时在xml也做相应修改。</p>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">&quot;student_id&quot;</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;findTeachers&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;teacherInfoMap&quot;</span>&gt;</span></span><br><span class="line">    SELECT t.id, t.age, s.id student_id, s.name FROM t_teacher t INNER JOIN t_student s ON (t.id = s.teacher_id);</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/09/java-AOP%E5%88%87%E9%9D%A2%E5%A4%84%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/09/java-AOP%E5%88%87%E9%9D%A2%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">java AOP切面处理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-09 15:38:25" itemprop="dateCreated datePublished" datetime="2020-09-09T15:38:25+08:00">2020-09-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/java-AOP%E5%88%87%E9%9D%A2%E5%A4%84%E7%90%86/" class="post-meta-item leancloud_visitors" data-flag-title="java AOP切面处理" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/09/java-AOP%E5%88%87%E9%9D%A2%E5%A4%84%E7%90%86/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/09/java-AOP%E5%88%87%E9%9D%A2%E5%A4%84%E7%90%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在返回给客户端前，通过 AOP 给返回的类做处理。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ResponseAspect</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定义切点</span></span><br><span class="line">    <span class="meta">@Pointcut(&quot;execution(public * gy.finolo..*.*(..))&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterResponse</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterReturning(returning = &quot;object&quot;, pointcut = &quot;afterResponse()&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doAfterReturning</span><span class="params">(Object object)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (object <span class="keyword">instanceof</span> Response) &#123;</span><br><span class="line">            <span class="comment">// logic</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>AOP 有如下5种通知类型，@Around, @Before, @After, @AfterReturning 和 @AfterThrowing。</p>
+<ul>
+<li>如果在通知内都未调用 <code>proceedingJoinPoint.proceed()</code>，那执行顺序为如下：</li>
+</ul>
+<p>Around -&gt; After -&gt; AfterReturning (正常返回) | AfterThrowing (异常返回)</p>
+<ul>
+<li>如果在通知内部调用了 <code>proceedingJoinPoint.proceed()</code>，此句代码相当于是执行 <code>Before</code>（如果有的话） 和 <code>目标对象的方法</code> 逻辑。</li>
+</ul>
+<h1 id="Pointcut注解"><a href="#Pointcut注解" class="headerlink" title="Pointcut注解"></a>Pointcut注解</h1><p>Pointcut 表达式除了使用 <code>execution</code> 以外，还可以使用 <code>annotation</code>，比如：</p>
+<p>定义切点</p>
+<p><code>@Pointcut(&quot;@annotation(gy.finolo.anno.AopAnnotation)&quot;)</code></p>
+<p>我们再创建一个注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(&#123;ElementType.METHOD&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> AopAnnotation &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在方法上面只要是被 @AopAnnotation 注解了，那逻辑都会被切入。</p>
+
       
     </div>
 
@@ -552,7 +589,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/42/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/42/">42</a><span class="page-number current">43</span><a class="page-number" href="/page/44/">44</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/44/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/42/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/42/">42</a><span class="page-number current">43</span><a class="page-number" href="/page/44/">44</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/44/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

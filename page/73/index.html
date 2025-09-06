@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">377</span>
+          <span class="site-state-item-count">380</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/CentOS%E4%B8%8A%E6%90%AD%E5%BB%BANFS%E6%9C%8D%E5%8A%A1/">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +238,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/CentOS%E4%B8%8A%E6%90%AD%E5%BB%BANFS%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">CentOS上搭建NFS服务</a>
+          <a href="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/" class="post-title-link" itemprop="url">Grafana安装及持久化</a>
         </h2>
 
         <div class="post-meta-container">
@@ -249,295 +249,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-03-08 17:52:07" itemprop="dateCreated datePublished" datetime="2020-03-08T17:52:07+08:00">2020-03-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/FileSystem/" itemprop="url" rel="index"><span itemprop="name">FileSystem</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/FileSystem/NFS/" itemprop="url" rel="index"><span itemprop="name">NFS</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/03/CentOS%E4%B8%8A%E6%90%AD%E5%BB%BANFS%E6%9C%8D%E5%8A%A1/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS上搭建NFS服务" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/03/CentOS%E4%B8%8A%E6%90%AD%E5%BB%BANFS%E6%9C%8D%E5%8A%A1/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/CentOS%E4%B8%8A%E6%90%AD%E5%BB%BANFS%E6%9C%8D%E5%8A%A1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>为了配合设置k8s的存储，这篇文章讲解一下如何搭建NFS服务。</p>
-<p>为了测试，我们暂时在k8s-master节点(172.16.64.233&#x2F;24)来安装NFS服务，数据共享目录设置为<code>/data/nfs</code>。</p>
-<h2 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h2><p>k8s集群其实都已经关了的，如果在其他机器上，先关掉。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">systemctl stop firewalld</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">systemctl <span class="built_in">disable</span> firewalld</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="安装NFS"><a href="#安装NFS" class="headerlink" title="安装NFS"></a>安装NFS</h2><p>通过yum安装<code>nfs-utils</code>，这个组件会依赖<code>rpcbind</code>，也会自动被安装上。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">yum install nfs-utils</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="设置共享目录权限"><a href="#设置共享目录权限" class="headerlink" title="设置共享目录权限"></a>设置共享目录权限</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">chmod</span> 755 /data/nfs/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="配置NFS"><a href="#配置NFS" class="headerlink" title="配置NFS"></a>配置NFS</h2><p>NFS的默认配置文件在&#x2F;etc&#x2F;exports文件里，在该文件中添加如下内容：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">vi /etc/exports</span></span><br><span class="line">/data/nfs *(rw,sync,no_root_squash)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>&#x2F;data&#x2F;nfs：是共享的数据目录</p>
-</li>
-<li><p>*：表示任何人都有权限连接，当然也可以是一个网段，一个IP，也可以是域名<br>rw：读写的权限<br>sync：表示文件同时写入硬盘和内存<br>no_root_squash：当登录NFS主机使用共享目录的使用者是root时，其权限将被转换成为匿名使用者，通常它的UID与GID，都会变成nobody身份</p>
-</li>
-</ul>
-<h2 id="启动NFS"><a href="#启动NFS" class="headerlink" title="启动NFS"></a>启动NFS</h2><p>注意启动顺序，先启动<code>rpcbind</code>。</p>
-<p>启动服务 nfs 需要向 rpc 注册，rpc 一旦重启了，注册的文件都会丢失，向他注册的服务都需要重启。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">systemctl <span class="built_in">enable</span> rpcbind</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">systemctl start rpcbind</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">systemctl status rpcbind</span></span><br><span class="line">● rpcbind.service - RPC bind service</span><br><span class="line">   Loaded: loaded (/usr/lib/systemd/system/rpcbind.service; enabled; vendor preset: enabled)</span><br><span class="line">   Active: active (running) since 日 2020-03-08 13:24:03 CST; 5s ago</span><br><span class="line">  Process: 114504 ExecStart=/sbin/rpcbind -w $RPCBIND_ARGS (code=exited, status=0/SUCCESS)</span><br><span class="line"> Main PID: 114505 (rpcbind)</span><br><span class="line">    Tasks: 1</span><br><span class="line">   Memory: 748.0K</span><br><span class="line">   CGroup: /system.slice/rpcbind.service</span><br><span class="line">           └─114505 /sbin/rpcbind -w</span><br><span class="line"></span><br><span class="line">3月 08 13:24:03 k8s-master systemd[1]: Starting RPC bind service...</span><br><span class="line">3月 08 13:24:03 k8s-master systemd[1]: Started RPC bind service.</span><br></pre></td></tr></table></figure>
-
-<p>RPC bind服务Started说明RPC启动成功。</p>
-<p>然后启动NFS服务：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">systemctl <span class="built_in">enable</span> nfs</span></span><br><span class="line">Created symlink from /etc/systemd/system/multi-user.target.wants/nfs-server.service to /usr/lib/systemd/system/nfs-server.service.</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">systemctl start nfs</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">systemctl status nfs</span></span><br><span class="line">● nfs-server.service - NFS server and services</span><br><span class="line">   Loaded: loaded (/usr/lib/systemd/system/nfs-server.service; enabled; vendor preset: disabled)</span><br><span class="line">  Drop-In: /run/systemd/generator/nfs-server.service.d</span><br><span class="line">           └─order-with-mounts.conf</span><br><span class="line">   Active: active (exited) since 日 2020-03-08 13:25:57 CST; 6s ago</span><br><span class="line">  Process: 116906 ExecStartPost=/bin/sh -c if systemctl -q is-active gssproxy; then systemctl reload gssproxy ; fi (code=exited, status=0/SUCCESS)</span><br><span class="line">  Process: 116889 ExecStart=/usr/sbin/rpc.nfsd $RPCNFSDARGS (code=exited, status=0/SUCCESS)</span><br><span class="line">  Process: 116887 ExecStartPre=/usr/sbin/exportfs -r (code=exited, status=0/SUCCESS)</span><br><span class="line"> Main PID: 116889 (code=exited, status=0/SUCCESS)</span><br><span class="line">    Tasks: 0</span><br><span class="line">   Memory: 0B</span><br><span class="line">   CGroup: /system.slice/nfs-server.service</span><br><span class="line"></span><br><span class="line">3月 08 13:25:57 k8s-master systemd[1]: Starting NFS server and services...</span><br><span class="line">3月 08 13:25:57 k8s-master systemd[1]: Started NFS server and services.</span><br></pre></td></tr></table></figure>
-
-<p>NFS server成功启动。</p>
-<p>我们还可以通过下面的命令确认NFS服务启动成功。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">rpcinfo -p | grep nfs</span></span><br><span class="line">    100003    3   tcp   2049  nfs</span><br><span class="line">    100003    4   tcp   2049  nfs</span><br><span class="line">    100227    3   tcp   2049  nfs_acl</span><br><span class="line">    100003    3   udp   2049  nfs</span><br><span class="line">    100003    4   udp   2049  nfs</span><br><span class="line">    100227    3   udp   2049  nfs_acl</span><br></pre></td></tr></table></figure>
-
-<p>查看具体的挂载权限：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cat</span> /var/lib/nfs/etab</span></span><br><span class="line">/data/nfs	*(rw,sync,wdelay,hide,nocrossmnt,secure,no_root_squash,no_all_squash,no_subtree_check,secure_locks,acl,no_pnfs,anonuid=65534,anongid=65534,sec=sys,rw,secure,no_root_squash,no_all_squash)</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看共享目录"><a href="#查看共享目录" class="headerlink" title="查看共享目录"></a>查看共享目录</h2><p>在其他机器上，可以检查NFS是否有共享目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">showmount -e 172.16.64.233</span><br><span class="line">Exports list on 172.16.64.233:</span><br><span class="line">/data/nfs *</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Linux%E4%B8%8BShell%E5%91%BD%E4%BB%A4%E8%BF%9B%E8%A1%8C%E6%97%A5%E6%9C%9Fdate%E5%92%8C%E6%97%B6%E9%97%B4%E6%88%B3timestamp%E7%9A%84%E8%BD%AC%E6%8D%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/Linux%E4%B8%8BShell%E5%91%BD%E4%BB%A4%E8%BF%9B%E8%A1%8C%E6%97%A5%E6%9C%9Fdate%E5%92%8C%E6%97%B6%E9%97%B4%E6%88%B3timestamp%E7%9A%84%E8%BD%AC%E6%8D%A2/" class="post-title-link" itemprop="url">Linux下Shell命令进行日期date和时间戳timestamp的转换 </a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-07 11:50:08" itemprop="dateCreated datePublished" datetime="2020-03-07T11:50:08+08:00">2020-03-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/03/Linux%E4%B8%8BShell%E5%91%BD%E4%BB%A4%E8%BF%9B%E8%A1%8C%E6%97%A5%E6%9C%9Fdate%E5%92%8C%E6%97%B6%E9%97%B4%E6%88%B3timestamp%E7%9A%84%E8%BD%AC%E6%8D%A2/" class="post-meta-item leancloud_visitors" data-flag-title="Linux下Shell命令进行日期date和时间戳timestamp的转换 " title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/03/Linux%E4%B8%8BShell%E5%91%BD%E4%BB%A4%E8%BF%9B%E8%A1%8C%E6%97%A5%E6%9C%9Fdate%E5%92%8C%E6%97%B6%E9%97%B4%E6%88%B3timestamp%E7%9A%84%E8%BD%AC%E6%8D%A2/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Linux%E4%B8%8BShell%E5%91%BD%E4%BB%A4%E8%BF%9B%E8%A1%8C%E6%97%A5%E6%9C%9Fdate%E5%92%8C%E6%97%B6%E9%97%B4%E6%88%B3timestamp%E7%9A%84%E8%BD%AC%E6%8D%A2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>我们常常会遇到如下情况，把日期转换成timestamp，或者把timestamp转换成日期格式。</p>
-<p>初级选手一般都会打开网页，有些站点提供了日期转换的功能。</p>
-<p>高级选手可以直接通过shell命令，就能成功的完成日期和timestamp的转换。</p>
-<p>我们先来看看Linux的<code>date</code>命令。</p>
-<ul>
-<li>显示日期时间</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">date</span></span></span><br><span class="line">Wed Mar  4 11:44:05 CST 2020</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>显示带时区的日期时间</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">date</span> -R</span></span><br><span class="line">Wed, 04 Mar 2020 11:44:41 +0800</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>按指定格式显示日期时间</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">date</span> <span class="string">&#x27;+%Y-%m-%d %H:%M:%S %Z&#x27;</span></span></span><br><span class="line">2020-03-04 11:46:14 CST</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>查看当前时间的timestamp</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">date</span> +%s</span></span><br><span class="line">1583293699</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>显示描述类型的日期时间</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">date</span> -d <span class="string">&quot;1970-01-01 UTC&quot;</span></span></span><br><span class="line">Thu Jan  1 08:00:00 CST 1970</span><br></pre></td></tr></table></figure>
-
-<p><code>-d</code>的参数是指：<code>-d, --date=STRING          display time described by STRING, not &#39;now&#39;</code></p>
-<ul>
-<li>日期时间转timestamp</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">date</span> -d <span class="string">&#x27;1970-01-01 UTC&#x27;</span> +%s</span></span><br><span class="line">0</span><br></pre></td></tr></table></figure>
-<ul>
-<li>timestamp转日期时间</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">date</span> -d @1583395499.709</span></span><br><span class="line">Thu Mar  5 16:04:59 CST 2020</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/" class="post-title-link" itemprop="url">Grafana迁移(导出导入)dashboard</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-03 22:47:03" itemprop="dateCreated datePublished" datetime="2020-03-03T22:47:03+08:00">2020-03-03</time>
+      <time title="创建时间：2020-03-08 22:30:41" itemprop="dateCreated datePublished" datetime="2020-03-08T22:30:41+08:00">2020-03-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -561,7 +273,7 @@
     </span>
 
   
-    <span id="/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/" class="post-meta-item leancloud_visitors" data-flag-title="Grafana迁移(导出导入)dashboard" title="阅读次数">
+    <span id="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/" class="post-meta-item leancloud_visitors" data-flag-title="Grafana安装及持久化" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -576,8 +288,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -591,16 +303,328 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>我们在Grafana测试环境，搭建好了一个Dashboard，现在想把它放到生产环境中运行。这时，就需要用到Grafana的导出导入功能。</p>
-<h1 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h1><p>Dashboard右上角，点击<code>Share Dashboard</code>图标。</p>
-<img src="/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/grafana-export.png" class="">
+          <p>这篇文章主要讲解在kubernetes集群中如何安装Grafana和持久化Grafana数据。</p>
+<p>使用的镜像是<code>image: grafana/grafana:6.3.3</code></p>
+<p>安装Grafana使用的yaml文件是安装<code>kube-prometheus</code>里面的。安装 <code>kube-prometheus</code>，请参考 <a href="/2019/12/Kubernetes%E7%9B%91%E6%8E%A7%E6%96%B9%E6%A1%88kube-prometheus-prometheus-node-exporter-grafana/" title="Kubernetes监控方案kube-prometheus(prometheus, node-exporter, grafana)">Kubernetes监控方案kube-prometheus(prometheus, node-exporter, grafana)</a></p>
+<p>不过需要对<code>grafana/grafana-deployment.yaml</code>做一些自定义化的修改。</p>
+<h1 id="设置管理员"><a href="#设置管理员" class="headerlink" title="设置管理员"></a>设置管理员</h1><p>在<code>containers</code>下级添加<code>GF_SECURITY_ADMIN_USER</code>和<code>GF_SECURITY_ADMIN_PASSWORD</code>，用来配置 grafana 的管理员用户和密码</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">image:</span> <span class="string">grafana/grafana:6.3.3</span></span><br><span class="line">    <span class="string">...</span></span><br><span class="line">    <span class="attr">env:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_SECURITY_ADMIN_USER</span></span><br><span class="line">      <span class="attr">value:</span> <span class="string">admin</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_SECURITY_ADMIN_PASSWORD</span></span><br><span class="line">      <span class="attr">value:</span> <span class="string">&quot;123456&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>同时，选中第三个标签<code>Export</code>，最后点击<code>Save to file</code>按钮。这时会把Dashboard保存到一个json文件中，并下载到本地。</p>
-<h1 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h1><p>点击<code>Import</code>菜单</p>
-<img src="/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/grafana-import1.png" class="">
+<p>如果要设置Grafana的匿名登录，请参考<a href="/2019/12/Grafana%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95Kubernetes%E8%AE%BE%E7%BD%AE/" title="Grafana匿名登录Kubernetes设置">Grafana匿名登录Kubernetes设置</a></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_AUTH_ANONYMOUS_ENABLED</span></span><br><span class="line">  <span class="attr">value:</span> <span class="string">&quot;true&quot;</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_AUTH_ANONYMOUS_ORG_ROLE</span></span><br><span class="line">  <span class="attr">value:</span> <span class="string">Viewer</span></span><br></pre></td></tr></table></figure>
 
-<p>点击<code>Upload .json File</code>按钮，上传刚才保存的json文件。或者在<code>Or paste JSON</code>文本框中，粘贴刚才下载的json的内容后，再点击<code>Load</code>按钮。</p>
-<img src="/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/grafana-import2.png" class="">
+<h1 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h1><p>原始的数据是以<code>emptyDir</code>形式存放在pod里面，生命周期与pod相同，出现问题时，容器重启，在Grafana里面设置的数据就全部消失了。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  <span class="attr">volumeMounts:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">mountPath:</span> <span class="string">/var/lib/grafana</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">grafana-storage</span></span><br><span class="line">    <span class="attr">readOnly:</span> <span class="literal">false</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">emptyDir:</span> &#123;&#125;</span><br><span class="line">  <span class="attr">name:</span> <span class="string">grafana-storage</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看出Grafana将dashboard、插件这些数据保存在&#x2F;var&#x2F;lib&#x2F;grafana这个目录下面。做持久化的话，就需要对这个目录进行volume挂载声明。</p>
+<p>把emptyDir修改为pvc方式。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">grafana-storage</span></span><br><span class="line">  <span class="attr">persistentVolumeClaim:</span></span><br><span class="line">    <span class="attr">claimName:</span> <span class="string">grafana</span></span><br></pre></td></tr></table></figure>
+
+<p>如果要使用一个 pvc 对象来持久化数据，我们就需要添加一个可用的 pv 供 pvc 绑定使用，<code>grafana-volume.yaml</code>内容如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolume</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">grafana</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">capacity:</span></span><br><span class="line">    <span class="attr">storage:</span> <span class="string">1Gi</span></span><br><span class="line">  <span class="attr">accessModes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ReadWriteOnce</span></span><br><span class="line">  <span class="attr">persistentVolumeReclaimPolicy:</span> <span class="string">Recycle</span></span><br><span class="line">  <span class="attr">nfs:</span></span><br><span class="line">    <span class="attr">server:</span> <span class="number">172.16</span><span class="number">.64</span><span class="number">.233</span></span><br><span class="line">    <span class="attr">path:</span> <span class="string">/data/nfs</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolumeClaim</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">grafana</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">monitoring</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">accessModes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ReadWriteOnce</span></span><br><span class="line">  <span class="attr">resources:</span></span><br><span class="line">    <span class="attr">requests:</span></span><br><span class="line">      <span class="attr">storage:</span> <span class="string">1Gi</span></span><br></pre></td></tr></table></figure>
+
+<p>暴露Service的方法，在安装 kube-prometheus 的时候已经讲过了。<a href="/2019/12/Kubernetes%E7%9B%91%E6%8E%A7%E6%96%B9%E6%A1%88kube-prometheus-prometheus-node-exporter-grafana/" title="Kubernetes监控方案kube-prometheus(prometheus, node-exporter, grafana)">Kubernetes监控方案kube-prometheus(prometheus, node-exporter, grafana)</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl apply -f grafana-volume.yaml</span></span><br><span class="line">persistentvolume/grafana created</span><br><span class="line">persistentvolumeclaim/grafana created</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl apply -f grafana-deployment.yaml</span></span><br><span class="line">deployment.apps/grafana configured</span><br></pre></td></tr></table></figure>
+
+<p>查看 pod 状态：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl get po -n monitoring</span></span><br><span class="line">NAME                                  READY   STATUS              RESTARTS   AGE</span><br><span class="line">...</span><br><span class="line">grafana-6668cd66cb-ff8kg              0/1     ContainerCreating   0          2m32s</span><br></pre></td></tr></table></figure>
+
+<p>进一步查看描述信息：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl describe po grafana-6668cd66cb-ff8kg -n monitoring</span></span><br><span class="line">Events:</span><br><span class="line">  Type     Reason       Age    From                Message</span><br><span class="line">  ----     ------       ----   ----                -------</span><br><span class="line">  Normal   Scheduled    3m57s  default-scheduler   Successfully assigned monitoring/grafana-6668cd66cb-ff8kg to k8s-node2</span><br><span class="line">  Warning  FailedMount  3m54s  kubelet, k8s-node2  MountVolume.SetUp failed for volume &quot;grafana&quot; : mount failed: exit status 32</span><br><span class="line">Mounting command: systemd-run</span><br><span class="line">Mounting arguments: --description=Kubernetes transient mount for /var/lib/kubelet/pods/fc4d98ef-0b80-4570-a487-4ded9133eb58/volumes/kubernetes.io~nfs/grafana --scope -- mount -t nfs 172.16.64.233:/data/nfs /var/lib/kubelet/pods/fc4d98ef-0b80-4570-a487-4ded9133eb58/volumes/kubernetes.io~nfs/grafana</span><br><span class="line">Output: Running scope as unit run-54024.scope.</span><br><span class="line">mount: wrong fs type, bad option, bad superblock on 172.16.64.233:/data/nfs,</span><br><span class="line">       missing codepage or helper program, or other error</span><br><span class="line">       (for several filesystems (e.g. nfs, cifs) you might</span><br><span class="line">       need a /sbin/mount.&lt;type&gt; helper program)</span><br><span class="line"></span><br><span class="line">       In some cases useful info is found in syslog - try</span><br><span class="line">       dmesg | tail or so.</span><br><span class="line">  Warning  FailedMount  3m53s  kubelet, k8s-node2  MountVolume.SetUp failed for volume &quot;grafana&quot; : mount failed: exit status 32</span><br></pre></td></tr></table></figure>
+
+<p>说明是 mount 失败了。原因是我们需要在每个节点，都要安装 NFS 客户端。在生产环境下，如何批量操作 terminal 终端？请参考：<a href="/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/" title="批量操作Shell终端">批量操作Shell终端</a></p>
+<p>在每个node下面都安装好NFS客户端以后，删除掉出错的 pod。</p>
+<p>查看 pod:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po -n monitoring</span><br><span class="line">NAME                                  READY   STATUS             RESTARTS   AGE</span><br><span class="line">grafana-6668cd66cb-jrnjv              0/1     CrashLoopBackOff   4          2m53s</span><br></pre></td></tr></table></figure>
+
+<p>没有正常启动，我们再看一下这个 Pod 的日志：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl logs grafana-6668cd66cb-jrnjv -n monitoring</span></span><br><span class="line">GF_PATHS_DATA=&#x27;/var/lib/grafana&#x27; is not writable.</span><br><span class="line">You may have issues with file permissions, more information here: http://docs.grafana.org/installation/docker/#migration-from-a-previous-version-of-the-docker-container-to-5-1-or-later</span><br><span class="line">mkdir: cannot create directory &#x27;/var/lib/grafana/plugins&#x27;: Permission denied</span><br></pre></td></tr></table></figure>
+
+<p>这个错误是 Grafana 5.1版本以后才会出现的。错误的原因很明显，就是 <code>/var/lib/grafana</code> 目录的权限不够。</p>
+<p>在 &#96;&#96; 中有这样一个属性：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">securityContext:</span></span><br><span class="line">  <span class="attr">runAsNonRoot:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">runAsUser:</span> <span class="number">65534</span></span><br></pre></td></tr></table></figure>
+
+<p>我们查看一下<code>65534</code>是哪个用户：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cat</span> /etc/passwd | grep 65534</span></span><br><span class="line">nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin</span><br></pre></td></tr></table></figure>
+
+<p>所以，你只需要把 <code>/data/nfs</code> 目录的用户改为 <code>nfsnobody</code> 就可以了。当然把属性改为 <code>777</code> 也没问题。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown nfsnobody /data/nfs</span><br></pre></td></tr></table></figure>
+
+<p>把刚才出错的那个 Pod 删除，新的  Grafana Pod 就成功启动了。</p>
+<img src="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/grafana-home.png" class="">
+
+<p>然后可以添加 Dashboard 了，哪怕 Pod 重建也不会丢失数据了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/" class="post-title-link" itemprop="url">批量操作Shell终端</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-08 20:05:15" itemprop="dateCreated datePublished" datetime="2020-03-08T20:05:15+08:00">2020-03-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/SSH/" itemprop="url" rel="index"><span itemprop="name">SSH</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/" class="post-meta-item leancloud_visitors" data-flag-title="批量操作Shell终端" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在生产环境，往往有几十上百台服务器要同时操作，如何同时控制这么多服务器呢？</p>
+<h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><p>在Windows环境下，可以使用XShell。</p>
+<p>点击<code>工具(T)</code>-&gt;<code>发送键到所有会话(K)</code></p>
+<img src="/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/xshell-command-all.png" class="">
+
+<h1 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h1><p>可以使用 iTerm2 终端工具，快捷键是<code>Command + Shift + I</code>。然后 iTerm2 窗口会出现背景斜条纹。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/" class="post-title-link" itemprop="url">Kubernetes持久化存储PV,PVC</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-08 19:35:45" itemprop="dateCreated datePublished" datetime="2020-03-08T19:35:45+08:00">2020-03-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/PV/" itemprop="url" rel="index"><span itemprop="name">PV</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/" class="post-meta-item leancloud_visitors" data-flag-title="Kubernetes持久化存储PV,PVC" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我们可以通过hostPath或者emptyDir的方式来持久化数据。但这两种存储方式都是很大局限性的。我们希望容器在重建以后，依然能正确使用之前保存的数据。Kubernetes引入了PV和PVC两个重要的资源来实现对存储的管理。</p>
+<h1 id="PV"><a href="#PV" class="headerlink" title="PV"></a>PV</h1><p>PersistentVolume，持久化卷，是对底层共享存储的一种抽象。底层共享的实现，可以是Ceph, GlusterFS, NFS等。</p>
+<p>我们在<a href="/2020/03/CentOS%E4%B8%8A%E6%90%AD%E5%BB%BANFS%E6%9C%8D%E5%8A%A1/" title="CentOS上搭建NFS服务">CentOS上搭建NFS服务</a>讲了如何搭建NFS服务。PV作为存储资源，主要包括存储能力、访问模式、存储类型、回收策略等关键信息。</p>
+<p>现在新建一个PV资源对象，使用NFS类型的存储，1G空间，访问模式为ReadWriteOnce，回收策略为Recycle，yaml文件<code>pv1-demo.yaml</code>内容如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolume</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span>  <span class="string">pv1</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">capacity:</span> </span><br><span class="line">    <span class="attr">storage:</span> <span class="string">1Gi</span></span><br><span class="line">  <span class="attr">accessModes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ReadWriteOnce</span></span><br><span class="line">  <span class="attr">persistentVolumeReclaimPolicy:</span> <span class="string">Recycle</span></span><br><span class="line">  <span class="attr">nfs:</span></span><br><span class="line">    <span class="attr">path:</span> <span class="string">/data/nfs</span></span><br><span class="line">    <span class="attr">server:</span> <span class="number">172.16</span><span class="number">.64</span><span class="number">.233</span></span><br></pre></td></tr></table></figure>
+
+<p>应用一下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl apply -f pv1-demo.yaml</span></span><br><span class="line">persistentvolume/pv1 created</span><br></pre></td></tr></table></figure>
+
+<p>查看刚才创建的结果</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl get pv</span></span><br><span class="line">NAME   CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE</span><br><span class="line">pv1    1Gi        RWO            Recycle          Available                                   82s</span><br></pre></td></tr></table></figure>
+
+<p>Status状态为Available，表示pv1已经就绪，可以被PVC申请了。</p>
+<p>这里讲一下PV的几个属性</p>
+<h2 id="STATUS"><a href="#STATUS" class="headerlink" title="STATUS"></a>STATUS</h2><p>一个 PV 的生命周期中，可能会处于4中不同的阶段：</p>
+<ul>
+<li>Available（可用）：表示可用状态，还未被任何 PVC 绑定</li>
+<li>Bound（已绑定）：表示 PVC 已经被 PVC 绑定</li>
+<li>Released（已释放）：PVC 被删除，但是资源还未被集群重新声明</li>
+<li>Failed（失败）： 表示该 PV 的自动回收失败</li>
+</ul>
+<h2 id="CAPACITY"><a href="#CAPACITY" class="headerlink" title="CAPACITY"></a>CAPACITY</h2><p>目前只有空间大小，pv1的空间为1G，以后可能会加入IOPS，吞吐量等指标。</p>
+<h2 id="ACCESS-MODES"><a href="#ACCESS-MODES" class="headerlink" title="ACCESS MODES"></a>ACCESS MODES</h2><p>AccessModes是用来对PV进行访问模式的设置。</p>
+<ul>
+<li>ReadWriteOnce（RWO）：读写权限，但是只能被单个节点挂载</li>
+<li>ReadOnlyMany（ROX）：只读权限，可以被多个节点挂载</li>
+<li>ReadWriteMany（RWX）：读写权限，可以被多个节点挂载</li>
+</ul>
+<h2 id="RECLAIM-POLICY"><a href="#RECLAIM-POLICY" class="headerlink" title="RECLAIM POLICY"></a>RECLAIM POLICY</h2><p>回收策略</p>
+<ul>
+<li>Retain（保留）- 保留数据，需要管理员手工清理数据</li>
+<li>Recycle（回收）- 清除PV中的数据，效果相当于执行 rm -rf &#x2F;thevoluem&#x2F;*</li>
+<li>Delete（删除）- 与PV相连的后端存储完成volume的删除操作</li>
+</ul>
+<p>生产上一般使用Retain策略。</p>
+<h1 id="PVC"><a href="#PVC" class="headerlink" title="PVC"></a>PVC</h1><p>PersistentVolumeClaim，持久化卷声明。如果说Pod消耗的是Node资源的话，PVC则是消耗的PV资源，Pod可以请求CPU和内存，而PVC可以请求特定的存储空间和访问模式。</p>
+<p>我们新建一个PVC，请求1G的空间，<code>pvc-nfs.yaml</code>内容如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolumeClaim</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">pvc-nfs</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">accessModes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ReadWriteOnce</span></span><br><span class="line">  <span class="attr">resources:</span></span><br><span class="line">    <span class="attr">requests:</span></span><br><span class="line">      <span class="attr">storage:</span> <span class="string">1Gi</span></span><br></pre></td></tr></table></figure>
+
+<p>这里需要注册的是，PV是没有namespace的，而PVC是有namespace的。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl apply -f pvc-nfs.yaml</span></span><br><span class="line">persistentvolumeclaim/pvc-nfs created</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl get pvc</span></span><br><span class="line">NAME      STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE</span><br><span class="line">pvc-nfs   Bound    pv1      1Gi        RWO                           3m22s</span><br></pre></td></tr></table></figure>
+
+<p>PVC已经是<code>Bound</code>状态了。我们再查看一个PV的状态，发现也是<code>Bound</code>状态了。对应的声明是<code>default/pvc-nfs</code>，就是<code>default</code>命名空间下面的<code>pvc-nfs</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl get pv</span></span><br><span class="line">NAME   CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM             STORAGECLASS   REASON   AGE</span><br><span class="line">pv1    1Gi        RWO            Recycle          Bound    default/pvc-nfs                           48m</span><br></pre></td></tr></table></figure>
+
+<p>这里可能觉得奇怪，我们并没有在 yaml 文件里面指定 PVC 和 PV 的关系，他们怎么可能绑定到一起呢？其实这是系统自动帮我们去匹配的，他会根据我们的声明要求去查找处于 Available 状态的 PV，如果没有找到的话那么我们的 PVC 就会一直处于 Pending 状态，找到了的话当然就会把当前的 PVC 和目标 PV 进行绑定，这个时候状态就会变成 Bound 状态了。</p>
+<p>如果使用PVC，可以参考<a href="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/" title="Grafana安装及持久化">Grafana安装及持久化</a></p>
 
       
     </div>
@@ -620,7 +644,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/72/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/72/">72</a><span class="page-number current">73</span><a class="page-number" href="/page/74/">74</a><span class="space">&hellip;</span><a class="page-number" href="/page/126/">126</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/74/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/72/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/72/">72</a><span class="page-number current">73</span><a class="page-number" href="/page/74/">74</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/74/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
