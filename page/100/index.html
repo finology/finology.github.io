@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">380</span>
+          <span class="site-state-item-count">382</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,236 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/07/macOS%E5%8D%87%E7%BA%A7nodejs%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/07/macOS%E5%8D%87%E7%BA%A7nodejs%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC/" class="post-title-link" itemprop="url">macOS升级nodejs到最新版本</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-07 12:01:55" itemprop="dateCreated datePublished" datetime="2019-07-07T12:01:55+08:00">2019-07-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+
+  
+    <span id="/2019/07/macOS%E5%8D%87%E7%BA%A7nodejs%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC/" class="post-meta-item leancloud_visitors" data-flag-title="macOS升级nodejs到最新版本" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/07/macOS%E5%8D%87%E7%BA%A7nodejs%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/07/macOS%E5%8D%87%E7%BA%A7nodejs%E5%88%B0%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>npm 从5.2版开始，增加了 npx 命令。Node 自带 npm 模块，所以可以直接使用 npx 命令。如果没有安装就手动安装一下。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g npx</span><br></pre></td></tr></table></figure>
+
+<p>当我运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npx create-react-app my-app</span><br><span class="line">npx: 91 安装成功，用时 9.606 秒</span><br><span class="line">You are running Node 6.3.1.</span><br><span class="line">Create React App requires Node 8 or higher.</span><br><span class="line">Please update your version of Node.</span><br></pre></td></tr></table></figure>
+
+<p>提示需要更新node。</p>
+<h1 id="查看本机node版本"><a href="#查看本机node版本" class="headerlink" title="查看本机node版本"></a>查看本机node版本</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">v6.3.1</span><br></pre></td></tr></table></figure>
+
+<h1 id="清除node的cache"><a href="#清除node的cache" class="headerlink" title="清除node的cache"></a>清除node的cache</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm cache clean -f</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装n工具"><a href="#安装n工具" class="headerlink" title="安装n工具"></a>安装<code>n</code>工具</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g n</span><br><span class="line">/usr/local/bin/n -&gt; /usr/local/lib/node_modules/n/bin/n</span><br><span class="line">/usr/local/lib</span><br><span class="line">└── n@4.1.0</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装最新版本的node"><a href="#安装最新版本的node" class="headerlink" title="安装最新版本的node"></a>安装最新版本的node</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo n stable</span><br><span class="line"></span><br><span class="line">install : node-v10.16.0</span><br><span class="line">       mkdir : /usr/local/n/versions/node/10.16.0</span><br><span class="line">       fetch : https://nodejs.org/dist/v10.16.0/node-v10.16.0-darwin-x64.tar.gz</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">################################################################################## 100.0%</span></span></span><br><span class="line">   installed : v10.16.0</span><br></pre></td></tr></table></figure>
+
+<h1 id="再次查看本机node版本"><a href="#再次查看本机node版本" class="headerlink" title="再次查看本机node版本"></a>再次查看本机node版本</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">v10.16.0</span><br></pre></td></tr></table></figure>
+
+<h1 id="更新npm到最新版"><a href="#更新npm到最新版" class="headerlink" title="更新npm到最新版"></a>更新npm到最新版</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install npm@latest -g</span><br><span class="line">Password:</span><br><span class="line">/usr/local/bin/npm -&gt; /usr/local/lib/node_modules/npm/bin/npm-cli.js</span><br><span class="line">/usr/local/bin/npx -&gt; /usr/local/lib/node_modules/npm/bin/npx-cli.js</span><br><span class="line">+ npm@6.10.0</span><br><span class="line">added 14 packages from 10 contributors, removed 5 packages and updated 17 packages in 6.962s</span><br></pre></td></tr></table></figure>
+
+<h1 id="验证版本号"><a href="#验证版本号" class="headerlink" title="验证版本号"></a>验证版本号</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/06/mac%E6%89%A7%E8%A1%8Cbrew-install%E6%97%B6%E5%8D%A1%E5%9C%A8Updating-Homebrew%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/06/mac%E6%89%A7%E8%A1%8Cbrew-install%E6%97%B6%E5%8D%A1%E5%9C%A8Updating-Homebrew%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">mac执行brew install时卡在Updating Homebrew的解决方案</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-06-27 15:12:08" itemprop="dateCreated datePublished" datetime="2019-06-27T15:12:08+08:00">2019-06-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+
+  
+    <span id="/2019/06/mac%E6%89%A7%E8%A1%8Cbrew-install%E6%97%B6%E5%8D%A1%E5%9C%A8Updating-Homebrew%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-meta-item leancloud_visitors" data-flag-title="mac执行brew install时卡在Updating Homebrew的解决方案" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/06/mac%E6%89%A7%E8%A1%8Cbrew-install%E6%97%B6%E5%8D%A1%E5%9C%A8Updating-Homebrew%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/06/mac%E6%89%A7%E8%A1%8Cbrew-install%E6%97%B6%E5%8D%A1%E5%9C%A8Updating-Homebrew%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>今天通过homebrew安装软件，卡住了。其实以前也会经常遇到卡在更新Homebrew上面，主要是因为大陆网络环境的问题。</p>
+<p>如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install wget</span><br><span class="line">Updating Homebrew...</span><br></pre></td></tr></table></figure>
+
+<p>一般我们可以按下<code>control + c</code>取消更新操作，这时，安装会继续执行下去。</p>
+<p>但推荐使用国内的Alibaba Homebrew镜像源进行替代。</p>
+<p>我们执行<code>brew</code>命令安装软件的时候，跟如下三个仓库地址有关：</p>
+<ol>
+<li><p>brew.git</p>
+</li>
+<li><p>homebrew-core.git</p>
+</li>
+<li><p>homebrew-bottles</p>
+</li>
+</ol>
+<p>接下来我们将上述3个仓库的地址全部替换为Alibaba提供的地址</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd &quot;$(brew --repo)&quot;</span><br><span class="line"></span><br><span class="line">git remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git</span><br><span class="line">git remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git</span><br><span class="line"></span><br><span class="line">echo &#x27;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles&#x27; &gt;&gt; ~/.bash_profile</span><br><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
+
+<p>通过上述步骤，我们在安装软件时，就不会卡在Updating Homebrew上面了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -332,270 +562,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/06/mac-OS%E5%AE%89%E8%A3%85npm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/06/mac-OS%E5%AE%89%E8%A3%85npm/" class="post-title-link" itemprop="url">mac OS安装npm</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-06-26 14:13:55" itemprop="dateCreated datePublished" datetime="2019-06-26T14:13:55+08:00">2019-06-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-
-  
-    <span id="/2019/06/mac-OS%E5%AE%89%E8%A3%85npm/" class="post-meta-item leancloud_visitors" data-flag-title="mac OS安装npm" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/06/mac-OS%E5%AE%89%E8%A3%85npm/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/06/mac-OS%E5%AE%89%E8%A3%85npm/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>检查<code>brew -v</code>是否安装了homebrew这个macOS缺失的软件包的管理器。如果安装，跳转到第3步，否则跳转到第二步；</p>
-<p>安装homebrew。安装跳转到<a target="_blank" rel="noopener" href="https://brew.sh/index_zh-cn">官网指导</a>。等待安装好之后，输入brew -v，如果出现版本号说明已经安装好：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew -v</span><br><span class="line">Homebrew 2.1.6</span><br><span class="line">Homebrew/homebrew-core (git revision 10e6; last commit 2019-06-23)</span><br></pre></td></tr></table></figure>
-
-<p>执行brew update更新homebrew；</p>
-<p>执行命令行brew install npm安装npm。执行npm -v即可看到安装好的npm版本，如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br><span class="line">6.9.0</span><br></pre></td></tr></table></figure>
-
-<p>接下来就是npm的使用了，详情请看<a target="_blank" rel="noopener" href="https://www.npmjs.com/">npm官网</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/06/SpringBean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/06/SpringBean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="post-title-link" itemprop="url">SpringBean生命周期</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-06-13 22:45:21" itemprop="dateCreated datePublished" datetime="2019-06-13T22:45:21+08:00">2019-06-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/06/SpringBean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="post-meta-item leancloud_visitors" data-flag-title="SpringBean生命周期" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/06/SpringBean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/06/SpringBean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>最新理解</p>
-<p>稍微总结一下 Bean 的生命周期，在 BeanFactory 这个接口的注释里面，也可以看到。</p>
-<ol>
-<li>实现一堆 Aware 接口。（当实现了某个 Aware 接口后，此 Bean 就能通过 setXXX 的方法获取到容器中存在的对象）</li>
-<li>执行 BeanPostProcessor 的 before 方法</li>
-<li>执行 init 方法</li>
-<li>执行 BeanPostProcessor 的 after 方法</li>
-<li>调用 DisposableBean destroy 方法</li>
-<li>调用 destroy 方法</li>
-</ol>
-<p>下面代码里面的 @PostConstruct 和 @PreDestroy 是 javax 中的注解，和 Spring 里面的 initMethod 和 destroyMethod 还是有一定差异的。后者是 @Bean 注解里面的属性，或者在 xml 文件中定义。</p>
-<hr>
-<p>Spring框架中，一旦把一个Bean纳入Spring IOC容器之中，这个Bean的生命周期就会交由容器进行管理，一般担当管理角色的是BeanFactory或者ApplicationContext。</p>
-<p>下面以BeanFactory为例，说明一个Bean的生命周期活动。</p>
-<ul>
-<li><p>Bean的建立，由BeanFactory读取Bean定义文件，并生成各个实例</p>
-</li>
-<li><p>Setter注入，执行Bean的属性依赖注入</p>
-</li>
-<li><p>BeanNameAware的setBeanName(), 如果实现该接口，则执行其setBeanName方法</p>
-</li>
-<li><p>BeanFactoryAware的setBeanFactory()，如果实现该接口，则执行其setBeanFactory方法</p>
-</li>
-<li><p>BeanPostProcessor的processBeforeInitialization()，如果有关联的processor，则在Bean初始化之前都会执行这个实例的processBeforeInitialization()方法</p>
-</li>
-<li><p>Bean定义文件中定义init-method</p>
-</li>
-<li><p>InitializingBean的afterPropertiesSet()，如果实现了该接口，则执行其afterPropertiesSet()方法</p>
-</li>
-<li><p>BeanPostProcessors的processAfterInitialization()，如果有关联的processor，则在Bean初始化之前都会执行这个实例的processAfterInitialization()方法</p>
-</li>
-<li><p>Bean定义文件中定义destroy-method，在容器关闭时，可以在 Bean 定义文件中使用 <code>destory-method</code> 定义的方法</p>
-</li>
-<li><p>DisposableBean的destroy()，在容器关闭时，如果 Bean 类实现了该接口，则执行它的 destroy() 方法</p>
-</li>
-</ul>
-<p>如果使用ApplicationContext来维护一个Bean的生命周期，则基本上与上边的流程相同，只不过在执行BeanNameAware的setBeanName()后，若有Bean类实现了org.springframework.context.ApplicationContextAware接口，则执行其setApplicationContext()方法，然后再进行BeanPostProcessors的processBeforeInitialization()</p>
-<p>实际上，ApplicationContext除了向BeanFactory那样维护容器外，还提供了更加丰富的框架功能，如Bean的消息，事件处理机制等。</p>
-<p>下面通过代码展示一下各个方法被调用的顺序。</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MyBean.java</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyBean</span> <span class="keyword">implements</span> <span class="title class_">BeanNameAware</span>, BeanFactoryAware, ApplicationContextAware,</span><br><span class="line">        InitializingBean, DisposableBean &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Logger</span> <span class="variable">logger</span> <span class="operator">=</span> LoggerFactory.getLogger(MyBean.class);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyBean</span><span class="params">()</span> &#123;</span><br><span class="line">        logger.info(<span class="string">&quot;1. MyBean Constructor&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setBeanName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        logger.info(<span class="string">&quot;2. BeanNameAware.setBeanName&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setBeanFactory</span><span class="params">(BeanFactory beanFactory)</span> <span class="keyword">throws</span> BeansException &#123;</span><br><span class="line">        logger.info(<span class="string">&quot;3. BeanFactoryAware.setBeanFactory&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setApplicationContext</span><span class="params">(ApplicationContext applicationContext)</span> <span class="keyword">throws</span> BeansException &#123;</span><br><span class="line">        logger.info(<span class="string">&quot;4. ApplicationContextAware.setApplicationContext&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostConstruct</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">postConstructMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        logger.info(<span class="string">&quot;6. javax&#x27;s PostConstruct&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterPropertiesSet</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        logger.info(<span class="string">&quot;7. InitializingBean.afterPropertiesSet&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PreDestroy</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">preDestroyMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        logger.info(<span class="string">&quot;9. javax&#x27;s PreDestroy&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">destroy</span><span class="params">()</span> &#123;</span><br><span class="line">        logger.info(<span class="string">&quot;10. DisposableBean.destroy&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MyBeanPostProcessor.java</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyBeanPostProcessor</span> <span class="keyword">implements</span> <span class="title class_">BeanPostProcessor</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Logger</span> <span class="variable">logger</span> <span class="operator">=</span> LoggerFactory.getLogger(MyBeanPostProcessor.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">postProcessBeforeInitialization</span><span class="params">(Object bean, String beanName)</span> <span class="keyword">throws</span> BeansException &#123;</span><br><span class="line">        <span class="keyword">if</span> (bean <span class="keyword">instanceof</span> MyBean) &#123;</span><br><span class="line">            logger.info(<span class="string">&quot;5. BeanPostProcessor.postProcessBeforeInitialization&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">postProcessAfterInitialization</span><span class="params">(Object bean, String beanName)</span> <span class="keyword">throws</span> BeansException &#123;</span><br><span class="line">        <span class="keyword">if</span> (bean <span class="keyword">instanceof</span> MyBean) &#123;</span><br><span class="line">            logger.info(<span class="string">&quot;8. BeanPostProcessor.postProcessAfterInitialization&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1. MyBean Constructor</span><br><span class="line">2. BeanNameAware.setBeanName</span><br><span class="line">3. BeanFactoryAware.setBeanFactory</span><br><span class="line">4. ApplicationContextAware.setApplicationContext</span><br><span class="line">5. BeanPostProcessor.postProcessBeforeInitialization</span><br><span class="line">6. javax&#x27;s PostConstruct</span><br><span class="line">7. InitializingBean.afterPropertiesSet</span><br><span class="line">8. BeanPostProcessor.postProcessAfterInitialization</span><br><span class="line">Started SpringBeanLifecycleApplication in 0.632 seconds (JVM running for 1.022)</span><br><span class="line">9. javax&#x27;s PreDestroy</span><br><span class="line">10. DisposableBean.destroy</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/99/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/99/">99</a><span class="page-number current">100</span><a class="page-number" href="/page/101/">101</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/101/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/99/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/99/">99</a><span class="page-number current">100</span><a class="page-number" href="/page/101/">101</a><span class="space">&hellip;</span><a class="page-number" href="/page/128/">128</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/101/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

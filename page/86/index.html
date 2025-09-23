@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">380</span>
+          <span class="site-state-item-count">382</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,275 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/01/kubernetes%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81Pod/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/01/kubernetes%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81Pod/" class="post-title-link" itemprop="url">kubernetes中的静态Pod</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-01-06 23:37:58" itemprop="dateCreated datePublished" datetime="2020-01-06T23:37:58+08:00">2020-01-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/01/kubernetes%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81Pod/" class="post-meta-item leancloud_visitors" data-flag-title="kubernetes中的静态Pod" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/01/kubernetes%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81Pod/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/01/kubernetes%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81Pod/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>平常我们提得比较多的Pod，都是通过Deployment，DaemonSet，StatefulSet等方式创建管理的。今天我们介绍一种特殊的Pod，叫静态(Static) Pod。</p>
+<h1 id="什么是静态Pod"><a href="#什么是静态Pod" class="headerlink" title="什么是静态Pod"></a>什么是静态Pod</h1><p>静态Pod是由kubelet进行管理，仅存在于特定Node上的Pod，这些Pod是不能通过API Server进行管理的，无法与ReplicationController，Deployment或DaemonSet关联。</p>
+<h1 id="静态Pod的创建"><a href="#静态Pod的创建" class="headerlink" title="静态Pod的创建"></a>静态Pod的创建</h1><p>通过配置yaml文件可以创建静态Pod。只要有kubelet进程，就可以在所在节点运行静态Pod。</p>
+<p>如果通过二进制启动的kubelet，可以在kubelet执行时添加配置参数<code>--pod-manifest-path=&lt;yaml directory&gt;</code>，kubelet会定期扫描目录，应用<yaml directory>目录下面的yaml文件来创建静态Pod。</p>
+<p>我是通过kubeadm安装的集群，我们以<code>kube-scheduler</code>这个静态Pod为例，看看它是如何运行的。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep kubelet</span><br><span class="line">root       6088      1  3 Dec23 ?        01:45:47 /usr/bin/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubernetes/kubelet.conf --config=/var/lib/kubelet/config.yaml --cgroup-driver=systemd --network-plugin=cni --pod-infra-container-image=k8s.gcr.io/pause:3.1</span><br></pre></td></tr></table></figure>
+
+<p>看到<code>--config</code>的目录为<code>/var/lib/kubelet/config.yaml</code>，查看此文件内容，我们可以看到参数<code>staticPodPath</code>的值：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /var/lib/kubelet/config.yaml | grep staticPodPath</span><br><span class="line">staticPodPath: /etc/kubernetes/manifests</span><br></pre></td></tr></table></figure>
+
+<p>查看目录内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ll /etc/kubernetes/manifests</span><br><span class="line">total 16</span><br><span class="line">-rw------- 1 root root 1928 Dec 12 10:38 etcd.yaml</span><br><span class="line">-rw------- 1 root root 2610 Dec 12 10:38 kube-apiserver.yaml</span><br><span class="line">-rw------- 1 root root 2486 Dec 12 10:38 kube-controller-manager.yaml</span><br><span class="line">-rw------- 1 root root  990 Dec 12 10:38 kube-scheduler.yaml</span><br></pre></td></tr></table></figure>
+
+<p>由此得知，kubelet会扫描staticPodPath，检测到这个目录下有yaml文件，就创建Pod了。如果要删除Pod，把这些配置文件删除即可。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/01/%E6%90%AD%E5%BB%BAreactjs%E5%92%8Cantd%E7%9A%84%E5%8E%9F%E5%A7%8B%E9%A1%B9%E7%9B%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/01/%E6%90%AD%E5%BB%BAreactjs%E5%92%8Cantd%E7%9A%84%E5%8E%9F%E5%A7%8B%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">搭建reactjs和antd的原始项目</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-01-05 20:25:09" itemprop="dateCreated datePublished" datetime="2020-01-05T20:25:09+08:00">2020-01-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/01/%E6%90%AD%E5%BB%BAreactjs%E5%92%8Cantd%E7%9A%84%E5%8E%9F%E5%A7%8B%E9%A1%B9%E7%9B%AE/" class="post-meta-item leancloud_visitors" data-flag-title="搭建reactjs和antd的原始项目" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/01/%E6%90%AD%E5%BB%BAreactjs%E5%92%8Cantd%E7%9A%84%E5%8E%9F%E5%A7%8B%E9%A1%B9%E7%9B%AE/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/01/%E6%90%AD%E5%BB%BAreactjs%E5%92%8Cantd%E7%9A%84%E5%8E%9F%E5%A7%8B%E9%A1%B9%E7%9B%AE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="安装node-npm"><a href="#安装node-npm" class="headerlink" title="安装node, npm"></a>安装node, npm</h1><p>查看安装的版本信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">v10.16.0</span><br><span class="line"></span><br><span class="line">npm -v</span><br><span class="line">6.10.0</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装react脚手架工具"><a href="#安装react脚手架工具" class="headerlink" title="安装react脚手架工具"></a>安装react脚手架工具</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br></pre></td></tr></table></figure>
+
+<p>查看安装版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create-react-app -V</span><br><span class="line">3.3.0</span><br></pre></td></tr></table></figure>
+
+<h1 id="新建一个项目"><a href="#新建一个项目" class="headerlink" title="新建一个项目"></a>新建一个项目</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create-react-app my-app</span><br></pre></td></tr></table></figure>
+
+<p>启动项目</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd my-app</span><br><span class="line">yarn start</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装react-router-dom"><a href="#安装react-router-dom" class="headerlink" title="安装react-router-dom"></a>安装react-router-dom</h1><p>react-router 4.0版本以后，就只需要安装<code>react-router-dom</code>了，dom代表有dom元素在里面。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add react-router-dom</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装less-loader-less"><a href="#安装less-loader-less" class="headerlink" title="安装less-loader, less"></a>安装less-loader, less</h1><p>如果写一个<code>.less</code>的样式文件，react脚手架工具创建出来的项目默认是不支持的，所以需要安装<code>less-loader</code>模块。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add less-loader less</span><br></pre></td></tr></table></figure>
+
+<p>安装好less-loader后，需要做一些配置才能生效。</p>
+<p>执行<code>yarn eject</code>，把配置文件把暴露出来。系统可能会提示让把<code>package.json</code>和<code>yarn.lock</code>commit掉。</p>
+<p>可以看到工程中多出了<code>scripts</code>和<code>config</code>目录</p>
+<p>编译<code>config/webpack.config.js</code></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">oneOf<span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="comment">// &quot;url&quot; loader works like &quot;file&quot; loader except that it embeds assets</span></span><br><span class="line">    <span class="comment">// smaller than specified limit in bytes as data URLs to avoid requests.</span></span><br><span class="line">    <span class="comment">// A missing `test` is equivalent to a match.</span></span><br><span class="line">    <span class="comment">// 添加如下内容</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      test<span class="punctuation">:</span> /\.less$/<span class="punctuation">,</span></span><br><span class="line">      use<span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">&#123;</span></span><br><span class="line">        loader<span class="punctuation">:</span> &#x27;style-loader&#x27;<span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">        loader<span class="punctuation">:</span> &#x27;css-loader&#x27;<span class="punctuation">,</span> <span class="comment">// translates CSS into CommonJS</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">        loader<span class="punctuation">:</span> &#x27;less-loader&#x27;<span class="punctuation">,</span> <span class="comment">// compiles Less to CSS</span></span><br><span class="line">        options<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">          sourceMap<span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">          modifyVars<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="comment">// &#x27;@primary-color&#x27;: &#x27;#F0CF13&#x27;,</span></span><br><span class="line">          <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">          javascriptEnabled<span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 添加上面内容</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      test<span class="punctuation">:</span> <span class="punctuation">[</span>/\.bmp$/<span class="punctuation">,</span> /\.gif$/<span class="punctuation">,</span> /\.jpe?g$/<span class="punctuation">,</span> /\.png$/<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      loader<span class="punctuation">:</span> require.resolve(&#x27;url-loader&#x27;)<span class="punctuation">,</span></span><br><span class="line">      options<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        limit<span class="punctuation">:</span> imageInlineSizeLimit<span class="punctuation">,</span></span><br><span class="line">        name<span class="punctuation">:</span> &#x27;static/media/<span class="punctuation">[</span>name<span class="punctuation">]</span>.<span class="punctuation">[</span>hash<span class="punctuation">:</span><span class="number">8</span><span class="punctuation">]</span>.<span class="punctuation">[</span>ext<span class="punctuation">]</span>&#x27;<span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+
+<p>@primary-color可以不用设置。</p>
+<p>因为修改了配置，所以需要重启项目。</p>
+<p>这时我们发现，less的样式已经生效了。</p>
+<h1 id="安装axios"><a href="#安装axios" class="headerlink" title="安装axios"></a>安装axios</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add axios</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装antd"><a href="#安装antd" class="headerlink" title="安装antd"></a>安装antd</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add antd</span><br></pre></td></tr></table></figure>
+
+<p>在使用时，引入css文件。如果要使用Button组件，引入即可。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &#x27;antd/dist/antd.css&#x27;</span><br><span class="line">import &#123;Button&#125; from &quot;antd&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>antd是用less来写的，我们加载的antd.css是全部的样式，这样加载的内容太多了。</p>
+<p>我们如果要达到按需加载的目的，还得安装<code>babel-plugin-import</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add babel-plugin-import</span><br></pre></td></tr></table></figure>
+
+<p>安装好以后，在<code>package.json</code>里面的<code>babel</code>属性里面添加如下内容：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;babel&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;presets&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;react-app&quot;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="comment">// 添加下面的内容</span></span><br><span class="line">  <span class="attr">&quot;plugins&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;import&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;libraryName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;antd&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;style&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line">  <span class="comment">// 添加上面的内容</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>重启项目，我们发现，当我们注释掉css以后，antd的样式还是可以正常输出。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import &#x27;antd/dist/antd.css&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;<span class="title class_">Button</span>&#125; <span class="keyword">from</span> <span class="string">&quot;antd&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -331,238 +600,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/01/java%E6%97%B6%E9%97%B4Date-timestamp-timezone/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/01/java%E6%97%B6%E9%97%B4Date-timestamp-timezone/" class="post-title-link" itemprop="url">java时间Date,timestamp,timezone</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-01-03 23:23:26" itemprop="dateCreated datePublished" datetime="2020-01-03T23:23:26+08:00">2020-01-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/01/java%E6%97%B6%E9%97%B4Date-timestamp-timezone/" class="post-meta-item leancloud_visitors" data-flag-title="java时间Date,timestamp,timezone" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/01/java%E6%97%B6%E9%97%B4Date-timestamp-timezone/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/01/java%E6%97%B6%E9%97%B4Date-timestamp-timezone/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>文中输出的时间，都是相同的，便于读者观看。</p>
-<h1 id="Date转Timestamp"><a href="#Date转Timestamp" class="headerlink" title="Date转Timestamp"></a>Date转Timestamp</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line"><span class="type">long</span> <span class="variable">currentMillis</span> <span class="operator">=</span> date.getTime()</span><br><span class="line">System.out.println(currentMillis);</span><br><span class="line"></span><br><span class="line"><span class="number">1578064861125</span></span><br></pre></td></tr></table></figure>
-
-<p><code>java.util.Date</code>, 这个类跟时区是无关的。</p>
-<h1 id="Timestamp转Date"><a href="#Timestamp转Date" class="headerlink" title="Timestamp转Date"></a>Timestamp转Date</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">long</span> <span class="variable">timeMillis</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"><span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>(timeMillis);</span><br><span class="line">System.out.println(date);</span><br><span class="line"></span><br><span class="line">Fri Jan <span class="number">03</span> <span class="number">23</span>:<span class="number">21</span>:<span class="number">01</span> CST <span class="number">2020</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="Date转日期字符串"><a href="#Date转日期字符串" class="headerlink" title="Date转日期字符串"></a>Date转日期字符串</h1><p>当我们打印出Date时，显示的时间，就是带有时区的字符串了。那为什么是CST（China Standard Time)呢？</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">timeZoneId</span> <span class="operator">=</span> TimeZone.getDefault().getID();</span><br><span class="line">System.out.println(timeZoneId);</span><br><span class="line"></span><br><span class="line">Asia/Shanghai</span><br></pre></td></tr></table></figure>
-
-<p>发现系统默认的时区id为<code>Asia/Shanghai</code>。</p>
-<p>如何查看有哪些时区id呢？</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">String[] availableIDs = TimeZone.getAvailableIDs();</span><br><span class="line"><span class="keyword">for</span> (String availableID : availableIDs) &#123;</span><br><span class="line">    System.out.println(availableID);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Africa/Abidjan</span><br><span class="line">Africa/Accra</span><br><span class="line">Africa/Addis_Ababa</span><br><span class="line">Africa/Algiers</span><br><span class="line">...</span><br><span class="line">Asia/Shanghai</span><br><span class="line">Asia/Singapore</span><br><span class="line">Asia/Srednekolymsk</span><br><span class="line">Asia/Taipei</span><br></pre></td></tr></table></figure>
-
-<p>如果我们想查看日本东京的时间呢？</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line"><span class="type">SimpleDateFormat</span> <span class="variable">sdf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SimpleDateFormat</span>(<span class="string">&quot;yyyy-MM-dd HH:mm:ss.SSS Z&quot;</span>);</span><br><span class="line">sdf.setTimeZone(TimeZone.getTimeZone(<span class="string">&quot;Asia/Tokyo&quot;</span>));</span><br><span class="line"><span class="type">String</span> <span class="variable">dateStr</span> <span class="operator">=</span> sdf.format(date);</span><br><span class="line">System.out.println(dateStr);</span><br><span class="line"></span><br><span class="line"><span class="number">2020</span>-<span class="number">01</span>-<span class="number">04</span> <span class="number">00</span>:<span class="number">21</span>:<span class="number">01.125</span> +0900</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/12/CentOS7%E5%AE%89%E8%A3%85json%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B7%A5%E5%85%B7jq/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/12/CentOS7%E5%AE%89%E8%A3%85json%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B7%A5%E5%85%B7jq/" class="post-title-link" itemprop="url">CentOS7安装json格式化工具jq</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-12-29 23:13:12" itemprop="dateCreated datePublished" datetime="2019-12-29T23:13:12+08:00">2019-12-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OS/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/12/CentOS7%E5%AE%89%E8%A3%85json%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B7%A5%E5%85%B7jq/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS7安装json格式化工具jq" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/12/CentOS7%E5%AE%89%E8%A3%85json%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B7%A5%E5%85%B7jq/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/12/CentOS7%E5%AE%89%E8%A3%85json%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B7%A5%E5%85%B7jq/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/yum.repos.d/</span><br><span class="line">wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</span><br><span class="line">rpm -ivh epel-release-latest-7.noarch.rpm</span><br><span class="line"></span><br><span class="line">yum install jq</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">==============================================================================================================================================</span><br><span class="line"> Package                            架构                            版本                                  源                             大小</span><br><span class="line">==============================================================================================================================================</span><br><span class="line">正在安装:</span><br><span class="line"> jq                                 x86_64                          1.5-1.el7                             epel                          153 k</span><br><span class="line">为依赖而安装:</span><br><span class="line"> oniguruma                          x86_64                          5.9.5-3.el7                           epel                          129 k</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/85/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/85/">85</a><span class="page-number current">86</span><a class="page-number" href="/page/87/">87</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/87/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/85/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/85/">85</a><span class="page-number current">86</span><a class="page-number" href="/page/87/">87</a><span class="space">&hellip;</span><a class="page-number" href="/page/128/">128</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/87/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

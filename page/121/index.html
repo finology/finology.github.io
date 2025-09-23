@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">380</span>
+          <span class="site-state-item-count">382</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,264 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/05/Mac-OS-X%E7%B3%BB%E7%BB%9FPython3%E8%BF%9E%E6%8E%A5Mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/05/Mac-OS-X%E7%B3%BB%E7%BB%9FPython3%E8%BF%9E%E6%8E%A5Mysql/" class="post-title-link" itemprop="url">Mac OS X系统Python3连接Mysql</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-05-30 23:19:48" itemprop="dateCreated datePublished" datetime="2018-05-30T23:19:48+08:00">2018-05-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2018/05/Mac-OS-X%E7%B3%BB%E7%BB%9FPython3%E8%BF%9E%E6%8E%A5Mysql/" class="post-meta-item leancloud_visitors" data-flag-title="Mac OS X系统Python3连接Mysql" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/05/Mac-OS-X%E7%B3%BB%E7%BB%9FPython3%E8%BF%9E%E6%8E%A5Mysql/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/05/Mac-OS-X%E7%B3%BB%E7%BB%9FPython3%E8%BF%9E%E6%8E%A5Mysql/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>OS: MacOS Sierra 10.12.6<br>Python: 3.6.5</p>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p>python3连接Mysql用得多的两个库分别是PyMySQL和mysqlclient-python，两个库的作者都是同一人。PyMySQL安装起来相对简单，但实际应用中，mysqlclient-python运行速度更快。</p>
+<p>升级pip版本，如果不升级系统都会提示你升级的</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip3 install --upgrade pip</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装PyMySQL"><a href="#安装PyMySQL" class="headerlink" title="安装PyMySQL"></a>安装PyMySQL</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip3 install pymysql</span></span><br><span class="line"></span><br><span class="line">Collecting pymysql</span><br><span class="line">  Using cached https://files.pythonhosted.org/packages/32/e8/222d9e1c7821f935d6dba8d4c60b9985124149b35a9f93a84f0b98afc219/PyMySQL-0.8.1-py2.py3-none-any.whl</span><br><span class="line">Installing collected packages: pymysql</span><br><span class="line">Successfully installed pymysql-0.8.1</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装mysqlclient-python"><a href="#安装mysqlclient-python" class="headerlink" title="安装mysqlclient-python"></a>安装mysqlclient-python</h2><p>参考官方文档<a target="_blank" rel="noopener" href="https://github.com/PyMySQL/mysqlclient-python">https://github.com/PyMySQL/mysqlclient-python</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">brew install mysql-connector-c</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> pip3 install mysqlclient</span></span><br></pre></td></tr></table></figure>
+
+<p>结果报错：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">The directory &#x27;/Users/simon/Library/Caches/pip/http&#x27; or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo&#x27;s -H flag.</span><br><span class="line">The directory &#x27;/Users/simon/Library/Caches/pip&#x27; or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo&#x27;s -H flag.</span><br><span class="line">Collecting mysqlclient</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/6f/86/bad31f1c1bb0cc99e88ca2adb7cb5c71f7a6540c1bb001480513de76a931/mysqlclient-1.3.12.tar.gz (89kB)</span><br><span class="line">    100% |████████████████████████████████| 92kB 13kB/s </span><br><span class="line">    Complete output from command python setup.py egg_info:</span><br><span class="line">    Traceback (most recent call last):</span><br><span class="line">      File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">      File &quot;/private/tmp/pip-install-bqcij69j/mysqlclient/setup.py&quot;, line 17, in &lt;module&gt;</span><br><span class="line">        metadata, options = get_config()</span><br><span class="line">      File &quot;/private/tmp/pip-install-bqcij69j/mysqlclient/setup_posix.py&quot;, line 54, in get_config</span><br><span class="line">        libraries = [dequote(i[2:]) for i in libs if i.startswith(&#x27;-l&#x27;)]</span><br><span class="line">      File &quot;/private/tmp/pip-install-bqcij69j/mysqlclient/setup_posix.py&quot;, line 54, in &lt;listcomp&gt;</span><br><span class="line">        libraries = [dequote(i[2:]) for i in libs if i.startswith(&#x27;-l&#x27;)]</span><br><span class="line">      File &quot;/private/tmp/pip-install-bqcij69j/mysqlclient/setup_posix.py&quot;, line 12, in dequote</span><br><span class="line">        if s[0] in &quot;\&quot;&#x27;&quot; and s[0] == s[-1]:</span><br><span class="line">    IndexError: string index out of range</span><br><span class="line">    </span><br><span class="line">    ----------------------------------------</span><br><span class="line">Command &quot;python setup.py egg_info&quot; failed with error code 1 in /private/tmp/pip-install-bqcij69j/mysqlclient/</span><br></pre></td></tr></table></figure>
+
+<p>需要说明的一点就是，MySQL Connector&#x2F;C（6.1.10）在macOS是存在Bug的。</p>
+<p>需要修改mysql_config文件</p>
+<p>把文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># on macOS, on or about line 112:</span><br><span class="line"># Create options </span><br><span class="line">libs=&quot;-L$pkglibdir&quot;</span><br><span class="line">libs=&quot;$libs -l &quot;</span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Create options </span><br><span class="line">libs=&quot;-L$pkglibdir&quot;</span><br><span class="line">libs=&quot;$libs -lmysqlclient -lssl -lcrypto&quot;</span><br></pre></td></tr></table></figure>
+
+<p>再次安装，继续报错：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">The directory &#x27;/Users/simon/Library/Caches/pip/http&#x27; or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo&#x27;s -H flag.</span><br><span class="line">The directory &#x27;/Users/simon/Library/Caches/pip&#x27; or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo&#x27;s -H flag.</span><br><span class="line">Collecting mysqlclient</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/6f/86/bad31f1c1bb0cc99e88ca2adb7cb5c71f7a6540c1bb001480513de76a931/mysqlclient-1.3.12.tar.gz (89kB)</span><br><span class="line">    100% |████████████████████████████████| 92kB 122kB/s </span><br><span class="line">Installing collected packages: mysqlclient</span><br><span class="line">  Running setup.py install for mysqlclient ... error</span><br><span class="line">    Complete output from command /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6 -u -c &quot;import setuptools, tokenize;__file__=&#x27;/private/tmp/pip-install-l1_o52yl/mysqlclient/setup.py&#x27;;f=getattr(tokenize, &#x27;open&#x27;, open)(__file__);code=f.read().replace(&#x27;\r\n&#x27;, &#x27;\n&#x27;);f.close();exec(compile(code, __file__, &#x27;exec&#x27;))&quot; install --record /private/tmp/pip-record-zkfu3qn7/install-record.txt --single-version-externally-managed --compile:</span><br><span class="line">    running install</span><br><span class="line">    running build</span><br><span class="line">    running build_py</span><br><span class="line">    creating build</span><br><span class="line">    creating build/lib.macosx-10.9-x86_64-3.6</span><br><span class="line">    copying _mysql_exceptions.py -&gt; build/lib.macosx-10.9-x86_64-3.6</span><br><span class="line">    creating build/lib.macosx-10.9-x86_64-3.6/MySQLdb</span><br><span class="line">    copying MySQLdb/__init__.py -&gt; build/lib.macosx-10.9-x86_64-3.6/MySQLdb</span><br><span class="line">    copying MySQLdb/compat.py -&gt; build/lib.macosx-10.9-x86_64-3.6/MySQLdb</span><br><span class="line">    copying MySQLdb/connections.py -&gt; build/lib.macosx-10.9-x86_64-3.6/MySQLdb</span><br><span class="line">    copying MySQLdb/converters.py -&gt; build/lib.macosx-10.9-x86_64-3.6/MySQLdb</span><br><span class="line">    copying MySQLdb/cursors.py -&gt; build/lib.macosx-10.9-x86_64-3.6/MySQLdb</span><br><span class="line">    copying MySQLdb/release.py -&gt; build/lib.macosx-10.9-x86_64-3.6/MySQLdb</span><br><span class="line">    copying MySQLdb/times.py -&gt; build/lib.macosx-10.9-x86_64-3.6/MySQLdb</span><br><span class="line">    creating build/lib.macosx-10.9-x86_64-3.6/MySQLdb/constants</span><br><span class="line">    copying MySQLdb/constants/__init__.py -&gt; build/lib.macosx-10.9-x86_64-3.6/MySQLdb/constants</span><br><span class="line">    copying MySQLdb/constants/CLIENT.py -&gt; build/lib.macosx-10.9-x86_64-3.6/MySQLdb/constants</span><br><span class="line">    copying MySQLdb/constants/CR.py -&gt; build/lib.macosx-10.9-x86_64-3.6/MySQLdb/constants</span><br><span class="line">    copying MySQLdb/constants/ER.py -&gt; build/lib.macosx-10.9-x86_64-3.6/MySQLdb/constants</span><br><span class="line">    copying MySQLdb/constants/FIELD_TYPE.py -&gt; build/lib.macosx-10.9-x86_64-3.6/MySQLdb/constants</span><br><span class="line">    copying MySQLdb/constants/FLAG.py -&gt; build/lib.macosx-10.9-x86_64-3.6/MySQLdb/constants</span><br><span class="line">    copying MySQLdb/constants/REFRESH.py -&gt; build/lib.macosx-10.9-x86_64-3.6/MySQLdb/constants</span><br><span class="line">    running build_ext</span><br><span class="line">    building &#x27;_mysql&#x27; extension</span><br><span class="line">    creating build/temp.macosx-10.9-x86_64-3.6</span><br><span class="line">    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -arch x86_64 -g -Dversion_info=(1,3,12,&#x27;final&#x27;,0) -D__version__=1.3.12 -I/usr/local/Cellar/mysql-connector-c/6.1.10/include -I/Library/Frameworks/Python.framework/Versions/3.6/include/python3.6m -c _mysql.c -o build/temp.macosx-10.9-x86_64-3.6/_mysql.o</span><br><span class="line">    gcc -bundle -undefined dynamic_lookup -arch x86_64 -g build/temp.macosx-10.9-x86_64-3.6/_mysql.o -L/usr/local/Cellar/mysql-connector-c/6.1.10/lib -lmysqlclient -lssl -lcrypto -o build/lib.macosx-10.9-x86_64-3.6/_mysql.cpython-36m-darwin.so</span><br><span class="line">    ld: library not found for -lssl</span><br><span class="line">    clang: error: linker command failed with exit code 1 (use -v to see invocation)</span><br><span class="line">    error: command &#x27;gcc&#x27; failed with exit status 1</span><br><span class="line">    </span><br><span class="line">    ----------------------------------------</span><br><span class="line">Command &quot;/Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6 -u -c &quot;import setuptools, tokenize;__file__=&#x27;/private/tmp/pip-install-l1_o52yl/mysqlclient/setup.py&#x27;;f=getattr(tokenize, &#x27;open&#x27;, open)(__file__);code=f.read().replace(&#x27;\r\n&#x27;, &#x27;\n&#x27;);f.close();exec(compile(code, __file__, &#x27;exec&#x27;))&quot; install --record /private/tmp/pip-record-zkfu3qn7/install-record.txt --single-version-externally-managed --compile&quot; failed with error code 1 in /private/tmp/pip-install-l1_o52yl/mysqlclient/</span><br></pre></td></tr></table></figure>
+
+<p>很显然，系统提示：<em>ld: library not found for -lssl</em>。作者也告诉了这个错误的解决办法，办法就是<em>brew info openssl</em>，说了相当于没说。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">brew info openssl</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">For compilers to find this software you may need to set:</span><br><span class="line">    LDFLAGS:  -L/usr/local/opt/openssl/lib</span><br><span class="line">    CPPFLAGS: -I/usr/local/opt/openssl/include</span><br></pre></td></tr></table></figure>
+
+<p>看明白了吗？在编译时，需要加入LDFLAGS这个参数。</p>
+<p>最后，我们执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> LDFLAGS=-L/usr/local/opt/openssl/lib pip3 install mysqlclient</span></span><br><span class="line"></span><br><span class="line">The directory &#x27;/Users/simon/Library/Caches/pip/http&#x27; or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo&#x27;s -H flag.</span><br><span class="line">The directory &#x27;/Users/simon/Library/Caches/pip&#x27; or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo&#x27;s -H flag.</span><br><span class="line">Collecting mysqlclient</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/6f/86/bad31f1c1bb0cc99e88ca2adb7cb5c71f7a6540c1bb001480513de76a931/mysqlclient-1.3.12.tar.gz (89kB)</span><br><span class="line">    100% |████████████████████████████████| 92kB 40kB/s </span><br><span class="line">Installing collected packages: mysqlclient</span><br><span class="line">  Running setup.py install for mysqlclient ... done</span><br><span class="line">Successfully installed mysqlclient-1.3.12</span><br></pre></td></tr></table></figure>
+
+<p>mysqlclient安装成功。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/" class="post-title-link" itemprop="url">SpringMVC使用ResponseBody返回json时中文乱码</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-05-19 14:35:02" itemprop="dateCreated datePublished" datetime="2018-05-19T14:35:02+08:00">2018-05-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/SpringMVC/" itemprop="url" rel="index"><span itemprop="name">SpringMVC</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/" class="post-meta-item leancloud_visitors" data-flag-title="SpringMVC使用ResponseBody返回json时中文乱码" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在SpringMVC中的Controller中，返回非String类时，不会遇到这种情况。但返回为String时，中文有可能会变成乱码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StringHttpMessageConverter</span> <span class="keyword">extends</span> <span class="title class_">AbstractHttpMessageConverter</span>&lt;String&gt; &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Charset</span> <span class="variable">DEFAULT_CHARSET</span> <span class="operator">=</span> Charset.forName(<span class="string">&quot;ISO-8859-1&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>转换器的默认编码是ISO-8859-1，而非UTF-8。</p>
+<p>解决办法</p>
+<ol>
+<li>使用（produces &#x3D; “application&#x2F;json; charset&#x3D;utf-8”）</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value = &quot;/xxx&quot;, produces = &quot;produces=MediaType.APPLICATION_JSON_VALUE + &quot;;charset=utf-8&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">fun</span><span class="params">()</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在spring-mvc.xml中添加：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 处理请求返回json字符串的中文乱码问题 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:annotation-driven</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">mvc:message-converters</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.http.converter.StringHttpMessageConverter&quot;</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;supportedMediaTypes&quot;</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="name">value</span>&gt;</span>application/json;charset=UTF-8<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mvc:message-converters</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mvc:annotation-driven</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -348,345 +606,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/04/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%EF%BC%88%E5%88%9D%E7%BA%A7%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/04/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%EF%BC%88%E5%88%9D%E7%BA%A7%EF%BC%89/" class="post-title-link" itemprop="url">java多线程编程（初级）</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-04-29 16:32:58" itemprop="dateCreated datePublished" datetime="2018-04-29T16:32:58+08:00">2018-04-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/Thread/" itemprop="url" rel="index"><span itemprop="name">Thread</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2018/04/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%EF%BC%88%E5%88%9D%E7%BA%A7%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="java多线程编程（初级）" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2018/04/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%EF%BC%88%E5%88%9D%E7%BA%A7%EF%BC%89/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2018/04/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%EF%BC%88%E5%88%9D%E7%BA%A7%EF%BC%89/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Java 给多线程编程提供了内置的支持。 一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。</p>
-<p>多线程是多任务的一种特别的形式，但多线程使用了更小的资源开销。</p>
-<p>这里定义和线程相关的另一个术语 - 进程：一个进程包括由操作系统分配的内存空间，包含一个或多个线程。一个线程不能独立的存在，它必须是进程的一部分。一个进程一直运行，直到所有的非守护线程都结束运行后才能结束。</p>
-<p>多线程能满足程序员编写高效率的程序来达到充分利用 CPU 的目的。</p>
-<h1 id="一个线程的生命周期"><a href="#一个线程的生命周期" class="headerlink" title="一个线程的生命周期"></a>一个线程的生命周期</h1><p>线程是一个动态执行的过程，它也有一个从产生到死亡的过程。</p>
-<p>下图显示了一个线程完整的生命周期。</p>
-<img src="/2018/04/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%EF%BC%88%E5%88%9D%E7%BA%A7%EF%BC%89/6d4ffea9mujjmrrv8n76v2meq5.png" class="">
-
-<ul>
-<li><p>新建状态<br>使用 new 关键字和 Thread 类或其子类建立一个线程对象后，该线程对象就处于新建状态。它保持这个状态直到程序 start() 这个线程。</p>
-</li>
-<li><p>就绪状态<br>当线程对象调用了start()方法之后，该线程就进入就绪状态。就绪状态的线程处于就绪队列中，要等待JVM里线程调度器的调度。</p>
-</li>
-<li><p>运行状态<br>如果就绪状态的线程获取 CPU 资源，就可以执行 run()，此时线程便处于运行状态。处于运行状态的线程最为复杂，它可以变为阻塞状态、就绪状态和死亡状态。</p>
-</li>
-<li><p>阻塞状态<br>如果一个线程执行了sleep（睡眠）、suspend（挂起）等方法，失去所占用资源之后，该线程就从运行状态进入阻塞状态。在睡眠时间已到或获得设备资源后可以重新进入就绪状态。可以分为三种：</p>
-</li>
-<li><p>等待阻塞<br> 运行状态中的线程执行 wait() 方法，使线程进入到等待阻塞状态。</p>
-</li>
-<li><p>同步阻塞<br> 线程在获取 synchronized 同步锁失败(因为同步锁被其他线程占用)。</p>
-</li>
-<li><p>其他阻塞<br> 通过调用线程的 sleep() 或 join() 发出了 I&#x2F;O 请求时，线程就会进入到阻塞状态。当sleep() 状态超时，join() 等待线程终止或超时，或者 I&#x2F;O 处理完毕，线程重新转入就绪状态。</p>
-</li>
-<li><p>死亡状态<br> 一个运行状态的线程完成任务或者其他终止条件发生时，该线程就切换到终止状态。</p>
-</li>
-</ul>
-<h1 id="线程的优先级"><a href="#线程的优先级" class="headerlink" title="线程的优先级"></a>线程的优先级</h1><p>每一个 Java 线程都有一个优先级，这样有助于操作系统确定线程的调度顺序。</p>
-<p>Java 线程的优先级是一个整数，其取值范围是 1 （Thread.MIN_PRIORITY ） - 10 （Thread.MAX_PRIORITY ）。</p>
-<p>默认情况下，每一个线程都会分配一个优先级 NORM_PRIORITY（5）。</p>
-<p>具有较高优先级的线程对程序更重要，并且应该在低优先级的线程之前分配处理器资源。但是，线程优先级不能保证线程执行的顺序，而且非常依赖于平台。</p>
-<h1 id="创建一个线程"><a href="#创建一个线程" class="headerlink" title="创建一个线程"></a>创建一个线程</h1><p>Java 提供了三种创建线程的方法：</p>
-<ul>
-<li>通过实现 Runnable 接口；</li>
-<li>通过继承 Thread 类本身；</li>
-<li>通过 Callable 和 Future 创建线程。</li>
-</ul>
-<h2 id="通过实现-Runnable-接口来创建线程"><a href="#通过实现-Runnable-接口来创建线程" class="headerlink" title="通过实现 Runnable 接口来创建线程"></a>通过实现 Runnable 接口来创建线程</h2><p>创建一个线程，最简单的方法是创建一个实现 Runnable 接口的类。</p>
-<p>为了实现 Runnable，一个类只需要执行一个方法调用 run()，声明如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
-
-<p>你可以重写该方法，重要的是理解的 run() 可以调用其他方法，使用其他类，并声明变量，就像主线程一样。</p>
-<p>在创建一个实现 Runnable 接口的类之后，你可以在类中实例化一个线程对象。</p>
-<p>Thread 定义了几个构造方法，下面的这个是我们经常使用的：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">Thread</span><span class="params">(Runnable target, String name)</span>;</span><br></pre></td></tr></table></figure>
-
-<p>这里，target 是一个实现 Runnable 接口的类的实例，并且 name 指定新线程的名字。</p>
-<p>新线程创建之后，你调用它的 start() 方法它才会运行。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">start</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
-
-<p>下面是一个创建线程并开始让它执行的实例：</p>
-<p><code>TestThread.java</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">RunnableDemo</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Thread t;</span><br><span class="line">    <span class="keyword">private</span> String threadName;</span><br><span class="line"></span><br><span class="line">    RunnableDemo( String name) &#123;</span><br><span class="line">        threadName = name;</span><br><span class="line">        System.out.println(<span class="string">&quot;Creating &quot;</span> +  threadName );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Running &quot;</span> +  threadName );</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">4</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;Thread: &quot;</span> + threadName + <span class="string">&quot;, &quot;</span> + i);</span><br><span class="line">                <span class="comment">// 让线程睡眠一会</span></span><br><span class="line">                Thread.sleep(<span class="number">50</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Thread &quot;</span> +  threadName + <span class="string">&quot; interrupted.&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;Thread &quot;</span> +  threadName + <span class="string">&quot; exiting.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">start</span> <span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Starting &quot;</span> +  threadName );</span><br><span class="line">        <span class="keyword">if</span> (t == <span class="literal">null</span>) &#123;</span><br><span class="line">            t = <span class="keyword">new</span> <span class="title class_">Thread</span> (<span class="built_in">this</span>, threadName);</span><br><span class="line">            t.start ();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestThread</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String args[])</span> &#123;</span><br><span class="line">        <span class="type">RunnableDemo</span> <span class="variable">r1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">RunnableDemo</span>( <span class="string">&quot;Thread-1&quot;</span>);</span><br><span class="line">        r1.start();</span><br><span class="line"></span><br><span class="line">        <span class="type">RunnableDemo</span> <span class="variable">r2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">RunnableDemo</span>( <span class="string">&quot;Thread-2&quot;</span>);</span><br><span class="line">        r2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>输出结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Creating Thread-1</span><br><span class="line">Starting Thread-1</span><br><span class="line">Creating Thread-2</span><br><span class="line">Starting Thread-2</span><br><span class="line">Running Thread-1</span><br><span class="line">Thread: Thread-1, 4</span><br><span class="line">Running Thread-2</span><br><span class="line">Thread: Thread-2, 4</span><br><span class="line">Thread: Thread-1, 3</span><br><span class="line">Thread: Thread-2, 3</span><br><span class="line">Thread: Thread-1, 2</span><br><span class="line">Thread: Thread-2, 2</span><br><span class="line">Thread: Thread-1, 1</span><br><span class="line">Thread: Thread-2, 1</span><br><span class="line">Thread Thread-1 exiting.</span><br><span class="line">Thread Thread-2 exiting.</span><br></pre></td></tr></table></figure>
-
-<h2 id="通过继承Thread来创建线程"><a href="#通过继承Thread来创建线程" class="headerlink" title="通过继承Thread来创建线程"></a>通过继承Thread来创建线程</h2><p>创建一个线程的第二种方法是创建一个新的类，该类继承 Thread 类，然后创建一个该类的实例。</p>
-<p>继承类必须重写 run() 方法，该方法是新线程的入口点。它也必须调用 start() 方法才能执行。</p>
-<p>该方法尽管被列为一种多线程实现方式，但是本质上也是实现了 Runnable 接口的一个实例。</p>
-<h3 id="Thread-方法"><a href="#Thread-方法" class="headerlink" title="Thread 方法"></a>Thread 方法</h3><p>下表列出了Thread类的一些重要方法：</p>
-<ol>
-<li><p>public void start()<br>使该线程开始执行；Java 虚拟机调用该线程的 run 方法。</p>
-</li>
-<li><p>public void run()<br>如果该线程是使用独立的 Runnable 运行对象构造的，则调用该 Runnable 对象的 run 方法；否则，该方法不执行任何操作并返回。</p>
-</li>
-<li><p>public final void setName(String name)<br>改变线程名称，使之与参数 name 相同。</p>
-</li>
-<li><p>public final void setPriority(int priority)<br> 更改线程的优先级。</p>
-</li>
-<li><p>public final void setDaemon(boolean on)<br>将该线程标记为守护线程或用户线程。</p>
-</li>
-<li><p>public final void join(long millisec)<br>等待该线程终止的时间最长为 millis 毫秒。</p>
-</li>
-<li><p>public void interrupt()<br>中断线程。</p>
-</li>
-<li><p>public final boolean isAlive()<br>测试线程是否处于活动状态。</p>
-</li>
-</ol>
-<p>上述方法是被Thread对象调用的。下面的方法是Thread类的静态方法。</p>
-<ol>
-<li><p>public static void yield()<br>暂停当前正在执行的线程对象，并执行其他线程。</p>
-</li>
-<li><p>public static void sleep(long millisec)<br>在指定的毫秒数内让当前正在执行的线程休眠（暂停执行），此操作受到系统计时器和调度程序精度和准确性的影响。</p>
-</li>
-</ol>
-<p> yield和sleep的区别<br>sleep()方法会给其他线程运行的机会，而不考虑其他线程的优先级，因此会给较低线程一个运行的机会;yield()方法只会给相同优先级或者更高优先级的线程一个运行的机会。</p>
-<p> 当线程执行了sleep(long millis)方法后，将转到阻塞状态，参数millis指定睡眠时间;当线程执行了yield()方法后，将转到就绪状态。</p>
-<ol start="3">
-<li><p>public static boolean holdsLock(Object x)<br>当且仅当当前线程在指定的对象上保持监视器锁时，才返回 true。</p>
-</li>
-<li><p>public static Thread currentThread()<br>返回对当前正在执行的线程对象的引用。</p>
-</li>
-<li><p>public static void dumpStack()<br>将当前线程的堆栈跟踪打印至标准错误流。</p>
-</li>
-</ol>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ThreadClassDemo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String [] args)</span> &#123;</span><br><span class="line">        <span class="type">Runnable</span> <span class="variable">hello</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DisplayMessage</span>(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">thread1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(hello);</span><br><span class="line">        thread1.setDaemon(<span class="literal">true</span>);</span><br><span class="line">        thread1.setName(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;Starting hello thread...&quot;</span>);</span><br><span class="line">        thread1.start();</span><br><span class="line"></span><br><span class="line">        <span class="type">Runnable</span> <span class="variable">bye</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DisplayMessage</span>(<span class="string">&quot;Goodbye&quot;</span>);</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">thread2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(bye);</span><br><span class="line">        thread2.setPriority(Thread.MIN_PRIORITY);</span><br><span class="line">        thread2.setDaemon(<span class="literal">true</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;Starting goodbye thread...&quot;</span>);</span><br><span class="line">        thread2.start();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;Starting thread3...&quot;</span>);</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">thread3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">GuessANumber</span>(<span class="number">27</span>);</span><br><span class="line">        thread3.start();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            thread3.join();</span><br><span class="line">        &#125;<span class="keyword">catch</span>(InterruptedException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Thread interrupted.&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;Starting thread4...&quot;</span>);</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">thread4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">GuessANumber</span>(<span class="number">75</span>);</span><br><span class="line"></span><br><span class="line">        thread4.start();</span><br><span class="line">        System.out.println(<span class="string">&quot;main() is ending...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DisplayMessage</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">DisplayMessage</span><span class="params">(String message)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.message = message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">            System.out.println(message);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GuessANumber</span> <span class="keyword">extends</span> <span class="title class_">Thread</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> number;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">GuessANumber</span><span class="params">(<span class="type">int</span> number)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.number = number;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">counter</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">guess</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            guess = (<span class="type">int</span>) (Math.random() * <span class="number">100</span> + <span class="number">1</span>);</span><br><span class="line">            System.out.println(<span class="built_in">this</span>.getName() + <span class="string">&quot; guesses &quot;</span> + guess);</span><br><span class="line">            counter++;</span><br><span class="line">        &#125; <span class="keyword">while</span>(guess != number);</span><br><span class="line">        System.out.println(<span class="string">&quot;** Correct!&quot;</span> + <span class="built_in">this</span>.getName() + <span class="string">&quot;in&quot;</span> + counter + <span class="string">&quot;guesses.**&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Starting hello thread...</span><br><span class="line">Starting goodbye thread...</span><br><span class="line">Hello</span><br><span class="line">Hello</span><br><span class="line">Hello</span><br><span class="line">Hello</span><br><span class="line">Hello</span><br><span class="line">Hello</span><br><span class="line">Goodbye</span><br><span class="line">Goodbye</span><br><span class="line">Goodbye</span><br><span class="line">Goodbye</span><br><span class="line">Goodbye</span><br><span class="line">.......</span><br></pre></td></tr></table></figure>
-
-<h2 id="通过-Callable-和-Future-创建线程"><a href="#通过-Callable-和-Future-创建线程" class="headerlink" title="通过 Callable 和 Future 创建线程"></a>通过 Callable 和 Future 创建线程</h2><ol>
-<li><p>创建 Callable 接口的实现类，并实现 call() 方法，该 call() 方法将作为线程执行体，并且有返回值。</p>
-</li>
-<li><p>创建 Callable 实现类的实例，使用 FutureTask 类来包装 Callable 对象，该 FutureTask 对象封装了该 Callable 对象的 call() 方法的返回值。</p>
-</li>
-<li><p>使用 FutureTask 对象作为 Thread 对象的 target 创建并启动新线程。</p>
-</li>
-<li><p>调用 FutureTask 对象的 get() 方法来获得子线程执行结束后的返回值。</p>
-</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CallableThreadTest</span> <span class="keyword">implements</span> <span class="title class_">Callable</span>&lt;Integer&gt; &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="type">CallableThreadTest</span> <span class="variable">ctt</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CallableThreadTest</span>();  </span><br><span class="line">        FutureTask&lt;Integer&gt; ft = <span class="keyword">new</span> <span class="title class_">FutureTask</span>&lt;&gt;(ctt);  </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; <span class="number">100</span>;i++)  </span><br><span class="line">        &#123;  </span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot; 的循环变量i的值&quot;</span>+i);  </span><br><span class="line">            <span class="keyword">if</span>(i==<span class="number">20</span>)  </span><br><span class="line">            &#123;  </span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">Thread</span>(ft,<span class="string">&quot;有返回值的线程&quot;</span>).start();  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">try</span>  </span><br><span class="line">        &#123;  </span><br><span class="line">            System.out.println(<span class="string">&quot;子线程的返回值：&quot;</span>+ft.get());  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e)  </span><br><span class="line">        &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (ExecutionException e)  </span><br><span class="line">        &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="keyword">public</span> Integer <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line">        <span class="keyword">for</span>(;i&lt;<span class="number">100</span>;i++)  </span><br><span class="line">        &#123;  </span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot; &quot;</span>+i);  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> i;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="创建线程的三种方式的对比"><a href="#创建线程的三种方式的对比" class="headerlink" title="创建线程的三种方式的对比"></a>创建线程的三种方式的对比</h1><ol>
-<li><p>采用实现 Runnable、Callable 接口的方式创建多线程时，线程类只是实现了 Runnable 接口或 Callable 接口，还可以继承其他类。</p>
-</li>
-<li><p>使用继承 Thread 类的方式创建多线程时，编写简单，如果需要访问当前线程，则无需使用 Thread.currentThread() 方法，直接使用 this 即可获得当前线程。</p>
-</li>
-</ol>
-<h1 id="线程的几个主要概念"><a href="#线程的几个主要概念" class="headerlink" title="线程的几个主要概念"></a>线程的几个主要概念</h1><p>在多线程编程时，你需要了解以下几个概念：</p>
-<p>线程同步<br>线程间通信<br>线程死锁<br>线程控制：挂起、停止和恢复</p>
-<h1 id="多线程的使用"><a href="#多线程的使用" class="headerlink" title="多线程的使用"></a>多线程的使用</h1><p>有效利用多线程的关键是理解程序是并发执行而不是串行执行的。例如：程序中有两个子系统需要并发执行，这时候就需要利用多线程编程。</p>
-<p>通过对多线程的使用，可以编写出非常高效的程序。不过请注意，如果你创建太多的线程，程序执行的效率实际上是降低了，而不是提升了。</p>
-<p>请记住，上下文的切换开销也很重要，如果你创建了太多的线程，CPU 花费在上下文的切换的时间将多于执行程序的时间！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/04/CentOS-7-%E5%A6%82%E4%BD%95%E5%85%B3%E6%9C%BA%E9%87%8D%E5%90%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/04/CentOS-7-%E5%A6%82%E4%BD%95%E5%85%B3%E6%9C%BA%E9%87%8D%E5%90%AF/" class="post-title-link" itemprop="url">CentOS 7 如何关机重启</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-04-16 15:09:06" itemprop="dateCreated datePublished" datetime="2018-04-16T15:09:06+08:00">2018-04-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2018/04/CentOS-7-%E5%A6%82%E4%BD%95%E5%85%B3%E6%9C%BA%E9%87%8D%E5%90%AF/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS 7 如何关机重启" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2018/04/CentOS-7-%E5%A6%82%E4%BD%95%E5%85%B3%E6%9C%BA%E9%87%8D%E5%90%AF/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2018/04/CentOS-7-%E5%A6%82%E4%BD%95%E5%85%B3%E6%9C%BA%E9%87%8D%E5%90%AF/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>如果要关机，必须保证当前系统中没有其他用户在登录系统。我们可以使用<code>who</code>命令查看是否还有其他人登录，或者使用命令<code>ps -aux</code>查看是否还有后台进程运行。</p>
-<p><code>shutdown</code>，<code>halt</code>，<code>poweroff</code>都为关机的命令，我们可以使用命令<code>man shutdown</code>查看其帮助文档。例如，我们运行如下命令关机。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">shutdown -h 10        #计算机将于10分钟后关闭，且会显示在登录用户的当前屏幕中</span><br><span class="line"></span><br><span class="line">shutdown -h now       #计算机会立刻关机</span><br><span class="line"></span><br><span class="line">shutdown -h 22:22     #计算机会在这个时刻关机</span><br><span class="line"></span><br><span class="line">shutdown -r now       #计算机会立刻重启</span><br><span class="line"></span><br><span class="line">shutdown -r +10       #计算机会将于10分钟后重启</span><br><span class="line"></span><br><span class="line">reboot                #重启</span><br><span class="line"></span><br><span class="line">halt                  #关机</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/120/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/120/">120</a><span class="page-number current">121</span><a class="page-number" href="/page/122/">122</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/122/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/120/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/120/">120</a><span class="page-number current">121</span><a class="page-number" href="/page/122/">122</a><span class="space">&hellip;</span><a class="page-number" href="/page/128/">128</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/122/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

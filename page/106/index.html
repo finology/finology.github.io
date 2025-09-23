@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">380</span>
+          <span class="site-state-item-count">382</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,318 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/02/%E4%BD%BF%E7%94%A8Thriftserver%E5%92%8CBeeline/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/02/%E4%BD%BF%E7%94%A8Thriftserver%E5%92%8CBeeline/" class="post-title-link" itemprop="url">使用Thriftserver和Beeline</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-02-12 19:16:40" itemprop="dateCreated datePublished" datetime="2019-02-12T19:16:40+08:00">2019-02-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/Spark-SQL/" itemprop="url" rel="index"><span itemprop="name">Spark SQL</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/02/%E4%BD%BF%E7%94%A8Thriftserver%E5%92%8CBeeline/" class="post-meta-item leancloud_visitors" data-flag-title="使用Thriftserver和Beeline" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/02/%E4%BD%BF%E7%94%A8Thriftserver%E5%92%8CBeeline/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/02/%E4%BD%BF%E7%94%A8Thriftserver%E5%92%8CBeeline/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我们已经有了<code>spark-shell</code>和<code>spark-sql</code>，为什么还要使用<code>Thriftserver</code>呢？</p>
+<ol>
+<li><p>每一个spark-shell &#x2F; spark-sql都是一个Spark Application。</p>
+</li>
+<li><p>Thriftserver不管启动多少个客户端（beeline &#x2F; code），都只会产生一个Spark Application</p>
+</li>
+</ol>
+<h1 id="启动thriftserver"><a href="#启动thriftserver" class="headerlink" title="启动thriftserver"></a>启动thriftserver</h1><p>需要把MySQL JDBC驱动通过<code>jars</code>参数加入进来。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME/</span><br><span class="line"></span><br><span class="line">sbin/start-thriftserver.sh --master local[2] \</span><br><span class="line">--jars ~/.m2/repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">jps -m</span><br><span class="line"></span><br><span class="line">21522 SparkSubmit --master local[2] --class org.apache.spark.sql.hive.thriftserver.HiveThriftServer2</span><br><span class="line">--name Thrift JDBC/ODBC Server </span><br><span class="line">--jars /Users/simon/.m2/repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar spark-internal</span><br><span class="line">3459 Worker --webui-port 8081 spark://localhost:7077</span><br><span class="line">18420 SparkSubmit --master local[2] --class org.apache.spark.sql.hive.thriftserver.SparkSQLCLIDriver </span><br><span class="line">--jars /Users/simon/.m2/repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar spark-internal</span><br></pre></td></tr></table></figure>
+
+<p>我们看到有两个SparkSubmit进程，21522那个进程就是刚才启动的那个，class是<code>HiveThriftServer2</code>。</p>
+<p>以spark-shell方式启动的class是<code>SparkSQLCLIDriver</code>。</p>
+<h2 id="thriftserver端口"><a href="#thriftserver端口" class="headerlink" title="thriftserver端口"></a>thriftserver端口</h2><p>默认端口为<code>10000</code>，可以修改为其他端口。</p>
+<p>在启动时增加<code>hiveconf</code>参数，比如把端口号设置为<code>14000</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--hiveconf hive.server2.thrift.port = 14000</span><br></pre></td></tr></table></figure>
+
+<h1 id="beeline访问thriftserver"><a href="#beeline访问thriftserver" class="headerlink" title="beeline访问thriftserver"></a>beeline访问thriftserver</h1><p>需要设置jdbc uri: jdbc:hive2:&#x2F;&#x2F;localhost:10000</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">bin/beeline -u jdbc:hive2://localhost:10000 -n simon</span><br><span class="line">Connecting to jdbc:hive2://localhost:10000</span><br><span class="line">log4j:WARN No appenders could be found for logger (org.apache.hive.jdbc.Utils).</span><br><span class="line">log4j:WARN Please initialize the log4j system properly.</span><br><span class="line">log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.</span><br><span class="line">Connected to: Spark SQL (version 2.2.3)</span><br><span class="line">Driver: Hive JDBC (version 1.2.1.spark2)</span><br><span class="line">Transaction isolation: TRANSACTION_REPEATABLE_READ</span><br><span class="line">Beeline version 1.2.1.spark2 by Apache Hive</span><br><span class="line">0: jdbc:hive2://localhost:10000&gt;</span><br></pre></td></tr></table></figure>
+
+<p>查看<code>emp</code>表的内容。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">0: jdbc:hive2://localhost:10000&gt; SELECT * FROM emp;</span><br><span class="line">+--------+---------+------------+-------+-----------+---------+---------+---------+--+</span><br><span class="line">| empno  |  ename  |    job     |  mgr  | hiredate  |   sal   |  comm   | deptno  |</span><br><span class="line">+--------+---------+------------+-------+-----------+---------+---------+---------+--+</span><br><span class="line">| 7369   | SMITH   | CLERK      | 7902  | NULL      | 800.0   | NULL    | 20      |</span><br><span class="line">| 7499   | ALLEN   | SALESMAN   | 7698  | NULL      | 1600.0  | 300.0   | 30      |</span><br><span class="line">| 7521   | WARD    | SALESMAN   | 7698  | NULL      | 1250.0  | 500.0   | 30      |</span><br><span class="line">| 7566   | JONES   | MANAGER    | 7839  | NULL      | 2975.0  | NULL    | 20      |</span><br><span class="line">| 7654   | MARTIN  | SALESMAN   | 7698  | NULL      | 1250.0  | 1400.0  | 30      |</span><br><span class="line">| 7698   | BLAKE   | MANAGER    | 7839  | NULL      | 2850.0  | NULL    | 30      |</span><br><span class="line">| 7782   | CLARK   | MANAGER    | 7839  | NULL      | 2450.0  | NULL    | 10      |</span><br><span class="line">| 7788   | SCOTT   | ANALYST    | 7566  | NULL      | 3000.0  | NULL    | 20      |</span><br><span class="line">| 7839   | KING    | PRESIDENT  | NULL  | NULL      | 5000.0  | NULL    | 10      |</span><br><span class="line">| 7844   | TURNER  | SALESMAN   | 7698  | NULL      | 1500.0  | 0.0     | 30      |</span><br><span class="line">| 7876   | ADAMS   | CLERK      | 7788  | NULL      | 1100.0  | NULL    | 20      |</span><br><span class="line">| 7900   | JAMES   | CLERK      | 7698  | NULL      | 950.0   | NULL    | 30      |</span><br><span class="line">| 7902   | FORD    | ANALYST    | 7566  | NULL      | 3000.0  | NULL    | 20      |</span><br><span class="line">| 7934   | MILLER  | CLERK      | 7782  | NULL      | 1300.0  | NULL    | 10      |</span><br><span class="line">+--------+---------+------------+-------+-----------+---------+---------+---------+--+</span><br><span class="line">14 rows selected (0.411 seconds)</span><br></pre></td></tr></table></figure>
+
+<h1 id="通过程序访问thriftserver"><a href="#通过程序访问thriftserver" class="headerlink" title="通过程序访问thriftserver"></a>通过程序访问thriftserver</h1><h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Thriftserver 支持 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hive<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hive-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="SparkSQLThriftServerApp"><a href="#SparkSQLThriftServerApp" class="headerlink" title="SparkSQLThriftServerApp"></a>SparkSQLThriftServerApp</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> gy.finolo.spark</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.<span class="type">DriverManager</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">SparkSQLThriftServerApp</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 加载驱动</span></span><br><span class="line">    <span class="type">Class</span>.forName(<span class="string">&quot;org.apache.hive.jdbc.HiveDriver&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 获取连接</span></span><br><span class="line">    <span class="keyword">val</span> conn = <span class="type">DriverManager</span>.getConnection(<span class="string">&quot;jdbc:hive2://localhost:10000&quot;</span>, <span class="string">&quot;root&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">    <span class="keyword">val</span> ps = conn.prepareStatement(<span class="string">&quot;SELECT empno, ename, sal FROM emp&quot;</span>)</span><br><span class="line">    <span class="keyword">val</span> rs = ps.executeQuery()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (rs.next()) &#123;</span><br><span class="line">      println(<span class="string">&quot;empno: &quot;</span> + rs.getInt(<span class="string">&quot;empno&quot;</span>) +</span><br><span class="line">        <span class="string">&quot;, ename: &quot;</span> + rs.getString(<span class="string">&quot;ename&quot;</span>) +</span><br><span class="line">        <span class="string">&quot;, salary: &quot;</span> + rs.getDouble(<span class="string">&quot;sal&quot;</span>))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    rs.close()</span><br><span class="line">    ps.close()</span><br><span class="line">    conn.close()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">empno: 7369, ename: SMITH, salary: 800.0</span><br><span class="line">empno: 7499, ename: ALLEN, salary: 1600.0</span><br><span class="line">empno: 7521, ename: WARD, salary: 1250.0</span><br><span class="line">empno: 7566, ename: JONES, salary: 2975.0</span><br><span class="line">empno: 7654, ename: MARTIN, salary: 1250.0</span><br><span class="line">empno: 7698, ename: BLAKE, salary: 2850.0</span><br><span class="line">empno: 7782, ename: CLARK, salary: 2450.0</span><br><span class="line">empno: 7788, ename: SCOTT, salary: 3000.0</span><br><span class="line">empno: 7839, ename: KING, salary: 5000.0</span><br><span class="line">empno: 7844, ename: TURNER, salary: 1500.0</span><br><span class="line">empno: 7876, ename: ADAMS, salary: 1100.0</span><br><span class="line">empno: 7900, ename: JAMES, salary: 950.0</span><br><span class="line">empno: 7902, ename: FORD, salary: 3000.0</span><br><span class="line">empno: 7934, ename: MILLER, salary: 1300.0</span><br></pre></td></tr></table></figure>
+
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol>
+<li>通过程序访问thriftserver前，得保证thriftserver已经启动，不然运行程序时，会遇到如下错误：</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread &quot;main&quot; java.sql.SQLException: Could not open client transport with JDBC Uri: </span><br><span class="line">jdbc:hive2://localhost:10000: java.net.ConnectException: Connection refused (Connection refused)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>我安装的Hive版本是<code>hive-1.1.0-cdh5.7.0</code>，但我在pom.xml里依赖的jar版本不对时，可能遇到如下异常。</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread &quot;main&quot; java.sql.SQLException: Could not open client transport with JDBC Uri: </span><br><span class="line">jdbc:hive2://localhost:10000: Could not establish connection to jdbc:hive2://localhost:10000: </span><br><span class="line">Required field &#x27;client_protocol&#x27; is unset! Struct:TOpenSessionReq(client_protocol:null, </span><br><span class="line">configuration:&#123;use:database=default&#125;)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/02/%E4%BB%8EHive%E5%B9%B3%E6%BB%91%E8%BF%87%E6%B8%A1%E5%88%B0Spark-SQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/02/%E4%BB%8EHive%E5%B9%B3%E6%BB%91%E8%BF%87%E6%B8%A1%E5%88%B0Spark-SQL/" class="post-title-link" itemprop="url">从Hive平滑过渡到Spark SQL</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-02-12 15:19:15" itemprop="dateCreated datePublished" datetime="2019-02-12T15:19:15+08:00">2019-02-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/Spark-SQL/" itemprop="url" rel="index"><span itemprop="name">Spark SQL</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/02/%E4%BB%8EHive%E5%B9%B3%E6%BB%91%E8%BF%87%E6%B8%A1%E5%88%B0Spark-SQL/" class="post-meta-item leancloud_visitors" data-flag-title="从Hive平滑过渡到Spark SQL" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/02/%E4%BB%8EHive%E5%B9%B3%E6%BB%91%E8%BF%87%E6%B8%A1%E5%88%B0Spark-SQL/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/02/%E4%BB%8EHive%E5%B9%B3%E6%BB%91%E8%BF%87%E6%B8%A1%E5%88%B0Spark-SQL/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>这篇文章记录一下如何在Spark下面像Hive一样查询表的内容。</p>
+<h1 id="启动Spark"><a href="#启动Spark" class="headerlink" title="启动Spark"></a>启动Spark</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-shell --master local[2]</span><br></pre></td></tr></table></figure>
+
+<h1 id="查看一下有哪些表"><a href="#查看一下有哪些表" class="headerlink" title="查看一下有哪些表"></a>查看一下有哪些表</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; spark.sql(&quot;show tables&quot;).show</span><br><span class="line">19/02/12 14:37:49 WARN ObjectStore: Version information not found in metastore. hive.metastore.schema.verification is not enabled so recording the schema version 1.2.0</span><br><span class="line">19/02/12 14:37:49 WARN ObjectStore: Failed to get database default, returning NoSuchObjectException</span><br><span class="line">19/02/12 14:37:50 WARN ObjectStore: Failed to get database global_temp, returning NoSuchObjectException</span><br><span class="line">+--------+---------+-----------+</span><br><span class="line">|database|tableName|isTemporary|</span><br><span class="line">+--------+---------+-----------+</span><br><span class="line">+--------+---------+-----------+</span><br></pre></td></tr></table></figure>
+
+<p>没有查看到东西。</p>
+<p>所以需要把hive下面的<code>hive-site.xml</code>文件复制到spark下面。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp $HIVE_HOME/conf/hive-site.xml $SPARK_HOME/conf</span><br></pre></td></tr></table></figure>
+
+<h1 id="重启Spark"><a href="#重启Spark" class="headerlink" title="重启Spark"></a>重启Spark</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-shell --master local[2]</span><br></pre></td></tr></table></figure>
+
+<p>再次执行命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; spark.sql(&quot;show tables&quot;).show</span><br><span class="line"></span><br><span class="line">19/02/12 15:53:46 WARN HiveMetaStore: Retrying creating default database after error: Error creating transactional connection factory</span><br><span class="line">javax.jdo.JDOFatalInternalException: Error creating transactional connection factory</span><br><span class="line"></span><br><span class="line">Caused by: org.datanucleus.store.rdbms.connectionpool.DatastoreDriverNotFoundException: </span><br><span class="line">The specified datastore driver (&quot;com.mysql.jdbc.Driver&quot;) was not found in the CLASSPATH. </span><br><span class="line">Please check your CLASSPATH specification, and the name of the driver.</span><br></pre></td></tr></table></figure>
+
+<p>说明MySQL的驱动未被加载。</p>
+<p>第三次启动Spark，通过参数<code>--jars</code>指定MySQL驱动的位置。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-shell --master local[2] \</span><br><span class="line">--jars ~/.m2/repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar</span><br></pre></td></tr></table></figure>
+
+<h1 id="查看表"><a href="#查看表" class="headerlink" title="查看表"></a>查看表</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; spark.sql(&quot;show tables&quot;).show</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">+--------+--------------+-----------+</span><br><span class="line">|database|     tableName|isTemporary|</span><br><span class="line">+--------+--------------+-----------+</span><br><span class="line">| default|           emp|      false|</span><br><span class="line">| default|hive_wordcount|      false|</span><br><span class="line">+--------+--------------+-----------+</span><br></pre></td></tr></table></figure>
+
+<p>可以看到有两个表，<code>emp</code>和<code>hive_wordcount</code>。</p>
+<h1 id="验证SQL查询"><a href="#验证SQL查询" class="headerlink" title="验证SQL查询"></a>验证SQL查询</h1><h2 id="在hive-client里面新建一个dept表"><a href="#在hive-client里面新建一个dept表" class="headerlink" title="在hive client里面新建一个dept表"></a>在hive client里面新建一个dept表</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hive&gt;</span><br><span class="line">CREATE TABLE dept(</span><br><span class="line">	deptno		INT,</span><br><span class="line">	dname		STRING,</span><br><span class="line">	loc			STRING)</span><br><span class="line">ROW FORMAT DELIMITED FIELDS TERMINATED BY &#x27;\t&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建dept数据文件"><a href="#创建dept数据文件" class="headerlink" title="创建dept数据文件"></a>创建dept数据文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat /usr/local/spark/data/dept</span><br><span class="line"></span><br><span class="line">10  ACCOUNTING  NEW YORK</span><br><span class="line">20  RESEARCH    DALLAS</span><br><span class="line">30  SALES   CHICAGO</span><br><span class="line">40  OPERATIONS	BOSTON</span><br></pre></td></tr></table></figure>
+
+<p>中间字段间间隔的是tab。</p>
+<h2 id="加载数据到dept表里"><a href="#加载数据到dept表里" class="headerlink" title="加载数据到dept表里"></a>加载数据到dept表里</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive&gt; LOAD DATA LOCAL INPATH &#x27;/usr/local/spark/data/dept&#x27; OVERWRITE INTO TABLE dept;</span><br></pre></td></tr></table></figure>
+
+<p><code>OVERWRITE</code>参数的意义是：如果表里面有旧的数据，可以通过<code>OVERWRITE</code>先清除旧数据。</p>
+<h2 id="验证查询"><a href="#验证查询" class="headerlink" title="验证查询"></a>验证查询</h2><p>回到spark shell。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; spark.sql(&quot;SELECT * FROM dept&quot;).show</span><br><span class="line">+------+----------+--------+</span><br><span class="line">|deptno|     dname|     loc|</span><br><span class="line">+------+----------+--------+</span><br><span class="line">|    10|ACCOUNTING|NEW YORK|</span><br><span class="line">|    20|  RESEARCH|  DALLAS|</span><br><span class="line">|    30|     SALES| CHICAGO|</span><br><span class="line">|    40|OPERATIONS|  BOSTON|</span><br><span class="line">+------+----------+--------+</span><br></pre></td></tr></table></figure>
+
+<h1 id="如果省略spark-sql"><a href="#如果省略spark-sql" class="headerlink" title="如果省略spark.sql"></a>如果省略spark.sql</h1><p>我们发现在执行SQL语句时，我们在都需要写<code>spark.sql(sql query).show</code>。这样比起hive来，就没那么简便。</p>
+<p>其实是可以通过启动spark-sql来达到这个简化目标的。</p>
+<p>能spark-sql方式启动spark shell。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-sql --master local[2] \</span><br><span class="line">--jars ~/.m2/repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar</span><br></pre></td></tr></table></figure>
+
+<p>启动后，直接写SQL语句查询</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-sql&gt; SELECT * FROM emp e JOIN dept d ON e.deptno = d.deptno;</span><br></pre></td></tr></table></figure>
+
+<p>将返回如下内容：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">19/02/12 16:39:50 INFO DAGScheduler: Job 1 finished: processCmd at CliDriver.java:376, took 0.059725 s</span><br><span class="line">7369	SMITH	CLERK	7902	NULL	800.0	NULL	20	20	RESEARCH	DALLAS</span><br><span class="line">7499	ALLEN	SALESMAN	7698	NULL	1600.0	300.0	30	30	SALES	CHICAGO</span><br><span class="line">7521	WARD	SALESMAN	7698	NULL	1250.0	500.0	30	30	SALES	CHICAGO</span><br><span class="line">7566	JONES	MANAGER	7839	NULL	2975.0	NULL	20	20	RESEARCH	DALLAS</span><br><span class="line">7654	MARTIN	SALESMAN	7698	NULL	1250.0	1400.0	30	30	SALES	CHICAGO</span><br><span class="line">7698	BLAKE	MANAGER	7839	NULL	2850.0	NULL	30	30	SALES	CHICAGO</span><br><span class="line">7782	CLARK	MANAGER	7839	NULL	2450.0	NULL	10	10	ACCOUNTING	NEW YORK</span><br><span class="line">7788	SCOTT	ANALYST	7566	NULL	3000.0	NULL	20	20	RESEARCH	DALLAS</span><br><span class="line">7839	KING	PRESIDENT	NULL	NULL	5000.0	NULL	10	10	ACCOUNTING	NEW YORK</span><br><span class="line">7844	TURNER	SALESMAN	7698	NULL	1500.0	0.0	30	30	SALES	CHICAGO</span><br><span class="line">7876	ADAMS	CLERK	7788	NULL	1100.0	NULL	20	20	RESEARCH	DALLAS</span><br><span class="line">7900	JAMES	CLERK	7698	NULL	950.0	NULL	30	30	SALES	CHICAGO</span><br><span class="line">7902	FORD	ANALYST	7566	NULL	3000.0	NULL	20	20	RESEARCH	DALLAS</span><br><span class="line">7934	MILLER	CLERK	7782	NULL	1300.0	NULL	10	10	ACCOUNTING	NEW YORK</span><br><span class="line">Time taken: 3.793 seconds, Fetched 14 row(s)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h1 id="查看执行计划"><a href="#查看执行计划" class="headerlink" title="查看执行计划"></a>查看执行计划</h1><h2 id="创建一个表"><a href="#创建一个表" class="headerlink" title="创建一个表"></a>创建一个表</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark<span class="operator">-</span><span class="keyword">sql</span><span class="operator">&gt;</span> <span class="keyword">CREATE TABLE</span> t (key STRING, <span class="keyword">value</span> STRING);</span><br></pre></td></tr></table></figure>
+
+<h2 id="执行如下SQL语句"><a href="#执行如下SQL语句" class="headerlink" title="执行如下SQL语句"></a>执行如下SQL语句</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">spark<span class="operator">-</span><span class="keyword">sql</span><span class="operator">&gt;</span> EXPLAIN EXTENDED <span class="keyword">SELECT</span> a.key <span class="operator">*</span> (<span class="number">2</span> <span class="operator">+</span> <span class="number">3</span>) <span class="keyword">FROM</span> t a <span class="keyword">JOIN</span> t b <span class="keyword">ON</span> a.key <span class="operator">=</span> b.key <span class="keyword">AND</span> a.key <span class="operator">&gt;</span> <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="number">19</span><span class="operator">/</span><span class="number">02</span><span class="operator">/</span><span class="number">12</span> <span class="number">16</span>:<span class="number">45</span>:<span class="number">52</span> INFO SparkSqlParser: Parsing command: EXPLAIN EXTENDED <span class="keyword">SELECT</span> a.key <span class="operator">*</span> (<span class="number">2</span> <span class="operator">+</span> <span class="number">3</span>) <span class="keyword">FROM</span> t a <span class="keyword">JOIN</span> t b <span class="keyword">ON</span> a.key <span class="operator">=</span> b.key <span class="keyword">AND</span> a.key <span class="operator">&gt;</span> <span class="number">3</span></span><br><span class="line"><span class="number">19</span><span class="operator">/</span><span class="number">02</span><span class="operator">/</span><span class="number">12</span> <span class="number">16</span>:<span class="number">45</span>:<span class="number">52</span> INFO HiveMetaStore: <span class="number">0</span>: get_table : db<span class="operator">=</span><span class="keyword">default</span> tbl<span class="operator">=</span>t</span><br><span class="line"><span class="number">19</span><span class="operator">/</span><span class="number">02</span><span class="operator">/</span><span class="number">12</span> <span class="number">16</span>:<span class="number">45</span>:<span class="number">52</span> INFO audit: ugi<span class="operator">=</span>simon	ip<span class="operator">=</span><span class="literal">unknown</span><span class="operator">-</span>ip<span class="operator">-</span>addr	cmd<span class="operator">=</span>get_table : db<span class="operator">=</span><span class="keyword">default</span> tbl<span class="operator">=</span>t</span><br><span class="line"><span class="number">19</span><span class="operator">/</span><span class="number">02</span><span class="operator">/</span><span class="number">12</span> <span class="number">16</span>:<span class="number">45</span>:<span class="number">52</span> INFO CatalystSqlParser: Parsing command: string</span><br><span class="line"><span class="number">19</span><span class="operator">/</span><span class="number">02</span><span class="operator">/</span><span class="number">12</span> <span class="number">16</span>:<span class="number">45</span>:<span class="number">52</span> INFO CatalystSqlParser: Parsing command: string</span><br><span class="line"><span class="number">19</span><span class="operator">/</span><span class="number">02</span><span class="operator">/</span><span class="number">12</span> <span class="number">16</span>:<span class="number">45</span>:<span class="number">52</span> INFO HiveMetaStore: <span class="number">0</span>: get_table : db<span class="operator">=</span><span class="keyword">default</span> tbl<span class="operator">=</span>t</span><br><span class="line"><span class="number">19</span><span class="operator">/</span><span class="number">02</span><span class="operator">/</span><span class="number">12</span> <span class="number">16</span>:<span class="number">45</span>:<span class="number">52</span> INFO audit: ugi<span class="operator">=</span>simon	ip<span class="operator">=</span><span class="literal">unknown</span><span class="operator">-</span>ip<span class="operator">-</span>addr	cmd<span class="operator">=</span>get_table : db<span class="operator">=</span><span class="keyword">default</span> tbl<span class="operator">=</span>t</span><br><span class="line"><span class="number">19</span><span class="operator">/</span><span class="number">02</span><span class="operator">/</span><span class="number">12</span> <span class="number">16</span>:<span class="number">45</span>:<span class="number">52</span> INFO CatalystSqlParser: Parsing command: string</span><br><span class="line"><span class="number">19</span><span class="operator">/</span><span class="number">02</span><span class="operator">/</span><span class="number">12</span> <span class="number">16</span>:<span class="number">45</span>:<span class="number">52</span> INFO CatalystSqlParser: Parsing command: string</span><br><span class="line"><span class="operator">=</span><span class="operator">=</span> Parsed Logical Plan <span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="string">&#x27;Project [unresolvedalias((&#x27;</span>a.key <span class="operator">*</span> (<span class="number">2</span> <span class="operator">+</span> <span class="number">3</span>)), <span class="keyword">None</span>)]</span><br><span class="line"><span class="operator">+</span><span class="operator">-</span> <span class="string">&#x27;Join Inner, ((&#x27;</span>a.key <span class="operator">=</span> <span class="string">&#x27;b.key) &amp;&amp; (&#x27;</span>a.key <span class="operator">&gt;</span> <span class="number">3</span>))</span><br><span class="line">   :<span class="operator">-</span> <span class="string">&#x27;SubqueryAlias a</span></span><br><span class="line"><span class="string">   :  +- &#x27;</span>UnresolvedRelation `t`</span><br><span class="line">   <span class="operator">+</span><span class="operator">-</span> <span class="string">&#x27;SubqueryAlias b</span></span><br><span class="line"><span class="string">      +- &#x27;</span>UnresolvedRelation `t`</span><br><span class="line"></span><br><span class="line"><span class="operator">=</span><span class="operator">=</span> Analyzed Logical Plan <span class="operator">=</span><span class="operator">=</span></span><br><span class="line">(<span class="built_in">CAST</span>(key <span class="keyword">AS</span> <span class="keyword">DOUBLE</span>) <span class="operator">*</span> <span class="built_in">CAST</span>((<span class="number">2</span> <span class="operator">+</span> <span class="number">3</span>) <span class="keyword">AS</span> <span class="keyword">DOUBLE</span>)): <span class="keyword">double</span></span><br><span class="line">Project [(<span class="built_in">cast</span>(key#<span class="number">34</span> <span class="keyword">as</span> <span class="keyword">double</span>) <span class="operator">*</span> <span class="built_in">cast</span>((<span class="number">2</span> <span class="operator">+</span> <span class="number">3</span>) <span class="keyword">as</span> <span class="keyword">double</span>)) <span class="keyword">AS</span> (<span class="built_in">CAST</span>(key <span class="keyword">AS</span> <span class="keyword">DOUBLE</span>) <span class="operator">*</span> <span class="built_in">CAST</span>((<span class="number">2</span> <span class="operator">+</span> <span class="number">3</span>) <span class="keyword">AS</span> <span class="keyword">DOUBLE</span>))#<span class="number">38</span>]</span><br><span class="line"><span class="operator">+</span><span class="operator">-</span> <span class="keyword">Join</span> <span class="keyword">Inner</span>, ((key#<span class="number">34</span> <span class="operator">=</span> key#<span class="number">36</span>) <span class="operator">&amp;&amp;</span> (<span class="built_in">cast</span>(key#<span class="number">34</span> <span class="keyword">as</span> <span class="type">int</span>) <span class="operator">&gt;</span> <span class="number">3</span>))</span><br><span class="line">   :<span class="operator">-</span> SubqueryAlias a</span><br><span class="line">   :  <span class="operator">+</span><span class="operator">-</span> SubqueryAlias t</span><br><span class="line">   :     <span class="operator">+</span><span class="operator">-</span> HiveTableRelation `<span class="keyword">default</span>`.`t`, org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, [key#<span class="number">34</span>, <span class="keyword">value</span>#<span class="number">35</span>]</span><br><span class="line">   <span class="operator">+</span><span class="operator">-</span> SubqueryAlias b</span><br><span class="line">      <span class="operator">+</span><span class="operator">-</span> SubqueryAlias t</span><br><span class="line">         <span class="operator">+</span><span class="operator">-</span> HiveTableRelation `<span class="keyword">default</span>`.`t`, org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, [key#<span class="number">36</span>, <span class="keyword">value</span>#<span class="number">37</span>]</span><br><span class="line"></span><br><span class="line"><span class="operator">=</span><span class="operator">=</span> Optimized Logical Plan <span class="operator">=</span><span class="operator">=</span></span><br><span class="line">Project [(<span class="built_in">cast</span>(key#<span class="number">34</span> <span class="keyword">as</span> <span class="keyword">double</span>) <span class="operator">*</span> <span class="number">5.0</span>) <span class="keyword">AS</span> (<span class="built_in">CAST</span>(key <span class="keyword">AS</span> <span class="keyword">DOUBLE</span>) <span class="operator">*</span> <span class="built_in">CAST</span>((<span class="number">2</span> <span class="operator">+</span> <span class="number">3</span>) <span class="keyword">AS</span> <span class="keyword">DOUBLE</span>))#<span class="number">38</span>]</span><br><span class="line"><span class="operator">+</span><span class="operator">-</span> <span class="keyword">Join</span> <span class="keyword">Inner</span>, (key#<span class="number">34</span> <span class="operator">=</span> key#<span class="number">36</span>)</span><br><span class="line">   :<span class="operator">-</span> Project [key#<span class="number">34</span>]</span><br><span class="line">   :  <span class="operator">+</span><span class="operator">-</span> <span class="keyword">Filter</span> (isnotnull(key#<span class="number">34</span>) <span class="operator">&amp;&amp;</span> (<span class="built_in">cast</span>(key#<span class="number">34</span> <span class="keyword">as</span> <span class="type">int</span>) <span class="operator">&gt;</span> <span class="number">3</span>))</span><br><span class="line">   :     <span class="operator">+</span><span class="operator">-</span> HiveTableRelation `<span class="keyword">default</span>`.`t`, org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, [key#<span class="number">34</span>, <span class="keyword">value</span>#<span class="number">35</span>]</span><br><span class="line">   <span class="operator">+</span><span class="operator">-</span> Project [key#<span class="number">36</span>]</span><br><span class="line">      <span class="operator">+</span><span class="operator">-</span> <span class="keyword">Filter</span> (isnotnull(key#<span class="number">36</span>) <span class="operator">&amp;&amp;</span> (<span class="built_in">cast</span>(key#<span class="number">36</span> <span class="keyword">as</span> <span class="type">int</span>) <span class="operator">&gt;</span> <span class="number">3</span>))</span><br><span class="line">         <span class="operator">+</span><span class="operator">-</span> HiveTableRelation `<span class="keyword">default</span>`.`t`, org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, [key#<span class="number">36</span>, <span class="keyword">value</span>#<span class="number">37</span>]</span><br><span class="line"></span><br><span class="line"><span class="operator">=</span><span class="operator">=</span> Physical Plan <span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="operator">*</span>Project [(<span class="built_in">cast</span>(key#<span class="number">34</span> <span class="keyword">as</span> <span class="keyword">double</span>) <span class="operator">*</span> <span class="number">5.0</span>) <span class="keyword">AS</span> (<span class="built_in">CAST</span>(key <span class="keyword">AS</span> <span class="keyword">DOUBLE</span>) <span class="operator">*</span> <span class="built_in">CAST</span>((<span class="number">2</span> <span class="operator">+</span> <span class="number">3</span>) <span class="keyword">AS</span> <span class="keyword">DOUBLE</span>))#<span class="number">38</span>]</span><br><span class="line"><span class="operator">+</span><span class="operator">-</span> <span class="operator">*</span>SortMergeJoin [key#<span class="number">34</span>], [key#<span class="number">36</span>], <span class="keyword">Inner</span></span><br><span class="line">   :<span class="operator">-</span> <span class="operator">*</span>Sort [key#<span class="number">34</span> <span class="keyword">ASC</span> <span class="keyword">NULLS FIRST</span>], <span class="literal">false</span>, <span class="number">0</span></span><br><span class="line">   :  <span class="operator">+</span><span class="operator">-</span> Exchange hashpartitioning(key#<span class="number">34</span>, <span class="number">200</span>)</span><br><span class="line">   :     <span class="operator">+</span><span class="operator">-</span> <span class="operator">*</span><span class="keyword">Filter</span> (isnotnull(key#<span class="number">34</span>) <span class="operator">&amp;&amp;</span> (<span class="built_in">cast</span>(key#<span class="number">34</span> <span class="keyword">as</span> <span class="type">int</span>) <span class="operator">&gt;</span> <span class="number">3</span>))</span><br><span class="line">   :        <span class="operator">+</span><span class="operator">-</span> HiveTableScan [key#<span class="number">34</span>], HiveTableRelation `<span class="keyword">default</span>`.`t`, org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, [key#<span class="number">34</span>, <span class="keyword">value</span>#<span class="number">35</span>]</span><br><span class="line">   <span class="operator">+</span><span class="operator">-</span> <span class="operator">*</span>Sort [key#<span class="number">36</span> <span class="keyword">ASC</span> <span class="keyword">NULLS FIRST</span>], <span class="literal">false</span>, <span class="number">0</span></span><br><span class="line">      <span class="operator">+</span><span class="operator">-</span> ReusedExchange [key#<span class="number">36</span>], Exchange hashpartitioning(key#<span class="number">34</span>, <span class="number">200</span>)</span><br><span class="line"><span class="type">Time</span> taken: <span class="number">0.117</span> seconds, Fetched <span class="number">1</span> <span class="type">row</span>(s)</span><br><span class="line"><span class="number">19</span><span class="operator">/</span><span class="number">02</span><span class="operator">/</span><span class="number">12</span> <span class="number">16</span>:<span class="number">45</span>:<span class="number">52</span> INFO CliDriver: <span class="type">Time</span> taken: <span class="number">0.117</span> seconds, Fetched <span class="number">1</span> <span class="type">row</span>(s)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>关于执行计划的详细分析，我们会在后面的博客中详细分享。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -367,288 +679,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/02/%E5%88%9B%E5%BB%BASpark-SQL%E7%A8%8B%E5%BA%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/02/%E5%88%9B%E5%BB%BASpark-SQL%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">创建Spark SQL程序</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-02-10 22:04:55" itemprop="dateCreated datePublished" datetime="2019-02-10T22:04:55+08:00">2019-02-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/02/%E5%88%9B%E5%BB%BASpark-SQL%E7%A8%8B%E5%BA%8F/" class="post-meta-item leancloud_visitors" data-flag-title="创建Spark SQL程序" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/02/%E5%88%9B%E5%BB%BASpark-SQL%E7%A8%8B%E5%BA%8F/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/02/%E5%88%9B%E5%BB%BASpark-SQL%E7%A8%8B%E5%BA%8F/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>这篇博文将讲述如何创建一个Spark SQL的demo程序。</p>
-<h1 id="创建Maven工程"><a href="#创建Maven工程" class="headerlink" title="创建Maven工程"></a>创建Maven工程</h1><p>在pom.xml文件中需要两个依赖。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scala.version</span>&gt;</span>2.11.12<span class="tag">&lt;/<span class="name">scala.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scala.compat.version</span>&gt;</span>2.11<span class="tag">&lt;/<span class="name">scala.compat.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">spark.version</span>&gt;</span>2.2.3<span class="tag">&lt;/<span class="name">spark.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.scala-lang<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>scala-library<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;scala.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.spark<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spark-sql_$&#123;scala.compat.version&#125;<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spark.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="创建SparkSessionApp"><a href="#创建SparkSessionApp" class="headerlink" title="创建SparkSessionApp"></a>创建SparkSessionApp</h1><p>在Spark 1.x时，是通过创建SQLContext()来获取context的。</p>
-<p>在Spark 2.x后，改为使用SparkSession了。</p>
-<p>args(0)表示输入文件的地址。</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> gy.finolo.spark</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.sql.<span class="type">SparkSession</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">SparkSessionApp</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> path = args(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> sparkSession = <span class="type">SparkSession</span>.builder()</span><br><span class="line">      .master(<span class="string">&quot;local[2]&quot;</span>)</span><br><span class="line">      .appName(<span class="string">&quot;Spark Session App&quot;</span>)</span><br><span class="line">      .getOrCreate()</span><br><span class="line">    <span class="keyword">val</span> people = sparkSession.read.format(<span class="string">&quot;json&quot;</span>).load(path)</span><br><span class="line">    people.printSchema()</span><br><span class="line">    people.show()</span><br><span class="line">    sparkSession.stop()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在IDEA中运行时，需要指定<code>Program Arguments</code>为<code>/usr/local/spark/spark-2.2.3-bin-hadoop2.6/examples/src/main/resources/people.json</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat /usr/local/spark/spark-2.2.3-bin-hadoop2.6/examples/src/main/resources/people.json</span><br><span class="line">&#123;&quot;name&quot;:&quot;Michael&quot;&#125;</span><br><span class="line">&#123;&quot;name&quot;:&quot;Andy&quot;, &quot;age&quot;:30&#125;</span><br><span class="line">&#123;&quot;name&quot;:&quot;Justin&quot;, &quot;age&quot;:19&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="提交作业"><a href="#提交作业" class="headerlink" title="提交作业"></a>提交作业</h1><p>在本地测试完成后，可以打包，通过<code>spark-submit</code>提交作业运行。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-submit \</span><br><span class="line">--master local[2] \</span><br><span class="line">--class gy.finolo.spark.SparkSessionApp \</span><br><span class="line">/Users/simon/Development/workspace/scala/spark-sql-demo/target/spark-sql-demo-1.0-SNAPSHOT.jar \</span><br><span class="line">/usr/local/spark/spark-2.2.3-bin-hadoop2.6/examples/src/main/resources/people.json</span><br></pre></td></tr></table></figure>
-
-<p>可以在console中看到输出的信息。</p>
-<p>其中<code>printSchema()</code>语句打印的内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root</span><br><span class="line"> |-- age: long (nullable = true)</span><br><span class="line"> |-- name: string (nullable = true)</span><br></pre></td></tr></table></figure>
-
-<p><code>people.show()</code>输出的内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+----+-------+</span><br><span class="line">| age|   name|</span><br><span class="line">+----+-------+</span><br><span class="line">|null|Michael|</span><br><span class="line">|  30|   Andy|</span><br><span class="line">|  19| Justin|</span><br><span class="line">+----+-------+</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/02/Spark%E7%9A%84local%E5%92%8Cstandalone%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/02/Spark%E7%9A%84local%E5%92%8Cstandalone%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C/" class="post-title-link" itemprop="url">Spark的local和standalone模式运行</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-02-10 13:21:49" itemprop="dateCreated datePublished" datetime="2019-02-10T13:21:49+08:00">2019-02-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/02/Spark%E7%9A%84local%E5%92%8Cstandalone%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C/" class="post-meta-item leancloud_visitors" data-flag-title="Spark的local和standalone模式运行" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/02/Spark%E7%9A%84local%E5%92%8Cstandalone%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/02/Spark%E7%9A%84local%E5%92%8Cstandalone%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Spark运行模式"><a href="#Spark运行模式" class="headerlink" title="Spark运行模式"></a>Spark运行模式</h1><p>Spark 有很多种模式，最简单就是单机本地模式，还有单机伪分布式模式，复杂的则运行在集群中，目前能很好的运行在 Yarn和 Mesos 中，当然 Spark 还有自带的 Standalone 模式，对于大多数情况 Standalone 模式就足够了，如果企业已经有 Yarn 或者 Mesos 环境，也是很方便部署的。</p>
-<ul>
-<li>local(本地模式)：常用于本地开发测试，本地还分为local单线程和local-cluster多线程;</li>
-<li>standalone(集群模式)：典型的Mater&#x2F;slave模式，不过也能看出Master是有单点故障的；Spark支持ZooKeeper来实现 HA</li>
-<li>on yarn(集群模式)： 运行在 yarn 资源管理器框架之上，由 yarn 负责资源管理，Spark 负责任务调度和计算</li>
-<li>on mesos(集群模式)： 运行在 mesos 资源管理器框架之上，由 mesos 负责资源管理，Spark 负责任务调度和计算</li>
-<li>on cloud(集群模式)：比如 AWS 的 EC2，使用这个模式能很方便的访问 Amazon的 S3;Spark 支持多种分布式存储系统：HDFS 和 S3</li>
-</ul>
-<h1 id="local模式运行"><a href="#local模式运行" class="headerlink" title="local模式运行"></a>local模式运行</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-shell --master local[2]</span><br></pre></td></tr></table></figure>
-
-<p>2代表2个worker。</p>
-<p>如果<code>local[*]</code>，也是默认master选项，则自动获取机器cores数量。</p>
-<h1 id="standalone模式运行"><a href="#standalone模式运行" class="headerlink" title="standalone模式运行"></a>standalone模式运行</h1><p>Spark Standalone模式的架构和Hadoop hdfs&#x2F;yarn很类似，1 master +  n workers</p>
-<h2 id="配置conf-spark-env-sh文件"><a href="#配置conf-spark-env-sh文件" class="headerlink" title="配置conf&#x2F;spark-env.sh文件"></a>配置conf&#x2F;spark-env.sh文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME</span><br><span class="line">cd conf</span><br><span class="line">cp spark-env.sh.template spark-env.sh</span><br><span class="line">vi spark-env.sh</span><br></pre></td></tr></table></figure>
-
-<p>添加如下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SPARK_MASTER_HOST=localhost</span><br><span class="line">SPARK_WORKER_CORES=1</span><br><span class="line">SPARK_WORKER_MEMORY=2g</span><br></pre></td></tr></table></figure>
-
-<h2 id="启动Spark"><a href="#启动Spark" class="headerlink" title="启动Spark"></a>启动Spark</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME</span><br><span class="line">sbin/start-all.sh</span><br><span class="line">starting org.apache.spark.deploy.master.Master, logging to /usr/local/spark/spark-2.2.3-bin-2.6.0-cdh5.7.0/logs/spark-simon-org.apache.spark.deploy.master.Master-1-localhost.out</span><br><span class="line">localhost: starting org.apache.spark.deploy.worker.Worker, logging to /usr/local/spark/spark-2.2.3-bin-2.6.0-cdh5.7.0/logs/spark-simon-org.apache.spark.deploy.worker.Worker-1-localhost.out</span><br></pre></td></tr></table></figure>
-
-<p>查看master日志</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">19/02/10 13:11:09 INFO Master: I have been elected leader! New state: ALIVE</span><br><span class="line">19/02/10 13:11:12 INFO Master: Registering worker 192.168.1.6:51683 with 1 cores, 2.0 GB RAM</span><br></pre></td></tr></table></figure>
-
-<p>查看worker日志</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">19/02/10 13:11:12 INFO Worker: Successfully registered with master spark://localhost:7077</span><br></pre></td></tr></table></figure>
-
-<p>执行<code>jps</code>命令，可以看到有<code>Master</code>和<code>Worker</code>进程</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3424 Master</span><br><span class="line">3459 Worker</span><br></pre></td></tr></table></figure>
-
-<h2 id="生成wordCount的输入文件"><a href="#生成wordCount的输入文件" class="headerlink" title="生成wordCount的输入文件"></a>生成wordCount的输入文件</h2><p>新建<code>/usr/local/spark/data/words</code>文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/local/spark/data/words</span><br></pre></td></tr></table></figure>
-
-<p>添加如下内容</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hello,hello,world</span><br><span class="line">hello,world,</span><br><span class="line">welcome</span><br></pre></td></tr></table></figure>
-
-<h2 id="启动Spark-shell"><a href="#启动Spark-shell" class="headerlink" title="启动Spark-shell"></a>启动Spark-shell</h2><p>以standalone模式启动</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-shell --master spark://localhost:7077</span><br><span class="line">Using Spark&#x27;s default log4j profile: org/apache/spark/log4j-defaults.properties</span><br><span class="line">Setting default log level to &quot;WARN&quot;.</span><br><span class="line">To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).</span><br><span class="line">19/02/10 13:12:41 WARN Utils: Your hostname, localhost resolves to a loopback address: 127.0.0.1; using 192.168.1.6 instead (on interface en0)</span><br><span class="line">19/02/10 13:12:41 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address</span><br><span class="line">19/02/10 13:12:42 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Spark context Web UI available at http://192.168.1.6:4040</span><br><span class="line">Spark context available as &#x27;sc&#x27; (master = spark://localhost:7077, app id = app-20190210131243-0000).</span><br><span class="line">Spark session available as &#x27;spark&#x27;.</span><br><span class="line">Welcome to</span><br><span class="line">      ____              __</span><br><span class="line">     / __/__  ___ _____/ /__</span><br><span class="line">    _\ \/ _ \/ _ `/ __/  &#x27;_/</span><br><span class="line">   /___/ .__/\_,_/_/ /_/\_\   version 2.2.3</span><br><span class="line">      /_/</span><br><span class="line"></span><br><span class="line">Using Scala version 2.11.8 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_181)</span><br><span class="line">Type in expressions to have them evaluated.</span><br><span class="line">Type :help for more information.</span><br><span class="line"></span><br><span class="line">scala&gt;</span><br></pre></td></tr></table></figure>
-
-<p>输入wordCount程序</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; var file = spark.sparkContext.textFile(&quot;file:///usr/local/spark/data/words&quot;)</span><br><span class="line">file: org.apache.spark.rdd.RDD[String] = file:///usr/local/spark/data MapPartitionsRDD[6] at textFile at &lt;console&gt;:23</span><br><span class="line"></span><br><span class="line">scala&gt; val wordCounts = file.flatMap(line =&gt; line.split(&quot;,&quot;)).map(word =&gt; (word, 1)).reduceByKey(_ + _)</span><br><span class="line">wordCounts: org.apache.spark.rdd.RDD[(String, Int)] = ShuffledRDD[9] at reduceByKey at &lt;console&gt;:25</span><br><span class="line"></span><br><span class="line">scala&gt; wordCounts.collect</span><br><span class="line">res1: Array[(String, Int)] = Array((hello,3), (welcome,1), (world,2))</span><br><span class="line"></span><br><span class="line">scala&gt;</span><br></pre></td></tr></table></figure>
-
-<p>可以看到&#x2F;usr&#x2F;local&#x2F;spark&#x2F;data&#x2F;words文件里面的单词被成功的统计了。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/105/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/105/">105</a><span class="page-number current">106</span><a class="page-number" href="/page/107/">107</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/107/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/105/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/105/">105</a><span class="page-number current">106</span><a class="page-number" href="/page/107/">107</a><span class="space">&hellip;</span><a class="page-number" href="/page/128/">128</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/107/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

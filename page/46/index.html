@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">380</span>
+          <span class="site-state-item-count">382</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,246 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/07/java-LocalDateTime%E8%BD%ACUnix-timestamp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/07/java-LocalDateTime%E8%BD%ACUnix-timestamp/" class="post-title-link" itemprop="url">java LocalDateTime转Unix timestamp</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-21 18:52:38" itemprop="dateCreated datePublished" datetime="2020-07-21T18:52:38+08:00">2020-07-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/07/java-LocalDateTime%E8%BD%ACUnix-timestamp/" class="post-meta-item leancloud_visitors" data-flag-title="java LocalDateTime转Unix timestamp" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/07/java-LocalDateTime%E8%BD%ACUnix-timestamp/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/07/java-LocalDateTime%E8%BD%ACUnix-timestamp/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>现在尽量使用新的API，把Date换成LocalDateTime。</p>
+<p>使用LocalDateTime时，我们可以通过如下方法把LocalDateTime转换为Unix Timestamp。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">LocalDateTime</span> <span class="variable">now</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line">    System.out.println(now);</span><br><span class="line">    System.out.println(System.currentTimeMillis());</span><br><span class="line">    System.out.println(now.toEpochSecond(ZoneOffset.of(<span class="string">&quot;+8&quot;</span>)));</span><br><span class="line">    System.out.println(now.toInstant(ZoneOffset.of(<span class="string">&quot;+8&quot;</span>)).toEpochMilli());</span><br><span class="line">    System.out.println(now.toInstant(ZoneOffset.UTC).toEpochMilli());</span><br><span class="line">    System.out.println(now.plusDays(<span class="number">1</span>).toInstant(ZoneOffset.of(<span class="string">&quot;+8&quot;</span>)).toEpochMilli());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">2021</span>-<span class="number">03</span>-10T13:<span class="number">45</span>:<span class="number">39.411</span></span><br><span class="line"><span class="number">1615355139422</span></span><br><span class="line"><span class="number">1615355139</span></span><br><span class="line"><span class="number">1615355139411</span></span><br><span class="line"><span class="number">1615383939411</span></span><br><span class="line"><span class="number">1615441539411</span></span><br></pre></td></tr></table></figure>
+
+<p>LocalDateTime格式化为指定格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">DateTimeFormatter</span> <span class="variable">formatter</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;YYYY-MM-dd hh:mm:ss&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">timeStr</span> <span class="operator">=</span> LocalDateTime.now().atZone(ZoneOffset.of(<span class="string">&quot;+8&quot;</span>)).format(formatter);</span><br></pre></td></tr></table></figure>
+
+<p>举个例子，假如我要显示当前时间往后推4小时后，UTC的时间表示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">now</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">zonedDateTime</span> <span class="operator">=</span> now.plusHours(<span class="number">4</span>).atZone(ZoneOffset.ofHours(<span class="number">8</span>));</span><br><span class="line"><span class="type">String</span> <span class="variable">future</span> <span class="operator">=</span> zonedDateTime.withZoneSameInstant(ZoneOffset.UTC).format(DateTimeFormatter.ofPattern(<span class="string">&quot;YYYY-MM-dd hh:mm:ss&quot;</span>));</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/07/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/07/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91/" class="post-title-link" itemprop="url">微信公众号开发</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-12 10:12:50" itemprop="dateCreated datePublished" datetime="2020-07-12T10:12:50+08:00">2020-07-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/07/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91/" class="post-meta-item leancloud_visitors" data-flag-title="微信公众号开发" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/07/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/07/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>简单记录一下微信公众号开发流程，很多年前就开发过，然后过了一段时间，又完全忘了。还得一点一点看文档。所以这次先做一个记录。开发的功能就是，当用户发送消息以后，回复一条消息给用户。</p>
+<h1 id="申请微信开发测试号"><a href="#申请微信开发测试号" class="headerlink" title="申请微信开发测试号"></a>申请微信开发测试号</h1><p>先申请一个测试号，不需要注册什么，有微信，扫码一下就注册了。</p>
+<p><code>https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login</code></p>
+<p>进去后，我们可以获取到 appID, appsecret。Token是自己设置的，随便设置一个就行。aesKey在正式生产环境里面才需要。</p>
+<h1 id="内网穿透"><a href="#内网穿透" class="headerlink" title="内网穿透"></a>内网穿透</h1><p>微信开发后台需要连接到我们开发的电脑，一般情况下这台电脑是没有公网IP的，而且都是在局域网内，所以要把这台机器的端口映射出去。</p>
+<p>在 <code>ngrok.com</code> 去注册一个账号就可以了。</p>
+<p>然后按使用说明运行命令，把token存入本地。然后启动 ngrok，我是把本地 8080 映射要外网。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./ngrok authtoken [token]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./ngrok http 8080</span></span><br><span class="line">ngrok by @inconshreveable                                                                                                                                                (Ctrl+C to quit)</span><br><span class="line">                                                                                                                                                                                         </span><br><span class="line">Session Status                online                                                                                                                                                     </span><br><span class="line">Account                       S (Plan: Free)                                                                                                                                             </span><br><span class="line">Version                       2.3.35                                                                                                                                                     </span><br><span class="line">Region                        United States (us)                                                                                                                                         </span><br><span class="line">Web Interface                 http://127.0.0.1:4040                                                                                                                                      </span><br><span class="line">Forwarding                    http://020170f28e33.ngrok.io -&gt; http://localhost:8080                                                                                                      </span><br><span class="line">Forwarding                    https://020170f28e33.ngrok.io -&gt; http://localhost:8080                                                                                                     </span><br><span class="line">                                                                                                                                                                                         </span><br><span class="line">Connections                   ttl     opn     rt1     rt5     p50     p90                                                                                                                </span><br><span class="line">                              0       0       0.00    0.00    0.00    0.00  </span><br></pre></td></tr></table></figure>
+
+<h1 id="配置微信平台接口信息"><a href="#配置微信平台接口信息" class="headerlink" title="配置微信平台接口信息"></a>配置微信平台接口信息</h1><p>按 <code>weixin-java-mp-demo-springboot</code> 项目要求，配置微信公众号中的接口地址：http:&#x2F;&#x2F;公网可访问域名&#x2F;wx&#x2F;portal&#x2F;xxxxx （注意，xxxxx为对应公众号的appid值）</p>
+<p>几年前，一般还要点两下才会成功，现在一下就成功了。</p>
+<h1 id="自动回复消息"><a href="#自动回复消息" class="headerlink" title="自动回复消息"></a>自动回复消息</h1><p>我打算以回复一张图片。首先需要先上传一张图片，并得到其mediaId。</p>
+<p>我们先看看这个项目的开发文档。</p>
+<p><code>https://github.com/Wechat-Group/WxJava/wiki</code></p>
+<p>找到微信公众号开发文档，永久素材管理页面，<code>https://github.com/Wechat-Group/WxJava/wiki/MP_永久素材管理</code></p>
+<p>然后写一段上传永久素材图片的代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">WxMpMaterial</span> <span class="variable">wxMpMaterial</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">WxMpMaterial</span>();</span><br><span class="line">wxMpMaterial.setFile(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;/Users/simon/Desktop/logo.png&quot;</span>));</span><br><span class="line">wxMpMaterial.setName(<span class="string">&quot;logo&quot;</span>);</span><br><span class="line"><span class="type">WxMpMaterialUploadResult</span> <span class="variable">res</span> <span class="operator">=</span> wxMpService.getMaterialService().materialFileUpload(<span class="string">&quot;png&quot;</span>, wxMpMaterial);</span><br><span class="line">System.out.println(JsonUtils.toJson(res));</span><br></pre></td></tr></table></figure>
+
+<p>这时，我们就可以获得这个图片的 mediaId 了，然后修改 MsgHandler 的逻辑，返回一个 ImageBuilder 就可以了。</p>
+<h1 id="redirect-uri-参数错误"><a href="#redirect-uri-参数错误" class="headerlink" title="redirect_uri 参数错误"></a>redirect_uri 参数错误</h1><p>调试微信前公众号的时候，往往会遇到这个错误，这时，需要在 OAuth2.0 网页授权页面配置好授权回调页面域名。沙盒号回调地址支持域名和ip，正式公众号回调地址只支持域名。所以这里不能使用<br>localhost，但写成本地的ip地址是可以的。还需要特别注意的是，这里只能写ip和端口号，不能把协议<code>http</code>加入，不然还是会出现这个错误。</p>
+<h1 id="调试平台"><a href="#调试平台" class="headerlink" title="调试平台"></a>调试平台</h1><p>我们可以通过调试平台来创建菜单，获取token等。获取token时，可能会遇到<code>invalid ip, not in whitelist</code>错误。</p>
+<p>这时，需要把获取access_token的机器的ip添加到白名单中。位置在 <code>基础配置</code> -&gt; <code>IP白名单</code>。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -329,238 +569,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/07/Spring%E4%B8%AD%E5%A4%84%E7%90%86%E9%9B%86%E5%90%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/07/Spring%E4%B8%AD%E5%A4%84%E7%90%86%E9%9B%86%E5%90%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">Spring中处理集合和字符串</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-07-07 16:29:48" itemprop="dateCreated datePublished" datetime="2020-07-07T16:29:48+08:00">2020-07-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/07/Spring%E4%B8%AD%E5%A4%84%E7%90%86%E9%9B%86%E5%90%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-meta-item leancloud_visitors" data-flag-title="Spring中处理集合和字符串" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/07/Spring%E4%B8%AD%E5%A4%84%E7%90%86%E9%9B%86%E5%90%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/07/Spring%E4%B8%AD%E5%A4%84%E7%90%86%E9%9B%86%E5%90%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>大多数 java 项目都会使用 Spring 框架，所以推荐在处理判断集合和字符串时使用 Spring 自带的工具类。</p>
-<p>org.springframework.util.StringUtils</p>
-<p>hasText() 方法可以判断是否有非空白字符的字符串</p>
-<p>org.springframework.util.CollectionUtils</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/07/Spring-Boot-JUnit%E6%B5%8B%E8%AF%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/07/Spring-Boot-JUnit%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">Spring Boot JUnit测试</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-07-06 16:00:09" itemprop="dateCreated datePublished" datetime="2020-07-06T16:00:09+08:00">2020-07-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/07/Spring-Boot-JUnit%E6%B5%8B%E8%AF%95/" class="post-meta-item leancloud_visitors" data-flag-title="Spring Boot JUnit测试" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/07/Spring-Boot-JUnit%E6%B5%8B%E8%AF%95/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/07/Spring-Boot-JUnit%E6%B5%8B%E8%AF%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Springboot-2-1"><a href="#Springboot-2-1" class="headerlink" title="Springboot 2.1"></a>Springboot 2.1</h1><p>在测试类上面写的注解如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="meta">@SpringBootTest(classes = &#123;Application.class&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AppTests</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>需要注意的是，Application 是 Spring boot 的启动类，test() 方法必须是 public 类型。</p>
-<h1 id="Springboot-2-2"><a href="#Springboot-2-2" class="headerlink" title="Springboot 2.2"></a>Springboot 2.2</h1><p>注解如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AppTests</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>不需要写 @RunWith 注解和指定 SpringBootTest 的 classes 属性。test() 方法不用写 public 类型。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/45/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><span class="page-number current">46</span><a class="page-number" href="/page/47/">47</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/47/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/45/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><span class="page-number current">46</span><a class="page-number" href="/page/47/">47</a><span class="space">&hellip;</span><a class="page-number" href="/page/128/">128</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/47/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

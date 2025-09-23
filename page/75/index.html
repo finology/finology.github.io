@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">380</span>
+          <span class="site-state-item-count">382</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,268 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Linux%E4%B8%8BShell%E5%91%BD%E4%BB%A4%E8%BF%9B%E8%A1%8C%E6%97%A5%E6%9C%9Fdate%E5%92%8C%E6%97%B6%E9%97%B4%E6%88%B3timestamp%E7%9A%84%E8%BD%AC%E6%8D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/Linux%E4%B8%8BShell%E5%91%BD%E4%BB%A4%E8%BF%9B%E8%A1%8C%E6%97%A5%E6%9C%9Fdate%E5%92%8C%E6%97%B6%E9%97%B4%E6%88%B3timestamp%E7%9A%84%E8%BD%AC%E6%8D%A2/" class="post-title-link" itemprop="url">Linux下Shell命令进行日期date和时间戳timestamp的转换 </a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-07 11:50:08" itemprop="dateCreated datePublished" datetime="2020-03-07T11:50:08+08:00">2020-03-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/03/Linux%E4%B8%8BShell%E5%91%BD%E4%BB%A4%E8%BF%9B%E8%A1%8C%E6%97%A5%E6%9C%9Fdate%E5%92%8C%E6%97%B6%E9%97%B4%E6%88%B3timestamp%E7%9A%84%E8%BD%AC%E6%8D%A2/" class="post-meta-item leancloud_visitors" data-flag-title="Linux下Shell命令进行日期date和时间戳timestamp的转换 " title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/03/Linux%E4%B8%8BShell%E5%91%BD%E4%BB%A4%E8%BF%9B%E8%A1%8C%E6%97%A5%E6%9C%9Fdate%E5%92%8C%E6%97%B6%E9%97%B4%E6%88%B3timestamp%E7%9A%84%E8%BD%AC%E6%8D%A2/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Linux%E4%B8%8BShell%E5%91%BD%E4%BB%A4%E8%BF%9B%E8%A1%8C%E6%97%A5%E6%9C%9Fdate%E5%92%8C%E6%97%B6%E9%97%B4%E6%88%B3timestamp%E7%9A%84%E8%BD%AC%E6%8D%A2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我们常常会遇到如下情况，把日期转换成timestamp，或者把timestamp转换成日期格式。</p>
+<p>初级选手一般都会打开网页，有些站点提供了日期转换的功能。</p>
+<p>高级选手可以直接通过shell命令，就能成功的完成日期和timestamp的转换。</p>
+<p>我们先来看看Linux的<code>date</code>命令。</p>
+<ul>
+<li>显示日期时间</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">date</span></span></span><br><span class="line">Wed Mar  4 11:44:05 CST 2020</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>显示带时区的日期时间</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">date</span> -R</span></span><br><span class="line">Wed, 04 Mar 2020 11:44:41 +0800</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>按指定格式显示日期时间</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">date</span> <span class="string">&#x27;+%Y-%m-%d %H:%M:%S %Z&#x27;</span></span></span><br><span class="line">2020-03-04 11:46:14 CST</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看当前时间的timestamp</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">date</span> +%s</span></span><br><span class="line">1583293699</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>显示描述类型的日期时间</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">date</span> -d <span class="string">&quot;1970-01-01 UTC&quot;</span></span></span><br><span class="line">Thu Jan  1 08:00:00 CST 1970</span><br></pre></td></tr></table></figure>
+
+<p><code>-d</code>的参数是指：<code>-d, --date=STRING          display time described by STRING, not &#39;now&#39;</code></p>
+<ul>
+<li>日期时间转timestamp</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">date</span> -d <span class="string">&#x27;1970-01-01 UTC&#x27;</span> +%s</span></span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>timestamp转日期时间</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">date</span> -d @1583395499.709</span></span><br><span class="line">Thu Mar  5 16:04:59 CST 2020</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/" class="post-title-link" itemprop="url">Grafana迁移(导出导入)dashboard</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-03 22:47:03" itemprop="dateCreated datePublished" datetime="2020-03-03T22:47:03+08:00">2020-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/Grafana/" itemprop="url" rel="index"><span itemprop="name">Grafana</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/" class="post-meta-item leancloud_visitors" data-flag-title="Grafana迁移(导出导入)dashboard" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我们在Grafana测试环境，搭建好了一个Dashboard，现在想把它放到生产环境中运行。这时，就需要用到Grafana的导出导入功能。</p>
+<h1 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h1><p>Dashboard右上角，点击<code>Share Dashboard</code>图标。</p>
+<img src="/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/grafana-export.png" class="">
+
+<p>同时，选中第三个标签<code>Export</code>，最后点击<code>Save to file</code>按钮。这时会把Dashboard保存到一个json文件中，并下载到本地。</p>
+<h1 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h1><p>点击<code>Import</code>菜单</p>
+<img src="/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/grafana-import1.png" class="">
+
+<p>点击<code>Upload .json File</code>按钮，上传刚才保存的json文件。或者在<code>Or paste JSON</code>文本框中，粘贴刚才下载的json的内容后，再点击<code>Load</code>按钮。</p>
+<img src="/2020/03/Grafana%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5-dashboard/grafana-import2.png" class="">
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -391,246 +653,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/" class="post-title-link" itemprop="url">/var/lib/docker/overlay2占用空间太大</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-02-27 16:27:01" itemprop="dateCreated datePublished" datetime="2020-02-27T16:27:01+08:00">2020-02-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/" class="post-meta-item leancloud_visitors" data-flag-title="/var/lib/docker/overlay2占用空间太大" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/02/var-lib-docker-overlay2%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E5%A4%AA%E5%A4%A7/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>执行<code>df -h</code>命令发现<code>/var/lib/docker</code>目录占用空间太大。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">df</span> -h</span></span><br><span class="line">文件系统                 容量  已用  可用 已用% 挂载点</span><br><span class="line">devtmpfs                 898M     0  898M    0% /dev</span><br><span class="line">tmpfs                    910M     0  910M    0% /dev/shm</span><br><span class="line">tmpfs                    910M   60M  851M    7% /run</span><br><span class="line">tmpfs                    910M     0  910M    0% /sys/fs/cgroup</span><br><span class="line">/dev/mapper/centos-root   17G  5.9G   12G   35% /</span><br><span class="line">/dev/sda1               1014M  150M  865M   15% /boot</span><br><span class="line">tmpfs                    910M  4.0K  910M    1% /var/lib/kubelet/pods/0914bac1-2c2f-4294-a036-afe6fb5d2a16/volumes/kubernetes.io~secret/config</span><br><span class="line">tmpfs                    910M  4.0K  910M    1% /var/lib/kubelet/pods/7975066f-117d-4523-a55e-53262ed8f131/volumes/kubernetes.io~secret/config-volume</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/7454b8be-1bd2-4c17-9784-55bf49d0e6fd/volumes/kubernetes.io~secret/node-exporter-token-hwqlc</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/7975066f-117d-4523-a55e-53262ed8f131/volumes/kubernetes.io~secret/alertmanager-main-token-z4qrq</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/71e0ccae-267d-4025-b4ec-a5ccbd1f0adc/volumes/kubernetes.io~secret/kube-proxy-token-kq9lp</span><br><span class="line">tmpfs                    910M  4.0K  910M    1% /var/lib/kubelet/pods/e685593b-9684-48cc-a304-040b30707088/volumes/kubernetes.io~secret/config</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/53e83a95-4db5-48f7-b166-b37df18b38e0/volumes/kubernetes.io~secret/calico-node-token-f6g2m</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/0914bac1-2c2f-4294-a036-afe6fb5d2a16/volumes/kubernetes.io~secret/prometheus-k8s-token-sm6gd</span><br><span class="line">tmpfs                    910M   12K  910M    1% /var/lib/kubelet/pods/e685593b-9684-48cc-a304-040b30707088/volumes/kubernetes.io~secret/prometheus-k8s-token-sm6gd</span><br><span class="line">overlay                   17G  5.9G   12G   35% /var/lib/docker/overlay2/70944089660c7647c7a83e1dcef9d6297e3e440d4d2d4742f5d68448bde9ad95/merged</span><br><span class="line">shm                       64M     0   64M    0% /var/lib/docker/containers/e59d5037dc150cf7c2ed10ea94d8549c3b98e0b847980a1a306eda8dcaf7e6de/mounts/shm</span><br><span class="line">overlay                   17G  5.9G   12G   35% /var/lib/docker/overlay2/bbdeb82071f8c4cbb2d59e26721735d5f3fd82f8139c0a448133156a0f12631f/merged</span><br><span class="line">overlay                   17G  5.9G   12G   35% /var/lib/docker/overlay2/383c5b7d30028f38eca1e4f2b3ac6144d52b5b1e8f296f2314de9ca0fd867f7d/merged</span><br><span class="line">shm                       64M     0   64M    0% /var/lib/docker/containers/df1ee27e97c823d18fe76ca3a7195cd081e466527b3cf9169a9a9f816b4c3391/mounts/shm</span><br></pre></td></tr></table></figure>
-
-<p>执行<code>docker ps -a</code>发现大量已经停止或退出的容器，需要清理空间。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">docker system prune</span></span><br><span class="line">WARNING! This will remove:</span><br><span class="line">        - all stopped containers</span><br><span class="line">        - all networks not used by at least one container</span><br><span class="line">        - all dangling images</span><br><span class="line">        - all build cache</span><br><span class="line">Are you sure you want to continue? [y/N] y</span><br><span class="line">Deleted Containers:</span><br><span class="line">64d81b1dc03026478f0114b657d4cd938967868967e5e5ee9b8ea3d72814a736</span><br><span class="line">c5f180a1c5c2804d45d13d11f338d241e482ada9673bff0ba8cc18759ae4fcae</span><br><span class="line">aa06316b5fd638c22fc41bd8f8ea4c511566c4c537c81bf5aad5f276ac6c2fae</span><br><span class="line">ce5048ebf25bd48bbe1372aaf38c68078a05c06157ffcb4a8e646470f647acb0</span><br><span class="line">0c4b37413e3483366fb640b94ad33596aef149a50bc610a2d720663159280871</span><br><span class="line">7575ec0a092bc9d3dd1a54ac2e3b92ce0dd8f3f570565ecc918684b0c51087ea</span><br><span class="line">1e335ee77f4167c19f6e54a1728d3d49775f651d871009752b1cfb7ec9fd7867</span><br><span class="line">393bd6280ecf423804c27f264cfc95e72df7580dc6881bb1a249152b4554b10e</span><br><span class="line">63ad5c44a30c80645e84b16cc8e1009e46235bd7001153f8d8d3c4887ed18786</span><br><span class="line">ee8c92a30092e7c30338d2a6721d13f250c2a426947a29c2e2c30f9936c0e07a</span><br><span class="line">cd49e432a75a5f9719e8436af70a40e9869e02db51c4f8c08f02ad26a6bdc3ba</span><br><span class="line">35435e8cd10d2dd9b26993da909aba31f4d52df3475b30ba7536d473004c7e91</span><br><span class="line">6028cf4eac7090a89c05edad7e45096130ee7e3336f28d2c0e2a890111d80043</span><br><span class="line">6e1d20022ecdd871a684b016c89d4d1122c9c5a00de998f921e2eacbd54da482</span><br><span class="line">6417077821f3fc76da1e436401b0ed58a842b8afec6134c3895d5f3c7ae8d069</span><br><span class="line">b49f44b5a26aad43d9d7b0f1ff57b659d4aab90d13477063160862018d3ba6f3</span><br><span class="line"></span><br><span class="line">Deleted Images:</span><br><span class="line">untagged: nginx@sha256:b2d89d0a210398b4d1120b3e3a7672c16a4ba09c2c4a0395f18b9f7999b768f2</span><br><span class="line">deleted: sha256:f7bb5701a33c0e572ed06ca554edca1bee96cbbc1f76f3b01c985de7e19d0657</span><br><span class="line">deleted: sha256:8f1984cf0de0461043fcabd6b2a2040325ac001d9897a242e0d80486fe71575e</span><br><span class="line">deleted: sha256:59d91a36ba4b720eadfbf346ddb825c2faa2d66cc7a915238eaf926c4b4b40ee</span><br><span class="line">deleted: sha256:556c5fb0d91b726083a8ce42e2faaed99f11bc68d3f70e2c7bbce87e7e0b3e10</span><br><span class="line">untagged: nginx@sha256:ee380d57f01eac528f59d031cbeff5eba98b077d25ebdc7d6aef6734f00a41b7</span><br><span class="line">deleted: sha256:231d40e811cd970168fb0c4770f2161aa30b9ba6fe8e68527504df69643aa145</span><br><span class="line">deleted: sha256:dc8adf8fa0fc82a56c32efac9d0da5f84153888317c88ab55123d9e71777bc62</span><br><span class="line">deleted: sha256:77fcff986d3b13762e4777046b9210a109fda20cb261bd3bbe5d7161d4e73c8e</span><br><span class="line"></span><br><span class="line">Total reclaimed space: 183.4MB</span><br></pre></td></tr></table></figure>
-
-<p>这样就删除了不用的容器和镜像了。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/Prometheus-monitoring-node-exporter%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/02/Prometheus-monitoring-node-exporter%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" class="post-title-link" itemprop="url">Prometheus monitoring/node-exporter监控指标</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-02-26 12:50:55" itemprop="dateCreated datePublished" datetime="2020-02-26T12:50:55+08:00">2020-02-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/02/Prometheus-monitoring-node-exporter%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" class="post-meta-item leancloud_visitors" data-flag-title="Prometheus monitoring/node-exporter监控指标" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/02/Prometheus-monitoring-node-exporter%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/02/Prometheus-monitoring-node-exporter%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>通过<code>kube-prometheus</code>安装的k8s监控系统。</p>
-<p>在targets页面，我们来分析一下<code>monitoring/node-exporter/</code>的这个Targets。</p>
-<img src="/2020/02/Prometheus-monitoring-node-exporter%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/prom-node-exporter-metrics.png" class="">
-
-<p><code>node-exporter-serviceMonitor.yaml</code>内容：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">monitoring.coreos.com/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ServiceMonitor</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">node-exporter</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">node-exporter</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">monitoring</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">endpoints:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">bearerTokenFile:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line">    <span class="attr">interval:</span> <span class="string">30s</span></span><br><span class="line">    <span class="attr">port:</span> <span class="string">https</span></span><br><span class="line">    <span class="attr">relabelings:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">action:</span> <span class="string">replace</span></span><br><span class="line">      <span class="attr">regex:</span> <span class="string">(.*)</span></span><br><span class="line">      <span class="attr">replacment:</span> <span class="string">$1</span></span><br><span class="line">      <span class="attr">sourceLabels:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">__meta_kubernetes_pod_node_name</span></span><br><span class="line">      <span class="attr">targetLabel:</span> <span class="string">instance</span></span><br><span class="line">    <span class="attr">scheme:</span> <span class="string">https</span></span><br><span class="line">    <span class="attr">tlsConfig:</span></span><br><span class="line">      <span class="attr">insecureSkipVerify:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">jobLabel:</span> <span class="string">k8s-app</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">k8s-app:</span> <span class="string">node-exporter</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="monitoring-node-exporter-0"><a href="#monitoring-node-exporter-0" class="headerlink" title="monitoring&#x2F;node-exporter&#x2F;0"></a>monitoring&#x2F;node-exporter&#x2F;0</h2><p>Endpoint: <code>https://172.16.64.233:9100/metrics</code></p>
-<p>查看Configuration页面，发现是以role <code>endpoints</code>做为自动服务发现的</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">monitoring/node-exporter/0</span></span><br><span class="line">  <span class="attr">honor_timestamps:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">scrape_interval:</span> <span class="string">30s</span></span><br><span class="line">  <span class="attr">scrape_timeout:</span> <span class="string">10s</span></span><br><span class="line">  <span class="attr">metrics_path:</span> <span class="string">/metrics</span></span><br><span class="line">  <span class="attr">scheme:</span> <span class="string">https</span></span><br><span class="line">  <span class="attr">kubernetes_sd_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">endpoints</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure>
-
-<p>获取token</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get secret prometheus-k8s-token-sm6gd -n monitoring -o template=&#123;&#123;.data.token&#125;&#125; | base64 -d</span><br></pre></td></tr></table></figure>
-
-<p>通过template获取secret里面的值，要通过base64解密一下的。</p>
-<p>指标大部分以<code>node_</code>开始<br>少许几个以<code>promhttp_metric_</code>开始的指标。</p>
-<p>指标<code>node-exporter-node0.txt</code> <a href="/2020/02/Prometheus-monitoring-node-exporter%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/node-exporter-node0.txt" title="点击查看">点击查看</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/74/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/74/">74</a><span class="page-number current">75</span><a class="page-number" href="/page/76/">76</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/76/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/74/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/74/">74</a><span class="page-number current">75</span><a class="page-number" href="/page/76/">76</a><span class="space">&hellip;</span><a class="page-number" href="/page/128/">128</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/76/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

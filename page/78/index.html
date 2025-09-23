@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">380</span>
+          <span class="site-state-item-count">382</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,281 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/CentOS7%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9AIP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/02/CentOS7%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9AIP/" class="post-title-link" itemprop="url">CentOS7设置固定IP</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-02-22 19:48:46" itemprop="dateCreated datePublished" datetime="2020-02-22T19:48:46+08:00">2020-02-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OS/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/02/CentOS7%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9AIP/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS7设置固定IP" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/02/CentOS7%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9AIP/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/02/CentOS7%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9AIP/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>主机操作系统为macOS，在VMware Fusion上安装了数台CentOS7虚拟机，在其上面安装Kubernetes集群。</p>
+<p>主机待机或休眠后，再次进入虚拟机时，发现虚拟机的时间并不与主机保持同步。这个问题在<a href="/2020/02/mac%E4%B8%BB%E6%9C%BA%E5%BE%85%E6%9C%BA%E5%90%8E%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E9%97%B4%E4%B8%8D%E7%BB%9F%E4%B8%80%E7%9A%84%E9%97%AE%E9%A2%98/" title="mac主机待机后和虚拟机时间不统一的问题">mac主机待机后和虚拟机时间不统一的问题</a>中解决。</p>
+<p>然后我通过命令<code>date -s</code>把虚拟机延迟的时间统一修改为当前时间。时间是修改好了，却出了一个严重的问题，连到虚拟机的ssh全部断开了，发现虚拟机的IP地址全部变了。随之而来的便是Prometheus的各种报警，监控的Targets<br>全都变红了。</p>
+<p>所以需要把虚拟机从原来的DHCP动态分配IP改为静态固定好的IP。</p>
+<p>修改<code>/etc/sysconfig/network-scripts/ifcfg-ens33</code>文件的内容。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BOOTPROTO=static</span><br><span class="line"></span><br><span class="line">DNS1=114.114.114.114</span><br><span class="line">IPADDR=172.16.64.233</span><br><span class="line">NETMASK=255.255.255.0</span><br><span class="line">GATEWAY=172.16.64.2</span><br></pre></td></tr></table></figure>
+
+<p>把<code>BOOTPROTO</code>由<code>dhcp</code>改为<code>static</code>。</p>
+<p>添加<code>DNS1</code> Domain Name Server设置为114.114.114.114，这个是全国统一的。<br>添加<code>IPADDR</code>设置为变化之前的IP地址。</p>
+<p>每次安装vmware fusion，自动生成的ip段都不一样。为了保持一致，可以修改vmware fusion的配置文件。</p>
+<blockquote>
+<p>VMnet1: 对应Host-only模式，也就是自定下的“仅供我的Mac专用”</p>
+</blockquote>
+<blockquote>
+<p>VMnet8:对应NAT模式，也就是网络配置中的Internet共享下的“与我的Mac共享”</p>
+</blockquote>
+<blockquote>
+<p>VMnet0:对应桥接模式，也就是桥接模式网络链接下的“自动检测”</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat /Library/Preferences/VMware\ Fusion/networking</span><br><span class="line">...</span><br><span class="line">answer VNET_8_HOSTONLY_NETMASK 255.255.255.0</span><br><span class="line">answer VNET_8_HOSTONLY_SUBNET 172.16.64.0</span><br><span class="line">answer VNET_8_NAT yes</span><br><span class="line">answer VNET_8_VIRTUAL_ADAPTER yes</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>添加<code>GATEWAY</code>。</p>
+<p>执行<code>ip route show</code>，获取GATEWAY的地址为：<code>172.16.64.2</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ip route show</span><br><span class="line">default via 172.16.64.2 dev ens33 proto static metric 100</span><br><span class="line">10.244.36.64/26 via 172.16.64.232 dev tunl0 proto bird onlink</span><br><span class="line">10.244.169.128/26 via 172.16.64.235 dev tunl0 proto bird onlink</span><br><span class="line">blackhole 10.244.235.192/26 proto bird</span><br><span class="line">10.244.235.232 dev calia6f6ed2a513 scope link</span><br><span class="line">10.244.235.233 dev cali9716a65ec87 scope link</span><br><span class="line">10.244.235.234 dev cali26873b73fbd scope link</span><br><span class="line">172.16.64.0/24 dev ens33 proto kernel scope link src 172.16.64.233 metric 100</span><br><span class="line">172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1</span><br><span class="line">172.19.0.0/16 dev br-bebfcba064b2 proto kernel scope link src 172.19.0.1</span><br></pre></td></tr></table></figure>
+
+<p>保存退出后，重启网络<code>systemctl restart network</code>。过一会儿，Kubernetes集群又能正常工作了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/hexo%E5%8D%9A%E5%AE%A2%E5%9C%A8%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%B8%8A%E7%9A%84%E9%93%BE%E6%8E%A5%E6%8F%90%E4%BA%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/02/hexo%E5%8D%9A%E5%AE%A2%E5%9C%A8%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%B8%8A%E7%9A%84%E9%93%BE%E6%8E%A5%E6%8F%90%E4%BA%A4/" class="post-title-link" itemprop="url">hexo博客在百度搜索引擎上的链接提交</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-02-22 16:06:55" itemprop="dateCreated datePublished" datetime="2020-02-22T16:06:55+08:00">2020-02-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/02/hexo%E5%8D%9A%E5%AE%A2%E5%9C%A8%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%B8%8A%E7%9A%84%E9%93%BE%E6%8E%A5%E6%8F%90%E4%BA%A4/" class="post-meta-item leancloud_visitors" data-flag-title="hexo博客在百度搜索引擎上的链接提交" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/02/hexo%E5%8D%9A%E5%AE%A2%E5%9C%A8%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%B8%8A%E7%9A%84%E9%93%BE%E6%8E%A5%E6%8F%90%E4%BA%A4/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/02/hexo%E5%8D%9A%E5%AE%A2%E5%9C%A8%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%B8%8A%E7%9A%84%E9%93%BE%E6%8E%A5%E6%8F%90%E4%BA%A4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>想让自己的博客被百度搜索引擎尽快收录，并在搜索时排在前面一些，那就需要及时提交博客的URL。</p>
+<p>主要有三种提交方法，大家最好三种都用，这也是官方推荐的，不会有任何冲突。</p>
+<img src="/2020/02/hexo%E5%8D%9A%E5%AE%A2%E5%9C%A8%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%B8%8A%E7%9A%84%E9%93%BE%E6%8E%A5%E6%8F%90%E4%BA%A4/url-submit-graph.png" class="">
+
+<h1 id="主动推送"><a href="#主动推送" class="headerlink" title="主动推送"></a>主动推送</h1><p>主动推送是实时的，能让百度在第一时间知道你的原创内容。</p>
+<p>首先要安装<code>hexo-baidu-url-submit</code>插件。</p>
+<p>在博客根目录下执行如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install hexo-baidu-url-submit --save</span><br><span class="line">+ hexo-baidu-url-submit@0.0.6</span><br><span class="line">added 85 packages from 61 contributors, removed 71 packages and updated 11 packages in 14.783s</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   ╭────────────────────────────────────────────────────────────────╮</span><br><span class="line">   │                                                                │</span><br><span class="line">   │      New minor version of npm available! 6.10.0 → 6.13.7       │</span><br><span class="line">   │   Changelog: https://github.com/npm/cli/releases/tag/v6.13.7   │</span><br><span class="line">   │               Run npm install -g npm to update!                │</span><br><span class="line">   │                                                                │</span><br><span class="line">   ╰────────────────────────────────────────────────────────────────╯</span><br><span class="line"></span><br><span class="line">(base) </span><br></pre></td></tr></table></figure>
+
+<p>然后在根目录中的<code>_config.yml</code>文件内容最后，添加如下内容：</p>
+<p>count为提交Url的数量。</p>
+<p>host为博客的地址。</p>
+<p>token这也可以在百度网站上找到。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Baibu url submit</span></span><br><span class="line"><span class="attr">baidu_url_submit:</span></span><br><span class="line">  <span class="attr">count:</span> <span class="number">500</span></span><br><span class="line">  <span class="attr">host:</span> <span class="string">https://finolo.gy</span></span><br><span class="line">  <span class="attr">token:</span> <span class="comment">## 填下图位置里面token参数的值</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">baidu_urls.txt</span></span><br></pre></td></tr></table></figure>
+
+<img src="/2020/02/hexo%E5%8D%9A%E5%AE%A2%E5%9C%A8%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%B8%8A%E7%9A%84%E9%93%BE%E6%8E%A5%E6%8F%90%E4%BA%A4/baidu-url-submit.png" class="">
+
+<p>最后在Deploy标签下加入buidu_url_submitter</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">baidu_url_submitter</span></span><br></pre></td></tr></table></figure>
+
+<p>在hexo generate时，会产生.deploy_git&#x2F;baidu_urls.txt文件。</p>
+<p>hexo deploy时，会从上述文件中读取urls，提交到百度。</p>
+<p>成功以后，一般会返回类似这样的信息。remain为今天剩余可推送urls数量，success为成功推送的urls数量。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;remain&quot;:99602,&quot;success&quot;:149&#125;</span><br><span class="line">INFO  Deploy done: baidu_url_submitter</span><br></pre></td></tr></table></figure>
+
+<h1 id="自动推送"><a href="#自动推送" class="headerlink" title="自动推送"></a>自动推送</h1><p>在<code>themes/&lt;your_theme&gt;/_config.yaml</code>中，把<code>baidu_push</code>标签的值设置为<code>true</code>。</p>
+<p>这时，系统会调用到<code>themes/&lt;your_theme&gt;/layout/_third-party/seo/baidu-push.swig</code>文件。</p>
+<h1 id="Sitemap"><a href="#Sitemap" class="headerlink" title="Sitemap"></a>Sitemap</h1><p>安装插件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save     </span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
+
+<p>然后把<code>http://&lt;domain&gt;/baidusitemap.xml</code>和<code>http://&lt;domain&gt;/sitemap.xml</code>提交到百度sitemap页面即可。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -341,272 +616,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/Prometheus-Kubelet-ServiceMonitor/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/02/Prometheus-Kubelet-ServiceMonitor/" class="post-title-link" itemprop="url">Prometheus Kubelet ServiceMonitor</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-02-17 17:30:49" itemprop="dateCreated datePublished" datetime="2020-02-17T17:30:49+08:00">2020-02-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/02/Prometheus-Kubelet-ServiceMonitor/" class="post-meta-item leancloud_visitors" data-flag-title="Prometheus Kubelet ServiceMonitor" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/02/Prometheus-Kubelet-ServiceMonitor/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/02/Prometheus-Kubelet-ServiceMonitor/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get serviceMonitor -n monitoring kubelet -o yaml</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">monitoring.coreos.com/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ServiceMonitor</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">annotations:</span></span><br><span class="line">    <span class="attr">kubectl.kubernetes.io/last-applied-configuration:</span> <span class="string">|</span></span><br><span class="line"><span class="string">      &#123;&quot;apiVersion&quot;:&quot;monitoring.coreos.com/v1&quot;,&quot;kind&quot;:&quot;ServiceMonitor&quot;,&quot;metadata&quot;:&#123;&quot;annotations&quot;:&#123;&#125;,&quot;labels&quot;:&#123;&quot;k8s-app&quot;:&quot;kubelet&quot;&#125;,&quot;name&quot;:&quot;kubelet&quot;,&quot;namespace&quot;:&quot;monitoring&quot;&#125;,&quot;spec&quot;:&#123;&quot;endpoints&quot;:[&#123;&quot;bearerTokenFile&quot;:&quot;/var/run/secrets/kubernetes.io/serviceaccount/token&quot;,&quot;honorLabels&quot;:true,&quot;interval&quot;:&quot;30s&quot;,&quot;port&quot;:&quot;https-metrics&quot;,&quot;scheme&quot;:&quot;https&quot;,&quot;tlsConfig&quot;:&#123;&quot;insecureSkipVerify&quot;:true&#125;&#125;,&#123;&quot;bearerTokenFile&quot;:&quot;/var/run/secrets/kubernetes.io/serviceaccount/token&quot;,&quot;honorLabels&quot;:true,&quot;interval&quot;:&quot;30s&quot;,&quot;metricRelabelings&quot;:[&#123;&quot;action&quot;:&quot;drop&quot;,&quot;regex&quot;:&quot;container_(network_tcp_usage_total|network_udp_usage_total|tasks_state|cpu_load_average_10s)&quot;,&quot;sourceLabels&quot;:[&quot;__name__&quot;]&#125;],&quot;path&quot;:&quot;/metrics/cadvisor&quot;,&quot;port&quot;:&quot;https-metrics&quot;,&quot;scheme&quot;:&quot;https&quot;,&quot;tlsConfig&quot;:&#123;&quot;insecureSkipVerify&quot;:true&#125;&#125;],&quot;jobLabel&quot;:&quot;k8s-app&quot;,&quot;namespaceSelector&quot;:&#123;&quot;matchNames&quot;:[&quot;kube-system&quot;]&#125;,&quot;selector&quot;:&#123;&quot;matchLabels&quot;:&#123;&quot;k8s-app&quot;:&quot;kubelet&quot;&#125;&#125;&#125;&#125;</span></span><br><span class="line"><span class="string"></span>  <span class="attr">creationTimestamp:</span> <span class="string">&quot;2019-12-29T06:40:27Z&quot;</span></span><br><span class="line">  <span class="attr">generation:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">kubelet</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubelet</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">monitoring</span></span><br><span class="line">  <span class="attr">resourceVersion:</span> <span class="string">&quot;2602&quot;</span></span><br><span class="line">  <span class="attr">selfLink:</span> <span class="string">/apis/monitoring.coreos.com/v1/namespaces/monitoring/servicemonitors/kubelet</span></span><br><span class="line">  <span class="attr">uid:</span> <span class="string">327bae9c-d09c-4d00-b293-354870b19f91</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">endpoints:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">bearerTokenFile:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line">    <span class="attr">honorLabels:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">interval:</span> <span class="string">30s</span></span><br><span class="line">    <span class="attr">port:</span> <span class="string">https-metrics</span></span><br><span class="line">    <span class="attr">scheme:</span> <span class="string">https</span></span><br><span class="line">    <span class="attr">tlsConfig:</span></span><br><span class="line">      <span class="attr">insecureSkipVerify:</span> <span class="literal">true</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">bearerTokenFile:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line">    <span class="attr">honorLabels:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">interval:</span> <span class="string">30s</span></span><br><span class="line">    <span class="attr">metricRelabelings:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">action:</span> <span class="string">drop</span></span><br><span class="line">      <span class="attr">regex:</span> <span class="string">container_(network_tcp_usage_total|network_udp_usage_total|tasks_state|cpu_load_average_10s)</span></span><br><span class="line">      <span class="attr">sourceLabels:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">__name__</span></span><br><span class="line">    <span class="attr">path:</span> <span class="string">/metrics/cadvisor</span></span><br><span class="line">    <span class="attr">port:</span> <span class="string">https-metrics</span></span><br><span class="line">    <span class="attr">scheme:</span> <span class="string">https</span></span><br><span class="line">    <span class="attr">tlsConfig:</span></span><br><span class="line">      <span class="attr">insecureSkipVerify:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">jobLabel:</span> <span class="string">k8s-app</span></span><br><span class="line">  <span class="attr">namespaceSelector:</span></span><br><span class="line">    <span class="attr">matchNames:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">kube-system</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">k8s-app:</span> <span class="string">kubelet</span></span><br></pre></td></tr></table></figure>
-
-<p>根据上面的namespaceSelector和selector</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get ep -n kube-system -l k8s-app=kubelet -o yaml</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">items:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line">  <span class="attr">kind:</span> <span class="string">Endpoints</span></span><br><span class="line">  <span class="attr">metadata:</span></span><br><span class="line">    <span class="attr">creationTimestamp:</span> <span class="string">&quot;2019-12-29T06:40:06Z&quot;</span></span><br><span class="line">    <span class="attr">labels:</span></span><br><span class="line">      <span class="attr">k8s-app:</span> <span class="string">kubelet</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">kubelet</span></span><br><span class="line">    <span class="attr">namespace:</span> <span class="string">kube-system</span></span><br><span class="line">    <span class="attr">resourceVersion:</span> <span class="string">&quot;2371&quot;</span></span><br><span class="line">    <span class="attr">selfLink:</span> <span class="string">/api/v1/namespaces/kube-system/endpoints/kubelet</span></span><br><span class="line">    <span class="attr">uid:</span> <span class="string">326583cc-3379-4883-8426-5a856c29c77e</span></span><br><span class="line">  <span class="attr">subsets:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">addresses:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">ip:</span> <span class="number">172.16</span><span class="number">.64</span><span class="number">.232</span></span><br><span class="line">      <span class="attr">targetRef:</span></span><br><span class="line">        <span class="attr">kind:</span> <span class="string">Node</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">k8s-node1</span></span><br><span class="line">        <span class="attr">uid:</span> <span class="string">09ffae8e-e3f1-456b-a398-7891487712da</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">ip:</span> <span class="number">172.16</span><span class="number">.64</span><span class="number">.233</span></span><br><span class="line">      <span class="attr">targetRef:</span></span><br><span class="line">        <span class="attr">kind:</span> <span class="string">Node</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">k8s-master</span></span><br><span class="line">        <span class="attr">uid:</span> <span class="string">774ddb3e-2c3c-4af8-8e1c-15b0c2c3b8c1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">ip:</span> <span class="number">172.16</span><span class="number">.64</span><span class="number">.235</span></span><br><span class="line">      <span class="attr">targetRef:</span></span><br><span class="line">        <span class="attr">kind:</span> <span class="string">Node</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">k8s-node2</span></span><br><span class="line">        <span class="attr">uid:</span> <span class="string">7c1cc5f0-2b71-462a-907e-191b0d3ee819</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">http-metrics</span></span><br><span class="line">      <span class="attr">port:</span> <span class="number">10255</span></span><br><span class="line">      <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">cadvisor</span></span><br><span class="line">      <span class="attr">port:</span> <span class="number">4194</span></span><br><span class="line">      <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">https-metrics</span></span><br><span class="line">      <span class="attr">port:</span> <span class="number">10250</span></span><br><span class="line">      <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">List</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">resourceVersion:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="attr">selfLink:</span> <span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/Prometheus%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/02/Prometheus%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">Prometheus入门基础</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-02-14 16:45:40" itemprop="dateCreated datePublished" datetime="2020-02-14T16:45:40+08:00">2020-02-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/02/Prometheus%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/" class="post-meta-item leancloud_visitors" data-flag-title="Prometheus入门基础" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/02/Prometheus%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/02/Prometheus%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="什么是Prometheus"><a href="#什么是Prometheus" class="headerlink" title="什么是Prometheus"></a>什么是Prometheus</h1><p>Prometheus是由SoundCloud开发的开源监控报警系统和时序列数据库(TSDB)。Prometheus使用Go语言开发。</p>
-<p>2016年由Google发起Linux基金会旗下的原生云基金会(Cloud Native Computing Foundation), 将Prometheus纳入其下第二大开源项目。</p>
-<h1 id="Prometheus特点"><a href="#Prometheus特点" class="headerlink" title="Prometheus特点"></a>Prometheus特点</h1><p>多维数据模型：由度量名称和键值对标识的时间序列数据</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node_cpu_seconds_total&#123;cpu=&quot;0&quot;,endpoint=&quot;https&quot;,instance=&quot;k8s-master&quot;,job=&quot;node-exporter&quot;,mode=&quot;idle&quot;,namespace=&quot;monitoring&quot;,pod=&quot;node-exporter-t9ljw&quot;,service=&quot;node-exporter&quot;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>PromSQL是一种灵活的查询语言，可以利用多维数据完成复杂的查询</p>
-<p>不依赖分布式存储，单个服务器节点可直接工作</p>
-<p>基于HTTP的pull方式采集时间序列数据</p>
-<p>推送时间序列数据通过PushGateway组件支持</p>
-<p>通过服务发现或静态配置发现目标</p>
-<p>多种图形模式及仪表盘支持</p>
-<h1 id="Prometheus架构"><a href="#Prometheus架构" class="headerlink" title="Prometheus架构"></a>Prometheus架构</h1><img src="/2020/02/Prometheus%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/prometheus-architecture.png" class="">
-
-<p>Prometheus 由多个组件组成，但是其中许多组件是可选的：</p>
-<h2 id="Prometheus-Server"><a href="#Prometheus-Server" class="headerlink" title="Prometheus Server"></a>Prometheus Server</h2><p>用于收集指标和存储时间序列数据，并提供查询接口(http api)</p>
-<h2 id="Client-Library"><a href="#Client-Library" class="headerlink" title="Client Library"></a>Client Library</h2><p>客户端库（例如Go，Python，Java等），为需要监控的服务产生相应的&#x2F;metrics并暴露给Prometheus Server。目前已经有很多的软件原生就支持Prometheus，提供&#x2F;metrics，可以直接使用。对于像操作系统已经不提供&#x2F;metrics，可以使用exporter，或者自己开发exporter来提供&#x2F;metrics服务。</p>
-<h2 id="Push-Gateway"><a href="#Push-Gateway" class="headerlink" title="Push Gateway"></a>Push Gateway</h2><p>主要用于临时性的jobs。由于这类jobs存在时间较短，可能在Prometheus pull之前就消失了。对此Jobs定时将指标push到pushgateway，再由Prometheus<br>Server从Pushgateway上pull。这种方式主要用于服务层面的metrics</p>
-<h2 id="exporter"><a href="#exporter" class="headerlink" title="exporter"></a>exporter</h2><p>用于暴露已有的第三方服务的 metrics 给 Prometheus。</p>
-<h2 id="alertmanager"><a href="#alertmanager" class="headerlink" title="alertmanager"></a>alertmanager</h2><p>从 Prometheus server 端接收到 alerts 后，会进行去除重复数据，分组，并路由到对应的接收方式，发出报警。常见的接收方式有：电子邮件，pagerduty，OpsGenie, webhook 等。</p>
-<h2 id="Web-UI"><a href="#Web-UI" class="headerlink" title="Web UI"></a>Web UI</h2><p>Prometheus内置一个简单的Web控制台，可以查询指标，查看配置信息或者Service Discovery等，实际工作中，查看指标或者创建仪表盘通常使用Grafana，Prometheus作为Grafana的数据源。</p>
-<h1 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h1><p>Prometheus的基本原理是通过HTTP协议周期性抓取被监控组件的状态，任意组件只要提供对应的HTTP接口就可以接入监控。不需要任何SDK或者其他的集成过程。这样做非常适合做虚拟化环境监控系统，比如VM、Docker、Kubernetes等。输出被监控组件信息的HTTP接口被叫做exporter 。目前互联网公司常用的组件大部分都有exporter可以直接使用，比如Varnish、Haproxy、Nginx、MySQL、Linux系统信息(包括磁盘、内存、CPU、网络等等)。</p>
-<h1 id="服务过程"><a href="#服务过程" class="headerlink" title="服务过程"></a>服务过程</h1><p>Prometheus Daemon负责定时去目标上抓取metrics(指标)数据，每个抓取目标需要暴露一个http服务的接口给它定时抓取。Prometheus支持通过配置文件、文本文件、Zookeeper、Consul、DNS SRV Lookup等方式指定抓取目标。Prometheus采用PULL的方式进行监控，即服务器可以直接通过目标PULL数据或者间接地通过中间网关来Push数据。</p>
-<p>Prometheus在本地存储抓取的所有数据，并通过一定规则进行清理和整理数据，并把得到的结果存储到新的时间序列中。</p>
-<p>Prometheus通过PromQL和其他API可视化地展示收集的数据。Prometheus支持很多方式的图表可视化，例如Grafana、自带的Promdash以及自身提供的模版引擎等等。Prometheus还提供HTTP API的查询方式，自定义所需要的输出。</p>
-<p>PushGateway支持Client主动推送metrics到PushGateway，而Prometheus只是定时去Gateway上抓取数据。</p>
-<p>Alertmanager是独立于Prometheus的一个组件，可以支持Prometheus的查询语句，提供十分灵活的报警方式。</p>
-<h1 id="三大套件"><a href="#三大套件" class="headerlink" title="三大套件"></a>三大套件</h1><h2 id="Prometheus-Server-1"><a href="#Prometheus-Server-1" class="headerlink" title="Prometheus Server"></a>Prometheus Server</h2><p>主要负责数据采集和存储，提供PromQL查询语言的支持。</p>
-<h2 id="Alertmanager"><a href="#Alertmanager" class="headerlink" title="Alertmanager"></a>Alertmanager</h2><p>警告管理器，用来进行报警。</p>
-<h2 id="Push-Gateway-1"><a href="#Push-Gateway-1" class="headerlink" title="Push Gateway"></a>Push Gateway</h2><p>支持临时性Job主动推送指标的中间网关。</p>
-<h1 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h1><p>Prometheus将所有数据存储为时间序列；具有相同度量名称以及标签属于同一个指标。</p>
-<p>每个时间序列都由度量标准名称和一组键值对（也成为标签）唯一标识。</p>
-<p>时间序列格式：</p>
-<p><code>&lt;metric name&gt;&#123;&lt;label name&gt;=&lt;label value&gt;, ...&#125;</code></p>
-<h1 id="指标类型"><a href="#指标类型" class="headerlink" title="指标类型"></a>指标类型</h1><h2 id="Counter"><a href="#Counter" class="headerlink" title="Counter"></a>Counter</h2><p>递增的计数器，如CPU使用时间。</p>
-<h2 id="Gauge"><a href="#Gauge" class="headerlink" title="Gauge"></a>Gauge</h2><p>可以任意变化的数值：cup使用率</p>
-<h2 id="Histogram"><a href="#Histogram" class="headerlink" title="Histogram"></a>Histogram</h2><p>对一段时间范围内数据进行采样，并对所有数值求和与统计数量</p>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>与Histogram类似，带有分位数。</p>
-<h1 id="抓取实例"><a href="#抓取实例" class="headerlink" title="抓取实例"></a>抓取实例</h1><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">scrape_configs:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">&#x27;prometheus&#x27;</span></span><br><span class="line">  <span class="attr">static_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;localhost:9090&#x27;</span>,<span class="string">&#x27;192.168.1.100:9090&#x27;</span>]</span><br><span class="line"><span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">&#x27;node&#x27;</span></span><br><span class="line">  <span class="attr">static_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;192.168.1.10:9090&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/77/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/77/">77</a><span class="page-number current">78</span><a class="page-number" href="/page/79/">79</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/79/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/77/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/77/">77</a><span class="page-number current">78</span><a class="page-number" href="/page/79/">79</a><span class="space">&hellip;</span><a class="page-number" href="/page/128/">128</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/79/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

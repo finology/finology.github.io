@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">380</span>
+          <span class="site-state-item-count">382</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,243 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" class="post-title-link" itemprop="url">Git远程仓库版本回退</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-15 13:38:50" itemprop="dateCreated datePublished" datetime="2020-03-15T13:38:50+08:00">2020-03-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" class="post-meta-item leancloud_visitors" data-flag-title="Git远程仓库版本回退" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 <a href="/2018/03/Git%E7%89%88%E6%9C%AC%E5%A6%82%E4%BD%95%E5%9B%9E%E9%80%80/" title="Git版本如何回退">Git版本如何回退</a> 我们知道了，如果 commit 以后，想要回到原来的版本使用 git reset 命令就可以。</p>
+<p>在 SourceTree 工具里面，选中想要回退的版本，右键点击 Reset master to this commit 也可以解决。</p>
+<p>这里想讲一下如何已经提交到远程仓库了怎么办？</p>
+<p>首先，还是和前面的一样，让本地 master 版本先回退回来。</p>
+<p>如图所示：可以看到 master 版本已经落后远程仓库一个版本了。</p>
+<img src="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/git%E5%9B%9E%E9%80%80.png" class="">
+
+<p>然后，在命令行里面，执行 <code>git push -f</code> 这个命令，我在 SourceTree 里面还没有找到在哪里。force push 到原程仓库里面。就可以了。</p>
+<p>如图 <img src="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/git%E5%9B%9E%E9%80%80%E6%88%90%E5%8A%9F.png" class=""></p>
+<p>版本就在同一条线上了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/" class="post-title-link" itemprop="url">Prometheus中指标,Servicemonitor,Targets的关系</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-13 23:14:53" itemprop="dateCreated datePublished" datetime="2020-03-13T23:14:53+08:00">2020-03-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/" class="post-meta-item leancloud_visitors" data-flag-title="Prometheus中指标,Servicemonitor,Targets的关系" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Prometheus下拉列表里面的指标是怎么来的？</p>
+<p>如果安装了<code>alert-manager</code>, <code>kube-state-metrics</code>这样组件，这些组件会提供<code>/metrics</code>接口，然后Prometheus就可以拉取这些接口，从而获取指标数据，便展示于Prometheus<br>Dashboard的下拉列表里面了。当然，在指标里面有可能还会加入一些标签，如<code>job</code>, <code>instance</code>之类的。</p>
+<p>网上有人说Servicemonitor是exporter的抽象，我觉得是不对的。最多抽象了一部分而已。</p>
+<p>一个Servicemonitor对应n个Targetes里面的记录。</p>
+<p>当你删除Servicemonitor对象，在Targets页面，这个特定的Target肯定是不显示了，但并不代表Prometheus下拉列表中的指标会消失，指标还是存在的。只是有可能有些标签变化了，这个标签变化的还没有经过验证。</p>
+<p>当你删除Pod时，比如把alert-manager的deployment删除，对应的Pod自动删除，这时，下拉列表对应的指标还存在，但却没有值了。</p>
+<p>这个时候，如果把Prometheus重启一下，这个指标才会消失。</p>
+<p>把<code>kube-state-metrics</code>的pods删除后，<code>kube-</code>开始的指标，如：<code>kube_pod_info</code>，就没有值了。</p>
+<p>把<code>node-exporter</code>的<code>daemonset</code>删除后，<code>node_cpu_seconds_total</code>节点的指标就没值了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -357,290 +594,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">Springboot使用profiles区分环境</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-13 23:07:32" itemprop="dateCreated datePublished" datetime="2020-03-13T23:07:32+08:00">2020-03-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="Springboot使用profiles区分环境" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>配置文件，格式一般为<code>application-&#123;profile&#125;.yaml</code>。</p>
-<ul>
-<li>application.yaml</li>
-<li>application-dev.yaml</li>
-<li>application-prod.yaml</li>
-</ul>
-<p>未指定任何profile时，会默认加载<code>application.yaml</code>配置文件。</p>
-<p>所以，与环境无关的属性配置，都应该放到<code>application.yaml</code>文件中，与环境有关的，则放到相应的其他配置文件中。</p>
-<h1 id="激活profile"><a href="#激活profile" class="headerlink" title="激活profile"></a>激活profile</h1><h2 id="在application-yaml文件里面指定。"><a href="#在application-yaml文件里面指定。" class="headerlink" title="在application.yaml文件里面指定。"></a>在<code>application.yaml</code>文件里面指定。</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="在IDEA里面修改"><a href="#在IDEA里面修改" class="headerlink" title="在IDEA里面修改"></a>在IDEA里面修改</h2><p>编辑配置</p>
-<h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>在<code>Environment</code>下<code>VM options</code>这一栏里面填入：<code>-Dspring.profiles.active=dev</code>。</p>
-<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p>在<code>Environment</code>下<code>Program arguments</code>这一栏里面填入： <code>--spring-profiles-active=dev</code>。</p>
-<h3 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h3><p>在<code>Spring boot</code>下<code>Active profiles</code>这一栏里面填入：<code>dev</code></p>
-<img src="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/active-profile.png" class="">
-
-<h2 id="运行jar时指定参数"><a href="#运行jar时指定参数" class="headerlink" title="运行jar时指定参数"></a>运行jar时指定参数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar demo.jar --spring.profiles.active=dev</span><br></pre></td></tr></table></figure>
-
-<p>运行后，console里面会提示本次运行，是用到了哪个配置文件覆盖或追加了最基本的<code>application.yaml</code>文件。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[18:25:42.127] INFO  org.springframework.boot.SpringApplication 679 logStartupProfileInfo - The following profiles </span><br><span class="line">are active: dev</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">会计基础</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-10 23:29:23" itemprop="dateCreated datePublished" datetime="2020-03-10T23:29:23+08:00">2020-03-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%B4%A2%E5%8A%A1/" itemprop="url" rel="index"><span itemprop="name">财务</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/" class="post-meta-item leancloud_visitors" data-flag-title="会计基础" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image001.png" class="">
-
-<p>会计是干嘛的——目标：提供信息（核算监督是过程）</p>
-<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image002.png" class="">
-
-<p>财务状况——“富”（有钱）</p>
-<p>经营成果——“高”（利润高不高，能赚钱）</p>
-<p>现金流量——“帅”（舍不舍得花钱）</p>
-<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image003.png" class="">
-
-<p>财务状况——资产负债表</p>
-<p>经营成果——利润表</p>
-<p>现金流量——现金流量表</p>
-<p>1.资产负债表——基于 资产&#x3D;负债+所有者权益 编制</p>
-<p>反映静态（时点）要素</p>
-<p>如果一个人有2000万的别墅，买别墅的钱，其中70%是借来的，另外30%是爹妈给的。2000万中的1400万是借来的，要还的，是负债，另外600万是爹妈给的，是权益，不用还。</p>
-<p>等式左边资产是资金占用，右边是资金的来源。资产负债表也是这样。</p>
-<p>资产负债表需要区分资产和负债，除了这些就是权益。</p>
-<p>名称中有“应收”“投资”“资产”大多数是资产，资产是一种资源。资产是将资源进行分类。</p>
-<p>名称中有“应付”“应交”“负债”基本是负债。</p>
-<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image004.png" class="">
-
-<p>资产&#x3D;负债+所有者权益+（收入-费用），收入和费用影响权益，从而影响资产</p>
-<p>2.利润表——收入-费用&#x3D;利润（动态、过程）</p>
-<p>利润表中有三种利润：营业利润、利润总额、净利润</p>
-<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image005.png" class="">
-
-<p>营业外收入（例捐赠、捡钱、中彩票）、营业外支出（例自然灾害）不影响营业利润。</p>
-<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image006.png" class="">
-
-<p>影响营业利润的项目：1（营业收入）、2（营业成本、税金及附加）、4（4个费用）、2（2个减值损失）、4（4个收益），共13个。（去掉“净敞口套期收益”，考试不考）</p>
-<p>营业收入&#x3D;主营业务收入（主营）+其他业务收入（辅营）——都是日常活动</p>
-<p>销售费用：广告营销费</p>
-<p>管理费用：如办公费</p>
-<p>研发费用：如研发人员工资</p>
-<p>财务费用：利息费用</p>
-<p>投资收益：股票分红、债券利息收益</p>
-<p>公允价值变动收益：</p>
-<p>资产处置收益：</p>
-<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image007.png" class="">
-
-<p>不影响营业利润，说明是营业外，就是自然灾害。</p>
-<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image008.png" class="">
-<p>上图6个红色章节是重难点。</p>
-<p>18、19、20现在复习可以先跳过，2020年可能会发生变化。</p>
-<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image009.png" class="">
-
-<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image010.png" class="">
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/71/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/71/">71</a><span class="page-number current">72</span><a class="page-number" href="/page/73/">73</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/73/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/71/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/71/">71</a><span class="page-number current">72</span><a class="page-number" href="/page/73/">73</a><span class="space">&hellip;</span><a class="page-number" href="/page/128/">128</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/73/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

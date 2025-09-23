@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">380</span>
+          <span class="site-state-item-count">382</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,240 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/10/Linux-OpenSUSE%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93%E5%AD%97%E5%BA%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/10/Linux-OpenSUSE%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93%E5%AD%97%E5%BA%93/" class="post-title-link" itemprop="url">Linux OpenSUSE安装字体字库</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-19 15:23:17" itemprop="dateCreated datePublished" datetime="2020-10-19T15:23:17+08:00">2020-10-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/10/Linux-OpenSUSE%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93%E5%AD%97%E5%BA%93/" class="post-meta-item leancloud_visitors" data-flag-title="Linux OpenSUSE安装字体字库" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/10/Linux-OpenSUSE%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93%E5%AD%97%E5%BA%93/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/10/Linux-OpenSUSE%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93%E5%AD%97%E5%BA%93/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近在 Linux OpenSUSE 上运行 pdfbox 工具，将 Pdf 转成图片，会遇到找不到字体的警告提示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[15:02:34.732] WARN  org.apache.pdfbox.pdmodel.font.PDTrueTypeFont 220 &lt;init&gt; - Using fallback font &#x27;LiberationSans&#x27; for &#x27;Arial,Bold&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>所以这篇文章讲述一下如何在 OpenSUSE 系统上安装字体字库。</p>
+<p>查看 OpenSUSE 版本号</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cat</span> /etc/os-release</span> </span><br><span class="line">NAME=&quot;openSUSE Leap&quot;</span><br><span class="line">VERSION=&quot;42.3&quot;</span><br><span class="line">ID=opensuse</span><br><span class="line">ID_LIKE=&quot;suse&quot;</span><br><span class="line">VERSION_ID=&quot;42.3&quot;</span><br><span class="line">PRETTY_NAME=&quot;openSUSE Leap 42.3&quot;</span><br><span class="line">ANSI_COLOR=&quot;0;32&quot;</span><br><span class="line">CPE_NAME=&quot;cpe:/o:opensuse:leap:42.3&quot;</span><br><span class="line">BUG_REPORT_URL=&quot;https://bugs.opensuse.org&quot;</span><br><span class="line">HOME_URL=&quot;https://www.opensuse.org/&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="查看当前系统已经安装的字体"><a href="#查看当前系统已经安装的字体" class="headerlink" title="查看当前系统已经安装的字体"></a>查看当前系统已经安装的字体</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">fc-list | less</span></span><br><span class="line"></span><br><span class="line">/usr/share/fonts/truetype/DejaVuSans-ExtraLight.ttf: DejaVu Sans,DejaVu Sans Light:style=ExtraLight</span><br><span class="line">/usr/share/fonts/truetype/OpenSans-CondLightItalic.ttf: Open Sans,Open Sans Condensed Light:style=Condensed Light Italic,Italic</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h1 id="获取字体"><a href="#获取字体" class="headerlink" title="获取字体"></a>获取字体</h1><p>大多数的字体，在 Windows 系统上都可以找到。</p>
+<p>字体目录所在位置：<code>C:\Windows\Fonts</code></p>
+<h1 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h1><p>OpenSUSE 的字库位置在 <code>/usr/share/fonts/truetype</code>，通过刚才命令也可以看出来。</p>
+<p>然后再把 Windows 下面的字体拷贝到上述目录中。</p>
+<p>重新加载新添加的字体：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fc-cache -fv</span><br></pre></td></tr></table></figure>
+
+<p>最后，要让java应用程序生效，还得重新启动一个应用。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/10/Python%E8%A7%A3%E6%9E%90%E5%BC%8F%E6%8E%A8%E5%AF%BC%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/10/Python%E8%A7%A3%E6%9E%90%E5%BC%8F%E6%8E%A8%E5%AF%BC%E5%BC%8F/" class="post-title-link" itemprop="url">Python解析式推导式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-08 14:53:50" itemprop="dateCreated datePublished" datetime="2020-10-08T14:53:50+08:00">2020-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/10/Python%E8%A7%A3%E6%9E%90%E5%BC%8F%E6%8E%A8%E5%AF%BC%E5%BC%8F/" class="post-meta-item leancloud_visitors" data-flag-title="Python解析式推导式" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/10/Python%E8%A7%A3%E6%9E%90%E5%BC%8F%E6%8E%A8%E5%AF%BC%E5%BC%8F/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/10/Python%E8%A7%A3%E6%9E%90%E5%BC%8F%E6%8E%A8%E5%AF%BC%E5%BC%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>[ 值 for 元素 in 可迭代对象 if 条件 ]</code>  # 值可以是函数表达式</p>
+<p><code>[ 值1 if 条件1 else 值2 for 元素 in 可迭代对象]</code>   # 将 if-else 语句写入列表解析式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ret = [<span class="number">0.37</span>, -<span class="number">1.9</span>, <span class="number">0.6</span>, <span class="number">2.54</span>, <span class="number">0.51</span>, <span class="number">1.09</span>, <span class="number">1.79</span>, -<span class="number">1.2</span>, -<span class="number">0.14</span>, -<span class="number">0.5</span>, -<span class="number">2.37</span>, <span class="number">0.0</span>, -<span class="number">0.22</span>, -<span class="number">0.15</span>, <span class="number">4.28</span>, -<span class="number">0.85</span>, -<span class="number">1.79</span>, -<span class="number">0.44</span>, -<span class="number">0.15</span>, <span class="number">2.34</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例：从收益率序列中提取出负的收益率</span></span><br><span class="line">[i <span class="keyword">for</span> i <span class="keyword">in</span> ret <span class="keyword">if</span> i &lt; <span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">[-<span class="number">1.9</span>, -<span class="number">1.2</span>, -<span class="number">0.14</span>, -<span class="number">0.5</span>, -<span class="number">2.37</span>, -<span class="number">0.22</span>, -<span class="number">0.15</span>, -<span class="number">0.85</span>, -<span class="number">1.79</span>, -<span class="number">0.44</span>, -<span class="number">0.15</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 正收益率赋值为1，负收益率赋值为0</span></span><br><span class="line">[<span class="number">1</span> <span class="keyword">if</span> i &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> ret]</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ret_set = &#123;(<span class="number">0.37</span>, -<span class="number">1.9</span>, <span class="number">0.6</span>, <span class="number">2.54</span>, <span class="number">0.51</span>), (<span class="number">1.09</span>, <span class="number">1.79</span>, -<span class="number">1.2</span>, -<span class="number">0.14</span>, -<span class="number">0.5</span>), (-<span class="number">2.37</span>, <span class="number">0.0</span>, -<span class="number">0.22</span>, -<span class="number">0.15</span>, <span class="number">4.28</span>), (-<span class="number">0.85</span>, -<span class="number">1.79</span>, -<span class="number">0.44</span>, -<span class="number">0.15</span>, <span class="number">2.34</span>)&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如何将元素打平</span></span><br><span class="line">[i <span class="keyword">for</span> t <span class="keyword">in</span> ret_set <span class="keyword">for</span> i <span class="keyword">in</span> t]</span><br></pre></td></tr></table></figure>
+
+<p>内循环在外循环后面</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -331,265 +565,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/09/Mybatis%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%85%B3%E7%B3%BBcollection/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/09/Mybatis%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%85%B3%E7%B3%BBcollection/" class="post-title-link" itemprop="url">Mybatis一对多关系collection</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-25 10:57:51" itemprop="dateCreated datePublished" datetime="2020-09-25T10:57:51+08:00">2020-09-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/Mybatis%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%85%B3%E7%B3%BBcollection/" class="post-meta-item leancloud_visitors" data-flag-title="Mybatis一对多关系collection" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/09/Mybatis%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%85%B3%E7%B3%BBcollection/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/09/Mybatis%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%85%B3%E7%B3%BBcollection/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Mybatis中的一对多关系，用collection。</p>
-<p>一个学生表，Student，一个老师表，Teacher。一个老师下面有多个学生。学生表有一个字段 teacher_id。</p>
-<p>学生表对应的类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer teacherId;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
-<p>教师类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Teacher</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
-<p>我们要查出教师及其学生的列表。</p>
-<p>教师及学生列表类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TeacherInfo</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Student&gt; students;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
-<p>获取所以教师及学生列表信息的 DAO 层接口。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">TeacherDao</span> &#123;</span><br><span class="line">    </span><br><span class="line">    List&lt;TeacherInfo&gt; <span class="title function_">findTeachers</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上述接口对应的 xml 文件的核心内容如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">mapper</span> <span class="keyword">PUBLIC</span> <span class="string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span> <span class="string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;gy.finolo.dao.TeacherDao&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;teacherInfoMap&quot;</span> <span class="attr">type</span>=<span class="string">&quot;gy.finolo.model.TeacherInfo&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">&quot;id&quot;</span> <span class="attr">jdbcType</span>=<span class="string">&quot;INTEGER&quot;</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;age&quot;</span> <span class="attr">jdbcType</span>=<span class="string">&quot;INTEGER&quot;</span> <span class="attr">property</span>=<span class="string">&quot;age&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">collection</span> <span class="attr">property</span>=<span class="string">&quot;students&quot;</span> <span class="attr">ofType</span>=<span class="string">&quot;gy.finolo.model.Student&quot;</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- &lt;id column=&quot;student_id&quot; property=&quot;id&quot; /&gt; --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;name&quot;</span> <span class="attr">property</span>=<span class="string">&quot;name&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">collection</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;findTeachers&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;teacherInfoMap&quot;</span>&gt;</span></span><br><span class="line">        SELECT t.id, t.age, s.name FROM t_teacher t INNER JOIN t_student s ON (t.id = s.teacher_id);</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>需要说明的有以下几点：</p>
-<ol>
-<li><p>主表和副表的 id 标签都可以不要，这时只是属性里面没有 id 的值而已。我之前以为是以 id 来判断两条记录是否相同的，现在看来并不是。</p>
-</li>
-<li><p>如果需要获取学生id值，为了避免column字段重复，所以在SQL语句写别名，同时在xml也做相应修改。</p>
-</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">&quot;student_id&quot;</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;findTeachers&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;teacherInfoMap&quot;</span>&gt;</span></span><br><span class="line">    SELECT t.id, t.age, s.id student_id, s.name FROM t_teacher t INNER JOIN t_student s ON (t.id = s.teacher_id);</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/09/java-AOP%E5%88%87%E9%9D%A2%E5%A4%84%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/09/java-AOP%E5%88%87%E9%9D%A2%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">java AOP切面处理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-09 15:38:25" itemprop="dateCreated datePublished" datetime="2020-09-09T15:38:25+08:00">2020-09-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/java-AOP%E5%88%87%E9%9D%A2%E5%A4%84%E7%90%86/" class="post-meta-item leancloud_visitors" data-flag-title="java AOP切面处理" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/09/java-AOP%E5%88%87%E9%9D%A2%E5%A4%84%E7%90%86/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/09/java-AOP%E5%88%87%E9%9D%A2%E5%A4%84%E7%90%86/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在返回给客户端前，通过 AOP 给返回的类做处理。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ResponseAspect</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定义切点</span></span><br><span class="line">    <span class="meta">@Pointcut(&quot;execution(public * gy.finolo..*.*(..))&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterResponse</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterReturning(returning = &quot;object&quot;, pointcut = &quot;afterResponse()&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doAfterReturning</span><span class="params">(Object object)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (object <span class="keyword">instanceof</span> Response) &#123;</span><br><span class="line">            <span class="comment">// logic</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>AOP 有如下5种通知类型，@Around, @Before, @After, @AfterReturning 和 @AfterThrowing。</p>
-<ul>
-<li>如果在通知内都未调用 <code>proceedingJoinPoint.proceed()</code>，那执行顺序为如下：</li>
-</ul>
-<p>Around -&gt; After -&gt; AfterReturning (正常返回) | AfterThrowing (异常返回)</p>
-<ul>
-<li>如果在通知内部调用了 <code>proceedingJoinPoint.proceed()</code>，此句代码相当于是执行 <code>Before</code>（如果有的话） 和 <code>目标对象的方法</code> 逻辑。</li>
-</ul>
-<h1 id="Pointcut注解"><a href="#Pointcut注解" class="headerlink" title="Pointcut注解"></a>Pointcut注解</h1><p>Pointcut 表达式除了使用 <code>execution</code> 以外，还可以使用 <code>annotation</code>，比如：</p>
-<p>定义切点</p>
-<p><code>@Pointcut(&quot;@annotation(gy.finolo.anno.AopAnnotation)&quot;)</code></p>
-<p>我们再创建一个注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(&#123;ElementType.METHOD&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> AopAnnotation &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在方法上面只要是被 @AopAnnotation 注解了，那逻辑都会被切入。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/42/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/42/">42</a><span class="page-number current">43</span><a class="page-number" href="/page/44/">44</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/44/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/42/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/42/">42</a><span class="page-number current">43</span><a class="page-number" href="/page/44/">44</a><span class="space">&hellip;</span><a class="page-number" href="/page/128/">128</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/44/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

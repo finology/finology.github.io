@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">380</span>
+          <span class="site-state-item-count">382</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,269 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/10/MacOSX%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85MongoDB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/10/MacOSX%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85MongoDB/" class="post-title-link" itemprop="url">MacOSX平台安装MongoDB</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-25 20:23:22" itemprop="dateCreated datePublished" datetime="2018-10-25T20:23:22+08:00">2018-10-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Database/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2018/10/MacOSX%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85MongoDB/" class="post-meta-item leancloud_visitors" data-flag-title="MacOSX平台安装MongoDB" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/10/MacOSX%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85MongoDB/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/10/MacOSX%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85MongoDB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="下载MongoDB"><a href="#下载MongoDB" class="headerlink" title="下载MongoDB"></a>下载MongoDB</h1><p>从官网下载MongoDB Mac版本，下载地址： <a target="_blank" rel="noopener" href="https://www.mongodb.com/download-center/community?jmp=docs">https://www.mongodb.com/download-center/community?jmp=docs</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/mongodb</span><br><span class="line">sudo curl -O https://fastdl.mongodb.org/osx/mongodb-osx-ssl-x86_64-4.0.3.tgz</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="解压到-usr-local"><a href="#解压到-usr-local" class="headerlink" title="解压到&#x2F;usr&#x2F;local"></a>解压到&#x2F;usr&#x2F;local</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -zxvf mongodb-osx-ssl-x86_64-4.0.3.tgz</span><br></pre></td></tr></table></figure>
+
+<h1 id="创建数据库存储目录"><a href="#创建数据库存储目录" class="headerlink" title="创建数据库存储目录"></a>创建数据库存储目录</h1><p>默认目录是&#x2F;data&#x2F;db，并把权限授予给用户simon</p>
+<p>如果数据库目录不是&#x2F;data&#x2F;db，可以通过 –dbpath 来指定。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /data/db</span><br><span class="line">sudo chown -R simon /data</span><br></pre></td></tr></table></figure>
+
+<h1 id="启动mongodb"><a href="#启动mongodb" class="headerlink" title="启动mongodb"></a>启动mongodb</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo bin/mongod</span><br></pre></td></tr></table></figure>
+
+<h1 id="进入客户端"><a href="#进入客户端" class="headerlink" title="进入客户端"></a>进入客户端</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">$ mongo</span><br><span class="line">MongoDB shell version v4.0.2</span><br><span class="line">connecting to: mongodb://127.0.0.1:27017</span><br><span class="line">MongoDB server version: 4.0.2</span><br><span class="line">Server has startup warnings:</span><br><span class="line">2018-10-25T20:07:13.893+0800 I CONTROL  [initandlisten]</span><br><span class="line">2018-10-25T20:07:13.893+0800 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.</span><br><span class="line">2018-10-25T20:07:13.893+0800 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.</span><br><span class="line">2018-10-25T20:07:13.893+0800 I CONTROL  [initandlisten]</span><br><span class="line">2018-10-25T20:07:13.893+0800 I CONTROL  [initandlisten] ** WARNING: This server is bound to localhost.</span><br><span class="line">2018-10-25T20:07:13.893+0800 I CONTROL  [initandlisten] **          Remote systems will be unable to connect to this server.</span><br><span class="line">2018-10-25T20:07:13.893+0800 I CONTROL  [initandlisten] **          Start the server with --bind_ip &lt;address&gt; to specify which IP</span><br><span class="line">2018-10-25T20:07:13.893+0800 I CONTROL  [initandlisten] **          addresses it should serve responses from, or with --bind_ip_all to</span><br><span class="line">2018-10-25T20:07:13.893+0800 I CONTROL  [initandlisten] **          bind to all interfaces. If this behavior is desired, start the</span><br><span class="line">2018-10-25T20:07:13.893+0800 I CONTROL  [initandlisten] **          server with --bind_ip 127.0.0.1 to disable this warning.</span><br><span class="line">2018-10-25T20:07:13.893+0800 I CONTROL  [initandlisten]</span><br><span class="line">---</span><br><span class="line">Enable MongoDB&#x27;s free cloud-based monitoring service, which will then receive and display</span><br><span class="line">metrics about your deployment (disk utilization, CPU, operation statistics, etc).</span><br><span class="line"></span><br><span class="line">The monitoring data will be available on a MongoDB website with a unique URL accessible to you</span><br><span class="line">and anyone you share the URL with. MongoDB may use this information to make product</span><br><span class="line">improvements and to suggest MongoDB products and deployment options to you.</span><br><span class="line"></span><br><span class="line">To enable free monitoring, run the following command: db.enableFreeMonitoring()</span><br><span class="line">To permanently disable this reminder, run the following command: db.disableFreeMonitoring()</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&gt; 1 + 1</span><br><span class="line">2</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="可视化客户端"><a href="#可视化客户端" class="headerlink" title="可视化客户端"></a>可视化客户端</h1><p>可以下载Robo 3T，<a target="_blank" rel="noopener" href="http://www.robomongo.org/">www.robomongo.org</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/10/%E8%BF%9E%E6%8E%A5Mysql%E6%97%B6%E5%87%BA%E7%8E%B0too-many-connections%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/10/%E8%BF%9E%E6%8E%A5Mysql%E6%97%B6%E5%87%BA%E7%8E%B0too-many-connections%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="post-title-link" itemprop="url">连接Mysql时出现too many connections的一些解决办法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-09 19:30:32" itemprop="dateCreated datePublished" datetime="2018-10-09T19:30:32+08:00">2018-10-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Database/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2018/10/%E8%BF%9E%E6%8E%A5Mysql%E6%97%B6%E5%87%BA%E7%8E%B0too-many-connections%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="连接Mysql时出现too many connections的一些解决办法" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/10/%E8%BF%9E%E6%8E%A5Mysql%E6%97%B6%E5%87%BA%E7%8E%B0too-many-connections%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/10/%E8%BF%9E%E6%8E%A5Mysql%E6%97%B6%E5%87%BA%E7%8E%B0too-many-connections%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>通过Navicat客户端连接Mysql数据库时，出现too many connections的提示，可以进行如下操作</p>
+<h2 id="登录mysql数据库"><a href="#登录mysql数据库" class="headerlink" title="登录mysql数据库"></a>登录mysql数据库</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># mysql -u root -p</span><br><span class="line">Enter password:</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 2965</span><br><span class="line">Server version: 5.7.18 MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type &#x27;help;&#x27; or &#x27;\h&#x27; for help. Type &#x27;\c&#x27; to clear the current input statement.</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看连接数"><a href="#查看连接数" class="headerlink" title="查看连接数"></a>查看连接数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show processlist;</span><br><span class="line">+------+------+---------------------+--------------+---------+------+----------+------------------+</span><br><span class="line">| Id   | User | Host                | db           | Command | Time | State    | Info             |</span><br><span class="line">+------+------+---------------------+--------------+---------+------+----------+------------------+</span><br><span class="line">| 2821 | root | 192.168.1.124:58526 | testdb       | Sleep   | 7180 |          | NULL             |</span><br><span class="line">| 2822 | root | 192.168.1.124:58527 | testdb       | Sleep   | 7180 |          | NULL             |</span><br><span class="line">| 2840 | root | 192.168.1.124:58741 | testdb       | Sleep   | 5790 |          | NULL             |</span><br><span class="line">| 2841 | root | 192.168.1.124:58742 | testdb       | Sleep   | 5820 |          | NULL             |</span><br></pre></td></tr></table></figure>
+
+<p>将会发现有很多连接是处于<code>Sleep</code>状态的，这些连接是暂时没有用的，可以删除掉。如何删除请继续往下看。</p>
+<h2 id="查看最大连接数"><a href="#查看最大连接数" class="headerlink" title="查看最大连接数"></a>查看最大连接数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &quot;max_connections&quot;;</span><br><span class="line">+-----------------+-------+</span><br><span class="line">| Variable_name   | Value |</span><br><span class="line">+-----------------+-------+</span><br><span class="line">| max_connections | 151   |</span><br><span class="line">+-----------------+-------+</span><br><span class="line">1 row in set (0.01 sec)</span><br></pre></td></tr></table></figure>
+
+<p>当processlist的数量大于查询到的max_connections时，就会出现too many connections的提示信息。</p>
+<h2 id="修改最大连接数"><a href="#修改最大连接数" class="headerlink" title="修改最大连接数"></a>修改最大连接数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set GLOBAL max_connections=1000;</span><br></pre></td></tr></table></figure>
+
+<p>这不是一劳永逸的方法，应该要让它自动杀死那些sleep的进程。</p>
+<h2 id="查看关闭一个连接的等待时间，并修改"><a href="#查看关闭一个连接的等待时间，并修改" class="headerlink" title="查看关闭一个连接的等待时间，并修改"></a>查看关闭一个连接的等待时间，并修改</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show global variables like &#x27;wait_timeout&#x27;;</span><br><span class="line">set global wait_timeout=300;</span><br></pre></td></tr></table></figure>
+
+<p>修改这个数值，这里可以随意，最好控制在几分钟内。</p>
+<h2 id="其他待验证"><a href="#其他待验证" class="headerlink" title="其他待验证"></a>其他待验证</h2><p>set global interactive_timeout&#x3D;500;<br>修改这个数值，表示mysql在关闭一个连接之前要等待的秒数，至此可以让mysql自动关闭那些没用的连接，但要注意的是，正在使用的连接到了时间也会被关闭，因此这个时间值要合适</p>
+<p>批量kill之前没用的sleep连接，在网上搜索的方法对我都不奏效，因此只好使用最笨的办法，一个一个kill</p>
+<p>select concat(‘KILL ‘,id,’;’) from information_schema.processlist where user&#x3D;’root’;</p>
+<p>先把要kill的连接id都查询出来<br>复制中间的kill id;内容到word文档<br>替换掉符号“|”和回车符（在word中查询^p即可查询到回车符）<br>把修改过的内容复制回终端，最后按回车执行</p>
+<p>产生这种问题的原因是：</p>
+<p>连接数超过了 MySQL 设置的值，与 max_connections 和 wait_timeout  都有关系。wait_timeout 的值越大，连接的空闲等待就越长，这样就会造成当前连接数越大。</p>
+<p>解决方法：</p>
+<p>修改MySQL配置文件&#x2F;etc&#x2F;my.cnf,设置成max_connections&#x3D;1000,wait_timeout&#x3D;5。如果没有此项设置可以自行添加，修改后重启MySQL服务即可。要不经常性报此错误，则要对服务器作整体性能优化</p>
+<p>注：</p>
+<p>为了防止发生too many connections时候无法登录的问题，mysql manual有如下的说明：</p>
+<p>mysqld actually allows max_connections+1 clients to connect. The extra connection is reserved for use by accounts that have theSUPER privilege. By granting the SUPER privilege to administrators and not to normal users (who should not need it), an administrator can connect to the server and use SHOW PROCESSLIST to diagnose problems even if the maximum number of unprivileged clients are connected.</p>
+<p>因此, 必须只赋予root用户的SUPER权限，同时所有数据库连接的帐户不能赋予SUPER权限。前面说到的报错后无法登录就是由于我们的应用程序直接配置的root用户</p>
+<p>总结，解决问题的最终方法：</p>
+<p>1.修改配置文件&#x2F;etc&#x2F;my.cnf,调整连接参数</p>
+<p>2.检查程序代码，对于没有关闭的链接及时进行关闭</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -324,265 +587,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/09/%E9%87%8D%E5%90%AFmysql%E6%8A%A5%E9%94%99-ERROR-2002-HY000/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/09/%E9%87%8D%E5%90%AFmysql%E6%8A%A5%E9%94%99-ERROR-2002-HY000/" class="post-title-link" itemprop="url">重启mysql报错 ERROR 2002 (HY000)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-09-25 12:27:34" itemprop="dateCreated datePublished" datetime="2018-09-25T12:27:34+08:00">2018-09-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Database/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2018/09/%E9%87%8D%E5%90%AFmysql%E6%8A%A5%E9%94%99-ERROR-2002-HY000/" class="post-meta-item leancloud_visitors" data-flag-title="重启mysql报错 ERROR 2002 (HY000)" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2018/09/%E9%87%8D%E5%90%AFmysql%E6%8A%A5%E9%94%99-ERROR-2002-HY000/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2018/09/%E9%87%8D%E5%90%AFmysql%E6%8A%A5%E9%94%99-ERROR-2002-HY000/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>mysql在非正常关闭后，再次启动时，会报错。客户端也连接不上。</p>
-<p>连接时的错误信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 2002 (HY000): Can&#x27;t connect to local MySQL server through socket &#x27;/var/lib/mysql/mysql.sock&#x27; (111)</span><br></pre></td></tr></table></figure>
-
-<p>尝试重启mysql服务</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># systemctl status mysqld.service</span><br><span class="line">● mysqld.service - SYSV: MySQL database server.</span><br><span class="line">   Loaded: loaded (/etc/rc.d/init.d/mysqld; bad; vendor preset: disabled)</span><br><span class="line">   Active: failed (Result: exit-code) since 二 2018-09-25 10:48:39 CST; 1min 28s ago</span><br><span class="line">     Docs: man:systemd-sysv-generator(8)</span><br><span class="line">  Process: 3351 ExecStart=/etc/rc.d/init.d/mysqld start (code=exited, status=1/FAILURE)</span><br><span class="line"></span><br><span class="line">9月 25 10:48:38 deploy systemd[1]: Starting SYSV: MySQL database server....</span><br><span class="line">9月 25 10:48:39 deploy mysqld[3351]: MySQL Daemon failed to start.</span><br><span class="line">9月 25 10:48:39 deploy mysqld[3351]: Starting mysqld:  [FAILED]</span><br><span class="line">9月 25 10:48:39 deploy systemd[1]: mysqld.service: control process exited, code=exited status=1</span><br><span class="line">9月 25 10:48:39 deploy systemd[1]: Failed to start SYSV: MySQL database server..</span><br><span class="line">9月 25 10:48:39 deploy systemd[1]: Unit mysqld.service entered failed state.</span><br><span class="line">9月 25 10:48:39 deploy systemd[1]: mysqld.service failed.</span><br></pre></td></tr></table></figure>
-
-<p>查看错误日志</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># journalctl -xe</span><br><span class="line">9月 25 10:45:47 deploy systemd[1]: mysqld.service: control process exited, code=exited status=1</span><br><span class="line">9月 25 10:45:47 deploy systemd[1]: Failed to start SYSV: MySQL database server..</span><br><span class="line">-- Subject: Unit mysqld.service has failed</span><br><span class="line">-- Defined-By: systemd</span><br><span class="line">-- Support: http://lists.freedesktop.org/mailman/listinfo/systemd-devel</span><br><span class="line">--</span><br><span class="line">-- Unit mysqld.service has failed.</span><br><span class="line">--</span><br><span class="line">-- The result is failed.</span><br></pre></td></tr></table></figure>
-
-<p>解决方案</p>
-<p>在mysql非正常关闭时，&#x2F;var&#x2F;run&#x2F;mysqld会消失掉。我们查看&#x2F;var&#x2F;run&#x2F;mysqld文件夹是否不存在，如果是，那重新建立此文件夹&#x2F;var&#x2F;run&#x2F;mysqld，并设置权限<br>chown mysql.mysql &#x2F;var&#x2F;run&#x2F;mysqld</p>
-<p>再次重启，正常启动</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/08/Linux-CentOS-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Redis-4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/08/Linux-CentOS-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Redis-4/" class="post-title-link" itemprop="url">Linux(CentOS)环境安装Redis 4</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-08-25 22:24:42" itemprop="dateCreated datePublished" datetime="2018-08-25T22:24:42+08:00">2018-08-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Middleware/" itemprop="url" rel="index"><span itemprop="name">Middleware</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Middleware/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2018/08/Linux-CentOS-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Redis-4/" class="post-meta-item leancloud_visitors" data-flag-title="Linux(CentOS)环境安装Redis 4" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2018/08/Linux-CentOS-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Redis-4/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2018/08/Linux-CentOS-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Redis-4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>下载地址：<a target="_blank" rel="noopener" href="http://redis.io/download%EF%BC%8C%E4%B8%8B%E8%BD%BD%E6%9C%80%E6%96%B0%E7%A8%B3%E5%AE%9A%E7%89%88%E6%9C%AC%E3%80%82">http://redis.io/download，下载最新稳定版本。</a></p>
-<p>本次使用最新版本4.0.11。</p>
-<p><em>目前可以安装Redis 5了，可参考：<a href="/2020/03/Linux-CentOS-%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85Redis-5/" title="Linux(CentOS)环境下安装Redis 5">Linux(CentOS)环境下安装Redis 5</a></em></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># wget http://download.redis.io/releases/redis-4.0.11.tar.gz</span><br><span class="line"># tar -zxvf redis-4.0.11.tar.gz</span><br><span class="line"># cd redis-4.0.11</span><br><span class="line"># make</span><br></pre></td></tr></table></figure>
-
-<p>编译时可能遇到的问题：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/sh: cc: 未找到命令</span><br></pre></td></tr></table></figure>
-
-<p>系统中缺少gcc，安装一下gcc即可解决问题</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install gcc automake autoconf libtool make</span><br></pre></td></tr></table></figure>
-
-<p><code>zmalloc.h:50:31: 致命错误：jemalloc/jemalloc.h：没有那个文件或目录</code></p>
-<p>分配器allocator，如果有MALLOC这个环境变量，会有用这个环境变量的去建立Redis。</p>
-<p>而且libc并不是默认的分配器，默认的是jemalloc,因为jemalloc被证明有更少的fragmentation problems相比于libc。</p>
-<p>但是如果你又没有jemalloc而只有libc当然make出错。所以加这么一个参数,运行如下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># make MALLOC=libc</span><br></pre></td></tr></table></figure>
-
-<p>编译成功。</p>
-<p>接下来修改redis.conf配置文件，让redis服务在后台运行。把<code>daemonize no</code>改为<code>daemonize yes</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># By default Redis does not run as a daemon. Use &#x27;yes&#x27; if you need it.</span><br><span class="line"># Note that Redis will write a pid file in /var/run/redis.pid when daemonized.</span><br><span class="line">daemonize yes</span><br></pre></td></tr></table></figure>
-
-<p>最后一步，启动redis服务</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># src/redis-server redis.conf</span><br></pre></td></tr></table></figure>
-
-<p>测试</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># src/redis-cli </span><br><span class="line">127.0.0.1:6379&gt; ping</span><br><span class="line">PONG</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/114/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/114/">114</a><span class="page-number current">115</span><a class="page-number" href="/page/116/">116</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/116/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/114/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/114/">114</a><span class="page-number current">115</span><a class="page-number" href="/page/116/">116</a><span class="space">&hellip;</span><a class="page-number" href="/page/128/">128</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/116/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">380</span>
+          <span class="site-state-item-count">382</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,282 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/10/CentOS%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9Hostname%E4%B8%BB%E6%9C%BA%E5%90%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/10/CentOS%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9Hostname%E4%B8%BB%E6%9C%BA%E5%90%8D/" class="post-title-link" itemprop="url">CentOS如何修改Hostname主机名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-04 21:34:42" itemprop="dateCreated datePublished" datetime="2019-10-04T21:34:42+08:00">2019-10-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OS/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/10/CentOS%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9Hostname%E4%B8%BB%E6%9C%BA%E5%90%8D/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS如何修改Hostname主机名" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/10/CentOS%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9Hostname%E4%B8%BB%E6%9C%BA%E5%90%8D/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/10/CentOS%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9Hostname%E4%B8%BB%E6%9C%BA%E5%90%8D/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="CentOS-7环境修改主机名"><a href="#CentOS-7环境修改主机名" class="headerlink" title="CentOS 7环境修改主机名"></a>CentOS 7环境修改主机名</h1><h2 id="修改主机名"><a href="#修改主机名" class="headerlink" title="修改主机名"></a>修改主机名</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname node1</span><br></pre></td></tr></table></figure>
+
+<p>立即生效，重启以后也不会失效。</p>
+<h2 id="查看主机名"><a href="#查看主机名" class="headerlink" title="查看主机名"></a>查看主机名</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hostname</span><br><span class="line">node1</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置hosts"><a href="#设置hosts" class="headerlink" title="设置hosts"></a>设置hosts</h2><p>设置hostname对应的ip，主要是在其他节点上面设置node1节点的IP</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hosts</span><br></pre></td></tr></table></figure>
+
+<h1 id="CentOS-6环境修改主机名"><a href="#CentOS-6环境修改主机名" class="headerlink" title="CentOS 6环境修改主机名"></a>CentOS 6环境修改主机名</h1><p>在文件<code>/etc/sysconfig/network</code>里面添加</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HOSTNAME=node2</span><br></pre></td></tr></table></figure>
+
+<p>重启生效。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">Docker容器中配置sshd服务</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-03 18:32:44" itemprop="dateCreated datePublished" datetime="2019-10-03T18:32:44+08:00">2019-10-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/" class="post-meta-item leancloud_visitors" data-flag-title="Docker容器中配置sshd服务" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/10/Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AEsshd%E6%9C%8D%E5%8A%A1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>以前我们要做一个实验，需要安装虚拟机，安装需要耗费一定的时间，就算是复制虚拟机，也会占用大量磁盘空间。现在我们只需要创建一个CentOS的Docker容器就可以了，比较方便。</p>
+<h1 id="拉取操作系统镜像"><a href="#拉取操作系统镜像" class="headerlink" title="拉取操作系统镜像"></a>拉取操作系统镜像</h1><p>这里我们采用CentOS</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull centos</span><br></pre></td></tr></table></figure>
+
+<p>centos镜像拉取到本地后，我们查看一下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker images </span><br><span class="line">REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">centos                        latest              67fa590cfc1c        6 weeks ago         202MB</span><br></pre></td></tr></table></figure>
+
+<h1 id="运行容器并进入容器"><a href="#运行容器并进入容器" class="headerlink" title="运行容器并进入容器"></a>运行容器并进入容器</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -it centos bash</span><br><span class="line">[root@ca6a84a514c2 /]#</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改yum源"><a href="#修改yum源" class="headerlink" title="修改yum源"></a>修改yum源</h2><p>如果是在公司内网环境，需要改为内网的源。如果是国外的源，也可以换成国内的源。<br>具体方法请参考 <a href="/2018/06/%E5%B0%86Centos7%E7%9A%84yum%E6%BA%90%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E9%98%BF%E9%87%8C%E4%BA%91%E7%9A%84%E6%BA%90/" title="将Centos7的yum源更换为国内阿里云的源">将Centos7的yum源更换为国内阿里云的源</a></p>
+<h2 id="安装所需软件"><a href="#安装所需软件" class="headerlink" title="安装所需软件"></a>安装所需软件</h2><h3 id="安装ip工具"><a href="#安装ip工具" class="headerlink" title="安装ip工具"></a>安装<code>ip</code>工具</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y iproute</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装ssh软件"><a href="#安装ssh软件" class="headerlink" title="安装ssh软件"></a>安装ssh软件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssh-server openssh-clients</span><br></pre></td></tr></table></figure>
+
+<p>会有ssh相关软件被拷贝到&#x2F;usr&#x2F;sbin目录</p>
+<p>需要软件sshd的绝对路径去启动sshd服务，不然会报如下错误。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./sshd</span><br><span class="line">sshd re-exec requires execution with an absolute path</span><br></pre></td></tr></table></figure>
+
+<p>输入全路径执行命令，继续出现错误，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/sshd</span><br><span class="line">Could not load host key: /etc/ssh/ssh_host_rsa_key</span><br><span class="line">Could not load host key: /etc/ssh/ssh_host_ecdsa_key</span><br><span class="line">Could not load host key: /etc/ssh/ssh_host_ed25519_key</span><br><span class="line">sshd: no hostkeys available -- exiting.</span><br></pre></td></tr></table></figure>
+
+<p>执行<code>sshd-keygen</code>命令解决上述问题</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/sshd-keygen </span><br><span class="line">Generating SSH2 RSA host key:                              [  OK  ]</span><br><span class="line">Generating SSH2 ECDSA host key:                            [  OK  ]</span><br><span class="line">Generating SSH2 ED25519 host key:                          [  OK  ]</span><br></pre></td></tr></table></figure>
+
+<p>给root生成一个密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">passwd root</span><br><span class="line">Changing password for user root.</span><br><span class="line">New password: </span><br><span class="line">BAD PASSWORD: The password is shorter than 8 characters</span><br><span class="line">Retype new password: </span><br><span class="line">passwd: all authentication tokens updated successfully.</span><br></pre></td></tr></table></figure>
+
+<p>启动sshd服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/sshd</span><br><span class="line">[root@ca6a84a514c2 sbin]# ps -ef | grep sshd</span><br><span class="line">root        108      1  0 09:14 ?        00:00:00 /usr/sbin/sshd</span><br></pre></td></tr></table></figure>
+
+<p>验证sshd服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh root@localhost</span><br><span class="line">root@localhost&#x27;s password: </span><br><span class="line">Last failed login: Sun Sep 29 09:16:59 UTC 2019 from localhost on ssh:notty</span><br><span class="line">There were 3 failed login attempts since the last successful login.</span><br><span class="line">Connection to localhost closed.</span><br></pre></td></tr></table></figure>
+
+<p>会遇到连不上去的问题，这时，需要修改<code>/etc/ssh/sshd_config</code>配置。</p>
+<p>把里面的<code>UsePAM yes</code>改为<code>UsePAM no</code></p>
+<p>杀掉之前sshd进程后，再次启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/sshd</span><br><span class="line">WARNING: &#x27;UsePAM no&#x27; is not supported in Red Hat Enterprise Linux and may cause several problems.</span><br></pre></td></tr></table></figure>
+
+<p>这时就可以成功登录了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@localhost</span><br><span class="line">root@localhost&#x27;s password: </span><br><span class="line">Last login: Sun Sep 29 09:20:41 2019 from localhost</span><br></pre></td></tr></table></figure>
+
+<h1 id="生成一个新的镜像"><a href="#生成一个新的镜像" class="headerlink" title="生成一个新的镜像"></a>生成一个新的镜像</h1><h2 id="退出容器，并查看容器id"><a href="#退出容器，并查看容器id" class="headerlink" title="退出容器，并查看容器id"></a>退出容器，并查看容器id</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br><span class="line">CONTAINER ID        IMAGE                            COMMAND                  CREATED             STATUS                         PORTS                    NAMES</span><br><span class="line">ca6a84a514c2        centos                           &quot;bash&quot;                   34 minutes ago      Exited (255) 11 seconds ago                             musing_goodall</span><br></pre></td></tr></table></figure>
+
+<h2 id="生成一个新的镜像-1"><a href="#生成一个新的镜像-1" class="headerlink" title="生成一个新的镜像"></a>生成一个新的镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker commit ca6a84a514c2 basic_centos </span><br><span class="line">sha256:2f965d1db627968f66bf968db7c052f1dec02b84a0b508ef896b3c8d93f97fb7</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line">REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">basic_centos                  latest              2f965d1db627        26 seconds ago      284MB</span><br></pre></td></tr></table></figure>
+
+<h1 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit basic_centos /usr/sbin/sshd -D</span><br></pre></td></tr></table></figure>
+
+<p>此时，就可以通过ssh client连接上去了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -328,248 +604,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/09/MySQL%E5%88%86%E7%BB%84Top-N%E7%9A%84%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/09/MySQL%E5%88%86%E7%BB%84Top-N%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">MySQL分组Top N的问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-09-10 23:29:54" itemprop="dateCreated datePublished" datetime="2019-09-10T23:29:54+08:00">2019-09-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Database/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/09/MySQL%E5%88%86%E7%BB%84Top-N%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL分组Top N的问题" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/09/MySQL%E5%88%86%E7%BB%84Top-N%E7%9A%84%E9%97%AE%E9%A2%98/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/09/MySQL%E5%88%86%E7%BB%84Top-N%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>经常会遇到分组求前几名的问题。比如，求每个班级中总分排名前三的学生。</p>
-<p>我们通过如下实验看看怎么解决这个问题。</p>
-<h1 id="创建学生分数表"><a href="#创建学生分数表" class="headerlink" title="创建学生分数表"></a>创建学生分数表</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> `score` (</span><br><span class="line">  `id` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;自增主键&#x27;</span>,</span><br><span class="line">  `name` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;学生姓名&#x27;</span>,</span><br><span class="line">  `class` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;班级&#x27;</span>,</span><br><span class="line">  `score` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;总分&#x27;</span>,</span><br><span class="line">  <span class="keyword">PRIMARY KEY</span> (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8;</span><br></pre></td></tr></table></figure>
-
-<h1 id="创建若干条数据"><a href="#创建若干条数据" class="headerlink" title="创建若干条数据"></a>创建若干条数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">DELIMITER <span class="operator">/</span><span class="operator">/</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> IF <span class="keyword">EXISTS</span> batchInsert;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> batchInsert(n <span class="type">INT</span>)</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line"><span class="keyword">DECLARE</span> i <span class="type">INT</span>;</span><br><span class="line"><span class="keyword">SET</span> i <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">WHILE i <span class="operator">&lt;</span> n DO</span><br><span class="line">	<span class="keyword">INSERT INTO</span> score(name, class, score) <span class="keyword">VALUES</span></span><br><span class="line">		(<span class="built_in">substring</span>(MD5(RAND()), <span class="number">1</span>, <span class="number">10</span>), CONCAT(<span class="string">&#x27;G&#x27;</span>, ROUND(RAND() <span class="operator">*</span> <span class="number">9</span>)), ROUND(RAND() <span class="operator">*</span> <span class="number">100</span>));</span><br><span class="line">	<span class="keyword">SET</span> i <span class="operator">=</span> i <span class="operator">+</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">END</span> WHILE;</span><br><span class="line"><span class="keyword">END</span></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span></span><br><span class="line">DELIMITER ;</span><br><span class="line"><span class="keyword">CALL</span> batchInsert(<span class="number">50</span>);</span><br></pre></td></tr></table></figure>
-
-<h1 id="TOP-N"><a href="#TOP-N" class="headerlink" title="TOP N"></a>TOP N</h1><p>HAVING子句中的&lt; 3表示取前两条。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> s1.class, s1.score <span class="keyword">FROM</span> score s1</span><br><span class="line">	<span class="keyword">LEFT</span> <span class="keyword">JOIN</span> score s2 <span class="keyword">ON</span> s1.class <span class="operator">=</span> s2.class <span class="keyword">AND</span> s1.score <span class="operator">&lt;=</span> s2.score</span><br><span class="line">	<span class="keyword">GROUP</span> <span class="keyword">BY</span> s1.class, s1.score</span><br><span class="line">	<span class="keyword">HAVING</span> <span class="built_in">COUNT</span>(<span class="number">1</span>) <span class="operator">&lt;</span> <span class="number">3</span></span><br><span class="line">	<span class="keyword">ORDER</span> <span class="keyword">BY</span> s1.class, s1.score <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
-
-<p>如果是取TOP 1，那就不能用这个自连接了，不然效率非常低下。还是得用MIN, MAX函数来解决。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class   score</span><br><span class="line">G0	<span class="number">66</span></span><br><span class="line">G0	<span class="number">17</span></span><br><span class="line">G1	<span class="number">96</span></span><br><span class="line">G1	<span class="number">92</span></span><br><span class="line">G2	<span class="number">87</span></span><br><span class="line">G2	<span class="number">83</span></span><br><span class="line">G3	<span class="number">67</span></span><br><span class="line">G3	<span class="number">32</span></span><br><span class="line">G4	<span class="number">94</span></span><br><span class="line">G4	<span class="number">37</span></span><br><span class="line">G5	<span class="number">99</span></span><br><span class="line">G5	<span class="number">74</span></span><br><span class="line">G6	<span class="number">40</span></span><br><span class="line">G7	<span class="number">98</span></span><br><span class="line">G7	<span class="number">78</span></span><br><span class="line">G8	<span class="number">100</span></span><br><span class="line">G8	<span class="number">93</span></span><br><span class="line">G9	<span class="number">99</span></span><br><span class="line">G9	<span class="number">92</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/08/Qihoo360-Wayne-backend%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99cannot-load-github-com-modern-go-reflect2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/08/Qihoo360-Wayne-backend%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99cannot-load-github-com-modern-go-reflect2/" class="post-title-link" itemprop="url">Qihoo360 Wayne backend启动时报错cannot load github.com/modern-go/reflect2</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-08-10 08:21:32" itemprop="dateCreated datePublished" datetime="2019-08-10T08:21:32+08:00">2019-08-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/Wayne/" itemprop="url" rel="index"><span itemprop="name">Wayne</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/08/Qihoo360-Wayne-backend%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99cannot-load-github-com-modern-go-reflect2/" class="post-meta-item leancloud_visitors" data-flag-title="Qihoo360 Wayne backend启动时报错cannot load github.com/modern-go/reflect2" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/08/Qihoo360-Wayne-backend%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99cannot-load-github-com-modern-go-reflect2/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/08/Qihoo360-Wayne-backend%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99cannot-load-github-com-modern-go-reflect2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Qihoo360 Wayne的文件目录为<code>/Development/wayne</code>。</p>
-<p>运行<code>bee run</code>命令时，会遇到如下错误。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">cd src/backend</span><br><span class="line"></span><br><span class="line">bee run -runargs=apiserver</span><br><span class="line">______</span><br><span class="line">| ___ \</span><br><span class="line">| |_/ /  ___   ___</span><br><span class="line">| ___ \ / _ \ / _ \</span><br><span class="line">| |_/ /|  __/|  __/</span><br><span class="line">\____/  \___| \___| v1.10.0</span><br><span class="line">2019/08/10 08:17:53 WARN     ▶ 0001 Running application outside of GOPATH</span><br><span class="line">2019/08/10 08:17:53 INFO     ▶ 0002 Using &#x27;backend&#x27; as &#x27;appname&#x27;</span><br><span class="line">2019/08/10 08:17:53 INFO     ▶ 0003 Initializing watcher...</span><br><span class="line">Fetching https://goproxy.io/github.com/modern-go/reflect2/@v/list</span><br><span class="line">Fetching https://goproxy.io/sigs.k8s.io/yaml/@v/list</span><br><span class="line">Fetching https://goproxy.io/sigs.k8s.io/@v/list</span><br><span class="line">Fetching https://goproxy.io/github.com/modern-go/@v/list</span><br><span class="line">Fetching https://goproxy.io/github.com/@v/list</span><br><span class="line">build github.com/Qihoo360/wayne/src/backend: cannot load github.com/modern-go/reflect2: cannot find module providing package github.com/modern-go/reflect2</span><br><span class="line">2019/08/10 08:17:55 ERROR    ▶ 0004 Failed to build the application: build github.com/Qihoo360/wayne/src/backend: cannot load github.com/modern-go/reflect2: cannot find module providing package github.com/modern-go/reflect2</span><br></pre></td></tr></table></figure>
-
-<p>解决方法，在终端先执行如下命令，以GO MODULE的方式加载包，即可以正常运行。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export GO111MODULE=on   // mac, linux</span><br><span class="line">set $GO111MODULE=on     // windows</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">bee run -runargs=apiserver</span><br><span class="line">______</span><br><span class="line">| ___ \</span><br><span class="line">| |_/ /  ___   ___</span><br><span class="line">| ___ \ / _ \ / _ \</span><br><span class="line">| |_/ /|  __/|  __/</span><br><span class="line">\____/  \___| \___| v1.10.0</span><br><span class="line">2019/08/10 08:19:26 WARN     ▶ 0001 Running application outside of GOPATH</span><br><span class="line">2019/08/10 08:19:26 INFO     ▶ 0002 Using &#x27;backend&#x27; as &#x27;appname&#x27;</span><br><span class="line">2019/08/10 08:19:26 INFO     ▶ 0003 Initializing watcher...</span><br><span class="line">Fetching https://goproxy.io/sigs.k8s.io/yaml/@v/list</span><br><span class="line">Fetching https://goproxy.io/github.com/modern-go/reflect2/@v/list</span><br><span class="line">2019/08/10 08:19:35 SUCCESS  ▶ 0004 Built Successfully!</span><br><span class="line">2019/08/10 08:19:35 INFO     ▶ 0005 Restarting &#x27;backend&#x27;...</span><br><span class="line">2019/08/10 08:19:35 SUCCESS  ▶ 0006 &#x27;./backend&#x27; is running...</span><br><span class="line">2019/08/10 08:19:35.057 [D] [db.go:75]  Initialize database connection: ****:root@tcp(127.0.0.1:3306)/</span><br><span class="line">2019/08/10 08:19:35.076 [I] [asm_amd64.s:1337]  http server Running on http://:8080</span><br><span class="line">2019/08/10 08:19:35.076 [I] [asm_amd64.s:1337]  Admin server Running on :8088</span><br></pre></td></tr></table></figure>
-
-<p>如果有些包下载不了，还可以设置<code>GOPROXY</code>环境变量。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export GOPROXY=https://goproxy.io       // mac, linux</span><br><span class="line">set $GOPROXY=on                         // windows</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/97/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/97/">97</a><span class="page-number current">98</span><a class="page-number" href="/page/99/">99</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/99/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/97/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/97/">97</a><span class="page-number current">98</span><a class="page-number" href="/page/99/">99</a><span class="space">&hellip;</span><a class="page-number" href="/page/128/">128</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/99/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

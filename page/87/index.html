@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">380</span>
+          <span class="site-state-item-count">382</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,236 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/01/java%E6%97%B6%E9%97%B4Date-timestamp-timezone/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/01/java%E6%97%B6%E9%97%B4Date-timestamp-timezone/" class="post-title-link" itemprop="url">java时间Date,timestamp,timezone</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-01-03 23:23:26" itemprop="dateCreated datePublished" datetime="2020-01-03T23:23:26+08:00">2020-01-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/01/java%E6%97%B6%E9%97%B4Date-timestamp-timezone/" class="post-meta-item leancloud_visitors" data-flag-title="java时间Date,timestamp,timezone" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/01/java%E6%97%B6%E9%97%B4Date-timestamp-timezone/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/01/java%E6%97%B6%E9%97%B4Date-timestamp-timezone/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>文中输出的时间，都是相同的，便于读者观看。</p>
+<h1 id="Date转Timestamp"><a href="#Date转Timestamp" class="headerlink" title="Date转Timestamp"></a>Date转Timestamp</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line"><span class="type">long</span> <span class="variable">currentMillis</span> <span class="operator">=</span> date.getTime()</span><br><span class="line">System.out.println(currentMillis);</span><br><span class="line"></span><br><span class="line"><span class="number">1578064861125</span></span><br></pre></td></tr></table></figure>
+
+<p><code>java.util.Date</code>, 这个类跟时区是无关的。</p>
+<h1 id="Timestamp转Date"><a href="#Timestamp转Date" class="headerlink" title="Timestamp转Date"></a>Timestamp转Date</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">long</span> <span class="variable">timeMillis</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"><span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>(timeMillis);</span><br><span class="line">System.out.println(date);</span><br><span class="line"></span><br><span class="line">Fri Jan <span class="number">03</span> <span class="number">23</span>:<span class="number">21</span>:<span class="number">01</span> CST <span class="number">2020</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Date转日期字符串"><a href="#Date转日期字符串" class="headerlink" title="Date转日期字符串"></a>Date转日期字符串</h1><p>当我们打印出Date时，显示的时间，就是带有时区的字符串了。那为什么是CST（China Standard Time)呢？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">timeZoneId</span> <span class="operator">=</span> TimeZone.getDefault().getID();</span><br><span class="line">System.out.println(timeZoneId);</span><br><span class="line"></span><br><span class="line">Asia/Shanghai</span><br></pre></td></tr></table></figure>
+
+<p>发现系统默认的时区id为<code>Asia/Shanghai</code>。</p>
+<p>如何查看有哪些时区id呢？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">String[] availableIDs = TimeZone.getAvailableIDs();</span><br><span class="line"><span class="keyword">for</span> (String availableID : availableIDs) &#123;</span><br><span class="line">    System.out.println(availableID);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Africa/Abidjan</span><br><span class="line">Africa/Accra</span><br><span class="line">Africa/Addis_Ababa</span><br><span class="line">Africa/Algiers</span><br><span class="line">...</span><br><span class="line">Asia/Shanghai</span><br><span class="line">Asia/Singapore</span><br><span class="line">Asia/Srednekolymsk</span><br><span class="line">Asia/Taipei</span><br></pre></td></tr></table></figure>
+
+<p>如果我们想查看日本东京的时间呢？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line"><span class="type">SimpleDateFormat</span> <span class="variable">sdf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SimpleDateFormat</span>(<span class="string">&quot;yyyy-MM-dd HH:mm:ss.SSS Z&quot;</span>);</span><br><span class="line">sdf.setTimeZone(TimeZone.getTimeZone(<span class="string">&quot;Asia/Tokyo&quot;</span>));</span><br><span class="line"><span class="type">String</span> <span class="variable">dateStr</span> <span class="operator">=</span> sdf.format(date);</span><br><span class="line">System.out.println(dateStr);</span><br><span class="line"></span><br><span class="line"><span class="number">2020</span>-<span class="number">01</span>-<span class="number">04</span> <span class="number">00</span>:<span class="number">21</span>:<span class="number">01.125</span> +0900</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/12/CentOS7%E5%AE%89%E8%A3%85json%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B7%A5%E5%85%B7jq/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/12/CentOS7%E5%AE%89%E8%A3%85json%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B7%A5%E5%85%B7jq/" class="post-title-link" itemprop="url">CentOS7安装json格式化工具jq</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-29 23:13:12" itemprop="dateCreated datePublished" datetime="2019-12-29T23:13:12+08:00">2019-12-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OS/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/12/CentOS7%E5%AE%89%E8%A3%85json%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B7%A5%E5%85%B7jq/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS7安装json格式化工具jq" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/12/CentOS7%E5%AE%89%E8%A3%85json%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B7%A5%E5%85%B7jq/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/12/CentOS7%E5%AE%89%E8%A3%85json%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B7%A5%E5%85%B7jq/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/yum.repos.d/</span><br><span class="line">wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</span><br><span class="line">rpm -ivh epel-release-latest-7.noarch.rpm</span><br><span class="line"></span><br><span class="line">yum install jq</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">==============================================================================================================================================</span><br><span class="line"> Package                            架构                            版本                                  源                             大小</span><br><span class="line">==============================================================================================================================================</span><br><span class="line">正在安装:</span><br><span class="line"> jq                                 x86_64                          1.5-1.el7                             epel                          153 k</span><br><span class="line">为依赖而安装:</span><br><span class="line"> oniguruma                          x86_64                          5.9.5-3.el7                           epel                          129 k</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -337,275 +567,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/12/%E8%A7%A3%E5%86%B3Failed-to-load-module-canberra-gtk-module%E9%94%99%E8%AF%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/12/%E8%A7%A3%E5%86%B3Failed-to-load-module-canberra-gtk-module%E9%94%99%E8%AF%AF/" class="post-title-link" itemprop="url">解决Failed to load module canberra-gtk-module错误</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-12-20 23:11:09" itemprop="dateCreated datePublished" datetime="2019-12-20T23:11:09+08:00">2019-12-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OS/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/12/%E8%A7%A3%E5%86%B3Failed-to-load-module-canberra-gtk-module%E9%94%99%E8%AF%AF/" class="post-meta-item leancloud_visitors" data-flag-title="解决Failed to load module canberra-gtk-module错误" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/12/%E8%A7%A3%E5%86%B3Failed-to-load-module-canberra-gtk-module%E9%94%99%E8%AF%AF/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/12/%E8%A7%A3%E5%86%B3Failed-to-load-module-canberra-gtk-module%E9%94%99%E8%AF%AF/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在Ubuntu环境里，运行程序时，报错：</p>
-<img src="/2019/12/%E8%A7%A3%E5%86%B3Failed-to-load-module-canberra-gtk-module%E9%94%99%E8%AF%AF/1576805206947.png" class="">
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Gtk-Message: 09:10:26.571: Failed to load module &quot;canberra-gtk-module&quot;</span><br></pre></td></tr></table></figure>
-
-<p>查看一下模块位置</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">locate libcanberra-gtk-module</span><br><span class="line">/usr/lib/x86_64-linux-gnu/gtk-3.0/modules/libcanberra-gtk-module.so</span><br></pre></td></tr></table></figure>
-
-<p>发现已经安装了，却加载不了。</p>
-<p>重新安装一下吧。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libcanberra-gtk-module</span><br><span class="line">[sudo] password for simon: </span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">The following additional packages will be installed:</span><br><span class="line">  libcanberra-gtk0</span><br><span class="line">The following NEW packages will be installed:</span><br><span class="line">  libcanberra-gtk-module libcanberra-gtk0</span><br><span class="line">0 upgraded, 2 newly installed, 0 to remove and 175 not upgraded.</span><br><span class="line">Need to get 17.8 kB of archives.</span><br><span class="line">After this operation, 92.2 kB of additional disk space will be used.</span><br><span class="line">Do you want to continue? [Y/n] y</span><br></pre></td></tr></table></figure>
-
-<p>安装成功，再次启动程序，就不会报错了。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">Ubuntu环境搭建Go语言开发环境</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-12-20 23:06:52" itemprop="dateCreated datePublished" datetime="2019-12-20T23:06:52+08:00">2019-12-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Golang/" itemprop="url" rel="index"><span itemprop="name">Golang</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu环境搭建Go语言开发环境" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="下载Golang安装文件"><a href="#下载Golang安装文件" class="headerlink" title="下载Golang安装文件"></a>下载Golang安装文件</h1><p>官方下载页面：<a target="_blank" rel="noopener" href="https://golang.org/dl/">https://golang.org/dl/</a></p>
-<p>也可以到国内下载地址下载：<a target="_blank" rel="noopener" href="https://studygolang.com/dl">https://studygolang.com/dl</a></p>
-<p>我下载的版本是go1.12.14，下载到<code>/usr/local/go1.12.14.linux-amd64.tar.gz</code></p>
-<h1 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -zxvf go1.12.14.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h1 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/bash.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>在文件末尾添加如下内容：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">go</span></span><br><span class="line">export GOROOT=/usr/local/go/ # golang installation path</span><br><span class="line">export GOPATH=/usr/local/development/gopath # go working path</span><br><span class="line">export GOBIN=$GOPATH/bin/</span><br><span class="line">export PATH=$GOBIN:$GOROOT/bin:$PATH</span><br></pre></td></tr></table></figure>
-
-<p>使配置生效</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/bash.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>安装成功，查看go版本信息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go version</span><br><span class="line">go version go1.12.14 linux/amd64</span><br></pre></td></tr></table></figure>
-
-<h1 id="安装intellij-Go插件"><a href="#安装intellij-Go插件" class="headerlink" title="安装intellij Go插件"></a>安装intellij Go插件</h1><p>如果在线下载不了，可以进入<code>https://plugins.jetbrains.com/plugin/9568-go</code>下载，注意选择对应的版本。</p>
-<p>进入Configure -&gt; Settings -&gt; Plugings -&gt; Install Plugin from Disk…，选择刚才下载好的插件安装。</p>
-<p>安装成功后，如下图所示，重启IDEA。</p>
-<img src="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/1576726075818.png" class="">
-
-<h1 id="设置go语言sdk"><a href="#设置go语言sdk" class="headerlink" title="设置go语言sdk"></a>设置go语言sdk</h1><p>Configure -&gt; Settings -&gt; Language &amp; Frameworks -&gt; Go</p>
-<img src="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/1576726632660.png" class="">
-
-<h1 id="设置GOPATH"><a href="#设置GOPATH" class="headerlink" title="设置GOPATH"></a>设置GOPATH</h1><img src="/2019/12/Ubuntu%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAGo%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/1576726942195.png" class="">
-
-<p>从本地，或者git上面导入工程代码。</p>
-<h1 id="配置GO依赖代理"><a href="#配置GO依赖代理" class="headerlink" title="配置GO依赖代理"></a>配置GO依赖代理</h1><p>如果在网络受限的情况下，可能是需要设置GO依赖代理的。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">go proxy</span></span><br><span class="line">export GO111MODULE=on</span><br><span class="line">export GOPROXY=https://goproxy.io</span><br></pre></td></tr></table></figure>
-
-<p>如果公司有启用go代理的话，则把GOPROXY设置成相应的地址就行了。</p>
-<p>当执行go build或go run时，依赖包会自动下载到<code>$GOPATH/pkg/mod</code>下面。</p>
-<h1 id="设置git代理"><a href="#设置git代理" class="headerlink" title="设置git代理"></a>设置git代理</h1><p>如果网络受限不能访问github.com，那还需要设置git代理。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global url.&quot;http://&lt;server-address&gt;/&quot;.insteadOf &quot;git@github.com:&quot;</span><br></pre></td></tr></table></figure>
-
-<p>设置好以后，查看结果：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.gitconfig</span><br><span class="line">[url &quot;http://&lt;server-address&gt;/&quot;]</span><br><span class="line">	insteadOf = git@github.com:</span><br></pre></td></tr></table></figure>
-
-<p>或者</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global -l</span><br><span class="line">url.http://&lt;server-address&gt;/.insteadof=git@github.com:</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/86/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/86/">86</a><span class="page-number current">87</span><a class="page-number" href="/page/88/">88</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/88/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/86/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/86/">86</a><span class="page-number current">87</span><a class="page-number" href="/page/88/">88</a><span class="space">&hellip;</span><a class="page-number" href="/page/128/">128</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/88/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

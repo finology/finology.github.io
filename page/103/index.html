@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">380</span>
+          <span class="site-state-item-count">382</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,236 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/04/Mac%E4%B8%8B%E5%AE%89%E8%A3%85zsh/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/04/Mac%E4%B8%8B%E5%AE%89%E8%A3%85zsh/" class="post-title-link" itemprop="url">Mac下安装zsh</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-04-19 00:00:31" itemprop="dateCreated datePublished" datetime="2019-04-19T00:00:31+08:00">2019-04-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/SSH/" itemprop="url" rel="index"><span itemprop="name">SSH</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/04/Mac%E4%B8%8B%E5%AE%89%E8%A3%85zsh/" class="post-meta-item leancloud_visitors" data-flag-title="Mac下安装zsh" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/04/Mac%E4%B8%8B%E5%AE%89%E8%A3%85zsh/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/04/Mac%E4%B8%8B%E5%AE%89%E8%A3%85zsh/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a>iTerm2</h1><p>首先推荐安装iTerm2终端，可在官网 <a target="_blank" rel="noopener" href="http://iterm2.com/">http://iterm2.com/</a> 免费下载安装。</p>
+<h1 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h1><h2 id="查看系统的shell"><a href="#查看系统的shell" class="headerlink" title="查看系统的shell"></a>查看系统的shell</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shells</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">List of acceptable shells <span class="keyword">for</span> chpass(1).</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ftpd will not allow <span class="built_in">users</span> to connect <span class="built_in">who</span> are not using</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">one of these shells.</span></span><br><span class="line"></span><br><span class="line">/bin/bash</span><br><span class="line">/bin/csh</span><br><span class="line">/bin/ksh</span><br><span class="line">/bin/sh</span><br><span class="line">/bin/tcsh</span><br><span class="line">/bin/zsh</span><br></pre></td></tr></table></figure>
+
+<p>bash是mac中terminal自带的shell，把它换成zsh，这个的功能要多得多。拥有语法高亮，命令行tab补全，自动提示符，显示Git仓库状态等功能。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装oh-my-zsh-1"><a href="#安装oh-my-zsh-1" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h2><p>使用<code>curl</code>安装oh-my-zsh</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br><span class="line"></span><br><span class="line">Cloning Oh My Zsh...</span><br><span class="line">Cloning into &#x27;/Users/simon/.oh-my-zsh&#x27;...</span><br><span class="line">remote: Enumerating objects: 1023, done.</span><br><span class="line">remote: Counting objects: 100% (1023/1023), done.</span><br><span class="line">remote: Compressing objects: 100% (940/940), done.</span><br><span class="line">remote: Total 1023 (delta 23), reused 848 (delta 20), pack-reused 0</span><br><span class="line">Receiving objects: 100% (1023/1023), 681.01 KiB | 5.00 KiB/s, done.</span><br><span class="line">Resolving deltas: 100% (23/23), done.</span><br><span class="line">Looking for an existing zsh config...</span><br><span class="line">Using the Oh My Zsh template file and adding it to ~/.zshrc</span><br><span class="line">         __                                     __</span><br><span class="line">  ____  / /_     ____ ___  __  __   ____  _____/ /_</span><br><span class="line"> / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \</span><br><span class="line">/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / /</span><br><span class="line">\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/</span><br><span class="line">                        /____/                       ....is now installed!</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please look over the ~/.zshrc file to select plugins, themes, and options.</span><br><span class="line"></span><br><span class="line">p.s. Follow us at https://twitter.com/ohmyzsh.</span><br><span class="line"></span><br><span class="line">p.p.s. Get stickers, shirts, and coffee mugs at https://shop.planetargon.com/collections/oh-my-zsh.</span><br></pre></td></tr></table></figure>
+
+<p>安装成功。</p>
+<p>如何切换主题就不在这里详述了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/04/Jupyter-Notebook%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/04/Jupyter-Notebook%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">Jupyter Notebook快捷键</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-04-09 00:01:02" itemprop="dateCreated datePublished" datetime="2019-04-09T00:01:02+08:00">2019-04-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/04/Jupyter-Notebook%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Jupyter Notebook快捷键" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/04/Jupyter-Notebook%E5%BF%AB%E6%8D%B7%E9%94%AE/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/04/Jupyter-Notebook%E5%BF%AB%E6%8D%B7%E9%94%AE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Jupyter有两种模式</p>
+<h1 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h1><p>按Esc切换到命令模式，单元格的边框是蓝色的。这个模式下的常用快捷键（Shift-Enter可能是我们最常用的命令）：</p>
+<p>Enter : 转入编辑模式<br>Shift-Enter : 运行本单元，选中下个单元<br>Ctrl-Enter : 运行本单元<br>Alt-Enter : 运行本单元，在其下插入新单元<br>Y : 单元转入代码状态<br>M :单元转入markdown状态<br>R : 单元转入raw状态<br>1 : 设定 1 级标题<br>2 : 设定 2 级标题<br>3 : 设定 3 级标题<br>4 : 设定 4 级标题<br>5 : 设定 5 级标题<br>6 : 设定 6 级标题<br>Up : 选中上方单元<br>K : 选中上方单元<br>Down : 选中下方单元<br>J : 选中下方单元<br>Shift-K : 扩大选中上方单元<br>Shift-J : 扩大选中下方单元<br>A : 在上方插入新单元<br>B : 在下方插入新单元<br>X : 剪切选中的单元<br>C : 复制选中的单元<br>Shift-V : 粘贴到上方单元<br>V : 粘贴到下方单元<br>Z : 恢复删除的最后一个单元<br>D,D : 删除选中的单元<br>Shift-M : 合并选中的单元<br>Ctrl-S : 文件存盘<br>S : 文件存盘<br>L : 转换行号<br>O : 转换输出<br>Shift-O : 转换输出滚动<br>Esc : 关闭页面<br>Q : 关闭页面<br>H : 显示快捷键帮助<br>I,I : 中断Notebook内核<br>0,0 : 重启Notebook内核<br>Shift : 忽略<br>Shift-Space : 向上滚动<br>Space : 向下滚动</p>
+<h1 id="编辑模式"><a href="#编辑模式" class="headerlink" title="编辑模式"></a>编辑模式</h1><p>编辑模式按 Enter 键切换，这模式下单元格颜色是绿的： </p>
+<p>Tab : 代码补全或缩进<br>Shift-Tab : 提示<br>Ctrl-] : 缩进<br>Ctrl-[ : 解除缩进<br>Ctrl-A : 全选<br>Ctrl-Z : 复原<br>Ctrl-Shift-Z : 再做<br>Ctrl-Y : 再做<br>Ctrl-Home : 跳到单元开头<br>Ctrl-Up : 跳到单元开头<br>Ctrl-End : 跳到单元末尾<br>Ctrl-Down : 跳到单元末尾<br>Ctrl-Left : 跳到左边一个字首<br>Ctrl-Right : 跳到右边一个字首<br>Ctrl-Backspace : 删除前面一个字<br>Ctrl-Delete : 删除后面一个字<br>Esc : 进入命令模式<br>Ctrl-M : 进入命令模式<br>Shift-Enter : 运行本单元，选中下一单元<br>Ctrl-Enter : 运行本单元<br>Alt-Enter : 运行本单元，在下面插入一单元<br>Ctrl-Shift– : 分割单元<br>Ctrl-Shift-Subtract : 分割单元<br>Ctrl-S : 文件存盘<br>Shift : 忽略<br>Up : 光标上移或转入上一单元<br>Down :光标下移或转入下一单元</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -346,266 +576,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/03/%E5%A6%82%E4%BD%95%E5%9C%A8Anaconda%E4%B8%AD%E4%BF%AE%E6%94%B9python%E7%89%88%E6%9C%AC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/03/%E5%A6%82%E4%BD%95%E5%9C%A8Anaconda%E4%B8%AD%E4%BF%AE%E6%94%B9python%E7%89%88%E6%9C%AC/" class="post-title-link" itemprop="url">如何在Anaconda中修改python版本</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-03-05 19:28:56" itemprop="dateCreated datePublished" datetime="2019-03-05T19:28:56+08:00">2019-03-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/03/%E5%A6%82%E4%BD%95%E5%9C%A8Anaconda%E4%B8%AD%E4%BF%AE%E6%94%B9python%E7%89%88%E6%9C%AC/" class="post-meta-item leancloud_visitors" data-flag-title="如何在Anaconda中修改python版本" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/03/%E5%A6%82%E4%BD%95%E5%9C%A8Anaconda%E4%B8%AD%E4%BF%AE%E6%94%B9python%E7%89%88%E6%9C%AC/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/03/%E5%A6%82%E4%BD%95%E5%9C%A8Anaconda%E4%B8%AD%E4%BF%AE%E6%94%B9python%E7%89%88%E6%9C%AC/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>如何安装Anaconda及基本的使用请参考 <a href="/2018/08/macOS%E4%B8%8BAnaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%88%87%E6%8D%A2%EF%BC%88Python2-Python3%EF%BC%89/" title="macOS下Anaconda的安装及环境切换（Python2&#x2F;Python3）">macOS下Anaconda的安装及环境切换（Python2&#x2F;Python3）</a></p>
-<p>我在安装Anaconda的时候，软件自带的版本是Python3.6的，如果我现在需要使用Python2.7或者Python3.7，应该怎么操作呢？</p>
-<p>如果我们在Anaconda Navigator控制台上做Create操作，环境是可以成功创建，但环境里面携带的包是非常少的。</p>
-<p>所以可以参考如下方式进行Python版本修改。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n python37 python=3.7 anaconda</span><br></pre></td></tr></table></figure>
-
-<p>如果conda的版本比较旧的话，会出现如下提示：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">==&gt; WARNING: A newer version of conda exists. &lt;==</span><br><span class="line">  current version: 4.6.2</span><br><span class="line">  latest version: 4.6.7</span><br><span class="line"></span><br><span class="line">Please update conda by running</span><br><span class="line"></span><br><span class="line">    $ conda update -n base -c defaults conda</span><br></pre></td></tr></table></figure>
-
-<p>所以我们可以先执行命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda update -n base -c defaults conda</span><br></pre></td></tr></table></figure>
-
-<p>然后再执行conda create命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">conda create -n python37 python=3.7 anaconda</span><br><span class="line">Collecting package metadata: done</span><br><span class="line">Solving environment: done</span><br><span class="line"></span><br><span class="line">## Package Plan ##</span><br><span class="line"></span><br><span class="line">  environment location: /Users/simon/anaconda3/envs/python37</span><br><span class="line"></span><br><span class="line">  added / updated specs:</span><br><span class="line">    - anaconda</span><br><span class="line">    - python=3.7</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">The following packages will be downloaded:</span><br><span class="line"></span><br><span class="line">    package                    |            build</span><br><span class="line">    ---------------------------|-----------------</span><br><span class="line">    mkl-2019.1                 |              144       154.4 MB</span><br><span class="line">    ------------------------------------------------------------</span><br><span class="line">                                           Total:       154.4 MB</span><br><span class="line"></span><br><span class="line">The following NEW packages will be INSTALLED:</span><br><span class="line"></span><br><span class="line">  alabaster          pkgs/main/osx-64::alabaster-0.7.12-py37_0</span><br><span class="line">  anaconda           pkgs/main/osx-64::anaconda-2018.12-py37_0</span><br><span class="line">  ...</span><br><span class="line">  ...</span><br><span class="line">  Proceed ([y]/n)? y</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  Downloading and Extracting Packages</span><br><span class="line">  mkl-2019.1           | 154.4 MB  | ###################################################################################################### | 100%</span><br><span class="line">  Preparing transaction: done</span><br><span class="line">  Verifying transaction: done</span><br><span class="line">  Executing transaction: done</span><br><span class="line">  #</span><br><span class="line">  # To activate this environment, use:</span><br><span class="line">  # &gt; source activate python37</span><br><span class="line">  #</span><br><span class="line">  # To deactivate an active environment, use:</span><br><span class="line">  # &gt; source deactivate</span><br><span class="line">  #</span><br></pre></td></tr></table></figure>
-
-<p>按照上面的提示，我们可以执行如下命令激活或失效某个python环境。</p>
-<ul>
-<li>激活</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source activate python37</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>失效</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source deactivate</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/03/Spark-SQL%E5%A4%84%E7%90%86%E5%A4%96%E9%83%A8%E6%95%B0%E6%8D%AE%E6%BA%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/03/Spark-SQL%E5%A4%84%E7%90%86%E5%A4%96%E9%83%A8%E6%95%B0%E6%8D%AE%E6%BA%90/" class="post-title-link" itemprop="url">Spark SQL处理外部数据源</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-03-01 00:03:01" itemprop="dateCreated datePublished" datetime="2019-03-01T00:03:01+08:00">2019-03-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/Spark-SQL/" itemprop="url" rel="index"><span itemprop="name">Spark SQL</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/03/Spark-SQL%E5%A4%84%E7%90%86%E5%A4%96%E9%83%A8%E6%95%B0%E6%8D%AE%E6%BA%90/" class="post-meta-item leancloud_visitors" data-flag-title="Spark SQL处理外部数据源" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/03/Spark-SQL%E5%A4%84%E7%90%86%E5%A4%96%E9%83%A8%E6%95%B0%E6%8D%AE%E6%BA%90/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/03/Spark-SQL%E5%A4%84%E7%90%86%E5%A4%96%E9%83%A8%E6%95%B0%E6%8D%AE%E6%BA%90/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>方便快速从不同的数据源(json, parquet, rdbms)，经过混合处理(json join parquet)<br>再将处理结果以特定的格式(json, parquet)写回到指定的系统中(HDFS, S3)</p>
-<p>spark.read.format(format)</p>
-<p>format<br>	built-in json, parquet jdbc, csv(2.x)<br>	packages: 外部的非SPark内置 spark-packages.org<br>		<br>		<br>spark.write</p>
-<h1 id="操作parquet"><a href="#操作parquet" class="headerlink" title="操作parquet"></a>操作parquet</h1><p>ParquetApp</p>
-<p>main</p>
-<p>spark &#x3D; SparkSession</p>
-<p>df &#x3D; spark.read.format(“parquet”).load(users.parquet”)<br>df.printSchema<br>df.select*</p>
-<p>new_df.write.format(“json”).save(new_path)</p>
-<p>默认处理parquet数据</p>
-<p>spark-sql</p>
-<p>create temporary view parquetTable<br>USING…<br>Options(<br>path: fsafsdfsafdsf<br>)</p>
-<p>select * from parquettable</p>
-<p>spark.read.format().option(path).load()</p>
-<h1 id="处理Hive"><a href="#处理Hive" class="headerlink" title="处理Hive"></a>处理Hive</h1><p>Df写入到hive<br>write.writeAsTable()</p>
-<p>设置分区的数量，默认200</p>
-<h1 id="处理MySQL-jdbc"><a href="#处理MySQL-jdbc" class="headerlink" title="处理MySQL(jdbc)"></a>处理MySQL(jdbc)</h1>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/102/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/102/">102</a><span class="page-number current">103</span><a class="page-number" href="/page/104/">104</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/104/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/102/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/102/">102</a><span class="page-number current">103</span><a class="page-number" href="/page/104/">104</a><span class="space">&hellip;</span><a class="page-number" href="/page/128/">128</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/104/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

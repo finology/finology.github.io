@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">380</span>
+          <span class="site-state-item-count">382</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,288 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">Springboot使用profiles区分环境</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-13 23:07:32" itemprop="dateCreated datePublished" datetime="2020-03-13T23:07:32+08:00">2020-03-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="Springboot使用profiles区分环境" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>配置文件，格式一般为<code>application-&#123;profile&#125;.yaml</code>。</p>
+<ul>
+<li>application.yaml</li>
+<li>application-dev.yaml</li>
+<li>application-prod.yaml</li>
+</ul>
+<p>未指定任何profile时，会默认加载<code>application.yaml</code>配置文件。</p>
+<p>所以，与环境无关的属性配置，都应该放到<code>application.yaml</code>文件中，与环境有关的，则放到相应的其他配置文件中。</p>
+<h1 id="激活profile"><a href="#激活profile" class="headerlink" title="激活profile"></a>激活profile</h1><h2 id="在application-yaml文件里面指定。"><a href="#在application-yaml文件里面指定。" class="headerlink" title="在application.yaml文件里面指定。"></a>在<code>application.yaml</code>文件里面指定。</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="在IDEA里面修改"><a href="#在IDEA里面修改" class="headerlink" title="在IDEA里面修改"></a>在IDEA里面修改</h2><p>编辑配置</p>
+<h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>在<code>Environment</code>下<code>VM options</code>这一栏里面填入：<code>-Dspring.profiles.active=dev</code>。</p>
+<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p>在<code>Environment</code>下<code>Program arguments</code>这一栏里面填入： <code>--spring-profiles-active=dev</code>。</p>
+<h3 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h3><p>在<code>Spring boot</code>下<code>Active profiles</code>这一栏里面填入：<code>dev</code></p>
+<img src="/2020/03/Springboot%E4%BD%BF%E7%94%A8profiles%E5%8C%BA%E5%88%86%E7%8E%AF%E5%A2%83/active-profile.png" class="">
+
+<h2 id="运行jar时指定参数"><a href="#运行jar时指定参数" class="headerlink" title="运行jar时指定参数"></a>运行jar时指定参数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar demo.jar --spring.profiles.active=dev</span><br></pre></td></tr></table></figure>
+
+<p>运行后，console里面会提示本次运行，是用到了哪个配置文件覆盖或追加了最基本的<code>application.yaml</code>文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[18:25:42.127] INFO  org.springframework.boot.SpringApplication 679 logStartupProfileInfo - The following profiles </span><br><span class="line">are active: dev</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">会计基础</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-10 23:29:23" itemprop="dateCreated datePublished" datetime="2020-03-10T23:29:23+08:00">2020-03-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%B4%A2%E5%8A%A1/" itemprop="url" rel="index"><span itemprop="name">财务</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/" class="post-meta-item leancloud_visitors" data-flag-title="会计基础" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image001.png" class="">
+
+<p>会计是干嘛的——目标：提供信息（核算监督是过程）</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image002.png" class="">
+
+<p>财务状况——“富”（有钱）</p>
+<p>经营成果——“高”（利润高不高，能赚钱）</p>
+<p>现金流量——“帅”（舍不舍得花钱）</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image003.png" class="">
+
+<p>财务状况——资产负债表</p>
+<p>经营成果——利润表</p>
+<p>现金流量——现金流量表</p>
+<p>1.资产负债表——基于 资产&#x3D;负债+所有者权益 编制</p>
+<p>反映静态（时点）要素</p>
+<p>如果一个人有2000万的别墅，买别墅的钱，其中70%是借来的，另外30%是爹妈给的。2000万中的1400万是借来的，要还的，是负债，另外600万是爹妈给的，是权益，不用还。</p>
+<p>等式左边资产是资金占用，右边是资金的来源。资产负债表也是这样。</p>
+<p>资产负债表需要区分资产和负债，除了这些就是权益。</p>
+<p>名称中有“应收”“投资”“资产”大多数是资产，资产是一种资源。资产是将资源进行分类。</p>
+<p>名称中有“应付”“应交”“负债”基本是负债。</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image004.png" class="">
+
+<p>资产&#x3D;负债+所有者权益+（收入-费用），收入和费用影响权益，从而影响资产</p>
+<p>2.利润表——收入-费用&#x3D;利润（动态、过程）</p>
+<p>利润表中有三种利润：营业利润、利润总额、净利润</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image005.png" class="">
+
+<p>营业外收入（例捐赠、捡钱、中彩票）、营业外支出（例自然灾害）不影响营业利润。</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image006.png" class="">
+
+<p>影响营业利润的项目：1（营业收入）、2（营业成本、税金及附加）、4（4个费用）、2（2个减值损失）、4（4个收益），共13个。（去掉“净敞口套期收益”，考试不考）</p>
+<p>营业收入&#x3D;主营业务收入（主营）+其他业务收入（辅营）——都是日常活动</p>
+<p>销售费用：广告营销费</p>
+<p>管理费用：如办公费</p>
+<p>研发费用：如研发人员工资</p>
+<p>财务费用：利息费用</p>
+<p>投资收益：股票分红、债券利息收益</p>
+<p>公允价值变动收益：</p>
+<p>资产处置收益：</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image007.png" class="">
+
+<p>不影响营业利润，说明是营业外，就是自然灾害。</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image008.png" class="">
+<p>上图6个红色章节是重难点。</p>
+<p>18、19、20现在复习可以先跳过，2020年可能会发生变化。</p>
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image009.png" class="">
+
+<img src="/2020/03/%E4%BC%9A%E8%AE%A1%E5%9F%BA%E7%A1%80/image010.png" class="">
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -372,279 +654,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/" class="post-title-link" itemprop="url">批量操作Shell终端</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-08 20:05:15" itemprop="dateCreated datePublished" datetime="2020-03-08T20:05:15+08:00">2020-03-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/SSH/" itemprop="url" rel="index"><span itemprop="name">SSH</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/" class="post-meta-item leancloud_visitors" data-flag-title="批量操作Shell终端" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在生产环境，往往有几十上百台服务器要同时操作，如何同时控制这么多服务器呢？</p>
-<h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><p>在Windows环境下，可以使用XShell。</p>
-<p>点击<code>工具(T)</code>-&gt;<code>发送键到所有会话(K)</code></p>
-<img src="/2020/03/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9CShell%E7%BB%88%E7%AB%AF/xshell-command-all.png" class="">
-
-<h1 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h1><p>可以使用 iTerm2 终端工具，快捷键是<code>Command + Shift + I</code>。然后 iTerm2 窗口会出现背景斜条纹。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/" class="post-title-link" itemprop="url">Kubernetes持久化存储PV,PVC</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-08 19:35:45" itemprop="dateCreated datePublished" datetime="2020-03-08T19:35:45+08:00">2020-03-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/PV/" itemprop="url" rel="index"><span itemprop="name">PV</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/" class="post-meta-item leancloud_visitors" data-flag-title="Kubernetes持久化存储PV,PVC" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Kubernetes%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8PV-PVC/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>我们可以通过hostPath或者emptyDir的方式来持久化数据。但这两种存储方式都是很大局限性的。我们希望容器在重建以后，依然能正确使用之前保存的数据。Kubernetes引入了PV和PVC两个重要的资源来实现对存储的管理。</p>
-<h1 id="PV"><a href="#PV" class="headerlink" title="PV"></a>PV</h1><p>PersistentVolume，持久化卷，是对底层共享存储的一种抽象。底层共享的实现，可以是Ceph, GlusterFS, NFS等。</p>
-<p>我们在<a href="/2020/03/CentOS%E4%B8%8A%E6%90%AD%E5%BB%BANFS%E6%9C%8D%E5%8A%A1/" title="CentOS上搭建NFS服务">CentOS上搭建NFS服务</a>讲了如何搭建NFS服务。PV作为存储资源，主要包括存储能力、访问模式、存储类型、回收策略等关键信息。</p>
-<p>现在新建一个PV资源对象，使用NFS类型的存储，1G空间，访问模式为ReadWriteOnce，回收策略为Recycle，yaml文件<code>pv1-demo.yaml</code>内容如下：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolume</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span>  <span class="string">pv1</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">capacity:</span> </span><br><span class="line">    <span class="attr">storage:</span> <span class="string">1Gi</span></span><br><span class="line">  <span class="attr">accessModes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ReadWriteOnce</span></span><br><span class="line">  <span class="attr">persistentVolumeReclaimPolicy:</span> <span class="string">Recycle</span></span><br><span class="line">  <span class="attr">nfs:</span></span><br><span class="line">    <span class="attr">path:</span> <span class="string">/data/nfs</span></span><br><span class="line">    <span class="attr">server:</span> <span class="number">172.16</span><span class="number">.64</span><span class="number">.233</span></span><br></pre></td></tr></table></figure>
-
-<p>应用一下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl apply -f pv1-demo.yaml</span></span><br><span class="line">persistentvolume/pv1 created</span><br></pre></td></tr></table></figure>
-
-<p>查看刚才创建的结果</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl get pv</span></span><br><span class="line">NAME   CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE</span><br><span class="line">pv1    1Gi        RWO            Recycle          Available                                   82s</span><br></pre></td></tr></table></figure>
-
-<p>Status状态为Available，表示pv1已经就绪，可以被PVC申请了。</p>
-<p>这里讲一下PV的几个属性</p>
-<h2 id="STATUS"><a href="#STATUS" class="headerlink" title="STATUS"></a>STATUS</h2><p>一个 PV 的生命周期中，可能会处于4中不同的阶段：</p>
-<ul>
-<li>Available（可用）：表示可用状态，还未被任何 PVC 绑定</li>
-<li>Bound（已绑定）：表示 PVC 已经被 PVC 绑定</li>
-<li>Released（已释放）：PVC 被删除，但是资源还未被集群重新声明</li>
-<li>Failed（失败）： 表示该 PV 的自动回收失败</li>
-</ul>
-<h2 id="CAPACITY"><a href="#CAPACITY" class="headerlink" title="CAPACITY"></a>CAPACITY</h2><p>目前只有空间大小，pv1的空间为1G，以后可能会加入IOPS，吞吐量等指标。</p>
-<h2 id="ACCESS-MODES"><a href="#ACCESS-MODES" class="headerlink" title="ACCESS MODES"></a>ACCESS MODES</h2><p>AccessModes是用来对PV进行访问模式的设置。</p>
-<ul>
-<li>ReadWriteOnce（RWO）：读写权限，但是只能被单个节点挂载</li>
-<li>ReadOnlyMany（ROX）：只读权限，可以被多个节点挂载</li>
-<li>ReadWriteMany（RWX）：读写权限，可以被多个节点挂载</li>
-</ul>
-<h2 id="RECLAIM-POLICY"><a href="#RECLAIM-POLICY" class="headerlink" title="RECLAIM POLICY"></a>RECLAIM POLICY</h2><p>回收策略</p>
-<ul>
-<li>Retain（保留）- 保留数据，需要管理员手工清理数据</li>
-<li>Recycle（回收）- 清除PV中的数据，效果相当于执行 rm -rf &#x2F;thevoluem&#x2F;*</li>
-<li>Delete（删除）- 与PV相连的后端存储完成volume的删除操作</li>
-</ul>
-<p>生产上一般使用Retain策略。</p>
-<h1 id="PVC"><a href="#PVC" class="headerlink" title="PVC"></a>PVC</h1><p>PersistentVolumeClaim，持久化卷声明。如果说Pod消耗的是Node资源的话，PVC则是消耗的PV资源，Pod可以请求CPU和内存，而PVC可以请求特定的存储空间和访问模式。</p>
-<p>我们新建一个PVC，请求1G的空间，<code>pvc-nfs.yaml</code>内容如下：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolumeClaim</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">pvc-nfs</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">accessModes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ReadWriteOnce</span></span><br><span class="line">  <span class="attr">resources:</span></span><br><span class="line">    <span class="attr">requests:</span></span><br><span class="line">      <span class="attr">storage:</span> <span class="string">1Gi</span></span><br></pre></td></tr></table></figure>
-
-<p>这里需要注册的是，PV是没有namespace的，而PVC是有namespace的。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl apply -f pvc-nfs.yaml</span></span><br><span class="line">persistentvolumeclaim/pvc-nfs created</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl get pvc</span></span><br><span class="line">NAME      STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE</span><br><span class="line">pvc-nfs   Bound    pv1      1Gi        RWO                           3m22s</span><br></pre></td></tr></table></figure>
-
-<p>PVC已经是<code>Bound</code>状态了。我们再查看一个PV的状态，发现也是<code>Bound</code>状态了。对应的声明是<code>default/pvc-nfs</code>，就是<code>default</code>命名空间下面的<code>pvc-nfs</code>。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kubectl get pv</span></span><br><span class="line">NAME   CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM             STORAGECLASS   REASON   AGE</span><br><span class="line">pv1    1Gi        RWO            Recycle          Bound    default/pvc-nfs                           48m</span><br></pre></td></tr></table></figure>
-
-<p>这里可能觉得奇怪，我们并没有在 yaml 文件里面指定 PVC 和 PV 的关系，他们怎么可能绑定到一起呢？其实这是系统自动帮我们去匹配的，他会根据我们的声明要求去查找处于 Available 状态的 PV，如果没有找到的话那么我们的 PVC 就会一直处于 Pending 状态，找到了的话当然就会把当前的 PVC 和目标 PV 进行绑定，这个时候状态就会变成 Bound 状态了。</p>
-<p>如果使用PVC，可以参考<a href="/2020/03/Grafana%E5%AE%89%E8%A3%85%E5%8F%8A%E6%8C%81%E4%B9%85%E5%8C%96/" title="Grafana安装及持久化">Grafana安装及持久化</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/72/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/72/">72</a><span class="page-number current">73</span><a class="page-number" href="/page/74/">74</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/74/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/72/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/72/">72</a><span class="page-number current">73</span><a class="page-number" href="/page/74/">74</a><span class="space">&hellip;</span><a class="page-number" href="/page/128/">128</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/74/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">380</span>
+          <span class="site-state-item-count">382</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,261 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/03/Python%E4%B8%AD%E4%BD%BF%E7%94%A8requests%E5%BA%93%E5%8F%91%E9%80%81Http%E8%AF%B7%E6%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/03/Python%E4%B8%AD%E4%BD%BF%E7%94%A8requests%E5%BA%93%E5%8F%91%E9%80%81Http%E8%AF%B7%E6%B1%82/" class="post-title-link" itemprop="url">Python中使用requests库发送Http请求</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-03-01 11:13:55" itemprop="dateCreated datePublished" datetime="2021-03-01T11:13:55+08:00">2021-03-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/03/Python%E4%B8%AD%E4%BD%BF%E7%94%A8requests%E5%BA%93%E5%8F%91%E9%80%81Http%E8%AF%B7%E6%B1%82/" class="post-meta-item leancloud_visitors" data-flag-title="Python中使用requests库发送Http请求" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/03/Python%E4%B8%AD%E4%BD%BF%E7%94%A8requests%E5%BA%93%E5%8F%91%E9%80%81Http%E8%AF%B7%E6%B1%82/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/03/Python%E4%B8%AD%E4%BD%BF%E7%94%A8requests%E5%BA%93%E5%8F%91%E9%80%81Http%E8%AF%B7%E6%B1%82/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近在使用一个性能测试框架，locust，是用Python写的。模拟测试逻辑时，可用Python来编写需要进行测试的逻辑。</p>
+<p>这篇文章讲讲如何使用 requests 这个库，以发送http请求。</p>
+<h1 id="Get请求"><a href="#Get请求" class="headerlink" title="Get请求"></a>Get请求</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="string">&#x27;http://localhost/api&#x27;</span></span><br><span class="line">payload = &#123;<span class="string">&#x27;id&#x27;</span>: <span class="number">100</span>&#125;</span><br><span class="line">headers = &#123;<span class="string">&#x27;token&#x27;</span>: <span class="string">&#x27;xxxxxxx&#x27;</span>&#125;</span><br><span class="line"><span class="keyword">with</span> <span class="variable language_">self</span>.client.get(url, params=payload, headers=headers) <span class="keyword">as</span> response:</span><br><span class="line">    <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">        <span class="keyword">if</span> response.text != <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">            res_dict = json.loads(response.text)</span><br><span class="line">            ...</span><br></pre></td></tr></table></figure>
+
+<h1 id="Post请求"><a href="#Post请求" class="headerlink" title="Post请求"></a>Post请求</h1><p>当我们使用json方式提交请求时，其实是不用在代码里面指定<code>Content-type: applicaion/json</code>的，只需要使用<code>json</code>参数就可以了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="string">&#x27;http://localhost/api&#x27;</span></span><br><span class="line">payload = &#123;<span class="string">&#x27;id&#x27;</span>: <span class="number">100</span>&#125;</span><br><span class="line">headers = &#123;<span class="string">&#x27;token&#x27;</span>: <span class="string">&#x27;xxxxxxx&#x27;</span>&#125;</span><br><span class="line"><span class="keyword">with</span> <span class="variable language_">self</span>.client.post(url, json=payload, headers=headers) <span class="keyword">as</span> response:</span><br><span class="line">    <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">        <span class="keyword">if</span> response.text != <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">            res_dict = json.loads(response.text)</span><br><span class="line">            ...</span><br></pre></td></tr></table></figure>
+
+<p>上传文件有点特殊，也不需要指定Content-type，使用<code>files</code>参数即可。java服务端，使用MultipartFile来接收这个文件即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="string">&#x27;http://localhost/api&#x27;</span></span><br><span class="line">file = &#123;<span class="string">&#x27;file&#x27;</span>: <span class="built_in">open</span>(<span class="string">&#x27;/opt/test.txt&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>)&#125;</span><br><span class="line">headers = &#123;<span class="string">&#x27;token&#x27;</span>: <span class="string">&#x27;xxxxxxx&#x27;</span>&#125;</span><br><span class="line"><span class="keyword">with</span> <span class="variable language_">self</span>.client.post(url, files=file, headers=headers) <span class="keyword">as</span> response:</span><br><span class="line">    <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">        <span class="keyword">if</span> response.text != <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">            res_dict = json.loads(response.text)</span><br><span class="line">            ...</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">IntelliJ IDEA新建一个Anaconda Python项目</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-02-21 00:13:03" itemprop="dateCreated datePublished" datetime="2021-02-21T00:13:03+08:00">2021-02-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/" class="post-meta-item leancloud_visitors" data-flag-title="IntelliJ IDEA新建一个Anaconda Python项目" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>这篇文章讲讲在macOS系统中，如何一步一步创建一个基于Anaconda的项目。</p>
+<p>首先我们得确定已经在macOS中安装好了Anaconda。</p>
+<h1 id="新建Python环境"><a href="#新建Python环境" class="headerlink" title="新建Python环境"></a>新建Python环境</h1><p>先查看一下当前环境，只有一个base。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda <span class="built_in">env</span> list</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">conda environments:</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash">base                  *  /opt/anaconda3</span></span><br></pre></td></tr></table></figure>
+
+<p>以克隆方式创建一个和Anaconda base(root)环境一样的环境，取名叫<code>py37</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda create --name py37 --<span class="built_in">clone</span> base</span></span><br><span class="line">Source:      /opt/anaconda3</span><br><span class="line">Destination: /opt/anaconda3/envs/py37</span><br></pre></td></tr></table></figure>
+
+<p>按提示激活命令激活环境。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda activate py37</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="新建Python项目"><a href="#新建Python项目" class="headerlink" title="新建Python项目"></a>新建Python项目</h1><p>File -&gt; New -&gt; Project…</p>
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/new.png" class="">
+
+<p>选择Python项目，<code>New</code>一个<code>Project SDK</code>。</p>
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/newproject.png" class="">
+
+<p>添加Python解析器</p>
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/env.png" class="">
+
+<p>选择 Conda Environment，使用Conda来管理包。</p>
+<p>我们前面使用命令行的方式创建一个env，所以选择Existing Environment。</p>
+<p>指定Interpreter，为刚才新建环境py37目录下的python。</p>
+<p><code>/opt/anaconda3/envs/py37/bin/python</code></p>
+<p>然后下一步，确定就创建好了。</p>
+<h1 id="检查"><a href="#检查" class="headerlink" title="检查"></a>检查</h1><p>创建好项目后，我们写两行python代码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello world&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>检查，pandas, print下面没有红线，按Command，同时鼠标点击pandas或print，均能查看得到源代码，运行时，也会正常运行，说明配置一切正常。</p>
+<p>我们再看看项目结构。</p>
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/project.png" class="">
+
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/modules.png" class="">
+
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/sdks.png" class="">
+
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/globallib.png" class="">
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -334,236 +589,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/02/IntelliJ-IDEA%E9%85%8D%E7%BD%AEAnaconda-base-root-%E7%9B%B8%E5%90%8C%E7%8E%AF%E5%A2%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/02/IntelliJ-IDEA%E9%85%8D%E7%BD%AEAnaconda-base-root-%E7%9B%B8%E5%90%8C%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">IntelliJ IDEA配置Anaconda base(root)相同环境</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-02-18 15:54:45" itemprop="dateCreated datePublished" datetime="2021-02-18T15:54:45+08:00">2021-02-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2021/02/IntelliJ-IDEA%E9%85%8D%E7%BD%AEAnaconda-base-root-%E7%9B%B8%E5%90%8C%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="IntelliJ IDEA配置Anaconda base(root)相同环境" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2021/02/IntelliJ-IDEA%E9%85%8D%E7%BD%AEAnaconda-base-root-%E7%9B%B8%E5%90%8C%E7%8E%AF%E5%A2%83/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/02/IntelliJ-IDEA%E9%85%8D%E7%BD%AEAnaconda-base-root-%E7%9B%B8%E5%90%8C%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Anaconda的基本操作，可以参考这篇文章 <a href="/2018/08/macOS%E4%B8%8BAnaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%88%87%E6%8D%A2%EF%BC%88Python2-Python3%EF%BC%89/" title="macOS下Anaconda的安装及环境切换（Python2&#x2F;Python3）">macOS下Anaconda的安装及环境切换（Python2&#x2F;Python3）</a></p>
-<p>这篇文章讲讲如何clone一个和Anaconda base(root)一样的环境，也就是和base(root)有一样的多的包的环境。</p>
-<p>复制的命令如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name &lt;new_env_name&gt; --clone &lt;copied_env_name&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name new_env --clone base</span><br></pre></td></tr></table></figure>
-
-<p>创建Python项目的时候，</p>
-<p>New Project -&gt; Project SDK (New…) -&gt; Add Interpreter -&gt; Conda Environment -&gt; Existing Environment，<br>这里面就填刚才新建的新环境路径。</p>
-<h1 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h1><p>首先要切换环境，linux是<code>source activate &lt;env&gt;</code>，而Windows系统是<code>activate &lt;env&gt;</code>。</p>
-<p>安装包命令：</p>
-<p><code>conda install &lt;package&gt;</code>，如果没有的话，那就用<code>pip</code>来安装。</p>
-<p><code>pip install &lt;package&gt;</code></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/02/Python%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F%E4%B8%ADif-else%E5%88%A4%E6%96%AD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/02/Python%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F%E4%B8%ADif-else%E5%88%A4%E6%96%AD/" class="post-title-link" itemprop="url">Python列表推导式中if else判断</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-02-17 23:55:53" itemprop="dateCreated datePublished" datetime="2021-02-17T23:55:53+08:00">2021-02-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2021/02/Python%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F%E4%B8%ADif-else%E5%88%A4%E6%96%AD/" class="post-meta-item leancloud_visitors" data-flag-title="Python列表推导式中if else判断" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2021/02/Python%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F%E4%B8%ADif-else%E5%88%A4%E6%96%AD/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/02/Python%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F%E4%B8%ADif-else%E5%88%A4%E6%96%AD/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="if"><a href="#if" class="headerlink" title="if"></a>if</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[fun(item) <span class="keyword">for</span> item <span class="keyword">in</span> <span class="built_in">list</span> <span class="keyword">if</span> condition]</span><br></pre></td></tr></table></figure>
-
-<h1 id="if-else"><a href="#if-else" class="headerlink" title="if else"></a>if else</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[fun1(item) <span class="keyword">if</span> condition <span class="keyword">else</span> fun2(item) <span class="keyword">for</span> item <span class="keyword">in</span> <span class="built_in">list</span>]</span><br></pre></td></tr></table></figure>
-
-<h1 id="if-else-if"><a href="#if-else-if" class="headerlink" title="if else if"></a>if else if</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[fun1(item) <span class="keyword">if</span> condition1 <span class="keyword">else</span> fun2(item) <span class="keyword">if</span> condition2 fun3(item) <span class="keyword">else</span> fun4(item) <span class="keyword">for</span> item <span class="keyword">in</span> <span class="built_in">list</span>]</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/38/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><span class="page-number current">39</span><a class="page-number" href="/page/40/">40</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/40/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/38/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><span class="page-number current">39</span><a class="page-number" href="/page/40/">40</a><span class="space">&hellip;</span><a class="page-number" href="/page/128/">128</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/40/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
