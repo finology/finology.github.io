@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,239 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/06/%E5%B0%86Centos7%E7%9A%84yum%E6%BA%90%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E9%98%BF%E9%87%8C%E4%BA%91%E7%9A%84%E6%BA%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/06/%E5%B0%86Centos7%E7%9A%84yum%E6%BA%90%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E9%98%BF%E9%87%8C%E4%BA%91%E7%9A%84%E6%BA%90/" class="post-title-link" itemprop="url">将Centos7的yum源更换为国内阿里云的源</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-06-09 22:09:58" itemprop="dateCreated datePublished" datetime="2018-06-09T22:09:58+08:00">2018-06-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+
+  
+    <span id="/2018/06/%E5%B0%86Centos7%E7%9A%84yum%E6%BA%90%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E9%98%BF%E9%87%8C%E4%BA%91%E7%9A%84%E6%BA%90/" class="post-meta-item leancloud_visitors" data-flag-title="将Centos7的yum源更换为国内阿里云的源" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/06/%E5%B0%86Centos7%E7%9A%84yum%E6%BA%90%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E9%98%BF%E9%87%8C%E4%BA%91%E7%9A%84%E6%BA%90/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/06/%E5%B0%86Centos7%E7%9A%84yum%E6%BA%90%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E9%98%BF%E9%87%8C%E4%BA%91%E7%9A%84%E6%BA%90/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>CentOS7默认的yum源的地址是<a target="_blank" rel="noopener" href="http://mirror.centos.org,需要把其换成国内的镜像,这样访问速度会更加快一些./">http://mirror.centos.org，需要把其换成国内的镜像，这样访问速度会更加快一些。</a></p>
+<ol>
+<li>备份系统默认的CentOS-Base.repo</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mv</span> /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>下载阿里云的repo文件</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> /etc/yum.repos.d/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wget -c http://mirrors.aliyun.com/repo/Centos-7.repo</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>生成缓存</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yum makecache</span></span><br><span class="line"></span><br><span class="line">已加载插件：fastestmirror, langpacks</span><br><span class="line">http://mirrors.aliyuncs.com/centos/7/os/x86_64/repodata/repomd.xml: [Errno 12] Timeout on http://mirrors.aliyuncs.com/centos/7/os/x86_64/repodata/repomd.xml: (28, &#x27;Connection timed out after 30181 milliseconds&#x27;)</span><br><span class="line">正在尝试其它镜像。</span><br><span class="line">base                                                     | 3.6 kB     00:00     </span><br><span class="line">extras                                                   | 3.4 kB     00:00     </span><br><span class="line">updates                                                  | 3.4 kB     00:00     </span><br><span class="line">(1/5): extras/7/x86_64/filelists_db                        | 519 kB   00:00     </span><br><span class="line">(2/5): extras/7/x86_64/other_db                            |  95 kB   00:00     </span><br><span class="line">(3/5): updates/7/x86_64/filelists_db                       | 1.3 MB   00:01     </span><br><span class="line">(4/5): base/7/x86_64/filelists_db                          | 6.9 MB   00:03     </span><br><span class="line">(5/5): extras/7/x86_64/prestodelta                         |  48 kB   00:11     </span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line"> * base: mirrors.aliyun.com</span><br><span class="line"> * extras: mirrors.aliyun.com</span><br><span class="line"> * updates: mirrors.aliyun.com</span><br><span class="line">元数据缓存已建立</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/05/MacOS-X%E5%AE%89%E8%A3%85MySQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/05/MacOS-X%E5%AE%89%E8%A3%85MySQL/" class="post-title-link" itemprop="url">MacOS X安装MySQL</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-05-31 13:34:54" itemprop="dateCreated datePublished" datetime="2018-05-31T13:34:54+08:00">2018-05-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Database/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2018/05/MacOS-X%E5%AE%89%E8%A3%85MySQL/" class="post-meta-item leancloud_visitors" data-flag-title="MacOS X安装MySQL" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/05/MacOS-X%E5%AE%89%E8%A3%85MySQL/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/05/MacOS-X%E5%AE%89%E8%A3%85MySQL/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本文记录的是通过homebrew安装MySQL的过程</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">brew install mysql  // 安装</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">mysql.server start // 启动</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">mysql_secure_installation // 配置向导</span></span><br><span class="line"></span><br><span class="line">Securing the MySQL server deployment.</span><br><span class="line"></span><br><span class="line">Connecting to MySQL using a blank password.</span><br><span class="line"></span><br><span class="line">VALIDATE PASSWORD PLUGIN can be used to test passwords</span><br><span class="line">and improve security. It checks the strength of password</span><br><span class="line">and allows the users to set only those passwords which are</span><br><span class="line">secure enough. Would you like to setup VALIDATE PASSWORD plugin?</span><br><span class="line"></span><br><span class="line">Press y|Y for Yes, any other key for No: n</span><br><span class="line"></span><br><span class="line">Please set the password for root here.</span><br><span class="line"></span><br><span class="line">New password: ******</span><br><span class="line"></span><br><span class="line">Re-enter new password: ******</span><br><span class="line">By default, a MySQL installation has an anonymous user,</span><br><span class="line">allowing anyone to log into MySQL without having to have</span><br><span class="line">a user account created for them. This is intended only for</span><br><span class="line">testing, and to make the installation go a bit smoother.</span><br><span class="line">You should remove them before moving into a production</span><br><span class="line">environment.</span><br><span class="line"></span><br><span class="line">Remove anonymous users? (Press y|Y for Yes, any other key for No) : y</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Normally, root should only be allowed to connect from</span><br><span class="line">&#x27;localhost&#x27;. This ensures that someone cannot guess at</span><br><span class="line">the root password from the network.</span><br><span class="line"></span><br><span class="line">Disallow root login remotely? (Press y|Y for Yes, any other key for No) : n</span><br><span class="line"></span><br><span class="line"> ... skipping.</span><br><span class="line">By default, MySQL comes with a database named &#x27;test&#x27; that</span><br><span class="line">anyone can access. This is also intended only for testing,</span><br><span class="line">and should be removed before moving into a production</span><br><span class="line">environment.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Remove test database and access to it? (Press y|Y for Yes, any other key for No) : y</span><br><span class="line"> - Dropping test database...</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line"> - Removing privileges on test database...</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line">Reloading the privilege tables will ensure that all changes</span><br><span class="line">made so far will take effect immediately.</span><br><span class="line"></span><br><span class="line">Reload privilege tables now? (Press y|Y for Yes, any other key for No) : y</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line">All done! </span><br></pre></td></tr></table></figure>
+
+<p>查看配置文件my.cnf的位置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">mysqld --<span class="built_in">help</span> --verbose | less</span></span><br><span class="line">...</span><br><span class="line">Default options are read from the following files in the given order:</span><br><span class="line">/etc/my.cnf /etc/mysql/my.cnf /usr/local/etc/my.cnf ~/.my.cnf </span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>我们发现，在&#x2F;etc&#x2F;my.cnf文件并不存在。网上很多人说通过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls $(brew --prefix mysql)/support-files/my-*</span><br></pre></td></tr></table></figure>
+<p>能查看到配置文件，然而并不能。当前我的版本是：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">brew info mysql</span></span><br><span class="line">mysql: stable 5.7.18 (bottled)</span><br><span class="line">Open source relational database management system</span><br><span class="line">https://dev.mysql.com/doc/refman/5.7/en/</span><br><span class="line">Conflicts with: mariadb, mariadb-connector-c, mysql-cluster, mysql-connector-c, percona-server</span><br><span class="line">/usr/local/Cellar/mysql/5.7.18_1 (320 files, 232.9MB) *</span><br><span class="line">  Poured from bottle on 2018-05-31 at 11:19:46</span><br><span class="line">From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/mysql.rb</span><br></pre></td></tr></table></figure>
+
+<p>my.cnf配置文件的正确位置是在&#x2F;usr&#x2F;local&#x2F;etc&#x2F;my.cnf</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -329,265 +562,6 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> LDFLAGS=-L/usr/local/opt/openssl/lib pip3 install mysqlclient</span></span><br><span class="line"></span><br><span class="line">The directory &#x27;/Users/simon/Library/Caches/pip/http&#x27; or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo&#x27;s -H flag.</span><br><span class="line">The directory &#x27;/Users/simon/Library/Caches/pip&#x27; or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo&#x27;s -H flag.</span><br><span class="line">Collecting mysqlclient</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/6f/86/bad31f1c1bb0cc99e88ca2adb7cb5c71f7a6540c1bb001480513de76a931/mysqlclient-1.3.12.tar.gz (89kB)</span><br><span class="line">    100% |████████████████████████████████| 92kB 40kB/s </span><br><span class="line">Installing collected packages: mysqlclient</span><br><span class="line">  Running setup.py install for mysqlclient ... done</span><br><span class="line">Successfully installed mysqlclient-1.3.12</span><br></pre></td></tr></table></figure>
 
 <p>mysqlclient安装成功。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/" class="post-title-link" itemprop="url">SpringMVC使用ResponseBody返回json时中文乱码</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-05-19 14:35:02" itemprop="dateCreated datePublished" datetime="2018-05-19T14:35:02+08:00">2018-05-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/SpringMVC/" itemprop="url" rel="index"><span itemprop="name">SpringMVC</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/" class="post-meta-item leancloud_visitors" data-flag-title="SpringMVC使用ResponseBody返回json时中文乱码" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在SpringMVC中的Controller中，返回非String类时，不会遇到这种情况。但返回为String时，中文有可能会变成乱码。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StringHttpMessageConverter</span> <span class="keyword">extends</span> <span class="title class_">AbstractHttpMessageConverter</span>&lt;String&gt; &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Charset</span> <span class="variable">DEFAULT_CHARSET</span> <span class="operator">=</span> Charset.forName(<span class="string">&quot;ISO-8859-1&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>转换器的默认编码是ISO-8859-1，而非UTF-8。</p>
-<p>解决办法</p>
-<ol>
-<li>使用（produces &#x3D; “application&#x2F;json; charset&#x3D;utf-8”）</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value = &quot;/xxx&quot;, produces = &quot;produces=MediaType.APPLICATION_JSON_VALUE + &quot;;charset=utf-8&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">fun</span><span class="params">()</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>在spring-mvc.xml中添加：</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 处理请求返回json字符串的中文乱码问题 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:annotation-driven</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">mvc:message-converters</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.http.converter.StringHttpMessageConverter&quot;</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;supportedMediaTypes&quot;</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="name">value</span>&gt;</span>application/json;charset=UTF-8<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mvc:message-converters</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mvc:annotation-driven</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/05/Java%E4%B8%AD%E7%9A%84Integer%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%EF%BC%88-2-32-2-31-1%EF%BC%89%E5%88%86%E6%9E%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/05/Java%E4%B8%AD%E7%9A%84Integer%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%EF%BC%88-2-32-2-31-1%EF%BC%89%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">Java中的Integer取值范围（-2^32 ~ 2^31 - 1）分析</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-05-19 00:16:23" itemprop="dateCreated datePublished" datetime="2018-05-19T00:16:23+08:00">2018-05-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2018/05/Java%E4%B8%AD%E7%9A%84Integer%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%EF%BC%88-2-32-2-31-1%EF%BC%89%E5%88%86%E6%9E%90/" class="post-meta-item leancloud_visitors" data-flag-title="Java中的Integer取值范围（-2^32 ~ 2^31 - 1）分析" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2018/05/Java%E4%B8%AD%E7%9A%84Integer%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%EF%BC%88-2-32-2-31-1%EF%BC%89%E5%88%86%E6%9E%90/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2018/05/Java%E4%B8%AD%E7%9A%84Integer%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%EF%BC%88-2-32-2-31-1%EF%BC%89%E5%88%86%E6%9E%90/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在Java中Integer的最小值（MIN_VALUE）、最大值（MAX_VALUE）定义如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * A constant holding the minimum value an &#123;<span class="doctag">@code</span> int&#125; can</span></span><br><span class="line"><span class="comment">  * have, -2&lt;sup&gt;31&lt;/sup&gt;.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="meta">@Native</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span>   <span class="variable">MIN_VALUE</span> <span class="operator">=</span> <span class="number">0x80000000</span>;</span><br><span class="line"></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * A constant holding the maximum value an &#123;<span class="doctag">@code</span> int&#125; can</span></span><br><span class="line"><span class="comment">  * have, 2&lt;sup&gt;31&lt;/sup&gt;-1.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="meta">@Native</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span>   <span class="variable">MAX_VALUE</span> <span class="operator">=</span> <span class="number">0x7fffffff</span>;</span><br></pre></td></tr></table></figure>
-
-<p>我们大家都知道Integer的最小值为-2^32，最大值为2^32-1，为什么是这样呢，我们来看看推导过程：</p>
-<h1 id="Integer-实际占用的二进制码的位数"><a href="#Integer-实际占用的二进制码的位数" class="headerlink" title="Integer 实际占用的二进制码的位数"></a>Integer 实际占用的二进制码的位数</h1><p>一个 Integer 类型占 4 字节，一个字节占 8 位二进制码，因此一个 Integer 总共占 32 位二进制码。去除第一位的符号位，剩下 31 位来表示数值。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MIN_VALUE = 0x80000000;  // 补码</span><br><span class="line">MAX_VALUE = 0x7fffffff;  // 补码</span><br></pre></td></tr></table></figure>
-
-<h1 id="原码、反码、补码"><a href="#原码、反码、补码" class="headerlink" title="原码、反码、补码"></a>原码、反码、补码</h1><p>在计算机中，数据是由二进制补码进行存储的，在 Java 代码中我们看到的 “0x80000000”、“0x7fffffff”，这些非10进制的数，都是以补码的形式存在的，通过转换成原码，我们才能知道其真实的值。</p>
-<p>原码转换成补码的公式：（用“|“来分隔每个字节，8位）</p>
-<ol>
-<li>当原码为正数时，反码和补码与原码相同。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">正数：1</span><br><span class="line">原码：0000 0000 | 0000 0000 | 0000 0000 | 0000 0001</span><br><span class="line">反码：0000 0000 | 0000 0000 | 0000 0000 | 0000 0001</span><br><span class="line">补码：0000 0000 | 0000 0000 | 0000 0000 | 0000 0001</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>当原码为负数时，反码为其绝对值按位全部取反（包括符号位），补码为反码加1。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">负数：-1</span><br><span class="line">原码：1000 0000 | 0000 0000 | 0000 0000 | 0000 0001</span><br><span class="line">反码：1111 1111 | 1111 1111 | 1111 1111 | 1111 1110</span><br><span class="line">补码：1111 1111 | 1111 1111 | 1111 1111 | 1111 1111</span><br></pre></td></tr></table></figure>
-
-
-<p>因此在程序中，我们定义16进制整形数时，0x00000001表示1，0xffffffff表示-1。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0x00000001</span>;</span><br><span class="line">System.out.println(i);</span><br><span class="line"><span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="type">Integer</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0xffffffff</span>;</span><br><span class="line">System.out.println(j);</span><br><span class="line">-<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="最大值为什么是-2-31-1，而不是-2-31"><a href="#最大值为什么是-2-31-1，而不是-2-31" class="headerlink" title="最大值为什么是 2^31-1，而不是 2^31"></a>最大值为什么是 2^31-1，而不是 2^31</h1><p>计算机中可表示的整数最大值的补码为 0111 1111 | 1111 1111 | 1111 1111 | 1111 1111 (0x7fffffff)，正数的补码与原码一致，转换为10进制数为2^31-1 &#x3D; 2147483647</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">k</span> <span class="operator">=</span> Integer.valueOf(<span class="string">&quot;01111111111111111111111111111111&quot;</span>, <span class="number">2</span>);</span><br><span class="line">System.out.println(k);</span><br><span class="line"><span class="number">2147483647</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="最小值为什么是-2-31，而不是-（2-31-1）"><a href="#最小值为什么是-2-31，而不是-（2-31-1）" class="headerlink" title="最小值为什么是 -2^31，而不是 -（2^31-1）"></a>最小值为什么是 -2^31，而不是 -（2^31-1）</h1><p>我们依次推算负数值，如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">负数：-1</span><br><span class="line">原码：1000 0000 | 0000 0000 | 0000 0000 | 0000 0001</span><br><span class="line">反码：1111 1111 | 1111 1111 | 1111 1111 | 1111 1110</span><br><span class="line">补码：1111 1111 | 1111 1111 | 1111 1111 | 1111 1111</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">负数：-2</span><br><span class="line">原码：1000 0000 | 0000 0000 | 0000 0000 | 0000 0010</span><br><span class="line">反码：1111 1111 | 1111 1111 | 1111 1111 | 1111 1101</span><br><span class="line">补码：1111 1111 | 1111 1111 | 1111 1111 | 1111 1110</span><br></pre></td></tr></table></figure>
-
-<p>观察补码的变化规律，可以推断最小的补码为：<br>1000 0000 | 0000 0000 | 0000 0000 | 0000 0000<br>(0x80000000)<br>反码为被码-1（符号位除外）<br>1111 1111 | 1111 1111 | 1111 1111 | 1111 1111<br>负数的原码为反码除符号位取反<br>1000 0000 | 0000 0000 | 0000 0000 | 0000 0000<br>为-0，约定为-2^31 &#x3D; -2147483648</p>
 
       
     </div>

@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,248 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E8%A7%86%E9%A2%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/04/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E8%A7%86%E9%A2%91/" class="post-title-link" itemprop="url">如何下载网页视频</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-18 01:34:00" itemprop="dateCreated datePublished" datetime="2020-04-18T01:34:00+08:00">2020-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/04/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E8%A7%86%E9%A2%91/" class="post-meta-item leancloud_visitors" data-flag-title="如何下载网页视频" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/04/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E8%A7%86%E9%A2%91/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/04/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E8%A7%86%E9%A2%91/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>有时候看到喜欢的视频，想把它下载下来，如何下载呢？</p>
+<p>有些网页上的视频，是分成多个 ts 文件片段的，我们可以通过 Chrome 的开发者工具发现。</p>
+<p>通过 <code>m3u8</code> 过滤，我们可以发现一个独立的 <code>m3u8</code> 文件，这个文件就是播放列表，如图：</p>
+<img src="/2020/04/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E8%A7%86%E9%A2%91/m3u8.png" class="">
+
+<p>我们可以到这个网站 <code>www.ffmpeg.org</code> 去下载这个 <code>ffmpeg</code> 工具。然后执行命令，把视频片段拼接起来。</p>
+<p>命令如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./ffmpeg  -i &lt;m3u8 url&gt; -c copy output.mp4</span><br></pre></td></tr></table></figure>
+
+<p>然后就开始下载了，非常好用。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/Spring%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BC%A0%E6%92%AD%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/04/Spring%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BC%A0%E6%92%AD%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">Spring事务的传播机制</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-17 21:24:03" itemprop="dateCreated datePublished" datetime="2020-04-17T21:24:03+08:00">2020-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/04/Spring%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BC%A0%E6%92%AD%E6%9C%BA%E5%88%B6/" class="post-meta-item leancloud_visitors" data-flag-title="Spring事务的传播机制" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/04/Spring%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BC%A0%E6%92%AD%E6%9C%BA%E5%88%B6/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/04/Spring%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BC%A0%E6%92%AD%E6%9C%BA%E5%88%B6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>两个 Service 下面的方法，互相调用，这时就会涉及到事务的传播。</p>
+<p>传播机制类型</p>
+<p>这些类型都是针对被调用的方法来说的。</p>
+<h1 id="PROPAGATION-REQUIRED-默认"><a href="#PROPAGATION-REQUIRED-默认" class="headerlink" title="PROPAGATION_REQUIRED (默认)"></a>PROPAGATION_REQUIRED (默认)</h1><p>支持当前事务，如果当前没有事务，则新建事务</p>
+<p>如果当前存在事务，则加入当前事务，合并成一个事务</p>
+<h1 id="REQUIRES-NEW"><a href="#REQUIRES-NEW" class="headerlink" title="REQUIRES_NEW"></a>REQUIRES_NEW</h1><p>新建事务，如果当前存在事务，则把当前事务挂起</p>
+<p>这个方法会独立提交事务，不受调用者的事务影响，父级异常，它也是正常提交</p>
+<h1 id="NESTED"><a href="#NESTED" class="headerlink" title="NESTED"></a>NESTED</h1><p>如果当前存在事务，它将会成为父级事务的一个子事务，方法结束后并没有提交，只有等父事务结束才提交</p>
+<p>如果当前没有事务，则新建事务</p>
+<p>如果它异常，父级可以捕获它的异常而不进行回滚，正常提交</p>
+<p>但如果父级异常，它必然回滚，这就是和 REQUIRES_NEW 的区别</p>
+<h1 id="SUPPORTS"><a href="#SUPPORTS" class="headerlink" title="SUPPORTS"></a>SUPPORTS</h1><p>如果当前存在事务，则加入事务</p>
+<p>如果当前不存在事务，则以非事务方式运行，这个和不写注解是一样</p>
+<h1 id="NOT-SUPPORTED"><a href="#NOT-SUPPORTED" class="headerlink" title="NOT_SUPPORTED"></a>NOT_SUPPORTED</h1><p>以非事务方式运行</p>
+<p>如果当前存在事务，则把当前事务挂起</p>
+<h1 id="MANDATORY"><a href="#MANDATORY" class="headerlink" title="MANDATORY"></a>MANDATORY</h1><p>如果当前存在事务，则运行在当前事务中</p>
+<p>如果当前无事务，则抛出异常，也即父级方法必须有事务</p>
+<h1 id="NEVER"><a href="#NEVER" class="headerlink" title="NEVER"></a>NEVER</h1><p>以非事务方式运行，如果当前存在事务，则抛出异常，即父级方法必须无事务。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -300,247 +542,6 @@
     
     <div class="post-body" itemprop="articleBody">
           <img src="/2020/04/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E6%9C%AC%E8%B4%A8Essence-of-Linear-Algebra/essence-of-linear-algebra.png" class="">
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/Mac-Docker%E5%AE%89%E8%A3%85MySQL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/Mac-Docker%E5%AE%89%E8%A3%85MySQL/" class="post-title-link" itemprop="url">Mac Docker安装MySQL</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-04-16 23:59:50" itemprop="dateCreated datePublished" datetime="2020-04-16T23:59:50+08:00">2020-04-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Database/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/04/Mac-Docker%E5%AE%89%E8%A3%85MySQL/" class="post-meta-item leancloud_visitors" data-flag-title="Mac Docker安装MySQL" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/04/Mac-Docker%E5%AE%89%E8%A3%85MySQL/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/04/Mac-Docker%E5%AE%89%E8%A3%85MySQL/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>需要快速安装一个MySQL数据库，还是使用Docker方便快捷。</p>
-<p>首先创建本地目录<code>/usr/local/mysql-docker</code>，并设置权限。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 777 mysql-docker</span></span><br></pre></td></tr></table></figure>
-
-<p>这样存放Docker上面MySQL的数据文件，哪怕重启以后，数据不会丢失。</p>
-<p>运行下面命令，就可以在Docker下面成功安装 MySQL 5.7。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql --env MYSQL_ROOT_HOST=172.17.%.% --env MYSQL_ROOT_PASSWORD=123456 -v /usr/local/mysql-docker:/var/lib/mysql -p 3306:3306 -d mysql/mysql-server:5.7</span><br></pre></td></tr></table></figure>
-
-<p>如果没有把本地路径 添加到Docker的文件共享目录里，可能会报如下错误：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The path /usr/local/mysql-docker</span><br><span class="line">is not shared from OS X and is not known to Docker.</span><br><span class="line">You can configure shared paths from Docker -&gt; Preferences... -&gt; File Sharing.</span><br><span class="line">See https://docs.docker.com/docker-for-mac/osxfs/#namespaces for more info.</span><br></pre></td></tr></table></figure>
-
-<p>进入<code>Docker -&gt; Preferences... -&gt; File Sharing</code>，把路径添加进去即可。</p>
-<img src="/2020/04/Mac-Docker%E5%AE%89%E8%A3%85MySQL/docker-file-sharing.png" class="">
-
-<p>进入Docker容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker <span class="built_in">exec</span> -it 5fd4bb2b6c67 bash</span></span><br></pre></td></tr></table></figure>
-
-<p>进入数据库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">bash-4.2# mysql -uroot -p123456</span><br><span class="line">mysql: [Warning] Using a password on the command line interface can be insecure.</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 8</span><br><span class="line">Server version: 5.7.29 MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type &#x27;help;&#x27; or &#x27;\h&#x27; for help. Type &#x27;\c&#x27; to clear the current input statement.</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">mysql&gt;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/MySQL%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/MySQL%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB/" class="post-title-link" itemprop="url">MySQL事务隔离</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-04-16 21:48:45" itemprop="dateCreated datePublished" datetime="2020-04-16T21:48:45+08:00">2020-04-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Database/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/04/MySQL%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL事务隔离" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/04/MySQL%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/04/MySQL%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>MySQL 事务隔离相关命令如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 查看当前会话隔离级别</span></span><br><span class="line"><span class="keyword">SELECT</span> @<span class="variable">@tx_isolation</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查看系统隔离级别</span></span><br><span class="line"><span class="keyword">SELECT</span> @<span class="variable">@global</span>.tx_isolation;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 0. SERIALIZABLE</span></span><br><span class="line"><span class="comment">-- 1. REPEATABLE READ</span></span><br><span class="line"><span class="comment">-- 2. READ COMMITTED</span></span><br><span class="line"><span class="comment">-- 3. READ UNCOMMITTED</span></span><br><span class="line"><span class="keyword">SET</span> SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;</span><br></pre></td></tr></table></figure>
-
-<p>MySQL 默认的隔离级别是 RR, Repeatable Read。</p>
 
       
     </div>

@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,264 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/01/%E8%BF%90%E8%A1%8CSpark-Streaming%E6%A1%88%E4%BE%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/01/%E8%BF%90%E8%A1%8CSpark-Streaming%E6%A1%88%E4%BE%8B/" class="post-title-link" itemprop="url">运行Spark Streaming案例</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-01-24 10:25:32" itemprop="dateCreated datePublished" datetime="2019-01-24T10:25:32+08:00">2019-01-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/01/%E8%BF%90%E8%A1%8CSpark-Streaming%E6%A1%88%E4%BE%8B/" class="post-meta-item leancloud_visitors" data-flag-title="运行Spark Streaming案例" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/01/%E8%BF%90%E8%A1%8CSpark-Streaming%E6%A1%88%E4%BE%8B/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/01/%E8%BF%90%E8%A1%8CSpark-Streaming%E6%A1%88%E4%BE%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>Spark Streaming is an extension of the core Spark API that enables scalable, high-throughput, fault-tolerant stream processing of live data streams.</p>
+</blockquote>
+<p>这篇文章将描述运行Spark官网上一个案例程序。</p>
+<p>执行<code>spark-submit</code>命令，查看命令使用方法。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME</span><br><span class="line"></span><br><span class="line">bin/spark-submit</span><br><span class="line"></span><br><span class="line">Usage: spark-submit [options] &lt;app jar | python file&gt; [app arguments]</span><br><span class="line">Usage: spark-submit --kill [submission ID] --master [spark://...]</span><br><span class="line">Usage: spark-submit --status [submission ID] --master [spark://...]</span><br><span class="line">Usage: spark-submit run-example [options] example-class [example args]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  --master MASTER_URL         spark://host:port, mesos://host:port, yarn, or local.</span><br><span class="line">  --deploy-mode DEPLOY_MODE   Whether to launch the driver program locally (&quot;client&quot;) or</span><br><span class="line">                              on one of the worker machines inside the cluster (&quot;cluster&quot;)</span><br><span class="line">                              (Default: client).</span><br><span class="line">  --class CLASS_NAME          Your application&#x27;s main class (for Java / Scala apps).</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+
+<p>运行<code>NetworkWordCount</code>案例，我们需要指定<code>master</code>, <code>class</code>参数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-submit --master local[2] --class org.apache.spark.examples.streaming.NetworkWordCount examples/jars/spark-examples_2.11-2.2.3.jar</span><br><span class="line"></span><br><span class="line">Usage: NetworkWordCount &lt;hostname&gt; &lt;port&gt;</span><br></pre></td></tr></table></figure>
+
+<p>终端又给我们使用方法的提示，需要提供网络服务器地址<code>hostname</code>和端口<code>port</code>。</p>
+<p>如果网络上还没有提供服务时，执行上述命令，则会遇到如下错误。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">19/01/24 10:49:42 ERROR ReceiverTracker: Deregistered receiver for stream 0: Restarting receiver with delay 2000ms: Error connecting</span><br><span class="line">to localhost:9999 - java.net.ConnectException: Connection refused (Connection refused)</span><br></pre></td></tr></table></figure>
+
+<p>所以，另开一个Shell终端，启动<code>Netcat</code>, 在端口<code>9999</code>上提供服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -lk 9999</span><br></pre></td></tr></table></figure>
+
+<p>继续执行<code>NetworkWordCount</code>案例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-submit --master local[2] --class org.apache.spark.examples.streaming.NetworkWordCount examples/jars/spark-examples_2.11-2.2.3.jar localhost 9999</span><br><span class="line"></span><br><span class="line">Using Spark&#x27;s default log4j profile: org/apache/spark/log4j-defaults.properties</span><br><span class="line">19/01/24 11:04:46 INFO StreamingExamples: Setting log level to [WARN] for streaming example. To override add a custom log4j.properties to the classpath.</span><br><span class="line">19/01/24 11:04:47 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">19/01/24 11:04:47 WARN Utils: Your hostname, localhost resolves to a loopback address: 127.0.0.1; using 192.168.1.112 instead (on interface en0)</span><br><span class="line">19/01/24 11:04:47 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address</span><br><span class="line">19/01/24 11:04:47 WARN Utils: Service &#x27;SparkUI&#x27; could not bind on port 4040. Attempting port 4041.</span><br><span class="line">-------------------------------------------</span><br><span class="line">Time: 1548299089000 ms</span><br><span class="line">-------------------------------------------</span><br></pre></td></tr></table></figure>
+
+<p>我们在Netcat终端上输入几个单词，看看统计的结果。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello hello spark spark spark</span><br></pre></td></tr></table></figure>
+
+<p>很快的，我们在spark终端上就能看到统计的结果了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">-------------------------------------------</span><br><span class="line">Time: 1548298250000 ms</span><br><span class="line">-------------------------------------------</span><br><span class="line">(hello,2)</span><br><span class="line">(spark,3)</span><br></pre></td></tr></table></figure>
+
+<p>我们再换一种方式，通过<code>spark-shell</code>的方式，输入代码，运行一下单词统计的程序。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-shell --master local[2]</span><br><span class="line"></span><br><span class="line">Using Spark&#x27;s default log4j profile: org/apache/spark/log4j-defaults.properties</span><br><span class="line">Setting default log level to &quot;WARN&quot;.</span><br><span class="line">To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).</span><br><span class="line">19/01/24 12:45:00 WARN Utils: Your hostname, localhost resolves to a loopback address: 127.0.0.1; using 192.168.1.112 instead (on interface en0)</span><br><span class="line">19/01/24 12:45:00 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address</span><br><span class="line">19/01/24 12:45:00 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Spark context Web UI available at http://192.168.1.112:4040</span><br><span class="line">Spark context available as &#x27;sc&#x27; (master = local[2], app id = local-1548305101841).</span><br><span class="line">Spark session available as &#x27;spark&#x27;.</span><br><span class="line">Welcome to</span><br><span class="line">      ____              __</span><br><span class="line">     / __/__  ___ _____/ /__</span><br><span class="line">    _\ \/ _ \/ _ `/ __/  &#x27;_/</span><br><span class="line">   /___/ .__/\_,_/_/ /_/\_\   version 2.2.3</span><br><span class="line">      /_/</span><br><span class="line"></span><br><span class="line">Using Scala version 2.11.8 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_181)</span><br><span class="line">Type in expressions to have them evaluated.</span><br><span class="line">Type :help for more information.</span><br><span class="line"></span><br><span class="line">scala&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们按exmaples案例，输入以下代码。源代码可参看 <a target="_blank" rel="noopener" href="https://github.com/apache/spark/blob/master/examples/src/main/scala/org/apache/spark/examples/streaming/NetworkWordCount.scala">https://github.com/apache/spark/blob/master/examples/src/main/scala/org/apache/spark/examples/streaming/NetworkWordCount.scala</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">scala&gt;</span><br><span class="line"></span><br><span class="line">import org.apache.spark.storage.StorageLevel</span><br><span class="line">import org.apache.spark.streaming.&#123;Seconds, StreamingContext&#125;</span><br><span class="line">val ssc = new StreamingContext(sc, Seconds(1))</span><br><span class="line">val lines = ssc.socketTextStream(&quot;localhost&quot;, 9999, StorageLevel.MEMORY_AND_DISK_SER)</span><br><span class="line">val words = lines.flatMap(_.split(&quot; &quot;))</span><br><span class="line">val wordCounts = words.map(x =&gt; (x, 1)).reduceByKey(_ + _)</span><br><span class="line">wordCounts.print()</span><br><span class="line">ssc.start()</span><br><span class="line">ssc.awaitTermination()</span><br></pre></td></tr></table></figure>
+
+<p>在<code>netcat</code>终端输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello hello spark spark spark</span><br></pre></td></tr></table></figure>
+
+<p>我们一样能看到统计的结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">-------------------------------------------</span><br><span class="line">Time: 1548305187000 ms</span><br><span class="line">-------------------------------------------</span><br><span class="line">(hello,2)</span><br><span class="line">(spark,3)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/01/IntelliJ-IDEA-Maven%E9%A1%B9%E7%9B%AE%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96%E8%87%AA%E5%8A%A8%E6%8F%90%E7%A4%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/01/IntelliJ-IDEA-Maven%E9%A1%B9%E7%9B%AE%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96%E8%87%AA%E5%8A%A8%E6%8F%90%E7%A4%BA/" class="post-title-link" itemprop="url">IntelliJ IDEA Maven项目添加依赖自动提示</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-01-23 12:10:31" itemprop="dateCreated datePublished" datetime="2019-01-23T12:10:31+08:00">2019-01-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/IntelliJ-IDEA/" itemprop="url" rel="index"><span itemprop="name">IntelliJ IDEA</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/01/IntelliJ-IDEA-Maven%E9%A1%B9%E7%9B%AE%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96%E8%87%AA%E5%8A%A8%E6%8F%90%E7%A4%BA/" class="post-meta-item leancloud_visitors" data-flag-title="IntelliJ IDEA Maven项目添加依赖自动提示" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/01/IntelliJ-IDEA-Maven%E9%A1%B9%E7%9B%AE%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96%E8%87%AA%E5%8A%A8%E6%8F%90%E7%A4%BA/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/01/IntelliJ-IDEA-Maven%E9%A1%B9%E7%9B%AE%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96%E8%87%AA%E5%8A%A8%E6%8F%90%E7%A4%BA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>使用IntelliJ IDEA，我们在给Maven项目添加依赖时，可以设置让IDEA自动提示依赖包。</p>
+<p>Preferences &gt; Build, Execution, Deployment &gt; Build Tools -&gt; Maven &gt; Repositories &gt; Indexed Maven Repositores</p>
+<p>选中URL，再点击<code>Update</code>按钮。更新后，在添加依赖时，则可以自动提示了。</p>
+<img src="/2019/01/IntelliJ-IDEA-Maven%E9%A1%B9%E7%9B%AE%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96%E8%87%AA%E5%8A%A8%E6%8F%90%E7%A4%BA/maven%E4%BE%9D%E8%B5%96%E5%8C%85%E8%87%AA%E5%8A%A8%E6%8F%90%E7%A4%BA.png" class="">
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -314,316 +572,6 @@
 
 <p>在<code>dependencies</code>标签里面添加如下依赖</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Hadoop 依赖--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hadoop<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hadoop-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;hadoop.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- HBase 依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hbase<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hbase-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;hbase.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hbase<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hbase-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;hbase.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Spark streaming 依赖 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.spark<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spark-streaming_$&#123;scala.compat.version&#125;<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spark.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/01/%E5%AE%89%E8%A3%85Spark/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/01/%E5%AE%89%E8%A3%85Spark/" class="post-title-link" itemprop="url">安装Spark</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-01-22 22:40:57" itemprop="dateCreated datePublished" datetime="2019-01-22T22:40:57+08:00">2019-01-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/01/%E5%AE%89%E8%A3%85Spark/" class="post-meta-item leancloud_visitors" data-flag-title="安装Spark" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/01/%E5%AE%89%E8%A3%85Spark/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/01/%E5%AE%89%E8%A3%85Spark/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>这篇文章，我们选择记录最简单的安装方式，而非编译安装。</p>
-<h1 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h1><p>到Apache Spark官网的下载页面 <a target="_blank" rel="noopener" href="http://spark.apache.org/downloads.html">http://spark.apache.org/downloads.html</a></p>
-<p>选择Spark2.2.3版本，package type为Pre-built for Apache Hadoop 2.6，因为目前环境hadoop版本是<code>hadoop-2.6.0-cdh5.7.0</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://archive.apache.org/dist/spark/spark-2.2.3/spark-2.2.3-bin-hadoop2.6.tgz</span><br><span class="line">tar -zxvf spark-2.2.3-bin-hadoop2.6.tgz</span><br></pre></td></tr></table></figure>
-
-<h1 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bash_profile</span><br></pre></td></tr></table></figure>
-
-<p>添加如下内容</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export SPARK_HOME=/usr/local/spark/spark-2.2.3-bin-hadoop2.6</span><br></pre></td></tr></table></figure>
-
-<p>执行<code>source</code>命令让其配置生效</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
-
-<h1 id="启动Spark"><a href="#启动Spark" class="headerlink" title="启动Spark"></a>启动Spark</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME</span><br><span class="line"></span><br><span class="line">bin/spark-shell --help</span><br><span class="line"></span><br><span class="line">Usage: ./bin/spark-shell [options]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  --master MASTER_URL         spark://host:port, mesos://host:port, yarn, or local.</span><br><span class="line">...  </span><br></pre></td></tr></table></figure>
-
-<p>从上面可以看出可以通过<code>spark://host:port</code>, <code>mesos://host:port</code>, <code>yarn</code>和<code>local</code>等方式启动Spark。</p>
-<p>我们先采用<code>本地</code>模式启动。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-shell --master local[2]</span><br><span class="line"></span><br><span class="line">Using Spark&#x27;s default log4j profile: org/apache/spark/log4j-defaults.properties</span><br><span class="line">Setting default log level to &quot;WARN&quot;.</span><br><span class="line">To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).</span><br><span class="line">19/01/22 22:56:54 WARN Utils: Your hostname, localhost resolves to a loopback address: 127.0.0.1; using 192.168.1.6 instead (on interface en0)</span><br><span class="line">19/01/22 22:56:54 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address</span><br><span class="line">19/01/22 22:56:54 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Spark context Web UI available at http://192.168.1.6:4040</span><br><span class="line">Spark context available as &#x27;sc&#x27; (master = local[2], app id = local-1548169015800).</span><br><span class="line">Spark session available as &#x27;spark&#x27;.</span><br><span class="line">Welcome to</span><br><span class="line">      ____              __</span><br><span class="line">     / __/__  ___ _____/ /__</span><br><span class="line">    _\ \/ _ \/ _ `/ __/  &#x27;_/</span><br><span class="line">   /___/ .__/\_,_/_/ /_/\_\   version 2.2.3</span><br><span class="line">      /_/</span><br><span class="line"></span><br><span class="line">Using Scala version 2.11.8 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_181)</span><br><span class="line">Type in expressions to have them evaluated.</span><br><span class="line">Type :help for more information.</span><br><span class="line"></span><br><span class="line">scala&gt;</span><br></pre></td></tr></table></figure>
-
-<p>启动成功，我们同时可以看看Spark context Web UI, <a target="_blank" rel="noopener" href="http://localhost:4040/">http://localhost:4040</a></p>
-<img src="/2019/01/%E5%AE%89%E8%A3%85Spark/SparkWebUI.png" class="">
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/01/%E5%AE%89%E8%A3%85HBase/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/01/%E5%AE%89%E8%A3%85HBase/" class="post-title-link" itemprop="url">安装HBase</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-01-22 12:17:27" itemprop="dateCreated datePublished" datetime="2019-01-22T12:17:27+08:00">2019-01-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/HBase/" itemprop="url" rel="index"><span itemprop="name">HBase</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/01/%E5%AE%89%E8%A3%85HBase/" class="post-meta-item leancloud_visitors" data-flag-title="安装HBase" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/01/%E5%AE%89%E8%A3%85HBase/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/01/%E5%AE%89%E8%A3%85HBase/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>这篇文章将详细的讲述一下HBase的安装。</p>
-<h1 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h1><p>进入CDH Archive页面 <a target="_blank" rel="noopener" href="http://archive.cloudera.com/cdh5/cdh/5/">http://archive.cloudera.com/cdh5/cdh/5/</a></p>
-<p>选择需要安装的HBase版本，这次安装选择的是<code>hbase-1.2.0-cdh5.7.0</code></p>
-<p>下载链接 <a target="_blank" rel="noopener" href="http://archive.cloudera.com/cdh5/cdh/5/hbase-1.2.0-cdh5.7.0.tar.gz">http://archive.cloudera.com/cdh5/cdh/5/hbase-1.2.0-cdh5.7.0.tar.gz</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/hbase</span><br><span class="line">wget http://archive.cloudera.com/cdh5/cdh/5/hbase-1.2.0-cdh5.7.0.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h1 id="解压安装包"><a href="#解压安装包" class="headerlink" title="解压安装包"></a>解压安装包</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf hbase-1.2.0-cdh5.7.0.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h1 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bash_profile</span><br></pre></td></tr></table></figure>
-
-<p>在文件里面加入以下内容</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export HBASE_HOME=/usr/local/hbase/hbase-1.2.0-cdh5.7.0/</span><br></pre></td></tr></table></figure>
-
-<p>然后执行<code>source</code>命令使配置文件生效</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br><span class="line"></span><br><span class="line">echo $HBASE_HOME</span><br><span class="line">/usr/local/hbase/hbase-1.2.0-cdh5.7.0/</span><br></pre></td></tr></table></figure>
-
-<h1 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h1><p>进入到<code>$HBASE_HOME</code>目录，并修改<code>conf/hbase-env.sh</code>配置文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $HBASE_HOME</span><br><span class="line">vi conf/hbase-env.sh</span><br></pre></td></tr></table></figure>
-
-<p>修改JAVA_HOME参数，指定JAVA_HOME的位置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home</span><br></pre></td></tr></table></figure>
-
-<p>修改HBASE_MANAGES_ZK参数为false，不让HBase管理自己的Zookeeper实例，因为我们需要自己安装Zookeeper</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export HBASE_MANAGES_ZK=false</span><br></pre></td></tr></table></figure>
-
-<p>修改<code>hbase-site.xml</code>文件</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://localhost:8020/hbase<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.cluster.distributed<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.zookeeper.quorum<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>localhost:2181<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-<p><code>regionserver</code>文件，如果是单机伪分布环境，则可以不用改，默认为localhost</p>
-<h1 id="启动zookeeper"><a href="#启动zookeeper" class="headerlink" title="启动zookeeper"></a>启动zookeeper</h1><p>在启动HBase之前，我们需要先启动zookeeper</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd $ZK_HOME</span><br><span class="line">sbin/zkServer.sh start</span><br><span class="line"></span><br><span class="line">JMX enabled by default</span><br><span class="line">Using config: /usr/local/zookeeper/zookeeper-3.4.5-cdh5.7.0/sbin/../conf/zoo.cfg</span><br><span class="line">Starting zookeeper ... STARTED</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jps</span><br><span class="line"></span><br><span class="line">50469 QuorumPeerMain</span><br></pre></td></tr></table></figure>
-
-<p>zookeeper实例已经启动</p>
-<h1 id="启动HBase"><a href="#启动HBase" class="headerlink" title="启动HBase"></a>启动HBase</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $HBASE_HOME</span><br><span class="line">bin/start-hbase.sh</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">starting master, logging to /usr/local/hbase/hbase-1.2.0-cdh5.7.0//logs/hbase-simon-master-localhost.out</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=128m; support was removed in 8.0</span><br><span class="line">starting regionserver, logging to /usr/local/hbase/hbase-1.2.0-cdh5.7.0//logs/hbase-simon-1-regionserver-localhost.out</span><br></pre></td></tr></table></figure>
-
-<p>我们可以看到<code>starting master</code>和<code>starting regionserver</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jps</span><br><span class="line"></span><br><span class="line">50607 HMaster</span><br><span class="line">50703 HRegionServer</span><br></pre></td></tr></table></figure>
-
-<p>说明HBase已经成功的启动了。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd $HADOOP_HOME</span><br><span class="line"></span><br><span class="line">bin/hadoop fs -ls /</span><br><span class="line">19/01/22 13:42:14 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Found 4 items</span><br><span class="line">drwxr-xr-x   - simon supergroup          0 2019-01-22 13:34 /hbase</span><br></pre></td></tr></table></figure>
-
-<p>可以看到前面设置的<code>hdfs://localhost:8020/hbase</code>已经被成功创建了。</p>
-<h1 id="通过Web-UI查看HBASE信息"><a href="#通过Web-UI查看HBASE信息" class="headerlink" title="通过Web UI查看HBASE信息"></a>通过Web UI查看HBASE信息</h1><p>在浏览器地址栏输入 <a target="_blank" rel="noopener" href="http://localhost:60010/">http://localhost:60010</a></p>
-<img src="/2019/01/%E5%AE%89%E8%A3%85HBase/HBase%E7%AE%A1%E7%90%86%E9%A1%B5%E9%9D%A2.png" class="">
-
-<h1 id="HBase-shell"><a href="#HBase-shell" class="headerlink" title="HBase shell"></a>HBase shell</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">bin/hbase shell</span><br><span class="line"></span><br><span class="line">2019-01-22 13:41:26,984 INFO  [main] Configuration.deprecation: hadoop.native.lib is deprecated. Instead, use io.native.lib.available</span><br><span class="line">2019-01-22 13:41:28,153 WARN  [main] util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">SLF4J: Class path contains multiple SLF4J bindings.</span><br><span class="line">SLF4J: Found binding in [jar:file:/usr/local/hbase/hbase-1.2.0-cdh5.7.0/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: Found binding in [jar:file:/usr/local/hadoop/hadoop-2.6.0-cdh5.7.0/share/hadoop/common/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.</span><br><span class="line">SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]</span><br><span class="line">HBase Shell; enter &#x27;help&lt;RETURN&gt;&#x27; for list of supported commands.</span><br><span class="line">Type &quot;exit&lt;RETURN&gt;&quot; to leave the HBase Shell</span><br><span class="line">Version 1.2.0-cdh5.7.0, rUnknown, Wed Mar 23 11:46:29 PDT 2016</span><br><span class="line"></span><br><span class="line">hbase(main):001:0&gt;</span><br></pre></td></tr></table></figure>
-
-<p>查看版本号</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hbase(main):001:0&gt; version</span><br><span class="line">1.2.0-cdh5.7.0, rUnknown, Wed Mar 23 11:46:29 PDT 2016</span><br></pre></td></tr></table></figure>
-
-<p>查看状态</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hbase(main):002:0&gt; status</span><br><span class="line">1 active master, 0 backup masters, 1 servers, 0 dead, 2.0000 average load</span><br></pre></td></tr></table></figure>
-
-<p>创建表<code>member</code>，包含<code>info</code>和<code>address</code>两个列蔟</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hbase(main):003:0&gt; create &#x27;member&#x27;, &#x27;info&#x27;, &#x27;address&#x27;</span><br><span class="line">0 row(s) in 2.3700 seconds</span><br><span class="line"></span><br><span class="line">=&gt; Hbase::Table - member</span><br></pre></td></tr></table></figure>
-
-<p>查看数据库表列表</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hbase(main):004:0&gt; list</span><br><span class="line">TABLE</span><br><span class="line">member</span><br><span class="line">1 row(s) in 0.0380 seconds</span><br><span class="line"></span><br><span class="line">=&gt; [&quot;member&quot;]</span><br></pre></td></tr></table></figure>
-
-<p>查看<code>member</code>表信息</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hbase(main):005:0&gt; describe &#x27;member&#x27;</span><br><span class="line">Table member is ENABLED</span><br><span class="line">member</span><br><span class="line">COLUMN FAMILIES DESCRIPTION</span><br><span class="line">&#123;NAME =&gt; &#x27;address&#x27;, BLOOMFILTER =&gt; &#x27;ROW&#x27;, VERSIONS =&gt; &#x27;1&#x27;, IN_MEMORY =&gt; &#x27;false&#x27;, KEEP_DELETED_CELLS =&gt; &#x27;FALSE&#x27;, DATA_BLOCK_ENCODING =</span><br><span class="line">&gt; &#x27;NONE&#x27;, TTL =&gt; &#x27;FOREVER&#x27;, COMPRESSION =&gt; &#x27;NONE&#x27;, MIN_VERSIONS =&gt; &#x27;0&#x27;, BLOCKCACHE =&gt; &#x27;true&#x27;, BLOCKSIZE =&gt; &#x27;65536&#x27;, REPLICATION_SCOPE</span><br><span class="line"> =&gt; &#x27;0&#x27;&#125;</span><br><span class="line">&#123;NAME =&gt; &#x27;info&#x27;, BLOOMFILTER =&gt; &#x27;ROW&#x27;, VERSIONS =&gt; &#x27;1&#x27;, IN_MEMORY =&gt; &#x27;false&#x27;, KEEP_DELETED_CELLS =&gt; &#x27;FALSE&#x27;, DATA_BLOCK_ENCODING =&gt; &#x27;</span><br><span class="line">NONE&#x27;, TTL =&gt; &#x27;FOREVER&#x27;, COMPRESSION =&gt; &#x27;NONE&#x27;, MIN_VERSIONS =&gt; &#x27;0&#x27;, BLOCKCACHE =&gt; &#x27;true&#x27;, BLOCKSIZE =&gt; &#x27;65536&#x27;, REPLICATION_SCOPE =&gt;</span><br><span class="line"> &#x27;0&#x27;&#125;</span><br><span class="line">2 row(s) in 0.1090 seconds</span><br></pre></td></tr></table></figure>
-
-<p>我们再次查看HBase Web UI</p>
-<img src="/2019/01/%E5%AE%89%E8%A3%85HBase/HBase%E9%87%8C%E9%9D%A2member%E8%A1%A8%E4%BF%A1%E6%81%AF.png" class="">
-
-<p>发现在<code>Tables</code>标题栏里面已经多了一条记录了。</p>
-<p>清空数据表</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hbase(main):009:0&gt; truncate &#x27;member&#x27;</span><br><span class="line">Truncating &#x27;member&#x27; table (it may take a while):</span><br><span class="line"> - Disabling table...</span><br><span class="line"> - Truncating table...</span><br><span class="line">0 row(s) in 4.0020 seconds</span><br></pre></td></tr></table></figure>
       
     </div>
 

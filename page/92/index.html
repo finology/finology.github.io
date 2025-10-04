@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,263 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/12/CentOS7%E5%BC%80%E6%9C%BA%E5%90%8E%E6%97%A0IP4%E5%9C%B0%E5%9D%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/12/CentOS7%E5%BC%80%E6%9C%BA%E5%90%8E%E6%97%A0IP4%E5%9C%B0%E5%9D%80/" class="post-title-link" itemprop="url">CentOS7开机后无IP4地址</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-07 12:00:22" itemprop="dateCreated datePublished" datetime="2019-12-07T12:00:22+08:00">2019-12-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OS/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/12/CentOS7%E5%BC%80%E6%9C%BA%E5%90%8E%E6%97%A0IP4%E5%9C%B0%E5%9D%80/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS7开机后无IP4地址" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/12/CentOS7%E5%BC%80%E6%9C%BA%E5%90%8E%E6%97%A0IP4%E5%9C%B0%E5%9D%80/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/12/CentOS7%E5%BC%80%E6%9C%BA%E5%90%8E%E6%97%A0IP4%E5%9C%B0%E5%9D%80/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我们在VMware或VirtualBox中启动CentOS7的虚拟机，登录后，查看网卡的IP4地址，发现ens33的IP地址并未显示出来。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ip a</span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000</span><br><span class="line">    link/ether 00:0c:29:d5:43:ca brd ff:ff:ff:ff:ff:ff</span><br></pre></td></tr></table></figure>
+
+<p>这时，需要执行<code>ifup ens33</code>命令，让网卡连接起来。</p>
+<p>连接好以后，再次查看IP地址。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ip a</span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000</span><br><span class="line">    link/ether 00:0c:29:d5:43:ca brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 172.16.64.233/24 brd 172.16.64.255 scope global noprefixroute dynamic ens33</span><br><span class="line">       valid_lft 1778sec preferred_lft 1778sec</span><br><span class="line">    inet6 fe80::e8ec:c304:253f:44b7/64 scope link noprefixroute</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br></pre></td></tr></table></figure>
+
+<p>发现已经有IP地址了。</p>
+<p>如果想让重启后配置也能生效，还需要修改<code>/etc/sysconfig/network-scripts/ifcfg-ens33</code>网卡配置。</p>
+<p>把<code>ONBOOT=no</code>改为<code>ONBOOT=yes</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i s/ONBOOT=no/ONBOOT=yes/g /etc/sysconfig/network-scripts/ifcfg-ens33</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/12/%E8%A7%A3%E5%86%B3Google-Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80Kubernetes-K8S-Dashboard%E9%A1%B5%E9%9D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/12/%E8%A7%A3%E5%86%B3Google-Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80Kubernetes-K8S-Dashboard%E9%A1%B5%E9%9D%A2/" class="post-title-link" itemprop="url">解决Google Chrome浏览器无法打开Kubernetes(K8S) Dashboard页面</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-01 23:08:28" itemprop="dateCreated datePublished" datetime="2019-12-01T23:08:28+08:00">2019-12-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/Dashboard/" itemprop="url" rel="index"><span itemprop="name">Dashboard</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2019/12/%E8%A7%A3%E5%86%B3Google-Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80Kubernetes-K8S-Dashboard%E9%A1%B5%E9%9D%A2/" class="post-meta-item leancloud_visitors" data-flag-title="解决Google Chrome浏览器无法打开Kubernetes(K8S) Dashboard页面" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/12/%E8%A7%A3%E5%86%B3Google-Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80Kubernetes-K8S-Dashboard%E9%A1%B5%E9%9D%A2/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/12/%E8%A7%A3%E5%86%B3Google-Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80Kubernetes-K8S-Dashboard%E9%A1%B5%E9%9D%A2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>k8s version: v.1.16.3</p>
+<p>dashboard: dashboard:v2.0.0-beta6</p>
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>K8S Dashboard安装好以后，通过Firefox浏览器是可以打开的，但通过Google Chrome浏览器，无法成功浏览页面。如图：</p>
+<img src="/2019/12/%E8%A7%A3%E5%86%B3Google-Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80Kubernetes-K8S-Dashboard%E9%A1%B5%E9%9D%A2/k8sdashboard1.png" class="">
+
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>kubeadm自动生成的证书，很多浏览器不支持。所以我们需要自己创建证书。</p>
+<h2 id="创建一个目录"><a href="#创建一个目录" class="headerlink" title="创建一个目录"></a>创建一个目录</h2><p>存放证书等文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir key</span><br><span class="line">cd key</span><br></pre></td></tr></table></figure>
+
+<h2 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out dashboard.key 2048</span><br><span class="line">Generating RSA private key, 2048 bit long modulus</span><br><span class="line">.................+++</span><br><span class="line">......+++</span><br><span class="line">e is 65537 (0x10001)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">172.16.64.229为master节点的IP地址</span></span><br><span class="line">openssl req -new -out dashboard.csr -key dashboard.key -subj &#x27;/CN=172.16.64.229&#x27;</span><br><span class="line">openssl x509 -req -in dashboard.csr -signkey dashboard.key -out dashboard.crt</span><br><span class="line">Signature ok</span><br><span class="line">subject=/CN=172.16.64.229</span><br><span class="line">Getting Private key</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除原有证书"><a href="#删除原有证书" class="headerlink" title="删除原有证书"></a>删除原有证书</h2><p>注意新版的Dashboard的<code>namespace</code>已经变为<code>kubernetes-dashboard</code>了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete secret kubernetes-dashboard-certs -n kubernetes-dashboard</span><br><span class="line">secret &quot;kubernetes-dashboard-certs&quot; deleted</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建新证书的secret"><a href="#创建新证书的secret" class="headerlink" title="创建新证书的secret"></a>创建新证书的secret</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl create secret generic kubernetes-dashboard-certs --from-file=dashboard.key --from-file=dashboard.crt -n kubernetes-dashboard</span><br><span class="line">secret/kubernetes-dashboard-certs created</span><br></pre></td></tr></table></figure>
+
+<h2 id="查找正在运行的pod"><a href="#查找正在运行的pod" class="headerlink" title="查找正在运行的pod"></a>查找正在运行的pod</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pod -n kubernetes-dashboard</span><br><span class="line">NAME                                         READY   STATUS    RESTARTS   AGE</span><br><span class="line">dashboard-metrics-scraper-76585494d8-dzgt9   1/1     Running   0          8m20s</span><br><span class="line">kubernetes-dashboard-b65488c4-rcdjh          1/1     Running   0          8m20s</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除pod"><a href="#删除pod" class="headerlink" title="删除pod"></a>删除pod</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete po kubernetes-dashboard-b65488c4-rcdjh -n kubernetes-dashboard</span><br><span class="line">pod &quot;kubernetes-dashboard-b65488c4-rcdjh&quot; deleted</span><br><span class="line">kubectl delete po dashboard-metrics-scraper-76585494d8-dzgt9 -n kubernetes-dashboard</span><br><span class="line">pod &quot;dashboard-metrics-scraper-76585494d8-dzgt9&quot; deleted</span><br></pre></td></tr></table></figure>
+
+<p>如果pod比较多的时候，可以使用以下这条命令批量删除。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pod -n kubernetes-dashboard | grep -v NAME | awk &#x27;&#123;print &quot;kubectl delete po &quot; $1 &quot; -n kubernetes-dashboard&quot;&#125;&#x27; | sh</span><br></pre></td></tr></table></figure>
+
+<p>删除后，新的pod会自动启动起来。</p>
+<p>这时，再次刷新Chrome浏览器的Dashboard页面，如图：</p>
+<img src="/2019/12/%E8%A7%A3%E5%86%B3Google-Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80Kubernetes-K8S-Dashboard%E9%A1%B5%E9%9D%A2/k8sdashboard2.png" class="">
+
+<p>点击<code>继续前往</code>，页面就可以正常显示了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -314,275 +571,6 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Docker Socket for the API</span><br><span class="line">PartOf=docker.service</span><br><span class="line"></span><br><span class="line">[Socket]</span><br><span class="line">ListenStream=/var/run/docker.sock</span><br><span class="line">SocketMode=0660</span><br><span class="line">SocketUser=root</span><br><span class="line">SocketGroup=docker</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=sockets.target</span><br></pre></td></tr></table></figure>
 
 <h1 id="启动docker的进程"><a href="#启动docker的进程" class="headerlink" title="启动docker的进程"></a>启动docker的进程</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root       1660      1  0 23:02 ?        00:00:03 /usr/bin/containerd</span><br><span class="line">root       1820      1  0 23:13 ?        00:00:00 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/11/%E8%A7%A3%E5%86%B3sudo-docker%E6%8A%A5%E9%94%99command-not-found/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/11/%E8%A7%A3%E5%86%B3sudo-docker%E6%8A%A5%E9%94%99command-not-found/" class="post-title-link" itemprop="url">解决sudo docker报错command not found</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-11-23 11:38:54" itemprop="dateCreated datePublished" datetime="2019-11-23T11:38:54+08:00">2019-11-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/11/%E8%A7%A3%E5%86%B3sudo-docker%E6%8A%A5%E9%94%99command-not-found/" class="post-meta-item leancloud_visitors" data-flag-title="解决sudo docker报错command not found" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/11/%E8%A7%A3%E5%86%B3sudo-docker%E6%8A%A5%E9%94%99command-not-found/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/11/%E8%A7%A3%E5%86%B3sudo-docker%E6%8A%A5%E9%94%99command-not-found/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>我们在执行<code>docker</code>命令时，比如<code>docker ps</code>时，可能会遇到如下<code>command not found</code>的错误。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo docker ps</span><br><span class="line">[sudo] password for simon: </span><br><span class="line">sudo: docker: command not found</span><br></pre></td></tr></table></figure>
-
-<p>这是什么原因呢？我们看看如下两条命令。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">env | grep PATH</span><br><span class="line">PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/simon/.local/bin:/home/simon/bin</span><br><span class="line"></span><br><span class="line">sudo env | grep PATH</span><br><span class="line">PATH=/sbin:/bin:/usr/sbin:/usr/bin</span><br></pre></td></tr></table></figure>
-
-<p>发现环境变量PATH是不相同的。之所以出现<code>sudo: docker: commmand not found</code>的问题，是因为在<code>PATH=/sbin:/bin:/usr/sbin:/usr/bin</code>下面找不到docker程序。</p>
-<p>可以添加一个docker组来解决。</p>
-<p>如果是通过二进制安装的话，就不会自动生成docker组，所以需要我们自己生成。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></figure>
-
-<p>同时把用户加入到这个组中，并重启docker。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo gpasswd -a simon docker</span><br><span class="line">Adding user simon to group docker</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
-
-<p>用户以docker组重新登录一下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">newgrp docker</span><br></pre></td></tr></table></figure>
-
-<p>这时，就可以正常使用<code>docker</code>命令了。</p>
-<p>那我们会问，如果不把用户加入<code>docker</code>组，不加sudo执行docker命令又会怎样呢？</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br><span class="line">Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.38/containers/json: dial unix /var/run/docker.sock: connect: permission denied</span><br></pre></td></tr></table></figure>
-
-<p>会发现当我们连接socket的时候，没法访问<code>/var/run/docker.sock</code>这个文件。</p>
-<p>原因是，这个文件所属用户和用户组都是root的。我们用普通用户是没法访问的。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -l /var/run/docker.sock</span><br><span class="line">srw-rw----. 1 root root 0 Nov 21 21:27 /var/run/docker.sock</span><br></pre></td></tr></table></figure>
-
-<p>但是，当我们把普通用户加入到<code>docker</code>这个用户组以后，那生成的<code>/var/run/docker.sock</code>的用户组已经变成<code>docker</code>了，所以就可以连接了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -l /var/run/docker.sock</span><br><span class="line">srw-rw----.  1 root docker    0 Nov 22 09:48 docker.sock</span><br></pre></td></tr></table></figure>
-
-<p>当然，我们没有直接解决<code>sudo: docker: command not found</code>的问题，但我觉得以上是解决docker命令没法使用的最佳实践。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/11/%E5%9C%A8CentOS%E4%B8%8A%E4%BB%A5%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85Docker/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/11/%E5%9C%A8CentOS%E4%B8%8A%E4%BB%A5%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85Docker/" class="post-title-link" itemprop="url">在CentOS上以二进制方式安装Docker</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-11-21 23:30:52" itemprop="dateCreated datePublished" datetime="2019-11-21T23:30:52+08:00">2019-11-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/11/%E5%9C%A8CentOS%E4%B8%8A%E4%BB%A5%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85Docker/" class="post-meta-item leancloud_visitors" data-flag-title="在CentOS上以二进制方式安装Docker" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/11/%E5%9C%A8CentOS%E4%B8%8A%E4%BB%A5%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85Docker/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/11/%E5%9C%A8CentOS%E4%B8%8A%E4%BB%A5%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85Docker/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>之前有介绍过，在MacOS下安装Docker <a href="/2019/07/Mac-Docker%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="Mac Docker安装配置">Mac Docker安装配置</a> 和在Ubuntu环境下安装Docker <a href="/2019/10/Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85Docker/" title="Ubuntu环境下安装Docker">Ubuntu环境下安装Docker</a> ，可以参考。</p>
-<p>不过在生产环境，大多数是没有外网环境的，所以还是需要以二进制方式来安装。</p>
-<p>这篇文章将介绍如何下载Docker二进制文件来安装配置Docker。</p>
-<h1 id="查看当前环境"><a href="#查看当前环境" class="headerlink" title="查看当前环境"></a>查看当前环境</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uname -r</span><br><span class="line">3.10.0-957.el7.x86_64</span><br></pre></td></tr></table></figure>
-
-<h1 id="下载Docker安装包"><a href="#下载Docker安装包" class="headerlink" title="下载Docker安装包"></a>下载Docker安装包</h1><p>Docker稳定版的程序可进入如下链接进行下载。</p>
-<p><code>https://download.docker.com/linux/static/stable/x86_64/</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://download.docker.com/linux/static/stable/x86_64/docker-18.06.3-ce.tgz</span><br></pre></td></tr></table></figure>
-
-<h1 id="解压和拷贝"><a href="#解压和拷贝" class="headerlink" title="解压和拷贝"></a>解压和拷贝</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf docker-18.06.3-ce.tgz</span><br><span class="line">cp docker/* /usr/local/bin</span><br></pre></td></tr></table></figure>
-
-<h1 id="制作Docker-service"><a href="#制作Docker-service" class="headerlink" title="制作Docker.service"></a>制作Docker.service</h1><p>创建文件<code>/usr/lib/systemd/system/docker.service</code>并添加如下内容：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Docker Application Container Engine</span><br><span class="line">Documentation=http://docs.docker.io</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/usr/local/bin/dockerd</span><br><span class="line">ExecReload=/bin/kill -s HUP $MAINPID</span><br><span class="line">Restart=on-failure</span><br><span class="line">RestartSec=5</span><br><span class="line">LimitNOFILE=infinity</span><br><span class="line">LimitNPROC=infinity</span><br><span class="line">LimitCORE=infinity</span><br><span class="line">Delegate=yes</span><br><span class="line">KillMode=process</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-
-<p>当然，里面还可能会有其他一些配置，大家可以根据自己需要来配置。</p>
-<h1 id="启动Docker"><a href="#启动Docker" class="headerlink" title="启动Docker"></a>启动Docker</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /usr/lib/systemd/system/docker.service</span><br><span class="line"></span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
-
-<h1 id="查看Docker版本信息"><a href="#查看Docker版本信息" class="headerlink" title="查看Docker版本信息"></a>查看Docker版本信息</h1><p>如果安装成功，则可以看到如下信息。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker -v</span><br><span class="line">Docker version 18.06.3-ce, build d7080c1</span><br></pre></td></tr></table></figure>
-
-<h1 id="docker-compose二进制安装"><a href="#docker-compose二进制安装" class="headerlink" title="docker-compose二进制安装"></a>docker-compose二进制安装</h1><h2 id="下载docker-compose文件"><a href="#下载docker-compose文件" class="headerlink" title="下载docker-compose文件"></a>下载docker-compose文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://github.com/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose</span><br><span class="line">chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-
-<p><code>uname -s</code>执行结果是<code>Linux</code></p>
-<p><code>uname -m</code>执行结果是<code>x86_64</code></p>
-<h2 id="查看docker-compose的版本信息"><a href="#查看docker-compose的版本信息" class="headerlink" title="查看docker-compose的版本信息"></a>查看<code>docker-compose</code>的版本信息</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker-compose -v</span><br><span class="line">docker-compose version 1.25.0, build 0a186604</span><br></pre></td></tr></table></figure>
-
-<h1 id="设置Docker镜像代理等信息"><a href="#设置Docker镜像代理等信息" class="headerlink" title="设置Docker镜像代理等信息"></a>设置Docker镜像代理等信息</h1><p><code>vi /etc/docker/daemon.json</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;registry-mirrors&quot;: [&quot;http://hub-mirror.c.163.com&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>通过<code>docker info</code>来查看是否设置成功。</p>
 
       
     </div>

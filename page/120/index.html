@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,286 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/06/CentOS7%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AEnginx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/06/CentOS7%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AEnginx/" class="post-title-link" itemprop="url">CentOS7源码编译安装、配置nginx</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-06-11 10:29:15" itemprop="dateCreated datePublished" datetime="2018-06-11T10:29:15+08:00">2018-06-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/Nginx/" itemprop="url" rel="index"><span itemprop="name">Nginx</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2018/06/CentOS7%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AEnginx/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS7源码编译安装、配置nginx" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/06/CentOS7%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AEnginx/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/06/CentOS7%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AEnginx/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><p>安装gcc-c++，安装pcre, pcre-devel（会依赖pcre)，安装zlib, zlib-devel和openssl，openssl-devel</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc-c++, pcre, pcre-devel, zlib, zlib-devel, openssl, openssl-devel</span><br></pre></td></tr></table></figure>
+
+<h1 id="下载nginx源码包"><a href="#下载nginx源码包" class="headerlink" title="下载nginx源码包"></a>下载nginx源码包</h1><p>在官网上下载Stable version，稳定版本。<a target="_blank" rel="noopener" href="http://nginx.org/en/download.html">http://nginx.org/en/download.html</a></p>
+<p>目前最新的稳定版本是：	nginx-1.14.0 <a target="_blank" rel="noopener" href="http://nginx.org/download/nginx-1.14.0.tar.gz">http://nginx.org/download/nginx-1.14.0.tar.gz</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local</span><br><span class="line">wget http://nginx.org/download/nginx-1.14.0.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxvf nginx-1.14.0.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h1 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd nginx-1.14.0</span><br><span class="line">./configure</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<h1 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">whereis nginx</span><br><span class="line">nginx: /usr/local/nginx</span><br><span class="line">cd /usr/local/nginx</span><br><span class="line">sbin/nginx</span><br><span class="line"></span><br><span class="line">ps -ef | grep nginx</span><br><span class="line">root      20240      1  0 11:09 ?        00:00:00 nginx: master process sbin/nginx</span><br><span class="line">nobody    20241  20240  0 11:09 ?        00:00:00 nginx: worker process</span><br></pre></td></tr></table></figure>
+
+<p>访问<a target="_blank" rel="noopener" href="http://192.168.1.30,如果在本机访问,则访问http//localhost%EF%BC%8C%E5%87%BA%E7%8E%B0%E5%A6%82%E4%B8%8B%E5%9B%BE%E7%89%87%EF%BC%8C%E8%A1%A8%E6%98%8E%E5%B7%B2%E7%BB%8F%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F%E3%80%82">http://192.168.1.30，如果在本机访问，则访问http://localhost，出现如下图片，表明已经安装成功。</a></p>
+<img src="/2018/06/CentOS7%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AEnginx/0ft25me2imgevo8t4tfl70t31o.png" class="">
+
+<h1 id="配置nginx"><a href="#配置nginx" class="headerlink" title="配置nginx"></a>配置nginx</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd conf</span><br><span class="line">vi nginx.conf</span><br></pre></td></tr></table></figure>
+
+<p>添加一条记录，增加虚拟主机的配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include vhost/*.conf;</span><br></pre></td></tr></table></figure>
+
+<p>并新建一个vhost目录，用于放置*.conf文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir vhost</span><br></pre></td></tr></table></figure>
+
+<h1 id="添加一个虚拟主机"><a href="#添加一个虚拟主机" class="headerlink" title="添加一个虚拟主机"></a>添加一个虚拟主机</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">upstream web &#123;</span><br><span class="line">        server localhost:8080;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  domain.com www.domain.com;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">                proxy_pass              http://web;</span><br><span class="line">                proxy_redirect          off;</span><br><span class="line">                proxy_set_header        Host $host;</span><br><span class="line">                proxy_set_header        X-Real-IP $remote_addr;</span><br><span class="line">                proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>重新加载配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/nginx -s reload</span><br></pre></td></tr></table></figure>
+
+<p>这样，通过访问域名domain.com或<a href="http://www.domain.com的请求，就可以转发localhost:8080上了">www.domain.com的请求，就可以转发localhost:8080上了</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/06/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85vsftpd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/06/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85vsftpd/" class="post-title-link" itemprop="url">CentOS7下安装vsftpd</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-06-10 14:00:48" itemprop="dateCreated datePublished" datetime="2018-06-10T14:00:48+08:00">2018-06-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/FTP/" itemprop="url" rel="index"><span itemprop="name">FTP</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2018/06/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85vsftpd/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS7下安装vsftpd" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/06/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85vsftpd/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/06/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85vsftpd/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="通过yum安装vsftpd"><a href="#通过yum安装vsftpd" class="headerlink" title="通过yum安装vsftpd"></a>通过yum安装vsftpd</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">yum install vsftpd</span><br><span class="line"></span><br><span class="line">Is this ok [y/d/N]: y</span><br><span class="line">Downloading packages:</span><br><span class="line">vsftpd-3.0.2-22.el7.x86_64.rpm                                                                                    | 169 kB  00:00:00     </span><br><span class="line">Running transaction check</span><br><span class="line">Running transaction test</span><br><span class="line">Transaction test succeeded</span><br><span class="line">Running transaction</span><br><span class="line">  正在安装    : vsftpd-3.0.2-22.el7.x86_64                                                                                           1/1 </span><br><span class="line">  验证中      : vsftpd-3.0.2-22.el7.x86_64                                                                                           1/1 </span><br><span class="line"></span><br><span class="line">已安装:</span><br><span class="line">  vsftpd.x86_64 0:3.0.2-22.el7                                                                                                           </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
+
+<h1 id="新建一个上传文件夹"><a href="#新建一个上传文件夹" class="headerlink" title="新建一个上传文件夹"></a>新建一个上传文件夹</h1><p>用于存放通过ftp上传的文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br><span class="line">/usr/local</span><br><span class="line"></span><br><span class="line">mkdir ftpfile</span><br></pre></td></tr></table></figure>
+
+<h1 id="新建一个ftp用户"><a href="#新建一个ftp用户" class="headerlink" title="新建一个ftp用户"></a>新建一个ftp用户</h1><p>新建ftpuser用户，该用户登录后的地址为&#x2F;usr&#x2F;local&#x2F;ftpfile，这个用户不能登录系统</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd ftpuser -d /ftpfile -s /sbin/nologin</span><br></pre></td></tr></table></figure>
+
+<h1 id="修改-usr-local-ftpfile文件夹的权限"><a href="#修改-usr-local-ftpfile文件夹的权限" class="headerlink" title="修改&#x2F;usr&#x2F;local&#x2F;ftpfile文件夹的权限"></a>修改&#x2F;usr&#x2F;local&#x2F;ftpfile文件夹的权限</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ll | grep ftpfile</span><br><span class="line">drwxr-xr-x   2 root root       6 6月  10 14:05 ftpfile</span><br><span class="line"></span><br><span class="line">chown -R ftpuser.ftpuser ftpfile/</span><br><span class="line"></span><br><span class="line">ll | grep ftpfile</span><br><span class="line">drwxr-xr-x   2 ftpuser ftpuser       6 6月  10 14:05 ftpfile</span><br></pre></td></tr></table></figure>
+
+<h1 id="为用户ftpuser添加密码"><a href="#为用户ftpuser添加密码" class="headerlink" title="为用户ftpuser添加密码"></a>为用户ftpuser添加密码</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd ftpuser</span><br></pre></td></tr></table></figure>
+
+<h1 id="修改vsftpd配置文件"><a href="#修改vsftpd配置文件" class="headerlink" title="修改vsftpd配置文件"></a>修改vsftpd配置文件</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/vsftpd/vsftpd.conf</span><br><span class="line"></span><br><span class="line">ftpd_banner=Welcome to simon&#x27;s FTP service.</span><br><span class="line"></span><br><span class="line">local_root=/usr/local/ftpfile # 添加本地根目录</span><br><span class="line">anon_root=/usr/local/ftpfile  # </span><br><span class="line">use_localtime=yes</span><br><span class="line"></span><br><span class="line">chroot_list_enable=YES # 修改</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">(default follows)</span></span><br><span class="line">chroot_list_file=/etc/vsftpd/chroot_list # 修改</span><br><span class="line"></span><br><span class="line">anonymous_enable=NO</span><br></pre></td></tr></table></figure>
+
+<p>把用户ftpuser添加到&#x2F;etc&#x2F;vsftpd&#x2F;chroot_list</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/vsftpd/chroot_list</span><br></pre></td></tr></table></figure>
+<p>添加一行记录，内容为：<em>ftpuser</em></p>
+<h1 id="设置传输文件时的端口号"><a href="#设置传输文件时的端口号" class="headerlink" title="设置传输文件时的端口号"></a>设置传输文件时的端口号</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pasv_min_port=61001</span><br><span class="line">pasv_max_port=62000</span><br></pre></td></tr></table></figure>
+
+<p>设置pasv被动传输的端口号，这样可以通过防火墙开放这个范围内的端口，从而更加安全。</p>
+<h1 id="启动vsftpd"><a href="#启动vsftpd" class="headerlink" title="启动vsftpd"></a>启动vsftpd</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service vsftpd start</span><br><span class="line">Redirecting to /bin/systemctl start  vsftpd.service</span><br></pre></td></tr></table></figure>
+
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>在浏览器上输入：<a href="ftp://192.168.1.30/">ftp://192.168.1.30/</a><br>输入用户名和密码后，貌似不能进去。</p>
+<p>或者在终端输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ftp 192.168.1.30</span><br><span class="line"></span><br><span class="line">Connected to 192.168.1.30.</span><br><span class="line">220 Welcome to simon&#x27;s FTP service.</span><br><span class="line">Name (192.168.1.30:simon): ftpuser</span><br><span class="line">331 Please specify the password.</span><br><span class="line">Password: </span><br><span class="line">500 OOPS: vsftpd: refusing to run with writable root inside chroot()</span><br><span class="line">ftp: Login failed</span><br></pre></td></tr></table></figure>
+
+<p>会出现以上错误，所以还需要在配置文件里面加入如下参数：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allow_writeable_chroot=YES # 如果local_root是可写的就要设置这句</span><br></pre></td></tr></table></figure>
+
+<p>重启vsftpd服务后，再次登录，就成功了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ftp 192.168.1.30</span><br><span class="line">Connected to 192.168.1.30.</span><br><span class="line">220 Welcome to simon&#x27;s FTP service.</span><br><span class="line">Name (192.168.1.30:simon): ftpuser</span><br><span class="line">331 Please specify the password.</span><br><span class="line">Password: </span><br><span class="line">230 Login successful.</span><br><span class="line">Remote system type is UNIX.</span><br><span class="line">Using binary mode to transfer files.</span><br><span class="line"><span class="meta prompt_">ftp&gt; </span></span><br></pre></td></tr></table></figure>
+
+<h1 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#chroot_local_user=YES</span><br></pre></td></tr></table></figure>
+<p>默认为NO，表示用户能看到的最上层目录为&#x2F;ftpfile。如果改为yes，那用户可以看到整个系统的目录结构。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -325,239 +605,6 @@
 <img src="/2018/06/CentOS7%E4%B8%8A%E5%AE%89%E8%A3%85Tomcat7/4umee2knlej84rcvun1netu3db.jpg" class="" title="tomcat7">
 
 <p>表示tomcat7安装并启动成功了。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/06/%E5%B0%86Centos7%E7%9A%84yum%E6%BA%90%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E9%98%BF%E9%87%8C%E4%BA%91%E7%9A%84%E6%BA%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/06/%E5%B0%86Centos7%E7%9A%84yum%E6%BA%90%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E9%98%BF%E9%87%8C%E4%BA%91%E7%9A%84%E6%BA%90/" class="post-title-link" itemprop="url">将Centos7的yum源更换为国内阿里云的源</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-06-09 22:09:58" itemprop="dateCreated datePublished" datetime="2018-06-09T22:09:58+08:00">2018-06-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-
-  
-    <span id="/2018/06/%E5%B0%86Centos7%E7%9A%84yum%E6%BA%90%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E9%98%BF%E9%87%8C%E4%BA%91%E7%9A%84%E6%BA%90/" class="post-meta-item leancloud_visitors" data-flag-title="将Centos7的yum源更换为国内阿里云的源" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2018/06/%E5%B0%86Centos7%E7%9A%84yum%E6%BA%90%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E9%98%BF%E9%87%8C%E4%BA%91%E7%9A%84%E6%BA%90/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2018/06/%E5%B0%86Centos7%E7%9A%84yum%E6%BA%90%E6%9B%B4%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E9%98%BF%E9%87%8C%E4%BA%91%E7%9A%84%E6%BA%90/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>CentOS7默认的yum源的地址是<a target="_blank" rel="noopener" href="http://mirror.centos.org,需要把其换成国内的镜像,这样访问速度会更加快一些./">http://mirror.centos.org，需要把其换成国内的镜像，这样访问速度会更加快一些。</a></p>
-<ol>
-<li>备份系统默认的CentOS-Base.repo</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mv</span> /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>下载阿里云的repo文件</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> /etc/yum.repos.d/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wget -c http://mirrors.aliyun.com/repo/Centos-7.repo</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>生成缓存</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yum makecache</span></span><br><span class="line"></span><br><span class="line">已加载插件：fastestmirror, langpacks</span><br><span class="line">http://mirrors.aliyuncs.com/centos/7/os/x86_64/repodata/repomd.xml: [Errno 12] Timeout on http://mirrors.aliyuncs.com/centos/7/os/x86_64/repodata/repomd.xml: (28, &#x27;Connection timed out after 30181 milliseconds&#x27;)</span><br><span class="line">正在尝试其它镜像。</span><br><span class="line">base                                                     | 3.6 kB     00:00     </span><br><span class="line">extras                                                   | 3.4 kB     00:00     </span><br><span class="line">updates                                                  | 3.4 kB     00:00     </span><br><span class="line">(1/5): extras/7/x86_64/filelists_db                        | 519 kB   00:00     </span><br><span class="line">(2/5): extras/7/x86_64/other_db                            |  95 kB   00:00     </span><br><span class="line">(3/5): updates/7/x86_64/filelists_db                       | 1.3 MB   00:01     </span><br><span class="line">(4/5): base/7/x86_64/filelists_db                          | 6.9 MB   00:03     </span><br><span class="line">(5/5): extras/7/x86_64/prestodelta                         |  48 kB   00:11     </span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line"> * base: mirrors.aliyun.com</span><br><span class="line"> * extras: mirrors.aliyun.com</span><br><span class="line"> * updates: mirrors.aliyun.com</span><br><span class="line">元数据缓存已建立</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/05/MacOS-X%E5%AE%89%E8%A3%85MySQL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/05/MacOS-X%E5%AE%89%E8%A3%85MySQL/" class="post-title-link" itemprop="url">MacOS X安装MySQL</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-05-31 13:34:54" itemprop="dateCreated datePublished" datetime="2018-05-31T13:34:54+08:00">2018-05-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Database/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2018/05/MacOS-X%E5%AE%89%E8%A3%85MySQL/" class="post-meta-item leancloud_visitors" data-flag-title="MacOS X安装MySQL" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2018/05/MacOS-X%E5%AE%89%E8%A3%85MySQL/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2018/05/MacOS-X%E5%AE%89%E8%A3%85MySQL/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本文记录的是通过homebrew安装MySQL的过程</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">brew install mysql  // 安装</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">mysql.server start // 启动</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">mysql_secure_installation // 配置向导</span></span><br><span class="line"></span><br><span class="line">Securing the MySQL server deployment.</span><br><span class="line"></span><br><span class="line">Connecting to MySQL using a blank password.</span><br><span class="line"></span><br><span class="line">VALIDATE PASSWORD PLUGIN can be used to test passwords</span><br><span class="line">and improve security. It checks the strength of password</span><br><span class="line">and allows the users to set only those passwords which are</span><br><span class="line">secure enough. Would you like to setup VALIDATE PASSWORD plugin?</span><br><span class="line"></span><br><span class="line">Press y|Y for Yes, any other key for No: n</span><br><span class="line"></span><br><span class="line">Please set the password for root here.</span><br><span class="line"></span><br><span class="line">New password: ******</span><br><span class="line"></span><br><span class="line">Re-enter new password: ******</span><br><span class="line">By default, a MySQL installation has an anonymous user,</span><br><span class="line">allowing anyone to log into MySQL without having to have</span><br><span class="line">a user account created for them. This is intended only for</span><br><span class="line">testing, and to make the installation go a bit smoother.</span><br><span class="line">You should remove them before moving into a production</span><br><span class="line">environment.</span><br><span class="line"></span><br><span class="line">Remove anonymous users? (Press y|Y for Yes, any other key for No) : y</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Normally, root should only be allowed to connect from</span><br><span class="line">&#x27;localhost&#x27;. This ensures that someone cannot guess at</span><br><span class="line">the root password from the network.</span><br><span class="line"></span><br><span class="line">Disallow root login remotely? (Press y|Y for Yes, any other key for No) : n</span><br><span class="line"></span><br><span class="line"> ... skipping.</span><br><span class="line">By default, MySQL comes with a database named &#x27;test&#x27; that</span><br><span class="line">anyone can access. This is also intended only for testing,</span><br><span class="line">and should be removed before moving into a production</span><br><span class="line">environment.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Remove test database and access to it? (Press y|Y for Yes, any other key for No) : y</span><br><span class="line"> - Dropping test database...</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line"> - Removing privileges on test database...</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line">Reloading the privilege tables will ensure that all changes</span><br><span class="line">made so far will take effect immediately.</span><br><span class="line"></span><br><span class="line">Reload privilege tables now? (Press y|Y for Yes, any other key for No) : y</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line">All done! </span><br></pre></td></tr></table></figure>
-
-<p>查看配置文件my.cnf的位置</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">mysqld --<span class="built_in">help</span> --verbose | less</span></span><br><span class="line">...</span><br><span class="line">Default options are read from the following files in the given order:</span><br><span class="line">/etc/my.cnf /etc/mysql/my.cnf /usr/local/etc/my.cnf ~/.my.cnf </span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p>我们发现，在&#x2F;etc&#x2F;my.cnf文件并不存在。网上很多人说通过</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls $(brew --prefix mysql)/support-files/my-*</span><br></pre></td></tr></table></figure>
-<p>能查看到配置文件，然而并不能。当前我的版本是：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">brew info mysql</span></span><br><span class="line">mysql: stable 5.7.18 (bottled)</span><br><span class="line">Open source relational database management system</span><br><span class="line">https://dev.mysql.com/doc/refman/5.7/en/</span><br><span class="line">Conflicts with: mariadb, mariadb-connector-c, mysql-cluster, mysql-connector-c, percona-server</span><br><span class="line">/usr/local/Cellar/mysql/5.7.18_1 (320 files, 232.9MB) *</span><br><span class="line">  Poured from bottle on 2018-05-31 at 11:19:46</span><br><span class="line">From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/mysql.rb</span><br></pre></td></tr></table></figure>
-
-<p>my.cnf配置文件的正确位置是在&#x2F;usr&#x2F;local&#x2F;etc&#x2F;my.cnf</p>
 
       
     </div>

@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,257 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/Prometheus-monitoring-node-exporter%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/02/Prometheus-monitoring-node-exporter%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" class="post-title-link" itemprop="url">Prometheus monitoring/node-exporter监控指标</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-02-26 12:50:55" itemprop="dateCreated datePublished" datetime="2020-02-26T12:50:55+08:00">2020-02-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/02/Prometheus-monitoring-node-exporter%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" class="post-meta-item leancloud_visitors" data-flag-title="Prometheus monitoring/node-exporter监控指标" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/02/Prometheus-monitoring-node-exporter%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/02/Prometheus-monitoring-node-exporter%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>通过<code>kube-prometheus</code>安装的k8s监控系统。</p>
+<p>在targets页面，我们来分析一下<code>monitoring/node-exporter/</code>的这个Targets。</p>
+<img src="/2020/02/Prometheus-monitoring-node-exporter%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/prom-node-exporter-metrics.png" class="">
+
+<p><code>node-exporter-serviceMonitor.yaml</code>内容：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">monitoring.coreos.com/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ServiceMonitor</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">node-exporter</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">node-exporter</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">monitoring</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">endpoints:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">bearerTokenFile:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line">    <span class="attr">interval:</span> <span class="string">30s</span></span><br><span class="line">    <span class="attr">port:</span> <span class="string">https</span></span><br><span class="line">    <span class="attr">relabelings:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">action:</span> <span class="string">replace</span></span><br><span class="line">      <span class="attr">regex:</span> <span class="string">(.*)</span></span><br><span class="line">      <span class="attr">replacment:</span> <span class="string">$1</span></span><br><span class="line">      <span class="attr">sourceLabels:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">__meta_kubernetes_pod_node_name</span></span><br><span class="line">      <span class="attr">targetLabel:</span> <span class="string">instance</span></span><br><span class="line">    <span class="attr">scheme:</span> <span class="string">https</span></span><br><span class="line">    <span class="attr">tlsConfig:</span></span><br><span class="line">      <span class="attr">insecureSkipVerify:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">jobLabel:</span> <span class="string">k8s-app</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">k8s-app:</span> <span class="string">node-exporter</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="monitoring-node-exporter-0"><a href="#monitoring-node-exporter-0" class="headerlink" title="monitoring&#x2F;node-exporter&#x2F;0"></a>monitoring&#x2F;node-exporter&#x2F;0</h2><p>Endpoint: <code>https://172.16.64.233:9100/metrics</code></p>
+<p>查看Configuration页面，发现是以role <code>endpoints</code>做为自动服务发现的</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">monitoring/node-exporter/0</span></span><br><span class="line">  <span class="attr">honor_timestamps:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">scrape_interval:</span> <span class="string">30s</span></span><br><span class="line">  <span class="attr">scrape_timeout:</span> <span class="string">10s</span></span><br><span class="line">  <span class="attr">metrics_path:</span> <span class="string">/metrics</span></span><br><span class="line">  <span class="attr">scheme:</span> <span class="string">https</span></span><br><span class="line">  <span class="attr">kubernetes_sd_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">endpoints</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure>
+
+<p>获取token</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get secret prometheus-k8s-token-sm6gd -n monitoring -o template=&#123;&#123;.data.token&#125;&#125; | base64 -d</span><br></pre></td></tr></table></figure>
+
+<p>通过template获取secret里面的值，要通过base64解密一下的。</p>
+<p>指标大部分以<code>node_</code>开始<br>少许几个以<code>promhttp_metric_</code>开始的指标。</p>
+<p>指标<code>node-exporter-node0.txt</code> <a href="/2020/02/Prometheus-monitoring-node-exporter%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/node-exporter-node0.txt" title="点击查看">点击查看</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/Prometheus-monitoring-kubelet%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/02/Prometheus-monitoring-kubelet%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" class="post-title-link" itemprop="url">Prometheus monitoring/kubelet监控指标</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-02-25 23:40:07" itemprop="dateCreated datePublished" datetime="2020-02-25T23:40:07+08:00">2020-02-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/02/Prometheus-monitoring-kubelet%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" class="post-meta-item leancloud_visitors" data-flag-title="Prometheus monitoring/kubelet监控指标" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/02/Prometheus-monitoring-kubelet%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/02/Prometheus-monitoring-kubelet%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>通过<code>kube-prometheus</code>安装的k8s监控系统。</p>
+<p>在targets页面，我们来分析一下<code>monitoring/kubelet/</code>的两个Targets。</p>
+<img src="/2020/02/Prometheus-monitoring-kubelet%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/prom-kubelet.png" class="">
+
+<p><code>prometheus-serviceMonitorKubelet.yaml</code>内容：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">monitoring.coreos.com/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ServiceMonitor</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">kubelet</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubelet</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">monitoring</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">endpoints:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">bearerTokenFile:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line">    <span class="attr">honorLabels:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">interval:</span> <span class="string">30s</span></span><br><span class="line">    <span class="attr">port:</span> <span class="string">https-metrics</span></span><br><span class="line">    <span class="attr">scheme:</span> <span class="string">https</span></span><br><span class="line">    <span class="attr">tlsConfig:</span></span><br><span class="line">      <span class="attr">insecureSkipVerify:</span> <span class="literal">true</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">bearerTokenFile:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line">    <span class="attr">honorLabels:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">interval:</span> <span class="string">30s</span></span><br><span class="line">    <span class="attr">metricRelabelings:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">action:</span> <span class="string">drop</span></span><br><span class="line">      <span class="attr">regex:</span> <span class="string">container_(network_tcp_usage_total|network_udp_usage_total|tasks_state|cpu_load_average_10s)</span></span><br><span class="line">      <span class="attr">sourceLabels:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">__name__</span></span><br><span class="line">    <span class="attr">path:</span> <span class="string">/metrics/cadvisor</span></span><br><span class="line">    <span class="attr">port:</span> <span class="string">https-metrics</span></span><br><span class="line">    <span class="attr">scheme:</span> <span class="string">https</span></span><br><span class="line">    <span class="attr">tlsConfig:</span></span><br><span class="line">      <span class="attr">insecureSkipVerify:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">jobLabel:</span> <span class="string">k8s-app</span></span><br><span class="line">  <span class="attr">namespaceSelector:</span></span><br><span class="line">    <span class="attr">matchNames:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">kube-system</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">k8s-app:</span> <span class="string">kubelet</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="monitoring-kubelet-0"><a href="#monitoring-kubelet-0" class="headerlink" title="monitoring&#x2F;kubelet&#x2F;0"></a>monitoring&#x2F;kubelet&#x2F;0</h2><p>Endpoint: <code>https://172.16.64.232:10250/metrics</code></p>
+<p>指标以<code>kubelet_</code>开始<br><code>apiserver_</code><br><code>http_request_</code><br><code>http_request_</code><br><code>rest_client_request_</code><br><code>storage_operation_</code><br><code>volume_manager_</code></p>
+<p>指标<code>kubelet-0-0.txt</code> <a href="/2020/02/Prometheus-monitoring-kubelet%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/kubelet-0-0.txt" title="点击查看">点击查看</a> </p>
+<h2 id="monitoring-kubelet-1"><a href="#monitoring-kubelet-1" class="headerlink" title="monitoring&#x2F;kubelet&#x2F;1"></a>monitoring&#x2F;kubelet&#x2F;1</h2><p>Endpoint: <code>https://172.16.64.232:10250/metrics/cadvisor</code></p>
+<p>使用的自动发现role为<code>endpoints</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">monitoring/kubelet/1</span></span><br><span class="line">  <span class="attr">honor_labels:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">honor_timestamps:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">scrape_interval:</span> <span class="string">30s</span></span><br><span class="line">  <span class="attr">scrape_timeout:</span> <span class="string">10s</span></span><br><span class="line">  <span class="attr">metrics_path:</span> <span class="string">/metrics/cadvisor</span></span><br><span class="line">  <span class="attr">scheme:</span> <span class="string">https</span></span><br><span class="line">  <span class="attr">kubernetes_sd_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">endpoints</span></span><br></pre></td></tr></table></figure>
+
+<p>包含一个<code>cadvisor_version_info</code>指标可以查看<code>cadvisor</code>的版本信息。<br>其他指标以<code>container_</code>开始</p>
+<p>指标<code>kubelet-1-0.txt</code> <a href="/2020/02/Prometheus-monitoring-kubelet%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/kubelet-1-0.txt" title="点击查看">点击查看</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -328,252 +579,6 @@
 <h2 id="monitoring-kube-state-metrics-1"><a href="#monitoring-kube-state-metrics-1" class="headerlink" title="monitoring&#x2F;kube-state-metrics&#x2F;1"></a>monitoring&#x2F;kube-state-metrics&#x2F;1</h2><p>Endpoint: <code>https://10.244.36.69:9443/metrics</code></p>
 <p>指标为<code>go</code>系统级别指标。</p>
 <p>同理可得其指标。<code>kube-state-metrics-1.txt</code> <a href="/2020/02/Prometheus-monitoring-kube-state-metrics%E7%9B%91%E6%8E%A7%E6%8C%87%E6%A0%87/kube-state-metrics-1.txt" title="点击查看">点击查看</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%88%A0%E9%99%A4%E8%A1%8C%E4%B8%AD%E4%BB%8E%E6%9F%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BC%80%E5%A7%8B%E7%9A%84%E6%89%80%E6%9C%89%E5%86%85%E5%AE%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%88%A0%E9%99%A4%E8%A1%8C%E4%B8%AD%E4%BB%8E%E6%9F%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BC%80%E5%A7%8B%E7%9A%84%E6%89%80%E6%9C%89%E5%86%85%E5%AE%B9/" class="post-title-link" itemprop="url">正则表达式删除行中从某字符串开始的所有内容</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-02-25 12:21:37" itemprop="dateCreated datePublished" datetime="2020-02-25T12:21:37+08:00">2020-02-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Regex/" itemprop="url" rel="index"><span itemprop="name">Regex</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%88%A0%E9%99%A4%E8%A1%8C%E4%B8%AD%E4%BB%8E%E6%9F%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BC%80%E5%A7%8B%E7%9A%84%E6%89%80%E6%9C%89%E5%86%85%E5%AE%B9/" class="post-meta-item leancloud_visitors" data-flag-title="正则表达式删除行中从某字符串开始的所有内容" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%88%A0%E9%99%A4%E8%A1%8C%E4%B8%AD%E4%BB%8E%E6%9F%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BC%80%E5%A7%8B%E7%9A%84%E6%89%80%E6%9C%89%E5%86%85%E5%AE%B9/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%88%A0%E9%99%A4%E8%A1%8C%E4%B8%AD%E4%BB%8E%E6%9F%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BC%80%E5%A7%8B%E7%9A%84%E6%89%80%E6%9C%89%E5%86%85%E5%AE%B9/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>假如一行的内容如下：</p>
-<p><code>开始 [Hello] 192.168.0.1</code></p>
-<p>我们要删除<code>开始</code>后面所有的内容。</p>
-<p>通过Nodepad++的替换功能，查找模式选择<code>正则表达式</code>。</p>
-<p>查找目标：<code> \[Hello\].*</code></p>
-<p>替换为空格即可。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/02/mac%E4%B8%BB%E6%9C%BA%E5%BE%85%E6%9C%BA%E5%90%8E%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E9%97%B4%E4%B8%8D%E7%BB%9F%E4%B8%80%E7%9A%84%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/02/mac%E4%B8%BB%E6%9C%BA%E5%BE%85%E6%9C%BA%E5%90%8E%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E9%97%B4%E4%B8%8D%E7%BB%9F%E4%B8%80%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">mac主机待机后和虚拟机时间不统一的问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-02-22 20:45:50" itemprop="dateCreated datePublished" datetime="2020-02-22T20:45:50+08:00">2020-02-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OS/MacOS/" itemprop="url" rel="index"><span itemprop="name">MacOS</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/02/mac%E4%B8%BB%E6%9C%BA%E5%BE%85%E6%9C%BA%E5%90%8E%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E9%97%B4%E4%B8%8D%E7%BB%9F%E4%B8%80%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="mac主机待机后和虚拟机时间不统一的问题" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/02/mac%E4%B8%BB%E6%9C%BA%E5%BE%85%E6%9C%BA%E5%90%8E%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E9%97%B4%E4%B8%8D%E7%BB%9F%E4%B8%80%E7%9A%84%E9%97%AE%E9%A2%98/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/02/mac%E4%B8%BB%E6%9C%BA%E5%BE%85%E6%9C%BA%E5%90%8E%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E9%97%B4%E4%B8%8D%E7%BB%9F%E4%B8%80%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>macOS安装的Vmware Fusion，然后安装了数台CentOS虚拟机。</p>
-<p>在mac主机待机和休眠后，虚拟机的时间老是不能和主机保持统一，虚拟机就是不是最新的时间，集群就会出问题。</p>
-<p>解决方法就是安装<code>Vmware Tools</code>。</p>
-<p>在VMware Fusion中，选中虚拟机，点击菜单<code>虚拟机</code> -&gt; <code>安装VMware Tools</code>。相当于在虚拟机里插入了安装软件的光盘。</p>
-<img src="/2020/02/mac%E4%B8%BB%E6%9C%BA%E5%BE%85%E6%9C%BA%E5%90%8E%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E9%97%B4%E4%B8%8D%E7%BB%9F%E4%B8%80%E7%9A%84%E9%97%AE%E9%A2%98/vmware-tools.png" class="">
-
-<p>在mac主机环境下，在CentOS7虚拟机里面安装VMware Tools。如果是在Windows主机环境下安装Vmware Tools，请参考：<a href="/2020/01/Windows%E4%B8%BB%E6%9C%BA%E7%8E%AF%E5%A2%83CentOS7%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85VMware-Tools/" title="Windows主机环境CentOS7虚拟机安装VMware Tools">Windows主机环境CentOS7虚拟机安装VMware Tools</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">mount /dev/cdrom /mnt</span></span><br><span class="line">mount: /dev/sr0 写保护，将以只读方式挂载</span><br></pre></td></tr></table></figure>
-
-<p>拷贝安装文件并解压。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">tar -xvf /mnt/VMwareTools-10.3.10-13959562.tar.gz -C /tmp/</span></span><br></pre></td></tr></table></figure>
-
-<p>安装</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">/tmp/vmware-tools-distrib/vmware-install.pl</span></span><br></pre></td></tr></table></figure>
-
-<p>如果报如下错误：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># /tmp/vmware-tools-distrib/vmware-install.pl</span><br><span class="line">-bash: /tmp/vmware-tools-distrib/vmware-install.pl: /usr/bin/perl: 坏的解释器: 没有那个文件或目录</span><br></pre></td></tr></table></figure>
-
-<p>安装一下perl就可以了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">yum install -y perl</span></span><br></pre></td></tr></table></figure>
-
-<p>再次安装</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">/tmp/vmware-tools-distrib/vmware-install.pl</span></span><br><span class="line">open-vm-tools packages are available from the OS vendor and VMware recommends</span><br><span class="line">using open-vm-tools packages. See http://kb.vmware.com/kb/2073803 for more</span><br><span class="line">information.</span><br><span class="line">Do you still want to proceed with this installation? [no] yes</span><br></pre></td></tr></table></figure>
-
-<p>然后一路回车即可。</p>
-<p>此时，可发现哪怕主机休眠或待机后，虚拟机的时间也和主机保持一致，为最新时间了。</p>
 
       
     </div>

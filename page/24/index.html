@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,243 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/03/TCP-IP%E7%9B%B8%E5%85%B3%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/TCP-IP%E7%9B%B8%E5%85%B3%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/" class="post-title-link" itemprop="url">TCP/IP相关初步认识</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-20 18:45:10" itemprop="dateCreated datePublished" datetime="2022-03-20T18:45:10+08:00">2022-03-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+
+  
+    <span id="/2022/03/TCP-IP%E7%9B%B8%E5%85%B3%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/" class="post-meta-item leancloud_visitors" data-flag-title="TCP/IP相关初步认识" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/03/TCP-IP%E7%9B%B8%E5%85%B3%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/03/TCP-IP%E7%9B%B8%E5%85%B3%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>nc 用于和服务器建立连接。</p>
+<p>在Ubuntu上面做实验</p>
+<p>启动一个终端</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">nc www.baidu.com 80</span></span><br></pre></td></tr></table></figure>
+
+<p>再开启另一个终端</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">netstat -antp</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    </span><br><span class="line">tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      -                   </span><br><span class="line">tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   </span><br><span class="line">tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                   </span><br><span class="line">tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      -                   </span><br><span class="line">tcp        0      0 127.0.0.1:39351         0.0.0.0:*               LISTEN      -                   </span><br><span class="line">tcp        0      0 172.16.64.227:33574     111.3.88.228:80         TIME_WAIT   -                   </span><br><span class="line">tcp        0      0 172.16.64.227:48534     36.152.44.95:80         ESTABLISHED 3366/nc </span><br></pre></td></tr></table></figure>
+
+<p>可以看到最后一行，已经建立了一个TCP连接。</p>
+<p>在刚才连接好百度服务器的终端上面，按http协议，请求百度首页。<code>GET / HTTP/1.0</code>并连续输入两个回车。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">nc www.baidu.com 80</span></span><br><span class="line">GET / HTTP/1.0</span><br><span class="line"></span><br><span class="line">HTTP/1.0 200 OK</span><br><span class="line">Accept-Ranges: bytes</span><br><span class="line">Cache-Control: no-cache</span><br><span class="line">Content-Length: 9508</span><br><span class="line">Content-Type: text/html</span><br><span class="line">Date: Sun, 20 Mar 2022 05:48:08 GMT</span><br><span class="line">P3p: CP=&quot; OTI DSP COR IVA OUR IND COM &quot;</span><br><span class="line">P3p: CP=&quot; OTI DSP COR IVA OUR IND COM &quot;</span><br><span class="line">Pragma: no-cache</span><br><span class="line">Server: BWS/1.1</span><br><span class="line">Set-Cookie: BAIDUID=D9BC4FD3680ED7E670988E2B1D948396:FG=1; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com</span><br><span class="line">Set-Cookie: BIDUPSID=D9BC4FD3680ED7E670988E2B1D948396; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com</span><br><span class="line">Set-Cookie: PSTM=1647755288; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com</span><br><span class="line">Set-Cookie: BAIDUID=D9BC4FD3680ED7E6F640384383D296BE:FG=1; max-age=31536000; expires=Mon, 20-Mar-23 05:48:08 GMT; domain=.baidu.com; path=/; version=1; comment=bd</span><br><span class="line">Traceid: 1647755288023296769011190918765782309790</span><br><span class="line">Vary: Accept-Encoding</span><br><span class="line">X-Frame-Options: sameorigin</span><br><span class="line">X-Ua-Compatible: IE=Edge,chrome=1</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;&lt;meta content=&quot;always&quot; name=&quot;referrer&quot;&gt;&lt;meta name=&quot;description&quot; content=&quot;全球领先的中文搜索引擎、致力于让网民更便捷地获取信息，找到所求。百度超过千亿的中文网页数据库，可以瞬间找到相关的搜索结果。&quot;&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>写一个SocketDemo Server端程序，开启一个监听。</p>
+<p>-ff 追踪线程和子线程<br>-o output</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">strace -ff -o ./out java SocketDemo</span> </span><br></pre></td></tr></table></figure>
+
+<p>通过jps或netstat可以看到一个pid</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> /proc/[pid]</span></span><br></pre></td></tr></table></figure>
+
+<p>在<code>fd</code>目录下面，可以看到开启了多少个IO。</p>
+<p>io流<br>&#x2F;dev&#x2F;pts&#x2F;0 标准输入<br>&#x2F;dev&#x2F;pts&#x2F;1 标准输出<br>&#x2F;dev&#x2F;pts&#x2F;2 标准报错</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ulimit -a</span><br></pre></td></tr></table></figure>
+
+<p>open files 1024</p>
+<p>在<code>task</code>目录，显示所有的线程</p>
+<p>追踪一下redis的多路复用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">strace -ff -o ./redis-out bin/redis-server config/server.properties</span></span><br></pre></td></tr></table></figure>
+
+<p>通过netstat查看进程监听状态<br>通过&#x2F;proc&#x2F;[pid]查看 fd 和 task，可以看到redis是多线程的。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/03/%E8%A7%A3%E5%86%B3cannot-import-name-Qsci-from-PyQt5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/%E8%A7%A3%E5%86%B3cannot-import-name-Qsci-from-PyQt5/" class="post-title-link" itemprop="url">解决cannot import name 'Qsci' from 'PyQt5'</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-16 23:19:22" itemprop="dateCreated datePublished" datetime="2022-03-16T23:19:22+08:00">2022-03-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2022/03/%E8%A7%A3%E5%86%B3cannot-import-name-Qsci-from-PyQt5/" class="post-meta-item leancloud_visitors" data-flag-title="解决cannot import name 'Qsci' from 'PyQt5'" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/03/%E8%A7%A3%E5%86%B3cannot-import-name-Qsci-from-PyQt5/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/03/%E8%A7%A3%E5%86%B3cannot-import-name-Qsci-from-PyQt5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Windows 10 安装 vnpy 2.7.0，报错：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;run.py&quot;, line 5, in &lt;module&gt;</span><br><span class="line">    from vnpy.trader.ui import MainWindow, create_qapp</span><br><span class="line">  File &quot;C:\ProgramData\Miniconda3\lib\site-packages\vnpy\trader\ui\__init__.py&quot;, line 11, in &lt;module&gt;</span><br><span class="line">    from .mainwindow import MainWindow</span><br><span class="line">  File &quot;C:\ProgramData\Miniconda3\lib\site-packages\vnpy\trader\ui\mainwindow.py&quot;, line 28, in &lt;module&gt;</span><br><span class="line">    from .editor import CodeEditor</span><br><span class="line">  File &quot;C:\ProgramData\Miniconda3\lib\site-packages\vnpy\trader\ui\editor.py&quot;, line 4, in &lt;module&gt;</span><br><span class="line">    from PyQt5 import QtWidgets, Qsci, QtGui</span><br><span class="line">ImportError: cannot import name &#x27;Qsci&#x27; from &#x27;PyQt5&#x27; (C:\ProgramData\Miniconda3\lib\site-packages\PyQt5\__init__.py)</span><br></pre></td></tr></table></figure>
+
+<p>解决方案：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install QScintilla</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -312,240 +549,6 @@
 <p><code>tencent/MicroMsg/WeiXin</code></p>
 <h2 id="备份聊天数据"><a href="#备份聊天数据" class="headerlink" title="备份聊天数据"></a>备份聊天数据</h2><p>装一个微信电脑版本，上面有备份聊天记录的功能。</p>
 <p>微信还有一个自带的清除缓存的功能，可以降低很多空间，而且聊天记录还保存着，只是历史的图片打不开了。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/03/python-plotly%E7%94%BB%E4%B8%A4%E4%B8%AAy%E8%BD%B4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/python-plotly%E7%94%BB%E4%B8%A4%E4%B8%AAy%E8%BD%B4/" class="post-title-link" itemprop="url">python plotly画两个y轴</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-03-12 19:05:15" itemprop="dateCreated datePublished" datetime="2022-03-12T19:05:15+08:00">2022-03-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2022/03/python-plotly%E7%94%BB%E4%B8%A4%E4%B8%AAy%E8%BD%B4/" class="post-meta-item leancloud_visitors" data-flag-title="python plotly画两个y轴" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2022/03/python-plotly%E7%94%BB%E4%B8%A4%E4%B8%AAy%E8%BD%B4/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2022/03/python-plotly%E7%94%BB%E4%B8%A4%E4%B8%AAy%E8%BD%B4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>使用 plotly 画图的时候，如果有两个指标的数值相差很大时，这时候需要y轴拆分成两个，这样能更清楚的看到两个指标的关系。</p>
-<p>下面代码展示了跨期价差套利的图像。</p>
-<img src="/2022/03/python-plotly%E7%94%BB%E4%B8%A4%E4%B8%AAy%E8%BD%B4/spread.png" class="">
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> plotly.graph_objects <span class="keyword">as</span> go</span><br><span class="line"><span class="keyword">from</span> plotly.subplots <span class="keyword">import</span> make_subplots</span><br><span class="line"></span><br><span class="line">ih2106 = go.Scatter(</span><br><span class="line">    x=data.index,</span><br><span class="line">    y=data[<span class="string">&quot;IH2106&quot;</span>],</span><br><span class="line">    name=<span class="string">&quot;IH2106&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">ih2109 = go.Scatter(</span><br><span class="line">    x=data.index,</span><br><span class="line">    y=data[<span class="string">&quot;IH2109&quot;</span>],</span><br><span class="line">    name=<span class="string">&quot;IH2109&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">spread = go.Scatter(</span><br><span class="line">    x=data.index,</span><br><span class="line">    y=data[<span class="string">&quot;spread&quot;</span>],</span><br><span class="line">    name=<span class="string">&quot;spread&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">fig = make_subplots(specs=[[&#123;<span class="string">&quot;secondary_y&quot;</span>: <span class="literal">True</span>&#125;]])</span><br><span class="line">fig.add_trace(ih2106)</span><br><span class="line">fig.add_trace(ih2109)</span><br><span class="line">fig.add_trace(spread, secondary_y=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/03/pip%E5%9B%BD%E5%86%85%E6%BA%90%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/pip%E5%9B%BD%E5%86%85%E6%BA%90%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">pip国内源配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-03-10 20:52:44" itemprop="dateCreated datePublished" datetime="2022-03-10T20:52:44+08:00">2022-03-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2022/03/pip%E5%9B%BD%E5%86%85%E6%BA%90%E9%85%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="pip国内源配置" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2022/03/pip%E5%9B%BD%E5%86%85%E6%BA%90%E9%85%8D%E7%BD%AE/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2022/03/pip%E5%9B%BD%E5%86%85%E6%BA%90%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>通过pip安装软件，使用默认源的时候，往往下载速度很慢，所以需要配置到国内的源。</p>
-<p>临时安装某个包。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package</span><br></pre></td></tr></table></figure>
-
-<p>设为默认配置：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
-
-<p>会生成一个配置文件，在macOS下面的位置如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.config/pip/pip.conf</span><br></pre></td></tr></table></figure>
-
-<p>内容为：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
-
-<p>再更新<code>pip</code>本身：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pip -U    # 更新pip</span><br></pre></td></tr></table></figure>
-
-<p>临时使用某个镜像。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U</span><br></pre></td></tr></table></figure>
 
       
     </div>

@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,265 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/" class="post-title-link" itemprop="url">SpringMVC使用ResponseBody返回json时中文乱码</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-05-19 14:35:02" itemprop="dateCreated datePublished" datetime="2018-05-19T14:35:02+08:00">2018-05-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/SpringMVC/" itemprop="url" rel="index"><span itemprop="name">SpringMVC</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/" class="post-meta-item leancloud_visitors" data-flag-title="SpringMVC使用ResponseBody返回json时中文乱码" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/05/SpringMVC%E4%BD%BF%E7%94%A8ResponseBody%E8%BF%94%E5%9B%9Ejson%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在SpringMVC中的Controller中，返回非String类时，不会遇到这种情况。但返回为String时，中文有可能会变成乱码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StringHttpMessageConverter</span> <span class="keyword">extends</span> <span class="title class_">AbstractHttpMessageConverter</span>&lt;String&gt; &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Charset</span> <span class="variable">DEFAULT_CHARSET</span> <span class="operator">=</span> Charset.forName(<span class="string">&quot;ISO-8859-1&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>转换器的默认编码是ISO-8859-1，而非UTF-8。</p>
+<p>解决办法</p>
+<ol>
+<li>使用（produces &#x3D; “application&#x2F;json; charset&#x3D;utf-8”）</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value = &quot;/xxx&quot;, produces = &quot;produces=MediaType.APPLICATION_JSON_VALUE + &quot;;charset=utf-8&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">fun</span><span class="params">()</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在spring-mvc.xml中添加：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 处理请求返回json字符串的中文乱码问题 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:annotation-driven</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">mvc:message-converters</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.http.converter.StringHttpMessageConverter&quot;</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;supportedMediaTypes&quot;</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="name">value</span>&gt;</span>application/json;charset=UTF-8<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mvc:message-converters</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mvc:annotation-driven</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/05/Java%E4%B8%AD%E7%9A%84Integer%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%EF%BC%88-2-32-2-31-1%EF%BC%89%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/05/Java%E4%B8%AD%E7%9A%84Integer%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%EF%BC%88-2-32-2-31-1%EF%BC%89%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">Java中的Integer取值范围（-2^32 ~ 2^31 - 1）分析</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-05-19 00:16:23" itemprop="dateCreated datePublished" datetime="2018-05-19T00:16:23+08:00">2018-05-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2018/05/Java%E4%B8%AD%E7%9A%84Integer%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%EF%BC%88-2-32-2-31-1%EF%BC%89%E5%88%86%E6%9E%90/" class="post-meta-item leancloud_visitors" data-flag-title="Java中的Integer取值范围（-2^32 ~ 2^31 - 1）分析" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/05/Java%E4%B8%AD%E7%9A%84Integer%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%EF%BC%88-2-32-2-31-1%EF%BC%89%E5%88%86%E6%9E%90/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/05/Java%E4%B8%AD%E7%9A%84Integer%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%EF%BC%88-2-32-2-31-1%EF%BC%89%E5%88%86%E6%9E%90/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在Java中Integer的最小值（MIN_VALUE）、最大值（MAX_VALUE）定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * A constant holding the minimum value an &#123;<span class="doctag">@code</span> int&#125; can</span></span><br><span class="line"><span class="comment">  * have, -2&lt;sup&gt;31&lt;/sup&gt;.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="meta">@Native</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span>   <span class="variable">MIN_VALUE</span> <span class="operator">=</span> <span class="number">0x80000000</span>;</span><br><span class="line"></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * A constant holding the maximum value an &#123;<span class="doctag">@code</span> int&#125; can</span></span><br><span class="line"><span class="comment">  * have, 2&lt;sup&gt;31&lt;/sup&gt;-1.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="meta">@Native</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span>   <span class="variable">MAX_VALUE</span> <span class="operator">=</span> <span class="number">0x7fffffff</span>;</span><br></pre></td></tr></table></figure>
+
+<p>我们大家都知道Integer的最小值为-2^32，最大值为2^32-1，为什么是这样呢，我们来看看推导过程：</p>
+<h1 id="Integer-实际占用的二进制码的位数"><a href="#Integer-实际占用的二进制码的位数" class="headerlink" title="Integer 实际占用的二进制码的位数"></a>Integer 实际占用的二进制码的位数</h1><p>一个 Integer 类型占 4 字节，一个字节占 8 位二进制码，因此一个 Integer 总共占 32 位二进制码。去除第一位的符号位，剩下 31 位来表示数值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MIN_VALUE = 0x80000000;  // 补码</span><br><span class="line">MAX_VALUE = 0x7fffffff;  // 补码</span><br></pre></td></tr></table></figure>
+
+<h1 id="原码、反码、补码"><a href="#原码、反码、补码" class="headerlink" title="原码、反码、补码"></a>原码、反码、补码</h1><p>在计算机中，数据是由二进制补码进行存储的，在 Java 代码中我们看到的 “0x80000000”、“0x7fffffff”，这些非10进制的数，都是以补码的形式存在的，通过转换成原码，我们才能知道其真实的值。</p>
+<p>原码转换成补码的公式：（用“|“来分隔每个字节，8位）</p>
+<ol>
+<li>当原码为正数时，反码和补码与原码相同。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">正数：1</span><br><span class="line">原码：0000 0000 | 0000 0000 | 0000 0000 | 0000 0001</span><br><span class="line">反码：0000 0000 | 0000 0000 | 0000 0000 | 0000 0001</span><br><span class="line">补码：0000 0000 | 0000 0000 | 0000 0000 | 0000 0001</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>当原码为负数时，反码为其绝对值按位全部取反（包括符号位），补码为反码加1。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">负数：-1</span><br><span class="line">原码：1000 0000 | 0000 0000 | 0000 0000 | 0000 0001</span><br><span class="line">反码：1111 1111 | 1111 1111 | 1111 1111 | 1111 1110</span><br><span class="line">补码：1111 1111 | 1111 1111 | 1111 1111 | 1111 1111</span><br></pre></td></tr></table></figure>
+
+
+<p>因此在程序中，我们定义16进制整形数时，0x00000001表示1，0xffffffff表示-1。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0x00000001</span>;</span><br><span class="line">System.out.println(i);</span><br><span class="line"><span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="type">Integer</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0xffffffff</span>;</span><br><span class="line">System.out.println(j);</span><br><span class="line">-<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="最大值为什么是-2-31-1，而不是-2-31"><a href="#最大值为什么是-2-31-1，而不是-2-31" class="headerlink" title="最大值为什么是 2^31-1，而不是 2^31"></a>最大值为什么是 2^31-1，而不是 2^31</h1><p>计算机中可表示的整数最大值的补码为 0111 1111 | 1111 1111 | 1111 1111 | 1111 1111 (0x7fffffff)，正数的补码与原码一致，转换为10进制数为2^31-1 &#x3D; 2147483647</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">k</span> <span class="operator">=</span> Integer.valueOf(<span class="string">&quot;01111111111111111111111111111111&quot;</span>, <span class="number">2</span>);</span><br><span class="line">System.out.println(k);</span><br><span class="line"><span class="number">2147483647</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="最小值为什么是-2-31，而不是-（2-31-1）"><a href="#最小值为什么是-2-31，而不是-（2-31-1）" class="headerlink" title="最小值为什么是 -2^31，而不是 -（2^31-1）"></a>最小值为什么是 -2^31，而不是 -（2^31-1）</h1><p>我们依次推算负数值，如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">负数：-1</span><br><span class="line">原码：1000 0000 | 0000 0000 | 0000 0000 | 0000 0001</span><br><span class="line">反码：1111 1111 | 1111 1111 | 1111 1111 | 1111 1110</span><br><span class="line">补码：1111 1111 | 1111 1111 | 1111 1111 | 1111 1111</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">负数：-2</span><br><span class="line">原码：1000 0000 | 0000 0000 | 0000 0000 | 0000 0010</span><br><span class="line">反码：1111 1111 | 1111 1111 | 1111 1111 | 1111 1101</span><br><span class="line">补码：1111 1111 | 1111 1111 | 1111 1111 | 1111 1110</span><br></pre></td></tr></table></figure>
+
+<p>观察补码的变化规律，可以推断最小的补码为：<br>1000 0000 | 0000 0000 | 0000 0000 | 0000 0000<br>(0x80000000)<br>反码为被码-1（符号位除外）<br>1111 1111 | 1111 1111 | 1111 1111 | 1111 1111<br>负数的原码为反码除符号位取反<br>1000 0000 | 0000 0000 | 0000 0000 | 0000 0000<br>为-0，约定为-2^31 &#x3D; -2147483648</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -423,223 +682,6 @@
 <h1 id="多线程的使用"><a href="#多线程的使用" class="headerlink" title="多线程的使用"></a>多线程的使用</h1><p>有效利用多线程的关键是理解程序是并发执行而不是串行执行的。例如：程序中有两个子系统需要并发执行，这时候就需要利用多线程编程。</p>
 <p>通过对多线程的使用，可以编写出非常高效的程序。不过请注意，如果你创建太多的线程，程序执行的效率实际上是降低了，而不是提升了。</p>
 <p>请记住，上下文的切换开销也很重要，如果你创建了太多的线程，CPU 花费在上下文的切换的时间将多于执行程序的时间！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/04/CentOS-7-%E5%A6%82%E4%BD%95%E5%85%B3%E6%9C%BA%E9%87%8D%E5%90%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/04/CentOS-7-%E5%A6%82%E4%BD%95%E5%85%B3%E6%9C%BA%E9%87%8D%E5%90%AF/" class="post-title-link" itemprop="url">CentOS 7 如何关机重启</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-04-16 15:09:06" itemprop="dateCreated datePublished" datetime="2018-04-16T15:09:06+08:00">2018-04-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2018/04/CentOS-7-%E5%A6%82%E4%BD%95%E5%85%B3%E6%9C%BA%E9%87%8D%E5%90%AF/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS 7 如何关机重启" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2018/04/CentOS-7-%E5%A6%82%E4%BD%95%E5%85%B3%E6%9C%BA%E9%87%8D%E5%90%AF/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2018/04/CentOS-7-%E5%A6%82%E4%BD%95%E5%85%B3%E6%9C%BA%E9%87%8D%E5%90%AF/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>如果要关机，必须保证当前系统中没有其他用户在登录系统。我们可以使用<code>who</code>命令查看是否还有其他人登录，或者使用命令<code>ps -aux</code>查看是否还有后台进程运行。</p>
-<p><code>shutdown</code>，<code>halt</code>，<code>poweroff</code>都为关机的命令，我们可以使用命令<code>man shutdown</code>查看其帮助文档。例如，我们运行如下命令关机。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">shutdown -h 10        #计算机将于10分钟后关闭，且会显示在登录用户的当前屏幕中</span><br><span class="line"></span><br><span class="line">shutdown -h now       #计算机会立刻关机</span><br><span class="line"></span><br><span class="line">shutdown -h 22:22     #计算机会在这个时刻关机</span><br><span class="line"></span><br><span class="line">shutdown -r now       #计算机会立刻重启</span><br><span class="line"></span><br><span class="line">shutdown -r +10       #计算机会将于10分钟后重启</span><br><span class="line"></span><br><span class="line">reboot                #重启</span><br><span class="line"></span><br><span class="line">halt                  #关机</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/04/Set%E5%92%8CList%E7%9A%84%E9%9B%86%E5%90%88%E6%93%8D%E4%BD%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/04/Set%E5%92%8CList%E7%9A%84%E9%9B%86%E5%90%88%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">Set和List的集合操作</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-04-14 22:46:38" itemprop="dateCreated datePublished" datetime="2018-04-14T22:46:38+08:00">2018-04-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2018/04/Set%E5%92%8CList%E7%9A%84%E9%9B%86%E5%90%88%E6%93%8D%E4%BD%9C/" class="post-meta-item leancloud_visitors" data-flag-title="Set和List的集合操作" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2018/04/Set%E5%92%8CList%E7%9A%84%E9%9B%86%E5%90%88%E6%93%8D%E4%BD%9C/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2018/04/Set%E5%92%8CList%E7%9A%84%E9%9B%86%E5%90%88%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在这里，我们通过程序来验证一下，Set集合和List的集合的各类集合操作各有什么不同。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CollectionTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        Set&lt;Integer&gt; set1 = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;Integer&gt;() &#123;</span><br><span class="line">            &#123;</span><br><span class="line">                add(<span class="number">1</span>);</span><br><span class="line">                add(<span class="number">3</span>);</span><br><span class="line">                add(<span class="number">5</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        Set&lt;Integer&gt; set2 = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;Integer&gt;() &#123;</span><br><span class="line">            &#123;</span><br><span class="line">                add(<span class="number">1</span>);</span><br><span class="line">                add(<span class="number">2</span>);</span><br><span class="line">                add(<span class="number">3</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        Set&lt;Integer&gt; result = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        result.addAll(set1);</span><br><span class="line">        System.out.println(<span class="string">&quot;set1：&quot;</span> + set1);</span><br><span class="line">        System.out.println(<span class="string">&quot;set2：&quot;</span> + set2);</span><br><span class="line">        result.retainAll(set2);</span><br><span class="line">        System.out.println(<span class="string">&quot;set1与set2的交集是: &quot;</span> + result);</span><br><span class="line"></span><br><span class="line">        result.clear();</span><br><span class="line">        result.addAll(set2);</span><br><span class="line">        result.removeAll(set1);</span><br><span class="line">        System.out.println(<span class="string">&quot;set2与set1的差集是: &quot;</span> + result);</span><br><span class="line"></span><br><span class="line">        result.clear();</span><br><span class="line">        result.addAll(set1);</span><br><span class="line">        result.addAll(set2);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;set1和set2的并集: &quot;</span> + result);</span><br><span class="line">        System.out.println(<span class="string">&quot;set集合并集，是去重复的&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 测试List集合</span></span><br><span class="line"></span><br><span class="line">        List&lt;Integer&gt; list1 = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;Integer&gt;() &#123;&#123;</span><br><span class="line">            add(<span class="number">1</span>);</span><br><span class="line">            add(<span class="number">3</span>);</span><br><span class="line">            add(<span class="number">5</span>);</span><br><span class="line">        &#125;&#125;;</span><br><span class="line"></span><br><span class="line">        List&lt;Integer&gt; list2 = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;Integer&gt;() &#123;</span><br><span class="line">            &#123;</span><br><span class="line">                add(<span class="number">1</span>);</span><br><span class="line">                add(<span class="number">2</span>);</span><br><span class="line">                add(<span class="number">3</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        list.addAll(list1);</span><br><span class="line">        System.out.println(<span class="string">&quot;list1: &quot;</span> + list1);</span><br><span class="line">        System.out.println(<span class="string">&quot;list2: &quot;</span> + list2);</span><br><span class="line">        list.retainAll(list2);</span><br><span class="line">        System.out.println(<span class="string">&quot;list1与list2的交集是: &quot;</span> + list);</span><br><span class="line"></span><br><span class="line">        list.clear();</span><br><span class="line">        list.addAll(list2);</span><br><span class="line">        list.removeAll(list1);</span><br><span class="line">        System.out.println(<span class="string">&quot;list2与list1的差集是：&quot;</span> + list);</span><br><span class="line"></span><br><span class="line">        list.clear();</span><br><span class="line">        list.addAll(list1);</span><br><span class="line">        list.addAll(list2);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;list1和list2的并集: &quot;</span> + list);</span><br><span class="line">        System.out.println(<span class="string">&quot;List集合并集, 是不去重复的&quot;</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">set1：[<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br><span class="line">set2：[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">set1与set2的交集是: [<span class="number">1</span>, <span class="number">3</span>]</span><br><span class="line">set2与set1的差集是: [<span class="number">2</span>]</span><br><span class="line">set1和set2的并集: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br><span class="line">set集合并集，是去重复的</span><br><span class="line">list1: [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br><span class="line">list2: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">list1与list2的交集是: [<span class="number">1</span>, <span class="number">3</span>]</span><br><span class="line">list2与list1的差集是：[<span class="number">2</span>]</span><br><span class="line">list1和list2的并集: [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">List集合并集, 是不去重复的</span><br></pre></td></tr></table></figure>
-
-<p>结论：Set集合的并集，是要去重的。而List的并集，是不会去重的。</p>
 
       
     </div>

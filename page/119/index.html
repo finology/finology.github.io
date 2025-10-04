@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,253 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/08/IntelliJ-IDEA%E9%AA%8C%E8%AF%81%E7%A0%81-license-server/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/08/IntelliJ-IDEA%E9%AA%8C%E8%AF%81%E7%A0%81-license-server/" class="post-title-link" itemprop="url">IntelliJ IDEA验证码 license server</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-08-03 12:10:15" itemprop="dateCreated datePublished" datetime="2018-08-03T12:10:15+08:00">2018-08-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/IDE/" itemprop="url" rel="index"><span itemprop="name">IDE</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2018/08/IntelliJ-IDEA%E9%AA%8C%E8%AF%81%E7%A0%81-license-server/" class="post-meta-item leancloud_visitors" data-flag-title="IntelliJ IDEA验证码 license server" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/08/IntelliJ-IDEA%E9%AA%8C%E8%AF%81%E7%A0%81-license-server/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/08/IntelliJ-IDEA%E9%AA%8C%E8%AF%81%E7%A0%81-license-server/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>首先表明必须支持正版，尊重知识产权。</p>
+<p>最早的方法可能已经不能成功使用了，看最新的方法就是了。</p>
+<h1 id="2019-10-20日更新"><a href="#2019-10-20日更新" class="headerlink" title="2019&#x2F;10&#x2F;20日更新"></a>2019&#x2F;10&#x2F;20日更新</h1><p>链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1EtXP4MS7jgrhCvT6XX5a8A&shfl=shareset">https://pan.baidu.com/s/1EtXP4MS7jgrhCvT6XX5a8A&amp;shfl=shareset</a> 提取码: uerw</p>
+<p>下载<code>jetbrains-agent.jar</code>到<code>idea-IU-192.6817.14/bin</code>目录，具体哪个目录无所谓，只要IDEA能通过绝对路径访问到就行了。</p>
+<p>先点击Evaluation进入，在IDEA欢迎页面，点击<code>Configure</code> -&gt; <code>Edit Custom VM Options...</code></p>
+<p>在最后一行添加内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-javaagent:/usr/local/idea-IU-192.6817.14/bin/jetbrains-agent.jar</span><br></pre></td></tr></table></figure>
+
+<p>保存退出，重启IDEA。</p>
+<p>注：需要用root启动。用<code>sudo</code>都不行。</p>
+<p>如果显示下面内容，代表设置成功了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">bin/idea.sh </span><br><span class="line">OpenJDK 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in version 9.0 and will likely be removed in a future release.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> ====================================================</span><br><span class="line"> =======        Jetbrains License Crack       =======</span><br><span class="line"> =======           https://zhile.io           =======</span><br><span class="line"> ====================================================</span><br><span class="line"></span><br><span class="line"> @See: https://zhile.io/2018/08/17/jetbrains-license-server-crack.html</span><br><span class="line"></span><br><span class="line"> @Version: 2.2.0, @Build Date: 2019-07-19</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>启动以后，<code>Configure</code> -&gt; <code>Manage License</code>，这时在License server选项中，就会有<code>http://jetbrains-license-server</code>。点击<code>Activate</code>按钮激活就可以了。</p>
+<h1 id="2018-8-3日更新"><a href="#2018-8-3日更新" class="headerlink" title="2018&#x2F;8&#x2F;3日更新"></a>2018&#x2F;8&#x2F;3日更新</h1><p>以下是IntelliJ的license server地址</p>
+<p>2018-7-30亲测可用<br><a target="_blank" rel="noopener" href="http://idea.congm.in/">http://idea.congm.in</a></p>
+<p>2018-8-3亲测可用<br><a target="_blank" rel="noopener" href="http://idea.toocruel.net/">http://idea.toocruel.net</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/07/macOS%E5%AE%89%E8%A3%85java-jdk%E5%92%8Cmaven%E5%B9%B6%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/07/macOS%E5%AE%89%E8%A3%85java-jdk%E5%92%8Cmaven%E5%B9%B6%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">macOS安装java jdk和maven并配置环境变量</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-07-30 17:14:45" itemprop="dateCreated datePublished" datetime="2018-07-30T17:14:45+08:00">2018-07-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/Maven/" itemprop="url" rel="index"><span itemprop="name">Maven</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2018/07/macOS%E5%AE%89%E8%A3%85java-jdk%E5%92%8Cmaven%E5%B9%B6%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="post-meta-item leancloud_visitors" data-flag-title="macOS安装java jdk和maven并配置环境变量" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/07/macOS%E5%AE%89%E8%A3%85java-jdk%E5%92%8Cmaven%E5%B9%B6%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/07/macOS%E5%AE%89%E8%A3%85java-jdk%E5%92%8Cmaven%E5%B9%B6%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h1><p>下载jdk网址：<a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a><br>下载文件：jdk-8u181-macosx-x64.dmg，双击安装</p>
+<h1 id="安装maven"><a href="#安装maven" class="headerlink" title="安装maven"></a>安装maven</h1><p>下载maven压缩文件网址：<a target="_blank" rel="noopener" href="http://maven.apache.org/download.cgi">http://maven.apache.org/download.cgi</a><br>解压到&#x2F;Users&#x2F;simon&#x2F;Development&#x2F;maven&#x2F;apache-maven-3.5.4</p>
+<h1 id="配置国内maven仓库镜像"><a href="#配置国内maven仓库镜像" class="headerlink" title="配置国内maven仓库镜像"></a>配置国内maven仓库镜像</h1><p>编辑maven的settings.xml文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /Users/simon/Development/maven/apache-maven-3.5.4/conf/settings.xml</span><br></pre></td></tr></table></figure>
+
+<p>找到<code>mirrors</code>标签，并在标签里面添加如下内容</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;</span><br><span class="line">  &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">  &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">  &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">  &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">&lt;/mirror&gt;</span><br><span class="line">&lt;mirror&gt;</span><br><span class="line">  &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">  &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">  &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">  &lt;url&gt;http://maven.aliyun.com/nexus/content/repositories/central/&lt;/url&gt;</span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure>
+
+<p>保存退出。以后项目就可以从国内阿里源下载jar包了，速度快得多了。</p>
+<h1 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bash_profile</span><br></pre></td></tr></table></figure>
+
+<p>编辑如下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Java</span><br><span class="line">export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home</span><br><span class="line">export JRE_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre</span><br><span class="line"></span><br><span class="line">export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Maven</span><br><span class="line">export M2_HOME=/Users/simon/Development/apache-maven-3.5.4</span><br><span class="line"></span><br><span class="line">export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
+
+<p>让设置生效</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -309,286 +556,6 @@
 
 <p>如果网络有问题，可以通过如下方法安装</p>
 <p><a target="_blank" rel="noopener" href="https://docs.brew.sh/Installation">https://docs.brew.sh/Installation</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/06/CentOS7%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AEnginx/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/06/CentOS7%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AEnginx/" class="post-title-link" itemprop="url">CentOS7源码编译安装、配置nginx</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-06-11 10:29:15" itemprop="dateCreated datePublished" datetime="2018-06-11T10:29:15+08:00">2018-06-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/Nginx/" itemprop="url" rel="index"><span itemprop="name">Nginx</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2018/06/CentOS7%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AEnginx/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS7源码编译安装、配置nginx" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2018/06/CentOS7%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AEnginx/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2018/06/CentOS7%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AEnginx/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><p>安装gcc-c++，安装pcre, pcre-devel（会依赖pcre)，安装zlib, zlib-devel和openssl，openssl-devel</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc-c++, pcre, pcre-devel, zlib, zlib-devel, openssl, openssl-devel</span><br></pre></td></tr></table></figure>
-
-<h1 id="下载nginx源码包"><a href="#下载nginx源码包" class="headerlink" title="下载nginx源码包"></a>下载nginx源码包</h1><p>在官网上下载Stable version，稳定版本。<a target="_blank" rel="noopener" href="http://nginx.org/en/download.html">http://nginx.org/en/download.html</a></p>
-<p>目前最新的稳定版本是：	nginx-1.14.0 <a target="_blank" rel="noopener" href="http://nginx.org/download/nginx-1.14.0.tar.gz">http://nginx.org/download/nginx-1.14.0.tar.gz</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local</span><br><span class="line">wget http://nginx.org/download/nginx-1.14.0.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxvf nginx-1.14.0.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h1 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd nginx-1.14.0</span><br><span class="line">./configure</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
-
-<h1 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">whereis nginx</span><br><span class="line">nginx: /usr/local/nginx</span><br><span class="line">cd /usr/local/nginx</span><br><span class="line">sbin/nginx</span><br><span class="line"></span><br><span class="line">ps -ef | grep nginx</span><br><span class="line">root      20240      1  0 11:09 ?        00:00:00 nginx: master process sbin/nginx</span><br><span class="line">nobody    20241  20240  0 11:09 ?        00:00:00 nginx: worker process</span><br></pre></td></tr></table></figure>
-
-<p>访问<a target="_blank" rel="noopener" href="http://192.168.1.30,如果在本机访问,则访问http//localhost%EF%BC%8C%E5%87%BA%E7%8E%B0%E5%A6%82%E4%B8%8B%E5%9B%BE%E7%89%87%EF%BC%8C%E8%A1%A8%E6%98%8E%E5%B7%B2%E7%BB%8F%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F%E3%80%82">http://192.168.1.30，如果在本机访问，则访问http://localhost，出现如下图片，表明已经安装成功。</a></p>
-<img src="/2018/06/CentOS7%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AEnginx/0ft25me2imgevo8t4tfl70t31o.png" class="">
-
-<h1 id="配置nginx"><a href="#配置nginx" class="headerlink" title="配置nginx"></a>配置nginx</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd conf</span><br><span class="line">vi nginx.conf</span><br></pre></td></tr></table></figure>
-
-<p>添加一条记录，增加虚拟主机的配置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include vhost/*.conf;</span><br></pre></td></tr></table></figure>
-
-<p>并新建一个vhost目录，用于放置*.conf文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir vhost</span><br></pre></td></tr></table></figure>
-
-<h1 id="添加一个虚拟主机"><a href="#添加一个虚拟主机" class="headerlink" title="添加一个虚拟主机"></a>添加一个虚拟主机</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">upstream web &#123;</span><br><span class="line">        server localhost:8080;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  domain.com www.domain.com;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">                proxy_pass              http://web;</span><br><span class="line">                proxy_redirect          off;</span><br><span class="line">                proxy_set_header        Host $host;</span><br><span class="line">                proxy_set_header        X-Real-IP $remote_addr;</span><br><span class="line">                proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>重新加载配置文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/nginx -s reload</span><br></pre></td></tr></table></figure>
-
-<p>这样，通过访问域名domain.com或<a href="http://www.domain.com的请求，就可以转发localhost:8080上了">www.domain.com的请求，就可以转发localhost:8080上了</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/06/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85vsftpd/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/06/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85vsftpd/" class="post-title-link" itemprop="url">CentOS7下安装vsftpd</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-06-10 14:00:48" itemprop="dateCreated datePublished" datetime="2018-06-10T14:00:48+08:00">2018-06-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/FTP/" itemprop="url" rel="index"><span itemprop="name">FTP</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2018/06/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85vsftpd/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS7下安装vsftpd" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2018/06/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85vsftpd/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2018/06/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85vsftpd/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="通过yum安装vsftpd"><a href="#通过yum安装vsftpd" class="headerlink" title="通过yum安装vsftpd"></a>通过yum安装vsftpd</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">yum install vsftpd</span><br><span class="line"></span><br><span class="line">Is this ok [y/d/N]: y</span><br><span class="line">Downloading packages:</span><br><span class="line">vsftpd-3.0.2-22.el7.x86_64.rpm                                                                                    | 169 kB  00:00:00     </span><br><span class="line">Running transaction check</span><br><span class="line">Running transaction test</span><br><span class="line">Transaction test succeeded</span><br><span class="line">Running transaction</span><br><span class="line">  正在安装    : vsftpd-3.0.2-22.el7.x86_64                                                                                           1/1 </span><br><span class="line">  验证中      : vsftpd-3.0.2-22.el7.x86_64                                                                                           1/1 </span><br><span class="line"></span><br><span class="line">已安装:</span><br><span class="line">  vsftpd.x86_64 0:3.0.2-22.el7                                                                                                           </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
-
-<h1 id="新建一个上传文件夹"><a href="#新建一个上传文件夹" class="headerlink" title="新建一个上传文件夹"></a>新建一个上传文件夹</h1><p>用于存放通过ftp上传的文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br><span class="line">/usr/local</span><br><span class="line"></span><br><span class="line">mkdir ftpfile</span><br></pre></td></tr></table></figure>
-
-<h1 id="新建一个ftp用户"><a href="#新建一个ftp用户" class="headerlink" title="新建一个ftp用户"></a>新建一个ftp用户</h1><p>新建ftpuser用户，该用户登录后的地址为&#x2F;usr&#x2F;local&#x2F;ftpfile，这个用户不能登录系统</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd ftpuser -d /ftpfile -s /sbin/nologin</span><br></pre></td></tr></table></figure>
-
-<h1 id="修改-usr-local-ftpfile文件夹的权限"><a href="#修改-usr-local-ftpfile文件夹的权限" class="headerlink" title="修改&#x2F;usr&#x2F;local&#x2F;ftpfile文件夹的权限"></a>修改&#x2F;usr&#x2F;local&#x2F;ftpfile文件夹的权限</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ll | grep ftpfile</span><br><span class="line">drwxr-xr-x   2 root root       6 6月  10 14:05 ftpfile</span><br><span class="line"></span><br><span class="line">chown -R ftpuser.ftpuser ftpfile/</span><br><span class="line"></span><br><span class="line">ll | grep ftpfile</span><br><span class="line">drwxr-xr-x   2 ftpuser ftpuser       6 6月  10 14:05 ftpfile</span><br></pre></td></tr></table></figure>
-
-<h1 id="为用户ftpuser添加密码"><a href="#为用户ftpuser添加密码" class="headerlink" title="为用户ftpuser添加密码"></a>为用户ftpuser添加密码</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd ftpuser</span><br></pre></td></tr></table></figure>
-
-<h1 id="修改vsftpd配置文件"><a href="#修改vsftpd配置文件" class="headerlink" title="修改vsftpd配置文件"></a>修改vsftpd配置文件</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/vsftpd/vsftpd.conf</span><br><span class="line"></span><br><span class="line">ftpd_banner=Welcome to simon&#x27;s FTP service.</span><br><span class="line"></span><br><span class="line">local_root=/usr/local/ftpfile # 添加本地根目录</span><br><span class="line">anon_root=/usr/local/ftpfile  # </span><br><span class="line">use_localtime=yes</span><br><span class="line"></span><br><span class="line">chroot_list_enable=YES # 修改</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">(default follows)</span></span><br><span class="line">chroot_list_file=/etc/vsftpd/chroot_list # 修改</span><br><span class="line"></span><br><span class="line">anonymous_enable=NO</span><br></pre></td></tr></table></figure>
-
-<p>把用户ftpuser添加到&#x2F;etc&#x2F;vsftpd&#x2F;chroot_list</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/vsftpd/chroot_list</span><br></pre></td></tr></table></figure>
-<p>添加一行记录，内容为：<em>ftpuser</em></p>
-<h1 id="设置传输文件时的端口号"><a href="#设置传输文件时的端口号" class="headerlink" title="设置传输文件时的端口号"></a>设置传输文件时的端口号</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pasv_min_port=61001</span><br><span class="line">pasv_max_port=62000</span><br></pre></td></tr></table></figure>
-
-<p>设置pasv被动传输的端口号，这样可以通过防火墙开放这个范围内的端口，从而更加安全。</p>
-<h1 id="启动vsftpd"><a href="#启动vsftpd" class="headerlink" title="启动vsftpd"></a>启动vsftpd</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service vsftpd start</span><br><span class="line">Redirecting to /bin/systemctl start  vsftpd.service</span><br></pre></td></tr></table></figure>
-
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>在浏览器上输入：<a href="ftp://192.168.1.30/">ftp://192.168.1.30/</a><br>输入用户名和密码后，貌似不能进去。</p>
-<p>或者在终端输入</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ftp 192.168.1.30</span><br><span class="line"></span><br><span class="line">Connected to 192.168.1.30.</span><br><span class="line">220 Welcome to simon&#x27;s FTP service.</span><br><span class="line">Name (192.168.1.30:simon): ftpuser</span><br><span class="line">331 Please specify the password.</span><br><span class="line">Password: </span><br><span class="line">500 OOPS: vsftpd: refusing to run with writable root inside chroot()</span><br><span class="line">ftp: Login failed</span><br></pre></td></tr></table></figure>
-
-<p>会出现以上错误，所以还需要在配置文件里面加入如下参数：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allow_writeable_chroot=YES # 如果local_root是可写的就要设置这句</span><br></pre></td></tr></table></figure>
-
-<p>重启vsftpd服务后，再次登录，就成功了</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ftp 192.168.1.30</span><br><span class="line">Connected to 192.168.1.30.</span><br><span class="line">220 Welcome to simon&#x27;s FTP service.</span><br><span class="line">Name (192.168.1.30:simon): ftpuser</span><br><span class="line">331 Please specify the password.</span><br><span class="line">Password: </span><br><span class="line">230 Login successful.</span><br><span class="line">Remote system type is UNIX.</span><br><span class="line">Using binary mode to transfer files.</span><br><span class="line"><span class="meta prompt_">ftp&gt; </span></span><br></pre></td></tr></table></figure>
-
-<h1 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#chroot_local_user=YES</span><br></pre></td></tr></table></figure>
-<p>默认为NO，表示用户能看到的最上层目录为&#x2F;ftpfile。如果改为yes，那用户可以看到整个系统的目录结构。</p>
 
       
     </div>

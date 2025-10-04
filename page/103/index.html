@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,231 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/" class="post-title-link" itemprop="url">Java VisualVM添加Visual GC标签</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-04-19 18:21:08" itemprop="dateCreated datePublished" datetime="2019-04-19T18:21:08+08:00">2019-04-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+
+  
+    <span id="/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/" class="post-meta-item leancloud_visitors" data-flag-title="Java VisualVM添加Visual GC标签" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="运行Java-VisualVM"><a href="#运行Java-VisualVM" class="headerlink" title="运行Java VisualVM"></a>运行Java VisualVM</h1><p>执行命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jvisualvm</span><br></pre></td></tr></table></figure>
+
+<p>JVisualVM启动成功后，如图所示：</p>
+<img src="/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/javaVisualVM.jpg" class="" title="Java VisualVM主界面">
+
+<h1 id="安装Visual-GC插件"><a href="#安装Visual-GC插件" class="headerlink" title="安装Visual GC插件"></a>安装Visual GC插件</h1><p>点击 <code>工具</code> -&gt; <code>插件</code></p>
+<p>选择<code>设置</code>标签，更新中心配置，也就是设置从哪里下载插件。</p>
+<p>可以在 <a target="_blank" rel="noopener" href="https://visualvm.github.io/pluginscenters.html">https://visualvm.github.io/pluginscenters.html</a> 页面找到不同版本的插件源地址。</p>
+<p>设置好以后，在<code>可用插件</code>标签下面，我们选择安装<code>Visual GC</code>插件。</p>
+<p>安装好以后，重启Java VisualVM</p>
+<p>就可以看到<code>Visual GC</code>的标签了。如下图所示：</p>
+<img src="/2019/04/Java-VisualVM%E6%B7%BB%E5%8A%A0Visual-GC%E6%A0%87%E7%AD%BE/visualgc.jpg" class="" title="VisualGC标签">
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/04/Mac%E4%B8%8B%E5%A4%84%E7%90%86MAT-Memory-Analyzer-Tool-%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/04/Mac%E4%B8%8B%E5%A4%84%E7%90%86MAT-Memory-Analyzer-Tool-%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Mac下处理MAT(Memory Analyzer Tool)报错的问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-04-19 10:02:27" itemprop="dateCreated datePublished" datetime="2019-04-19T10:02:27+08:00">2019-04-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+
+  
+    <span id="/2019/04/Mac%E4%B8%8B%E5%A4%84%E7%90%86MAT-Memory-Analyzer-Tool-%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="Mac下处理MAT(Memory Analyzer Tool)报错的问题" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/04/Mac%E4%B8%8B%E5%A4%84%E7%90%86MAT-Memory-Analyzer-Tool-%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/04/Mac%E4%B8%8B%E5%A4%84%E7%90%86MAT-Memory-Analyzer-Tool-%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>当程序出现内存泄露(Out of memory)时，我们需要通过Eclipse的Memory Analyzer Tool去定位错误的代码。</p>
+<p>从Eclipse官网下载MAT，<a target="_blank" rel="noopener" href="https://www.eclipse.org/mat/downloads.php">https://www.eclipse.org/mat/downloads.php</a></p>
+<p>选择不同操作的版本。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Memory Analyzer 1.8.1 Release</span><br><span class="line">Version: 1.8.1.20180910 | Date: 19 September 2018 | Type: Released</span><br><span class="line">Update Site: http://download.eclipse.org/mat/1.8.1/update-site/</span><br><span class="line">Archived Update Site: MemoryAnalyzer-1.8.1.201809100846.zip</span><br><span class="line">Stand-alone Eclipse RCP Applications</span><br><span class="line">   Windows (x86)</span><br><span class="line">   Windows (x86_64)</span><br><span class="line">   Mac OSX (Mac/Cocoa/x86_64)</span><br><span class="line">   Linux (x86/GTK+)</span><br><span class="line">   Linux (x86_64/GTK+)</span><br><span class="line">   Linux (PPC64/GTK+)</span><br><span class="line">   Linux (PPC64le/GTK+)</span><br></pre></td></tr></table></figure>
+
+<p>当我在Mac系统双击mat.app打开MAT时，系统报错，查看日志内容如下：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">!SESSION 2019-04-18 21:48:21.506 -----------------------------------------------</span><br><span class="line">eclipse.buildId=unknown</span><br><span class="line">java.version=1.8.0_92</span><br><span class="line">java.vendor=Oracle Corporation</span><br><span class="line">BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=zh_CN</span><br><span class="line">Framework arguments:  -keyring /Users/simon/.eclipse_keyring</span><br><span class="line">Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/simon/.eclipse_keyring</span><br><span class="line"></span><br><span class="line">!ENTRY org.eclipse.osgi 4 0 2019-04-18 21:48:24.893</span><br><span class="line">!MESSAGE Application error</span><br><span class="line">!STACK 1</span><br><span class="line">java.lang.IllegalStateException: The platform metadata area could not be written: /private/var/folders/cl/kn5ppbpd28j0s6y5kcxm9rdm0000gn/T/AppTranslocation/8157A927-01B7-4CF8-8F8B-AA4530391F8A/d/mat.app/Contents/MacOS/workspace/.metadata.  By default the platform writes its content</span><br><span class="line">under the current working directory when the platform is launched.  Use the -data parameter to</span><br><span class="line">specify a different content area for the platform.</span><br><span class="line">	at org.eclipse.core.internal.runtime.DataArea.assertLocationInitialized(DataArea.java:70)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>查看日志，分析原因，我们得知其中一个文件无写入权限。IllegalStateException: The platform metadata area could not be written.</p>
+<p>我们可以指定一个具有写入权限的文件夹，设置如下：</p>
+<p>编辑文件 <code>/Applications/mat.app/Contents/Eclipse/MemoryAnalyzer.ini</code></p>
+<p>添加<code>-data</code>参数：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-data</span><br><span class="line">/Users/simon/workspace</span><br></pre></td></tr></table></figure>
+
+<p>data参数和路径必须在两个不同的行，data参数必须放在Laucher之前。</p>
+<p>最终文件内容如下所示：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-startup</span><br><span class="line">../Eclipse/plugins/org.eclipse.equinox.launcher_1.5.0.v20180512-1130.jar</span><br><span class="line">-data</span><br><span class="line">/Users/simon/workspace</span><br><span class="line">--launcher.library</span><br><span class="line">../Eclipse/plugins/org.eclipse.equinox.launcher.cocoa.macosx.x86_64_1.1.700.v20180518-1200</span><br><span class="line">-vmargs</span><br><span class="line">-Xmx1024m</span><br><span class="line">-Dorg.eclipse.swt.internal.carbon.smallFonts</span><br><span class="line">-XstartOnFirstThread</span><br></pre></td></tr></table></figure>
+
+<p>保存文件后，再次双击启动MAT，软件可以成功打开了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -314,250 +539,6 @@
 
 <p>安装成功。</p>
 <p>如何切换主题就不在这里详述了。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/04/Jupyter-Notebook%E5%BF%AB%E6%8D%B7%E9%94%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/04/Jupyter-Notebook%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">Jupyter Notebook快捷键</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-04-09 00:01:02" itemprop="dateCreated datePublished" datetime="2019-04-09T00:01:02+08:00">2019-04-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/04/Jupyter-Notebook%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Jupyter Notebook快捷键" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/04/Jupyter-Notebook%E5%BF%AB%E6%8D%B7%E9%94%AE/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/04/Jupyter-Notebook%E5%BF%AB%E6%8D%B7%E9%94%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Jupyter有两种模式</p>
-<h1 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h1><p>按Esc切换到命令模式，单元格的边框是蓝色的。这个模式下的常用快捷键（Shift-Enter可能是我们最常用的命令）：</p>
-<p>Enter : 转入编辑模式<br>Shift-Enter : 运行本单元，选中下个单元<br>Ctrl-Enter : 运行本单元<br>Alt-Enter : 运行本单元，在其下插入新单元<br>Y : 单元转入代码状态<br>M :单元转入markdown状态<br>R : 单元转入raw状态<br>1 : 设定 1 级标题<br>2 : 设定 2 级标题<br>3 : 设定 3 级标题<br>4 : 设定 4 级标题<br>5 : 设定 5 级标题<br>6 : 设定 6 级标题<br>Up : 选中上方单元<br>K : 选中上方单元<br>Down : 选中下方单元<br>J : 选中下方单元<br>Shift-K : 扩大选中上方单元<br>Shift-J : 扩大选中下方单元<br>A : 在上方插入新单元<br>B : 在下方插入新单元<br>X : 剪切选中的单元<br>C : 复制选中的单元<br>Shift-V : 粘贴到上方单元<br>V : 粘贴到下方单元<br>Z : 恢复删除的最后一个单元<br>D,D : 删除选中的单元<br>Shift-M : 合并选中的单元<br>Ctrl-S : 文件存盘<br>S : 文件存盘<br>L : 转换行号<br>O : 转换输出<br>Shift-O : 转换输出滚动<br>Esc : 关闭页面<br>Q : 关闭页面<br>H : 显示快捷键帮助<br>I,I : 中断Notebook内核<br>0,0 : 重启Notebook内核<br>Shift : 忽略<br>Shift-Space : 向上滚动<br>Space : 向下滚动</p>
-<h1 id="编辑模式"><a href="#编辑模式" class="headerlink" title="编辑模式"></a>编辑模式</h1><p>编辑模式按 Enter 键切换，这模式下单元格颜色是绿的： </p>
-<p>Tab : 代码补全或缩进<br>Shift-Tab : 提示<br>Ctrl-] : 缩进<br>Ctrl-[ : 解除缩进<br>Ctrl-A : 全选<br>Ctrl-Z : 复原<br>Ctrl-Shift-Z : 再做<br>Ctrl-Y : 再做<br>Ctrl-Home : 跳到单元开头<br>Ctrl-Up : 跳到单元开头<br>Ctrl-End : 跳到单元末尾<br>Ctrl-Down : 跳到单元末尾<br>Ctrl-Left : 跳到左边一个字首<br>Ctrl-Right : 跳到右边一个字首<br>Ctrl-Backspace : 删除前面一个字<br>Ctrl-Delete : 删除后面一个字<br>Esc : 进入命令模式<br>Ctrl-M : 进入命令模式<br>Shift-Enter : 运行本单元，选中下一单元<br>Ctrl-Enter : 运行本单元<br>Alt-Enter : 运行本单元，在下面插入一单元<br>Ctrl-Shift– : 分割单元<br>Ctrl-Shift-Subtract : 分割单元<br>Ctrl-S : 文件存盘<br>Shift : 忽略<br>Up : 光标上移或转入上一单元<br>Down :光标下移或转入下一单元</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2019/03/Jupyter-Notebook%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8-%E4%B8%BB%E9%A2%98%E5%92%8C%E5%AD%97%E4%BD%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/03/Jupyter-Notebook%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8-%E4%B8%BB%E9%A2%98%E5%92%8C%E5%AD%97%E4%BD%93/" class="post-title-link" itemprop="url">Jupyter Notebook设置代码提示自动补全，主题和字体</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-03-09 00:01:23" itemprop="dateCreated datePublished" datetime="2019-03-09T00:01:23+08:00">2019-03-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/Jupyter-Notebook/" itemprop="url" rel="index"><span itemprop="name">Jupyter Notebook</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2019/03/Jupyter-Notebook%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8-%E4%B8%BB%E9%A2%98%E5%92%8C%E5%AD%97%E4%BD%93/" class="post-meta-item leancloud_visitors" data-flag-title="Jupyter Notebook设置代码提示自动补全，主题和字体" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2019/03/Jupyter-Notebook%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8-%E4%B8%BB%E9%A2%98%E5%92%8C%E5%AD%97%E4%BD%93/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2019/03/Jupyter-Notebook%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8-%E4%B8%BB%E9%A2%98%E5%92%8C%E5%AD%97%E4%BD%93/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="启动Console"><a href="#启动Console" class="headerlink" title="启动Console"></a>启动Console</h1><p>按图示方式进入命令行。</p>
-<img src="/2019/03/Jupyter-Notebook%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8-%E4%B8%BB%E9%A2%98%E5%92%8C%E5%AD%97%E4%BD%93/console.png" class="">
-
-<h1 id="安装Jupyter扩展插件Nbextensions"><a href="#安装Jupyter扩展插件Nbextensions" class="headerlink" title="安装Jupyter扩展插件Nbextensions"></a>安装Jupyter扩展插件Nbextensions</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyter_contrib_nbextensions -i https://pypi.mirrors.ustc.edu.cn/simple</span><br><span class="line">jupyter contrib nbextension install --user</span><br></pre></td></tr></table></figure>
-
-<h1 id="安装代码格式化插件"><a href="#安装代码格式化插件" class="headerlink" title="安装代码格式化插件"></a>安装代码格式化插件</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install yapf</span><br></pre></td></tr></table></figure>
-
-
-<p>重启Jupyter notebook，进入首页后，可以看到<code>Nbextensions</code>标签已经有了。</p>
-<p>选中<code>Hinterland</code>和<code>Code prettify</code>复选框。</p>
-<img src="/2019/03/Jupyter-Notebook%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8-%E4%B8%BB%E9%A2%98%E5%92%8C%E5%AD%97%E4%BD%93/extension.png" class="">
-
-<h1 id="设置主题和字体"><a href="#设置主题和字体" class="headerlink" title="设置主题和字体"></a>设置主题和字体</h1><p>安装主题</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyterthemes</span><br></pre></td></tr></table></figure>
-
-<p>安装成功后可查看可用主题：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -l</span><br></pre></td></tr></table></figure>
-
-<p>设置主题</p>
-<p>-t(主题) -f(字体) -fs(字体大小) -cellw(占屏比或宽度) -ofs(输出端的字号) -T(显示工具栏) -N(显示自己主机名)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -t monokai -f fira -fs 14 -cellw 94% -ofs 11 -dfs 11 -T -N</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="输出多行结果"><a href="#输出多行结果" class="headerlink" title="输出多行结果"></a>输出多行结果</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.core.interactiveshell <span class="keyword">import</span> InteractiveShell</span><br><span class="line">InteractiveShell.ast_node_interactivity = <span class="string">&#x27;all&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span> * <span class="number">2</span></span><br><span class="line"><span class="number">1</span> + <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
-
 
       
     </div>

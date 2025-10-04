@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,244 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/06/%E6%9F%A5%E7%9C%8BLog%E6%97%A5%E5%BF%97%E6%97%B6%E7%9A%84%E4%B8%80%E4%BA%9BShell%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/%E6%9F%A5%E7%9C%8BLog%E6%97%A5%E5%BF%97%E6%97%B6%E7%9A%84%E4%B8%80%E4%BA%9BShell%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">查看Log日志时的一些Shell常用技巧</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-06-01 15:12:23" itemprop="dateCreated datePublished" datetime="2022-06-01T15:12:23+08:00">2022-06-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2022/06/%E6%9F%A5%E7%9C%8BLog%E6%97%A5%E5%BF%97%E6%97%B6%E7%9A%84%E4%B8%80%E4%BA%9BShell%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="post-meta-item leancloud_visitors" data-flag-title="查看Log日志时的一些Shell常用技巧" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/06/%E6%9F%A5%E7%9C%8BLog%E6%97%A5%E5%BF%97%E6%97%B6%E7%9A%84%E4%B8%80%E4%BA%9BShell%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/06/%E6%9F%A5%E7%9C%8BLog%E6%97%A5%E5%BF%97%E6%97%B6%E7%9A%84%E4%B8%80%E4%BA%9BShell%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="grep使用"><a href="#grep使用" class="headerlink" title="grep使用"></a>grep使用</h1><p>grep可以多次管道使用，相当于逻辑 AND 的功能</p>
+<p>grep -P 使用正则，-o 只显示匹配字符串</p>
+<p>数字串</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\d+</span><br></pre></td></tr></table></figure>
+
+<h1 id="显示匹配的子串"><a href="#显示匹配的子串" class="headerlink" title="显示匹配的子串"></a>显示匹配的子串</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed &#x27;s/userId: \(\.*\)/\1/&#x27;</span><br></pre></td></tr></table></figure>
+
+<h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort</span><br></pre></td></tr></table></figure>
+
+<h1 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uniq -c</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/05/mac%E5%BD%95%E5%B1%8F%E5%B8%A6%E5%86%85%E7%BD%AE%E5%A3%B0%E9%9F%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/mac%E5%BD%95%E5%B1%8F%E5%B8%A6%E5%86%85%E7%BD%AE%E5%A3%B0%E9%9F%B3/" class="post-title-link" itemprop="url">mac录屏带内置声音</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-22 00:19:44" itemprop="dateCreated datePublished" datetime="2022-05-22T00:19:44+08:00">2022-05-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2022/05/mac%E5%BD%95%E5%B1%8F%E5%B8%A6%E5%86%85%E7%BD%AE%E5%A3%B0%E9%9F%B3/" class="post-meta-item leancloud_visitors" data-flag-title="mac录屏带内置声音" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/05/mac%E5%BD%95%E5%B1%8F%E5%B8%A6%E5%86%85%E7%BD%AE%E5%A3%B0%E9%9F%B3/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/05/mac%E5%BD%95%E5%B1%8F%E5%B8%A6%E5%86%85%E7%BD%AE%E5%A3%B0%E9%9F%B3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>使用mac自带的quicktime player录屏，比如录视频，视频的声音是录不下来的。如果要录视频和内置声音，设置还有些麻烦。</p>
+<p>网上有些人推荐Sound Flower，我也尝试用了，的确能完成录屏，但有个很不好的体验就是，你在录屏的时候，你是没法听到声音的，也就是说没法监控，你得等录制结束后，才知道有没有录制成功。</p>
+<p>最佳方案是使用<code>Loopback</code>软件。网上很多人设置得很繁琐，虽然也能用，但不是最佳实践。</p>
+<p>下载地址：<code>https://www.macwk.com/soft/loopback</code>，目前为止是可以下载的，以后能不能下载就不知道了。</p>
+<p>安装以后，按如下图方法设置。</p>
+<p>如果在录屏的时候，用耳机在监听，那就在Monitors那里添加一个耳机输出设备。</p>
+<img src="/2022/05/mac%E5%BD%95%E5%B1%8F%E5%B8%A6%E5%86%85%E7%BD%AE%E5%A3%B0%E9%9F%B3/playing.png" class="">
+
+<p>设置好了，以后，播放音乐，可以看到声浪。</p>
+<p>进入音频设备设置。</p>
+<p>把Loopback Audio Playing设备设置为输出。</p>
+<img src="/2022/05/mac%E5%BD%95%E5%B1%8F%E5%B8%A6%E5%86%85%E7%BD%AE%E5%A3%B0%E9%9F%B3/output.png" class="">
+
+<p>打开Mac自带的quicktime player，在录屏设置的时候，需要选择Loopback Audio Playing。</p>
+<img src="/2022/05/mac%E5%BD%95%E5%B1%8F%E5%B8%A6%E5%86%85%E7%BD%AE%E5%A3%B0%E9%9F%B3/quicktime.png" class="">
+
+<p>这时就可以录屏时带内置声音了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -334,270 +572,6 @@
 <p>会生成一个文件：<code>dist/demo_module-0.0.1-py3-none-any.whl</code></p>
 <p>这个时候发给别人，别人通过<code>pip install</code>就可以安装了。</p>
 <p>安装成功后，site-packages目录下面直接就是demo_module。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/04/%E8%A7%A3%E5%86%B3mac-OS-xcrun-error-missing-xcrun/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/%E8%A7%A3%E5%86%B3mac-OS-xcrun-error-missing-xcrun/" class="post-title-link" itemprop="url">解决mac OS xcrun error, missing xcrun</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-04-09 19:00:06" itemprop="dateCreated datePublished" datetime="2022-04-09T19:00:06+08:00">2022-04-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-
-  
-    <span id="/2022/04/%E8%A7%A3%E5%86%B3mac-OS-xcrun-error-missing-xcrun/" class="post-meta-item leancloud_visitors" data-flag-title="解决mac OS xcrun error, missing xcrun" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2022/04/%E8%A7%A3%E5%86%B3mac-OS-xcrun-error-missing-xcrun/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2022/04/%E8%A7%A3%E5%86%B3mac-OS-xcrun-error-missing-xcrun/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在mac OS安装ta-lib时，遇到<code>xcrun error</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun</span><br><span class="line">      error: command &#x27;/usr/bin/clang&#x27; failed with exit code 1</span><br><span class="line">      [end of output]</span><br><span class="line"></span><br><span class="line">  note: This error originates from a subprocess, and is likely not a problem with pip.</span><br><span class="line">  ERROR: Failed building wheel for ta-lib</span><br></pre></td></tr></table></figure>
-
-<p>执行命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">xcode-select --install</span></span><br></pre></td></tr></table></figure>
-
-<p>会跳出如下窗口，点击安装。</p>
-<img src="/2022/04/%E8%A7%A3%E5%86%B3mac-OS-xcrun-error-missing-xcrun/xcode-select.png" class="">
-
-<p>即解决missing xcrun的问题。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2022/04/%E5%AE%89%E8%A3%85veighna3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/%E5%AE%89%E8%A3%85veighna3/" class="post-title-link" itemprop="url">安装veighna3</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-04-09 18:59:49" itemprop="dateCreated datePublished" datetime="2022-04-09T18:59:49+08:00">2022-04-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-
-  
-    <span id="/2022/04/%E5%AE%89%E8%A3%85veighna3/" class="post-meta-item leancloud_visitors" data-flag-title="安装veighna3" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2022/04/%E5%AE%89%E8%A3%85veighna3/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2022/04/%E5%AE%89%E8%A3%85veighna3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>这篇文章描述如何在macOS上面装Veighna 3.2.0。</p>
-<p>在mac机器上没法使用CTP，而tts提供了CTP的所有接口，所以这里记录一下如何在mac上安装veighna 3.2.0。</p>
-<p>首先要装ta-lib</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install ta-lib</span><br></pre></td></tr></table></figure>
-
-<p>然后</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
-
-<p>最后，进入vnpy源码目录，安装</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install . $@</span><br></pre></td></tr></table></figure>
-
-<p>如果是Linux版本，只需</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install .</span><br></pre></td></tr></table></figure>
-
-<p>CTP没法安装，TTS模拟环境也没有办法安装，等后面发布mac版本。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install vnpy_tts</span><br></pre></td></tr></table></figure>
-
-<p>下面文章讲的是veighna 3.0.0的安装流程，目前来看有点老了。</p>
-<h1 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h1><p>在mac OS下面安装veighna 3.0.0，Linux类似。我使用的是anaconda下面的python。</p>
-<h2 id="创建python-3-10的环境"><a href="#创建python-3-10的环境" class="headerlink" title="创建python 3.10的环境"></a>创建python 3.10的环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda create -n py310 python=3.10</span></span><br></pre></td></tr></table></figure>
-
-<p>激活py310环境。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda activate py310</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="安装vnpy"><a href="#安装vnpy" class="headerlink" title="安装vnpy"></a>安装vnpy</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple vnpy</span></span><br></pre></td></tr></table></figure>
-
-<p>不出意外，在安装ta-lib的时候会出错。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun</span><br><span class="line">      error: command &#x27;/usr/bin/clang&#x27; failed with exit code 1</span><br><span class="line">      [end of output]</span><br><span class="line"></span><br><span class="line">  note: This error originates from a subprocess, and is likely not a problem with pip.</span><br><span class="line">  ERROR: Failed building wheel for ta-lib</span><br><span class="line">  Running setup.py clean for ta-lib</span><br><span class="line">Successfully built deap</span><br><span class="line">Failed to build ta-lib</span><br><span class="line">Installing collected packages: ta-lib, pyzmq, PySide6, pyqtgraph, plotly, install, deap, seaborn, qdarkstyle, vnpy</span><br><span class="line">  Running setup.py install for ta-lib ... error</span><br><span class="line">  error: subprocess-exited-with-error</span><br></pre></td></tr></table></figure>
-
-<a href="/2022/04/%E8%A7%A3%E5%86%B3mac-OS-xcrun-error-missing-xcrun/" title="解决mac OS xcrun error, missing xcrun">解决mac OS xcrun error, missing xcrun</a>
-
-<p>然后重新安装vnpy，即可以成功安装。</p>
-<p>进入<code>vnpy/example/veighna_trader/</code>，执行<code>run.py</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python run.py</span></span><br></pre></td></tr></table></figure>
-
-<p>遇到如下问题：</p>
-<p><code>ModuleNotFoundError: No module named &#39;importlib_metadata&#39;</code></p>
-<p>安装模块。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip install importlib_metadata</span></span><br></pre></td></tr></table></figure>
-
-<p>最后可以成功启动veighna trader界面。不过mac OS无法加载CTP模块。</p>
-<p>国内市场用到的绝大部分量化交易接口（如CTP、飞马、飞创、恒生等），其开发商只提供了Windows和Linux的API开发包。<br>没有Mac版本（无法直接使用）的同时，也没有提供API源代码（无法自行编译），因此这类接口在Mac系统上无法使用（强行加载会报错找不到C++的DLL文件）。<br>但纯Python接口和REST&#x2F;WebSocket接口，由于不存在对于C++链接库的依赖，所以在Mac上均可以直接运行。</p>
-<h1 id="Windows-10"><a href="#Windows-10" class="headerlink" title="Windows 10"></a>Windows 10</h1><p>创建python3.10环境和上面相同。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip install -i https://mirrors.aliyun.com/pypi/simple vnpy</span></span><br></pre></td></tr></table></figure>
-
-<p>安装ta-lib失败。</p>
-<p>按官网提供的安装方法安装。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install --extra-index-url http://139.196.190.180 --trusted-host 139.196.190.180 TA_Lib</span><br><span class="line">Successfully installed TA-Lib-0.4.24</span><br></pre></td></tr></table></figure>
-
-<p>重新执行上面的安装语句，可能会遇到一个错误，这个错误不会中断安装程序，很容易被忽略，而且最后还能显示安装成功。</p>
-<p>这个错误跟deap相关。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">WARNING: Discarding https://pypi.tuna.tsinghua.edu.cn/packages/af/29/e7f2ecbe02997b16a768baed076f5fc4781d7057cd5d9adf7c94027845ba/deap-1.2.2.tar.gz#sha256=95c63e66d755ec206c80fdb2908851c0bef420ee8651ad7be4f0578e9e909bcf (from https://pypi.tuna.tsinghua.edu.cn/simple/deap/). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.</span><br><span class="line">  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/b0/9c/a7404777a4cdf5857224051f2ae363d76c3d3b17d27b2caf12ed9bbe6d94/deap-1.2.1.tar.gz (936 kB)</span><br><span class="line">    ERROR: Command errored out with exit status 1:</span><br><span class="line">     command: &#x27;C:\ProgramData\Miniconda3\envs\py310\python.exe&#x27; -c &#x27;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#x27;&quot;&#x27;&quot;&#x27;C:\\Users\\Simon\\AppData\\Local\\Temp\\pip-install-w5an0dek\\deap_f8336f0a0f4e439d85daec3d2c91d4cb\\setup.py&#x27;&quot;&#x27;&quot;&#x27;; __file__=&#x27;&quot;&#x27;&quot;&#x27;C:\\Users\\Simon\\AppData\\Local\\Temp\\pip-install-w5an0dek\\deap_f8336f0a0f4e439d85daec3d2c91d4cb\\setup.py&#x27;&quot;&#x27;&quot;&#x27;;f = getattr(tokenize, &#x27;&quot;&#x27;&quot;&#x27;open&#x27;&quot;&#x27;&quot;&#x27;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#x27;&quot;&#x27;&quot;&#x27;from setuptools import setup; setup()&#x27;&quot;&#x27;&quot;&#x27;);code = f.read().replace(&#x27;&quot;&#x27;&quot;&#x27;\r\n&#x27;&quot;&#x27;&quot;&#x27;, &#x27;&quot;&#x27;&quot;&#x27;\n&#x27;&quot;&#x27;&quot;&#x27;);f.close();exec(compile(code, __file__, &#x27;&quot;&#x27;&quot;&#x27;exec&#x27;&quot;&#x27;&quot;&#x27;))&#x27; egg_info --egg-base &#x27;C:\Users\Simon\AppData\Local\Temp\pip-pip-egg-info-jymbv_bj&#x27;</span><br><span class="line">         cwd: C:\Users\Simon\AppData\Local\Temp\pip-install-w5an0dek\deap_f8336f0a0f4e439d85daec3d2c91d4cb\</span><br><span class="line">    Complete output (1 lines):</span><br><span class="line">    error in deap setup command: use_2to3 is invalid.</span><br></pre></td></tr></table></figure>
-
-<p>官方也提供了解决方案。</p>
-<p>查看<code>setuptools</code>版本。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip list | findstr setuptools</span><br><span class="line">setuptools      58.0.4</span><br></pre></td></tr></table></figure>
-
-<p>需要把<code>setuptools</code>降低到57版本。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">pip install setuptools==57.0.0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Collecting setuptools==57.0.0</span><br><span class="line">  Downloading setuptools-57.0.0-py3-none-any.whl (821 kB)</span><br><span class="line">     |████████████████████████████████| 821 kB 63 kB/s</span><br><span class="line">Installing collected packages: setuptools</span><br><span class="line">  Attempting uninstall: setuptools</span><br><span class="line">    Found existing installation: setuptools 58.0.4</span><br><span class="line">    Uninstalling setuptools-58.0.4:</span><br><span class="line">      Successfully uninstalled setuptools-58.0.4</span><br><span class="line">Successfully installed setuptools-57.0.0</span><br></pre></td></tr></table></figure>
-
-<p>最近再安装vnpy，就可以安装成功了，如果运行时需要什么模块，再安装就可以了。</p>
-<p>需要注意的是，如果使用VSCode来编辑python文件，在使用终端命令中，类型一定要选择</p>
 
       
     </div>

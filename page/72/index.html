@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,268 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Intellij-IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%B1%BB%E6%B3%A8%E9%87%8A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/Intellij-IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%B1%BB%E6%B3%A8%E9%87%8A/" class="post-title-link" itemprop="url">Intellij IDEA自动生成类注释</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-19 22:47:31" itemprop="dateCreated datePublished" datetime="2020-03-19T22:47:31+08:00">2020-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/IntelliJ-IDEA/" itemprop="url" rel="index"><span itemprop="name">IntelliJ IDEA</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/03/Intellij-IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%B1%BB%E6%B3%A8%E9%87%8A/" class="post-meta-item leancloud_visitors" data-flag-title="Intellij IDEA自动生成类注释" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/03/Intellij-IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%B1%BB%E6%B3%A8%E9%87%8A/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Intellij-IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%B1%BB%E6%B3%A8%E9%87%8A/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>使用 IDEA 时，我们需要自动生成类的注释。</p>
+<ul>
+<li>Windows</li>
+</ul>
+<p>Files -&gt; Settings -&gt; Editor -&gt; File and Code Templates</p>
+<ul>
+<li>Mac</li>
+</ul>
+<p>Preferences -&gt; Editor -&gt; File and Code Templates</p>
+<p>选中 Files 下的 Class，如图所示：</p>
+<img src="/2020/03/Intellij-IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%B1%BB%E6%B3%A8%E9%87%8A/class-anno.png" class="">
+
+<p>然后在类名上方写入注释的内容：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * @description: $&#123;description&#125;</span><br><span class="line">  * @author: Simon</span><br><span class="line">  * @date: $&#123;YEAR&#125;-$&#123;MONTH&#125;-$&#123;DAY&#125; $&#123;HOUR&#125;:$&#123;MINUTE&#125;</span><br><span class="line">  */</span><br></pre></td></tr></table></figure>
+
+<p>同时在 Interface, Enum 里面也添加上述内容。</p>
+<p>下次当你创建类 Class, Interface, Enum 时，就会提示让你输入 description，然后会自动生成注释。</p>
+<img src="/2020/03/Intellij-IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%B1%BB%E6%B3%A8%E9%87%8A/anno-input.png" class="">
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/" class="post-title-link" itemprop="url">Intellij IDEA从SVN导入工程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-16 22:30:52" itemprop="dateCreated datePublished" datetime="2020-03-16T22:30:52+08:00">2020-03-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/IntelliJ-IDEA/" itemprop="url" rel="index"><span itemprop="name">IntelliJ IDEA</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="Intellij IDEA从SVN导入工程" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我们一般都把代码托管到github，公司也会托管自己搭建的gitlab上面，但遇到有些技术稍微陈旧的东西，还在使用SVN。</p>
+<p>如何把SVN中的 Maven 项目导入到 IDEA 中呢？</p>
+<p>有两个入口，但都需要选择 Check out from Version Control</p>
+<img src="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/1584347981720.png" class="">
+
+<img src="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/1584348582322.png" class="">
+
+<p>上面两个入口，都会创建项目结构。</p>
+<p>下面这个不行，因为不会创建项目结构。</p>
+<img src="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/1584348404189.png" class="">
+
+<p>用上述方式，会有创建项目的流程。</p>
+<img src="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/1584348788047.png" class="">
+
+<p>如果SVN已经提前checkout出来了。</p>
+<p>如果是项目</p>
+<img src="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/1584348330671.png" class="">
+
+<p>如果是子模块，或者是项目的不同版本。</p>
+<img src="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/1584348040349.png" class="">
+
+<p>导入Maven项目</p>
+<img src="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/1584348664505.png" class="">
+
+<p>要选中这个</p>
+<img src="/2020/03/Intellij-IDEA%E4%BB%8ESVN%E5%AF%BC%E5%85%A5%E5%B7%A5%E7%A8%8B/1584348688921.png" class="">
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -313,269 +575,6 @@
 <p>然后，在命令行里面，执行 <code>git push -f</code> 这个命令，我在 SourceTree 里面还没有找到在哪里。force push 到原程仓库里面。就可以了。</p>
 <p>如图 <img src="/2020/03/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/git%E5%9B%9E%E9%80%80%E6%88%90%E5%8A%9F.png" class=""></p>
 <p>版本就在同一条线上了。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/" class="post-title-link" itemprop="url">Prometheus中指标,Servicemonitor,Targets的关系</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-13 23:14:53" itemprop="dateCreated datePublished" datetime="2020-03-13T23:14:53+08:00">2020-03-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/" class="post-meta-item leancloud_visitors" data-flag-title="Prometheus中指标,Servicemonitor,Targets的关系" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Prometheus%E4%B8%AD%E6%8C%87%E6%A0%87-Servicemonitor-Targets%E7%9A%84%E5%85%B3%E7%B3%BB/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Prometheus下拉列表里面的指标是怎么来的？</p>
-<p>如果安装了<code>alert-manager</code>, <code>kube-state-metrics</code>这样组件，这些组件会提供<code>/metrics</code>接口，然后Prometheus就可以拉取这些接口，从而获取指标数据，便展示于Prometheus<br>Dashboard的下拉列表里面了。当然，在指标里面有可能还会加入一些标签，如<code>job</code>, <code>instance</code>之类的。</p>
-<p>网上有人说Servicemonitor是exporter的抽象，我觉得是不对的。最多抽象了一部分而已。</p>
-<p>一个Servicemonitor对应n个Targetes里面的记录。</p>
-<p>当你删除Servicemonitor对象，在Targets页面，这个特定的Target肯定是不显示了，但并不代表Prometheus下拉列表中的指标会消失，指标还是存在的。只是有可能有些标签变化了，这个标签变化的还没有经过验证。</p>
-<p>当你删除Pod时，比如把alert-manager的deployment删除，对应的Pod自动删除，这时，下拉列表对应的指标还存在，但却没有值了。</p>
-<p>这个时候，如果把Prometheus重启一下，这个指标才会消失。</p>
-<p>把<code>kube-state-metrics</code>的pods删除后，<code>kube-</code>开始的指标，如：<code>kube_pod_info</code>，就没有值了。</p>
-<p>把<code>node-exporter</code>的<code>daemonset</code>删除后，<code>node_cpu_seconds_total</code>节点的指标就没值了。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">Grafana各类指标理解</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-13 23:14:36" itemprop="dateCreated datePublished" datetime="2020-03-13T23:14:36+08:00">2020-03-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kubernetes/Grafana/" itemprop="url" rel="index"><span itemprop="name">Grafana</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/" class="post-meta-item leancloud_visitors" data-flag-title="Grafana各类指标理解" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>今天来梳理一下Grafana图表及其后面的公式。</p>
-<h1 id="Kubernetes-Compute-Resources-Cluster"><a href="#Kubernetes-Compute-Resources-Cluster" class="headerlink" title="Kubernetes &#x2F; Compute Resources &#x2F; Cluster"></a>Kubernetes &#x2F; Compute Resources &#x2F; Cluster</h1><h2 id="CPU-Utilisation"><a href="#CPU-Utilisation" class="headerlink" title="CPU Utilisation"></a>CPU Utilisation</h2><img src="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/cluster-cpu.png" class="">
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 - avg(rate(node_cpu_seconds_total&#123;mode=&quot;idle&quot;, cluster=&quot;&quot;&#125;[1m]))</span><br></pre></td></tr></table></figure>
-
-<p>在prometheus上面查询指标</p>
-<p><code>node_cpu_seconds_total&#123;mode=&quot;idle&quot;&#125;</code></p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">node_cpu_seconds_total&#123;cpu=&quot;0&quot;,endpoint=&quot;https&quot;,instance=&quot;k8s-master&quot;,job=&quot;node-exporter&quot;,mode=&quot;idle&quot;,namespace=&quot;monitoring&quot;,pod=&quot;node-exporter-t9ljw&quot;,service=&quot;node-exporter&quot;&#125;	3102.08</span><br><span class="line">node_cpu_seconds_total&#123;cpu=&quot;0&quot;,endpoint=&quot;https&quot;,instance=&quot;k8s-node1&quot;,job=&quot;node-exporter&quot;,mode=&quot;idle&quot;,namespace=&quot;monitoring&quot;,pod=&quot;node-exporter-7vq8n&quot;,service=&quot;node-exporter&quot;&#125;	3046.73</span><br><span class="line">node_cpu_seconds_total&#123;cpu=&quot;0&quot;,endpoint=&quot;https&quot;,instance=&quot;k8s-node2&quot;,job=&quot;node-exporter&quot;,mode=&quot;idle&quot;,namespace=&quot;monitoring&quot;,pod=&quot;node-exporter-vg596&quot;,service=&quot;node-exporter&quot;&#125;	3069.61</span><br><span class="line">node_cpu_seconds_total&#123;cpu=&quot;1&quot;,endpoint=&quot;https&quot;,instance=&quot;k8s-master&quot;,job=&quot;node-exporter&quot;,mode=&quot;idle&quot;,namespace=&quot;monitoring&quot;,pod=&quot;node-exporter-t9ljw&quot;,service=&quot;node-exporter&quot;&#125;	3096.23</span><br></pre></td></tr></table></figure>
-
-<p>所以CPU Utilisation算的是各节点CPU利用率的平均值。</p>
-<p>job&#x3D;”node-exporter”</p>
-<h2 id="CPU-Usage"><a href="#CPU-Usage" class="headerlink" title="CPU Usage"></a>CPU Usage</h2><img src="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/cpu-usage-by-namespace.png" class="">
-
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;cluster=&quot;&quot;&#125;) by (namespace)</span><br></pre></td></tr></table></figure>
-
-<p>在prometheus上面查询指标</p>
-<p><code>namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;cluster=&quot;&quot;&#125;</code></p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;addon-resizer&quot;,namespace=&quot;monitoring&quot;,pod=&quot;kube-state-metrics-65d5b4b99d-llrjd&quot;&#125;	0.00022111388787432652</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;alertmanager&quot;,namespace=&quot;monitoring&quot;,pod=&quot;alertmanager-main-0&quot;&#125;	0.00275714828677409</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;alertmanager&quot;,namespace=&quot;monitoring&quot;,pod=&quot;alertmanager-main-1&quot;&#125;	0.0029093557196228424</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;alertmanager&quot;,namespace=&quot;monitoring&quot;,pod=&quot;alertmanager-main-2&quot;&#125;	0.0027905491021107728</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;calico-kube-controllers&quot;,namespace=&quot;kube-system&quot;,pod=&quot;calico-kube-controllers-5598cf8794-8mgdz&quot;&#125;	0.0009434578301088127</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;calico-node&quot;,namespace=&quot;kube-system&quot;,pod=&quot;calico-node-jtvh8&quot;&#125;	0.017518785546616542</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;calico-node&quot;,namespace=&quot;kube-system&quot;,pod=&quot;calico-node-k6m8t&quot;&#125;	0.022689515968190806</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;calico-node&quot;,namespace=&quot;kube-system&quot;,pod=&quot;calico-node-rb9qx&quot;&#125;	0.01819155156978804</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;config-reloader&quot;,namespace=&quot;monitoring&quot;,pod=&quot;alertmanager-main-0&quot;&#125;	0.0000029602042055748096</span><br><span class="line">namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;container=&quot;config-reloader&quot;,namespace=&quot;monitoring&quot;,pod=&quot;alertmanager-main-1&quot;&#125;	0.0000024442638833786885</span><br></pre></td></tr></table></figure>
-
-<h2 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(container_memory_rss&#123;cluster=&quot;&quot;, container!=&quot;&quot;&#125;) by (namespace)</span><br></pre></td></tr></table></figure>
-
-<p>在prometheus上面查询指标</p>
-<p><code>container_memory_rss</code></p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">container_memory_rss&#123;container=&quot;POD&quot;,container_name=&quot;POD&quot;,endpoint=&quot;https-metrics&quot;,id=&quot;/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod1a047e8b0c961b34e915140fc2a8711c.slice/docker-20e1377aeb77873fcf4ac5e4380d47f28c0f594773ba047442b00dfc6f116837.scope&quot;,image=&quot;k8s.gcr.io/pause:3.1&quot;,instance=&quot;172.16.64.233:10250&quot;,job=&quot;kubelet&quot;,name=&quot;k8s_POD_etcd-k8s-master_kube-system_1a047e8b0c961b34e915140fc2a8711c_14&quot;,namespace=&quot;kube-system&quot;,node=&quot;k8s-master&quot;,pod=&quot;etcd-k8s-master&quot;,pod_name=&quot;etcd-k8s-master&quot;,service=&quot;kubelet&quot;&#125;	45056</span><br><span class="line">container_memory_rss&#123;container=&quot;POD&quot;,container_name=&quot;POD&quot;,endpoint=&quot;https-metrics&quot;,id=&quot;/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod31622d49_04a8_4a95_8b80_736012e85215.slice/docker-c4e100bf3571c0fa25537cbd0ea7839bf2fd1486462a7b2626a552dfcf7503ec.scope&quot;,image=&quot;k8s.gcr.io/pause:3.1&quot;,instance=&quot;172.16.64.232:10250&quot;,job=&quot;kubelet&quot;,name=&quot;k8s_POD_nginx-deployment-6f89946645-pwpf7_default_31622d49-04a8-4a95-8b80-736012e85215_13&quot;,namespace=&quot;default&quot;,node=&quot;k8s-node1&quot;,pod=&quot;nginx-deployment-6f89946645-pwpf7&quot;,pod_name=&quot;nginx-deployment-6f89946645-pwpf7&quot;,service=&quot;kubelet&quot;&#125;	45056</span><br></pre></td></tr></table></figure>
-
-<p>job&#x3D;”kubelet”</p>
-<h1 id="Kubernetes-Compute-Resources-Namespace-Pods"><a href="#Kubernetes-Compute-Resources-Namespace-Pods" class="headerlink" title="Kubernetes &#x2F; Compute Resources &#x2F; Namespace (Pods)"></a>Kubernetes &#x2F; Compute Resources &#x2F; Namespace (Pods)</h1><img src="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/cpu-usage-by-pod.png" class="">
-
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(namespace_pod_container:container_cpu_usage_seconds_total:sum_rate&#123;cluster=&quot;&quot;, namespace=&quot;monitoring&quot;&#125;) by (pod)</span><br></pre></td></tr></table></figure>
-
-<h1 id="Kubernetes-Compute-Resources-Pod"><a href="#Kubernetes-Compute-Resources-Pod" class="headerlink" title="Kubernetes &#x2F; Compute Resources &#x2F; Pod"></a>Kubernetes &#x2F; Compute Resources &#x2F; Pod</h1><img src="/2020/03/Grafana%E5%90%84%E7%B1%BB%E6%8C%87%E6%A0%87%E7%90%86%E8%A7%A3/cpu-by-container.png" class="">
-
-<p>显示各个选中Pod中，各个Container的状态。</p>
-<p>sum(namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{namespace&#x3D;”default”, pod&#x3D;”nginx-deployment-6f89946645-pwpf7”, container!&#x3D;”POD”, cluster&#x3D;””}) by (container)</p>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4><p>现在的逻辑就是要把container的指标打上pod的标签</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">&#x27;kubernetes-cadvisor&#x27;</span></span><br><span class="line">  <span class="attr">scheme:</span> <span class="string">https</span></span><br><span class="line">  <span class="attr">tls_config:</span></span><br><span class="line">    <span class="attr">ca_file:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/ca.crt</span></span><br><span class="line">  <span class="attr">bearer_token_file:</span> <span class="string">/var/run/secrets/kubernetes.io/serviceaccount/token</span></span><br><span class="line">  <span class="attr">kubernetes_sd_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">node</span></span><br><span class="line">  <span class="attr">relabel_configs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">target_label:</span> <span class="string">__address__</span></span><br><span class="line">    <span class="attr">replacement:</span> <span class="string">kubernetes.default.svc:443</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__meta_kubernetes_node_name</span>]</span><br><span class="line">    <span class="attr">regex:</span> <span class="string">(.+)</span></span><br><span class="line">    <span class="attr">replacement:</span> <span class="string">/api/v1/nodes/$&#123;1&#125;/proxy/metrics/cadvisor</span></span><br><span class="line">    <span class="attr">target_label:</span> <span class="string">__metrics_path__</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">action:</span> <span class="string">labelmap</span></span><br><span class="line">    <span class="attr">regex:</span> <span class="string">__meta_kubernetes_node_label_(.+)</span></span><br></pre></td></tr></table></figure>
 
       
     </div>

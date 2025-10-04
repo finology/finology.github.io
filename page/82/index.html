@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,264 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/01/Ubuntu-ens33%E7%BD%91%E5%8D%A1%E6%97%A0ip/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/01/Ubuntu-ens33%E7%BD%91%E5%8D%A1%E6%97%A0ip/" class="post-title-link" itemprop="url">Ubuntu ens33网卡无ip </a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-01-19 21:41:11" itemprop="dateCreated datePublished" datetime="2020-01-19T21:41:11+08:00">2020-01-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OS/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/01/Ubuntu-ens33%E7%BD%91%E5%8D%A1%E6%97%A0ip/" class="post-meta-item leancloud_visitors" data-flag-title="Ubuntu ens33网卡无ip " title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/01/Ubuntu-ens33%E7%BD%91%E5%8D%A1%E6%97%A0ip/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/01/Ubuntu-ens33%E7%BD%91%E5%8D%A1%E6%97%A0ip/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Ubuntu 19.04</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ip a</span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: ens33: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000</span><br><span class="line">    link/ether 00:0c:29:15:61:1c brd ff:ff:ff:ff:ff:ff</span><br></pre></td></tr></table></figure>
+
+<p>可以看到ens33网卡是DOWN的状态，使用ifup ens33命令说是未知网卡。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifup ens33</span><br><span class="line">ifup: unknown interface ens33</span><br></pre></td></tr></table></figure>
+
+<p>在CentOS上使用的方法在Ubuntu上面不管用。</p>
+<p>重启网络也是不行的。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart networking</span><br></pre></td></tr></table></figure>
+
+<p>最后使用如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo dhclient ens33</span><br><span class="line">ip a</span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000</span><br><span class="line">    link/ether 00:0c:29:15:61:1c brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 192.168.229.129/24 brd 192.168.229.255 scope global dynamic ens33</span><br><span class="line">       valid_lft 1798sec preferred_lft 1798sec</span><br><span class="line">    inet6 fe80::20c:29ff:fe15:611c/64 scope link </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br></pre></td></tr></table></figure>
+
+<p>ens33状态为UP了，ip也显示出来了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/01/Windows%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85MySQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/01/Windows%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85MySQL/" class="post-title-link" itemprop="url">Windows解压安装MySQL</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-01-19 21:39:35" itemprop="dateCreated datePublished" datetime="2020-01-19T21:39:35+08:00">2020-01-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Database/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/01/Windows%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85MySQL/" class="post-meta-item leancloud_visitors" data-flag-title="Windows解压安装MySQL" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/01/Windows%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85MySQL/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/01/Windows%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85MySQL/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在Windows10下面解压安装MySQL5.7</p>
+<h1 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h1><p>下载zip包，mysql-5.7.29-winx64.zip</p>
+<p><code>https://dev.mysql.com/downloads/mysql/5.7.html#downloads</code></p>
+<p>选择x86, 64-bit</p>
+<h1 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h1><p>解压到<code>D:\mysql\mysql-5.7.29-winx64</code>。</p>
+<h1 id="编写配置文件"><a href="#编写配置文件" class="headerlink" title="编写配置文件"></a>编写配置文件</h1><p><code>D:\mysql\mysql-5.7.29-winx64\my.ini</code></p>
+<p>内容如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[mysql]</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置mysql客户端默认字符集</span></span><br><span class="line">default-character-set=utf8</span><br><span class="line">[mysqld]</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">设置3306端口</span></span><br><span class="line">port = 3306</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置mysql的安装目录</span></span><br><span class="line"> </span><br><span class="line">basedir=D:\mysql\mysql-5.7.29-winx64</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置mysql数据库的数据的存放目录</span></span><br><span class="line">datadir=D:\mysql\data</span><br><span class="line"><span class="meta prompt_"> </span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">允许最大连接数</span></span><br><span class="line">max_connections=200</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">服务端使用的字符集默认为UTF8</span></span><br><span class="line">character-set-server=utf8</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建新表时将使用的默认存储引擎</span></span><br><span class="line">default-storage-engine=INNODB</span><br></pre></td></tr></table></figure>
+
+<h1 id="注册环境变量"><a href="#注册环境变量" class="headerlink" title="注册环境变量"></a>注册环境变量</h1><p><code>MYSQL_HOME</code> <code>D:\mysql\mysql-5.7.29-winx64</code></p>
+<p>在Path中加入<code>%MYSQL_HOME%\bin</code></p>
+<h1 id="初始化MySQL"><a href="#初始化MySQL" class="headerlink" title="初始化MySQL"></a>初始化MySQL</h1><p>以管理员方式打开cmd</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\mysql\mysql-5.7.29-winx64&gt;mysqld --initialize</span><br></pre></td></tr></table></figure>
+
+<p>执行后，<code>data</code>目录下会生成很多文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:\mysql\mysql-5.7.29-winx64&gt;mysqld install</span><br><span class="line">Service successfully installed.</span><br></pre></td></tr></table></figure>
+
+<h1 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">D:\mysql\mysql-5.7.29-winx64&gt;net start mysql</span><br><span class="line">MySQL 服务正在启动 .</span><br><span class="line">MySQL 服务已经启动成功。</span><br></pre></td></tr></table></figure>
+
+<h1 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:\mysql\mysql-5.7.29-winx64&gt;mysql -u root -p</span><br><span class="line">Enter password: </span><br></pre></td></tr></table></figure>
+
+<p>需要输入密码，这个初始密码，可以在<code>data/*.err</code>文件里面找到。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2020-01-19T08:15:03.393313Z 1 [Note] A temporary password is generated for root@localhost: (waO?FJ/E8mW</span><br></pre></td></tr></table></figure>
+
+<p>输入密码，登录成功后，修改root用户的密码。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;root&#x27;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -309,226 +567,6 @@
 <p>No converter found for return value of type: class gy.finolo.common.Response</p>
 <p>主要原因是<code>gy.finolo.common.Response</code>这个自定义类中的属性，少了getter方法。</p>
 <p>在这个类里面，自动生成getter方法就可以了，当然最好也把setter也生成出来。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/01/Java%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/01/Java%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95/" class="post-title-link" itemprop="url">Java复制文件或目录</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-01-18 15:05:21" itemprop="dateCreated datePublished" datetime="2020-01-18T15:05:21+08:00">2020-01-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/01/Java%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95/" class="post-meta-item leancloud_visitors" data-flag-title="Java复制文件或目录" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/01/Java%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/01/Java%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>利用java复制文件或目录，要么使用递归的方法，要么使用walkFileTree的方法。大家可以比较一下。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> gy.finolo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStream;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.*;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.attribute.BasicFileAttributes;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.nio.file.FileVisitResult.CONTINUE;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CopyUtils</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">copy2Directory</span><span class="params">(Path inPath, Path outDirPath)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 确保输出目录存在, 如果inPath是File的话, 这里就执行一次, 所以不用写到copyFile2Diretory()方法里</span></span><br><span class="line">        <span class="keyword">if</span> (!Files.exists(outDirPath)) &#123;</span><br><span class="line">            Files.createDirectories(outDirPath);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (Files.isDirectory(inPath)) &#123;</span><br><span class="line">            copyFilesInDirectory2Directory(inPath, outDirPath);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            copyFile2Directory(inPath, outDirPath);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">copyFilesInDirectory2Directory</span><span class="params">(Path inDirPath, Path outDirPath)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        DirectoryStream&lt;Path&gt; paths = Files.newDirectoryStream(inDirPath);</span><br><span class="line">        <span class="keyword">for</span> (Path path : paths) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (Files.isDirectory(path)) &#123;</span><br><span class="line">                <span class="type">Path</span> <span class="variable">subOutDirPath</span> <span class="operator">=</span> outDirPath.resolve(inDirPath.relativize(path));</span><br><span class="line">                <span class="comment">// 确保输出目录存在</span></span><br><span class="line">                <span class="keyword">if</span> (!Files.exists(subOutDirPath)) &#123;</span><br><span class="line">                    Files.createDirectories(subOutDirPath);</span><br><span class="line">                &#125;</span><br><span class="line">                copyFilesInDirectory2Directory(path, subOutDirPath);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">Path</span> <span class="variable">subOutDirPath</span> <span class="operator">=</span> outDirPath.resolve(inDirPath.relativize(path.getParent()));</span><br><span class="line">                copyFile2Directory(path, subOutDirPath);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">copyFile2Directory</span><span class="params">(Path inFilePath, Path outDirPath)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">fileName</span> <span class="operator">=</span> inFilePath.getFileName();</span><br><span class="line">        <span class="type">Path</span> <span class="variable">outFilePath</span> <span class="operator">=</span> outDirPath.resolve(fileName);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">bufSize</span> <span class="operator">=</span> <span class="number">8</span> * <span class="number">1024</span>;</span><br><span class="line">        <span class="type">byte</span>[] buffer = <span class="keyword">new</span> <span class="title class_">byte</span>[bufSize];</span><br><span class="line">        <span class="type">int</span> len;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> (<span class="type">InputStream</span> <span class="variable">is</span> <span class="operator">=</span> Files.newInputStream(inFilePath);</span><br><span class="line">             <span class="type">OutputStream</span> <span class="variable">os</span> <span class="operator">=</span> Files.newOutputStream(outFilePath, StandardOpenOption.TRUNCATE_EXISTING,</span><br><span class="line">                     StandardOpenOption.WRITE,</span><br><span class="line">                     StandardOpenOption.CREATE)) &#123;</span><br><span class="line">            <span class="keyword">while</span> ((len = is.read(buffer)) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                os.write(buffer, <span class="number">0</span>, len);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 注意: visitFile方法中, 每次需要做一个if (inPath.equals(file))的判断, </span></span><br><span class="line"><span class="comment">     * 如果inPath是文件, 那返回为true, 如果inPath为目录, 那永远返回false</span></span><br><span class="line"><span class="comment">     * 我是为了统计, 才在里面加了一个判断, 在实际运用中, 有了这个判断效率就不高了。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> inPath</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> outDirPath</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">copy2DirectoryV2</span><span class="params">(Path inPath, Path outDirPath)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="comment">// 确保输出目录存在</span></span><br><span class="line">        <span class="keyword">if</span> (!Files.exists(outDirPath)) &#123;</span><br><span class="line">            Files.createDirectories(outDirPath);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Files.walkFileTree(inPath, <span class="keyword">new</span> <span class="title class_">SimpleFileVisitor</span>&lt;Path&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> FileVisitResult <span class="title function_">preVisitDirectory</span><span class="params">(Path dir, BasicFileAttributes attrs)</span></span><br><span class="line">                    <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;processing DIR: &quot;</span> + dir);</span><br><span class="line">                <span class="type">Path</span> <span class="variable">subOutDirPath</span> <span class="operator">=</span> outDirPath.resolve(inPath.relativize(dir));</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (!Files.exists(subOutDirPath)) &#123;</span><br><span class="line">                    Files.createDirectories(subOutDirPath);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> CONTINUE;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> FileVisitResult <span class="title function_">visitFile</span><span class="params">(Path file, BasicFileAttributes attrs)</span></span><br><span class="line">                    <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;processing FILE: &quot;</span> + file);</span><br><span class="line">                Path outPath;</span><br><span class="line">                <span class="keyword">if</span> (inPath.equals(file)) &#123;</span><br><span class="line">                    <span class="comment">// 说明source是一个文件, 只需要单独复制一个文件即可</span></span><br><span class="line">                    outPath = outDirPath.resolve(file.getFileName());</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    outPath = outDirPath.resolve(inPath.relativize(file));</span><br><span class="line">                &#125;</span><br><span class="line">                Files.copy(file, outPath);</span><br><span class="line">                <span class="keyword">return</span> CONTINUE;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">Path</span> <span class="variable">inPath</span> <span class="operator">=</span> Paths.get(<span class="string">&quot;/usr/local&quot;</span>);</span><br><span class="line">        <span class="type">Path</span> <span class="variable">outDirPath</span> <span class="operator">=</span> Paths.get(<span class="string">&quot;/opt&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// CopyUtils.copy2Directory(inPath, outDirPath);</span></span><br><span class="line">            CopyUtils.copy2DirectoryV2(inPath, outDirPath);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/01/FTP-Java-Client/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/01/FTP-Java-Client/" class="post-title-link" itemprop="url">FTP Java Client</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-01-17 21:22:56" itemprop="dateCreated datePublished" datetime="2020-01-17T21:22:56+08:00">2020-01-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/01/FTP-Java-Client/" class="post-meta-item leancloud_visitors" data-flag-title="FTP Java Client" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/01/FTP-Java-Client/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/01/FTP-Java-Client/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>使用<code>Apache Commons Net</code>，从FTP服务器上下载文件。</p>
-<p>需要使用的依赖：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-net<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-net<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>有几点需要注意的：</p>
-<p>设置编码需要在connect之前。<br>设置ftp模式需要在connect之后。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> gy.finolo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.commons.net.ftp.FTPClient;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.net.ftp.FTPFile;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.net.ftp.FTPReply;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStream;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Files;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Paths;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.StandardOpenOption;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FTPUtils</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Logger</span> <span class="variable">log</span> <span class="operator">=</span> LoggerFactory.getLogger(FTPUtils.class);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> FTPClient <span class="title function_">loginFTP</span><span class="params">(String hostname, <span class="type">int</span> port, String username, String password)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">FTPClient</span> <span class="variable">ftpClient</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FTPClient</span>();</span><br><span class="line">        <span class="comment">// 中文文件读取支持, 必须在connect之前设置</span></span><br><span class="line">        ftpClient.setControlEncoding(<span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line"></span><br><span class="line">        ftpClient.connect(hostname, port);</span><br><span class="line">        <span class="comment">// 被动模式设置, 必须在connect之后</span></span><br><span class="line">        ftpClient.enterLocalPassiveMode();</span><br><span class="line"></span><br><span class="line">        ftpClient.login(username, password);</span><br><span class="line">        <span class="comment">// 设置文件类型为二进制, 若不设置, 压缩文件可能失败</span></span><br><span class="line"><span class="comment">//        ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (FTPReply.isPositiveCompletion(ftpClient.getReplyCode())) &#123;</span><br><span class="line">            log.info(<span class="string">&quot;ftp connection succeed&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">message</span> <span class="operator">=</span> <span class="string">&quot;ftp server connection error: &quot;</span> + ftpClient.getReplyString();</span><br><span class="line">            log.error(message);</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IOException</span>(message);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ftpClient;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">downloadFromFTP</span><span class="params">(FTPClient ftpClient, String ftpFile, String outDir)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="comment">// 在这个方法里把该转的路径都转为Path</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">isDirectory</span> <span class="operator">=</span> ftpClient.changeWorkingDirectory(ftpFile);</span><br><span class="line">        <span class="type">Path</span> <span class="variable">outDirPath</span> <span class="operator">=</span> Paths.get(outDir);</span><br><span class="line">        <span class="keyword">if</span> (isDirectory) &#123;</span><br><span class="line">            downloadFTPDirectory2Directory(ftpClient, ftpFile, outDirPath);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            downloadFTPFile2Directory(ftpClient, ftpFile, outDirPath);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// downlaod directory from ftp to directory (outDir)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">downloadFTPDirectory2Directory</span><span class="params">(FTPClient ftpClient, String ftpFileDir, Path outDirPath)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="comment">// 保证输出文件夹要存在</span></span><br><span class="line">        <span class="keyword">if</span> (!Files.exists(outDirPath)) &#123;</span><br><span class="line">            Files.createDirectories(outDirPath);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        FTPFile[] ftpFiles = ftpClient.listFiles(ftpFileDir);</span><br><span class="line">        <span class="keyword">for</span> (FTPFile file: ftpFiles) &#123;</span><br><span class="line">            <span class="keyword">if</span> (file.isFile()) &#123;</span><br><span class="line">                <span class="comment">// ftp file full path</span></span><br><span class="line">                <span class="type">Path</span> <span class="variable">ftpFileFullPath</span> <span class="operator">=</span> Paths.get(ftpFileDir).resolve(file.getName());</span><br><span class="line">                downloadFTPFile2Directory(ftpClient, ftpFileFullPath.toString(), outDirPath);</span><br><span class="line">                <span class="comment">// download files under the directory to the outDir</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">String</span> <span class="variable">dirName</span> <span class="operator">=</span> file.getName();</span><br><span class="line">                <span class="type">Path</span> <span class="variable">subOutDirPath</span> <span class="operator">=</span> outDirPath.resolve(dirName);</span><br><span class="line">                <span class="type">Path</span> <span class="variable">subFtpDirPath</span> <span class="operator">=</span> Paths.get(ftpFileDir).resolve(dirName);</span><br><span class="line">                downloadFTPDirectory2Directory(ftpClient, subFtpDirPath.toString(), subOutDirPath);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// download ftp file (ftpFile) to directory (outDir)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">downloadFTPFile2Directory</span><span class="params">(FTPClient ftpClient, String ftpFile, Path outDirPath)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="comment">// 保证输出文件夹要存在</span></span><br><span class="line">        <span class="keyword">if</span> (!Files.exists(outDirPath)) &#123;</span><br><span class="line">            Files.createDirectories(outDirPath);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// ftpFile is full path</span></span><br><span class="line">        <span class="keyword">try</span> (<span class="type">InputStream</span> <span class="variable">is</span> <span class="operator">=</span> ftpClient.retrieveFileStream(ftpFile)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (is != <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="type">Path</span> <span class="variable">ftpFileNamePath</span> <span class="operator">=</span> Paths.get(ftpFile).getFileName();</span><br><span class="line">                <span class="type">Path</span> <span class="variable">outPath</span> <span class="operator">=</span> outDirPath.resolve(ftpFileNamePath);</span><br><span class="line">                </span><br><span class="line">                <span class="type">int</span> <span class="variable">bufSize</span> <span class="operator">=</span> <span class="number">8</span> * <span class="number">1024</span>;</span><br><span class="line">                <span class="type">byte</span>[] buffer = <span class="keyword">new</span> <span class="title class_">byte</span>[bufSize];</span><br><span class="line">                <span class="type">int</span> len;</span><br><span class="line">                                    </span><br><span class="line">                <span class="keyword">try</span> (<span class="type">OutputStream</span> <span class="variable">os</span> <span class="operator">=</span> Files.newOutputStream(outPath, StandardOpenOption.TRUNCATE_EXISTING,</span><br><span class="line">                        StandardOpenOption.WRITE, StandardOpenOption.CREATE)) &#123;</span><br><span class="line">                    </span><br><span class="line">                    <span class="keyword">while</span> ((len = is.read(buffer)) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                        os.write(buffer, <span class="number">0</span>, len);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ftpClient.completePendingCommand();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">hostname</span> <span class="operator">=</span> <span class="string">&quot;192.168.1.2&quot;</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">port</span> <span class="operator">=</span> <span class="number">21</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> <span class="string">&quot;ftpuser&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="string">&quot;ftppass&quot;</span>;</span><br><span class="line">        </span><br><span class="line">        FTPClient ftpClient;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            ftpClient = FTPUtils.loginFTP(hostname, port, username, password);</span><br><span class="line">            downloadFromFTP(ftpClient, <span class="string">&quot;.&quot;</span>, <span class="string">&quot;./dir&quot;</span>);</span><br><span class="line">            <span class="comment">// log out and disconnect from the server</span></span><br><span class="line">            ftpClient.logout();</span><br><span class="line">            ftpClient.disconnect();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
       
     </div>

@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,243 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/" class="post-title-link" itemprop="url">macOS安装Qlib爬坑心路历程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-07 23:28:03" itemprop="dateCreated datePublished" datetime="2024-01-07T23:28:03+08:00">2024-01-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Quant/" itemprop="url" rel="index"><span itemprop="name">Quant</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="macOS安装Qlib爬坑心路历程" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我的操作系统是macOS Catalina 10.15.7<br>Python 3.8</p>
+<p>通过源码安装Qlib，记录一下掉过的坑。</p>
+<p>总的来说，按照官方说明文档，执行安装命令，一般不会有问题。</p>
+<p>cython一定要更新，upgrade</p>
+<p>pip要和python环境里面的版本一致，不确定是否一致，可以python -m pip install xxx的方式。</p>
+<p>也可以通过pip show pip查看位置。</p>
+<p>通过源码安装，<code>pip install .</code>，尽量不通过 <code>pip install pyqlib</code>来安装，更不能通过 <code>python setup.py install</code>来安装。</p>
+<p>qlib安装在python&#x3D;3.8下面，3.9目前支持不好。</p>
+<p>创建python&#x3D;3.8的虚拟环境后，想要在 jupyter lab 里面的 kernel select 中显示出来，需要在3.8的虚拟环境中执行命令：<br><code>pip install ipykernel</code></p>
+<p>如果错误的添加了kernel，需要这样删除：<code>jupyter kernelspec remove kernel_name</code></p>
+<p>在python3.8的环境里面，要安装<code>pip install ipywidgets</code>，还有<code>pip install tqdm</code>。</p>
+<p>安装好了以后，运行qlib&#x2F;examples&#x2F;workflow_by_code.ipynb，在train model这里，有报错：</p>
+<img src="/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/libomp_err.png" class="">
+
+<p>意思就是libomp这个库文件没有被加载到。</p>
+<p>后来尝试了很多方法，按网上说的，都是<code>brew install libomp</code>。</p>
+<p>我的macOS版本太旧，brew都已经不支持了。要升级到macOS 12，但我的笔记本又不支持。</p>
+<p>然后又找了各种办法通过源码来安装libomp。</p>
+<p>又去搞了半天编译工具。</p>
+<p>最后通过简单的两步搞定了问题。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ pip uninstall lightgbm</span><br><span class="line"></span><br><span class="line">Found existing installation: lightgbm 4.2.0</span><br><span class="line">Uninstalling lightgbm-4.2.0:</span><br><span class="line">  Would remove:</span><br><span class="line">    /opt/anaconda3/envs/py38/lib/python3.8/site-packages/lightgbm-4.2.0.dist-info/*</span><br><span class="line">    /opt/anaconda3/envs/py38/lib/python3.8/site-packages/lightgbm/*</span><br><span class="line">Proceed (Y/n)? y</span><br><span class="line">  Successfully uninstalled lightgbm-4.2.0</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">$ conda install lightgbm</span><br><span class="line">Collecting package metadata (current_repodata.json): done</span><br><span class="line">Solving environment: done</span><br><span class="line"></span><br><span class="line">## Package Plan ##</span><br><span class="line"></span><br><span class="line">  environment location: /opt/anaconda3/envs/py38</span><br><span class="line"></span><br><span class="line">  added / updated specs:</span><br><span class="line">    - lightgbm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">The following packages will be downloaded:</span><br><span class="line"></span><br><span class="line">    package                    |            build</span><br><span class="line">    ---------------------------|-----------------</span><br><span class="line">    blas-1.0                   |         openblas          45 KB</span><br><span class="line">    libgfortran-5.0.0          |11_3_0_hecd8cb5_28         142 KB</span><br><span class="line">    libgfortran5-11.3.0        |      h9dfd629_28         1.4 MB</span><br><span class="line">    libopenblas-0.3.21         |       h54e7dc3_0         4.9 MB</span><br><span class="line">    lightgbm-4.1.0             |   py38hcec6c5f_0         1.4 MB</span><br><span class="line">    llvm-openmp-14.0.6         |       h0dcd299_0         288 KB</span><br><span class="line">    numpy-1.24.3               |   py38h57a7bef_0          12 KB</span><br><span class="line">    numpy-base-1.24.3          |   py38hc93c6d9_0         6.5 MB</span><br><span class="line">    pooch-1.7.0                |   py38hecd8cb5_0          85 KB</span><br><span class="line">    scipy-1.10.1               |   py38h9034365_1        20.9 MB</span><br><span class="line">    ------------------------------------------------------------</span><br><span class="line">                                           Total:        35.8 MB</span><br><span class="line"></span><br><span class="line">The following NEW packages will be INSTALLED:</span><br><span class="line"></span><br><span class="line">  blas               pkgs/main/osx-64::blas-1.0-openblas</span><br><span class="line">  libgfortran        pkgs/main/osx-64::libgfortran-5.0.0-11_3_0_hecd8cb5_28</span><br><span class="line">  libgfortran5       pkgs/main/osx-64::libgfortran5-11.3.0-h9dfd629_28</span><br><span class="line">  libopenblas        pkgs/main/osx-64::libopenblas-0.3.21-h54e7dc3_0</span><br><span class="line">  lightgbm           pkgs/main/osx-64::lightgbm-4.1.0-py38hcec6c5f_0</span><br><span class="line">  llvm-openmp        pkgs/main/osx-64::llvm-openmp-14.0.6-h0dcd299_0</span><br><span class="line">  numpy              pkgs/main/osx-64::numpy-1.24.3-py38h57a7bef_0</span><br><span class="line">  numpy-base         pkgs/main/osx-64::numpy-base-1.24.3-py38hc93c6d9_0</span><br><span class="line">  pooch              pkgs/main/osx-64::pooch-1.7.0-py38hecd8cb5_0</span><br><span class="line">  scipy              pkgs/main/osx-64::scipy-1.10.1-py38h9034365_1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Proceed ([y]/n)? y</span><br></pre></td></tr></table></figure>
+
+<p>核心错误就出在我们之前都是通过<code>pip</code>来安装的，像这种有大量依赖的库，最好还是要通过<code>conda install</code>来安装。</p>
+<p>最后qlib的work_flow在macOS下成功运行。</p>
+<img src="/2024/01/macOS%E5%AE%89%E8%A3%85Qlib%E7%88%AC%E5%9D%91%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/qlib_workflow.png" class="">
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2024/01/conda%E5%91%BD%E4%BB%A4%E5%87%BA%E7%8E%B0unexpected-error/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/conda%E5%91%BD%E4%BB%A4%E5%87%BA%E7%8E%B0unexpected-error/" class="post-title-link" itemprop="url">conda命令出现unexpected error</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-06 11:03:48" itemprop="dateCreated datePublished" datetime="2024-01-06T11:03:48+08:00">2024-01-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+
+  
+    <span id="/2024/01/conda%E5%91%BD%E4%BB%A4%E5%87%BA%E7%8E%B0unexpected-error/" class="post-meta-item leancloud_visitors" data-flag-title="conda命令出现unexpected error" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2024/01/conda%E5%91%BD%E4%BB%A4%E5%87%BA%E7%8E%B0unexpected-error/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/01/conda%E5%91%BD%E4%BB%A4%E5%87%BA%E7%8E%B0unexpected-error/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>执行 conda 命令时，报错。</p>
+<img src="/2024/01/conda%E5%91%BD%E4%BB%A4%E5%87%BA%E7%8E%B0unexpected-error/conda_unexpected_error.png" class="">
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/anaconda3/bin/conda create -n py38 python=3.8`</span><br><span class="line"></span><br><span class="line">  environment variables:</span><br><span class="line">                 CIO_TEST=&lt;not set&gt;</span><br><span class="line">                CLASSPATH=.:/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/lib/</span><br><span class="line">                          tools.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/H</span><br><span class="line">                          ome/lib/dt.jar</span><br><span class="line">        CONDA_DEFAULT_ENV=base</span><br><span class="line">                CONDA_EXE=/opt/anaconda3/bin/conda</span><br><span class="line">             CONDA_PREFIX=/opt/anaconda3</span><br><span class="line">    CONDA_PROMPT_MODIFIER=(base)</span><br><span class="line">         CONDA_PYTHON_EXE=/opt/anaconda3/bin/python</span><br><span class="line">               CONDA_ROOT=/opt/anaconda3</span><br><span class="line">              CONDA_SHLVL=1</span><br><span class="line">           CURL_CA_BUNDLE=&lt;not set&gt;</span><br><span class="line">                   GOPATH=/Users/simon/Development/workspace/go</span><br><span class="line">                     PATH=/opt/anaconda3/bin:/Users/simon/.yarn/bin:/Users/simon/.config/yarn/gl</span><br><span class="line">                          obal/node_modules/.bin:/Users/simon/opt/anaconda3/bin:/Users/simon/opt</span><br><span class="line">                          /anaconda3/bin:/anaconda3/bin:/Library/Frameworks/Python.framework/Ver</span><br><span class="line">                          sions/3.6/bin:/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Conten</span><br><span class="line">                          ts/Home/bin:/Users/simon/Development/maven/apache-maven-3.6.1/bin:/Use</span><br><span class="line">                          rs/simon/.yarn/bin:/Users/simon/.config/yarn/global/node_modules/.bin:</span><br><span class="line">                          /opt/anaconda3/bin:/opt/anaconda3/condabin:/Users/simon/opt/anaconda3/</span><br><span class="line">                          bin:/Users/simon/opt/anaconda3/bin:/anaconda3/bin:/Library/Frameworks/</span><br><span class="line">                          Python.framework/Versions/3.6/bin:/Library/Java/JavaVirtualMachines/jd</span><br><span class="line">                          k1.8.0_92.jdk/Contents/Home/bin:/Users/simon/Development/maven/apache-</span><br><span class="line">                          maven-3.6.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applicat</span><br><span class="line">                          ions/VMware Fusion.app/Contents/Public:/usr/local/go/bin:/usr/local/go</span><br><span class="line">                          /bin:/Users/simon/Development/workspace/go/bin:/usr/local/go/bin:/User</span><br><span class="line">                          s/simon/Development/workspace/go/bin</span><br><span class="line">       REQUESTS_CA_BUNDLE=&lt;not set&gt;</span><br><span class="line">            SSL_CERT_FILE=&lt;not set&gt;</span><br><span class="line"></span><br><span class="line">     active environment : base</span><br><span class="line">    active env location : /opt/anaconda3</span><br><span class="line">            shell level : 1</span><br><span class="line">       user config file : /Users/simon/.condarc</span><br><span class="line"> populated config files : /Users/simon/.condarc</span><br><span class="line">          conda version : 4.13.0</span><br><span class="line">    conda-build version : 3.18.11</span><br><span class="line">         python version : 3.7.6.final.0</span><br><span class="line">       virtual packages : __osx=10.15.7=0</span><br><span class="line">                          __unix=0=0</span><br><span class="line">                          __archspec=1=x86_64</span><br><span class="line">       base environment : /opt/anaconda3  (writable)</span><br><span class="line">      conda av data dir : /opt/anaconda3/etc/conda</span><br><span class="line">  conda av metadata url : None</span><br><span class="line">           channel URLs : https://pypi.ricequant.com/simple/osx-64</span><br><span class="line">                          https://pypi.ricequant.com/simple/noarch</span><br><span class="line">                          https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/osx-64</span><br><span class="line">                          https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/noarch</span><br><span class="line">                          https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/osx-64</span><br><span class="line">                          https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/noarch</span><br><span class="line">                          https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/osx-64</span><br><span class="line">                          https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/noarch</span><br><span class="line">          package cache : /opt/anaconda3/pkgs</span><br><span class="line">                          /Users/simon/.conda/pkgs</span><br><span class="line">       envs directories : /opt/anaconda3/envs</span><br><span class="line">                          /Users/simon/.conda/envs</span><br><span class="line">               platform : osx-64</span><br><span class="line">             user-agent : conda/4.13.0 requests/2.22.0 CPython/3.7.6 Darwin/19.6.0 OSX/10.15.7</span><br><span class="line">                UID:GID : 501:20</span><br><span class="line">             netrc file : None</span><br><span class="line">           offline mode : False</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">An unexpected error has occurred. Conda has prepared the above report.</span><br><span class="line"></span><br><span class="line">If submitted, this report will be used by core maintainers to improve</span><br><span class="line">future releases of conda.</span><br><span class="line">Would you like conda to send this report to the core maintainers?</span><br><span class="line"></span><br><span class="line">[y/N]:</span><br></pre></td></tr></table></figure>
+
+<p>解决方案：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ conda config --show-sources</span><br><span class="line">==&gt; /Users/somebody/.condarc &lt;==</span><br><span class="line">ssl_verify: True</span><br><span class="line">channels:</span><br><span class="line">  - https://pypi.ricequant.com/simple</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">show_channel_urls: True</span><br></pre></td></tr></table></figure>
+
+<p>删除 <code>/Users/somebody/.condarc</code>，就可以解决了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -305,252 +542,6 @@
 <p>执行命令：</p>
 <p><code>$ python setup.py build_ext --inplace</code></p>
 <p>生成的<code>.so</code>和<code>.pyx</code>拷贝到目录<code>/site-packages/vnpy_optionmaster/pricing</code>下面就可以解决了。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2023/12/%E8%82%A1%E7%A5%A8%E6%8C%87%E6%A0%87%E8%A7%A3%E9%87%8A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/%E8%82%A1%E7%A5%A8%E6%8C%87%E6%A0%87%E8%A7%A3%E9%87%8A/" class="post-title-link" itemprop="url">股票指标解释</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-12-01 19:58:54" itemprop="dateCreated datePublished" datetime="2023-12-01T19:58:54+08:00">2023-12-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%87%91%E8%9E%8D/" itemprop="url" rel="index"><span itemprop="name">金融</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2023/12/%E8%82%A1%E7%A5%A8%E6%8C%87%E6%A0%87%E8%A7%A3%E9%87%8A/" class="post-meta-item leancloud_visitors" data-flag-title="股票指标解释" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2023/12/%E8%82%A1%E7%A5%A8%E6%8C%87%E6%A0%87%E8%A7%A3%E9%87%8A/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2023/12/%E8%82%A1%E7%A5%A8%E6%8C%87%E6%A0%87%E8%A7%A3%E9%87%8A/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>有些金融指标，不太好理解，这里做一个解释说明。</p>
-<h1 id="流入额"><a href="#流入额" class="headerlink" title="流入额"></a>流入额</h1><p>流入额一般就是买入额。</p>
-<p>指定日内(超大单、大单、中单或小单)的买入金额。</p>
-<h1 id="净买入额"><a href="#净买入额" class="headerlink" title="净买入额"></a>净买入额</h1><p>指定日内(超大单、大单、中单或小单)的买入金额-(超大单、大单、中单或小单)的卖出金额。</p>
-<h1 id="主动买入额"><a href="#主动买入额" class="headerlink" title="主动买入额"></a>主动买入额</h1><p>主动指主动去成交已经存在的对手单；被动是指挂单等待成交。</p>
-<h1 id="主动买入额-全单"><a href="#主动买入额-全单" class="headerlink" title="主动买入额(全单)"></a>主动买入额(全单)</h1><p>全单和非全单的区别在于，全单包含机构、大户、中户和散户。而非全单必须选择某一种类型单独统计。</p>
-<h1 id="净主动买入额"><a href="#净主动买入额" class="headerlink" title="净主动买入额"></a>净主动买入额</h1><p>主动指主动去成交已经存在的对手单；被动是指挂单等待成交。</p>
-<h1 id="净主动买入额占比"><a href="#净主动买入额占比" class="headerlink" title="净主动买入额占比"></a>净主动买入额占比</h1><p>当日资金净流入金额 &#x2F; 流通市值，仅主动。</p>
-<h1 id="净主动买入率-金额"><a href="#净主动买入率-金额" class="headerlink" title="净主动买入率(金额)"></a>净主动买入率(金额)</h1><p>即净流入率，当日净流入 &#x2F; 成交额，仅主动</p>
-<h1 id="开盘买入额"><a href="#开盘买入额" class="headerlink" title="开盘买入额"></a>开盘买入额</h1><p>一般指9:30 ~ 10:00</p>
-<h1 id="收盘买入额"><a href="#收盘买入额" class="headerlink" title="收盘买入额"></a>收盘买入额</h1><p>一般指14:30 ~ 15:00</p>
-<p>注：算法中根据挂单金额来划分超大单、大单、中单或小单。具体标准如下：</p>
-<p>1）挂单额小于4万元，小单；</p>
-<p>2）挂单额4万元到20万元之间，中单；</p>
-<p>3）挂单额20万元至100万元之间，大单；</p>
-<p>4）挂单额大于100万元，超大单。</p>
-<p>指数数据为当天未停牌的成份股买入金额总和。</p>
-<p>统计数据时，求占比时，如果是单只股票，就用量的占比。如果是指数或板块，就用总金额的占比。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2023/12/Java%E4%B8%AD%E7%9A%84%E9%94%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/Java%E4%B8%AD%E7%9A%84%E9%94%81/" class="post-title-link" itemprop="url">Java中的锁</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-12-01 19:58:36" itemprop="dateCreated datePublished" datetime="2023-12-01T19:58:36+08:00">2023-12-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2023/12/Java%E4%B8%AD%E7%9A%84%E9%94%81/" class="post-meta-item leancloud_visitors" data-flag-title="Java中的锁" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2023/12/Java%E4%B8%AD%E7%9A%84%E9%94%81/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2023/12/Java%E4%B8%AD%E7%9A%84%E9%94%81/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="锁的分类"><a href="#锁的分类" class="headerlink" title="锁的分类"></a>锁的分类</h1><h2 id="可重入锁、不可重入锁"><a href="#可重入锁、不可重入锁" class="headerlink" title="可重入锁、不可重入锁"></a>可重入锁、不可重入锁</h2><p>重入的意思，在获取到锁A以后，再次获取A锁。</p>
-<p>可重入锁：synchronized, ReentrantLock, ReentrantReadWriteLock</p>
-<p>不可重入，在获取到锁A以后，再次获取锁A之前，自己必须先释放前面加的锁。</p>
-<h2 id="乐观锁、悲观锁"><a href="#乐观锁、悲观锁" class="headerlink" title="乐观锁、悲观锁"></a>乐观锁、悲观锁</h2><p>悲观锁就是，当获取不到锁资源时，会将当前线程挂起，即进入BLOCKED或WAITING状态。</p>
-<p>线程的挂起会涉及到用户态和内核态的切换。</p>
-<p>用户态：JVM可以自行执行的指令。</p>
-<p>内核态：需要操作系统才可以执行。</p>
-<p>悲观锁：synchronized, ReentrantLock, ReentrantReadWriteLock</p>
-<p>乐观锁：获取不到锁资源，可以再次让CPU调度，重新尝试获取锁资源。</p>
-<p>Atomic原子类中，基于CAS乐观锁实现的。</p>
-<h2 id="公平锁、非公平锁"><a href="#公平锁、非公平锁" class="headerlink" title="公平锁、非公平锁"></a>公平锁、非公平锁</h2><p>synchronized只能是非公平锁。</p>
-<p>ReentrantLock, ReentrantReadWriteLock 可以实现公平与非公平锁。</p>
-<p>公平锁，未获取到锁时，去排队。</p>
-<p>非公平锁，先尝试竞争抢锁，抢不到再去排队。</p>
-<h2 id="互斥锁、共享锁"><a href="#互斥锁、共享锁" class="headerlink" title="互斥锁、共享锁"></a>互斥锁、共享锁</h2><p>互斥锁：synchronized、ReentrantLock</p>
-<p>ReentrantReadWriteLock，有互斥锁，也有共享锁。</p>
-<p>互斥锁：同一时间点，只有一个线程持有这个锁。</p>
-<p>共享锁：同一时间点，多个线程持有。</p>
 
       
     </div>

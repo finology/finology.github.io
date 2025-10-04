@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,241 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/JPA-JMS-JTA%E4%B8%8EXA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/04/JPA-JMS-JTA%E4%B8%8EXA/" class="post-title-link" itemprop="url">JPA, JMS, JTA与XA</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-19 13:04:25" itemprop="dateCreated datePublished" datetime="2020-04-19T13:04:25+08:00">2020-04-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/04/JPA-JMS-JTA%E4%B8%8EXA/" class="post-meta-item leancloud_visitors" data-flag-title="JPA, JMS, JTA与XA" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/04/JPA-JMS-JTA%E4%B8%8EXA/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/04/JPA-JMS-JTA%E4%B8%8EXA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>JPA, JMS, JTA 都是 Java 企业级规范。</p>
+<h1 id="JPA（java-persistence-API）"><a href="#JPA（java-persistence-API）" class="headerlink" title="JPA（java persistence API）"></a>JPA（java persistence API）</h1><p>JPA 通过JDK5.0的注解或XML来描述 对象-关系表的映射关系，并将运行期的实体对象持久化存储到数据库中。 </p>
+<h1 id="JMS（java-message-service）"><a href="#JMS（java-message-service）" class="headerlink" title="JMS（java message service）"></a>JMS（java message service）</h1><p>JMS是java平台上面向中间件的技术规范，便于消息系统中java应用程序进行信心交换，并且通过提供标准的产生、发送、接收消息的接口简化企业应用的开发，翻译为Java消息服务。</p>
+<h1 id="XA"><a href="#XA" class="headerlink" title="XA"></a>XA</h1><p>一个事务规范，JTA 就是 XA 规范的 Java 实现。</p>
+<h1 id="JTA（java-transaction-API）"><a href="#JTA（java-transaction-API）" class="headerlink" title="JTA（java transaction API）"></a>JTA（java transaction API）</h1><p>JTA允许应用程序执行分布式事务管理，在两个或多个网络计算机资源上访问并且更新数据。JDBC驱动程序的JTA支持极大地增强了数据访问能力。</p>
+<h2 id="JTA-接口"><a href="#JTA-接口" class="headerlink" title="JTA 接口"></a>JTA 接口</h2><p>JTA 定义了三个接口，分别是：</p>
+<p>TransactionManager</p>
+<p>XAResource</p>
+<p>XID</p>
+<p>JT</p>
+<h2 id="JTA-弊端"><a href="#JTA-弊端" class="headerlink" title="JTA 弊端"></a>JTA 弊端</h2><p>两阶段提交</p>
+<p>事务时间太长，锁数据的时间太长</p>
+<p>性能低，吞吐量低</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/%E8%A7%A3%E5%86%B3RabbitMQ-SimpleMessageConverter-only-supports-String-byte-and-Serializable-payload/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/04/%E8%A7%A3%E5%86%B3RabbitMQ-SimpleMessageConverter-only-supports-String-byte-and-Serializable-payload/" class="post-title-link" itemprop="url">解决RabbitMQ SimpleMessageConverter only supports String, byte[] and Serializable payloads</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-18 23:28:39" itemprop="dateCreated datePublished" datetime="2020-04-18T23:28:39+08:00">2020-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Middleware/" itemprop="url" rel="index"><span itemprop="name">Middleware</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Middleware/RabbitMQ/" itemprop="url" rel="index"><span itemprop="name">RabbitMQ</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/04/%E8%A7%A3%E5%86%B3RabbitMQ-SimpleMessageConverter-only-supports-String-byte-and-Serializable-payload/" class="post-meta-item leancloud_visitors" data-flag-title="解决RabbitMQ SimpleMessageConverter only supports String, byte[] and Serializable payloads" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/04/%E8%A7%A3%E5%86%B3RabbitMQ-SimpleMessageConverter-only-supports-String-byte-and-Serializable-payload/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/04/%E8%A7%A3%E5%86%B3RabbitMQ-SimpleMessageConverter-only-supports-String-byte-and-Serializable-payload/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>RabbitMQ 和 Spring Boot 整合，使用 rabbitTemplate.convertAndSend 方法发送消息到队列时，报如下错误：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">java.lang.IllegalArgumentException: SimpleMessageConverter only supports String, byte[] and Serializable payloads, received: gy.finolo.springbootmybatisplus.entity.Order</span><br><span class="line"></span><br><span class="line">	at org.springframework.amqp.support.converter.SimpleMessageConverter.createMessage(SimpleMessageConverter.java:161)</span><br><span class="line">	at org.springframework.amqp.support.converter.AbstractMessageConverter.createMessage(AbstractMessageConverter.java:88)</span><br><span class="line">	at org.springframework.amqp.support.converter.AbstractMessageConverter.toMessage(AbstractMessageConverter.java:70)</span><br><span class="line">	at org.springframework.amqp.support.converter.AbstractMessageConverter.toMessage(AbstractMessageConverter.java:58)</span><br><span class="line">	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertMessageIfNecessary(RabbitTemplate.java:1758)</span><br><span class="line">	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertAndSend(RabbitTemplate.java:1075)</span><br><span class="line">	at gy.finolo.springbootmybatisplus.producer.OrderSender.send(OrderSender.java:19)</span><br><span class="line">	at gy.finolo.springbootmybatisplus.rabbitmq.RabbitMQTest.testSend(RabbitMQTest.java:27)</span><br><span class="line">	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</span><br><span class="line">	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)</span><br><span class="line">	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</span><br><span class="line">	at java.lang.reflect.Method.invoke(Method.java:498)</span><br><span class="line">	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:675)</span><br><span class="line">	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>是因为 Order 这个类没有实现 implements <code>Serializable</code> 接口。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -342,248 +577,6 @@
 <p>重启。</p>
 <p>访问页面：<code>http://&lt;server-ip&gt;:15672/</code> ，通过用户名 <code>guest</code> 和密码 <code>guest</code> 就可以成功登录了。</p>
 <img src="/2020/04/Linux-CentOS-%E5%AE%89%E8%A3%85RabbitMQ/rabbitmq-management.png" class="">
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E8%A7%86%E9%A2%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E8%A7%86%E9%A2%91/" class="post-title-link" itemprop="url">如何下载网页视频</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-04-18 01:34:00" itemprop="dateCreated datePublished" datetime="2020-04-18T01:34:00+08:00">2020-04-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/04/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E8%A7%86%E9%A2%91/" class="post-meta-item leancloud_visitors" data-flag-title="如何下载网页视频" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/04/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E8%A7%86%E9%A2%91/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/04/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E8%A7%86%E9%A2%91/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>有时候看到喜欢的视频，想把它下载下来，如何下载呢？</p>
-<p>有些网页上的视频，是分成多个 ts 文件片段的，我们可以通过 Chrome 的开发者工具发现。</p>
-<p>通过 <code>m3u8</code> 过滤，我们可以发现一个独立的 <code>m3u8</code> 文件，这个文件就是播放列表，如图：</p>
-<img src="/2020/04/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E8%A7%86%E9%A2%91/m3u8.png" class="">
-
-<p>我们可以到这个网站 <code>www.ffmpeg.org</code> 去下载这个 <code>ffmpeg</code> 工具。然后执行命令，把视频片段拼接起来。</p>
-<p>命令如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./ffmpeg  -i &lt;m3u8 url&gt; -c copy output.mp4</span><br></pre></td></tr></table></figure>
-
-<p>然后就开始下载了，非常好用。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2020/04/Spring%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BC%A0%E6%92%AD%E6%9C%BA%E5%88%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/Spring%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BC%A0%E6%92%AD%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">Spring事务的传播机制</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-04-17 21:24:03" itemprop="dateCreated datePublished" datetime="2020-04-17T21:24:03+08:00">2020-04-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/04/Spring%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BC%A0%E6%92%AD%E6%9C%BA%E5%88%B6/" class="post-meta-item leancloud_visitors" data-flag-title="Spring事务的传播机制" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/04/Spring%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BC%A0%E6%92%AD%E6%9C%BA%E5%88%B6/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/04/Spring%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BC%A0%E6%92%AD%E6%9C%BA%E5%88%B6/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>两个 Service 下面的方法，互相调用，这时就会涉及到事务的传播。</p>
-<p>传播机制类型</p>
-<p>这些类型都是针对被调用的方法来说的。</p>
-<h1 id="PROPAGATION-REQUIRED-默认"><a href="#PROPAGATION-REQUIRED-默认" class="headerlink" title="PROPAGATION_REQUIRED (默认)"></a>PROPAGATION_REQUIRED (默认)</h1><p>支持当前事务，如果当前没有事务，则新建事务</p>
-<p>如果当前存在事务，则加入当前事务，合并成一个事务</p>
-<h1 id="REQUIRES-NEW"><a href="#REQUIRES-NEW" class="headerlink" title="REQUIRES_NEW"></a>REQUIRES_NEW</h1><p>新建事务，如果当前存在事务，则把当前事务挂起</p>
-<p>这个方法会独立提交事务，不受调用者的事务影响，父级异常，它也是正常提交</p>
-<h1 id="NESTED"><a href="#NESTED" class="headerlink" title="NESTED"></a>NESTED</h1><p>如果当前存在事务，它将会成为父级事务的一个子事务，方法结束后并没有提交，只有等父事务结束才提交</p>
-<p>如果当前没有事务，则新建事务</p>
-<p>如果它异常，父级可以捕获它的异常而不进行回滚，正常提交</p>
-<p>但如果父级异常，它必然回滚，这就是和 REQUIRES_NEW 的区别</p>
-<h1 id="SUPPORTS"><a href="#SUPPORTS" class="headerlink" title="SUPPORTS"></a>SUPPORTS</h1><p>如果当前存在事务，则加入事务</p>
-<p>如果当前不存在事务，则以非事务方式运行，这个和不写注解是一样</p>
-<h1 id="NOT-SUPPORTED"><a href="#NOT-SUPPORTED" class="headerlink" title="NOT_SUPPORTED"></a>NOT_SUPPORTED</h1><p>以非事务方式运行</p>
-<p>如果当前存在事务，则把当前事务挂起</p>
-<h1 id="MANDATORY"><a href="#MANDATORY" class="headerlink" title="MANDATORY"></a>MANDATORY</h1><p>如果当前存在事务，则运行在当前事务中</p>
-<p>如果当前无事务，则抛出异常，也即父级方法必须有事务</p>
-<h1 id="NEVER"><a href="#NEVER" class="headerlink" title="NEVER"></a>NEVER</h1><p>以非事务方式运行，如果当前存在事务，则抛出异常，即父级方法必须无事务。</p>
 
       
     </div>

@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,257 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/10/%E8%BF%9E%E6%8E%A5Mysql%E6%97%B6%E5%87%BA%E7%8E%B0too-many-connections%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/10/%E8%BF%9E%E6%8E%A5Mysql%E6%97%B6%E5%87%BA%E7%8E%B0too-many-connections%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="post-title-link" itemprop="url">连接Mysql时出现too many connections的一些解决办法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-09 19:30:32" itemprop="dateCreated datePublished" datetime="2018-10-09T19:30:32+08:00">2018-10-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Database/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2018/10/%E8%BF%9E%E6%8E%A5Mysql%E6%97%B6%E5%87%BA%E7%8E%B0too-many-connections%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="连接Mysql时出现too many connections的一些解决办法" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/10/%E8%BF%9E%E6%8E%A5Mysql%E6%97%B6%E5%87%BA%E7%8E%B0too-many-connections%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/10/%E8%BF%9E%E6%8E%A5Mysql%E6%97%B6%E5%87%BA%E7%8E%B0too-many-connections%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>通过Navicat客户端连接Mysql数据库时，出现too many connections的提示，可以进行如下操作</p>
+<h2 id="登录mysql数据库"><a href="#登录mysql数据库" class="headerlink" title="登录mysql数据库"></a>登录mysql数据库</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># mysql -u root -p</span><br><span class="line">Enter password:</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 2965</span><br><span class="line">Server version: 5.7.18 MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type &#x27;help;&#x27; or &#x27;\h&#x27; for help. Type &#x27;\c&#x27; to clear the current input statement.</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看连接数"><a href="#查看连接数" class="headerlink" title="查看连接数"></a>查看连接数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show processlist;</span><br><span class="line">+------+------+---------------------+--------------+---------+------+----------+------------------+</span><br><span class="line">| Id   | User | Host                | db           | Command | Time | State    | Info             |</span><br><span class="line">+------+------+---------------------+--------------+---------+------+----------+------------------+</span><br><span class="line">| 2821 | root | 192.168.1.124:58526 | testdb       | Sleep   | 7180 |          | NULL             |</span><br><span class="line">| 2822 | root | 192.168.1.124:58527 | testdb       | Sleep   | 7180 |          | NULL             |</span><br><span class="line">| 2840 | root | 192.168.1.124:58741 | testdb       | Sleep   | 5790 |          | NULL             |</span><br><span class="line">| 2841 | root | 192.168.1.124:58742 | testdb       | Sleep   | 5820 |          | NULL             |</span><br></pre></td></tr></table></figure>
+
+<p>将会发现有很多连接是处于<code>Sleep</code>状态的，这些连接是暂时没有用的，可以删除掉。如何删除请继续往下看。</p>
+<h2 id="查看最大连接数"><a href="#查看最大连接数" class="headerlink" title="查看最大连接数"></a>查看最大连接数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &quot;max_connections&quot;;</span><br><span class="line">+-----------------+-------+</span><br><span class="line">| Variable_name   | Value |</span><br><span class="line">+-----------------+-------+</span><br><span class="line">| max_connections | 151   |</span><br><span class="line">+-----------------+-------+</span><br><span class="line">1 row in set (0.01 sec)</span><br></pre></td></tr></table></figure>
+
+<p>当processlist的数量大于查询到的max_connections时，就会出现too many connections的提示信息。</p>
+<h2 id="修改最大连接数"><a href="#修改最大连接数" class="headerlink" title="修改最大连接数"></a>修改最大连接数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set GLOBAL max_connections=1000;</span><br></pre></td></tr></table></figure>
+
+<p>这不是一劳永逸的方法，应该要让它自动杀死那些sleep的进程。</p>
+<h2 id="查看关闭一个连接的等待时间，并修改"><a href="#查看关闭一个连接的等待时间，并修改" class="headerlink" title="查看关闭一个连接的等待时间，并修改"></a>查看关闭一个连接的等待时间，并修改</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show global variables like &#x27;wait_timeout&#x27;;</span><br><span class="line">set global wait_timeout=300;</span><br></pre></td></tr></table></figure>
+
+<p>修改这个数值，这里可以随意，最好控制在几分钟内。</p>
+<h2 id="其他待验证"><a href="#其他待验证" class="headerlink" title="其他待验证"></a>其他待验证</h2><p>set global interactive_timeout&#x3D;500;<br>修改这个数值，表示mysql在关闭一个连接之前要等待的秒数，至此可以让mysql自动关闭那些没用的连接，但要注意的是，正在使用的连接到了时间也会被关闭，因此这个时间值要合适</p>
+<p>批量kill之前没用的sleep连接，在网上搜索的方法对我都不奏效，因此只好使用最笨的办法，一个一个kill</p>
+<p>select concat(‘KILL ‘,id,’;’) from information_schema.processlist where user&#x3D;’root’;</p>
+<p>先把要kill的连接id都查询出来<br>复制中间的kill id;内容到word文档<br>替换掉符号“|”和回车符（在word中查询^p即可查询到回车符）<br>把修改过的内容复制回终端，最后按回车执行</p>
+<p>产生这种问题的原因是：</p>
+<p>连接数超过了 MySQL 设置的值，与 max_connections 和 wait_timeout  都有关系。wait_timeout 的值越大，连接的空闲等待就越长，这样就会造成当前连接数越大。</p>
+<p>解决方法：</p>
+<p>修改MySQL配置文件&#x2F;etc&#x2F;my.cnf,设置成max_connections&#x3D;1000,wait_timeout&#x3D;5。如果没有此项设置可以自行添加，修改后重启MySQL服务即可。要不经常性报此错误，则要对服务器作整体性能优化</p>
+<p>注：</p>
+<p>为了防止发生too many connections时候无法登录的问题，mysql manual有如下的说明：</p>
+<p>mysqld actually allows max_connections+1 clients to connect. The extra connection is reserved for use by accounts that have theSUPER privilege. By granting the SUPER privilege to administrators and not to normal users (who should not need it), an administrator can connect to the server and use SHOW PROCESSLIST to diagnose problems even if the maximum number of unprivileged clients are connected.</p>
+<p>因此, 必须只赋予root用户的SUPER权限，同时所有数据库连接的帐户不能赋予SUPER权限。前面说到的报错后无法登录就是由于我们的应用程序直接配置的root用户</p>
+<p>总结，解决问题的最终方法：</p>
+<p>1.修改配置文件&#x2F;etc&#x2F;my.cnf,调整连接参数</p>
+<p>2.检查程序代码，对于没有关闭的链接及时进行关闭</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/10/%E5%9C%A8macOS%E4%B8%8A%E9%9D%A2%E5%AE%89%E8%A3%85elasticsearch%E7%BB%84%E4%BB%B6%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/10/%E5%9C%A8macOS%E4%B8%8A%E9%9D%A2%E5%AE%89%E8%A3%85elasticsearch%E7%BB%84%E4%BB%B6%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" class="post-title-link" itemprop="url">在macOS上面安装elasticsearch组件及问题解决</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-09 18:52:48" itemprop="dateCreated datePublished" datetime="2018-10-09T18:52:48+08:00">2018-10-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+
+  
+    <span id="/2018/10/%E5%9C%A8macOS%E4%B8%8A%E9%9D%A2%E5%AE%89%E8%A3%85elasticsearch%E7%BB%84%E4%BB%B6%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" class="post-meta-item leancloud_visitors" data-flag-title="在macOS上面安装elasticsearch组件及问题解决" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/10/%E5%9C%A8macOS%E4%B8%8A%E9%9D%A2%E5%AE%89%E8%A3%85elasticsearch%E7%BB%84%E4%BB%B6%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/10/%E5%9C%A8macOS%E4%B8%8A%E9%9D%A2%E5%AE%89%E8%A3%85elasticsearch%E7%BB%84%E4%BB%B6%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="下载MAC版本安装包"><a href="#下载MAC版本安装包" class="headerlink" title="下载MAC版本安装包"></a>下载MAC版本安装包</h1><p>进入页面<a target="_blank" rel="noopener" href="https://www.elastic.co/downloads/apm">https://www.elastic.co/downloads/apm</a> ，选择mac平台的安装包 下载文件到&#x2F;usr&#x2F;local&#x2F;elasticsearch&#x2F;elasticsearch-6.4.2.tar.gz</p>
+<h1 id="解压文件"><a href="#解压文件" class="headerlink" title="解压文件"></a>解压文件</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> tar -zxvf elasticsearch-6.4.2.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ bin/elasticsearch</span><br><span class="line">Exception <span class="keyword">in</span> thread <span class="string">&quot;main&quot;</span> java.nio.file.AccessDeniedException: /usr/local/elasticsearch/elasticsearch-6.4.2/config/jvm.options</span><br><span class="line">	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:84)</span><br><span class="line">	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)</span><br><span class="line">	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)</span><br><span class="line">	at sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:214)</span><br><span class="line">	at java.nio.file.Files.newByteChannel(Files.java:361)</span><br><span class="line">	at java.nio.file.Files.newByteChannel(Files.java:407)</span><br><span class="line">	at java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:384)</span><br><span class="line">	at java.nio.file.Files.newInputStream(Files.java:152)</span><br><span class="line">	at org.elasticsearch.tools.launchers.JvmOptionsParser.main(JvmOptionsParser.java:60)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>权限不够，查看一下，登录用户是没有修改文件的权限的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ ls -l elasticsearch-6.4.2</span><br><span class="line"></span><br><span class="line">-rw-r--r--@  1 root  wheel   13675 Sep 26 21:30 LICENSE.txt</span><br><span class="line">-rw-r--r--@  1 root  wheel  401465 Sep 26 21:38 NOTICE.txt</span><br><span class="line">-rw-r--r--@  1 root  wheel    8511 Sep 26 21:30 README.textile</span><br><span class="line">drwxr-xr-x@ 43 root  wheel    1376 Sep 26 21:38 bin</span><br><span class="line">drwxr-xr-x@  9 root  wheel     288 Sep 26 21:38 config</span><br><span class="line">drwxr-xr-x@ 42 root  wheel    1344 Sep 26 21:38 lib</span><br><span class="line">drwxr-xr-x@  2 root  wheel      64 Sep 26 21:38 logs</span><br><span class="line">drwxr-xr-x@ 27 root  wheel     864 Sep 26 21:38 modules</span><br><span class="line">drwxr-xr-x@  2 root  wheel      64 Sep 26 21:38 plugins</span><br></pre></td></tr></table></figure>
+
+<p>修改权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> <span class="built_in">chown</span> -R simon elasticsearch-6.4.2</span><br></pre></td></tr></table></figure>
+
+<p>再次启动elasticsearch程序</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">$ bin/elasticsearch</span><br><span class="line">[2018-10-17T10:04:22,029][INFO ][o.e.n.Node               ] [] initializing ...</span><br><span class="line">[2018-10-17T10:04:22,100][INFO ][o.e.e.NodeEnvironment    ] [VhQno38] using [1] data paths, mounts [[/ (/dev/disk1s1)]], net usable_space [353.6gb], net total_space [465.6gb], types [apfs]</span><br><span class="line">[2018-10-17T10:04:22,101][INFO ][o.e.e.NodeEnvironment    ] [VhQno38] heap size [990.7mb], compressed ordinary object pointers [<span class="literal">true</span>]</span><br><span class="line">[2018-10-17T10:04:22,104][INFO ][o.e.n.Node               ] [VhQno38] node name derived from node ID [VhQno38hQfO03l3Sxt6Bnw]; <span class="built_in">set</span> [node.name] to override</span><br><span class="line">[2018-10-17T10:04:22,104][INFO ][o.e.n.Node               ] [VhQno38] version[6.4.2], pid[12313], build[default/tar/04711c2/2018-09-26T13:34:09.098244Z], OS[Mac OS X/10.13.6/x86_64], JVM[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/1.8.0_181/25.181-b13]</span><br><span class="line">[2018-10-17T10:04:22,104][INFO ][o.e.n.Node               ] [VhQno38] JVM arguments [-Xms1g, -Xmx1g, -XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=<span class="literal">true</span>, -Dfile.encoding=UTF-8, -Djna.nosys=<span class="literal">true</span>, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=<span class="literal">true</span>, -Dio.netty.noKeySetOptimization=<span class="literal">true</span>, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=<span class="literal">false</span>, -Dlog4j2.disable.jmx=<span class="literal">true</span>, -Djava.io.tmpdir=/var/folders/2h/4vmz9_k14pb4x5338vs98nmw0000gn/T/elasticsearch.98Xlp9JQ, -XX:+HeapDumpOnOutOfMemoryError, -XX:HeapDumpPath=data, -XX:ErrorFile=logs/hs_err_pid%p.log, -XX:+PrintGCDetails, -XX:+PrintGCDateStamps, -XX:+PrintTenuringDistribution, -XX:+PrintGCApplicationStoppedTime, -Xloggc:logs/gc.log, -XX:+UseGCLogFileRotation, -XX:NumberOfGCLogFiles=32, -XX:GCLogFileSize=64m, -Des.path.home=/usr/local/elasticsearch/elasticsearch-6.4.2, -Des.path.conf=/usr/local/elasticsearch/elasticsearch-6.4.2/config, -Des.distribution.flavor=default, -Des.distribution.type=tar]</span><br><span class="line">[2018-10-17T10:04:24,127][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [aggs-matrix-stats]</span><br><span class="line">[2018-10-17T10:04:24,127][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [analysis-common]</span><br><span class="line">[2018-10-17T10:04:24,127][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [ingest-common]</span><br><span class="line">[2018-10-17T10:04:24,127][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [lang-expression]</span><br><span class="line">[2018-10-17T10:04:24,127][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [lang-mustache]</span><br><span class="line">[2018-10-17T10:04:24,128][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [lang-painless]</span><br><span class="line">[2018-10-17T10:04:24,128][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [mapper-extras]</span><br><span class="line">[2018-10-17T10:04:24,128][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [parent-join]</span><br><span class="line">[2018-10-17T10:04:24,128][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [percolator]</span><br><span class="line">[2018-10-17T10:04:24,128][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [rank-eval]</span><br><span class="line">[2018-10-17T10:04:24,128][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [reindex]</span><br><span class="line">[2018-10-17T10:04:24,128][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [repository-url]</span><br><span class="line">[2018-10-17T10:04:24,129][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [transport-netty4]</span><br><span class="line">[2018-10-17T10:04:24,129][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [tribe]</span><br><span class="line">[2018-10-17T10:04:24,129][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-core]</span><br><span class="line">[2018-10-17T10:04:24,130][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-deprecation]</span><br><span class="line">[2018-10-17T10:04:24,130][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-graph]</span><br><span class="line">[2018-10-17T10:04:24,130][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-logstash]</span><br><span class="line">[2018-10-17T10:04:24,131][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-ml]</span><br><span class="line">[2018-10-17T10:04:24,131][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-monitoring]</span><br><span class="line">[2018-10-17T10:04:24,131][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-rollup]</span><br><span class="line">[2018-10-17T10:04:24,131][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-security]</span><br><span class="line">[2018-10-17T10:04:24,131][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-sql]</span><br><span class="line">[2018-10-17T10:04:24,131][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-upgrade]</span><br><span class="line">[2018-10-17T10:04:24,131][INFO ][o.e.p.PluginsService     ] [VhQno38] loaded module [x-pack-watcher]</span><br><span class="line">[2018-10-17T10:04:24,132][INFO ][o.e.p.PluginsService     ] [VhQno38] no plugins loaded</span><br><span class="line">[2018-10-17T10:04:27,786][INFO ][o.e.x.s.a.s.FileRolesStore] [VhQno38] parsed [0] roles from file [/usr/local/elasticsearch/elasticsearch-6.4.2/config/roles.yml]</span><br><span class="line">[2018-10-17T10:04:28,270][INFO ][o.e.x.m.j.p.l.CppLogMessageHandler] [controller/12332] [Main.cc@109] controller (64 bit): Version 6.4.2 (Build 660eefe6f2ea55) Copyright (c) 2018 Elasticsearch BV</span><br><span class="line">[2018-10-17T10:04:28,685][DEBUG][o.e.a.ActionModule       ] Using REST wrapper from plugin org.elasticsearch.xpack.security.Security</span><br><span class="line">[2018-10-17T10:04:28,911][INFO ][o.e.d.DiscoveryModule    ] [VhQno38] using discovery <span class="built_in">type</span> [zen]</span><br><span class="line">[2018-10-17T10:04:30,161][INFO ][o.e.n.Node               ] [VhQno38] initialized</span><br><span class="line">[2018-10-17T10:04:30,161][INFO ][o.e.n.Node               ] [VhQno38] starting ...</span><br><span class="line">[2018-10-17T10:04:30,380][INFO ][o.e.t.TransportService   ] [VhQno38] publish_address &#123;127.0.0.1:9300&#125;, bound_addresses &#123;[::1]:9300&#125;, &#123;127.0.0.1:9300&#125;</span><br><span class="line">[2018-10-17T10:04:33,445][INFO ][o.e.c.s.MasterService    ] [VhQno38] zen-disco-elected-as-master ([0] nodes joined)[, ], reason: new_master &#123;VhQno38&#125;&#123;VhQno38hQfO03l3Sxt6Bnw&#125;&#123;jy1_1dpHToOxN2CCtH5ztw&#125;&#123;127.0.0.1&#125;&#123;127.0.0.1:9300&#125;&#123;ml.machine_memory=8589934592, xpack.installed=<span class="literal">true</span>, ml.max_open_jobs=20, ml.enabled=<span class="literal">true</span>&#125;</span><br><span class="line">[2018-10-17T10:04:33,450][INFO ][o.e.c.s.ClusterApplierService] [VhQno38] new_master &#123;VhQno38&#125;&#123;VhQno38hQfO03l3Sxt6Bnw&#125;&#123;jy1_1dpHToOxN2CCtH5ztw&#125;&#123;127.0.0.1&#125;&#123;127.0.0.1:9300&#125;&#123;ml.machine_memory=8589934592, xpack.installed=<span class="literal">true</span>, ml.max_open_jobs=20, ml.enabled=<span class="literal">true</span>&#125;, reason: apply cluster state (from master [master &#123;VhQno38&#125;&#123;VhQno38hQfO03l3Sxt6Bnw&#125;&#123;jy1_1dpHToOxN2CCtH5ztw&#125;&#123;127.0.0.1&#125;&#123;127.0.0.1:9300&#125;&#123;ml.machine_memory=8589934592, xpack.installed=<span class="literal">true</span>, ml.max_open_jobs=20, ml.enabled=<span class="literal">true</span>&#125; committed version [1] <span class="built_in">source</span> [zen-disco-elected-as-master ([0] nodes joined)[, ]]])</span><br><span class="line">[2018-10-17T10:04:33,473][INFO ][o.e.x.s.t.n.SecurityNetty4HttpServerTransport] [VhQno38] publish_address &#123;127.0.0.1:9200&#125;, bound_addresses &#123;[::1]:9200&#125;, &#123;127.0.0.1:9200&#125;</span><br><span class="line">[2018-10-17T10:04:33,474][INFO ][o.e.n.Node               ] [VhQno38] started</span><br><span class="line">[2018-10-17T10:04:33,482][WARN ][o.e.x.s.a.s.m.NativeRoleMappingStore] [VhQno38] Failed to clear cache <span class="keyword">for</span> realms [[]]</span><br><span class="line">[2018-10-17T10:04:33,536][INFO ][o.e.g.GatewayService     ] [VhQno38] recovered [0] indices into cluster_state</span><br><span class="line">[2018-10-17T10:04:33,699][INFO ][o.e.c.m.MetaDataIndexTemplateService] [VhQno38] adding template [.triggered_watches] <span class="keyword">for</span> index patterns [.triggered_watches*]</span><br><span class="line">[2018-10-17T10:04:33,721][INFO ][o.e.c.m.MetaDataIndexTemplateService] [VhQno38] adding template [.watches] <span class="keyword">for</span> index patterns [.watches*]</span><br><span class="line">[2018-10-17T10:04:33,774][INFO ][o.e.c.m.MetaDataIndexTemplateService] [VhQno38] adding template [.watch-history-9] <span class="keyword">for</span> index patterns [.watcher-history-9*]</span><br><span class="line">[2018-10-17T10:04:33,807][INFO ][o.e.c.m.MetaDataIndexTemplateService] [VhQno38] adding template [.monitoring-logstash] <span class="keyword">for</span> index patterns [.monitoring-logstash-6-*]</span><br><span class="line">[2018-10-17T10:04:33,870][INFO ][o.e.c.m.MetaDataIndexTemplateService] [VhQno38] adding template [.monitoring-es] <span class="keyword">for</span> index patterns [.monitoring-es-6-*]</span><br><span class="line">[2018-10-17T10:04:33,893][INFO ][o.e.c.m.MetaDataIndexTemplateService] [VhQno38] adding template [.monitoring-beats] <span class="keyword">for</span> index patterns [.monitoring-beats-6-*]</span><br><span class="line">[2018-10-17T10:04:33,912][INFO ][o.e.c.m.MetaDataIndexTemplateService] [VhQno38] adding template [.monitoring-alerts] <span class="keyword">for</span> index patterns [.monitoring-alerts-6]</span><br><span class="line">[2018-10-17T10:04:33,932][INFO ][o.e.c.m.MetaDataIndexTemplateService] [VhQno38] adding template [.monitoring-kibana] <span class="keyword">for</span> index patterns [.monitoring-kibana-6-*]</span><br><span class="line">[2018-10-17T10:04:34,025][INFO ][o.e.l.LicenseService     ] [VhQno38] license [b8e36ec7-af24-44d2-8e35-2a8c543c8aaf] mode [basic] - valid</span><br></pre></td></tr></table></figure>
+
+<p>当看到组件 <code>started</code> 后，代表elasticsearch已经成功启动。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2018-10-17T10:04:33,474][INFO ][o.e.n.Node               ] [VhQno38] started</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -316,244 +567,6 @@
 <p>解决方案</p>
 <p>在mysql非正常关闭时，&#x2F;var&#x2F;run&#x2F;mysqld会消失掉。我们查看&#x2F;var&#x2F;run&#x2F;mysqld文件夹是否不存在，如果是，那重新建立此文件夹&#x2F;var&#x2F;run&#x2F;mysqld，并设置权限<br>chown mysql.mysql &#x2F;var&#x2F;run&#x2F;mysqld</p>
 <p>再次重启，正常启动</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/08/Linux-CentOS-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Redis-4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/08/Linux-CentOS-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Redis-4/" class="post-title-link" itemprop="url">Linux(CentOS)环境安装Redis 4</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-08-25 22:24:42" itemprop="dateCreated datePublished" datetime="2018-08-25T22:24:42+08:00">2018-08-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Middleware/" itemprop="url" rel="index"><span itemprop="name">Middleware</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Middleware/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2018/08/Linux-CentOS-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Redis-4/" class="post-meta-item leancloud_visitors" data-flag-title="Linux(CentOS)环境安装Redis 4" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2018/08/Linux-CentOS-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Redis-4/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2018/08/Linux-CentOS-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Redis-4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>下载地址：<a target="_blank" rel="noopener" href="http://redis.io/download%EF%BC%8C%E4%B8%8B%E8%BD%BD%E6%9C%80%E6%96%B0%E7%A8%B3%E5%AE%9A%E7%89%88%E6%9C%AC%E3%80%82">http://redis.io/download，下载最新稳定版本。</a></p>
-<p>本次使用最新版本4.0.11。</p>
-<p><em>目前可以安装Redis 5了，可参考：<a href="/2020/03/Linux-CentOS-%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85Redis-5/" title="Linux(CentOS)环境下安装Redis 5">Linux(CentOS)环境下安装Redis 5</a></em></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># wget http://download.redis.io/releases/redis-4.0.11.tar.gz</span><br><span class="line"># tar -zxvf redis-4.0.11.tar.gz</span><br><span class="line"># cd redis-4.0.11</span><br><span class="line"># make</span><br></pre></td></tr></table></figure>
-
-<p>编译时可能遇到的问题：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/sh: cc: 未找到命令</span><br></pre></td></tr></table></figure>
-
-<p>系统中缺少gcc，安装一下gcc即可解决问题</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install gcc automake autoconf libtool make</span><br></pre></td></tr></table></figure>
-
-<p><code>zmalloc.h:50:31: 致命错误：jemalloc/jemalloc.h：没有那个文件或目录</code></p>
-<p>分配器allocator，如果有MALLOC这个环境变量，会有用这个环境变量的去建立Redis。</p>
-<p>而且libc并不是默认的分配器，默认的是jemalloc,因为jemalloc被证明有更少的fragmentation problems相比于libc。</p>
-<p>但是如果你又没有jemalloc而只有libc当然make出错。所以加这么一个参数,运行如下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># make MALLOC=libc</span><br></pre></td></tr></table></figure>
-
-<p>编译成功。</p>
-<p>接下来修改redis.conf配置文件，让redis服务在后台运行。把<code>daemonize no</code>改为<code>daemonize yes</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># By default Redis does not run as a daemon. Use &#x27;yes&#x27; if you need it.</span><br><span class="line"># Note that Redis will write a pid file in /var/run/redis.pid when daemonized.</span><br><span class="line">daemonize yes</span><br></pre></td></tr></table></figure>
-
-<p>最后一步，启动redis服务</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># src/redis-server redis.conf</span><br></pre></td></tr></table></figure>
-
-<p>测试</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># src/redis-cli </span><br><span class="line">127.0.0.1:6379&gt; ping</span><br><span class="line">PONG</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/08/Virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%AE%BE%E7%BD%AE%E6%A1%A5%E6%8E%A5bridge%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/08/Virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%AE%BE%E7%BD%AE%E6%A1%A5%E6%8E%A5bridge%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">Virtualbox虚拟机设置桥接bridge网络模式</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-08-25 21:28:21" itemprop="dateCreated datePublished" datetime="2018-08-25T21:28:21+08:00">2018-08-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-
-  
-    <span id="/2018/08/Virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%AE%BE%E7%BD%AE%E6%A1%A5%E6%8E%A5bridge%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/" class="post-meta-item leancloud_visitors" data-flag-title="Virtualbox虚拟机设置桥接bridge网络模式" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2018/08/Virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%AE%BE%E7%BD%AE%E6%A1%A5%E6%8E%A5bridge%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2018/08/Virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%AE%BE%E7%BD%AE%E6%A1%A5%E6%8E%A5bridge%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>网卡1设置静态ip，这时需要设置IPADDR,GATEWAY,NETMASK,DNS,BOOTPROTO&#x3D;static等信息<br>在某些时候，并不能通过dhcp获取到ip（什么原因目前不知道，网络还需要学习）。所以采取这种方式。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># cat /etc/sysconfig/network-scripts/ifcfg-enp0s3</span><br><span class="line">TYPE=Ethernet</span><br><span class="line">PROXY_METHOD=none</span><br><span class="line">BROWSER_ONLY=no</span><br><span class="line">BOOTPROTO=static</span><br><span class="line">DEFROUTE=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">IPV6INIT=yes</span><br><span class="line">IPV6_AUTOCONF=yes</span><br><span class="line">IPV6_DEFROUTE=yes</span><br><span class="line">IPV6_FAILURE_FATAL=no</span><br><span class="line">IPV6_ADDR_GEN_MODE=stable-privacy</span><br><span class="line">NAME=enp0s3</span><br><span class="line">DEVICE=enp0s3</span><br><span class="line">ONBOOT=yes</span><br><span class="line">UUID=b7e2e81c-74ec-4662-b4f0-24ad9d7f55b0</span><br><span class="line">IPADDR=192.168.1.230</span><br><span class="line">GATEWAY=192.168.1.1</span><br><span class="line">NETMASK=255.255.255.0</span><br><span class="line">DNS=192.168.1.1</span><br></pre></td></tr></table></figure>
-
-<p>网卡2设置通过dhcp能获取Ip的方式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># cat /etc/sysconfig/network-scripts/ifcfg-enp0s8</span><br><span class="line">TYPE=Ethernet</span><br><span class="line">PROXY_METHOD=none</span><br><span class="line">BROWSER_ONLY=no</span><br><span class="line">#BOOTPROTO=static</span><br><span class="line">BOOTPROTO=dhcp</span><br><span class="line">DEFROUTE=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">IPV6INIT=yes</span><br><span class="line">IPV6_AUTOCONF=yes</span><br><span class="line">IPV6_DEFROUTE=yes</span><br><span class="line">IPV6_FAILURE_FATAL=no</span><br><span class="line">IPV6_ADDR_GEN_MODE=stable-privacy</span><br><span class="line">NAME=enp0s8</span><br><span class="line">DEVICE=enp0s8</span><br><span class="line">ONBOOT=yes</span><br></pre></td></tr></table></figure>
-
-<img src="/2018/08/Virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%AE%BE%E7%BD%AE%E6%A1%A5%E6%8E%A5bridge%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/1igb6gvrnmj55p4o4h261kcprp.png" class="">
 
       
     </div>

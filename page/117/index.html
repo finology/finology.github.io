@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,244 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/08/Linux-CentOS-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Redis-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/08/Linux-CentOS-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Redis-4/" class="post-title-link" itemprop="url">Linux(CentOS)环境安装Redis 4</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-08-25 22:24:42" itemprop="dateCreated datePublished" datetime="2018-08-25T22:24:42+08:00">2018-08-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Middleware/" itemprop="url" rel="index"><span itemprop="name">Middleware</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Middleware/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2018/08/Linux-CentOS-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Redis-4/" class="post-meta-item leancloud_visitors" data-flag-title="Linux(CentOS)环境安装Redis 4" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/08/Linux-CentOS-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Redis-4/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/08/Linux-CentOS-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Redis-4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>下载地址：<a target="_blank" rel="noopener" href="http://redis.io/download%EF%BC%8C%E4%B8%8B%E8%BD%BD%E6%9C%80%E6%96%B0%E7%A8%B3%E5%AE%9A%E7%89%88%E6%9C%AC%E3%80%82">http://redis.io/download，下载最新稳定版本。</a></p>
+<p>本次使用最新版本4.0.11。</p>
+<p><em>目前可以安装Redis 5了，可参考：<a href="/2020/03/Linux-CentOS-%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85Redis-5/" title="Linux(CentOS)环境下安装Redis 5">Linux(CentOS)环境下安装Redis 5</a></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># wget http://download.redis.io/releases/redis-4.0.11.tar.gz</span><br><span class="line"># tar -zxvf redis-4.0.11.tar.gz</span><br><span class="line"># cd redis-4.0.11</span><br><span class="line"># make</span><br></pre></td></tr></table></figure>
+
+<p>编译时可能遇到的问题：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/sh: cc: 未找到命令</span><br></pre></td></tr></table></figure>
+
+<p>系统中缺少gcc，安装一下gcc即可解决问题</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install gcc automake autoconf libtool make</span><br></pre></td></tr></table></figure>
+
+<p><code>zmalloc.h:50:31: 致命错误：jemalloc/jemalloc.h：没有那个文件或目录</code></p>
+<p>分配器allocator，如果有MALLOC这个环境变量，会有用这个环境变量的去建立Redis。</p>
+<p>而且libc并不是默认的分配器，默认的是jemalloc,因为jemalloc被证明有更少的fragmentation problems相比于libc。</p>
+<p>但是如果你又没有jemalloc而只有libc当然make出错。所以加这么一个参数,运行如下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># make MALLOC=libc</span><br></pre></td></tr></table></figure>
+
+<p>编译成功。</p>
+<p>接下来修改redis.conf配置文件，让redis服务在后台运行。把<code>daemonize no</code>改为<code>daemonize yes</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># By default Redis does not run as a daemon. Use &#x27;yes&#x27; if you need it.</span><br><span class="line"># Note that Redis will write a pid file in /var/run/redis.pid when daemonized.</span><br><span class="line">daemonize yes</span><br></pre></td></tr></table></figure>
+
+<p>最后一步，启动redis服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># src/redis-server redis.conf</span><br></pre></td></tr></table></figure>
+
+<p>测试</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># src/redis-cli </span><br><span class="line">127.0.0.1:6379&gt; ping</span><br><span class="line">PONG</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/08/Virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%AE%BE%E7%BD%AE%E6%A1%A5%E6%8E%A5bridge%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/08/Virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%AE%BE%E7%BD%AE%E6%A1%A5%E6%8E%A5bridge%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">Virtualbox虚拟机设置桥接bridge网络模式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-08-25 21:28:21" itemprop="dateCreated datePublished" datetime="2018-08-25T21:28:21+08:00">2018-08-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+
+  
+    <span id="/2018/08/Virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%AE%BE%E7%BD%AE%E6%A1%A5%E6%8E%A5bridge%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/" class="post-meta-item leancloud_visitors" data-flag-title="Virtualbox虚拟机设置桥接bridge网络模式" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2018/08/Virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%AE%BE%E7%BD%AE%E6%A1%A5%E6%8E%A5bridge%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/08/Virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%AE%BE%E7%BD%AE%E6%A1%A5%E6%8E%A5bridge%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>网卡1设置静态ip，这时需要设置IPADDR,GATEWAY,NETMASK,DNS,BOOTPROTO&#x3D;static等信息<br>在某些时候，并不能通过dhcp获取到ip（什么原因目前不知道，网络还需要学习）。所以采取这种方式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># cat /etc/sysconfig/network-scripts/ifcfg-enp0s3</span><br><span class="line">TYPE=Ethernet</span><br><span class="line">PROXY_METHOD=none</span><br><span class="line">BROWSER_ONLY=no</span><br><span class="line">BOOTPROTO=static</span><br><span class="line">DEFROUTE=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">IPV6INIT=yes</span><br><span class="line">IPV6_AUTOCONF=yes</span><br><span class="line">IPV6_DEFROUTE=yes</span><br><span class="line">IPV6_FAILURE_FATAL=no</span><br><span class="line">IPV6_ADDR_GEN_MODE=stable-privacy</span><br><span class="line">NAME=enp0s3</span><br><span class="line">DEVICE=enp0s3</span><br><span class="line">ONBOOT=yes</span><br><span class="line">UUID=b7e2e81c-74ec-4662-b4f0-24ad9d7f55b0</span><br><span class="line">IPADDR=192.168.1.230</span><br><span class="line">GATEWAY=192.168.1.1</span><br><span class="line">NETMASK=255.255.255.0</span><br><span class="line">DNS=192.168.1.1</span><br></pre></td></tr></table></figure>
+
+<p>网卡2设置通过dhcp能获取Ip的方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># cat /etc/sysconfig/network-scripts/ifcfg-enp0s8</span><br><span class="line">TYPE=Ethernet</span><br><span class="line">PROXY_METHOD=none</span><br><span class="line">BROWSER_ONLY=no</span><br><span class="line">#BOOTPROTO=static</span><br><span class="line">BOOTPROTO=dhcp</span><br><span class="line">DEFROUTE=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">IPV6INIT=yes</span><br><span class="line">IPV6_AUTOCONF=yes</span><br><span class="line">IPV6_DEFROUTE=yes</span><br><span class="line">IPV6_FAILURE_FATAL=no</span><br><span class="line">IPV6_ADDR_GEN_MODE=stable-privacy</span><br><span class="line">NAME=enp0s8</span><br><span class="line">DEVICE=enp0s8</span><br><span class="line">ONBOOT=yes</span><br></pre></td></tr></table></figure>
+
+<img src="/2018/08/Virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%AE%BE%E7%BD%AE%E6%A1%A5%E6%8E%A5bridge%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/1igb6gvrnmj55p4o4h261kcprp.png" class="">
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -309,235 +547,6 @@
 
 <p>或者</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scutil --dns</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/08/macOS%E4%B8%8BAnaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%88%87%E6%8D%A2%EF%BC%88Python2-Python3%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/08/macOS%E4%B8%8BAnaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%88%87%E6%8D%A2%EF%BC%88Python2-Python3%EF%BC%89/" class="post-title-link" itemprop="url">macOS下Anaconda的安装及环境切换（Python2/Python3）</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-08-22 22:46:17" itemprop="dateCreated datePublished" datetime="2018-08-22T22:46:17+08:00">2018-08-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2018/08/macOS%E4%B8%8BAnaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%88%87%E6%8D%A2%EF%BC%88Python2-Python3%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="macOS下Anaconda的安装及环境切换（Python2/Python3）" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2018/08/macOS%E4%B8%8BAnaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%88%87%E6%8D%A2%EF%BC%88Python2-Python3%EF%BC%89/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2018/08/macOS%E4%B8%8BAnaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%88%87%E6%8D%A2%EF%BC%88Python2-Python3%EF%BC%89/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h1><p>官网下载安装包<br><a target="_blank" rel="noopener" href="http://www.anaconda.com/">http://www.anaconda.com</a></p>
-<p>默认下载安装的是python3.6版本，安装好以后，可以增加其他版本如python2.7的环境。</p>
-<img src="/2018/08/macOS%E4%B8%8BAnaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%88%87%E6%8D%A2%EF%BC%88Python2-Python3%EF%BC%89/12ebh5vfraghsqmsl7aj31t19t.jpg" class="">
-
-<h1 id="查看当前系统下的环境"><a href="#查看当前系统下的环境" class="headerlink" title="查看当前系统下的环境"></a>查看当前系统下的环境</h1><p>两个命令<code>conda info -e</code>和<code>conda env list</code>输出结果相同</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ conda info -e</span><br><span class="line"># conda environments:</span><br><span class="line">#</span><br><span class="line">base                  *  /Users/simon/anaconda3</span><br><span class="line">python27                 /Users/simon/anaconda3/envs/python27</span><br><span class="line"></span><br><span class="line">$ conda env list</span><br><span class="line"># conda environments:</span><br><span class="line">#</span><br><span class="line">base                  *  /Users/simon/anaconda3</span><br><span class="line">python27                 /Users/simon/anaconda3/envs/python27</span><br></pre></td></tr></table></figure>
-
-<h1 id="激活某个环境"><a href="#激活某个环境" class="headerlink" title="激活某个环境"></a>激活某个环境</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ source activate base // 激活base环境</span><br><span class="line">$ source activate python27 // 激活python27环境</span><br></pre></td></tr></table></figure>
-
-<h1 id="删除环境"><a href="#删除环境" class="headerlink" title="删除环境"></a>删除环境</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env remove -n &lt;env_name&gt; </span><br></pre></td></tr></table></figure>
-
-<h1 id="管理包"><a href="#管理包" class="headerlink" title="管理包"></a>管理包</h1><h2 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h2><p>当然，numpy和pandas默认已经自带了。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install numpy pandas</span><br></pre></td></tr></table></figure>
-
-<h2 id="删除包"><a href="#删除包" class="headerlink" title="删除包"></a>删除包</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
-
-<p>之前在编译前端代码时，出现以下错误。提示Python版本需要 &gt;&#x3D; v2.5.0 &amp; &lt; 3.0.0</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">configure errorgyp  </span><br><span class="line">ERR! node -v v10.7.0</span><br><span class="line">gyp ERR! node-gyp -v v3.7.0</span><br><span class="line">gyp ERR! not ok </span><br><span class="line">gyp ERR! stack Error: Python executable &quot;/Users/simon/anaconda3/bin/python&quot; is v3.6.5, which is not supported by gyp.</span><br><span class="line">gyp ERR! stack You can pass the --python switch to point to Python &gt;= v2.5.0 &amp; &lt; 3.0.0.</span><br></pre></td></tr></table></figure>
-
-<p>所以需要执行命令<code>source activate python27</code>再编译执行，就可以解决上述问题了</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2018/08/macOS-High-Sierra-10-13-%E5%AE%89%E8%A3%85Virtualbox%E5%A4%B1%E8%B4%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/08/macOS-High-Sierra-10-13-%E5%AE%89%E8%A3%85Virtualbox%E5%A4%B1%E8%B4%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">macOS High Sierra(10.13)安装Virtualbox失败及解决方案</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-08-19 11:51:54" itemprop="dateCreated datePublished" datetime="2018-08-19T11:51:54+08:00">2018-08-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-
-  
-    <span id="/2018/08/macOS-High-Sierra-10-13-%E5%AE%89%E8%A3%85Virtualbox%E5%A4%B1%E8%B4%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-meta-item leancloud_visitors" data-flag-title="macOS High Sierra(10.13)安装Virtualbox失败及解决方案" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2018/08/macOS-High-Sierra-10-13-%E5%AE%89%E8%A3%85Virtualbox%E5%A4%B1%E8%B4%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2018/08/macOS-High-Sierra-10-13-%E5%AE%89%E8%A3%85Virtualbox%E5%A4%B1%E8%B4%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>OS: macOS High Sierra 10.13.6<br>Virtualbox: 5.2.18</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>启动虚拟机，报错，<code>Kernel drivers not installed (rc = -1908)</code></p>
-<p>然后重新安装Virtualbox，安装virtualbox的时候却总是安装失败。具体症状为在最后一步的时候提示安装失败。</p>
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><blockquote>
-<p>High Sierra comes with a new security feature: Secure Kernel Extension Loading, which blocks kernel extension loading.</p>
-</blockquote>
-<p>virtualbox在安装的时候需要安装内核扩展（Kernel extenstion），而macOS 10.13 High Sierra的新安全特性会阻止外部内核扩展的安装，所以安装总是会被系统拦截。</p>
-<h1 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h1><p>进入Preferences &gt; Security &amp; Privacy &gt; General: 点击“允许”</p>
 
       
     </div>

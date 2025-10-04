@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,219 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/08/%E5%85%B3%E4%BA%8E%E5%9F%BA%E9%87%91%E7%9A%84%E5%87%A0%E4%B8%AA%E6%8C%87%E6%A0%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/%E5%85%B3%E4%BA%8E%E5%9F%BA%E9%87%91%E7%9A%84%E5%87%A0%E4%B8%AA%E6%8C%87%E6%A0%87/" class="post-title-link" itemprop="url">关于基金的几个指标</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-01 19:19:46" itemprop="dateCreated datePublished" datetime="2021-08-01T19:19:46+08:00">2021-08-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+
+  
+    <span id="/2021/08/%E5%85%B3%E4%BA%8E%E5%9F%BA%E9%87%91%E7%9A%84%E5%87%A0%E4%B8%AA%E6%8C%87%E6%A0%87/" class="post-meta-item leancloud_visitors" data-flag-title="关于基金的几个指标" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/08/%E5%85%B3%E4%BA%8E%E5%9F%BA%E9%87%91%E7%9A%84%E5%87%A0%E4%B8%AA%E6%8C%87%E6%A0%87/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/08/%E5%85%B3%E4%BA%8E%E5%9F%BA%E9%87%91%E7%9A%84%E5%87%A0%E4%B8%AA%E6%8C%87%E6%A0%87/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="基金规模、净值"><a href="#基金规模、净值" class="headerlink" title="基金规模、净值"></a>基金规模、净值</h1><p>基金有A类和C类，分析数据时有时候会迷惑。</p>
+<p>以下是通过API获取到的数据</p>
+<p>  | SEC_NAME | UNIT_TOTAL | UNIT_FUNDSHARE_TOTAL | FUND_FUNDSCALE | PRT_NETASSET | PRT_FUNDNETASSET_TOTAL | PRT_STOCKVALUE<br>– | —– | —– | —– | —– | —- | —- | —<br>920002.OF | 中金精选A | 2.118298e+08 | 22232.232524 | 4.696938e+08 | 4.696938e+08 | 4.928548e+08 | 4.407136e+08<br>920922.OF | 中金精选C | 1.049249e+07	| NaN | 2.316105e+07 | 2.316105e+07 | 4.928548e+08 | 4.407136e+08</p>
+<p>通过这个数据，我们就能很清晰的知道那些变量代表什么意思了。</p>
+<p><code>UNIT_TOTAL</code> 基金份额，单位为份<br><code>UNIT_FUNDSHARE_TOTAL</code> 基金份额（合计），比如A类和C类的份额数之和，一般合计到A类上面，C类上为0，单位为份<br><code>FUND_FUNDSCALE</code> 基金规模<br><code>PRT_NETASSET</code> 基金资产净值，这个值和基金规模是一个意思。<br><code>PRT_FUNDNETASSET_TOTAL</code> 基金资产净值（合计）<br><code>PRT_STOCKVALUE</code> 股票市值，这个值A类和C类相同</p>
+<p>资产配置里面的股票占比公式：<code>PRT_STOCKVALUE</code> &#x2F; <code>PRT_FUNDNETASSET_TOTAL</code></p>
+<p>所以在统计基金时，为了不统计重复数值，需要把C类基金去掉，也就是<code>UNIT_FUNDSHARE_TOTAL</code>为NaN的行，同时，用合计值来进行计算。</p>
+<h1 id="分行业市值"><a href="#分行业市值" class="headerlink" title="分行业市值"></a>分行业市值</h1><p>分行业市值，用申万，中信行业分类是不行的，只能用证监会行业。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[&#x27;农、林、牧、渔业&#x27;, &#x27;采矿业&#x27;, &#x27;制造业&#x27;, &#x27;电力、热力、燃气及水生产和供应业&#x27;, &#x27;建筑业&#x27;, &#x27;批发和零售业&#x27;,</span><br><span class="line">                 &#x27;交通运输、仓储和邮政业&#x27;, &#x27;住宿和餐饮业&#x27;, &#x27;信息传输、软件和信息技术服务业&#x27;, &#x27;金融业&#x27;, &#x27;房地产业&#x27;,</span><br><span class="line">                 &#x27;租赁和商务服务业&#x27;, &#x27;科学研究和技术服务业&#x27;, &#x27;水利、环境和公共设施管理业&#x27;, &#x27;居民服务、修理和其他服务业&#x27;,</span><br><span class="line">                 &#x27;教育&#x27;, &#x27;卫生和社会工作&#x27;, &#x27;文化、体育和娱乐业&#x27;, &#x27;综合&#x27;]</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/07/%E4%B8%8A%E6%9C%9F%E6%89%80%E4%BA%A4%E6%98%93%E4%BB%BF%E7%9C%9F%E5%B9%B3%E5%8F%B0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/%E4%B8%8A%E6%9C%9F%E6%89%80%E4%BA%A4%E6%98%93%E4%BB%BF%E7%9C%9F%E5%B9%B3%E5%8F%B0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">上期所交易仿真平台环境配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-26 14:31:01" itemprop="dateCreated datePublished" datetime="2021-07-26T14:31:01+08:00">2021-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-09-06 19:56:11" itemprop="dateModified" datetime="2025-09-06T19:56:11+08:00">2025-09-06</time>
+    </span>
+
+  
+    <span id="/2021/07/%E4%B8%8A%E6%9C%9F%E6%89%80%E4%BA%A4%E6%98%93%E4%BB%BF%E7%9C%9F%E5%B9%B3%E5%8F%B0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="上期所交易仿真平台环境配置" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/07/%E4%B8%8A%E6%9C%9F%E6%89%80%E4%BA%A4%E6%98%93%E4%BB%BF%E7%9C%9F%E5%B9%B3%E5%8F%B0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/07/%E4%B8%8A%E6%9C%9F%E6%89%80%E4%BA%A4%E6%98%93%E4%BB%BF%E7%9C%9F%E5%B9%B3%E5%8F%B0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>环境介绍</p>
+<p>用户名：1***81</p>
+<p>BrokerID统一为：9999</p>
+<p>产品名称：即APPID，默认的 APPID 为 simnow_client_test</p>
+<p>授权编码：认证码为 0000000000000000（16个0）</p>
+<h1 id="7x24环境"><a href="#7x24环境" class="headerlink" title="7x24环境"></a>7x24环境</h1><p>交易前置：182.254.243.31:40001<br>行情前置：182.254.243.31:40011</p>
+<p>特点：全天候运行，推荐用于开发测试，当然，也有一些时间无服务。</p>
+<h1 id="交易时段环境"><a href="#交易时段环境" class="headerlink" title="交易时段环境"></a>交易时段环境</h1><p>提供了三组可供使用。</p>
+<p>交易前置：182.254.243.31:30001<br>行情前置：182.254.243.31:30011</p>
+<p>交易前置：182.254.243.31:30002<br>行情前置：182.254.243.31:30012</p>
+<p>交易前置：182.254.243.31:30003<br>行情前置：182.254.243.31:30013</p>
+<p>特点：只在交易时段开放，更接近实盘</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -301,230 +514,6 @@
 
 <p>安装过程中，如果遇到如下错误，那就重新安装一下Anaconda，我是用的miniconda。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ImportError: cannot import name &#x27;InvalidSchemeCombination&#x27; from &#x27;pip._internal.exceptions&#x27; (/usr/local/miniconda3/envs/py37/lib/python3.8/site-packages/pip/_internal/exceptions.py)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/07/Python-matplotlib-rcParams%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/Python-matplotlib-rcParams%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">Python matplotlib.rcParams常用设置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-07-04 22:11:22" itemprop="dateCreated datePublished" datetime="2021-07-04T22:11:22+08:00">2021-07-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2021/07/Python-matplotlib-rcParams%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Python matplotlib.rcParams常用设置" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2021/07/Python-matplotlib-rcParams%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/07/Python-matplotlib-rcParams%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>matplotlib是Python的画图工具。</p>
-<p>可以通过对 matplotlib.rcParams 字典做一些常用的设置，例如：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 中文支持，不会显示小方框</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 正常显示负号</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置线条宽度</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;lines.linewidth&#x27;</span>] = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置线条颜色</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;lines.color&#x27;</span>] = <span class="string">&#x27;red&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置线条样式，样式的各类还有 `--`为虚线，`-.`为点虚线</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;lines.linestyle&#x27;</span>] = <span class="string">&#x27;-&#x27;</span> <span class="comment"># 直线</span></span><br></pre></td></tr></table></figure>
-
-<p>其实在新的版本中，中文显示和负号显示已经默认显示正常了。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/06/IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">IDEA自动生成对象赋值的所有set方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-06-09 15:54:46" itemprop="dateCreated datePublished" datetime="2021-06-09T15:54:46+08:00">2021-06-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/IntelliJ-IDEA/" itemprop="url" rel="index"><span itemprop="name">IntelliJ IDEA</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2021/06/IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="IDEA自动生成对象赋值的所有set方法" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2021/06/IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/06/IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>一个对象属性很多，要设置其属性的时候很麻烦，不小心还会漏掉。</p>
-<p>IDEA可以使用一款插件，GenerateAllSetter，可以一键生成所有属性的set方法。</p>
-<img src="/2021/06/IDEA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E8%B1%A1%E8%B5%8B%E5%80%BC%E7%9A%84%E6%89%80%E6%9C%89set%E6%96%B9%E6%B3%95/generateAllSetter.jpg" class="">
-
-<p>安装好插件以后，在语句 <code>User user = new User()</code> 中的 <code>user</code> 上使用快捷键 Alt + Enter，就会出现自动生成set方法的选项了。</p>
 
       
     </div>

@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">382</span>
+          <span class="site-state-item-count">384</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,270 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">IntelliJ IDEA新建一个Anaconda Python项目</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-02-21 00:13:03" itemprop="dateCreated datePublished" datetime="2021-02-21T00:13:03+08:00">2021-02-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/" class="post-meta-item leancloud_visitors" data-flag-title="IntelliJ IDEA新建一个Anaconda Python项目" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>这篇文章讲讲在macOS系统中，如何一步一步创建一个基于Anaconda的项目。</p>
+<p>首先我们得确定已经在macOS中安装好了Anaconda。</p>
+<h1 id="新建Python环境"><a href="#新建Python环境" class="headerlink" title="新建Python环境"></a>新建Python环境</h1><p>先查看一下当前环境，只有一个base。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda <span class="built_in">env</span> list</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">conda environments:</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash">base                  *  /opt/anaconda3</span></span><br></pre></td></tr></table></figure>
+
+<p>以克隆方式创建一个和Anaconda base(root)环境一样的环境，取名叫<code>py37</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda create --name py37 --<span class="built_in">clone</span> base</span></span><br><span class="line">Source:      /opt/anaconda3</span><br><span class="line">Destination: /opt/anaconda3/envs/py37</span><br></pre></td></tr></table></figure>
+
+<p>按提示激活命令激活环境。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda activate py37</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="新建Python项目"><a href="#新建Python项目" class="headerlink" title="新建Python项目"></a>新建Python项目</h1><p>File -&gt; New -&gt; Project…</p>
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/new.png" class="">
+
+<p>选择Python项目，<code>New</code>一个<code>Project SDK</code>。</p>
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/newproject.png" class="">
+
+<p>添加Python解析器</p>
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/env.png" class="">
+
+<p>选择 Conda Environment，使用Conda来管理包。</p>
+<p>我们前面使用命令行的方式创建一个env，所以选择Existing Environment。</p>
+<p>指定Interpreter，为刚才新建环境py37目录下的python。</p>
+<p><code>/opt/anaconda3/envs/py37/bin/python</code></p>
+<p>然后下一步，确定就创建好了。</p>
+<h1 id="检查"><a href="#检查" class="headerlink" title="检查"></a>检查</h1><p>创建好项目后，我们写两行python代码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello world&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>检查，pandas, print下面没有红线，按Command，同时鼠标点击pandas或print，均能查看得到源代码，运行时，也会正常运行，说明配置一切正常。</p>
+<p>我们再看看项目结构。</p>
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/project.png" class="">
+
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/modules.png" class="">
+
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/sdks.png" class="">
+
+<img src="/2021/02/IntelliJ-IDEA%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAnaconda-Python%E9%A1%B9%E7%9B%AE/globallib.png" class="">
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/02/Spring-Cloud-Alibaba%E9%99%90%E6%B5%81%E9%99%8D%E7%BA%A7Sentinel%E5%85%A5%E9%97%A8%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Finology 大数据金融">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/02/Spring-Cloud-Alibaba%E9%99%90%E6%B5%81%E9%99%8D%E7%BA%A7Sentinel%E5%85%A5%E9%97%A8%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">Spring Cloud Alibaba限流降级Sentinel入门搭建</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-02-19 19:58:17" itemprop="dateCreated datePublished" datetime="2021-02-19T19:58:17+08:00">2021-02-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/02/Spring-Cloud-Alibaba%E9%99%90%E6%B5%81%E9%99%8D%E7%BA%A7Sentinel%E5%85%A5%E9%97%A8%E6%90%AD%E5%BB%BA/" class="post-meta-item leancloud_visitors" data-flag-title="Spring Cloud Alibaba限流降级Sentinel入门搭建" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/02/Spring-Cloud-Alibaba%E9%99%90%E6%B5%81%E9%99%8D%E7%BA%A7Sentinel%E5%85%A5%E9%97%A8%E6%90%AD%E5%BB%BA/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/02/Spring-Cloud-Alibaba%E9%99%90%E6%B5%81%E9%99%8D%E7%BA%A7Sentinel%E5%85%A5%E9%97%A8%E6%90%AD%E5%BB%BA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="启动-sentinel-dashboard"><a href="#启动-sentinel-dashboard" class="headerlink" title="启动 sentinel dashboard"></a>启动 sentinel dashboard</h1><p>在官网下载 <code>sentinel-dashboard-1.8.1.jar</code>，并运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Dserver.port=8081 -Dcsp.sentinel.dashboard.server=localhost:8081 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard-1.8.1.jar</span><br></pre></td></tr></table></figure>
+
+<p>8081端口是指访问dashboard的端口。</p>
+<p>启动以后，可以通过链接 <code>http://localhost:8081</code> 访问到页面，用户名和密码都是 <code>sentinel</code>。</p>
+<img src="/2021/02/Spring-Cloud-Alibaba%E9%99%90%E6%B5%81%E9%99%8D%E7%BA%A7Sentinel%E5%85%A5%E9%97%A8%E6%90%AD%E5%BB%BA/sentinel-dashboard.png" class="">
+
+<h1 id="把项目加入到-dashboard"><a href="#把项目加入到-dashboard" class="headerlink" title="把项目加入到 dashboard"></a>把项目加入到 dashboard</h1><p>写一个标准的Springboot项目。</p>
+<p>pom.xml文件里面添加如下依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-sentinel<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;sentinel.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在项目的 <code>application.yml</code> 配置文件里面添加如下内容：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">sentinel:</span></span><br><span class="line">      <span class="attr">transport:</span></span><br><span class="line">        <span class="attr">dashboard:</span> <span class="string">localhost:8081</span></span><br></pre></td></tr></table></figure>
+
+<p>在需要加入限流的业务逻辑里面添加如下内容：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">UserService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 限流的规则设置</span></span><br><span class="line">    <span class="meta">@PostConstruct</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">initFlowRules</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">        List&lt;FlowRule&gt; rules = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="type">FlowRule</span> <span class="variable">flowRule</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FlowRule</span>();</span><br><span class="line">        flowRule.setResource(<span class="string">&quot;UserFlowRule&quot;</span>);</span><br><span class="line">        <span class="comment">// 设置QPS为1</span></span><br><span class="line">        flowRule.setGrade(RuleConstant.FLOW_GRADE_QPS);</span><br><span class="line">        flowRule.setCount(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        rules.add(flowRule);</span><br><span class="line">        FlowRuleManager.loadRules(rules);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@SentinelResource(value = &quot;UserFlowRule&quot;, blockHandler = &quot;degradeMethod&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">sayHello</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;executed...&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello, &quot;</span> + name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 降级方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> blockException</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">degradeMethod</span><span class="params">(String name, BlockException blockException)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;限流&quot;</span> + blockException.getRule().getResource();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -312,229 +576,6 @@
 <p>安装包命令：</p>
 <p><code>conda install &lt;package&gt;</code>，如果没有的话，那就用<code>pip</code>来安装。</p>
 <p><code>pip install &lt;package&gt;</code></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/02/Python%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F%E4%B8%ADif-else%E5%88%A4%E6%96%AD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/02/Python%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F%E4%B8%ADif-else%E5%88%A4%E6%96%AD/" class="post-title-link" itemprop="url">Python列表推导式中if else判断</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-02-17 23:55:53" itemprop="dateCreated datePublished" datetime="2021-02-17T23:55:53+08:00">2021-02-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2021/02/Python%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F%E4%B8%ADif-else%E5%88%A4%E6%96%AD/" class="post-meta-item leancloud_visitors" data-flag-title="Python列表推导式中if else判断" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2021/02/Python%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F%E4%B8%ADif-else%E5%88%A4%E6%96%AD/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/02/Python%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F%E4%B8%ADif-else%E5%88%A4%E6%96%AD/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="if"><a href="#if" class="headerlink" title="if"></a>if</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[fun(item) <span class="keyword">for</span> item <span class="keyword">in</span> <span class="built_in">list</span> <span class="keyword">if</span> condition]</span><br></pre></td></tr></table></figure>
-
-<h1 id="if-else"><a href="#if-else" class="headerlink" title="if else"></a>if else</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[fun1(item) <span class="keyword">if</span> condition <span class="keyword">else</span> fun2(item) <span class="keyword">for</span> item <span class="keyword">in</span> <span class="built_in">list</span>]</span><br></pre></td></tr></table></figure>
-
-<h1 id="if-else-if"><a href="#if-else-if" class="headerlink" title="if else if"></a>if else if</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[fun1(item) <span class="keyword">if</span> condition1 <span class="keyword">else</span> fun2(item) <span class="keyword">if</span> condition2 fun3(item) <span class="keyword">else</span> fun4(item) <span class="keyword">for</span> item <span class="keyword">in</span> <span class="built_in">list</span>]</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://finolo.gy/2021/02/Python-DataFrame-Series%E4%B8%AD%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6%E7%B2%BE%E7%A1%AE%E5%88%B0%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Simon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Finology 大数据金融">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/02/Python-DataFrame-Series%E4%B8%AD%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6%E7%B2%BE%E7%A1%AE%E5%88%B0%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/" class="post-title-link" itemprop="url">Python DataFrame Series中小数精度精确到两位小数</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-02-14 12:25:29" itemprop="dateCreated datePublished" datetime="2021-02-14T12:25:29+08:00">2021-02-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 10:01:15" itemprop="dateModified" datetime="2025-08-23T10:01:15+08:00">2025-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2021/02/Python-DataFrame-Series%E4%B8%AD%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6%E7%B2%BE%E7%A1%AE%E5%88%B0%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/" class="post-meta-item leancloud_visitors" data-flag-title="Python DataFrame Series中小数精度精确到两位小数" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2021/02/Python-DataFrame-Series%E4%B8%AD%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6%E7%B2%BE%E7%A1%AE%E5%88%B0%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/02/Python-DataFrame-Series%E4%B8%AD%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6%E7%B2%BE%E7%A1%AE%E5%88%B0%E4%B8%A4%E4%BD%8D%E5%B0%8F%E6%95%B0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在DataFrame或Series中，如果使用<code>df.round(2)</code>，就会保留最多两位小数。</p>
-<p>比如，<code>2.00</code>显示为<code>2</code>，<code>1.90</code>显示为<code>1.9</code>。</p>
-<p>这样显示就会存在精度缺失的问题。</p>
-<p>可以使用如下方法改善显示。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.options.display.float_format = <span class="string">&#x27;$&#123;:,.2f&#125;&#x27;</span>.<span class="built_in">format</span></span><br></pre></td></tr></table></figure>
-
-<p>也可以恢复默认：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.options.display.float_format = <span class="literal">None</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
